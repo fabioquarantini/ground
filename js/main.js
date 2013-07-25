@@ -14,6 +14,10 @@ jQuery(document).ready(function($) {
 				siteInit.modalGallery();
 			}
 
+			if ($('.flexslider').length > 0) {
+				siteInit.slider();
+			}
+
 		},
 
 
@@ -31,6 +35,22 @@ jQuery(document).ready(function($) {
 				initialHeight: 50,
 				rel:'gallery',
 				className: "colorbox-gallery"
+			});
+
+		},
+
+
+		/* FlexSlider */
+
+		slider: function() {
+
+			$('.flexslider').flexslider({
+				animation: "slide",
+				slideshow: true,
+				slideshowSpeed: 7000,
+				controlNav: true,
+				directionNav: true,
+				animationSpeed: 600
 			});
 
 		}

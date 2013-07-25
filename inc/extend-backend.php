@@ -119,8 +119,8 @@ function ground_image_responsive( $html ) {
 
 }
 
-// add_filter( 'post_thumbnail_html', 'ground_image_responsive', 10 );
-// add_filter( 'image_send_to_editor', 'ground_image_responsive', 10 );
+add_filter( 'post_thumbnail_html', 'ground_image_responsive', 10 );
+add_filter( 'image_send_to_editor', 'ground_image_responsive', 10 );
 
 
 /*  ==========================================================================

@@ -196,6 +196,7 @@ add_action( 'widgets_init', 'ground_register_sidebars' );
 
 if ( function_exists( 'add_image_size' ) ) { 
 
+	add_image_size( 'thumb-slideshows', 960, 320, true );	// (name, width, height, crop)
 	add_image_size( 'thumb-600-150', 600, 150, true );		// (name, width, height, crop)
 	add_image_size( 'thumb-300-100-nocrop', 300, 100 );		// Without crop
 	add_image_size( 'fullsize', '', '', true );				// Full size

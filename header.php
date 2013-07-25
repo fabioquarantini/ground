@@ -40,15 +40,20 @@
 			
 			<header id="main-header">
 		
-				<a href="<?php echo home_url(); ?>" id="site-title" title=""><?php bloginfo('name'); ?></a>
-				<span id="site-description"><?php bloginfo('description'); ?></span>
-				
-				<img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" class="header-image" />
+				<a href="<?php echo home_url(); ?>" id="site-title" title="<?php bloginfo('name'); ?>">
+					<h1 id="site-name"><?php bloginfo('name'); ?></h1>
+					<h2 id="site-description"><?php bloginfo('description'); ?></h2>
+				</a>
 
-				<nav>
+				<nav id="main-navigation">
 					<?php ground_main_nav(); ?>
 				</nav>
-
-				<?php ground_slider('slideshows', '100', 'thumb-600-150'); ?>
-
+				
 			</header> <!-- End #main-header -->
+
+			<?php if( get_header_image() ) { ?>
+				<img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" class="header-image" />
+			<?php } ?>
+
+			<?php ground_slider('slideshows', '100', 'thumb-slideshows'); ?>
+
