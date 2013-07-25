@@ -1,38 +1,122 @@
-# Compiled source #
-###################
+#########################################
+# Specific for project
+#########################################
 
-*.com
-*.class
-*.dll
-*.exe
-*.o
-*.so
+temp/
 
 
-# Logs and databases #
-######################
+#########################################
+# Database
+#########################################
 
-*.log
 *.sql
 *.sqlite
+*.sqlite3
 
 
-# OS generated files #
-######################
+#########################################
+# Dropbox
+#########################################
+
+.dropbox
+.dropbox/*
+
+
+#########################################
+# Logs
+#########################################
+
+*.log
+
+
+#########################################
+# Node
+#########################################
+
+npm-debug.log
+node_modules
+
+
+#########################################
+# OSX
+#########################################
 
 .DS_Store
-.DS_Store?
+.AppleDouble
+.LSOverride
+Icon
+# Thumbnails
 ._*
 .Spotlight-V100
 .Trashes
-Icon?
-ehthumbs.db
-Thumbs.db
-Desktop.ini
 
 
-# Project #
-###########
-temp/
-node_modules/
+#########################################
+# Packages
+#########################################
+
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+*.tgz
+*.iso
+
+
+#########################################
+# Sass
+#########################################
+
+*.sass-cache
+
+
+#########################################
+# Sitemap
+#########################################
+
+sitemap.xml
+sitemap.xml.gz
+
+
+#########################################
+# Sublime Text
+#########################################
+
 sftp-config.json
+*.sublime-workspace
+
+
+#########################################
+# Subversion
+#########################################
+
+.svn/
+
+
+#########################################
+# Windows
+#########################################
+
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+
+#########################################
+# WordPress
+#########################################
+
+wp-config.php
+wp-content/uploads/
+wp-content/blogs.dir/
+wp-content/upgrade/
+wp-content/backup-db/
+wp-content/advanced-cache.php
+wp-content/wp-cache-config.php
+wp-content/cache/
+wp-content/backups/
