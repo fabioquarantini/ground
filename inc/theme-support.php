@@ -17,9 +17,16 @@
 	1 - Add theme support
 	==========================================================================  */
 
-if ( ! isset( $content_width ) ) {
-	$content_width = 600;														// Set content width value based on the theme's design
+if ( ! isset( $content_width ) ) {												// Set content width value based on the theme's design
+	
+	if(get_option( 'maintenance_option' )) {
+		$content_width = get_option( 'maintenance_option' );
+	} else {
+		$content_width = 600;
+	}
+
 }
+
 
 function ground_theme_support() {
 	

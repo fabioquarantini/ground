@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Ground\n"
-"POT-Creation-Date: 2013-08-29 17:49+0100\n"
-"PO-Revision-Date: 2013-08-30 09:40+0100\n"
+"POT-Creation-Date: 2013-08-30 15:10+0100\n"
+"PO-Revision-Date: 2013-08-30 15:10+0100\n"
 "Last-Translator: fabio\n"
 "Language-Team: Fabio Quarantini\n"
 "Language: Italiano\n"
@@ -387,7 +387,7 @@ msgstr ""
 msgid "Developed by"
 msgstr "Sviluppato da"
 
-#: ../inc/extend-backend.php:78
+#: ../inc/extend-backend.php:79
 msgid "Version"
 msgstr ""
 
@@ -575,26 +575,34 @@ msgstr ""
 msgid "Activate maintenance mode"
 msgstr ""
 
-#: ../inc/theme-support.php:97 ../inc/theme-support.php:114
+#: ../inc/theme-customizer.php:147 ../inc/theme-customizer.php:148
+msgid "Content width"
+msgstr ""
+
+#: ../inc/theme-customizer.php:165
+msgid "Set the maximum allowed width"
+msgstr ""
+
+#: ../inc/theme-support.php:104 ../inc/theme-support.php:121
 msgid "Main nav"
 msgstr "Navigazione principale"
 
-#: ../inc/theme-support.php:98 ../inc/theme-support.php:142
+#: ../inc/theme-support.php:105 ../inc/theme-support.php:149
 msgid "Secondary nav"
 msgstr ""
 
-#: ../inc/theme-support.php:171
+#: ../inc/theme-support.php:178
 msgid "Sidebar title 1"
 msgstr ""
 
-#: ../inc/theme-support.php:173
+#: ../inc/theme-support.php:180
 msgid "Sidebar description 1"
 msgstr ""
 
-#: ../inc/theme-support.php:184
+#: ../inc/theme-support.php:191
 msgid "Sidebar title 2"
 msgstr ""
 
-#: ../inc/theme-support.php:186
+#: ../inc/theme-support.php:193
 msgid "Sidebar description 2"
 msgstr ""

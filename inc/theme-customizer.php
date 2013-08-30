@@ -139,6 +139,36 @@ function ground_register_customize_fields( $wp_customize ) {
 		'choices' => '',
 		'priority' => '',
 	));
+
+
+	/* Content width */
+	
+	$wp_customize->add_section('content_width', array(
+		'title' => __('Content width', 'groundtheme'),
+		'description' => __('Content width', 'groundtheme'),
+		'priority' => '160',
+	));
+	
+		
+	$wp_customize->add_setting( 'maintenance_option', array(
+		'default' => '',
+		'theme-supports' => '',
+		'type' => 'option',
+		'capability' => '',
+		'sanitize_callback' => '',
+		'sanitize_js_callback' => '',
+		'transport' => '',
+	));
+	
+				
+	$wp_customize->add_control( 'maintenance_option', array(
+		'label' => __('Set the maximum allowed width', 'groundtheme'),
+		'settings' => '',
+		'section' => 'content_width',
+		'type' => 'text',
+		'choices' => '',
+		'priority' => '',
+	));
 	
 	
 	/* Default options for live preview */
