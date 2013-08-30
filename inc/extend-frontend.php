@@ -325,7 +325,7 @@ function ground_child_menu() {
 	
 
 /*  ==========================================================================
-	6 - Custom category list menu : ground_custom_category_menu('nameofcustomcategory');
+	6 - Custom category list menu : ground_custom_category_menu('nameofcustomposttype', nameofcustomcategory');
 	==========================================================================  */
 
 function ground_custom_category_menu( $customPostType = 'custom_catalog', $customCategory ='custom_catalog_category' ) {

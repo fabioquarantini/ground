@@ -116,11 +116,11 @@ body {
 	font-size: 12px;
 }
 
-#menu-navigation li {
+#main-navigation li {
 	display: inline-block;
 }
 
-#menu-navigation li a {
+#main-navigation li a {
 	border: 1px solid #ea5848;
 	color: #ea5848;
 	text-decoration: none;
@@ -128,11 +128,11 @@ body {
 	font-weight: bold;
 }
 
-#menu-navigation .current_page_item a {
+#main-navigation .current_page_item a {
 	color: blue;
 }
 
-#menu-navigation .current_page_parent a {
+#main-navigation .current_page_parent a {
 	color: green;
 }
 
