@@ -151,26 +151,35 @@ function columns_content( $column ) {
 add_action( 'manage_slideshows_posts_custom_column', 'columns_content', 10, 1 );
 
 /*  ==========================================================================
-	4 - Slider output : ground_slider('posttypename','maxpost', 'thumbnailnamedimension');
+	4 - Slider output : ground_slider('posttypename','maxpost', 'thumbnailnamedimension', 'slidecategoryname');
 	==========================================================================  */
 
-function ground_slider($postType ='slideshows', $maxSlide = '100', $thumbnail = '') {
+function ground_slider($postType ='slideshows', $maxSlide = '100', $thumbnail = '', $slideCategory = '') {
 
 	global $wp_query;
+	global $post;
 
 	$args = array(
 		'post_type' => $postType,
-		'posts_per_page' => $maxSlide
+		'posts_per_page' => $maxSlide,
+		'slide-group' => $slideCategory
 	);
 
 	$slider_posts = new WP_Query($args);
 
 	if($slider_posts->have_posts()) { ?>
 
-		<div class="flexslider">
+		<div class="flexslider slider">
 			<ul class="slides">
 				<?php while($slider_posts->have_posts()) : $slider_posts->the_post() ?>
-				<li><?php the_post_thumbnail( $thumbnail ); ?><p class="flex-caption"><?php the_title() ?></p></li>
+				<li>
+					<?php the_post_thumbnail( $thumbnail, array( 'class' => 'slide-image') ); ?>
+					<?php if( $post->post_content != "" ) {
+						echo '<div class="slide-caption">';
+						the_content();
+						echo '</div>';
+					} ?>
+				</li>
 				<?php endwhile ?>
 			</ul>
 		</div> <!-- End .flexslider -->

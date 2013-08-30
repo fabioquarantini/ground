@@ -54,4 +54,4 @@
 				<img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" class="header-image" />
 			<?php } ?>
 
-			<?php ground_slider('slideshows', '100', 'thumb-slideshows'); ?>
+			<?php ground_slider('slideshows', '100', 'thumb-slideshows', ''); ?>
