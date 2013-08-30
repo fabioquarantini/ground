@@ -328,42 +328,45 @@ function ground_child_menu() {
 	6 - Custom category list menu : ground_custom_category_menu('nameofcustomcategory');
 	==========================================================================  */
 
-function ground_custom_category_menu( $customCategory ='custom_catalog_category' ) {
+function ground_custom_category_menu( $customPostType = 'custom_catalog', $customCategory ='custom_catalog_category' ) {
 
-	global $post;
+	if( is_page_template( 'template-'.$customPostType.'.php' ) ||  $customPostType == get_post_type() ) {
 
-	$terms = get_the_terms( $post->ID , $customCategory );
-	$termId = 0;
-	$postType = $post->post_type;
+		global $post;
+		$postType = $post->post_type;
+		$terms = get_the_terms( $post->ID , $customCategory );
+		$termId = 0;
+		
+		//$parent = array_reverse(get_post_ancestors($post->ID));
+		//$first_parent = get_page($parent[0]);
+		//$child_ID = $first_parent->ID;
 
-	//$parent = array_reverse(get_post_ancestors($post->ID));
-	//$first_parent = get_page($parent[0]);
-	//$child_ID = $first_parent->ID;
+		if( is_single() && $postType == get_post_type() ) {
+			foreach ( $terms as $term ) {
+				$termId =  $term->term_id;
+				//echo  $term->term_id;
+			}
+		}	
 
-	if( is_single() && $postType == get_post_type() ) {
-		foreach ( $terms as $term ) {
-			$termId =  $term->term_id;
-			//echo  $term->term_id;
-		}
-	}	
+		//echo $termId;
+				
+		$args = array(
+			'orderby'			=> 'name',
+			'show_count'		=> 0,
+			'pad_counts'		=> 0,
+			//'child_of'		=> $child_ID,
+			'hide_empty'		=> 1,
+			'hierarchical'		=> 1,
+			'taxonomy'			=> $customCategory,
+			'current_category'	=> $termId,
+			'title_li'			=> ''
+		);
 
-	//echo $termId;
-			
-	$args = array(
-		'orderby'			=> 'name',
-		'show_count'		=> 0,
-		'pad_counts'		=> 0,
-		//'child_of'		=> $child_ID,
-		'hide_empty'		=> 1,
-		'hierarchical'		=> 1,
-		'taxonomy'			=> $customCategory,
-		'current_category'	=> $termId,
-		'title_li'			=> ''
-	);
+		echo '<ul>';
+		wp_list_categories( $args );
+		echo '</ul>';
 
-	echo '<ul>';
-	wp_list_categories( $args );
-	echo '</ul>';
+	}
 
 }
 

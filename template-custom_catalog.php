@@ -1,7 +1,7 @@
 <?php
 /*
 Template Name: Catolog template
-Description: Custom template for browsing category in catalog.
+Description: Custom template for browsing category in catalog. Use template-{custom-post-type}.php
 */
 ?>
 

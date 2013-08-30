@@ -1,6 +1,6 @@
 <aside id="sidebar">
 
-	<?php ground_custom_category_menu('custom_catalog_category'); ?>
+	<?php ground_custom_category_menu('custom_catalog', 'custom_catalog_category'); ?>
 
 	<?php ground_child_menu(); ?>
 
