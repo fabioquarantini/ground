@@ -74,6 +74,7 @@ function ground_numeric_pagination($next, $prev) {
 		echo paginate_links($args);
 	}
 	
+	wp_reset_query();
 }
 
 
@@ -96,6 +97,8 @@ function ground_basic_pagination($next, $prev) {
 		</ul>
 
 	<?php endif;
+
+	wp_reset_query();
 	
 }
 
