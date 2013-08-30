@@ -5,6 +5,7 @@
 	1 - Register catalog custom post type
 	2 - Register catalog category taxonomy
 	3 - Register catalog tag taxonomy
+	4 - Highlight nav item for custom post type archive and single
 
 	==========================================================================  */
 
@@ -32,7 +33,7 @@ function ground_custom_catalog() {
 	);
 
 	$rewrite = array(
-		'slug'					=> 'product',
+		'slug'					=> __( 'catalog', 'groundtheme' ),
 		'with_front'			=> true,
 		'pages'					=> true,
 		'feeds'					=> true,
@@ -43,7 +44,7 @@ function ground_custom_catalog() {
 		'description'			=> __( 'Products list', 'groundtheme' ),
 		'labels'				=> $labels,
 		'supports'				=> array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'trackbacks', 'revisions', 'custom-fields', 'page-attributes', 'post-formats', ),
-		'taxonomies'			=> array( 'category', 'post_tag' ),
+		//'taxonomies'			=> array( 'category', 'post_tag' ),
 		'hierarchical'			=> true,
 		'public'				=> true,
 		'show_ui'				=> true,
@@ -58,6 +59,7 @@ function ground_custom_catalog() {
 		'publicly_queryable'	=> true,
 		'rewrite'				=> $rewrite,
 		'capability_type'		=> 'post',
+		//'capability_type'		=> 'page'
 	);
 
 	register_post_type( 'custom_catalog', $args );
@@ -91,7 +93,7 @@ function ground_custom_catalog_category_taxonomy()  {
 	);
 
 	$rewrite = array(
-		//'slug'							=> 'genre',
+		'slug'							=> __( 'catalog-category', 'groundtheme' ),
 		'with_front'					=> true,
 		'hierarchical'					=> true,
 	);
@@ -159,6 +161,46 @@ function ground_custom_catalog_tag_taxonomy()  {
 }
 
 add_action( 'init', 'ground_custom_catalog_tag_taxonomy', 0 );
+
+
+
+/*  ==========================================================================
+	4 - Highlight nav item for custom post type archive and single
+	==========================================================================  */
+
+// For this to work add class "{custom-post-type}-menu-item" to your menu item in management.
+// The code below finds the menu item with the class "[CPT]-menu-item" and adds another “current_page_parent” class to it.
+// Furthermore, it removes the “current_page_parent” from the blog menu item, if this is present.
+// Via http://vayu.dk/highlighting-wp_nav_menu-ancestor-children-custom-post-types/
+
+
+function ground_current_type_nav_class($classes, $item) {
+
+	// Get post_type for this post
+	//$post_type = get_query_var('post_type');
+	$post_type = get_post_type();
+
+	 
+	// Removes current_page_parent class from blog menu item
+	if ( get_post_type() == $post_type ) {
+		$classes = array_filter($classes, "get_current_value" );
+	}
+	
+	// This adds a current_page_parent class to the parent menu item
+	if( in_array( $post_type.'-menu-item', $classes ) ) {
+		array_push($classes, 'current_page_parent');
+	}
+
+	return $classes;
+}
+
+function get_current_value( $element ) {
+
+	return ( $element != "current_page_parent" );
+
+}
+
+add_filter('nav_menu_css_class', 'ground_current_type_nav_class', 10, 2);
 
 
 ?>
