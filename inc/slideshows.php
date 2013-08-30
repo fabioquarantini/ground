@@ -5,6 +5,7 @@
 	1 - Register slideshows custom post type
 	2 - Register slideshows taxonomy
 	3 - Slideshows admin custom columns
+	4 - Slider output
 
 	==========================================================================  */
 
@@ -148,6 +149,38 @@ function columns_content( $column ) {
 }
 
 add_action( 'manage_slideshows_posts_custom_column', 'columns_content', 10, 1 );
+
+/*  ==========================================================================
+	4 - Slider output : ground_slider('posttypename','maxpost', 'thumbnailnamedimension');
+	==========================================================================  */
+
+function ground_slider($postType ='slideshows', $maxSlide = '100', $thumbnail = '') {
+
+	global $wp_query;
+
+	$args = array(
+		'post_type' => $postType,
+		'posts_per_page' => $maxSlide
+	);
+
+	$slider_posts = new WP_Query($args);
+
+	if($slider_posts->have_posts()) { ?>
+
+		<div class="flexslider">
+			<ul class="slides">
+				<?php while($slider_posts->have_posts()) : $slider_posts->the_post() ?>
+				<li><?php the_post_thumbnail( $thumbnail ); ?><p class="flex-caption"><?php the_title() ?></p></li>
+				<?php endwhile ?>
+			</ul>
+		</div> <!-- End .flexslider -->
+
+	<?php }
+
+	wp_reset_query();
+
+}
+
 
 
 ?>

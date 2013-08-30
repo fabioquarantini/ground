@@ -4,45 +4,56 @@
 	Define constants
 	==========================================================================  */
 
-define('MY_THEME_FOLDER', get_template_directory_uri() ); 	// Returns http://www.site.com/wp-content/themes/sitename
+// Template directory : returns http://www.site.com/wp-content/themes/sitename
+define('MY_THEME_FOLDER', get_template_directory_uri() );
 
 
 /*  ==========================================================================
 	Extend backend
 	==========================================================================  */
 
-require_once('inc/extend-backend.php');						// Customozine backend text editor and login
-require_once('inc/theme-support.php');						// Register theme support
+// Customozine backend text editor and login
+require_once('inc/extend-backend.php');
+
+// Register theme support						
+require_once('inc/theme-support.php');
 
 
 /*  ==========================================================================
 	Extend frontend
 	==========================================================================  */
 
-require_once('inc/extend-frontend.php');					// Extend frontend functionality
-require_once('inc/head-output.php');						// Clean head output
+// Extend frontend functionality
+require_once('inc/extend-frontend.php');
+
+// Clean head output
+require_once('inc/head-output.php');
 
 
 /*  ==========================================================================
 	Shortcode
 	==========================================================================  */
 
-require_once('inc/shortcode.php');							// Shortcode
+// Shortcode
+require_once('inc/shortcode.php');
 
 
 /*  ==========================================================================
 	Custom post type
 	==========================================================================  */
 
-require_once('inc/slideshows.php');							// Slideshow
-require_once('inc/custom-catalog.php');						// Catalog
+// Slideshow
+require_once('inc/slideshows.php');
+
+// Catalog
+require_once('inc/custom-catalog.php');
 
 
 /*  ==========================================================================
 	Theme options panels
 	==========================================================================  */
 
-require_once('inc/theme-customizer.php');					// Theme customize
-
+// Theme customize
+require_once('inc/theme-customizer.php');
 
 ?>

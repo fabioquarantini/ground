@@ -3,7 +3,6 @@
 Template Name: Custom Page template
 Description: Custom template for page.
 */
-
 ?>
 
 <?php get_header(); ?>

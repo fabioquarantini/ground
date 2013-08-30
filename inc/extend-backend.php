@@ -60,14 +60,15 @@ add_filter('login_headertitle', 'ground_login_title');
 
 /* Footer left text */
 
-function ground_backend_footer_left_text() {
-	
+function ground_backend_footer_left_text($text) {
+
 	$my_theme = wp_get_theme();
-	echo '<span>'. __('Developed by', 'groundtheme') .' '. $my_theme->Author .'</span>';
+	$text = '<span>'. __('Developed by', 'groundtheme') .' '. $my_theme->Author .'</span>';
+    return $text;
 	
 }
 
-add_filter('admin_footer_text_left', 'ground_backend_footer_left');
+add_filter('admin_footer_text', 'ground_backend_footer_left_text');
 
 
 /* Footer right text */
@@ -81,7 +82,6 @@ function ground_admin_footer_right_text($text) {
 }
 
 add_filter('update_footer', 'ground_admin_footer_right_text', 11);
-
 
 
 /*  ==========================================================================
@@ -309,18 +309,18 @@ function ground_mce_buttons($buttons) {
 
 
 /*  ==========================================================================
-	11 - Add custom user profile fields : the_author_meta('contact_phone_office');
+	11 - Add custom user profile fields : the_author_meta('ground_user_fields_google');
 	==========================================================================  */
 
 function ground_user_fields( $contactmethods ) {
 
-	$contactmethods['ground_user_fields_google']	= 'Google plus';
-	$contactmethods['ground_user_fields_twitter']	= 'Twitter';
+	$contactmethods['ground_user_fields_google']	= __( 'Google Plus', 'groundtheme' );
+	$contactmethods['ground_user_fields_twitter']	= __( 'Twitter', 'groundtheme' );
 
 	return $contactmethods;
 }
 
-add_filter('user_contactmethods','ground_user_fields',10,1);
+add_filter('user_contactmethods','ground_user_fields');
 
 
 ?>

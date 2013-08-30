@@ -128,6 +128,13 @@ body {
 	font-weight: bold;
 }
 
+#menu-navigation .current_page_item a {
+	color: blue;
+}
+
+#menu-navigation .current_page_parent a {
+	color: green;
+}
 
 #sidebar {
 	background-color: #f1ddbb;
@@ -137,9 +144,99 @@ body {
 	background-color: #ec6766;
 }
 
+.current-cat > a {
+	font-weight: bold;
+	color: #000;
+	background-color: blue;
+}
+
 footer {
 	background-color: #129078;
 }
+
+
+/*  ==========================================================================
+	WordPress WYSIWYG editor styles
+	==========================================================================  */
+
+.entry-content img {
+	margin: 0 0 1.5em 0;
+	max-width: 100%;
+	height: auto;
+}
+
+.alignleft,
+img.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.5em;
+}
+
+.alignright,
+img.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.5em;
+}
+
+.aligncenter,
+img.aligncenter {
+	display: block;
+	clear: both;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.wp-caption {
+	margin-bottom: 1.5em;
+	padding-top: 5px;
+	text-align: center;
+}
+
+.wp-caption img {
+	margin: 0;
+	padding: 0;
+	border: 0 none;
+}
+
+.wp-caption p.wp-caption-text {
+	margin: 0;
+	font-size: 10px;
+	line-height: 1.5;
+}
+
+.wp-smiley {
+	margin: 0 !important;
+	max-height: 1em;
+}
+
+blockquote.left {
+	float: left;
+	margin-right: 20px;
+	margin-left: 0;
+	width: 33%;
+	text-align: right;
+}
+
+blockquote.right {
+	float: right;
+	margin-right: 0;
+	margin-left: 20px;
+	width: 33%;
+	text-align: left;
+}
+
+.gallery dl { }
+.gallery dt { }
+.gallery dd { }
+.gallery dl a { }
+.gallery dl img { }
+.gallery-caption { }
+
+.size-full { }
+.size-large { }
+.size-medium { }
+.size-thumbnail { }
 
 /*  ==========================================================================
 	Flexslider
@@ -376,219 +473,6 @@ html[xmlns] .slides {
 		right:0
 	}
 
-}
-
-/*  ==========================================================================
-	Colorbox
-	==========================================================================  */
-
-#colorbox,
-#cboxOverlay,
-#cboxWrapper {
-	position:absolute;
-	top:0;
-	left:0;
-	z-index:9999;
-	overflow:hidden;
-}
-
-#cboxOverlay {
-	position:fixed;
-	width:100%;
-	height:100%;
-}
-
-#cboxMiddleLeft,
-#cboxBottomLeft {
-	clear:left;
-}
-
-#cboxContent {
-	position:relative;
-}
-
-#cboxLoadedContent {
-	overflow:auto;
-}
-
-#cboxLoadingOverlay,
-#cboxLoadingGraphic {
-	position:absolute;
-	top:0;
-	left:0;
-	width:100%;
-	height:100%;
-}
-
-#cboxPrevious,
-#cboxNext,
-#cboxClose,
-#cboxSlideshow {
-	cursor:pointer;
-}
-
-#colorbox img { max-width: none;}
-
-.cboxPhoto {
-	display:block;
-	float:left;
-	margin:auto;
-	border:0;
-	-webkit-animation:fadePhoto 1s;
-	-moz-animation:fadePhoto 1s;
-	-ms-animation:fadePhoto 1s;
-	-o-animation:fadePhoto 1s;
-	animation:fadePhoto 1s;
-	-webkit-animation-fill-mode: forwards;
-	-moz-animation-fill-mode: forwards;
-	-ms-animation-fill-mode: forwards;
-	-o-animation-fill-mode: forwards;
-	animation-fill-mode: forwards;
-}
-
-@-moz-keyframes fadePhoto {
-	0% { opacity: 0;}
-	100% { opacity: 1;}
-}
-
-@-webkit-keyframes fadePhoto {
-	0% { opacity: 0;}
-	100% { opacity: 1;}
-}
-
-@keyframes fadePhoto {
-	0% { opacity: 0;}
-	100% { opacity: 1;}
-}
-
-.cboxIframe {
-	display:block;
-	width:100%;
-	height:100%;
-	border:0;
-}
-
-#cboxOverlay {
-	background-color:#000;
-}
-
-#colorbox {
-	-webkit-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-	-moz-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-}
-
-#cboxContent {
-	overflow:hidden;
-	border:0 solid #fff;
-	background:#fff;
-}
-
-.cboxIframe {
-	background:#fff;
-}
-
-#cboxError {
-	padding:50px;
-	border:1px solid #ccc;
-}
-
-#cboxLoadingGraphic{
-	background:url("img/loading.gif") center center no-repeat;
-}
-
-
-/* Custom colorbox style */
-
-#cboxTitle {
-	position:absolute;
-	bottom:6px;
-	left:0;
-	display: none !important;
-	margin: 0;
-	width:100%;
-	color:#949494;
-	text-align:center;
-}
-
-#cboxCurrent {
-	position:absolute;
-	bottom:6px;
-	left:68px;
-	display: none !important;
-	color:#949494;
-}
-
-#colorbox button {
-	position:absolute;
-	bottom: 0;
-	width: 28px;
-	height: 28px;
-	border:0;
-	background: #9fa7a9 url("img/colorbox-controls.png") no-repeat;
-	text-indent:-9999px;
-	-webkit-transition:all 0.5s;
-	-moz-transition:all 0.5s;
-	-ms-transition:all 0.5s;
-	-o-transition:all 0.5s;
-	transition:all 0.5s;
-}
-
-.no-touch #colorbox button {
-	bottom: -28px;
-}
-
-.no-touch #colorbox:hover button {
-	bottom: 0;
-}
-
-#colorbox #cboxPrevious {
-	left:0;
-	background-position:0 0;
-}
-
-#colorbox #cboxPrevious:hover {
-	background-color: #788083;
-}
-
-#colorbox #cboxNext {
-	left:28px;
-	background-position:-28px 0;
-}
-
-#colorbox #cboxNext:hover {
-	background-color: #788083;
-}
-
-#colorbox #cboxClose {
-	top: 0;
-	right:0;
-	background-color: #788083;
-	background-position:-56px 0;
-}
-
-#colorbox.colorbox-gallery #cboxClose {
-	top: auto;
-}
-
-#colorbox #cboxClose:hover {
-	background-color: #333;
-}
-
-#cboxSlideshow {
-	right:28px;
-}
-
-#cboxSlideshow:hover {
-	background-color: #788083;
-}
-
-.cboxSlideshow_off #cboxSlideshow {
-	background-position:-84px 0;
-}
-
-.cboxSlideshow_on #cboxSlideshow {
-	background-position:-112px 0;
 }
 
 

@@ -8,6 +8,7 @@
 	4 - Thumbnails size
 	5 - Localization
 	6 - Activate shortcodes in widgets sidebar
+	7 - Change JPEG Compression
 
 	==========================================================================  */
 
@@ -30,6 +31,13 @@ function ground_theme_support() {
 		set_post_thumbnail_size( 150, 150, true);								// Set the default featured image dimensions
 		
 		add_theme_support( 'automatic-feed-links' );							// This feature enables post and comment RSS feed links to head
+
+		$markup = array(
+			'search-form',
+			'comment-form',
+			'comment-list',
+		);
+		add_theme_support( 'html5', $markup );									// Add theme support for Semantic Markup
 
 		add_theme_support( 'menus' );											// Wp menu
 		
@@ -104,13 +112,13 @@ function ground_main_nav() {
 	$args = array(
 		'theme_location'	=> 'main-nav', 										// The location in the theme to be used--must be registered with register_nav_menu()
 		'menu'				=> __('Main nav', 'groundtheme'),					// The menu that is desired; accepts (matching in order) id, slug, name 
-		'container'			=> false, 
-		'container_class'	=> 'menu-{menu slug}-container',
-		'container_id'		=> '',
-		'menu_class'		=> 'menu', 
+		'container'			=> 'nav', 
+		'container_class'	=> 'menu-container',
+		'container_id'		=> 'main-navigation',
+		'menu_class'		=> 'navigation', 
 		'menu_id'			=> '',
 		'echo'				=> true,
-		'fallback_cb'		=> 'wp_page_menu',
+		'fallback_cb'		=> '',												// Default wp_page_menu
 		'before'			=> '',
 		'after'				=> '',
 		'link_before'		=> '',
@@ -133,12 +141,12 @@ function ground_secondary_nav() {
 		'theme_location'	=> 'secondary-nav',
 		'menu'				=> __('Secondary nav', 'groundtheme'),
 		'container'			=> false, 
-		'container_class'	=> 'menu-{menu slug}-container',
+		'container_class'	=> 'menu-container',
 		'container_id'		=> '',
-		'menu_class'		=> 'menu', 
+		'menu_class'		=> 'navigation', 
 		'menu_id'			=> '',
 		'echo'				=> true,
-		'fallback_cb'		=> 'wp_page_menu',
+		'fallback_cb'		=> '',
 		'before'			=> '',
 		'after'				=> '',
 		'link_before'		=> '',
@@ -197,8 +205,8 @@ add_action( 'widgets_init', 'ground_register_sidebars' );
 if ( function_exists( 'add_image_size' ) ) { 
 
 	add_image_size( 'thumb-slideshows', 960, 320, true );	// (name, width, height, crop)
-	add_image_size( 'thumb-600-150', 600, 150, true );		// (name, width, height, crop)
-	add_image_size( 'thumb-300-100-nocrop', 300, 100 );		// Without crop
+	add_image_size( 'thumb-medium', 600, 150, true );		// (name, width, height, crop)
+	add_image_size( 'thumb-small-nocrop', 300, 100 );		// Without crop
 	add_image_size( 'fullsize', '', '', true );				// Full size
 	
 	
@@ -207,8 +215,8 @@ if ( function_exists( 'add_image_size' ) ) {
 	function thumbnail_select( $sizes ) {
 			
 		$custom_sizes = array(
-			'thumb-600-150'			=> '600 x 150 thumb',
-			'thumb-300-100-nocrop'	=> '300 x 100 thumb' 
+			'thumb-medium'			=> '600 x 150 thumb',
+			'thumb-small-nocrop'	=> '300 x 100 thumb' 
 		);
 		
 		return array_merge( $sizes, $custom_sizes );
@@ -225,9 +233,9 @@ if ( function_exists( 'add_image_size' ) ) {
 	==========================================================================  */
 
 function localization_setup(){
-		
-	load_theme_textdomain('groundtheme', MY_THEME_FOLDER . '/languages');
 
+	load_theme_textdomain( 'groundtheme', get_template_directory() . '/languages' );
+	
 }
 
 add_action('after_setup_theme', 'localization_setup');
@@ -238,6 +246,13 @@ add_action('after_setup_theme', 'localization_setup');
 	==========================================================================  */
 
 add_filter('widget_text', 'do_shortcode');
+
+
+/*  ==========================================================================
+	7 - Change JPEG Compression
+	==========================================================================  */
+
+add_filter( 'jpeg_quality', create_function( '', 'return 90;' ) );		// default 100
 
 
 ?>

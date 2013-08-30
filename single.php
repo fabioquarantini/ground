@@ -23,7 +23,7 @@
 
 				<?php 
 					if ( has_post_thumbnail() ) {
-						the_post_thumbnail( 'thumb-600-150', array( 'class' => 'thumb-post' ) );
+						the_post_thumbnail( 'thumb-medium', array( 'class' => 'thumb-post' ) );
 					} else {
 						echo '<img src="'.MY_THEME_FOLDER.'/img/no-photo.jpg" class="thumb-post" />';
 					}

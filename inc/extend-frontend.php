@@ -6,8 +6,8 @@
 	2 - Pagination
 	3 - Excerpt
 	4 - Title lenght
-	5 - Slider
-	6 - Extend wp list page for page children
+	5 - Extend wp list page for page children
+	6 - Custom category list menu
 
 	==========================================================================  */
 
@@ -209,37 +209,7 @@ function ground_trim_title( $length, $after = '') {
 
 
 /*  ==========================================================================
-	5 - Slider : ground_slider('posttypename','maxpost', 'thumbnailnamedimension');
-	==========================================================================  */
-
-function ground_slider($postType ='slideshows', $maxSlide = '100', $thumbnail = '') {
-
-	global $wp_query;
-
-	$args = array(
-		'post_type' => $postType,
-		'posts_per_page' => $maxSlide
-	);
-
-	$slider_posts = new WP_Query($args);
-
-	if($slider_posts->have_posts()) { ?>
-
-		<div class="flexslider">
-			<ul class="slides">
-				<?php while($slider_posts->have_posts()) : $slider_posts->the_post() ?>
-				<li><?php the_post_thumbnail( $thumbnail ); ?><p class="flex-caption"><?php the_title() ?></p></li>
-				<?php endwhile ?>
-			</ul>
-		</div>
-
-	<?php }
-
-}
-
-
-/*  ==========================================================================
-	6 - Extend wp list page for page children
+	5 - Extend wp list page for page children
 	==========================================================================  */
 
 /*
@@ -319,8 +289,9 @@ class Ground_Page_Children extends Walker_Page {
 function ground_child_menu() {
 
 	global $post;
+
 	$parent = array_reverse(get_post_ancestors($post->ID));
-	$child_ID = 0;
+	$child_ID = $post->ID;
 	if( count($parent) > 0 ) {
 		$first_parent = get_page($parent[0]);
 		$child_ID = $first_parent->ID;
@@ -353,5 +324,47 @@ function ground_child_menu() {
 }
 	
 
+/*  ==========================================================================
+	6 - Custom category list menu : ground_custom_category_menu('nameofcustomcategory');
+	==========================================================================  */
+
+function ground_custom_category_menu( $customCategory ='custom_catalog_category' ) {
+
+	global $post;
+
+	$terms = get_the_terms( $post->ID , $customCategory );
+	$termId = 0;
+	$postType = $post->post_type;
+
+	//$parent = array_reverse(get_post_ancestors($post->ID));
+	//$first_parent = get_page($parent[0]);
+	//$child_ID = $first_parent->ID;
+
+	if( is_single() && $postType == get_post_type() ) {
+		foreach ( $terms as $term ) {
+			$termId =  $term->term_id;
+			//echo  $term->term_id;
+		}
+	}	
+
+	//echo $termId;
+			
+	$args = array(
+		'orderby'			=> 'name',
+		'show_count'		=> 0,
+		'pad_counts'		=> 0,
+		//'child_of'		=> $child_ID,
+		'hide_empty'		=> 1,
+		'hierarchical'		=> 1,
+		'taxonomy'			=> $customCategory,
+		'current_category'	=> $termId,
+		'title_li'			=> ''
+	);
+
+	echo '<ul>';
+	wp_list_categories( $args );
+	echo '</ul>';
+
+}
 
 ?>

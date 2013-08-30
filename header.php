@@ -32,8 +32,7 @@
 	<body <?php body_class(); ?> data-path="<?php echo MY_THEME_FOLDER ?>">
 
 		<!--[if lt IE 7]>
-			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-			<p class="browsehappy">Il browser che stai utilizzando <strong>non &egrave; aggiornato</strong>. Per visualizzare correttamente il sito <a href="http://browsehappy.com/?locale=it_IT">aggiornalo con una versione pi&ugrave; recente</a></p>
+			<p class="browsehappy"><?php _e( 'You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.', 'groundtheme' ); ?></p>
 		<![endif]-->
 
 		<div id="container">
@@ -45,9 +44,9 @@
 					<h2 id="site-description"><?php bloginfo('description'); ?></h2>
 				</a>
 
-				<nav id="main-navigation">
-					<?php ground_main_nav(); ?>
-				</nav>
+				<?php if( has_nav_menu( 'main-nav' ) ) {
+					ground_main_nav();
+				} ?>
 				
 			</header> <!-- End #main-header -->
 
@@ -56,4 +55,3 @@
 			<?php } ?>
 
 			<?php ground_slider('slideshows', '100', 'thumb-slideshows'); ?>
-
