@@ -9,7 +9,7 @@ Description: Custom template for browsing category in catalog. Use template-{cus
 
 	<h1><?php the_title(); ?></h1>
 
-	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+	<?php while ( have_posts() ) : the_post(); ?>
 					
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
 			
@@ -18,8 +18,6 @@ Description: Custom template for browsing category in catalog. Use template-{cus
 		</article> <!-- End article -->
 				
 	<?php endwhile; ?>
-				
-	<?php endif; ?>
 
 	<?php
 

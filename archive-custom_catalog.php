@@ -1,4 +1,4 @@
-<?php /* Rename file with the name of custom post type (archive-name_of_custom_post_type.php) */ ?>
+<?php /* The template for displaying custom archive pages. Rename file with the name of custom post type (archive-name_of_custom_post_type.php) */ ?>
 
 <?php 
 

@@ -7,7 +7,7 @@ Description: Custom template for page.
 
 <?php get_header(); ?>
 
-	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+	<?php while ( have_posts() ) : the_post(); ?>
 					
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
 			
@@ -20,14 +20,6 @@ Description: Custom template for page.
 		</article> <!-- End article -->
 				
 	<?php endwhile; ?>
-
-	<?php else : ?>
-			
-		<article id="post-<?php the_ID(); ?>" <?php post_class('post-not-found'); ?>>
-			<h1><?php _e("Post not found!", "groundtheme"); ?></h1>
-		</article> <!-- End .post-not-found -->
-				
-	<?php endif; ?>
 
 	<?php get_sidebar(); ?>
 

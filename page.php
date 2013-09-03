@@ -1,6 +1,8 @@
-<?php get_header(); ?>
+<?php /* The template for displaying all pages. */
 
-	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+get_header(); ?>
+
+	<?php while ( have_posts() ) : the_post(); ?>
 					
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
 			
@@ -13,14 +15,6 @@
 		</article> <!-- End article -->
 				
 	<?php endwhile; ?>
-
-	<?php else : ?>
-			
-		<article id="post-<?php the_ID(); ?>" <?php post_class('post-not-found'); ?>>
-			<h1><?php _e("Post not found!", "groundtheme"); ?></h1>
-		</article> <!-- End .post-not-found -->
-				
-	<?php endif; ?>
 
 	<?php get_sidebar(); ?>
 
