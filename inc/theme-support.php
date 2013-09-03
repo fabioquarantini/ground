@@ -59,7 +59,7 @@ function ground_theme_support() {
 			'audio',
 			'chat'
 		);
-		add_theme_support( 'post-formats', $formats );   						// A Post Format is a piece of meta information that can be used by a theme to customize its presentation of a post
+		//add_theme_support( 'post-formats', $formats );   						// A Post Format is a piece of meta information that can be used by a theme to customize its presentation of a post
 
 		$background_args = array(
 			'default-color'				=> '',
