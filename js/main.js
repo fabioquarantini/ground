@@ -2,7 +2,7 @@
 	Author: Fabio Quarantini - @febba
 	==========================================================================  */
 
-$.noConflict();
+jQuery.noConflict();
 
 jQuery(document).ready(function($) {
 
