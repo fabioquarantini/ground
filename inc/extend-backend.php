@@ -13,6 +13,7 @@
 	9 - Maintenance mode
 	10 - More buttons in the visual editor
 	11 - Add custom user profile fields
+	12 - Add select filters for customs posts
 
 	==========================================================================  */
 
@@ -322,5 +323,40 @@ function ground_user_fields( $contactmethods ) {
 
 add_filter('user_contactmethods','ground_user_fields');
 
+
+/*  ==========================================================================
+	12 - Add select filters for customs posts
+	==========================================================================  */
+
+function ground_custom_admin_filter() {
+
+	global $typenow;
+
+	if ( $typenow == 'slideshows' || $typenow == 'custom_catalog' ) {
+
+		// Create an array of taxonomy slugs you want to filter by
+		//$filters = array('plants', 'animals', 'insects');
+		$filters = get_taxonomies();
+
+		foreach ( $filters as $tax_slug ) {
+			// retrieve the taxonomy object
+			$tax_obj = get_taxonomy( $tax_slug );
+			$tax_name = $tax_obj->labels->name;
+			// retrieve array of term objects per taxonomy
+			$terms = get_terms( $tax_slug );
+
+			// output html for taxonomy dropdown filter
+			echo "<select name='$tax_slug' id='$tax_slug' class='postform'>";
+			echo "<option value=''>$tax_name</option>";
+			foreach ( $terms as $term ) {
+				// output each select option line, check against the last $_GET to show the current option selected
+				echo '<option value='. $term->slug, $_GET[$tax_slug] == $term->slug ? ' selected="selected"' : '', '>' . $term->name .' (' . $term->count .')</option>';
+			}
+			echo "</select>";
+		}
+	}
+}
+
+add_action( 'restrict_manage_posts', 'ground_admin_custom_filter' );
 
 ?>
