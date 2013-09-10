@@ -328,7 +328,7 @@ add_filter('user_contactmethods','ground_user_fields');
 	12 - Add select filters for customs posts
 	==========================================================================  */
 
-function ground_custom_admin_filter() {
+function ground_admin_custom_filter() {
 
 	global $typenow;
 
