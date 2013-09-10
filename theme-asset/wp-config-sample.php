@@ -4,6 +4,8 @@
 	MySQL settings
 	==========================================================================  */
 
+/* Switch database connections crendiantials between enviroments */
+
 define('ENVIRONMENT', 'testing');
 
 switch(ENVIRONMENT){
@@ -36,6 +38,8 @@ switch(ENVIRONMENT){
 /*  ==========================================================================
 	MySQL database table prefix
 	==========================================================================  */
+
+/* Change default prefix for security */
 
 $table_prefix = 'wp_';
 
@@ -78,8 +82,12 @@ define( 'WP_DEBUG_DISPLAY',	false );	// Display errors and warnings.
 	Custom WordPress URL
 	==========================================================================  */
 
+
 // define( 'WP_SITEURL',		'http://' . $_SERVER['HTTP_HOST'] . '/path/to/wordpress' );		// Your Wordpress blog/site URI. define('WP_HOME', 'http://' .$_SERVER['HTTP_HOST']. '');
 // define( 'WP_HOME',			'http://' . $_SERVER['HTTP_HOST'] . '/path/to/wordpress' );		// WordPress core files URI. define('WP_SITEURL', 'http://' .$_SERVER['HTTP_HOST']. '');
+
+
+/* Defines default location of folders */
 
 // define( 'WP_CONTENT_URL',	'http://example.com/wp-content' );								// Content URL
 // define( 'WP_PLUGIN_URL',		'http://example.com/wp-content/plugins' );						// Plugins URL
