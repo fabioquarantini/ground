@@ -33,6 +33,8 @@ jQuery(document).ready(function($) {
 				slideshowSpeed: 4000,
 				initialWidth: 50,
 				initialHeight: 50,
+				maxWidth: "90%",
+				maxHeight: "90%",
 				rel:'gallery',
 				className: "colorbox-gallery"
 			});
