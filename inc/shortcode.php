@@ -44,18 +44,12 @@ add_shortcode('pre', 'ground_pre');
 function ground_button( $atts, $content=null ) {
 	
 	$args = array(
-		'href'		=> 'HREF',
-		'target'	=> 'TARGET'
+		'href'		=> '',
+		'target'	=> '_self'
 	);
 			
 	extract( shortcode_atts( $args , $atts ) );
 							
-	if ($target == 'TARGET') {
-		
-		$target = '_self';
-		
-	}
-	
 	return '<a href="'.$href.'" target="'.$target.'" class="button">'.do_shortcode($content).'</a>';
 
 }
