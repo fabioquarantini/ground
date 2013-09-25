@@ -101,6 +101,13 @@ define( 'WP_DEBUG_DISPLAY',	false );	// Display errors and warnings.
  define( 'WP_ALLOW_MULTISITE', false );
 
 
+/*  ==========================================================================
+	 Disable the plugin and theme editor for security
+	==========================================================================  */
+	
+ define('DISALLOW_FILE_EDIT', true );
+
+
  /*  ==========================================================================
 	Increasing memory allocated to PHP
 	==========================================================================  */
