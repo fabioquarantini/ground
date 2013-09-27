@@ -289,17 +289,15 @@ class Ground_Page_Children extends Walker_Page {
 }
 
 
-function ground_child_menu() {
-
+function ground_child_menu($css = "") {
 	global $post;
-
 	$parent = array_reverse(get_post_ancestors($post->ID));
 	$child_ID = $post->ID;
 	if( count($parent) > 0 ) {
 		$first_parent = get_page($parent[0]);
 		$child_ID = $first_parent->ID;
 	}
-	
+
 	$walker = new Ground_Page_Children();
 
 	$args = array(
@@ -317,13 +315,16 @@ function ground_child_menu() {
 		'link_after'	=> '',
 		'walker'		=> $walker,
 		'post_type'		=> 'page',
-		'post_status'	=> 'publish' 
+		'post_status'	=> 'publish'
 	);
-
-	echo '<ul>';
+	if ( empty($css)) {
+		$str = '<ul>';
+	} else {
+		$str = '<ul class="' . $css . '">';
+	}
+	echo $str;
 	wp_list_pages($args);
 	echo '</ul>';
-
 }
 	
 
