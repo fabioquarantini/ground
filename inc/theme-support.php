@@ -112,17 +112,17 @@ function register_my_menus() {
 add_action('init', 'register_my_menus');
 
 
-/* Main nav */ 
+/* Main nav : ground_main_nav("Css class") defaults to 'navigation' */
 
-function ground_main_nav() {
-	
+function ground_main_nav($menuClass = "navigation") {
+
 	$args = array(
 		'theme_location'	=> 'main-nav', 										// The location in the theme to be used--must be registered with register_nav_menu()
-		'menu'				=> __('Main nav', 'groundtheme'),					// The menu that is desired; accepts (matching in order) id, slug, name 
-		'container'			=> 'nav', 
+		'menu'				=> __('Main nav', 'groundtheme'),					// The menu that is desired; accepts (matching in order) id, slug, name
+		'container'			=> 'nav',
 		'container_class'	=> 'menu-container',
 		'container_id'		=> 'main-navigation',
-		'menu_class'		=> 'navigation', 
+		'menu_class'		=> $menuClass,
 		'menu_id'			=> '',
 		'echo'				=> true,
 		'fallback_cb'		=> '',												// Default wp_page_menu
@@ -134,23 +134,22 @@ function ground_main_nav() {
 		'depth'				=> 0,
 		'walker'			=> ''
 	);
-	
+
 	wp_nav_menu( $args );
-	
+
 }
 
 
-/* Secondary nav */
+/* Secondary nav :  ground_secondary_nav("css class") defaults to 'navigation' */
 
-function ground_secondary_nav() {
-	
+function ground_secondary_nav($menuClass = "navigation") {
 	$args = array(
 		'theme_location'	=> 'secondary-nav',
 		'menu'				=> __('Secondary nav', 'groundtheme'),
-		'container'			=> false, 
+		'container'			=> false,
 		'container_class'	=> 'menu-container',
 		'container_id'		=> '',
-		'menu_class'		=> 'navigation', 
+		'menu_class'		=> $menuClass,
 		'menu_id'			=> '',
 		'echo'				=> true,
 		'fallback_cb'		=> '',
@@ -162,9 +161,9 @@ function ground_secondary_nav() {
 		'depth'				=> 0,
 		'walker'			=> ''
 	);
-	
+
 	wp_nav_menu($args);
-	
+
 }
 
 

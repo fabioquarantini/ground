@@ -91,7 +91,8 @@ get_header(); ?>
 		 "REMOTE ADDRESS: "  . $address . "\n" .
 		 "REMOTE IDENTITY: " . $remote  . "\n" .
 		 "USER AGENT: "      . $agent   . "\n\n\n";
-		 
+		
+		// Comment this line if you don't want 404 alert to be sent to your email
 		mail($email, __("Page with 404 error: ", "groundtheme") . $blog . " [" . $theme . "]", $message, "From: $email");
 		 
 		?>
