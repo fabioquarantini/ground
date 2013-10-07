@@ -76,20 +76,20 @@ add_action( 'init', 'ground_custom_catalog', 0 );
 function ground_custom_catalog_category_taxonomy()  {
 	
 	$labels = array(
-		'name'							=> _x( 'Genres', 'Taxonomy General Name', 'groundtheme' ),
-		'singular_name'					=> _x( 'Genre', 'Taxonomy Singular Name', 'groundtheme' ),
-		'menu_name'						=> __( 'Genre', 'groundtheme' ),
-		'all_items'						=> __( 'All genres', 'groundtheme' ),
-		'parent_item'					=> __( 'Parent genre', 'groundtheme' ),
-		'parent_item_colon'				=> __( 'Parent genre:', 'groundtheme' ),
-		'new_item_name'					=> __( 'New genre name', 'groundtheme' ),
-		'add_new_item'					=> __( 'Add new genre', 'groundtheme' ),
-		'edit_item'						=> __( 'Edit genre', 'groundtheme' ),
-		'update_item'					=> __( 'Update genre', 'groundtheme' ),
-		'separate_items_with_commas'	=> __( 'Separate genres with commas', 'groundtheme' ),
-		'search_items'					=> __( 'Search genres', 'groundtheme' ),
-		'add_or_remove_items'			=> __( 'Add or remove genres', 'groundtheme' ),
-		'choose_from_most_used'			=> __( 'Choose from the most used genres', 'groundtheme' ),
+		'name'							=> _x( 'Categories', 'Taxonomy General Name', 'groundtheme' ),
+		'singular_name'					=> _x( 'Category', 'Taxonomy Singular Name', 'groundtheme' ),
+		'menu_name'						=> __( 'Category', 'groundtheme' ),
+		'all_items'						=> __( 'All Categories', 'groundtheme' ),
+		'parent_item'					=> __( 'Parent category', 'groundtheme' ),
+		'parent_item_colon'				=> __( 'Parent category:', 'groundtheme' ),
+		'new_item_name'					=> __( 'New category name', 'groundtheme' ),
+		'add_new_item'					=> __( 'Add new category', 'groundtheme' ),
+		'edit_item'						=> __( 'Edit category', 'groundtheme' ),
+		'update_item'					=> __( 'Update category', 'groundtheme' ),
+		'separate_items_with_commas'	=> __( 'Separate Categories with commas', 'groundtheme' ),
+		'search_items'					=> __( 'Search Categories', 'groundtheme' ),
+		'add_or_remove_items'			=> __( 'Add or remove Categories', 'groundtheme' ),
+		'choose_from_most_used'			=> __( 'Choose from the most used Categories', 'groundtheme' ),
 	);
 
 	$rewrite = array(
