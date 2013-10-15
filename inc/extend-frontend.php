@@ -332,7 +332,7 @@ function ground_child_menu($css = "") {
 	6 - Custom category list menu : ground_custom_category_menu('nameofcustomposttype', nameofcustomcategory');
 	==========================================================================  */
 
-function ground_custom_category_menu( $customPostType = 'custom_catalog', $customCategory ='custom_catalog_category' ) {
+function ground_custom_category_menu( $customPostType = 'custom_catalog', $customCategory ='custom_catalog_category', $cssClass = 'category-nav' ) {
 
 	if( is_page_template( 'template-'.$customPostType.'.php' ) ||  $customPostType == get_post_type() ) {
 
@@ -366,7 +366,7 @@ function ground_custom_category_menu( $customPostType = 'custom_catalog', $custo
 			'title_li'			=> ''
 		);
 
-		echo '<ul>';
+		echo '<ul class="' . $cssClass . '">';
 		wp_list_categories( $args );
 		echo '</ul>';
 
