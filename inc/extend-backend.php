@@ -124,6 +124,12 @@ add_filter( 'post_thumbnail_html', 'ground_image_responsive', 10 );
 add_filter( 'image_send_to_editor', 'ground_image_responsive', 10 );
 
 
+/* Disable the wpautop filter */
+
+// remove_filter( 'the_content', 'wpautop' );
+// remove_filter( 'the_excerpt', 'wpautop' );
+
+
 /*  ==========================================================================
 	4 - RSS post thumbnail
 	==========================================================================  */
