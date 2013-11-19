@@ -1,11 +1,11 @@
 <?php
 
 /*  ==========================================================================
-	
+
 	1 - Redirect after theme activation
 	2 - Register preview script
 	3 - Customize register
-	
+
 	==========================================================================  */
 
 
@@ -14,7 +14,7 @@
 	==========================================================================  */
 
 function ground_theme_activation() {
-	
+
 	if (is_admin() && isset($_GET['activated']) && 'themes.php' == $GLOBALS['pagenow']) {
 		wp_redirect(admin_url('customize.php'));
 		exit;
@@ -44,9 +44,9 @@ add_action( 'customize_preview_init', 'ground_customize_preview_js' );
 	==========================================================================  */
 
 function ground_register_customize_fields( $wp_customize ) {
-	
+
 	/* Analytics */
-	
+
 	$wp_customize->add_section('analytics_section',
 		array(
 			'title'					=> __('Analytics', 'groundtheme'),								// The title of the section for display in the menu
@@ -54,7 +54,7 @@ function ground_register_customize_fields( $wp_customize ) {
 			'priority'				=> '130',														// The sequence or order of sections displayed in the menu, the lower the number, the higher it will display
 		)
 	);
-	
+
 
 	$wp_customize->add_setting( 'analytics_option',
 		array(
@@ -79,17 +79,17 @@ function ground_register_customize_fields( $wp_customize ) {
 			'priority'				=> '',															// Lower numbers correspond with earlier execution. Default is 10.
 		)
 	);
-	
-	
+
+
 	/* Favicon */
-	
+
 	$wp_customize->add_section('favicon_section', array(
 		'title' => __('Favicon', 'groundtheme'),
 		'description' => __('Favicon', 'groundtheme'),
 		'priority' => '140',
 	));
-	
-		
+
+
 	$wp_customize->add_setting( 'favicon_option', array(
 		'default' => '',
 		'theme-supports' => '',
@@ -99,8 +99,8 @@ function ground_register_customize_fields( $wp_customize ) {
 		'sanitize_js_callback' => '',
 		'transport' => '',
 	));
-	
-				
+
+
 	$wp_customize->add_control( 'favicon_option', array(
 		'label' => __('Insert favicon url', 'groundtheme'),
 		'settings' => '',
@@ -109,17 +109,17 @@ function ground_register_customize_fields( $wp_customize ) {
 		'choices' => '',
 		'priority' => '',
 	));
-	
-	
+
+
 	/* Maintenance mode */
-	
+
 	$wp_customize->add_section('maintenance_section', array(
 		'title' => __('Maintenance mode', 'groundtheme'),
 		'description' => __('Maintenance mode', 'groundtheme'),
 		'priority' => '150',
 	));
-	
-		
+
+
 	$wp_customize->add_setting( 'maintenance_option', array(
 		'default' => '',
 		'theme-supports' => '',
@@ -129,8 +129,8 @@ function ground_register_customize_fields( $wp_customize ) {
 		'sanitize_js_callback' => '',
 		'transport' => '',
 	));
-	
-				
+
+
 	$wp_customize->add_control( 'maintenance_option', array(
 		'label' => __('Activate maintenance mode', 'groundtheme'),
 		'settings' => '',
@@ -142,15 +142,15 @@ function ground_register_customize_fields( $wp_customize ) {
 
 
 	/* Content width */
-	
-	$wp_customize->add_section('content_width', array(
+
+	$wp_customize->add_section('content_width_section', array(
 		'title' => __('Content width', 'groundtheme'),
 		'description' => __('Content width', 'groundtheme'),
 		'priority' => '160',
 	));
-	
-		
-	$wp_customize->add_setting( 'maintenance_option', array(
+
+
+	$wp_customize->add_setting( 'content_width_option', array(
 		'default' => '',
 		'theme-supports' => '',
 		'type' => 'option',
@@ -159,24 +159,24 @@ function ground_register_customize_fields( $wp_customize ) {
 		'sanitize_js_callback' => '',
 		'transport' => '',
 	));
-	
-				
-	$wp_customize->add_control( 'maintenance_option', array(
+
+
+	$wp_customize->add_control( 'content_width_option', array(
 		'label' => __('Set the maximum allowed width', 'groundtheme'),
 		'settings' => '',
-		'section' => 'content_width',
+		'section' => 'content_width_section',
 		'type' => 'text',
 		'choices' => '',
 		'priority' => '',
 	));
-	
-	
+
+
 	/* Default options for live preview */
-	
+
 	$wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 
-	
+
 }
 
 add_action( 'customize_register', 'ground_register_customize_fields' );
