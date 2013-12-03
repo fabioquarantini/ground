@@ -332,7 +332,7 @@ function ground_child_menu($css = "") {
 	6 - Custom category list menu : ground_custom_category_menu('nameofcustomposttype', nameofcustomcategory');
 	==========================================================================  */
 
-function ground_custom_category_menu( $customPostType = 'ground_catalog', $customCategory ='ground_catalog_taxonomy', $cssClass = 'category-nav' ) {
+function ground_custom_category_menu( $customPostType = '', $customCategory ='', $cssClass = 'category-nav' ) {
 
 	if( is_page_template( 'template-'.$customPostType.'.php' ) ||  $customPostType == get_post_type() ) {
 
