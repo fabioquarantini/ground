@@ -6,6 +6,7 @@
 	2 - Google maps [googlemap width="200" height="200" src="[url]"] or [googlemap src="google_map_url"]
 	3 - Button [link_button href="link" target="_self|_blank"]text[/link_button]
 	4 - Tag <pre> [pre]content[/pre]
+	5 - Content only for logged in user [loggedin]content[/loggedin]
 
 	==========================================================================  */
 
@@ -65,7 +66,7 @@ add_shortcode('button', 'ground_button');
 
 
 /*  ==========================================================================
-	2 - Tag <pre> [pre]content[/pre]
+	4 - Tag <pre> [pre]content[/pre]
 	==========================================================================  */
 
 function ground_pre( $atts, $content=null ) {
@@ -75,5 +76,19 @@ function ground_pre( $atts, $content=null ) {
 }
 
 add_shortcode('pre', 'ground_pre');
+
+
+/*  ==========================================================================
+	5 - Content only for logged in user [loggedin]content[/loggedin]
+	==========================================================================  */
+
+function ground_logged_in( $atts, $content = null ) {
+	if ( is_user_logged_in() ) {
+		return $content;
+	}
+	else return;
+}
+
+add_shortcode( 'loggedin', 'ground_logged_in' );
 
 ?>
