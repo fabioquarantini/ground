@@ -3,12 +3,13 @@
 if ( post_password_required() ) {
 	return;
 }
+
 ?>
 
 <?php if ( have_comments() ) : ?>
 
 	<h2><?php printf( _nx( 'One comment on &ldquo;%2$s&rdquo;', '%1$s comments on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'groundtheme' ), number_format_i18n( get_comments_number() ), '<span>' . get_the_title() . '</span>' ); ?></h2>
-	
+
 	<?php
 	$args = array(
 		'walker'			=> null,
@@ -33,8 +34,6 @@ if ( post_password_required() ) {
 		<?php wp_list_comments( $args, $comments ); ?>
 	</ol> <!-- End .comment-list -->
 
-	
-
 	<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
 		<nav class="navigation comment-navigation">
 			<ul>
@@ -50,7 +49,7 @@ if ( post_password_required() ) {
 
 <?php endif; ?>
 
-<?php 
+<?php
 
 $commenter = wp_get_current_commenter();
 $req = get_option( 'require_name_email' );

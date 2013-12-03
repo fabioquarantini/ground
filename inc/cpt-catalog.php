@@ -2,9 +2,9 @@
 
 /*  ==========================================================================
 
-	1 - Register catalog custom post type
-	2 - Register catalog category taxonomy
-	3 - Register catalog tag taxonomy
+	1 - Register catalog post type
+	2 - Register catalog taxonomy
+	3 - Register catalog taxonomy tag
 	4 - Highlight nav item for custom post type archive and single
 
 	==========================================================================  */
@@ -14,8 +14,8 @@
 	1 - Register catalog custom post type
 	==========================================================================  */
 
-function ground_custom_catalog() {
-	
+function ground_register_catalog_post_type() {
+
 	$labels = array(
 		'name'					=> _x( 'Products', 'Post Type General Name', 'groundtheme' ),
 		'singular_name'			=> _x( 'Product', 'Post Type Singular Name', 'groundtheme' ),
@@ -29,19 +29,19 @@ function ground_custom_catalog() {
 		'update_item'			=> __( 'Update Product', 'groundtheme' ),
 		'search_items'			=> __( 'Search products', 'groundtheme' ),
 		'not_found'				=> __( 'No products found', 'groundtheme' ),
-		'not_found_in_trash'	=> __( 'No products found in Trash', 'groundtheme' ),
+		'not_found_in_trash'	=> __( 'No products found in Trash', 'groundtheme' )
 	);
 
 	$rewrite = array(
 		'slug'					=> __( 'catalog', 'groundtheme' ),
 		'with_front'			=> true,
 		'pages'					=> true,
-		'feeds'					=> true,
+		'feeds'					=> true
 	);
 
 	$args = array(
-		'label'					=> __( 'custom_catalog', 'groundtheme' ),
-		'description'			=> __( 'Products list', 'groundtheme' ),
+		'label'					=> __( 'catalog', 'groundtheme' ),
+		'description'			=> __( 'catalog', 'groundtheme' ),
 		'labels'				=> $labels,
 		'supports'				=> array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'trackbacks', 'revisions', 'custom-fields', 'page-attributes', 'post-formats', ),
 		//'taxonomies'			=> array( 'category', 'post_tag' ),
@@ -53,28 +53,27 @@ function ground_custom_catalog() {
 		'show_in_admin_bar'		=> true,
 		'menu_position'			=> 5,
 		'menu_icon'				=> MY_THEME_FOLDER . '/img/custom-post-icon.png',
-		'can_export'			=> true,	
+		'can_export'			=> true,
 		'has_archive'			=> true,
 		'exclude_from_search'	=> false,
 		'publicly_queryable'	=> true,
 		'rewrite'				=> $rewrite,
-		'capability_type'		=> 'post',
-		//'capability_type'		=> 'page'
+		'capability_type'		=> 'post'
 	);
 
-	register_post_type( 'custom_catalog', $args );
+	register_post_type( 'ground_catalog', $args );
 
 }
 
-add_action( 'init', 'ground_custom_catalog', 0 );
+add_action( 'init', 'ground_register_catalog_post_type', 0 );
 
 
 /*  ==========================================================================
 	2 - Register catalog category taxonomy
 	==========================================================================  */
 
-function ground_custom_catalog_category_taxonomy()  {
-	
+function ground_register_catalog_taxonomy()  {
+
 	$labels = array(
 		'name'							=> _x( 'Categories', 'Taxonomy General Name', 'groundtheme' ),
 		'singular_name'					=> _x( 'Category', 'Taxonomy Singular Name', 'groundtheme' ),
@@ -95,7 +94,7 @@ function ground_custom_catalog_category_taxonomy()  {
 	$rewrite = array(
 		'slug'							=> __( 'catalog-category', 'groundtheme' ),
 		'with_front'					=> true,
-		'hierarchical'					=> true,
+		'hierarchical'					=> true
 	);
 
 	$args = array(
@@ -105,27 +104,27 @@ function ground_custom_catalog_category_taxonomy()  {
 		'show_ui'						=> true,
 		'show_admin_column'				=> true,
 		'show_in_nav_menus'				=> true,
-		'show_tagcloud'					=> true,
-		'rewrite'						=> $rewrite,
+		'show_tagcloud'					=> false,
+		'rewrite'						=> $rewrite
 	);
 
-	register_taxonomy( 'custom_catalog_category', 'custom_catalog', $args );
+	register_taxonomy( 'ground_catalog_taxonomy', 'ground_catalog', $args );
 
 }
 
-add_action( 'init', 'ground_custom_catalog_category_taxonomy', 0 );
+add_action( 'init', 'ground_register_catalog_taxonomy', 0 );
 
 
 /*  ==========================================================================
 	3 - Register catalog tag taxonomy
 	==========================================================================  */
 
-function ground_custom_catalog_tag_taxonomy()  {
-	
+function ground_register_taxonomy_tag()  {
+
 	$labels = array(
 		'name'							=> _x( 'Tags', 'Taxonomy General Name', 'groundtheme' ),
 		'singular_name'					=> _x( 'Tag', 'Taxonomy Singular Name', 'groundtheme' ),
-		'menu_name'						=> __( 'Custom Tags', 'groundtheme' ),
+		'menu_name'						=> __( 'Tags', 'groundtheme' ),
 		'all_items'						=> __( 'All tags', 'groundtheme' ),
 		'parent_item'					=> __( 'Parent tag', 'groundtheme' ),
 		'parent_item_colon'				=> __( 'Parent tag:', 'groundtheme' ),
@@ -136,13 +135,13 @@ function ground_custom_catalog_tag_taxonomy()  {
 		'separate_items_with_commas'	=> __( 'Separate tags with commas', 'groundtheme' ),
 		'search_items'					=> __( 'Search tags', 'groundtheme' ),
 		'add_or_remove_items'			=> __( 'Add or remove tags', 'groundtheme' ),
-		'choose_from_most_used'			=> __( 'Choose from the most used tags', 'groundtheme' ),
+		'choose_from_most_used'			=> __( 'Choose from the most used tags', 'groundtheme' )
 	);
 
 	$rewrite = array(
-		'slug'							=> 'tag-slug',
+		'slug'							=> 'catalog-tag',
 		'with_front'					=> true,
-		'hierarchical'					=> true,
+		'hierarchical'					=> true
 	);
 
 	$args = array(
@@ -153,14 +152,14 @@ function ground_custom_catalog_tag_taxonomy()  {
 		'show_admin_column'				=> true,
 		'show_in_nav_menus'				=> true,
 		'show_tagcloud'					=> true,
-		'rewrite'						=> $rewrite,
+		'rewrite'						=> $rewrite
 	);
 
-	register_taxonomy( 'custom_catalog_tag', 'custom_catalog', $args );
+	register_taxonomy( 'ground_catalog_taxonomy_tag', 'ground_catalog', $args );
 
 }
 
-add_action( 'init', 'ground_custom_catalog_tag_taxonomy', 0 );
+// add_action( 'init', 'ground_register_taxonomy_tag', 0 );
 
 
 
@@ -180,12 +179,12 @@ function ground_current_type_nav_class($classes, $item) {
 	//$post_type = get_query_var('post_type');
 	$post_type = get_post_type();
 
-	 
+
 	// Removes current_page_parent class from blog menu item
 	if ( get_post_type() == $post_type ) {
 		$classes = array_filter($classes, "get_current_value" );
 	}
-	
+
 	// This adds a current_page_parent class to the parent menu item
 	if( in_array( $post_type.'-menu-item', $classes ) ) {
 		array_push($classes, 'current_page_parent');

@@ -3,11 +3,11 @@
 get_header(); ?>
 
 	<h1><?php single_cat_title(); ?></h1>
-	<?php echo category_description(); ?> 
+	<?php echo category_description(); ?>
 
 	<?php
 
-	$queried_object = get_queried_object();  
+	$queried_object = get_queried_object();
 	$term_id = $queried_object->term_id;
 	$term_parent = $queried_object->parent;
 
@@ -20,39 +20,38 @@ get_header(); ?>
 		'hide_empty'	=> 0,
 		'hierarchical'	=> 0,
 		//'parent'		=> 0,
-		'taxonomy'		=> 'custom_catalog_category'
+		'taxonomy'		=> 'ground_catalog_taxonomy'
 	);
 
 	$categories = get_categories($args);
 
-	//print_r($categories);
 
 	if (!empty($categories)) {  // show the category
 
 		echo '<ul class="category-list catalog-category-list">';
 		foreach ($categories as $category) {
-			echo '<li><a href="'.get_term_link($category->slug, 'custom_catalog_category').'">'. $category->name . ' ' . $category->description .'</a></li>';
+			echo '<li><a href="'.get_term_link($category->slug, 'ground_catalog_taxonomy').'">'. $category->name . ' ' . $category->description .'</a></li>';
 		}
 		echo '</ul> <!-- End .catalog-category-list -->';
 
 	} else { // show the products ?>
 
-		<section id="content">
+		<section class="content">
 
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-						
+
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
-				
+
 					<h2><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-							
-						<?php 
+
+						<?php
 							if ( has_post_thumbnail() ) {
 								the_post_thumbnail( 'thumb-medium', array( 'class' => 'thumb-post' ) );
 							} else {
 								echo '<img src="'.MY_THEME_FOLDER.'/img/no-photo.jpg" class="thumb-post" />';
 							}
 						?>
-						
+
 						<?php the_content( __('Read more...', 'groundtheme') ); ?>
 
 				</article> <!-- End article -->
@@ -64,14 +63,12 @@ get_header(); ?>
 					<?php } ?>
 
 				<?php else : ?>
-					
-					<article id="post-<?php the_ID(); ?>" <?php post_class('post-not-found'); ?>>
-						<h1><?php _e("Post not found!", "groundtheme"); ?></h1>
-					</article> <!-- End .post-not-found -->
-							
+
+					<?php get_template_part( 'content', 'none' ); ?>
+
 			<?php endif; ?>
-				
-		</section> <!-- end #content -->
+
+		</section> <!-- End .content -->
 
 	<?php }	?>
 

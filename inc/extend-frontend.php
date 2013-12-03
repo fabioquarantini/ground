@@ -1,7 +1,7 @@
 <?php
 
 /*  ==========================================================================
-	
+
 	1 - Tag related post
 	2 - Pagination
 	3 - Excerpt
@@ -17,11 +17,11 @@
 	==========================================================================  */
 
 function ground_tag_related_posts() {
-	
+
 	echo '<ul class="related-post">';
 	global $post;
 	$tags = wp_get_post_tags($post->ID);
-	
+
 	if($tags) {
 		foreach($tags as $tag) { $tag_arr .= $tag->slug . ','; }
 		$args = array(
@@ -40,7 +40,7 @@ function ground_tag_related_posts() {
 	}
 	wp_reset_query();
 	echo '</ul>';
-	
+
 }
 
 
@@ -51,7 +51,7 @@ function ground_tag_related_posts() {
 /* Numeric pagination: ground_numeric_pagination( __('&laquo; Previuos', "groundtheme") , __('Next &raquo;', "groundtheme") ); */
 
 function ground_numeric_pagination($next, $prev) {
-	
+
 	global $wp_query;
 	$format = '?paged=%#%';
 	if ( get_option('permalink_structure') ) {
@@ -73,7 +73,7 @@ function ground_numeric_pagination($next, $prev) {
 		);
 		echo paginate_links($args);
 	}
-	
+
 	wp_reset_query();
 }
 
@@ -81,7 +81,7 @@ function ground_numeric_pagination($next, $prev) {
 /* Basic pagination: ground_basic_pagination( __('&laquo; Previuos', "groundtheme") , __('Next &raquo;', "groundtheme") ); */
 
 function ground_basic_pagination($next, $prev) {
-	
+
 	global $wp_query;
 	$total_pages = $wp_query->max_num_pages;
 
@@ -99,18 +99,18 @@ function ground_basic_pagination($next, $prev) {
 	<?php endif;
 
 	wp_reset_query();
-	
+
 }
 
 
 /* Next & prev post pagination with thumbnails: ground_thumb_post_pagination( __("Next article &raquo;", "groundtheme") , __("&laquo; Previus article", "groundtheme") ); */
 
 function ground_thumb_post_pagination($next, $prev) {
-	
+
 	global $post;
 	$nextPost = get_next_post(true);
 	$prevPost = get_previous_post(true);
-	
+
 	echo '<ul class="prev-next-thumb">';
 
 	if($prevPost) {
@@ -133,7 +133,7 @@ function ground_thumb_post_pagination($next, $prev) {
 		}
 
 	}
-	
+
 	if($nextPost) {
 
 		$args = array(
@@ -244,23 +244,23 @@ class Ground_Page_Children extends Walker_Page {
         global $post;
         $args = array_slice( func_get_args(), 2 );
         $output = '';
- 
+
         /* invalid parameter */
         if ( $max_depth < -1 ) {
             return $output;
         }
- 
+
         /* Nothing to walk */
         if ( empty( $elements ) ) {
             return $output;
         }
- 
+
         /* Set up variables. */
         $top_level_elements = array();
         $children_elements  = array();
         $parent_field = $this->db_fields['parent'];
         $child_of = ( isset( $args[0]['child_of'] ) ) ? (int) $args[0]['child_of'] : 0;
- 
+
         /* Loop elements */
         foreach ( (array) $elements as $e ) {
             $parent_id = $e->$parent_field;
@@ -268,7 +268,7 @@ class Ground_Page_Children extends Walker_Page {
                 /* Top level pages. */
                 if( $child_of === $parent_id ) {
                     $top_level_elements[] = $e;
-                }	
+                }
                 /* Only display children of the current hierarchy. */
                 else if (
                     ( isset( $post->ID ) && $parent_id == $post->ID ) ||
@@ -279,7 +279,7 @@ class Ground_Page_Children extends Walker_Page {
                 }
             }
         }
- 
+
         /* Define output. */
         foreach ( $top_level_elements as $e ) {
             $this->display_element( $e, $children_elements, $max_depth, 0, $args, $output );
@@ -326,13 +326,13 @@ function ground_child_menu($css = "") {
 	wp_list_pages($args);
 	echo '</ul>';
 }
-	
+
 
 /*  ==========================================================================
 	6 - Custom category list menu : ground_custom_category_menu('nameofcustomposttype', nameofcustomcategory');
 	==========================================================================  */
 
-function ground_custom_category_menu( $customPostType = 'custom_catalog', $customCategory ='custom_catalog_category', $cssClass = 'category-nav' ) {
+function ground_custom_category_menu( $customPostType = 'ground_catalog', $customCategory ='ground_catalog_taxonomy', $cssClass = 'category-nav' ) {
 
 	if( is_page_template( 'template-'.$customPostType.'.php' ) ||  $customPostType == get_post_type() ) {
 
@@ -340,7 +340,7 @@ function ground_custom_category_menu( $customPostType = 'custom_catalog', $custo
 		$postType = $post->post_type;
 		$terms = get_the_terms( $post->ID , $customCategory );
 		$termId = 0;
-		
+
 		//$parent = array_reverse(get_post_ancestors($post->ID));
 		//$first_parent = get_page($parent[0]);
 		//$child_ID = $first_parent->ID;
@@ -350,10 +350,10 @@ function ground_custom_category_menu( $customPostType = 'custom_catalog', $custo
 				$termId =  $term->term_id;
 				//echo  $term->term_id;
 			}
-		}	
+		}
 
 		//echo $termId;
-				
+
 		$args = array(
 			'orderby'			=> 'name',
 			'show_count'		=> 0,

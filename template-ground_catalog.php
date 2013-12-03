@@ -10,20 +10,19 @@ Description: Custom template for browsing category in catalog. Use template-{cus
 	<h1><?php the_title(); ?></h1>
 
 	<?php while ( have_posts() ) : the_post(); ?>
-					
+
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
-			
+
 			<?php the_content(); ?>
 
 		</article> <!-- End article -->
-				
+
 	<?php endwhile; ?>
 
 	<?php
 
-	$taxonomies = array( 
-		//'post_tag',
-		'custom_catalog_category',
+	$taxonomies = array(
+		'ground_catalog_taxonomy',
 	);
 
 	$args = array(
@@ -48,10 +47,10 @@ Description: Custom template for browsing category in catalog. Use template-{cus
 	);
 
 	$terms = get_terms( $taxonomies, $args );
-	//print_r($terms);
+
 	echo '<ul class="category-list catalog-category-list">';
 	foreach ($terms as $term) {
-		echo '<li><a href="'.get_term_link($term->slug, 'custom_catalog_category').'">'.$term->name .' '. $term->description . '</a></li>';
+		echo '<li><a href="'.get_term_link($term->slug, 'ground_catalog_taxonomy').'">'.$term->name .' '. $term->description . '</a></li>';
 	}
 	echo '</ul> <!-- End .catalog-category-list -->';
 

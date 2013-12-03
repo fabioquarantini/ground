@@ -82,37 +82,37 @@ body {
 	font-family: arial;
 }
 
-#container {
+.container {
 	width:960px;
 	margin:0 auto;
 	padding:10px;
 	background-color: #fff;
 }
 
-#main-header {
+.main-header {
 	background-color:#fff;
 	text-align: justify;
 }
- 
-#main-header:after {
+
+.main-header:after {
     content: '';
     display: inline-block;
     width: 100%;
 }
 
-#main-navigation, #site-title {
+#main-navigation, .site-title {
 	display: inline-block;
 	vertical-align: middle;
 }
 
-#site-title {
+.site-title {
 	font-size: 16px;
 	font-weight: normal;
 	text-decoration: none;
 	color: #2D383F;
 }
 
-#site-description {
+.site-description {
 	font-size: 12px;
 }
 
@@ -136,7 +136,7 @@ body {
 	color: green;
 }
 
-#sidebar {
+.sidebar {
 	background-color: #f1ddbb;
 }
 
@@ -165,7 +165,7 @@ footer {
 	height: auto;
 }
 
-.size-auto, 
+.size-auto,
 .size-full,
 .size-large,
 .size-medium,
@@ -493,93 +493,10 @@ html[xmlns] .slides {
 #colorbox,
 #cboxOverlay,
 #cboxWrapper {
-	position:absolute;
-	top:0;
-	left:0;
-	z-index:9999;
-	overflow:hidden;
-}
-
-#cboxOverlay {
-	position:fixed;
-	width:100%;
-	height:100%;
-}
-
-#cboxMiddleLeft,
-#cboxBottomLeft {
-	clear:left;
-}
-
-#cboxContent {
-	position:relative;
-}
-
-#cboxLoadedContent {
-	overflow:auto;
-}
-
-#cboxLoadingOverlay,
-#cboxLoadingGraphic {
-	position:absolute; top:0; left:0; width:100%; height:100%;
-}
-
-#cboxPrevious,
-#cboxNext,
-#cboxClose,
-#cboxSlideshow {
-	cursor:pointer;
-}
-
-#colorbox img { max-width: none;}
-
-.cboxPhoto {
-	display:block;
-	float:left;
-	margin:auto;
-	border:0;
-	-webkit-animation:fadePhoto 1s;
-	-moz-animation:fadePhoto 1s;
-	-ms-animation:fadePhoto 1s;
-	-o-animation:fadePhoto 1s;
-	animation:fadePhoto 1s;
-	-webkit-animation-fill-mode: forwards;
-	-moz-animation-fill-mode: forwards;
-	-ms-animation-fill-mode: forwards;
-	-o-animation-fill-mode: forwards;
-	animation-fill-mode: forwards;
-}
-
-@-moz-keyframes fadePhoto {
-	0% { opacity: 0;}
-	100% { opacity: 1;}
-}
-
-@-webkit-keyframes fadePhoto {
-	0% { opacity: 0;}
-	100% { opacity: 1;}
-}
-
-@keyframes fadePhoto {
-	0% { opacity: 0;}
-	100% { opacity: 1;}
-}
-
-.cboxIframe {
-	display:block;
-	width:100%;
-	height:100%;
-	border:0;
-}
-
-#cboxOverlay {
-	background-color:#000;
-}
-
-#colorbox {
-	-webkit-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-	-moz-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 9999;
 }
 
 #colorbox:active,
@@ -587,105 +504,105 @@ html[xmlns] .slides {
 	outline: none;
 }
 
-#cboxContent {
-	overflow:hidden;
-	border:0 solid #fff;
-	background:#fff;
-}
-
-.cboxIframe {
-	background:#fff;
-}
-
-#cboxError {
-	padding:50px;
-	border:1px solid #ccc;
-}
-
-#cboxLoadingGraphic{
-	background:url("img/loading.gif") center center no-repeat;
+#cboxOverlay {
+	background-color: #000;
+	position: fixed;
+	width: 100%;
+	height: 100%;
 }
 
 
-/* Custom colorbox style */
+/* Photo content */
+
+.cboxPhoto {
+	display: block;
+	margin: 0 auto;
+	border: 0;
+}
+
+
+/* Title */
 
 #cboxTitle {
-	position:absolute;
-	bottom:6px;
-	left:0;
-	display: none !important;
-	margin: 0;
-	width:100%;
-	color:#949494;
-	text-align:center;
+	position: absolute;
+	bottom: -30px;
+	left: 0;
+	width: 100%;
+	color: #ddd;
+	text-align: right;
 }
+
+
+/* Current image*/
 
 #cboxCurrent {
-	position:absolute;
-	bottom:6px;
-	left:68px;
-	display: none !important;
-	color:#949494;
+	position: absolute;
+	bottom: -30px;
+	left: 0px;
+	color: #ddd;
 }
+
+
+/* Button */
 
 #colorbox button {
-	position:absolute;
-	bottom: 0;
+	position: absolute;
+	bottom: 0px;
 	width: 28px;
 	height: 28px;
-	border:0;
+	border: 0;
+	opacity: 0;
 	background: #9fa7a9 url("img/colorbox-controls.png") no-repeat;
-	text-indent:-9999px;
-	-webkit-transition:all 0.5s;
-	-moz-transition:all 0.5s;
-	-ms-transition:all 0.5s;
-	-o-transition:all 0.5s;
-	transition:all 0.5s;
+	text-indent: -9999px;
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
 }
 
-.no-touch #colorbox button {
-	bottom: -28px;
+.touch #colorbox button {
+	opacity: 1;
 }
 
-.no-touch #colorbox:hover button {
-	bottom: 0;
+#colorbox:hover button {
+	opacity: 1;
 }
 
 #colorbox #cboxPrevious {
-	left:0;
-	background-position:0 0;
+	right: 56px;
+	background-position: 0 0;
 }
 
+#colorbox #cboxNext {
+	right: 28px;
+	background-position: -28px 0;
+}
+
+#colorbox #cboxNext:hover,
 #colorbox #cboxPrevious:hover {
 	background-color: #788083;
 }
 
-#colorbox #cboxNext {
-	left:28px;
-	background-position:-28px 0;
-}
-
-#colorbox #cboxNext:hover {
-	background-color: #788083;
-}
-
 #colorbox #cboxClose {
-	top: 0;
-	right:0;
+	right: 0;
 	background-color: #788083;
-	background-position:-56px 0;
-}
-
-#colorbox.colorbox-gallery #cboxClose {
-	top: auto;
+	background-position: -56px 0;
 }
 
 #colorbox #cboxClose:hover {
 	background-color: #333;
 }
 
+#cboxPrevious,
+#cboxNext,
+#cboxClose,
 #cboxSlideshow {
-	right:28px;
+	cursor: pointer;
+}
+
+
+/* Slide show button */
+
+#cboxSlideshow {
+	right: 84px;
 }
 
 #cboxSlideshow:hover {
@@ -693,11 +610,55 @@ html[xmlns] .slides {
 }
 
 .cboxSlideshow_off #cboxSlideshow {
-	background-position:-84px 0;
+	background-position: -84px 0;
 }
 
 .cboxSlideshow_on #cboxSlideshow {
-	background-position:-112px 0;
+	background-position: -112px 0;
+}
+
+
+/* Loading */
+
+#cboxLoadingOverlay,
+#cboxLoadingGraphic {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+#cboxLoadingGraphic {
+	background: url("img/loading.gif") center center no-repeat;
+}
+
+/* Content */
+
+#cboxContent {
+	overflow:hidden;
+	border: 0;
+	-webkit-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Iframe */
+
+.cboxIframe {
+	display: block;
+	background: #fff;
+	width: 100%;
+	height: 100%;
+	border: 0;
+}
+
+
+/* Error */
+
+#cboxError {
+	padding: 50px;
+	border: 1px solid #ccc;
 }
 
 
@@ -769,7 +730,7 @@ html[xmlns] .slides {
 	==========================================================================  */
 
 @media only screen and (min-width: 35em) {
-	
+
 }
 
 

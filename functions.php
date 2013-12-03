@@ -15,7 +15,7 @@ define('MY_THEME_FOLDER', get_template_directory_uri() );
 // Customozine backend text editor and login
 require_once('inc/extend-backend.php');
 
-// Register theme support						
+// Register theme support
 require_once('inc/theme-support.php');
 
 
@@ -42,11 +42,11 @@ require_once('inc/shortcode.php');
 	Custom post type
 	==========================================================================  */
 
-// Slideshow
-require_once('inc/slideshows.php');
+// Slider
+require_once('inc/cpt-slide.php');
 
 // Catalog
-require_once('inc/custom-catalog.php');
+require_once('inc/cpt-catalog.php');
 
 
 /*  ==========================================================================

@@ -13,7 +13,6 @@
 	9 - Maintenance mode
 	10 - More buttons in the visual editor
 	11 - Add custom user profile fields
-	12 - Add select filters for customs posts
 
 	==========================================================================  */
 
@@ -35,7 +34,7 @@ add_action('login_head', 'ground_login_css');
 
 /* Change the url of the logo with home url  */
 
-function ground_login_url() { 
+function ground_login_url() {
 
 	return home_url();
 
@@ -45,9 +44,9 @@ add_filter('login_headerurl', 'ground_login_url');
 
 
 /* Change the url of the title with blogname */
-	
+
 function ground_login_title() {
-	
+
 	return get_option('blogname');
 
 }
@@ -66,7 +65,7 @@ function ground_backend_footer_left_text($text) {
 	$my_theme = wp_get_theme();
 	$text = '<span>'. __('Developed by', 'groundtheme') .' '. $my_theme->Author .'</span>';
     return $text;
-	
+
 }
 
 add_filter('admin_footer_text', 'ground_backend_footer_left_text');
@@ -75,11 +74,11 @@ add_filter('admin_footer_text', 'ground_backend_footer_left_text');
 /* Footer right text */
 
 function ground_admin_footer_right_text($text) {
-	
+
 	$my_theme = wp_get_theme();
 	$text = __('Version', 'groundtheme') .' '. $my_theme->Version ;
 	return $text;
-		
+
 }
 
 add_filter('update_footer', 'ground_admin_footer_right_text', 11);
@@ -94,7 +93,7 @@ add_filter('update_footer', 'ground_admin_footer_right_text', 11);
 function ground_editor_styles() {
 
 	add_editor_style( 'editor-style.css' );
-	
+
 }
 
 add_action( 'init', 'ground_editor_styles' );
@@ -103,7 +102,7 @@ add_action( 'init', 'ground_editor_styles' );
 /* Remove p around img*/
 
 function ground_remove_p_around_img($content) {
-		
+
 	return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
 
 }
@@ -114,7 +113,7 @@ function ground_remove_p_around_img($content) {
 /* Remove width and height for responsive template */
 
 function ground_image_responsive( $html ) {
-	
+
 	$html = preg_replace( '/(width|height)=\"\d*\"\s/', "", $html );
 	return $html;
 
@@ -135,15 +134,15 @@ add_filter( 'image_send_to_editor', 'ground_image_responsive', 10 );
 	==========================================================================  */
 
 function ground_rss_post_thumbnail($content) {
-	
+
 	global $post;
 	if( has_post_thumbnail($post->ID) ) {
-		
+
 		$content = '<p class="thumbnail-rss">' . get_the_post_thumbnail($post->ID, 'thumbnail') . '</p>' . $content;
 		return $content;
-		
+
 	}
-	
+
 }
 
 add_filter('the_content_feed', 'ground_rss_post_thumbnail');
@@ -159,7 +158,7 @@ function ground_media_pdf_filter( $post_mime_types ) {
 
 	$post_mime_types['application/pdf'] = array( __('PDF','groundtheme'), __('Manage PDFs','groundtheme'), _n_noop( 'PDF <span class="count">(%s)</span>', 'PDF <span class="count">(%s)</span>' ) );
 	return $post_mime_types;
-		
+
 }
 
 add_filter( 'post_mime_types', 'ground_media_pdf_filter' );
@@ -172,7 +171,7 @@ add_filter( 'post_mime_types', 'ground_media_pdf_filter' );
 /* Remove wp logo in the admin bar */
 
 function ground_remove_wp_logo_admin_bar( $wp_admin_bar ) {
-		
+
 	$wp_admin_bar->remove_node( 'wp-logo' );
 
 }
@@ -187,20 +186,20 @@ function ground_remove_wp_logo_admin_bar( $wp_admin_bar ) {
 /* Remove menu links */
 
 function ground_remove_menu_links() {
-	
-	remove_menu_page('index.php');										// Dashboard
-	remove_menu_page('edit.php');										// Posts
-	remove_menu_page('upload.php');										// Media
-	remove_menu_page('link-manager.php');								// Links
-	remove_menu_page('edit.php?post_type=page');						// Pages
-	remove_menu_page('edit-comments.php');								// Comments
-	remove_menu_page('themes.php');										// Appearance
-	remove_menu_page('plugins.php');									// Plugins
-	remove_menu_page('users.php');										// Users
-	remove_menu_page('tools.php');										// Tools
-	remove_menu_page('options-general.php');							// Settings
-	remove_submenu_page('themes.php','theme-editor.php');				// Sottomenu
-	
+
+	remove_menu_page('index.php');							// Dashboard
+	remove_menu_page('edit.php');							// Posts
+	remove_menu_page('upload.php');							// Media
+	remove_menu_page('link-manager.php');					// Links
+	remove_menu_page('edit.php?post_type=page');			// Pages
+	remove_menu_page('edit-comments.php');					// Comments
+	remove_menu_page('themes.php');							// Appearance
+	remove_menu_page('plugins.php');						// Plugins
+	remove_menu_page('users.php');							// Users
+	remove_menu_page('tools.php');							// Tools
+	remove_menu_page('options-general.php');				// Settings
+	remove_submenu_page('themes.php','theme-editor.php');	// Submenu
+
 }
 
 // add_action( 'admin_menu', 'ground_remove_menu_links' );
@@ -230,7 +229,7 @@ function ground_remove_themes_no_admin() {
 /* Disable dashboard widgets ( use id selector ) */
 
 function ground_disable_default_dashboard_widgets() {
-	
+
 	remove_meta_box('dashboard_right_now', 'dashboard', 'core');    							// Right Now Widget
 	remove_meta_box('dashboard_recent_comments', 'dashboard', 'core'); 							// Comments Widget
 	remove_meta_box('dashboard_incoming_links', 'dashboard', 'core'); 							// Incoming Links Widget
@@ -251,13 +250,13 @@ add_action('admin_menu', 'ground_disable_default_dashboard_widgets');
 function ground_dashboard_widget_function() {
 
 	echo "<p>" . __( 'Reminder dashboard widget text example', 'groundtheme' ) . "</p>";
-	
+
 }
 
 function ground_add_dashboard_widgets() {
 
 	wp_add_dashboard_widget('wp_dashboard_widget', __( 'Reminder', 'groundtheme' ) , 'ground_dashboard_widget_function');
-	
+
 }
 
 // add_action('wp_dashboard_setup', 'ground_add_dashboard_widgets' );
@@ -267,27 +266,34 @@ function ground_add_dashboard_widgets() {
 	9 - Maintenance mode
 	==========================================================================  */
 
+/* Maintenance mode message */
+
 function ground_maintenance_notice(){
-		
+
 	echo '<div class="error"><p>' . __( 'Caution: Maintenance mode is <strong>active</strong>!', 'groundtheme' ) . '</p></div>';
-	
+
 }
 
+
+/* If maintenance mode is active page will be redirected to the template */
+
 function ground_maintenance_mode_redirect() {
-		
+
 	global $wp;
-	include(TEMPLATEPATH . "/maintenance-mode.php");
+	get_template_part("template-maintenance-mode");
 	die();
 
 }
 
 
+/* If theme customizer is true show message or redirect to template */
+
 if( get_option( 'maintenance_option' ) == true ) {
 
-	if (!is_user_logged_in()) {
-		add_action( 'template_redirect', 'ground_maintenance_mode_redirect' );	
-	} else {
+	if (is_user_logged_in()) {
 		add_action('admin_notices', 'ground_maintenance_notice');
+	} else {
+		add_action( 'template_redirect', 'ground_maintenance_mode_redirect' );
 	}
 
 }
@@ -328,41 +334,5 @@ function ground_user_fields( $contactmethods ) {
 }
 
 add_filter('user_contactmethods','ground_user_fields');
-
-
-/*  ==========================================================================
-	12 - Add select filters for customs posts
-	==========================================================================  */
-
-function ground_admin_custom_filter() {
-
-	global $typenow;
-
-	if ( $typenow == 'slideshows' || $typenow == 'custom_catalog' ) {
-
-		// Create an array of taxonomy slugs you want to filter by
-		//$filters = array('plants', 'animals', 'insects');
-		$filters = get_taxonomies();
-
-		foreach ( $filters as $tax_slug ) {
-			// retrieve the taxonomy object
-			$tax_obj = get_taxonomy( $tax_slug );
-			$tax_name = $tax_obj->labels->name;
-			// retrieve array of term objects per taxonomy
-			$terms = get_terms( $tax_slug );
-
-			// output html for taxonomy dropdown filter
-			echo "<select name='$tax_slug' id='$tax_slug' class='postform'>";
-			echo "<option value=''>$tax_name</option>";
-			foreach ( $terms as $term ) {
-				// output each select option line, check against the last $_GET to show the current option selected
-				echo '<option value='. $term->slug, $_GET[$tax_slug] == $term->slug ? ' selected="selected"' : '', '>' . $term->name .' (' . $term->count .')</option>';
-			}
-			echo "</select>";
-		}
-	}
-}
-
-add_action( 'restrict_manage_posts', 'ground_admin_custom_filter' );
 
 ?>

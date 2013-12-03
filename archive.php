@@ -1,58 +1,60 @@
 <?php /* The template for displaying archive pages. */
+get_header();
+ ?>
 
-$curauth = (get_query_var('author_name')) ? get_user_by('slug', get_query_var('author_name')) : get_userdata(get_query_var('author'));
-get_header(); ?>
+	<section class="content">
 
-	<section id="content">
+		<?php if ( have_posts() ) : ?>
 
-		<h1>
-			<?php if (is_category()) { ?>
-				
-				<span><?php _e("Posts categorized:", "groundtheme"); ?></span> <?php single_cat_title(); ?>
-			
-			<?php } elseif (is_tag()) { ?> 
+			<h1>
+				<?php if (is_category()) { ?>
 
-				<span><?php _e("Posts tagged:", "groundtheme"); ?></span> <?php single_tag_title(); ?>
+					<span><?php _e("Posts categorized:", "groundtheme"); ?></span> <?php single_cat_title(); ?>
 
-			<?php } elseif (is_author()) { 
-				global $post;
-				$author_id = $post->post_author;
-			?>
-				<span><?php _e("Posts by:", "groundtheme"); ?></span> <?php echo $curauth->display_name; ?>
+				<?php } elseif (is_tag()) { ?>
 
-			<?php } elseif (is_day()) { ?>
+					<span><?php _e("Posts tagged:", "groundtheme"); ?></span> <?php single_tag_title(); ?>
 
-				<span><?php _e("Daily archives:", "groundtheme"); ?></span> <?php the_time('l, F j, Y'); ?>
+				<?php } elseif (is_author()) {
+					global $post;
+					$curauth = (get_query_var('author_name')) ? get_user_by('slug', get_query_var('author_name')) : get_userdata(get_query_var('author'));
+					$author_id = $post->post_author;
+				?>
+					<span><?php _e("Posts by:", "groundtheme"); ?></span> <?php echo $curauth->display_name; ?>
 
-			<?php } elseif (is_month()) { ?>
+				<?php } elseif (is_day()) { ?>
 
-				<span><?php _e("Monthly archives:", "groundtheme"); ?></span> <?php the_time('F Y'); ?>
+					<span><?php _e("Daily archives:", "groundtheme"); ?></span> <?php the_time('l, F j, Y'); ?>
 
-			<?php } elseif (is_year()) { ?>
+				<?php } elseif (is_month()) { ?>
 
-				<span><?php _e("Yearly archives:", "groundtheme"); ?></span> <?php the_time('Y'); ?>
+					<span><?php _e("Monthly archives:", "groundtheme"); ?></span> <?php the_time('F Y'); ?>
 
-			<?php } elseif (is_year()) { 
+				<?php } elseif (is_year()) { ?>
 
-				_e("Archive", "groundtheme");
+					<span><?php _e("Yearly archives:", "groundtheme"); ?></span> <?php the_time('Y'); ?>
 
-			} ?>
-		</h1>
+				<?php } else {
 
-		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-					
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
-			
+					_e("Archive", "groundtheme");
+
+				} ?>
+			</h1>
+
+			<?php while ( have_posts() ) : the_post(); ?>
+
+			<article class="post-<?php the_ID(); ?>" <?php post_class(); ?> >
+
 				<h2><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-						
-					<?php 
+
+					<?php
 						if ( has_post_thumbnail() ) {
 							the_post_thumbnail( 'thumb-medium', array( 'class' => 'thumb-post' ) );
 						} else {
 							echo '<img src="'.MY_THEME_FOLDER.'/img/no-photo.jpg" class="thumb-post" />';
 						}
 					?>
-					
+
 					<?php the_content( __('Read more...', 'groundtheme') ); ?>
 
 			</article> <!-- End article -->
@@ -64,14 +66,12 @@ get_header(); ?>
 				<?php } ?>
 
 			<?php else : ?>
-				
-				<article id="post-<?php the_ID(); ?>" <?php post_class('post-not-found'); ?>>
-					<h1><?php _e("Post not found!", "groundtheme"); ?></h1>
-				</article> <!-- End .post-not-found -->
-						
+
+				<?php get_template_part( 'content', 'none' ); ?>
+
 		<?php endif; ?>
-			
-	</section> <!-- end #content -->
+
+	</section> <!-- End .content -->
 
 	<?php get_sidebar(); ?>
 

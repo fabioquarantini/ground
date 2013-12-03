@@ -1,23 +1,23 @@
 <?php get_header(); ?>
 
-	<section id="content">
+	<section class="content">
 
 		<h1><?php _e("Search results:", "groundtheme"); ?></h1>
 
 		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-					
+
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
-			
+
 				<h2><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-						
-					<?php 
+
+					<?php
 						if ( has_post_thumbnail() ) {
 							the_post_thumbnail( 'thumb-medium', array( 'class' => 'thumb-post' ) );
 						} else {
 							echo '<img src="'.MY_THEME_FOLDER.'/img/no-photo.jpg" class="thumb-post" />';
 						}
 					?>
-					
+
 					<?php the_content( __('Read more...', 'groundtheme') ); ?>
 
 			</article> <!-- End article -->
@@ -29,14 +29,12 @@
 				<?php } ?>
 
 			<?php else : ?>
-				
-				<article id="post-<?php the_ID(); ?>" <?php post_class('post-not-found'); ?>>
-					<h1><?php _e("Post not found!", "groundtheme"); ?></h1>
-				</article> <!-- End .post-not-found -->
-						
+
+				<?php get_template_part( 'content', 'none' ); ?>
+
 		<?php endif; ?>
-			
-	</section> <!-- end #content -->
+
+	</section> <!-- End .content -->
 
 	<?php get_sidebar(); ?>
 
