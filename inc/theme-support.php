@@ -9,6 +9,7 @@
 	5 - Localization
 	6 - Activate shortcodes in widgets sidebar
 	7 - Change JPEG Compression
+	8 - Add excerpt support for pages
 
 	==========================================================================  */
 
@@ -18,7 +19,7 @@
 	==========================================================================  */
 
 if ( ! isset( $content_width ) ) {												// Set content width value based on the theme's design
-	
+
 	if(get_option( 'maintenance_option' )) {
 		$content_width = get_option( 'maintenance_option' );
 	} else {
@@ -29,14 +30,14 @@ if ( ! isset( $content_width ) ) {												// Set content width value based o
 
 
 function ground_theme_support() {
-	
+
 	if ( function_exists( 'add_theme_support' ) ) {
-		
+
 		global $wp_version;
 
-		add_theme_support('post-thumbnails');									// Activate featured image. Only activate in post "add_theme_support( 'post-thumbnails', array( 'post', 'page', 'movie' ) );" 
+		add_theme_support('post-thumbnails');									// Activate featured image. Only activate in post "add_theme_support( 'post-thumbnails', array( 'post', 'page', 'movie' ) );"
 		set_post_thumbnail_size( 150, 150, true);								// Set the default featured image dimensions
-		
+
 		add_theme_support( 'automatic-feed-links' );							// This feature enables post and comment RSS feed links to head
 
 		$markup = array(
@@ -47,7 +48,7 @@ function ground_theme_support() {
 		add_theme_support( 'html5', $markup );									// Add theme support for Semantic Markup
 
 		add_theme_support( 'menus' );											// Wp menu
-		
+
 		$formats = array(
 			'aside',
 			'gallery',
@@ -99,14 +100,14 @@ add_action('after_setup_theme','ground_theme_support');
 /* Register nav */
 
 function register_my_menus() {
-	
+
 	$locations = array(
 		'main-nav'		=> __( 'Main nav', 'groundtheme' ),						// Main nav
 		'secondary-nav'	=> __( 'Secondary nav', 'groundtheme' )					// Secondary nav
 	);
-	
-	register_nav_menus( $locations );	
-	
+
+	register_nav_menus( $locations );
+
 }
 
 add_action('init', 'register_my_menus');
@@ -172,7 +173,7 @@ function ground_secondary_nav($menuClass = "navigation") {
 	==========================================================================  */
 
 function ground_register_sidebars() {
-	
+
 	$args = array(
 		'name'				=> __('Sidebar title 1', 'groundtheme'),
 		'id'				=> 'sidebar-1',
@@ -182,10 +183,10 @@ function ground_register_sidebars() {
 		'before_title'		=> '<h4 class="widgettitle">',
 		'after_title'		=> '</h4>',
 	);
-	
+
 	register_sidebar( $args );
-	
-	
+
+
 	$args2 = array(
 		'name'				=> __('Sidebar title 2', 'groundtheme'),
 		'id'				=> 'sidebar-2',
@@ -196,9 +197,9 @@ function ground_register_sidebars() {
 		'before_title'		=> '<h4 class="widget-title">',
 		'after_title'		=> '</h4>',
 	);
-	
+
 	register_sidebar( $args2 );
-	
+
 }
 
 add_action( 'widgets_init', 'ground_register_sidebars' );
@@ -208,29 +209,29 @@ add_action( 'widgets_init', 'ground_register_sidebars' );
 	4 - Thumbnails size
 	==========================================================================  */
 
-if ( function_exists( 'add_image_size' ) ) { 
+if ( function_exists( 'add_image_size' ) ) {
 
 	add_image_size( 'thumb-slideshows', 960, 320, true );	// (name, width, height, crop)
 	add_image_size( 'thumb-medium', 600, 150, true );		// (name, width, height, crop)
 	add_image_size( 'thumb-small-nocrop', 300, 100 );		// Without crop
 	add_image_size( 'fullsize', '', '', true );				// Full size
-	
-	
+
+
 	/* Add thumbnails size in add media select */
-	
+
 	function thumbnail_select( $sizes ) {
-			
+
 		$custom_sizes = array(
 			'thumb-medium'			=> '600 x 150 thumb',
-			'thumb-small-nocrop'	=> '300 x 100 thumb' 
+			'thumb-small-nocrop'	=> '300 x 100 thumb'
 		);
-		
+
 		return array_merge( $sizes, $custom_sizes );
-		
+
 	}
-	
+
 	add_filter( 'image_size_names_choose', 'thumbnail_select' );
-	
+
 }
 
 
@@ -241,7 +242,7 @@ if ( function_exists( 'add_image_size' ) ) {
 function localization_setup(){
 
 	load_theme_textdomain( 'groundtheme', get_template_directory() . '/languages' );
-	
+
 }
 
 add_action('after_setup_theme', 'localization_setup');
@@ -260,5 +261,18 @@ add_filter('widget_text', 'do_shortcode');
 
 add_filter( 'jpeg_quality', create_function( '', 'return 90;' ) );		// default 100
 
+
+/*  ==========================================================================
+	8 - Add excerpt support for pages
+	==========================================================================  */
+
+
+function ground_page_excerpt() {
+
+	add_post_type_support( 'page', 'excerpt' );
+
+}
+
+add_action( 'init', 'ground_page_excerpt' );
 
 ?>
