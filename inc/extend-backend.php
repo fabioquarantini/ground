@@ -242,20 +242,20 @@ function ground_disable_default_dashboard_widgets() {
 
 }
 
-add_action('admin_menu', 'ground_disable_default_dashboard_widgets');
+//add_action('admin_menu', 'ground_disable_default_dashboard_widgets');
 
 
 /* Custom widget */
 
 function ground_dashboard_widget_function() {
 
-	echo "<p>" . __( 'Reminder dashboard widget text example', 'groundtheme' ) . "</p>";
+	echo "<p>" . __( 'Widget text example', 'groundtheme' ) . "</p>";
 
 }
 
 function ground_add_dashboard_widgets() {
 
-	wp_add_dashboard_widget('wp_dashboard_widget', __( 'Reminder', 'groundtheme' ) , 'ground_dashboard_widget_function');
+	wp_add_dashboard_widget('wp_dashboard_widget', __( 'Custom widget', 'groundtheme' ) , 'ground_dashboard_widget_function');
 
 }
 
