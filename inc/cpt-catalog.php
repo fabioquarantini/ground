@@ -52,7 +52,7 @@ function ground_register_catalog_post_type() {
 		'show_in_nav_menus'		=> true,
 		'show_in_admin_bar'		=> true,
 		'menu_position'			=> 5,
-		'menu_icon'				=> MY_THEME_FOLDER . '/img/custom-post-icon.png',
+		'menu_icon'				=> 'dashicons-welcome-add-page',
 		'can_export'			=> true,
 		'has_archive'			=> true,
 		'exclude_from_search'	=> false,

@@ -51,7 +51,7 @@ function ground_register_slide_post_type() {
 		'show_in_nav_menus'		=> false,
 		'show_in_admin_bar'		=> true,
 		'menu_position'			=> 5,
-		'menu_icon'				=> MY_THEME_FOLDER . '/img/slide-icon.png',
+		'menu_icon'				=> 'dashicons-images-alt2',
 		'can_export'			=> true,
 		'has_archive'			=> false,
 		'exclude_from_search'	=> true,
