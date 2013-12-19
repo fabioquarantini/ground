@@ -161,12 +161,12 @@ function ground_thumb_post_pagination($next, $prev) {
 
 
 /*  ==========================================================================
-	3 - Excerpt : ground_excerpt( 100, __('Read more', 'groundtheme') );
+	3 - Excerpt : ground_excerpt( 100, __('Read more', 'groundtheme'), '...', );
 	==========================================================================  */
 
 /* Customize excerpt lenght */
 
-function ground_excerpt($charlength, $word) {
+function ground_excerpt($charlength, $word, $continue = '...') {
 
 	global $post;
 	$excerpt = get_the_excerpt();
@@ -182,7 +182,7 @@ function ground_excerpt($charlength, $word) {
 		} else {
 			echo $subex;
 		}
-		echo ' ... <a href="'. get_permalink($post->ID) .'" title="'. $word .' '.get_the_title($post->ID).'">'. $word .'</a>';
+		echo $continue .'<a href="'. get_permalink($post->ID) .'" title="'. $word .' '.get_the_title($post->ID).'">'. $word .'</a>';
 
 	} else {
 

@@ -33,8 +33,7 @@
 
 				<?php the_content( __('Read more...', 'groundtheme') ); ?>
 
-				<?php ground_excerpt( 100, __('Read more', 'groundtheme') ); ?>
-
+				<p><?php ground_excerpt( 100, __('Read more', 'groundtheme'), '...'); ?></p>
 
 			</article> <!-- End article -->
 
