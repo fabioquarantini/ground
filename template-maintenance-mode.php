@@ -15,5 +15,5 @@ header( 'Retry-After: 600' );
 <?php get_header(); ?>
 <section class="content">
 	<h1><?php _e("Maintenance mode", "groundtheme"); ?></h1>
-</section>
+</section>  <!-- End .content -->
 <?php get_footer(); ?>

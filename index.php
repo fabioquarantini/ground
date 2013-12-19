@@ -40,7 +40,7 @@
 		<?php endwhile; ?>
 
 			<?php if (function_exists('ground_basic_pagination')) { ?>
-				<?php ground_basic_pagination( __('&laquo; Previuos', "groundtheme") , __('Next &raquo;', "groundtheme") ); ?>
+				<?php ground_basic_pagination(); ?>
 			<?php } ?>
 
 		<?php else : ?>

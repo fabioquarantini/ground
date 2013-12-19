@@ -55,7 +55,7 @@
 
 		<?php endwhile; ?>
 
-			<?php ground_thumb_post_pagination( __("Next article &raquo;", "groundtheme") , __("&laquo; Previus article", "groundtheme") ); ?>
+			<?php ground_thumb_pagination( __("&laquo; Previus article", "groundtheme") , __("Next article &raquo;", "groundtheme") ); ?>
 
 		<?php else : ?>
 

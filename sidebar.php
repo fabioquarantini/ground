@@ -1,8 +1,8 @@
 <aside class="sidebar">
 
-	<?php ground_custom_category_menu('ground_catalog', 'ground_catalog_taxonomy'); ?>
+	<?php ground_cpt_list_categories('ground_catalog', 'ground_catalog_taxonomy'); ?>
 
-	<?php ground_child_menu(); ?>
+	<?php ground_hierarchy_list_pages(); ?>
 
 	<?php get_search_form(); ?>
 
