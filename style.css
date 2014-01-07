@@ -78,7 +78,6 @@ textarea {
 	==========================================================================  */
 
 body {
-	background-color: #333;
 	font-family: arial;
 }
 
@@ -136,8 +135,17 @@ body {
 	color: green;
 }
 
+.content {
+	display: inline-block;
+	width: 78%;
+	vertical-align: top;
+}
+
 .sidebar {
 	background-color: #f1ddbb;
+	display: inline-block;
+	width: 20%;
+	vertical-align: top;
 }
 
 .post {

@@ -25,7 +25,7 @@
 
 function ground_login_css() {
 
-	echo '<style type="text/css">.login h1 a { background:url("'. MY_THEME_FOLDER .'/img/ground-login.png") no-repeat top center; width:326px; height:67px;</style>';
+	echo '<style type="text/css">.login h1 a { background:url("' . MY_THEME_FOLDER . '/img/ground-login.png") no-repeat top center; width:326px; height:67px;</style>';
 
 }
 
@@ -63,7 +63,7 @@ add_filter('login_headertitle', 'ground_login_title');
 function ground_backend_footer_left_text($text) {
 
 	$my_theme = wp_get_theme();
-	$text = '<span>'. __('Developed by', 'groundtheme') .' '. $my_theme->Author .'</span>';
+	$text = '<span>' . __('Developed by', 'groundtheme') . ' ' . $my_theme->Author . '</span>';
     return $text;
 
 }
@@ -76,7 +76,7 @@ add_filter('admin_footer_text', 'ground_backend_footer_left_text');
 function ground_admin_footer_right_text($text) {
 
 	$my_theme = wp_get_theme();
-	$text = __('Version', 'groundtheme') .' '. $my_theme->Version ;
+	$text = __('Version', 'groundtheme') . ' ' . $my_theme->Version ;
 	return $text;
 
 }

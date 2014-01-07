@@ -15,10 +15,11 @@
 	1 - Mail antispambot [email]you@you.com[/email]
 	==========================================================================  */
 
-function ground_emailbot( $atts, $content ) {
-
-	return '<a href="'.antispambot("mailto:".$content).'" class="mail-">'.antispambot($content).'</a>';
-
+function ground_emailbot( $atts, $content = null ) {
+	if ( ! is_email ($content) ) {
+		return;
+	}
+	return '<a href="mailto:' . antispambot($content) . '" class="mail" >' . antispambot($content) . '</a>';
 }
 
 add_shortcode( 'email', 'ground_emailbot' );
@@ -28,7 +29,7 @@ add_shortcode( 'email', 'ground_emailbot' );
 	2 - Google maps [googlemaps width="200" height="200" src="[url]"] or [googlemaps src="google_map_url"]
 	==========================================================================  */
 
-function ground_maps($atts, $content = null) {
+function ground_maps( $atts, $content = null ) {
 
 	$args = array(
 		"width"		=> '640',
@@ -38,7 +39,7 @@ function ground_maps($atts, $content = null) {
 
 	extract(shortcode_atts( $args , $atts));
 
-	return '<iframe width="'.$width.'" height="'.$height.'" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="'.$src.'&amp;output=embed"></iframe>';
+	return '<iframe width="' . $width . '" height="' . $height . '" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="' . $src . '&amp;output=embed"></iframe>';
 
 }
 
@@ -49,7 +50,7 @@ add_shortcode("googlemaps", "ground_maps");
 	3 - Button [button href="link" target="_self|_blank"]text[/button]
 	==========================================================================  */
 
-function ground_button( $atts, $content=null ) {
+function ground_button( $atts, $content = null ) {
 
 	$args = array(
 		'href'		=> '',
@@ -58,7 +59,7 @@ function ground_button( $atts, $content=null ) {
 
 	extract( shortcode_atts( $args , $atts ) );
 
-	return '<a href="'.$href.'" target="'.$target.'" class="button">'.do_shortcode($content).'</a>';
+	return '<a href="' . $href . '" target="' . $target . '" class="button">' . do_shortcode($content) . '</a>';
 
 }
 
@@ -69,9 +70,9 @@ add_shortcode('button', 'ground_button');
 	4 - Tag <pre> [pre]content[/pre]
 	==========================================================================  */
 
-function ground_pre( $atts, $content=null ) {
+function ground_pre( $atts, $content = null ) {
 
-	return '<pre>'.do_shortcode($content).'</pre>';
+	return '<pre>' . do_shortcode($content) . '</pre>';
 
 }
 

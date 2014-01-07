@@ -17,7 +17,7 @@
 	1 - Excerpt custom lenght : ground_excerpt( 100, __('Read more', 'groundtheme'), '...', );
 	==========================================================================  */
 
-function ground_excerpt($charlength, $word, $continue = '...') {
+function ground_excerpt( $charlength, $word, $continue = '...' ) {
 
 	global $post;
 	$excerpt = get_the_excerpt();
@@ -33,7 +33,7 @@ function ground_excerpt($charlength, $word, $continue = '...') {
 		} else {
 			echo $subex;
 		}
-		echo $continue .'<a href="'. get_permalink($post->ID) .'" title="'. $word .' '.get_the_title($post->ID).'">'. $word .'</a>';
+		echo $continue . '<a href="' . get_permalink($post->ID) . '" title="' . $word . ' ' . get_the_title($post->ID) . '">' . $word . '</a>';
 
 	} else {
 		echo $excerpt;
@@ -132,23 +132,23 @@ function ground_thumb_pagination( $prev, $next, $excerpt ) {
 
 	global $post;
 
-	$prevPost = get_previous_post(true);
-	$nextPost = get_next_post(true);
+	$prev_post = get_previous_post(true);
+	$next_post = get_next_post(true);
 
-	if ( $prevPost || $nextPost ) {
+	if ( $prev_post || $next_post ) {
 
 		echo '<ul class="thumb-pagination">';
 
-		if( $prevPost ) {
+		if( $prev_post ) {
 
 			$args = array(
 				'posts_per_page' => 1,
-				'include' => $prevPost->ID
+				'include' => $prev_post->ID
 			);
 
-			$prevPost = get_posts($args);
+			$prev_post = get_posts($args);
 
-			foreach ( $prevPost as $post ) {
+			foreach ( $prev_post as $post ) {
 				setup_postdata($post); ?>
 
 				<li class="post-prev">
@@ -164,16 +164,16 @@ function ground_thumb_pagination( $prev, $next, $excerpt ) {
 
 		}
 
-		if( $nextPost ) {
+		if( $next_post ) {
 
 			$args = array(
 				'posts_per_page' => 1,
-				'include' => $nextPost->ID
+				'include' => $next_post->ID
 			);
 
-			$nextPost = get_posts($args);
+			$next_post = get_posts($args);
 
-			foreach ( $nextPost as $post ) {
+			foreach ( $next_post as $post ) {
 				setup_postdata($post); ?>
 
 				<li class="post-next">
@@ -262,16 +262,16 @@ class Ground_Selective_Page_Hierarchy extends Walker_Page {
 
 /* Selective page menu */
 
-function ground_hierarchy_list_pages( $cssClass = 'hierarchy-pages' ) {
+function ground_hierarchy_list_pages( $css_class = 'hierarchy-pages' ) {
 
 	global $post;
 
 	$parent = array_reverse( get_post_ancestors($post->ID) );
-	$child_ID = $post->ID;
+	$child_id = $post->ID;
 
 	if( count($parent) > 0 ) {
 		$first_parent = get_page($parent[0]);
-		$child_ID = $first_parent->ID;
+		$child_id = $first_parent->ID;
 	}
 
 	$walker = new Ground_Selective_Page_Hierarchy();
@@ -280,7 +280,7 @@ function ground_hierarchy_list_pages( $cssClass = 'hierarchy-pages' ) {
 		'depth'			=> 0,
 		'show_date'		=> '',
 		'date_format'	=> get_option('date_format'),
-		'child_of'		=> $child_ID,
+		'child_of'		=> $child_id,
 		'exclude'		=> '',
 		'include'		=> '',
 		'title_li'		=> '',
@@ -294,15 +294,15 @@ function ground_hierarchy_list_pages( $cssClass = 'hierarchy-pages' ) {
 		'post_status'	=> 'publish'
 	);
 
-	if ( empty($cssClass)) {
-		$str = '<ul>';
+	if ( empty( $css_class )) {
+		$container = '<ul>';
 	} else {
-		$str = '<ul class="' . $cssClass . '">';
+		$container = '<ul class="' . $css_class . '">';
 	}
 
-	echo $str;
+	echo $container;
 	wp_list_pages($args);
-	echo '</ul> <!-- End .' .$cssClass. ' -->';
+	echo '</ul> <!-- End .' . $css_class . ' -->';
 
 }
 
@@ -311,22 +311,22 @@ function ground_hierarchy_list_pages( $cssClass = 'hierarchy-pages' ) {
 	7 - Cpt list category: ground_cpt_list_categories('nameofcustomposttype', nameofcustomcategory', 'css-class');
 	==========================================================================  */
 
-function ground_cpt_list_categories( $customPostType = '', $customCategory ='', $cssClass = 'category-nav' ) {
+function ground_cpt_list_categories( $custom_postType = '', $custom_category ='', $css_class = 'category-nav' ) {
 
-	if( is_page_template( 'template-'.$customPostType.'.php' ) ||  $customPostType == get_post_type() ) {
+	if( is_page_template( 'template-' . $custom_postType . '.php' ) ||  $custom_postType == get_post_type() ) {
 
 		global $post;
 		$postType = $post->post_type;
-		$terms = get_the_terms( $post->ID , $customCategory );
-		$termId = 0;
+		$terms = get_the_terms( $post->ID , $custom_category );
+		$term_id = 0;
 
 		//$parent = array_reverse(get_post_ancestors($post->ID));
 		//$first_parent = get_page($parent[0]);
-		//$child_ID = $first_parent->ID;
+		//$child_id = $first_parent->ID;
 
 		if( is_single() && $postType == get_post_type() ) {
 			foreach ( $terms as $term ) {
-				$termId =  $term->term_id;
+				$term_id =  $term->term_id;
 			}
 		}
 
@@ -334,23 +334,23 @@ function ground_cpt_list_categories( $customPostType = '', $customCategory ='', 
 			'orderby'			=> 'name',
 			'show_count'		=> 0,
 			'pad_counts'		=> 0,
-			//'child_of'		=> $child_ID,
+			//'child_of'		=> $child_id,
 			'hide_empty'		=> 1,
 			'hierarchical'		=> 1,
-			'taxonomy'			=> $customCategory,
-			'current_category'	=> $termId,
+			'taxonomy'			=> $custom_category,
+			'current_category'	=> $term_id,
 			'title_li'			=> ''
 		);
 
-		if ( empty($cssClass)) {
-			$str = '<ul>';
+		if ( empty($css_class)) {
+			$container = '<ul>';
 		} else {
-			$str = '<ul class="' . $cssClass . '">';
+			$container = '<ul class="' . $css_class . '">';
 		}
 
-		echo $str;
+		echo $container;
 		wp_list_categories( $args );
-		echo '</ul> <!-- End .' .$cssClass. ' -->';
+		echo '</ul> <!-- End .' . $css_class . ' -->';
 
 	}
 

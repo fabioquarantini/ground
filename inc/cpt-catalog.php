@@ -173,12 +173,11 @@ function ground_register_taxonomy_tag()  {
 // Via http://vayu.dk/highlighting-wp_nav_menu-ancestor-children-custom-post-types/
 
 
-function ground_current_type_nav_class($classes, $item) {
+function ground_current_type_nav_class( $classes, $item ) {
 
 	// Get post_type for this post
 	//$post_type = get_query_var('post_type');
 	$post_type = get_post_type();
-
 
 	// Removes current_page_parent class from blog menu item
 	if ( get_post_type() == $post_type ) {
