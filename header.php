@@ -26,10 +26,6 @@
 
 	<body <?php body_class(); ?> data-path="<?php echo MY_THEME_FOLDER ?>">
 
-		<!--[if lt IE 7]>
-			<p class="browsehappy"><?php _e( 'You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.', 'groundtheme' ); ?></p>
-		<![endif]-->
-
 		<div class="container">
 
 			<header class="main-header">
@@ -39,9 +35,7 @@
 					<h2 class="site-description"><?php bloginfo('description'); ?></h2>
 				</a>
 
-				<?php if( has_nav_menu( 'main-nav' ) ) {
-					ground_main_nav();
-				} ?>
+				<?php ground_main_nav(); ?>
 
 			</header> <!-- End .main-header -->
 
