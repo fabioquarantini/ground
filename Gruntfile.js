@@ -151,8 +151,8 @@ module.exports = function(grunt) {
 				},
 				options: {
 					banner: '<%= ground.banner %>',
-					debugInfo: true,		// enable if you want to use FireSass
-					lineNumbers: true,
+					debugInfo: false,		// enable if you want to use FireSass
+					lineNumbers: false,
 					sourcemap: false,		// Requires Sass 3.3.0, which can be installed with gem install sass --pre
 					style: 'expanded'
 				}
