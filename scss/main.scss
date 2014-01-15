@@ -1,0 +1,169 @@
+/*  ==========================================================================
+	Imports
+	========================================================================== */
+
+@import "partials/variables";
+@import "partials/mixins";
+@import "partials/normalize";
+@import "partials/typography";
+@import "partials/buttons";
+@import "vendor/colorbox";
+@import "vendor/flexslider";
+@import "partials/helpers";
+
+
+/*  ==========================================================================
+	My styles
+	========================================================================== */
+
+html,
+button,
+input,
+select,
+textarea {
+	color: $color-text;
+}
+
+html {
+	font-family: $font-primary;
+	font-size: em($font-base);
+	line-height: $line-height;
+	height:100%;
+}
+
+body {
+	height:100%;
+}
+
+
+/* Remove the gap between images, videos, audio and canvas and the bottom of their containers */
+
+audio,
+canvas,
+img,
+svg,
+video {
+	vertical-align: middle;
+}
+
+ul {
+	margin:0;
+	padding:0;
+}
+
+/* Remove text-shadow in selection highlight */
+
+::selection {
+ 	background: #b3d4fc;
+	text-shadow: none;
+}
+
+
+a {
+	color:$color-link;
+	&:hover {
+		color:$color-hover;
+	}
+}
+
+
+
+/*  ==========================================================================
+	My styles
+	==========================================================================  */
+
+body {
+	font-family: arial;
+}
+
+.container {
+	width:960px;
+	margin:0 auto;
+	padding:10px;
+	background-color: #fff;
+}
+
+.main-header {
+	background-color:#fff;
+	text-align: justify;
+}
+
+.main-header:after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+}
+
+#main-navigation, .site-title {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.site-title {
+	font-size: 16px;
+	font-weight: normal;
+	text-decoration: none;
+	color: #2D383F;
+}
+
+.site-description {
+	font-size: 12px;
+}
+
+#main-navigation li {
+	display: inline-block;
+}
+
+#main-navigation li a {
+	border: 1px solid #ea5848;
+	color: #ea5848;
+	text-decoration: none;
+	padding: 6px;
+	font-weight: bold;
+}
+
+#main-navigation .current_page_item a {
+	color: blue;
+}
+
+#main-navigation .current_page_parent a {
+	color: green;
+}
+
+.content {
+	display: inline-block;
+	width: 78%;
+	vertical-align: top;
+}
+
+.sidebar {
+	background-color: #eee;
+	display: inline-block;
+	width: 20%;
+	vertical-align: top;
+}
+
+.post {
+	background-color: #ec6766;
+}
+
+.current-cat > a {
+	font-weight: bold;
+	color: #000;
+	background-color: blue;
+}
+
+footer {
+	background-color: #999;
+}
+
+
+
+
+/*  ==========================================================================
+	Print styles
+	========================================================================== */
+
+@media print {
+	@import "partials/print";
+}

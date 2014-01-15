@@ -2,6 +2,8 @@
 	Main scripts
 	==========================================================================  */
 
+'use strict';
+
 jQuery.noConflict();
 
 jQuery(document).ready(function($) {
@@ -25,18 +27,18 @@ jQuery(document).ready(function($) {
 
 		modalGallery: function() {
 
-			$(".gallery-icon").find("[href$='.jpg'], [href$='.png'], [href$='.gif']").colorbox({
-				transition: "elastic",
+			$('.gallery-icon').find('[href$=".jpg"], [href$=".png"], [href$=".gif"]').colorbox({
+				transition: 'elastic',
 				speed: 400,
 				opacity: 0.6,
 				slideshow: true,
 				slideshowSpeed: 4000,
 				initialWidth: 50,
 				initialHeight: 50,
-				maxWidth: "90%",
-				maxHeight: "90%",
+				maxWidth: '90%',
+				maxHeight: '90%',
 				rel:'gallery',
-				className: "colorbox-gallery"
+				className: 'colorbox-gallery'
 			});
 
 		},
@@ -47,7 +49,7 @@ jQuery(document).ready(function($) {
 		slider: function() {
 
 			$('.flexslider').flexslider({
-				animation: "slide",
+				animation: 'slide',
 				slideshow: true,
 				slideshowSpeed: 7000,
 				controlNav: true,

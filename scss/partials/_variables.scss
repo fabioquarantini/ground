@@ -1,0 +1,26 @@
+/* Typography */
+
+$line-height: 1.4;
+$font-base: 16;
+
+/* Font stacks */
+
+$font-primary: 'Ubuntu', "Helvetica Neue", Arial, sans-serif;
+$font-secondary: Georgia, Times, serif;
+$font-monospace: Menlo, Monaco, "Courier New", monospace;
+
+
+/* Colors */
+
+$black: #000;
+$grey: #222;
+$dark-grey: #444;
+$white: #fff;
+
+$color-text:$grey;
+$color-link:$grey;
+$color-hover:$dark-grey;
+
+/* Media query*/
+$mq-large: 960;
+$mq-small: 640;
