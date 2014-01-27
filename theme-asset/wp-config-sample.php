@@ -64,17 +64,17 @@ define( 'NONCE_SALT',		'put your unique phrase here' );
 
 define('WPLANG', '');
 // define( 'WPLANG', 'it_IT' );
-// define('WP_LANG_DIR', $_SERVER['DOCUMENT_ROOT'].'wordpress/languages');  // If WP_LANG_DIR is not defined WordPress looks first to wp-content/languages and then wp-includes/languages for the .mo defined by WPLANG file. 
+// define('WP_LANG_DIR', $_SERVER['DOCUMENT_ROOT'].'wordpress/languages');  // If WP_LANG_DIR is not defined WordPress looks first to wp-content/languages and then wp-includes/languages for the .mo defined by WPLANG file.
 
 
 /*  ==========================================================================
 	Debug
 	==========================================================================  */
 
-define( 'WP_DEBUG',			false );	// Display errors and warnings.
+define( 'WP_DEBUG',			false );	// Turn debugging on.
 define( 'WP_DEBUG_LOG',		false );	// Log errors and warnings.(/wp-content/debug.log)
 define( 'SAVEQUERIES',		false );	// Save database queries in an array. if (current_user_can('administrator')){ global $wpdb;  echo "<pre>"; print_r($wpdb->queries);  echo "</pre>"; }
-define( 'WP_DEBUG_DISPLAY',	false );	// Display errors and warnings.
+define( 'WP_DEBUG_DISPLAY',	false );	// Display errors and warnings on your site.
 //@ini_set('display_errors',0);
 
 
@@ -89,9 +89,9 @@ define( 'WP_DEBUG_DISPLAY',	false );	// Display errors and warnings.
 
 /* Defines default location of folders */
 
-// define( 'WP_CONTENT_URL',	'http://example.com/wp-content' );								// Content URL
-// define( 'WP_PLUGIN_URL',		'http://example.com/wp-content/plugins' );						// Plugins URL
-// define( 'UPLOADS',			'/img' );														// Uploads URL 
+// define( 'WP_CONTENT_URL',	'http://example.com/wp-content' );								// Content directory
+// define( 'WP_PLUGIN_URL',		'http://example.com/wp-content/plugins' );						// Plugins directory
+// define( 'UPLOADS',			'/img' );														// Uploads directory
 
 
 /*  ==========================================================================
@@ -104,7 +104,7 @@ define( 'WP_DEBUG_DISPLAY',	false );	// Display errors and warnings.
 /*  ==========================================================================
 	 Disable the plugin and theme editor for security
 	==========================================================================  */
-	
+
  define('DISALLOW_FILE_EDIT', true );
 
 
@@ -120,9 +120,9 @@ define( 'WP_DEBUG_DISPLAY',	false );	// Display errors and warnings.
 	==========================================================================  */
 
 if ( !defined('ABSPATH') ) {
-		
+
 	define('ABSPATH', dirname(__FILE__) . '/');
-	
+
 }
 
 
