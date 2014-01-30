@@ -73,7 +73,7 @@ define('WPLANG', '');
 
 define( 'WP_DEBUG',			false );	// Turn debugging on.
 define( 'WP_DEBUG_LOG',		false );	// Log errors and warnings.(/wp-content/debug.log)
-define( 'SAVEQUERIES',		false );	// Save database queries in an array. if (current_user_can('administrator')){ global $wpdb;  echo "<pre>"; print_r($wpdb->queries);  echo "</pre>"; }
+define( 'SAVEQUERIES',		false );	// Save database queries in an array. Show with: if (current_user_can('administrator')){ global $wpdb;  echo "<pre>"; print_r($wpdb->queries);  echo "</pre>"; }
 define( 'WP_DEBUG_DISPLAY',	false );	// Display errors and warnings on your site.
 //@ini_set('display_errors',0);
 
@@ -83,8 +83,8 @@ define( 'WP_DEBUG_DISPLAY',	false );	// Display errors and warnings on your site
 	==========================================================================  */
 
 
-// define( 'WP_SITEURL',		'http://' . $_SERVER['HTTP_HOST'] . '/path/to/wordpress' );		// Your Wordpress blog/site URI. define('WP_HOME', 'http://' .$_SERVER['HTTP_HOST']. '');
-// define( 'WP_HOME',			'http://' . $_SERVER['HTTP_HOST'] . '/path/to/wordpress' );		// WordPress core files URI. define('WP_SITEURL', 'http://' .$_SERVER['HTTP_HOST']. '');
+// define( 'WP_SITEURL',		'http://' . $_SERVER['HTTP_HOST'] . '/path/to/wordpress' );		// Your Wordpress blog/site URI.
+// define( 'WP_HOME',			'http://' . $_SERVER['HTTP_HOST'] . '/path/to/wordpress' );		// WordPress core files URI.
 
 
 /* Defines default location of folders */
