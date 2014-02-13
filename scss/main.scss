@@ -18,19 +18,12 @@
 	My styles
 	========================================================================== */
 
-html,
-button,
-input,
-select,
-textarea {
-	color: $color-text;
-}
-
 html {
 	font-family: $font-primary;
 	font-size: em($font-base);
 	line-height: $line-height;
 	height:100%;
+	color: $color-text;
 }
 
 body {
