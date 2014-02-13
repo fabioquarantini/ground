@@ -625,7 +625,9 @@ h4 {
   outline: none;
 }
 
-.slides, .flex-control-nav, .flex-direction-nav {
+.slides,
+.flex-control-nav,
+.flex-direction-nav {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -653,7 +655,7 @@ h4 {
 
 /* Clearfix for the .slides element */
 .slides:after {
-  content: ".";
+  content: "\0020";
   display: block;
   clear: both;
   visibility: hidden;
@@ -676,166 +678,147 @@ html[xmlns] .slides {
 
 /* FlexSlider default theme */
 .flexslider {
-  width: 100%;
-  margin: 0px auto;
-  background: #fff;
   position: relative;
+  margin: 0 auto;
+  width: 100%;
+  background: white;
   zoom: 1;
 }
-
-.flex-viewport {
-  max-height: 2000px;
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  transition: all 1s ease;
-}
-
-.loading .flex-viewport {
-  max-height: 300px;
-}
-
 .flexslider .slides {
   zoom: 1;
 }
 
+.flex-viewport {
+  max-height: 125em;
+  transition: all 1s ease;
+}
+
+.loading .flex-viewport {
+  max-height: 18.75em;
+}
+
 .carousel li {
-  margin-right: 5px;
+  margin-right: 0.3125em;
 }
 
 /* Direction Nav */
 .flex-direction-nav {
   *height: 0;
 }
-
 .flex-direction-nav a {
-  width: 30px;
-  height: 30px;
-  margin: -20px 0 0;
-  display: block;
-  background: url("img/flexslider-nav.png") no-repeat 0 0;
   position: absolute;
   top: 50%;
   z-index: 10;
-  cursor: pointer;
-  text-indent: -9999px;
-  opacity: 0;
-  -webkit-transition: all .3s ease;
-  -moz-transition: all .3s ease;
-  -o-transition: all .3s ease;
-  transition: all 0.3s ease;
-}
-
-.flex-direction-nav .flex-next {
-  background-position: 100% 0;
-  right: -36px;
-}
-
-.flex-direction-nav .flex-prev {
-  left: -36px;
-}
-
-.flexslider:hover .flex-next {
-  opacity: .8;
-  right: 5px;
-}
-
-.flexslider:hover .flex-prev {
-  opacity: .8;
-  left: 5px;
-}
-
-.flexslider:hover .flex-next:hover,
-.flexslider:hover .flex-prev:hover {
+  display: block;
+  margin: -1.25em 0 0;
+  width: 1.875em;
+  height: 1.875em;
+  background: url("img/flexslider-nav.png") no-repeat 0 0;
+  text-decoration: none;
+  text-indent: -624.9375em;
   opacity: 1;
+  cursor: pointer;
+  transition: all .3s ease;
 }
-
+.flex-direction-nav .flex-prev {
+  left: 0;
+}
+.flex-direction-nav .flex-next {
+  right: 0;
+  background-position: 100% 0;
+}
 .flex-direction-nav .flex-disabled {
   opacity: 0.3 !important;
   filter: alpha(opacity=30);
   cursor: default;
 }
+@media only screen and (min-width: 60em) {
+  .flex-direction-nav .flex-prev {
+    left: -2.25em;
+    opacity: 0;
+  }
+  .flex-direction-nav .flex-next {
+    right: -2.25em;
+    opacity: 0;
+  }
+}
+
+.flexslider:hover .flex-prev {
+  left: 0.3125em;
+  opacity: .8;
+}
+.flexslider:hover .flex-prev:hover {
+  opacity: 1;
+}
+.flexslider:hover .flex-next {
+  right: 0.3125em;
+  opacity: .8;
+}
+.flexslider:hover .flex-next:hover {
+  opacity: 1;
+}
 
 /* Control Nav */
 .flex-control-nav {
-  width: 100%;
   position: absolute;
-  bottom: -40px;
+  bottom: -2.5em;
+  width: 100%;
   text-align: center;
 }
-
 .flex-control-nav li {
-  margin: 0 6px;
   display: inline-block;
+  margin: 0 0.375em;
   zoom: 1;
   *display: inline;
 }
 
-.flex-control-paging li a {
-  width: 11px;
-  height: 11px;
+/* Control Paging */
+.flex-control-paging a {
   display: block;
-  background: #666;
+  width: 0.6875em;
+  height: 0.6875em;
+  border-radius: 1.25em;
+  background: #444444;
   background: rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 0.1875em rgba(0, 0, 0, 0.3);
+  text-indent: -624.9375em;
   cursor: pointer;
-  text-indent: -9999px;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  -o-border-radius: 20px;
-  border-radius: 20px;
-  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
 }
-
-.flex-control-paging li a:hover {
-  background: #333;
+.flex-control-paging a:hover {
+  background: #222222;
   background: rgba(0, 0, 0, 0.7);
 }
-
-.flex-control-paging li a.flex-active {
-  background: #000;
+.flex-control-paging a.flex-active {
+  background: black;
   background: rgba(0, 0, 0, 0.9);
   cursor: default;
 }
 
+/* Control thumbs */
 .flex-control-thumbs {
-  margin: 5px 0 0;
   position: static;
   overflow: hidden;
+  margin: 0.3125em 0 0;
 }
-
 .flex-control-thumbs li {
-  width: 25%;
   float: left;
   margin: 0;
+  width: 25%;
 }
-
 .flex-control-thumbs img {
-  width: 100%;
   display: block;
+  width: 100%;
   opacity: .7;
   cursor: pointer;
 }
-
 .flex-control-thumbs img:hover {
   opacity: 1;
 }
-
 .flex-control-thumbs .flex-active {
   opacity: 1;
   cursor: default;
 }
 
-@media screen and (max-width: 860px) {
-  .flex-direction-nav .flex-prev {
-    opacity: 1;
-    left: 0;
-  }
-
-  .flex-direction-nav .flex-next {
-    opacity: 1;
-    right: 0;
-  }
-}
 /* Image replacement */
 .ir {
   background-color: transparent;

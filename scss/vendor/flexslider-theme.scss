@@ -1,0 +1,188 @@
+/* FlexSlider default theme */
+
+.flexslider {
+	position: relative;
+	margin: 0 auto;
+	width: 100%;
+	background: $white;
+	zoom: 1;
+
+	.slides {
+		zoom: 1;
+	}
+}
+
+.flex-viewport {
+	max-height: em(2000);
+	transition: all 1s ease;
+}
+
+.loading .flex-viewport {
+	max-height: em(300);
+}
+
+
+.carousel li {
+	margin-right: em(5);
+}
+
+
+/* Direction Nav */
+
+.flex-direction-nav {
+	*height: 0;
+
+	a {
+		position: absolute;
+		top: 50%;
+		z-index: 10;
+		display: block;
+		margin: em(-20) 0 0;
+		width: em(30);
+		height: em(30);
+		background: url("img/flexslider-nav.png") no-repeat 0 0;
+		text-decoration: none;
+		text-indent: em(-9999);
+		opacity: 1;
+		cursor: pointer;
+		transition: all .3s ease;
+	}
+
+	.flex-prev {
+		left: 0;
+	}
+
+	.flex-next {
+		right: 0;
+		background-position: 100% 0;
+	}
+
+	.flex-disabled {
+		opacity: .3!important;
+		filter: alpha(opacity=30);
+		cursor: default;
+	}
+
+
+	@media only screen and (min-width: em($mq-large)) {
+		.flex-prev {
+			left: em(-36);
+			opacity: 0;
+		}
+
+		.flex-next {
+			right: em(-36);
+			opacity: 0;
+		}
+	}
+
+
+}
+
+
+.flexslider:hover {
+
+	.flex-prev {
+		left: em(5);
+		opacity:.8;
+
+		&:hover {
+			opacity: 1;
+		}
+
+	}
+
+	.flex-next {
+		right: em(5);
+		opacity:.8;
+
+		&:hover {
+			opacity: 1;
+		}
+	}
+
+}
+
+
+/* Control Nav */
+
+.flex-control-nav {
+	position: absolute;
+	bottom: em(-40);
+	width: 100%;
+	text-align: center;
+
+	li {
+		display: inline-block;
+		margin: 0 em(6);
+		zoom: 1;
+		*display: inline;
+	}
+
+}
+
+
+/* Control Paging */
+
+.flex-control-paging {
+
+	a {
+		display: block;
+		width: em(11);
+		height: em(11);
+		border-radius: em(20);
+		background: $dark-grey;
+		background: rgba(0,0,0,0.5);
+		box-shadow: inset 0 0 em(3) rgba(0,0,0,0.3);
+		text-indent: em(-9999);
+		cursor: pointer;
+
+		&:hover {
+			background: $grey;
+			background: rgba(0,0,0,0.7);
+		}
+
+		&.flex-active {
+			background: $black;
+			background: rgba(0,0,0,0.9);
+			cursor: default;
+		}
+
+	}
+}
+
+
+
+/* Control thumbs */
+
+.flex-control-thumbs {
+	position: static;
+	overflow: hidden;
+	margin: em(5) 0 0;
+
+	li {
+		float: left;
+		margin: 0;
+		width: 25%;
+	}
+
+	img {
+		display: block;
+		width: 100%;
+		opacity: .7;
+		cursor: pointer;
+	}
+
+	img:hover {
+		opacity: 1;
+	}
+
+	.flex-active {
+		opacity: 1;
+		cursor: default;
+	}
+
+}
+
+
+
