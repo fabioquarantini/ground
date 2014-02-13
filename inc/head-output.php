@@ -46,7 +46,7 @@ function ground_enqueue_scripts() {
 		wp_enqueue_script( 'modernizr' );
 
 		//wp_deregister_script('jquery');
-		//wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js', array(), null, true );
+		//wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js', array(), null, true );
 		wp_enqueue_script( 'jquery' );
 
 		wp_register_script( 'plugins', MY_THEME_FOLDER . '/js/plugins.js', array('jquery'), '1.0', true );
