@@ -1,0 +1,143 @@
+/* Colorbox theme (c) 2014 Fabio Quarantini */
+
+#colorbox{outline: 0;}
+
+#colorbox,
+#cboxOverlay,
+#cboxWrapper {
+	overflow: visible;
+}
+
+#colorbox:active,
+#colorbox:focus {
+	outline: none;
+}
+
+#cboxOverlay {
+	background-color: $black;
+}
+
+
+/* Title */
+
+#cboxTitle {
+	position: absolute;
+	bottom: em(-30);
+	left: 0;
+	width: 100%;
+	color: $light-grey;
+	text-align: right;
+}
+
+
+/* Current image*/
+
+#cboxCurrent {
+	position: absolute;
+	bottom: em(-30);
+	left: 0;
+	color: $light-grey;
+}
+
+
+/* Button */
+
+#cboxPrevious,
+#cboxNext,
+#cboxSlideshow,
+#cboxClose {
+	position: absolute;
+	bottom: 0;
+	width: em(28);
+	height: em(28);
+	border: 0;
+	opacity: 0;
+	background: $colorbox-color-button url(#{$dir-img}/colorbox-controls.png) no-repeat;
+	text-indent: em(-9999);
+	transition: all 0.5s;
+}
+
+
+/* .touch works only with modernizr */
+
+.touch #colorbox button,
+#colorbox:hover button {
+	opacity: 1;
+}
+
+#cboxPrevious {
+	right: em(56);
+	background-position: 0 0;
+}
+
+#cboxNext {
+	right: em(28);
+	background-position: em(-28) 0;
+}
+
+#cboxNext:hover,
+#cboxPrevious:hover {
+	background-color: $colorbox-color-hover;
+}
+
+#cboxClose {
+	right: 0;
+	background-color: $colorbox-color-hover;
+	background-position: em(-56) 0;
+}
+
+#cboxClose:hover {
+	background-color: $colorbox-close-hover;
+}
+
+
+/* Slide show button */
+
+#cboxSlideshow {
+	right: em(84);
+}
+
+#cboxSlideshow:hover {
+	background-color: $colorbox-color-hover;
+}
+
+.cboxSlideshow_off #cboxSlideshow {
+	background-position: em(-84) 0;
+}
+
+.cboxSlideshow_on #cboxSlideshow {
+	background-position: em(-112) 0;
+}
+
+
+/* Loading */
+
+#cboxLoadingGraphic {
+	background: url("#{$dir-img}/loading.gif") center center no-repeat;
+}
+
+
+/* Content */
+
+#cboxContent {
+	border: 0;
+	box-shadow: 0 em(10) em(25) rgba(0, 0, 0, 0.5);
+	background-color: $black;
+}
+
+
+/* Iframe */
+
+.cboxIframe {
+	background: $white;
+}
+
+
+/* Error */
+
+#cboxError {
+	padding: em(50);
+	border: em(1) solid $light-grey;
+}
+
+

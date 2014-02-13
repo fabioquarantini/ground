@@ -1,5 +1,5 @@
 /*  ==========================================================================
-	Colorbox
+	Colorbox core
 	==========================================================================  */
 
 #colorbox,
@@ -9,166 +9,71 @@
 	top: 0;
 	left: 0;
 	z-index: 9999;
+	overflow: hidden;
 }
 
-#colorbox:active,
-#colorbox:focus {
-	outline: none;
+#cboxWrapper {
+	max-width:none;
 }
 
-#cboxOverlay {
-	background-color: #000;
-	position: fixed;
-	width: 100%;
-	height: 100%;
+#cboxOverlay{
+	position:fixed;
+	width:100%;
+	height:100%;
 }
 
-
-/* Photo content */
-
-.cboxPhoto {
-	display: block;
-	margin: 0 auto;
-	border: 0;
+#cboxMiddleLeft,
+#cboxBottomLeft {
+	clear:left;
 }
 
-
-/* Title */
-
-#cboxTitle {
-	position: absolute;
-	bottom: -30px;
-	left: 0;
-	width: 100%;
-	color: #ddd;
-	text-align: right;
+#cboxContent{
+	position:relative;
 }
 
-
-/* Current image*/
-
-#cboxCurrent {
-	position: absolute;
-	bottom: -30px;
-	left: 0px;
-	color: #ddd;
+#cboxLoadedContent{
+	overflow:auto;
+	-webkit-overflow-scrolling: touch;
 }
 
-
-/* Button */
-
-#colorbox button {
-	position: absolute;
-	bottom: 0px;
-	width: 28px;
-	height: 28px;
-	border: 0;
-	opacity: 0;
-	background: #9fa7a9 url("img/colorbox-controls.png") no-repeat;
-	text-indent: -9999px;
-	-webkit-transition: all 0.5s;
-	transition: all 0.5s;
+#cboxTitle{
+	margin:0;
 }
 
-.touch #colorbox button {
-	opacity: 1;
-}
-
-#colorbox:hover button {
-	opacity: 1;
-}
-
-#colorbox #cboxPrevious {
-	right: 56px;
-	background-position: 0 0;
-}
-
-#colorbox #cboxNext {
-	right: 28px;
-	background-position: -28px 0;
-}
-
-#colorbox #cboxNext:hover,
-#colorbox #cboxPrevious:hover {
-	background-color: #788083;
-}
-
-#colorbox #cboxClose {
-	right: 0;
-	background-color: #788083;
-	background-position: -56px 0;
-}
-
-#colorbox #cboxClose:hover {
-	background-color: #333;
+#cboxLoadingOverlay,
+#cboxLoadingGraphic {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
 }
 
 #cboxPrevious,
 #cboxNext,
 #cboxClose,
 #cboxSlideshow {
-	cursor: pointer;
+	cursor:pointer;
 }
 
-
-/* Slide show button */
-
-#cboxSlideshow {
-	right: 84px;
+.cboxPhoto{
+	float:left;
+	margin:auto;
+	border:0;
+	display:block;
+	max-width:none;
+	-ms-interpolation-mode:bicubic;
 }
 
-#cboxSlideshow:hover {
-	background-color: #788083;
+.cboxIframe{
+	width:100%;
+	height:100%;
+	display:block;
+	border:0;
 }
 
-.cboxSlideshow_off #cboxSlideshow {
-	background-position: -84px 0;
-}
-
-.cboxSlideshow_on #cboxSlideshow {
-	background-position: -112px 0;
-}
-
-
-/* Loading */
-
-#cboxLoadingOverlay,
-#cboxLoadingGraphic {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-}
-
-#cboxLoadingGraphic {
-	background: url("img/loading.gif") center center no-repeat;
-}
-
-/* Content */
-
-#cboxContent {
-	overflow:hidden;
-	border: 0;
-	-webkit-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-}
-
-
-/* Iframe */
-
-.cboxIframe {
-	display: block;
-	background: #fff;
-	width: 100%;
-	height: 100%;
-	border: 0;
-}
-
-
-/* Error */
-
-#cboxError {
-	padding: 50px;
-	border: 1px solid #ccc;
+#colorbox,
+#cboxContent,
+#cboxLoadedContent {
+	box-sizing:content-box;
 }

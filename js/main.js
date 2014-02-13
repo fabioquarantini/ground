@@ -30,7 +30,7 @@ jQuery(document).ready(function($) {
 			$('.gallery-icon').find('[href$=".jpg"], [href$=".png"], [href$=".gif"]').colorbox({
 				transition: 'elastic',
 				speed: 400,
-				opacity: 0.6,
+				opacity: 0.8,
 				slideshow: true,
 				slideshowSpeed: 4000,
 				initialWidth: 50,
