@@ -1,46 +1,36 @@
 <!DOCTYPE html>
 
-	<html class="no-js" <?php language_attributes(); ?>>
+<html class="no-js" <?php language_attributes(); ?>>
 
-		<meta charset="<?php bloginfo('charset'); ?>">
+<head>
+	<meta charset="<?php bloginfo('charset'); ?>">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title><?php wp_title(''); ?></title>
 
-		<title><?php wp_title(''); ?></title>
+	<link rel="shortcut icon" href="<?php echo MY_THEME_FOLDER .'/favicon.ico' ?>">
+	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+	<?php wp_head(); ?>
 
-		<?php
-			$favicon =  MY_THEME_FOLDER .'/favicon.ico';
-			if(get_option('favicon_option') ) {
-				$favicon = get_option('favicon_option', MY_THEME_FOLDER . '/favicon.ico');
-			}
-		?>
-		<link rel="shortcut icon" href="<?php echo $favicon ?>">
+</head>
 
-		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
+<body <?php body_class(); ?> data-path="<?php echo MY_THEME_FOLDER ?>">
 
-		<?php wp_head(); ?>
+	<div class="container">
 
-	</head>
+		<header class="main-header">
 
-	<body <?php body_class(); ?> data-path="<?php echo MY_THEME_FOLDER ?>">
+			<a href="<?php echo home_url(); ?>" class="site-title" title="<?php bloginfo('name'); ?>">
+				<h1 class="site-name"><?php bloginfo('name'); ?></h1>
+				<h2 class="site-description"><?php bloginfo('description'); ?></h2>
+			</a>
 
-		<div class="container">
+			<?php get_template_part( 'partials/menu', 'primary' ); ?>
 
-			<header class="main-header">
+		</header> <!-- End .main-header -->
 
-				<a href="<?php echo home_url(); ?>" class="site-title" title="<?php bloginfo('name'); ?>">
-					<h1 class="site-name"><?php bloginfo('name'); ?></h1>
-					<h2 class="site-description"><?php bloginfo('description'); ?></h2>
-				</a>
+		<?php get_template_part( 'partials/header', 'image' ); ?>
 
-				<?php ground_main_nav(); ?>
-
-			</header> <!-- End .main-header -->
-
-			<?php if( get_header_image() ) { ?>
-				<img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" class="header-image" />
-			<?php } ?>
-
-			<?php get_template_part( 'content', 'slide' ); ?>
+		<?php get_template_part( 'partials/slider' ); ?>

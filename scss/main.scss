@@ -15,23 +15,21 @@
 
 
 /*  ==========================================================================
-	My styles
+	Base styles
 	========================================================================== */
 
 html {
 	font-family: $font-primary;
 	font-size: em($font-base);
 	line-height: $line-height;
-	height:100%;
+	height: 100%;
 	color: $color-text;
+	background-color: $light-grey;
 }
 
 body {
-	height:100%;
+	height: 100%;
 }
-
-
-/* Remove the gap between images, videos, audio and canvas and the bottom of their containers */
 
 audio,
 canvas,
@@ -42,22 +40,22 @@ video {
 }
 
 ul {
-	margin:0;
-	padding:0;
+	margin: 0;
+	padding: 0;
 }
 
 /* Remove text-shadow in selection highlight */
 
 ::selection {
- 	background: #b3d4fc;
+ 	background: $color-hover;
 	text-shadow: none;
 }
 
 
 a {
-	color:$color-link;
+	color: $color-link;
 	&:hover {
-		color:$color-hover;
+		color: $color-hover;
 	}
 }
 
@@ -67,61 +65,58 @@ a {
 	My styles
 	==========================================================================  */
 
-body {
-	font-family: arial;
-}
-
 .container {
-	width:960px;
-	margin:0 auto;
-	padding:10px;
-	background-color: #fff;
+	max-width: em(960);
+	margin: 0 auto;
+	padding: em(10);
 }
 
 .main-header {
-	background-color:#fff;
+	background-color: $white;
 	text-align: justify;
+
+	&:after {
+		content: '';
+		display: inline-block;
+		width: 100%;
+	}
 }
 
-.main-header:after {
-    content: '';
-    display: inline-block;
-    width: 100%;
-}
 
-#main-navigation, .site-title {
+.navigation,
+.site-title {
 	display: inline-block;
 	vertical-align: middle;
 }
 
 .site-title {
-	font-size: 16px;
+	font-size: em(16);
 	font-weight: normal;
 	text-decoration: none;
-	color: #2D383F;
+	color: $dark-grey;
 }
 
 .site-description {
-	font-size: 12px;
+	font-size: em(12);
 }
 
-#main-navigation li {
+.navigation li {
 	display: inline-block;
 }
 
-#main-navigation li a {
-	border: 1px solid #ea5848;
-	color: #ea5848;
+.navigation li a {
+	border: em(1) solid $light-grey;
+	color: $grey;
 	text-decoration: none;
-	padding: 6px;
+	padding: em(6);
 	font-weight: bold;
 }
 
-#main-navigation .current_page_item a {
+.navigation .current_page_item a {
 	color: blue;
 }
 
-#main-navigation .current_page_parent a {
+.navigation .current_page_parent a {
 	color: green;
 }
 
@@ -139,17 +134,17 @@ body {
 }
 
 .post {
-	background-color: #ec6766;
+	background-color: $light-grey;
 }
 
 .current-cat > a {
 	font-weight: bold;
-	color: #000;
+	color: $black;
 	background-color: blue;
 }
 
 footer {
-	background-color: #999;
+	background-color: $dark-grey;
 }
 
 

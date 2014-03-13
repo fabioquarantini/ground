@@ -2,17 +2,17 @@
 
 /*  ==========================================================================
 
-	1 - Mail antispambot [email]you@you.com[/email]
-	2 - Google maps [googlemap width="200" height="200" src="[url]"] or [googlemap src="google_map_url"]
-	3 - Button [link_button href="link" target="_self|_blank"]text[/link_button]
-	4 - Tag <pre> [pre]content[/pre]
-	5 - Content only for logged in user [loggedin]content[/loggedin]
+	1 - Mail antispambot : [email]you@you.com[/email]
+	2 - Google maps : [googlemap width="200" height="200" src="[url]"] or [googlemap src="google_map_url"]
+	3 - Button : [link_button href="link" target="_self|_blank"]text[/link_button]
+	4 - Tag <pre> : [pre]content[/pre]
+	5 - Content only for logged in user : [loggedin]content[/loggedin]
 
 	==========================================================================  */
 
 
 /*  ==========================================================================
-	1 - Mail antispambot [email]you@you.com[/email]
+	1 - Mail antispambot : [email]you@you.com[/email]
 	==========================================================================  */
 
 function ground_emailbot( $atts, $content = null ) {
@@ -26,7 +26,7 @@ add_shortcode( 'email', 'ground_emailbot' );
 
 
 /*  ==========================================================================
-	2 - Google maps [googlemaps width="200" height="200" src="[url]"] or [googlemaps src="google_map_url"]
+	2 - Google maps : [googlemaps width="200" height="200" src="[url]"] or [googlemaps src="google_map_url"]
 	==========================================================================  */
 
 function ground_maps( $atts, $content = null ) {
@@ -47,7 +47,7 @@ add_shortcode("googlemaps", "ground_maps");
 
 
 /*  ==========================================================================
-	3 - Button [button href="link" target="_self|_blank"]text[/button]
+	3 - Button : [button href="link" target="_self|_blank"]text[/button]
 	==========================================================================  */
 
 function ground_button( $atts, $content = null ) {
@@ -67,7 +67,7 @@ add_shortcode('button', 'ground_button');
 
 
 /*  ==========================================================================
-	4 - Tag <pre> [pre]content[/pre]
+	4 - Tag <pre> : [pre]content[/pre]
 	==========================================================================  */
 
 function ground_pre( $atts, $content = null ) {
@@ -80,7 +80,7 @@ add_shortcode('pre', 'ground_pre');
 
 
 /*  ==========================================================================
-	5 - Content only for logged in user [loggedin]content[/loggedin]
+	5 - Content only for logged in user : [loggedin]content[/loggedin]
 	==========================================================================  */
 
 function ground_logged_in( $atts, $content = null ) {

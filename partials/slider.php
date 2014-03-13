@@ -1,20 +1,21 @@
 <?php
 
-$thumbnail = 'thumb-slideshows';	// Name of the thumbnails set in add_image_size
+// Name of the thumbnails set in add_image_size
+$thumbnail = 'thumb-slider-primary';
 
 $args = array(
-	'post_type' => 'ground_slide',
+	'post_type' => 'ground_slider',
 	'posts_per_page' => '10',
 	'slide-category' => ''
 );
 
-$slider_posts = new WP_Query($args);
+$slider_posts = new WP_Query( $args );
 
 if($slider_posts->have_posts()) { ?>
 
 	<div class="flexslider slider">
 		<ul class="slides">
-			<?php while($slider_posts->have_posts()) : $slider_posts->the_post() ?>
+			<?php while( $slider_posts->have_posts() ) : $slider_posts->the_post() ?>
 			<li>
 				<?php the_post_thumbnail( $thumbnail, array( 'class' => 'slide-image') ); ?>
 				<?php if( $post->post_content != "" ) {

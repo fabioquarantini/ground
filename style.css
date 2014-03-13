@@ -4,7 +4,7 @@ Theme URI: https://github.com/fabioquarantini/ground
 Author: Fabio Quarantini 
 Author URI: http://www.fabioquarantini.com 
 Description: WordPress starter kit 
-Version: 0.2.0 
+Version: 0.3.0 
 License: MIT 
 License URI: http://opensource.org/licenses/MIT 
 Tags: two-columns,light 
@@ -531,7 +531,7 @@ h4 {
   bottom: -1.875em;
   left: 0;
   width: 100%;
-  color: #dddddd;
+  color: #f3f3f3;
   text-align: right;
 }
 
@@ -540,7 +540,7 @@ h4 {
   position: absolute;
   bottom: -1.875em;
   left: 0;
-  color: #dddddd;
+  color: #f3f3f3;
 }
 
 /* Button */
@@ -627,7 +627,7 @@ h4 {
 /* Error */
 #cboxError {
   padding: 3.125em;
-  border: 0.0625em solid #dddddd;
+  border: 0.0625em solid #f3f3f3;
 }
 
 /*  ==========================================================================
@@ -794,14 +794,14 @@ html[xmlns] .slides {
   width: 0.6875em;
   height: 0.6875em;
   border-radius: 1.25em;
-  background: #444444;
+  background: #222222;
   background: rgba(0, 0, 0, 0.5);
   box-shadow: inset 0 0 0.1875em rgba(0, 0, 0, 0.3);
   text-indent: -624.9375em;
   cursor: pointer;
 }
 .flex-control-paging a:hover {
-  background: #222222;
+  background: #444444;
   background: rgba(0, 0, 0, 0.7);
 }
 .flex-control-paging a.flex-active {
@@ -900,21 +900,21 @@ html[xmlns] .slides {
 }
 
 /*  ==========================================================================
-	My styles
+	Base styles
 	========================================================================== */
 html {
-  font-family: "Ubuntu", "Helvetica Neue", Arial, sans-serif;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-size: 1em;
   line-height: 1.4;
   height: 100%;
-  color: #222222;
+  color: #444444;
+  background-color: #f3f3f3;
 }
 
 body {
   height: 100%;
 }
 
-/* Remove the gap between images, videos, audio and canvas and the bottom of their containers */
 audio,
 canvas,
 img,
@@ -930,75 +930,70 @@ ul {
 
 /* Remove text-shadow in selection highlight */
 ::selection {
-  background: #b3d4fc;
+  background: #222222;
   text-shadow: none;
 }
 
 a {
-  color: #222222;
+  color: #444444;
 }
 a:hover {
-  color: #444444;
+  color: #222222;
 }
 
 /*  ==========================================================================
 	My styles
 	==========================================================================  */
-body {
-  font-family: arial;
-}
-
 .container {
-  width: 960px;
+  max-width: 60em;
   margin: 0 auto;
-  padding: 10px;
-  background-color: #fff;
+  padding: 0.625em;
 }
 
 .main-header {
-  background-color: #fff;
+  background-color: white;
   text-align: justify;
 }
-
 .main-header:after {
   content: '';
   display: inline-block;
   width: 100%;
 }
 
-#main-navigation, .site-title {
+.navigation,
+.site-title {
   display: inline-block;
   vertical-align: middle;
 }
 
 .site-title {
-  font-size: 16px;
+  font-size: 1em;
   font-weight: normal;
   text-decoration: none;
-  color: #2D383F;
+  color: #222222;
 }
 
 .site-description {
-  font-size: 12px;
+  font-size: 0.75em;
 }
 
-#main-navigation li {
+.navigation li {
   display: inline-block;
 }
 
-#main-navigation li a {
-  border: 1px solid #ea5848;
-  color: #ea5848;
+.navigation li a {
+  border: 0.0625em solid #f3f3f3;
+  color: #444444;
   text-decoration: none;
-  padding: 6px;
+  padding: 0.375em;
   font-weight: bold;
 }
 
-#main-navigation .current_page_item a {
+.navigation .current_page_item a {
   color: blue;
 }
 
-#main-navigation .current_page_parent a {
+.navigation .current_page_parent a {
   color: green;
 }
 
@@ -1016,17 +1011,17 @@ body {
 }
 
 .post {
-  background-color: #ec6766;
+  background-color: #f3f3f3;
 }
 
 .current-cat > a {
   font-weight: bold;
-  color: #000;
+  color: black;
   background-color: blue;
 }
 
 footer {
-  background-color: #999;
+  background-color: #222222;
 }
 
 /*  ==========================================================================

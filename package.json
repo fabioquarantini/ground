@@ -1,9 +1,8 @@
 {
   "name": "Ground",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "WordPress starter kit",
   "keywords": [
-    "two-columns",
     "light"
   ],
   "comments" : "",

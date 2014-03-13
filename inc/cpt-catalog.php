@@ -162,7 +162,6 @@ function ground_register_taxonomy_tag()  {
 // add_action( 'init', 'ground_register_taxonomy_tag', 0 );
 
 
-
 /*  ==========================================================================
 	4 - Highlight nav item for custom post type archive and single
 	==========================================================================  */
@@ -171,7 +170,6 @@ function ground_register_taxonomy_tag()  {
 // The code below finds the menu item with the class "[CPT]-menu-item" and adds another “current_page_parent” class to it.
 // Furthermore, it removes the “current_page_parent” from the blog menu item, if this is present.
 // Via http://vayu.dk/highlighting-wp_nav_menu-ancestor-children-custom-post-types/
-
 
 function ground_current_type_nav_class( $classes, $item ) {
 

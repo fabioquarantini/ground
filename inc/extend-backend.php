@@ -2,337 +2,397 @@
 
 /*  ==========================================================================
 
-	1 - Custom Login logo
-	2 - Change backend footer text
-	3 - Text editor markup output and styles
-	4 - RSS post thumbnail
-	5 - Media
-	6 - Admin bar
-	7 - Admin menu
-	8 - Dashboard widgets
-	9 - Maintenance mode
-	10 - More buttons in the visual editor
-	11 - Add custom user profile fields
+	1 - Content width
+	2 - Post thumbnails size
+	3 - Localization
+	4 - Register nav menus
+	5 - Register sidebars
+	6 - Post formats
+	7 - Custom header
+	8 - Custom background
+	9 - Image quality compression
+	10 - Display post thumbnail in RSS Feeds
+	11 - Add excerpt support for pages
+	12 - Html5 markup for comment and search
+	13 - Excerpt custom lenght
+	14 - Trim title length
+	15 - Extend walker for selective page hierarchy in wp_list_pages()
 
 	==========================================================================  */
 
 
 /*  ==========================================================================
-	1 - Custom Login logo
+	1 - Content width
 	==========================================================================  */
 
-/* Add css will be loaded in login */
+if ( ! isset( $content_width ) ) {
 
-function ground_login_css() {
-
-	echo '<style type="text/css">.login h1 a { background:url("' . MY_THEME_FOLDER . '/img/ground-login.png") no-repeat top center; width:326px; height:67px;</style>';
-
-}
-
-add_action('login_head', 'ground_login_css');
-
-
-/* Change the url of the logo with home url  */
-
-function ground_login_url() {
-
-	return home_url();
+	// Set the maximum allowed width for any content, like oEmbeds and images added to posts.
+	$content_width = 600;
 
 }
-
-add_filter('login_headerurl', 'ground_login_url');
-
-
-/* Change the url of the title with blogname */
-
-function ground_login_title() {
-
-	return get_option('blogname');
-
-}
-
-add_filter('login_headertitle', 'ground_login_title');
 
 
 /*  ==========================================================================
-	2 - Change backend footer text
+	2 - Post thumbnails size
 	==========================================================================  */
 
-/* Footer left text */
+function ground_post_thumbnail_size() {
 
-function ground_backend_footer_left_text($text) {
+	// This feature enables Post Thumbnails (Featured image) support
+	add_theme_support( 'post-thumbnails' );
 
-	$my_theme = wp_get_theme();
-	$text = '<span>' . __('Developed by', 'groundtheme') . ' ' . $my_theme->Author . '</span>';
-    return $text;
+	// Set the default Post Thumbnail dimensions
+	set_post_thumbnail_size( 150, 150, true );
 
-}
-
-add_filter('admin_footer_text', 'ground_backend_footer_left_text');
-
-
-/* Footer right text */
-
-function ground_admin_footer_right_text($text) {
-
-	$my_theme = wp_get_theme();
-	$text = __('Version', 'groundtheme') . ' ' . $my_theme->Version ;
-	return $text;
+	// Registers a new image size ($name, $width, $height, $crop)
+	add_image_size( 'thumb-small', 200, 200, true );
+	add_image_size( 'thumb-medium', 600, 150, true );
+	add_image_size( 'thumb-slider-primary', 960, 320, true );
 
 }
 
-add_filter('update_footer', 'ground_admin_footer_right_text', 11);
+add_action( 'after_setup_theme','ground_post_thumbnail_size' );
 
 
 /*  ==========================================================================
-	3 - Text editor markup output and styles
+	3 - Localization
 	==========================================================================  */
 
-/* Register custom stylesheet file to the TinyMCE */
+// Loads the theme's translated strings.
+function ground_load_theme_textdomain() {
 
-function ground_editor_styles() {
-
-	add_editor_style( 'editor-style.css' );
-
-}
-
-add_action( 'init', 'ground_editor_styles' );
-
-
-/* Remove p around img*/
-
-function ground_remove_p_around_img($content) {
-
-	return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
+	load_theme_textdomain( 'groundtheme', get_template_directory() . '/languages' );
 
 }
 
-// add_filter('the_content', 'ground_remove_p_around_img');
-
-
-/* Remove width and height for responsive template */
-
-function ground_image_responsive( $html ) {
-
-	$html = preg_replace( '/(width|height)=\"\d*\"\s/', "", $html );
-	return $html;
-
-}
-
-add_filter( 'post_thumbnail_html', 'ground_image_responsive', 10 );
-add_filter( 'image_send_to_editor', 'ground_image_responsive', 10 );
-
-
-/* Disable the wpautop filter */
-
-// remove_filter( 'the_content', 'wpautop' );
-// remove_filter( 'the_excerpt', 'wpautop' );
+add_action( 'after_setup_theme', 'ground_load_theme_textdomain' );
 
 
 /*  ==========================================================================
-	4 - RSS post thumbnail
+	4 - Register nav menus
 	==========================================================================  */
 
-function ground_rss_post_thumbnail($content) {
+function ground_register_nav_menus() {
+
+	// This feature enables Menus support
+	add_theme_support( 'menus' );
+
+	// Registers multiple custom navigation menus in the custom menu editor
+	$locations = array(
+		'menu-primary'		=> __( 'Primary menu', 'groundtheme' ),
+		'menu-secondary'	=> __( 'Secondary menu', 'groundtheme' ),
+		'menu-tertiary'		=> __( 'Tertiary menu', 'groundtheme' ),
+	);
+	register_nav_menus( $locations );
+
+}
+
+add_action( 'init', 'ground_register_nav_menus' );
+
+
+/*  ==========================================================================
+	5 - Register sidebars
+	==========================================================================  */
+
+function ground_register_sidebars() {
+
+	// Register sidebar (primary)
+	$args_primary = array(
+		'id'			=> 'primary-sidebar',
+		'name'			=> __( 'Primary sidebar', 'groundtheme' ),
+		'description'	=> __( 'Primary sidebar', 'groundtheme' ),
+		'class'			=> '',
+		'before_widget'	=> '<div id="%1$s" class="widget %2$s">',
+		'after_widget'	=> '</div>',
+		'before_title'	=> '<h3 class="widget-title">',
+		'after_title'	=> '</h3>',
+	);
+	register_sidebar( $args_primary );
+
+	// Register sidebar (secondary)
+	$args_secondary = array(
+		'id'			=> 'secondary-sidebar',
+		'name'			=> __( 'Secondary sidebar', 'groundtheme' ),
+		'description'	=> __( 'Secondary sidebar', 'groundtheme' ),
+		'class'			=> '',
+		'before_widget'	=> '<div id="%1$s" class="widget %2$s">',
+		'after_widget'	=> '</div>',
+		'before_title'	=> '<h3 class="widget-title">',
+		'after_title'	=> '</h3>',
+	);
+	register_sidebar( $args_secondary );
+
+}
+
+add_action( 'widgets_init', 'ground_register_sidebars' );
+
+
+/*  ==========================================================================
+	6 - Post formats
+	==========================================================================  */
+
+function ground_post_formats() {
+
+	// This feature enables Post Formats support
+	$formats = array(
+		'aside',
+		'gallery',
+		'link',
+		'image',
+		'quote',
+		'status',
+		'video',
+		'audio',
+		'chat'
+	);
+	add_theme_support( 'post-formats', $formats );
+
+}
+
+//add_action('after_setup_theme','ground_post_formats');
+
+
+/*  ==========================================================================
+	7 - Custom header
+	==========================================================================  */
+
+// Custom header is an image that is chosen as the representative image in the theme top header section.
+function ground_custom_header() {
+
+	// This feature enables Custom_Headers support
+	$header_args = array(
+		'default-image'				=> '',
+		'width'						=> 0,
+		'height'					=> 0,
+		'flex-width'				=> true,
+		'flex-height'				=> true,
+		'random-default'			=> false,
+		'header-text'				=> false,
+		'default-text-color'		=> '',
+		'uploads'					=> true,
+		'wp-head-callback'			=> '',
+		'admin-head-callback'		=> '',
+		'admin-preview-callback'	=> '',
+	);
+	add_theme_support( 'custom-header', $header_args );
+
+}
+
+add_action('after_setup_theme','ground_custom_header');
+
+
+/*  ==========================================================================
+	8 - Custom background
+	==========================================================================  */
+
+// Custom Backgrounds is a theme feature that provides for customization of the background color and image.
+function ground_custom_background() {
+
+	// This feature enables Custom_Backgrounds support
+	$background_args = array(
+		'default-color'				=> '',
+		'default-image'				=> '',
+		'wp-head-callback'			=> '_custom_background_cb',
+		'admin-head-callback'		=> '',
+		'admin-preview-callback'	=> '',
+	);
+	add_theme_support( 'custom-background', $background_args );
+
+}
+
+// add_action('after_setup_theme','ground_custom_background');
+
+
+/*  ==========================================================================
+	9 - Image quality compression
+	==========================================================================  */
+
+// Set jpeg quality (default 90)
+//add_filter( 'jpeg_quality', create_function( '', 'return 90;' ) );
+
+
+/*  ==========================================================================
+	10 - Display post thumbnail in RSS Feeds
+	==========================================================================  */
+
+function ground_post_thumbnail_to_rss( $content ) {
 
 	global $post;
-	if( has_post_thumbnail($post->ID) ) {
 
-		$content = '<p class="thumbnail-rss">' . get_the_post_thumbnail($post->ID, 'thumbnail') . '</p>' . $content;
+	if( has_post_thumbnail( $post->ID ) ) {
+
+		$content = '<div class="post-thumbnail-rss">' . get_the_post_thumbnail( $post->ID, 'thumbnail' ) . '</div>' . $content;
 		return $content;
 
 	}
 
 }
 
-add_filter('the_content_feed', 'ground_rss_post_thumbnail');
+// add_filter( 'the_content_feed', 'ground_post_thumbnail_to_rss' );
+// add_filter( 'the_excerpt_rss', 'ground_post_thumbnail_to_rss' );
 
 
 /*  ==========================================================================
-	5 - Media
+	11 - Add excerpt support for pages
 	==========================================================================  */
 
-/* Adds pdf media filter */
+function ground_page_excerpt() {
 
-function ground_media_pdf_filter( $post_mime_types ) {
-
-	$post_mime_types['application/pdf'] = array( __('PDF','groundtheme'), __('Manage PDFs','groundtheme'), _n_noop( 'PDF <span class="count">(%s)</span>', 'PDF <span class="count">(%s)</span>' ) );
-	return $post_mime_types;
+	add_post_type_support( 'page', 'excerpt' );
 
 }
 
-add_filter( 'post_mime_types', 'ground_media_pdf_filter' );
+add_action( 'init', 'ground_page_excerpt' );
 
 
 /*  ==========================================================================
-	6 - Admin bar
+	12 - Html5 markup for comment and search
 	==========================================================================  */
 
-/* Remove wp logo in the admin bar */
+function ground_markup() {
 
-function ground_remove_wp_logo_admin_bar( $wp_admin_bar ) {
-
-	$wp_admin_bar->remove_node( 'wp-logo' );
+	// This feature allows the use of HTML5 markup for the comment forms, search forms and comment lists.
+	$markup = array(
+		'search-form',
+		'comment-form',
+		'comment-list',
+	);
+	add_theme_support( 'html5', $markup );
 
 }
 
-// add_action( 'admin_bar_menu', 'ground_remove_wp_logo_admin_bar', 11);
+add_action( 'after_setup_theme','ground_markup' );
 
 
 /*  ==========================================================================
-	7 - Admin menu
+	13 - Excerpt custom lenght : ground_excerpt( 100, __('Read more', 'groundtheme'), '...', );
 	==========================================================================  */
 
-/* Remove menu links */
+// Summary or description of a post with custom lenght
 
-function ground_remove_menu_links() {
+$word = __('Read more', 'groundtheme');
 
-	remove_menu_page('index.php');							// Dashboard
-	remove_menu_page('edit.php');							// Posts
-	remove_menu_page('upload.php');							// Media
-	remove_menu_page('link-manager.php');					// Links
-	remove_menu_page('edit.php?post_type=page');			// Pages
-	remove_menu_page('edit-comments.php');					// Comments
-	remove_menu_page('themes.php');							// Appearance
-	remove_menu_page('plugins.php');						// Plugins
-	remove_menu_page('users.php');							// Users
-	remove_menu_page('tools.php');							// Tools
-	remove_menu_page('options-general.php');				// Settings
-	remove_submenu_page('themes.php','theme-editor.php');	// Submenu
+function ground_excerpt( $character_length = 100, $word, $continue = '...' ) {
 
-}
+	global $post;
 
-// add_action( 'admin_menu', 'ground_remove_menu_links' );
+	$excerpt = get_the_excerpt();
+	$character_length++;
 
+	if ( mb_strlen( $excerpt ) > $character_length ) {
 
-/* Remove menu label "themes" if user is different to ID 1 */
+		$subex = mb_substr( $excerpt, 0, $character_length - 5 );
+		$exwords = explode( ' ', $subex );
+		$excut = - ( mb_strlen( $exwords[ count( $exwords ) - 1 ] ) );
 
-function ground_remove_themes_no_admin() {
+		if ( $excut < 0 ) {
 
-	global $submenu, $userdata;
-	get_currentuserinfo();
+			echo mb_substr( $subex, 0, $excut );
 
-	if ( $userdata->ID != 1 ) {
-		unset( $submenu['themes.php'][5] );
-		unset( $submenu['themes.php'][15] );
-	}
+		} else {
 
-}
+			echo $subex;
 
-//add_action( 'admin_init', 'ground_remove_themes_no_admin' );
+		}
 
+		echo $continue . '<a href="' . get_permalink( $post->ID ) . '" title="' . $word . ' ' . get_the_title( $post->ID ) . '">' . $word . '</a>';
 
-/*  ==========================================================================
-	8 - Dashboard widgets
-	==========================================================================  */
-
-/* Disable dashboard widgets ( use id selector ) */
-
-function ground_disable_default_dashboard_widgets() {
-
-	remove_meta_box('dashboard_right_now', 'dashboard', 'core');    							// Right Now Widget
-	remove_meta_box('dashboard_recent_comments', 'dashboard', 'core'); 							// Comments Widget
-	remove_meta_box('dashboard_incoming_links', 'dashboard', 'core'); 							// Incoming Links Widget
-	remove_meta_box('dashboard_plugins', 'dashboard', 'core');        							// Plugins Widget
-	remove_meta_box('dashboard_quick_press', 'dashboard', 'core');		 						// Quick Press Widget
-	remove_meta_box('dashboard_recent_drafts', 'dashboard', 'core');  							// Recent Drafts Widget
-	remove_meta_box('dashboard_primary', 'dashboard', 'core');         							// Wordpress Blog Feed
-	remove_meta_box('dashboard_secondary', 'dashboard', 'core');       							// Other Wordpress News
-	remove_meta_box('yoast_db_widget', 'dashboard', 'normal');       							// Yoast's SEO Plugin Widget
-
-}
-
-//add_action('admin_menu', 'ground_disable_default_dashboard_widgets');
-
-
-/* Custom widget */
-
-function ground_dashboard_widget_function() {
-
-	echo "<p>" . __( 'Widget text example', 'groundtheme' ) . "</p>";
-
-}
-
-function ground_add_dashboard_widgets() {
-
-	wp_add_dashboard_widget('wp_dashboard_widget', __( 'Custom widget', 'groundtheme' ) , 'ground_dashboard_widget_function');
-
-}
-
-// add_action('wp_dashboard_setup', 'ground_add_dashboard_widgets' );
-
-
-/*  ==========================================================================
-	9 - Maintenance mode
-	==========================================================================  */
-
-/* Maintenance mode message */
-
-function ground_maintenance_notice(){
-
-	echo '<div class="error"><p>' . __( 'Caution: Maintenance mode is <strong>active</strong>!', 'groundtheme' ) . '</p></div>';
-
-}
-
-
-/* If maintenance mode is active page will be redirected to the template */
-
-function ground_maintenance_mode_redirect() {
-
-	global $wp;
-	get_template_part("template-maintenance-mode");
-	die();
-
-}
-
-
-/* If theme customizer is true show message or redirect to template */
-
-if( get_option( 'maintenance_option' ) == true ) {
-
-	if (is_user_logged_in()) {
-		add_action('admin_notices', 'ground_maintenance_notice');
 	} else {
-		add_action( 'template_redirect', 'ground_maintenance_mode_redirect' );
+
+		echo $excerpt;
+
 	}
 
 }
 
 
 /*  ==========================================================================
-	10 - More buttons in the visual editor (http://www.tinymce.com/wiki.php/TinyMCE3x:Buttons/controls)
+	14 - Trim title length : ground_title( 5, '...' );
 	==========================================================================  */
 
-function ground_mce_buttons($buttons) {
+// Show the first N chars from the title
+function ground_title( $length = 5, $after = '...' ) {
 
-	$buttons[] = 'hr';
-	$buttons[] = 'del';
-	$buttons[] = 'sub';
-	$buttons[] = 'sup';
-	$buttons[] = 'fontselect';
-	$buttons[] = 'fontsizeselect';
-	$buttons[] = 'cleanup';
-	$buttons[] = 'styleselect';
+	$title = get_the_title();
 
-	return $buttons;
+	if ( strlen( $title ) > $length ) {
+
+		$title = substr( $title, 0, $length );
+		echo $title . $after;
+
+	} else {
+
+		echo $title;
+
+	}
 
 }
-
-//add_filter("mce_buttons_3", "ground_mce_buttons");
 
 
 /*  ==========================================================================
-	11 - Add custom user profile fields : the_author_meta('ground_user_fields_google');
+	15 - Extend walker for selective page hierarchy in wp_list_pages()
 	==========================================================================  */
 
-function ground_user_fields( $contactmethods ) {
+/* Extend Walker_Page */
+/* http://wordpress.mfields.org/2010/selective-page-hierarchy-for-wp_list_pages/ */
 
-	$contactmethods['ground_user_fields_google']	= __( 'Google Plus', 'groundtheme' );
-	$contactmethods['ground_user_fields_twitter']	= __( 'Twitter', 'groundtheme' );
+class Ground_Selective_Page_Hierarchy extends Walker_Page {
 
-	return $contactmethods;
+	function walk( $elements, $max_depth ) {
+
+		global $post;
+		$args = array_slice( func_get_args(), 2 );
+		$output = '';
+
+		/* invalid parameter */
+		if ( $max_depth < -1 ) {
+			return $output;
+		}
+
+		/* Nothing to walk */
+		if ( empty( $elements ) ) {
+			return $output;
+		}
+
+		/* Set up variables. */
+		$top_level_elements = array();
+		$children_elements  = array();
+		$parent_field = $this->db_fields['parent'];
+		$child_of = ( isset( $args[0]['child_of'] ) ) ? (int) $args[0]['child_of'] : 0;
+
+		/* Loop elements */
+		foreach ( (array) $elements as $e ) {
+
+			$parent_id = $e->$parent_field;
+
+			if ( isset( $parent_id ) ) {
+
+				/* Top level pages. */
+				if( $child_of === $parent_id ) {
+					$top_level_elements[] = $e;
+				}
+				/* Only display children of the current hierarchy. */
+				else if (
+					( isset( $post->ID ) && $parent_id == $post->ID ) ||
+					( isset( $post->post_parent ) && $parent_id == $post->post_parent ) ||
+					( isset( $post->ancestors ) && in_array( $parent_id, (array) $post->ancestors ) )
+					) {
+					$children_elements[ $e->$parent_field ][] = $e;
+				}
+
+			}
+
+		}
+
+		/* Define output. */
+		foreach ( $top_level_elements as $e ) {
+			$this->display_element( $e, $children_elements, $max_depth, 0, $args, $output );
+		}
+
+		return $output;
+	}
 }
 
-add_filter('user_contactmethods','ground_user_fields');
 
 ?>

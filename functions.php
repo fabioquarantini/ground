@@ -12,30 +12,17 @@ define('MY_THEME_FOLDER', get_template_directory_uri() );
 	Extend backend
 	==========================================================================  */
 
-// Customozine backend text editor and login
-require_once('inc/extend-backend.php');
-
-// Register theme support
-require_once('inc/theme-support.php');
-
-
-/*  ==========================================================================
-	Extend frontend
-	==========================================================================  */
-
-// Extend frontend functionality
-require_once('inc/extend-frontend.php');
-
 // Clean head output
 require_once('inc/head-output.php');
 
+// Extend backend
+require_once('inc/extend-backend.php');
 
-/*  ==========================================================================
-	Shortcode
-	==========================================================================  */
+// Extend text editor
+require_once('inc/extend-text-editor.php');
 
-// Shortcode
-require_once('inc/shortcode.php');
+// Extend administration
+require_once('inc/extend-administration.php');
 
 
 /*  ==========================================================================
@@ -43,17 +30,17 @@ require_once('inc/shortcode.php');
 	==========================================================================  */
 
 // Slider
-require_once('inc/cpt-slide.php');
+require_once('inc/cpt-slider.php');
 
 // Catalog
 require_once('inc/cpt-catalog.php');
 
 
 /*  ==========================================================================
-	Theme options panels
+	Shortcode
 	==========================================================================  */
 
-// Theme customize
-require_once('inc/theme-customizer.php');
+require_once('inc/shortcode.php');
+
 
 ?>

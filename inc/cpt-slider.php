@@ -2,18 +2,18 @@
 
 /*  ==========================================================================
 
-	1 - Register slide post type
-	2 - Register slide taxonomy
-	3 - Management slides image preview
+	1 - Register slider post type
+	2 - Register slider taxonomy
+	3 - Slide preview in management
 
 	==========================================================================  */
 
 
 /*  ==========================================================================
-	1 - Register slide post type
+	1 - Register slider post type
 	==========================================================================  */
 
-function ground_register_slide_post_type() {
+function ground_register_slider_post_type() {
 
 	$labels = array(
 		'name'					=> _x( 'Slides', 'Post Type General Name', 'groundtheme' ),
@@ -32,7 +32,7 @@ function ground_register_slide_post_type() {
 	);
 
 	$rewrite = array(
-		'slug'					=> __( 'slide', 'groundtheme' ),
+		'slug'					=> __( 'slider', 'groundtheme' ),
 		'with_front'			=> false,
 		'pages'					=> false,
 		'feeds'					=> false
@@ -60,18 +60,18 @@ function ground_register_slide_post_type() {
 		'capability_type'		=> 'post'
 	);
 
-	register_post_type( 'ground_slide', $args );
+	register_post_type( 'ground_slider', $args );
 
 }
 
-add_action( 'init', 'ground_register_slide_post_type', 0 );
+add_action( 'init', 'ground_register_slider_post_type', 0 );
 
 
 /*  ==========================================================================
-	2 - Register slide taxonomy
+	2 - Register slider taxonomy
 	==========================================================================  */
 
-function ground_register_slide_taxonomy()  {
+function ground_register_slider_taxonomy()  {
 
 	$labels = array(
 		'name'							=> _x( 'Categories', 'Taxonomy General Name', 'groundtheme' ),
@@ -91,7 +91,7 @@ function ground_register_slide_taxonomy()  {
 	);
 
 	$rewrite = array(
-		'slug'							=> __( 'slide-category', 'groundtheme' ),
+		'slug'							=> __( 'slider-category', 'groundtheme' ),
 		'with_front'					=> true,
 		'hierarchical'					=> true
 	);
@@ -107,18 +107,18 @@ function ground_register_slide_taxonomy()  {
 		'rewrite'						=> $rewrite
 	);
 
-	register_taxonomy( 'ground_slide_taxonomy', 'ground_slide', $args );
+	register_taxonomy( 'ground_slider_taxonomy', 'ground_slider', $args );
 
 }
 
-add_action( 'init', 'ground_register_slide_taxonomy', 0 );
+add_action( 'init', 'ground_register_slider_taxonomy', 0 );
 
 
 /*  ==========================================================================
-	3 - Management slides image preview
+	3 - Slide preview in management
 	==========================================================================  */
 
-function ground_slide_columns( $columns ) {
+function ground_slider_columns( $columns ) {
 
 	//unset($columns['date']);  // Hide date column
 	$column_thumbnail = array( 'thumbnail' => __('Preview', 'groundtheme') );
@@ -129,10 +129,10 @@ function ground_slide_columns( $columns ) {
 
 }
 
-add_filter( 'manage_ground_slide_posts_columns', 'ground_slide_columns', 10, 1 );
+add_filter( 'manage_ground_slider_posts_columns', 'ground_slider_columns', 10, 1 );
 
 
-function ground_slide_columns_content( $column ) {
+function ground_slider_columns_content( $column ) {
 
 	global $post;
 	switch ( $column ) {
@@ -147,6 +147,6 @@ function ground_slide_columns_content( $column ) {
 
 }
 
-add_action( 'manage_ground_slide_posts_custom_column', 'ground_slide_columns_content', 10, 1 );
+add_action( 'manage_ground_slider_posts_custom_column', 'ground_slider_columns_content', 10, 1 );
 
 ?>
