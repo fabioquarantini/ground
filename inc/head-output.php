@@ -82,10 +82,10 @@ function ground_remove_wp_ver_css_js( $src ) {
 	4 - Clean up head output
 	==========================================================================  */
 
-function ground_head_cleanup() {
+function ground_head_output() {
 
 	// This feature enables post and comment RSS feed links to head
-	// add_theme_support( 'automatic-feed-links' );
+	add_theme_support( 'automatic-feed-links' );
 
 	// Display relational links for the posts adjacent to the current post.
 	remove_action( 'wp_head', 'adjacent_posts_rel_link', 10, 0 );
@@ -125,7 +125,7 @@ function ground_head_cleanup() {
 
 }
 
-// add_action( 'init', 'ground_head_cleanup' );
+// add_action( 'init', 'ground_head_output' );
 
 
 /*  ==========================================================================
