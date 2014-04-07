@@ -20,6 +20,23 @@ get_header(); ?>
 		$email = get_bloginfo( 'admin_email' );
 
 
+		// Sanitize
+		function clean($string) {
+
+			$string = rtrim( $string );
+			$string = ltrim( $string );
+			$string = htmlentities( $string, ENT_QUOTES );
+			$string = str_replace( "\n", "<br>", $string );
+
+			if ( get_magic_quotes_gpc() ) {
+
+				$string = stripslashes( $string );
+
+			}
+			return $string;
+
+		}
+
 		// Theme info
 		if ( !empty( $_COOKIE["nkthemeswitch" . COOKIEHASH] ) ) {
 			$theme = clean( $_COOKIE["nkthemeswitch" . COOKIEHASH] );
@@ -78,24 +95,6 @@ get_header(); ?>
 
 		// Log time
 		$time = clean( date( "F jS Y, h:ia", time() ) );
-
-
-		// Sanitize
-		function clean($string) {
-
-			$string = rtrim( $string );
-			$string = ltrim( $string );
-			$string = htmlentities( $string, ENT_QUOTES );
-			$string = str_replace( "\n", "<br>", $string );
-
-			if ( get_magic_quotes_gpc()) {
-
-				$string = stripslashes( $string );
-
-			}
-			return $string;
-
-		}
 
 		$message =
 			"TIME: "			. $time    . "\n" .
