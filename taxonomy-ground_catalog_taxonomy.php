@@ -17,7 +17,7 @@ get_header(); ?>
 
 	$args = array(
 		'child_of'		=> $term_id,
-		'hide_empty'	=> 0,
+		'hide_empty'	=> 1,
 		'hierarchical'	=> 0,
 		//'parent'		=> 0,
 		'taxonomy'		=> 'ground_catalog_taxonomy'
