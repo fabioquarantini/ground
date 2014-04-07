@@ -318,7 +318,8 @@ function ground_title( $length = 5, $after = '...' ) {
 
 	if ( strlen( $title ) > $length ) {
 
-		$title = substr( $title, 0, $length );
+		$charset = get_bloginfo('charset');
+		$title = mb_substr( $title, 0, $length, $charset );
 		echo $title . $after;
 
 	} else {
