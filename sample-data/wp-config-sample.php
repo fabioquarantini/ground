@@ -6,11 +6,11 @@
 
 /* Switch database connections crendiantials between enviroments */
 
-define('ENVIRONMENT', 'testing');
+define('ENVIRONMENT', 'development');
 
 switch(ENVIRONMENT){
 
-	case 'testing':
+	case 'development':
 
 		define('DB_NAME',		'database_name_here');
 		define('DB_USER',		'username_here');
