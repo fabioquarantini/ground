@@ -11,6 +11,11 @@ $font-secondary: "Helvetica Neue", Helvetica, Arial, sans-serif;;
 $font-monospace: "Andale Mono", AndaleMono, monospace;
 
 
+/* Directory */
+
+$dir-img: 'img';
+
+
 /* Colors */
 
 $white: #fff;
@@ -18,6 +23,7 @@ $black: #000;
 $grey: #444;
 $light-grey: #F3F3F3;
 $dark-grey: #222;
+
 
 /* Text */
 
@@ -34,12 +40,17 @@ $mq-small: 640;
 
 /* Colorbox */
 
-$colorbox-text: $grey;
-$colorbox-color-button: #9fa7a9;
-$colorbox-color-hover: #788083;
-$colorbox-close-hover: #333;
+$colorbox-bg: #fff;
+$colorbox-overlay: #000;
+$colorbox-text: #F3F3F3;
+$colorbox-button: #9fa7a9;
+$colorbox-button-hover: #788083;
+$colorbox-button-dark: #333;
 
 
-/* Directory */
+/* Flexslider */
 
-$dir-img: 'img';
+$flexslider-bg: #fff;
+$flexslider-paging: rgba(0,0,0,0.5);
+$flexslider-paging-hover: rgba(0,0,0,0.7);
+$flexslider-paging-active: rgba(0,0,0,0.9);

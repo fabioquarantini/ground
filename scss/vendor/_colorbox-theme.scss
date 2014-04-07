@@ -1,3 +1,15 @@
+/* Default variables */
+
+$dir-img: 'img' !default;
+
+$colorbox-bg: #fff !default;
+$colorbox-overlay: #000 !default;
+$colorbox-text: #F3F3F3 !default;
+$colorbox-button: #9fa7a9 !default;
+$colorbox-button-hover: #788083 !default;
+$colorbox-button-dark: #333 !default;
+
+
 /* Colorbox theme (c) 2014 Fabio Quarantini */
 
 #colorbox{outline: 0;}
@@ -14,7 +26,7 @@
 }
 
 #cboxOverlay {
-	background-color: $black;
+	background-color: $colorbox-overlay;
 }
 
 
@@ -25,7 +37,7 @@
 	bottom: em(-30);
 	left: 0;
 	width: 100%;
-	color: $light-grey;
+	color: $colorbox-text;
 	text-align: right;
 }
 
@@ -36,7 +48,7 @@
 	position: absolute;
 	bottom: em(-30);
 	left: 0;
-	color: $light-grey;
+	color: $colorbox-text;
 }
 
 
@@ -52,7 +64,7 @@
 	height: em(28);
 	border: 0;
 	opacity: 0;
-	background: $colorbox-color-button url(#{$dir-img}/colorbox-controls.png) no-repeat;
+	background: $colorbox-button url(#{$dir-img}/colorbox-controls.png) no-repeat;
 	text-indent: em(-9999);
 	transition: all 0.5s;
 }
@@ -77,17 +89,17 @@
 
 #cboxNext:hover,
 #cboxPrevious:hover {
-	background-color: $colorbox-color-hover;
+	background-color: $colorbox-button-hover;
 }
 
 #cboxClose {
 	right: 0;
-	background-color: $colorbox-color-hover;
+	background-color: $colorbox-button-hover;
 	background-position: em(-56) 0;
 }
 
 #cboxClose:hover {
-	background-color: $colorbox-close-hover;
+	background-color: $colorbox-button-dark;
 }
 
 
@@ -98,7 +110,7 @@
 }
 
 #cboxSlideshow:hover {
-	background-color: $colorbox-color-hover;
+	background-color: $colorbox-button-hover;
 }
 
 .cboxSlideshow_off #cboxSlideshow {
@@ -122,14 +134,14 @@
 #cboxContent {
 	border: 0;
 	box-shadow: 0 em(10) em(25) rgba(0, 0, 0, 0.5);
-	background-color: $black;
+	background-color: $colorbox-bg;
 }
 
 
 /* Iframe */
 
 .cboxIframe {
-	background: $white;
+	background: $colorbox-bg;
 }
 
 
@@ -137,7 +149,4 @@
 
 #cboxError {
 	padding: em(50);
-	border: em(1) solid $light-grey;
 }
-
-

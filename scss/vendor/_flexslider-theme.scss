@@ -1,15 +1,20 @@
-/* FlexSlider default theme */
+/* Default variables */
+
+$dir-img: 'img' !default;
+
+$flexslider-bg: #fff !default;
+$flexslider-paging: rgba(0,0,0,0.5) !default;
+$flexslider-paging-hover: rgba(0,0,0,0.7) !default;
+$flexslider-paging-active: rgba(0,0,0,0.9) !default;
+
+
+/* FlexSlider theme */
 
 .flexslider {
 	position: relative;
 	margin: 0 auto;
 	width: 100%;
-	background: $white;
-	zoom: 1;
-
-	.slides {
-		zoom: 1;
-	}
+	background: $flexslider-bg;
 }
 
 .flex-viewport {
@@ -20,7 +25,6 @@
 .loading .flex-viewport {
 	max-height: em(300);
 }
-
 
 .carousel li {
 	margin-right: em(5);
@@ -50,11 +54,22 @@
 
 	.flex-prev {
 		left: 0;
+
+		@media only screen and ( min-width: em($mq-large) ) {
+			left: em(-36);
+			opacity: 0;
+		}
 	}
 
 	.flex-next {
 		right: 0;
 		background-position: 100% 0;
+
+		@media only screen and ( min-width: em($mq-large) ) {
+			right: em(-36);
+			opacity: 0;
+		}
+
 	}
 
 	.flex-disabled {
@@ -62,20 +77,6 @@
 		filter: alpha(opacity=30);
 		cursor: default;
 	}
-
-
-	@media only screen and (min-width: em($mq-large)) {
-		.flex-prev {
-			left: em(-36);
-			opacity: 0;
-		}
-
-		.flex-next {
-			right: em(-36);
-			opacity: 0;
-		}
-	}
-
 
 }
 
@@ -131,26 +132,22 @@
 		width: em(11);
 		height: em(11);
 		border-radius: em(20);
-		background: $dark-grey;
-		background: rgba(0,0,0,0.5);
+		background: $flexslider-paging;
 		box-shadow: inset 0 0 em(3) rgba(0,0,0,0.3);
 		text-indent: em(-9999);
 		cursor: pointer;
 
 		&:hover {
-			background: $grey;
-			background: rgba(0,0,0,0.7);
+			background: $flexslider-paging-hover;
 		}
 
 		&.flex-active {
-			background: $black;
-			background: rgba(0,0,0,0.9);
+			background: $flexslider-paging-active;
 			cursor: default;
 		}
 
 	}
 }
-
 
 
 /* Control thumbs */
@@ -183,6 +180,3 @@
 	}
 
 }
-
-
-
