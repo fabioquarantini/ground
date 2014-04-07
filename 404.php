@@ -16,7 +16,7 @@ get_header(); ?>
 
 		// Site info
 		$blog  = get_bloginfo( 'name' );
-		$site  = home_url() . '/';
+		$site  = home_url( '/' );
 		$email = get_bloginfo( 'admin_email' );
 
 
@@ -97,15 +97,15 @@ get_header(); ?>
 		$time = clean( date( "F jS Y, h:ia", time() ) );
 
 		$message =
-			"TIME: "			. $time    . "\n" .
-			"*404: "			. $request . "\n" .
-			"SITE: "			. $site    . "\n" .
-			"THEME: "			. $theme   . "\n" .
-			"REFERRER: "		. $referer . "\n" .
-			"QUERY STRING: "	. $string  . "\n" .
-			"REMOTE ADDRESS: "	. $address . "\n" .
-			"REMOTE IDENTITY: "	. $remote  . "\n" .
-			"USER AGENT: "		. $agent   . "\n\n\n";
+			"Time: "			. $time    . "\n" .
+			"404 url: "			. $request . "\n" .
+			"Site: "			. $site    . "\n" .
+			"Theme: "			. $theme   . "\n" .
+			"Referrer: "		. $referer . "\n" .
+			"Query string: "	. $string  . "\n" .
+			"Remote address: "	. $address . "\n" .
+			"Remote identity: "	. $remote  . "\n" .
+			"User agent: "		. $agent   . "\n\n\n";
 
 		// Comment this line if you don't want 404 alert to be sent to your email
 		mail( $email, __( "Page with 404 error: ", "groundtheme" ) . $blog . " [" . $theme . "]", $message, "From: $email" );
