@@ -10,6 +10,7 @@
 	<title><?php wp_title(''); ?></title>
 
 	<link rel="shortcut icon" href="<?php echo MY_THEME_FOLDER .'/favicon.ico' ?>">
+	<link rel="apple-touch-icon-precomposed" href="<?php echo MY_THEME_FOLDER .'/apple-touch-icon-precomposed.png' ?>">
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
 	<?php wp_head(); ?>
