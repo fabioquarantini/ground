@@ -1,4 +1,4 @@
-<?php /* The template for displaying 404 pages (Not Found). */
+<?php // The template for displaying 404 pages (Not Found).
 
 get_header(); ?>
 
@@ -14,15 +14,13 @@ get_header(); ?>
 
 	if ( ! is_admin() ) {
 
-		/* site info */
-
+		// Site info
 		$blog  = get_bloginfo( 'name' );
 		$site  = home_url() . '/';
 		$email = get_bloginfo( 'admin_email' );
 
 
-		/* theme info */
-
+		// Theme info
 		if ( !empty( $_COOKIE["nkthemeswitch" . COOKIEHASH] ) ) {
 			$theme = clean( $_COOKIE["nkthemeswitch" . COOKIEHASH] );
 		} else {
@@ -30,8 +28,7 @@ get_header(); ?>
 			$theme = clean( $theme_data->Name );
 		}
 
-		/* referrer */
-
+		// Referrer
 		if ( isset( $_SERVER['HTTP_REFERER'] ) ) {
 			$referer = clean( $_SERVER['HTTP_REFERER'] );
 		} else {
@@ -39,8 +36,7 @@ get_header(); ?>
 		}
 
 
-		/* request URI */
-
+		// Request URI
 		if ( isset( $_SERVER['REQUEST_URI'] ) && isset( $_SERVER["HTTP_HOST"] ) ) {
 			$request = clean( 'http://' . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"] );
 		} else {
@@ -48,8 +44,7 @@ get_header(); ?>
 		}
 
 
-		/* query string */
-
+		// Query string
 		if ( isset( $_SERVER['QUERY_STRING'] ) ) {
 			$string = clean( $_SERVER['QUERY_STRING'] );
 		} else {
@@ -57,8 +52,7 @@ get_header(); ?>
 		}
 
 
-		/* IP address */
-
+		// IP address
 		if ( isset( $_SERVER['REMOTE_ADDR'] ) ) {
 			$address = clean( $_SERVER['REMOTE_ADDR'] );
 		} else {
@@ -66,8 +60,7 @@ get_header(); ?>
 		}
 
 
-		/* user agent */
-
+		// User agent
 		if ( isset( $_SERVER['HTTP_USER_AGENT'] ) ) {
 			$agent = clean( $_SERVER['HTTP_USER_AGENT'] );
 		} else {
@@ -75,8 +68,7 @@ get_header(); ?>
 		}
 
 
-		/* identity */
-
+		// Identity
 		if ( isset($_SERVER['REMOTE_IDENT'] ) ) {
 			$remote = clean( $_SERVER['REMOTE_IDENT'] );
 		} else {
@@ -84,13 +76,11 @@ get_header(); ?>
 		}
 
 
-		/* log time */
-
+		// Log time
 		$time = clean( date( "F jS Y, h:ia", time() ) );
 
 
-		/* sanitize */
-
+		// Sanitize
 		function clean($string) {
 
 			$string = rtrim( $string );
