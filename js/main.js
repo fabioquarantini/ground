@@ -1,22 +1,18 @@
-/*  ==========================================================================
-	Main scripts
-	==========================================================================  */
-
 'use strict';
 
 jQuery.noConflict();
 
-jQuery(document).ready(function($) {
+jQuery( document ).ready( function( $ ) {
 
 	var siteInit = {
 
 		DOMready: function() {
 
-			if ($('.gallery-icon').length > 0) {
+			if ( $('.gallery-icon').length > 0 ) {
 				siteInit.modalGallery();
 			}
 
-			if ($('.flexslider').length > 0) {
+			if ( $('.flexslider').length > 0 ) {
 				siteInit.slider();
 			}
 
@@ -27,7 +23,7 @@ jQuery(document).ready(function($) {
 
 		modalGallery: function() {
 
-			$('.gallery-icon').find('[href$=".jpg"], [href$=".png"], [href$=".gif"]').colorbox({
+			$('.gallery-item').find('[href$=".jpg"], [href$=".png"], [href$=".gif"]').colorbox({
 				transition: 'elastic',
 				speed: 400,
 				opacity: 0.8,
@@ -38,7 +34,6 @@ jQuery(document).ready(function($) {
 				maxWidth: '90%',
 				maxHeight: '90%',
 				rel:'gallery',
-				className: 'colorbox-gallery'
 			});
 
 		},
