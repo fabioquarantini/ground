@@ -1,0 +1,58 @@
+.commentlist {
+
+	.reply {
+		a {}
+	}
+
+	.alt {}
+	.odd {}
+	.even {}
+	.thread-alt {}
+	.thread-odd {}
+	.thread-even {}
+
+	li {
+		p {}
+		ul {}
+	}
+
+	ul.children {
+		li {}
+		.odd {}
+		.even {}
+		.alt {}
+		.byuser {}
+		.comment {}
+		.bypostauthor {}
+		.comment-author-admin {}
+	}
+
+	.vcard {
+		cite.fn {}
+		span.says {}
+		img.photo {}
+		img.avatar {}
+		cite.fn a.url {}
+	}
+
+	.comment-meta {
+		a {}
+	}
+
+	.commentmetadata {
+		a {}
+	}
+
+	.parent {}
+	.comment {}
+	.children {}
+	.pingback {}
+	.bypostauthor {}
+	.comment-author {}
+	.comment-author-admin {}
+
+}
+
+#cancel-comment-reply {
+	a {}
+}

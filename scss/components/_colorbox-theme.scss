@@ -12,7 +12,9 @@ $colorbox-button-dark: #333 !default;
 
 /* Colorbox theme (c) 2014 Fabio Quarantini */
 
-#colorbox{outline: 0;}
+#colorbox{
+	outline: 0;
+}
 
 #colorbox,
 #cboxOverlay,
@@ -34,7 +36,7 @@ $colorbox-button-dark: #333 !default;
 
 #cboxTitle {
 	position: absolute;
-	bottom: em(-30);
+	bottom: em(-30px);
 	left: 0;
 	width: 100%;
 	color: $colorbox-text;
@@ -46,7 +48,7 @@ $colorbox-button-dark: #333 !default;
 
 #cboxCurrent {
 	position: absolute;
-	bottom: em(-30);
+	bottom: em(-30px);
 	left: 0;
 	color: $colorbox-text;
 }
@@ -60,12 +62,12 @@ $colorbox-button-dark: #333 !default;
 #cboxClose {
 	position: absolute;
 	bottom: 0;
-	width: em(28);
-	height: em(28);
+	width: em(28px);
+	height: em(28px);
 	border: 0;
 	opacity: 0;
 	background: $colorbox-button url(#{$dir-img}/colorbox-controls.png) no-repeat;
-	text-indent: em(-9999);
+	text-indent: em(-9999px);
 	transition: all 0.5s;
 }
 
@@ -78,13 +80,13 @@ $colorbox-button-dark: #333 !default;
 }
 
 #cboxPrevious {
-	right: em(56);
+	right: em(56px);
 	background-position: 0 0;
 }
 
 #cboxNext {
-	right: em(28);
-	background-position: em(-28) 0;
+	right: em(28px);
+	background-position: em(-28px) 0;
 }
 
 #cboxNext:hover,
@@ -95,7 +97,7 @@ $colorbox-button-dark: #333 !default;
 #cboxClose {
 	right: 0;
 	background-color: $colorbox-button-hover;
-	background-position: em(-56) 0;
+	background-position: em(-56px) 0;
 }
 
 #cboxClose:hover {
@@ -106,7 +108,7 @@ $colorbox-button-dark: #333 !default;
 /* Slide show button */
 
 #cboxSlideshow {
-	right: em(84);
+	right: em(84px);
 }
 
 #cboxSlideshow:hover {
@@ -114,11 +116,11 @@ $colorbox-button-dark: #333 !default;
 }
 
 .cboxSlideshow_off #cboxSlideshow {
-	background-position: em(-84) 0;
+	background-position: em(-84px) 0;
 }
 
 .cboxSlideshow_on #cboxSlideshow {
-	background-position: em(-112) 0;
+	background-position: em(-112px) 0;
 }
 
 
@@ -133,7 +135,7 @@ $colorbox-button-dark: #333 !default;
 
 #cboxContent {
 	border: 0;
-	box-shadow: 0 em(10) em(25) rgba(0, 0, 0, 0.5);
+	box-shadow: 0 em(10px) em(25px) rgba(0, 0, 0, 0.5);
 	background-color: $colorbox-bg;
 }
 
@@ -148,5 +150,5 @@ $colorbox-button-dark: #333 !default;
 /* Error */
 
 #cboxError {
-	padding: em(50);
+	padding: em(50px);
 }

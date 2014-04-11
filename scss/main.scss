@@ -2,19 +2,21 @@
 	Imports
 	========================================================================== */
 
-@import "partials/variables";
-@import "partials/mixins";
-@import "partials/normalize";
-@import "partials/typography";
-@import "partials/grid";
-@import "partials/buttons";
-@import "partials/editor";
-@import "partials/comments";
-@import "vendor/colorbox";
-@import "vendor/colorbox-theme";
-@import "vendor/flexslider";
-@import "vendor/flexslider-theme";
-@import "partials/helpers";
+@import "base/variables";
+@import "base/mixins";
+@import "base/normalize";
+@import "base/typography";
+@import "layouts/grid";
+@import "layouts/footer";
+@import "layouts/header";
+@import "base/buttons";
+@import "blocks/editor";
+@import "blocks/comments";
+@import "components/colorbox";
+@import "components/colorbox-theme";
+@import "components/flexslider";
+@import "components/flexslider-theme";
+@import "base/placeholders";
 
 
 /*  ==========================================================================
@@ -26,7 +28,7 @@ html {
 	font-size: em($font-base);
 	line-height: $line-height;
 	height: 100%;
-	color: $color-text;
+	color: $grey;
 	background-color: $light-grey;
 }
 
@@ -50,18 +52,16 @@ ul {
 /* Remove text-shadow in selection highlight */
 
 ::selection {
- 	background: $color-hover;
+ 	background: $dark-grey;
 	text-shadow: none;
 }
 
-
 a {
-	color: $color-link;
+	color: $grey;
 	&:hover {
-		color: $color-hover;
+		color: $dark-grey;
 	}
 }
-
 
 
 /*  ==========================================================================
@@ -69,9 +69,9 @@ a {
 	==========================================================================  */
 
 .container {
-	max-width: em(960);
+	max-width: em(960px);
 	margin: 0 auto;
-	padding: em(10);
+	padding: em(10px);
 }
 
 .main-header {
@@ -85,7 +85,6 @@ a {
 	}
 }
 
-
 .navigation,
 .site-title {
 	display: inline-block;
@@ -93,14 +92,14 @@ a {
 }
 
 .site-title {
-	font-size: em(16);
+	font-size: em(16px);
 	font-weight: normal;
 	text-decoration: none;
 	color: $dark-grey;
 }
 
 .site-description {
-	font-size: em(12);
+	font-size: em(12px);
 }
 
 .navigation li {
@@ -108,10 +107,10 @@ a {
 }
 
 .navigation li a {
-	border: em(1) solid $light-grey;
+	border: em(1px) solid $light-grey;
 	color: $grey;
 	text-decoration: none;
-	padding: em(6);
+	padding: em(6px);
 	font-weight: bold;
 }
 
@@ -136,18 +135,17 @@ a {
 	vertical-align: top;
 }
 
-.post {
-	background-color: $light-grey;
-}
-
 .current-cat > a {
 	font-weight: bold;
 	color: $black;
 	background-color: blue;
 }
 
-footer {
-	background-color: $dark-grey;
+
+/* Media query*/
+
+@media (min-width: 768px) {
+
 }
 
 
@@ -156,5 +154,5 @@ footer {
 	========================================================================== */
 
 @media print {
-	@import "partials/print";
+	@import "base/print";
 }

@@ -20,7 +20,6 @@ Text Domain: groundtheme
 /* Font stacks */
 /* Directory */
 /* Colors */
-/* Text */
 /* Media query*/
 /* Colorbox */
 /* Flexslider */
@@ -429,40 +428,37 @@ h4 {
   margin-top: 0;
 }
 
+footer {
+  background-color: #222222;
+}
+
 /*  ==========================================================================
 	WordPress WYSIWYG editor styles
 	==========================================================================  */
-.entry-content img {
-  margin: 0 0 1.5em 0;
-  max-width: 100%;
-  height: auto;
-}
-
-.size-auto,
-.size-full,
-.size-large,
-.size-medium,
-.size-thumbnail {
-  max-width: 100%;
-  height: auto;
-}
-
-.alignleft,
-img.alignleft {
-  display: inline;
-  float: left;
-  margin-right: 1.5em;
-}
-
-.alignright,
-img.alignright {
-  display: inline;
-  float: right;
-  margin-left: 1.5em;
+.alignnone {
+  margin: 0.3125em 1.25em 1.25em 0;
 }
 
 .aligncenter,
-img.aligncenter {
+div.aligncenter {
+  display: block;
+  margin: 0.3125em auto 0.3125em auto;
+}
+
+.alignleft,
+a img.alignleft {
+  float: left;
+  margin-right: 1.3125em;
+}
+
+.alignright,
+a img.alignright {
+  float: right;
+  margin-left: 1.3125em;
+}
+
+.aligncenter,
+a img.aligncenter {
   display: block;
   clear: both;
   margin-right: auto;
@@ -470,20 +466,28 @@ img.aligncenter {
 }
 
 .wp-caption {
-  margin-bottom: 1.5em;
-  padding-top: 5px;
+  margin-bottom: 1.3125em;
+  padding-top: 0.3125em;
+  max-width: 96%;
   text-align: center;
 }
-
+.wp-caption.alignnone {
+  margin: 0.3125em 1.25em 1.25em 0;
+}
+.wp-caption.alignleft {
+  margin: 0.3125em 1.25em 1.25em 0;
+}
+.wp-caption.alignright {
+  margin: 0.3125em 0 1.25em 1.25em;
+}
 .wp-caption img {
   margin: 0;
   padding: 0;
   border: 0 none;
 }
-
 .wp-caption p.wp-caption-text {
   margin: 0;
-  font-size: 10px;
+  font-size: 0.6875em;
   line-height: 1.5;
 }
 
@@ -494,7 +498,7 @@ img.aligncenter {
 
 blockquote.left {
   float: left;
-  margin-right: 20px;
+  margin-right: 1.25em;
   margin-left: 0;
   width: 33%;
   text-align: right;
@@ -503,7 +507,7 @@ blockquote.left {
 blockquote.right {
   float: right;
   margin-right: 0;
-  margin-left: 20px;
+  margin-left: 1.25em;
   width: 33%;
   text-align: left;
 }
@@ -816,7 +820,7 @@ html[xmlns] .slides {
 .flex-direction-nav .flex-prev {
   left: 0;
 }
-@media only screen and (min-width: 60em) {
+@media only screen and (min-width: em(992px) / 16pxem) {
   .flex-direction-nav .flex-prev {
     left: -2.25em;
     opacity: 0;
@@ -826,7 +830,7 @@ html[xmlns] .slides {
   right: 0;
   background-position: 100% 0;
 }
-@media only screen and (min-width: 60em) {
+@media only screen and (min-width: em(992px) / 16pxem) {
   .flex-direction-nav .flex-next {
     right: -2.25em;
     opacity: 0;
@@ -918,7 +922,6 @@ html[xmlns] .slides {
   overflow: hidden;
   *text-indent: -9999px;
 }
-
 .ir:before {
   content: "";
   display: block;
@@ -936,15 +939,14 @@ html[xmlns] .slides {
 .visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
+  height: 0.0625em;
+  margin: -0.0625em;
   overflow: hidden;
   padding: 0;
   position: absolute;
-  width: 1px;
+  width: 0.0625em;
+  /* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard */
 }
-
-/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard */
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
   clip: auto;
@@ -956,23 +958,17 @@ html[xmlns] .slides {
 }
 
 /* Hide visually and from screenreaders, but maintain layout */
-.invisible {
-  visibility: hidden;
-}
-
 /* Clearfix: contain floats */
+.clearfix {
+  *zoom: 1;
+}
 .clearfix:before,
 .clearfix:after {
   content: " ";
   display: table;
 }
-
 .clearfix:after {
   clear: both;
-}
-
-.clearfix {
-  *zoom: 1;
 }
 
 /*  ==========================================================================
@@ -1086,20 +1082,13 @@ a:hover {
   vertical-align: top;
 }
 
-.post {
-  background-color: #f3f3f3;
-}
-
 .current-cat > a {
   font-weight: bold;
   color: black;
   background-color: blue;
 }
 
-footer {
-  background-color: #222222;
-}
-
+/* Media query*/
 /*  ==========================================================================
 	Print styles
 	========================================================================== */

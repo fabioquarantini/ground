@@ -1,7 +1,7 @@
 /* Typography */
 
 $line-height: 1.4;
-$font-base: 16;
+$font-base: 16px;
 
 
 /* Font stacks */
@@ -18,24 +18,19 @@ $dir-img: 'img';
 
 /* Colors */
 
-$white: #fff;
-$black: #000;
-$grey: #444;
+$white: #ffffff;
+$black: #000000;
+$grey: #444444;
 $light-grey: #F3F3F3;
-$dark-grey: #222;
-
-
-/* Text */
-
-$color-text: $grey;
-$color-link: $grey;
-$color-hover: $dark-grey;
+$dark-grey: #222222;
 
 
 /* Media query*/
 
-$mq-large: 960;
-$mq-small: 640;
+$mq-xs: em(480px);
+$mq-sm: em(768px);
+$mq-md: em(992px);
+$mq-lg: em(1200px);
 
 
 /* Colorbox */
