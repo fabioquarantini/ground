@@ -2,7 +2,7 @@
 
 	<section class="content">
 
-		<h1><?php _e("Search results:", "groundtheme"); ?></h1>
+		<h1><?php _e("Search results:", "ground"); ?></h1>
 
 		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 

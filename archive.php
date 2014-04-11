@@ -9,34 +9,34 @@ get_header();
 			<h1>
 				<?php if ( is_category() ) { ?>
 
-					<span><?php _e( "Posts categorized:", "groundtheme" ); ?></span> <?php single_cat_title(); ?>
+					<span><?php _e( "Posts categorized:", "ground" ); ?></span> <?php single_cat_title(); ?>
 
 				<?php } elseif ( is_tag() ) { ?>
 
-					<span><?php _e( "Posts tagged:", "groundtheme" ); ?></span> <?php single_tag_title(); ?>
+					<span><?php _e( "Posts tagged:", "ground" ); ?></span> <?php single_tag_title(); ?>
 
 				<?php } elseif ( is_author() ) {
 					global $post;
 					$curauth = (get_query_var('author_name')) ? get_user_by( 'slug', get_query_var('author_name') ) : get_userdata( get_query_var('author') );
 					$author_id = $post->post_author;
 				?>
-					<span><?php _e( "Posts by:", "groundtheme" ); ?></span> <?php echo $curauth->display_name; ?>
+					<span><?php _e( "Posts by:", "ground" ); ?></span> <?php echo $curauth->display_name; ?>
 
 				<?php } elseif ( is_day() ) { ?>
 
-					<span><?php _e( "Daily archives:", "groundtheme" ); ?></span> <?php the_time('l, F j, Y'); ?>
+					<span><?php _e( "Daily archives:", "ground" ); ?></span> <?php the_time('l, F j, Y'); ?>
 
 				<?php } elseif ( is_month() ) { ?>
 
-					<span><?php _e( "Monthly archives:", "groundtheme" ); ?></span> <?php the_time('F Y'); ?>
+					<span><?php _e( "Monthly archives:", "ground" ); ?></span> <?php the_time('F Y'); ?>
 
 				<?php } elseif ( is_year() ) { ?>
 
-					<span><?php _e( "Yearly archives:", "groundtheme" ); ?></span> <?php the_time('Y'); ?>
+					<span><?php _e( "Yearly archives:", "ground" ); ?></span> <?php the_time('Y'); ?>
 
 				<?php } else {
 
-					_e( "Archive", "groundtheme" );
+					_e( "Archive", "ground" );
 
 				} ?>
 			</h1>

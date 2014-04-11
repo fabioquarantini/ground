@@ -16,31 +16,31 @@
 function ground_register_slider_post_type() {
 
 	$labels = array(
-		'name'					=> _x( 'Slides', 'Post Type General Name', 'groundtheme' ),
-		'singular_name'			=> _x( 'Slide', 'Post Type Singular Name', 'groundtheme' ),
-		'menu_name'				=> __( 'Slides', 'groundtheme' ),
-		'parent_item_colon'		=> __( 'Parent slide:', 'groundtheme' ),
-		'all_items'				=> __( 'All slides', 'groundtheme' ),
-		'view_item'				=> __( 'View slide', 'groundtheme' ),
-		'add_new_item'			=> __( 'Add new slide', 'groundtheme' ),
-		'add_new'				=> __( 'New slide', 'groundtheme' ),
-		'edit_item'				=> __( 'Edit slide', 'groundtheme' ),
-		'update_item'			=> __( 'Update slide', 'groundtheme' ),
-		'search_items'			=> __( 'Search slides', 'groundtheme' ),
-		'not_found'				=> __( 'No slide found', 'groundtheme' ),
-		'not_found_in_trash'	=> __( 'No slide found in Trash', 'groundtheme' )
+		'name'					=> _x( 'Slides', 'Post Type General Name', 'ground-backend' ),
+		'singular_name'			=> _x( 'Slide', 'Post Type Singular Name', 'ground-backend' ),
+		'menu_name'				=> __( 'Slides', 'ground-backend' ),
+		'parent_item_colon'		=> __( 'Parent slide:', 'ground-backend' ),
+		'all_items'				=> __( 'All slides', 'ground-backend' ),
+		'view_item'				=> __( 'View slide', 'ground-backend' ),
+		'add_new_item'			=> __( 'Add new slide', 'ground-backend' ),
+		'add_new'				=> __( 'New slide', 'ground-backend' ),
+		'edit_item'				=> __( 'Edit slide', 'ground-backend' ),
+		'update_item'			=> __( 'Update slide', 'ground-backend' ),
+		'search_items'			=> __( 'Search slides', 'ground-backend' ),
+		'not_found'				=> __( 'No slide found', 'ground-backend' ),
+		'not_found_in_trash'	=> __( 'No slide found in Trash', 'ground-backend' )
 	);
 
 	$rewrite = array(
-		'slug'					=> __( 'slider', 'groundtheme' ),
+		'slug'					=> __( 'slider', 'ground-backend' ),
 		'with_front'			=> false,
 		'pages'					=> false,
 		'feeds'					=> false
 	);
 
 	$args = array(
-		'label'					=> __( 'slide', 'groundtheme' ),
-		'description'			=> __( 'slide', 'groundtheme' ),
+		'label'					=> __( 'slide', 'ground-backend' ),
+		'description'			=> __( 'slide', 'ground-backend' ),
 		'labels'				=> $labels,
 		'supports'				=> array( 'title', 'editor', 'thumbnail', 'page-attributes', ),
 		//'taxonomies'			=> array( 'category', 'post_tag' ),
@@ -74,24 +74,24 @@ add_action( 'init', 'ground_register_slider_post_type', 0 );
 function ground_register_slider_taxonomy()  {
 
 	$labels = array(
-		'name'							=> _x( 'Categories', 'Taxonomy General Name', 'groundtheme' ),
-		'singular_name'					=> _x( 'Category', 'Taxonomy Singular Name', 'groundtheme' ),
-		'menu_name'						=> __( 'Category', 'groundtheme' ),
-		'all_items'						=> __( 'All Categories', 'groundtheme' ),
-		'parent_item'					=> __( 'Parent category', 'groundtheme' ),
-		'parent_item_colon'				=> __( 'Parent category:', 'groundtheme' ),
-		'new_item_name'					=> __( 'New category name', 'groundtheme' ),
-		'add_new_item'					=> __( 'Add new category', 'groundtheme' ),
-		'edit_item'						=> __( 'Edit category', 'groundtheme' ),
-		'update_item'					=> __( 'Update category', 'groundtheme' ),
-		'separate_items_with_commas'	=> __( 'Separate Categories with commas', 'groundtheme' ),
-		'search_items'					=> __( 'Search Categories', 'groundtheme' ),
-		'add_or_remove_items'			=> __( 'Add or remove Categories', 'groundtheme' ),
-		'choose_from_most_used'			=> __( 'Choose from the most used Categories', 'groundtheme' )
+		'name'							=> _x( 'Categories', 'Taxonomy General Name', 'ground-backend' ),
+		'singular_name'					=> _x( 'Category', 'Taxonomy Singular Name', 'ground-backend' ),
+		'menu_name'						=> __( 'Category', 'ground-backend' ),
+		'all_items'						=> __( 'All Categories', 'ground-backend' ),
+		'parent_item'					=> __( 'Parent category', 'ground-backend' ),
+		'parent_item_colon'				=> __( 'Parent category:', 'ground-backend' ),
+		'new_item_name'					=> __( 'New category name', 'ground-backend' ),
+		'add_new_item'					=> __( 'Add new category', 'ground-backend' ),
+		'edit_item'						=> __( 'Edit category', 'ground-backend' ),
+		'update_item'					=> __( 'Update category', 'ground-backend' ),
+		'separate_items_with_commas'	=> __( 'Separate Categories with commas', 'ground-backend' ),
+		'search_items'					=> __( 'Search Categories', 'ground-backend' ),
+		'add_or_remove_items'			=> __( 'Add or remove Categories', 'ground-backend' ),
+		'choose_from_most_used'			=> __( 'Choose from the most used Categories', 'ground-backend' )
 	);
 
 	$rewrite = array(
-		'slug'							=> __( 'slider-category', 'groundtheme' ),
+		'slug'							=> __( 'slider-category', 'ground-backend' ),
 		'with_front'					=> true,
 		'hierarchical'					=> true
 	);
@@ -121,8 +121,8 @@ add_action( 'init', 'ground_register_slider_taxonomy', 0 );
 function ground_slider_columns( $columns ) {
 
 	//unset($columns['date']);  // Hide date column
-	$column_thumbnail = array( 'thumbnail' => __('Preview', 'groundtheme') );
-	$column_caption = array( 'caption' => __('Caption', 'groundtheme') );
+	$column_thumbnail = array( 'thumbnail' => __('Preview', 'ground-backend') );
+	$column_caption = array( 'caption' => __('Caption', 'ground-backend') );
 	$columns = array_slice( $columns, 0, 1, true ) + $column_thumbnail + array_slice( $columns, 1, NULL, true );
 	$columns = array_slice( $columns, 0, 3, true ) + $column_caption + array_slice( $columns, 3, NULL, true );
 	return $columns;

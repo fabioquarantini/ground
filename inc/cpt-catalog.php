@@ -17,31 +17,31 @@
 function ground_register_catalog_post_type() {
 
 	$labels = array(
-		'name'					=> _x( 'Products', 'Post Type General Name', 'groundtheme' ),
-		'singular_name'			=> _x( 'Product', 'Post Type Singular Name', 'groundtheme' ),
-		'menu_name'				=> __( 'Products', 'groundtheme' ),
-		'parent_item_colon'		=> __( 'Parent Product:', 'groundtheme' ),
-		'all_items'				=> __( 'All Products', 'groundtheme' ),
-		'view_item'				=> __( 'View Product', 'groundtheme' ),
-		'add_new_item'			=> __( 'Add New Product', 'groundtheme' ),
-		'add_new'				=> __( 'New Product', 'groundtheme' ),
-		'edit_item'				=> __( 'Edit Product', 'groundtheme' ),
-		'update_item'			=> __( 'Update Product', 'groundtheme' ),
-		'search_items'			=> __( 'Search products', 'groundtheme' ),
-		'not_found'				=> __( 'No products found', 'groundtheme' ),
-		'not_found_in_trash'	=> __( 'No products found in Trash', 'groundtheme' )
+		'name'					=> _x( 'Products', 'Post Type General Name', 'ground-backend' ),
+		'singular_name'			=> _x( 'Product', 'Post Type Singular Name', 'ground-backend' ),
+		'menu_name'				=> __( 'Products', 'ground-backend' ),
+		'parent_item_colon'		=> __( 'Parent Product:', 'ground-backend' ),
+		'all_items'				=> __( 'All Products', 'ground-backend' ),
+		'view_item'				=> __( 'View Product', 'ground-backend' ),
+		'add_new_item'			=> __( 'Add New Product', 'ground-backend' ),
+		'add_new'				=> __( 'New Product', 'ground-backend' ),
+		'edit_item'				=> __( 'Edit Product', 'ground-backend' ),
+		'update_item'			=> __( 'Update Product', 'ground-backend' ),
+		'search_items'			=> __( 'Search products', 'ground-backend' ),
+		'not_found'				=> __( 'No products found', 'ground-backend' ),
+		'not_found_in_trash'	=> __( 'No products found in Trash', 'ground-backend' )
 	);
 
 	$rewrite = array(
-		'slug'					=> __( 'catalog', 'groundtheme' ),
+		'slug'					=> __( 'catalog', 'ground-backend' ),
 		'with_front'			=> true,
 		'pages'					=> true,
 		'feeds'					=> true
 	);
 
 	$args = array(
-		'label'					=> __( 'catalog', 'groundtheme' ),
-		'description'			=> __( 'catalog', 'groundtheme' ),
+		'label'					=> __( 'catalog', 'ground-backend' ),
+		'description'			=> __( 'catalog', 'ground-backend' ),
 		'labels'				=> $labels,
 		'supports'				=> array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'trackbacks', 'revisions', 'custom-fields', 'page-attributes', 'post-formats', ),
 		//'taxonomies'			=> array( 'category', 'post_tag' ),
@@ -75,24 +75,24 @@ add_action( 'init', 'ground_register_catalog_post_type', 0 );
 function ground_register_catalog_taxonomy()  {
 
 	$labels = array(
-		'name'							=> _x( 'Categories', 'Taxonomy General Name', 'groundtheme' ),
-		'singular_name'					=> _x( 'Category', 'Taxonomy Singular Name', 'groundtheme' ),
-		'menu_name'						=> __( 'Category', 'groundtheme' ),
-		'all_items'						=> __( 'All Categories', 'groundtheme' ),
-		'parent_item'					=> __( 'Parent category', 'groundtheme' ),
-		'parent_item_colon'				=> __( 'Parent category:', 'groundtheme' ),
-		'new_item_name'					=> __( 'New category name', 'groundtheme' ),
-		'add_new_item'					=> __( 'Add new category', 'groundtheme' ),
-		'edit_item'						=> __( 'Edit category', 'groundtheme' ),
-		'update_item'					=> __( 'Update category', 'groundtheme' ),
-		'separate_items_with_commas'	=> __( 'Separate Categories with commas', 'groundtheme' ),
-		'search_items'					=> __( 'Search Categories', 'groundtheme' ),
-		'add_or_remove_items'			=> __( 'Add or remove Categories', 'groundtheme' ),
-		'choose_from_most_used'			=> __( 'Choose from the most used Categories', 'groundtheme' ),
+		'name'							=> _x( 'Categories', 'Taxonomy General Name', 'ground-backend' ),
+		'singular_name'					=> _x( 'Category', 'Taxonomy Singular Name', 'ground-backend' ),
+		'menu_name'						=> __( 'Category', 'ground-backend' ),
+		'all_items'						=> __( 'All Categories', 'ground-backend' ),
+		'parent_item'					=> __( 'Parent category', 'ground-backend' ),
+		'parent_item_colon'				=> __( 'Parent category:', 'ground-backend' ),
+		'new_item_name'					=> __( 'New category name', 'ground-backend' ),
+		'add_new_item'					=> __( 'Add new category', 'ground-backend' ),
+		'edit_item'						=> __( 'Edit category', 'ground-backend' ),
+		'update_item'					=> __( 'Update category', 'ground-backend' ),
+		'separate_items_with_commas'	=> __( 'Separate Categories with commas', 'ground-backend' ),
+		'search_items'					=> __( 'Search Categories', 'ground-backend' ),
+		'add_or_remove_items'			=> __( 'Add or remove Categories', 'ground-backend' ),
+		'choose_from_most_used'			=> __( 'Choose from the most used Categories', 'ground-backend' ),
 	);
 
 	$rewrite = array(
-		'slug'							=> __( 'catalog-category', 'groundtheme' ),
+		'slug'							=> __( 'catalog-category', 'ground-backend' ),
 		'with_front'					=> true,
 		'hierarchical'					=> true
 	);
@@ -122,20 +122,20 @@ add_action( 'init', 'ground_register_catalog_taxonomy', 0 );
 function ground_register_taxonomy_tag()  {
 
 	$labels = array(
-		'name'							=> _x( 'Tags', 'Taxonomy General Name', 'groundtheme' ),
-		'singular_name'					=> _x( 'Tag', 'Taxonomy Singular Name', 'groundtheme' ),
-		'menu_name'						=> __( 'Tags', 'groundtheme' ),
-		'all_items'						=> __( 'All tags', 'groundtheme' ),
-		'parent_item'					=> __( 'Parent tag', 'groundtheme' ),
-		'parent_item_colon'				=> __( 'Parent tag:', 'groundtheme' ),
-		'new_item_name'					=> __( 'New tag name', 'groundtheme' ),
-		'add_new_item'					=> __( 'Add new tag', 'groundtheme' ),
-		'edit_item'						=> __( 'Edit Tag', 'groundtheme' ),
-		'update_item'					=> __( 'Update Tag', 'groundtheme' ),
-		'separate_items_with_commas'	=> __( 'Separate tags with commas', 'groundtheme' ),
-		'search_items'					=> __( 'Search tags', 'groundtheme' ),
-		'add_or_remove_items'			=> __( 'Add or remove tags', 'groundtheme' ),
-		'choose_from_most_used'			=> __( 'Choose from the most used tags', 'groundtheme' )
+		'name'							=> _x( 'Tags', 'Taxonomy General Name', 'ground-backend' ),
+		'singular_name'					=> _x( 'Tag', 'Taxonomy Singular Name', 'ground-backend' ),
+		'menu_name'						=> __( 'Tags', 'ground-backend' ),
+		'all_items'						=> __( 'All tags', 'ground-backend' ),
+		'parent_item'					=> __( 'Parent tag', 'ground-backend' ),
+		'parent_item_colon'				=> __( 'Parent tag:', 'ground-backend' ),
+		'new_item_name'					=> __( 'New tag name', 'ground-backend' ),
+		'add_new_item'					=> __( 'Add new tag', 'ground-backend' ),
+		'edit_item'						=> __( 'Edit Tag', 'ground-backend' ),
+		'update_item'					=> __( 'Update Tag', 'ground-backend' ),
+		'separate_items_with_commas'	=> __( 'Separate tags with commas', 'ground-backend' ),
+		'search_items'					=> __( 'Search tags', 'ground-backend' ),
+		'add_or_remove_items'			=> __( 'Add or remove tags', 'ground-backend' ),
+		'choose_from_most_used'			=> __( 'Choose from the most used tags', 'ground-backend' )
 	);
 
 	$rewrite = array(

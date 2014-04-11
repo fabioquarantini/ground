@@ -3,17 +3,17 @@
 	<h1><?php the_title(); ?></h1>
 
 		<p>
-			<span><?php _e('Comments:','groundtheme');
+			<span><?php _e('Comments:','ground');
 			if( comments_open() && !post_password_required() ) {
-				comments_popup_link( __('No comments yet', 'groundtheme'), __('1 comment', 'groundtheme'), __('% comments', 'groundtheme'), __('comments-link', 'groundtheme'), __('Comments are off for this post','groundtheme') );
+				comments_popup_link( __('No comments yet', 'ground'), __('1 comment', 'ground'), __('% comments', 'ground'), __('comments-link', 'ground'), __('Comments are off for this post','ground') );
 			} else {
-				_e('Commments close','groundtheme');
+				_e('Commments close','ground');
 			}
 			?></span>
 			<span><?php the_time(get_option('date_format')); ?></span>
 			<span><?php the_author_posts_link(); ?></span>
-			<span><?php _e('Category:','groundtheme'); the_category(', '); ?></span>
-			<span><?php _e('Tags:','groundtheme');  the_tags(); ?></span>
+			<span><?php _e('Category:','ground'); the_category(', '); ?></span>
+			<span><?php _e('Tags:','ground');  the_tags(); ?></span>
 			<?php edit_post_link(); ?>
 		</p>
 

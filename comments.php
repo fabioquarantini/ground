@@ -14,8 +14,8 @@ if ( have_comments() ) : ?>
 		'callback'			=> null,
 		'end-callback'		=> null,
 		'type'				=> 'comment',
-		'reply_text'		=> __( 'Reply', 'groundtheme' ),
-		'login_text'		=> __( 'Log in to Reply', 'groundtheme' ),
+		'reply_text'		=> __( 'Reply', 'ground' ),
+		'login_text'		=> __( 'Log in to Reply', 'ground' ),
 		'page'				=> '',
 		'per_page'			=> '',
 		'avatar_size'		=> 74,
@@ -33,14 +33,14 @@ if ( have_comments() ) : ?>
 	<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
 		<nav class="navigation comment-navigation">
 			<ul>
-				<li><?php previous_comments_link( __( '&larr; Older Comments', 'groundtheme' ) ); ?></li>
-				<li><?php next_comments_link( __( 'Newer Comments &rarr;', 'groundtheme' ) ); ?></li>
+				<li><?php previous_comments_link( __( '&larr; Older Comments', 'ground' ) ); ?></li>
+				<li><?php next_comments_link( __( 'Newer Comments &rarr;', 'ground' ) ); ?></li>
 			</ul>
 		</nav>  <!-- End .comment-navigation -->
 	<?php endif; ?>
 
 	<?php if ( ! comments_open() && get_comments_number() ) : ?>
-		<p class="no-comments"><?php _e( 'Comments are closed.' , 'groundtheme' ); ?></p>
+		<p class="no-comments"><?php _e( 'Comments are closed.' , 'ground' ); ?></p>
 	<?php endif; ?>
 
 
@@ -54,19 +54,19 @@ $aria_req = ( $req ? " aria-required='true'" : '' );
 
 $fields =  array(
 
-	'author'	=> '<p class="comment-form-author"><label for="author">' . __( 'Name', 'groundtheme' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) . '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' /></p>',
-	'email'		=> '<p class="comment-form-email"><label for="email">' . __( 'Email', 'groundtheme' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) . '<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /></p>',
-	'url'		=> '<p class="comment-form-url"><label for="url">' . __( 'Website', 'groundtheme' ) . '</label>' . '<input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></p>',
+	'author'	=> '<p class="comment-form-author"><label for="author">' . __( 'Name', 'ground' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) . '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' /></p>',
+	'email'		=> '<p class="comment-form-email"><label for="email">' . __( 'Email', 'ground' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) . '<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /></p>',
+	'url'		=> '<p class="comment-form-url"><label for="url">' . __( 'Website', 'ground' ) . '</label>' . '<input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></p>',
 
 );
 
 $comments_args = array(
 
-	'comment_field'			=> '<p class="comment-form-comment"><label for="comment">' . __( 'Comment', 'groundtheme' ) . '</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
+	'comment_field'			=> '<p class="comment-form-comment"><label for="comment">' . __( 'Comment', 'ground' ) . '</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
 	'fields'				=> apply_filters( 'comment_form_default_fields', $fields ),
 	'comment_notes_before'	=> '',
 	'comment_notes_after'	=> '',
-	'label_submit'			=> __( 'Post Comment' , 'groundtheme'),
+	'label_submit'			=> __( 'Post Comment' , 'ground'),
 
 );
 

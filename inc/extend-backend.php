@@ -62,7 +62,8 @@ add_action( 'after_setup_theme','ground_post_thumbnail_size' );
 // Loads the theme's translated strings.
 function ground_load_theme_textdomain() {
 
-	load_theme_textdomain( 'groundtheme', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'ground-backend', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'ground', get_template_directory() . '/languages' );
 
 }
 
@@ -80,9 +81,9 @@ function ground_register_nav_menus() {
 
 	// Registers multiple custom navigation menus in the custom menu editor
 	$locations = array(
-		'menu-primary'		=> __( 'Primary menu', 'groundtheme' ),
-		'menu-secondary'	=> __( 'Secondary menu', 'groundtheme' ),
-		'menu-tertiary'		=> __( 'Tertiary menu', 'groundtheme' ),
+		'menu-primary'		=> __( 'Primary menu', 'ground-backend' ),
+		'menu-secondary'	=> __( 'Secondary menu', 'ground-backend' ),
+		'menu-tertiary'		=> __( 'Tertiary menu', 'ground-backend' ),
 	);
 	register_nav_menus( $locations );
 
@@ -100,8 +101,8 @@ function ground_register_sidebars() {
 	// Register sidebar (primary)
 	$args_primary = array(
 		'id'			=> 'primary-sidebar',
-		'name'			=> __( 'Primary sidebar', 'groundtheme' ),
-		'description'	=> __( 'Primary sidebar', 'groundtheme' ),
+		'name'			=> __( 'Primary sidebar', 'ground-backend' ),
+		'description'	=> __( 'Primary sidebar', 'ground-backend' ),
 		'class'			=> '',
 		'before_widget'	=> '<div id="%1$s" class="widget %2$s">',
 		'after_widget'	=> '</div>',
@@ -113,8 +114,8 @@ function ground_register_sidebars() {
 	// Register sidebar (secondary)
 	$args_secondary = array(
 		'id'			=> 'secondary-sidebar',
-		'name'			=> __( 'Secondary sidebar', 'groundtheme' ),
-		'description'	=> __( 'Secondary sidebar', 'groundtheme' ),
+		'name'			=> __( 'Secondary sidebar', 'ground-backend' ),
+		'description'	=> __( 'Secondary sidebar', 'ground-backend' ),
 		'class'			=> '',
 		'before_widget'	=> '<div id="%1$s" class="widget %2$s">',
 		'after_widget'	=> '</div>',
@@ -266,12 +267,12 @@ add_action( 'after_setup_theme','ground_markup' );
 
 
 /*  ==========================================================================
-	13 - Excerpt custom lenght : ground_excerpt( 100, __('Read more', 'groundtheme'), '...', );
+	13 - Excerpt custom lenght : ground_excerpt( 100, __('Read more', 'ground'), '...', );
 	==========================================================================  */
 
 // Summary or description of a post with custom lenght
 
-$word = __('Read more', 'groundtheme');
+$word = __('Read more', 'ground');
 
 function ground_excerpt( $character_length = 100, $word, $continue = '...' ) {
 

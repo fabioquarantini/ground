@@ -4,8 +4,8 @@ get_header(); ?>
 
 <section class="content">
 
-	<h1><?php _e( "Not found", "groundtheme" ); ?></h1>
-	<p><?php _e( 'It looks like nothing was found at this location. Maybe try a search?', 'groundtheme' ); ?></p>
+	<h1><?php _e( 'Not found', 'ground' ); ?></h1>
+	<p><?php _e( 'It looks like nothing was found at this location. Maybe try a search?', 'ground' ); ?></p>
 	<p><?php get_search_form(); ?></p>
 
 	<?php
@@ -108,7 +108,7 @@ get_header(); ?>
 			"User agent: "		. $agent   . "\n\n\n";
 
 		// Comment this line if you don't want 404 alert to be sent to your email
-		mail( $email, __( "Page with 404 error: ", "groundtheme" ) . $blog . " [" . $theme . "]", $message, "From: $email" );
+		mail( $email, __( "Page with 404 error: ", "ground" ) . $blog . " [" . $theme . "]", $message, "From: $email" );
 
 	}
 

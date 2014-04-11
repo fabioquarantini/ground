@@ -17,8 +17,8 @@ if ( $total_pages > 1 ) {
 		'current'		=> $current_page,
 		'total'			=> $total_pages,
 		'type'			=> 'list',
-		'prev_text'		=> __('&laquo; Previuos', "groundtheme"),
-		'next_text'		=> __('Next &raquo;', "groundtheme"),
+		'prev_text'		=> __('&laquo; Previuos', "ground"),
+		'next_text'		=> __('Next &raquo;', "ground"),
 	);
 
 	echo paginate_links($args);
