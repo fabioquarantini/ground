@@ -7,7 +7,6 @@
 	3 - Hide WordPress Version Number from scripts and css
 	4 - Clean up head output
 	5 - Hide WordPress Version Number from RSS feed
-	6 - Remove inline styles from text editor gallery
 
 	==========================================================================  */
 
@@ -139,13 +138,6 @@ function ground_remove_rss_version() {
 }
 
 // add_filter( 'the_generator', 'ground_remove_rss_version' );
-
-
-/*  ==========================================================================
-	6 - Remove inline styles from text editor gallery
-	==========================================================================  */
-
-add_filter( 'use_default_gallery_style', '__return_false' );
 
 
 ?>
