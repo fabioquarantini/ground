@@ -13,7 +13,7 @@
 	9 - Image quality compression
 	10 - Display post thumbnail in RSS Feeds
 	11 - Add excerpt support for pages
-	12 - Html5 markup for comment and search
+	12 - Html5 markup
 	13 - Excerpt custom lenght
 	14 - Trim title length
 	15 - Extend walker for selective page hierarchy in wp_list_pages()
@@ -48,7 +48,7 @@ function ground_post_thumbnail_size() {
 	// Registers a new image size ($name, $width, $height, $crop)
 	add_image_size( 'thumb-small', 200, 200, true );
 	add_image_size( 'thumb-medium', 600, 150, true );
-	add_image_size( 'thumb-slider-primary', 960, 320, true );
+	add_image_size( 'thumb-slider-primary', 960, 320, array( top, center ) );
 
 }
 
@@ -248,16 +248,19 @@ add_action( 'init', 'ground_page_excerpt' );
 
 
 /*  ==========================================================================
-	12 - Html5 markup for comment and search
+	12 - Html5 markup
 	==========================================================================  */
 
 function ground_markup() {
 
-	// This feature allows the use of HTML5 markup for the comment forms, search forms and comment lists.
+	// This feature allows the use of HTML5 markup for the comment forms, search forms, comment lists and gallery.
+
 	$markup = array(
 		'search-form',
 		'comment-form',
 		'comment-list',
+		'gallery',
+		'caption'
 	);
 	add_theme_support( 'html5', $markup );
 
