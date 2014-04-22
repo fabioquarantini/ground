@@ -23,38 +23,37 @@ get_header(); ?>
 		'taxonomy'		=> 'ground_catalog_taxonomy'
 	);
 
-	$categories = get_categories($args);
+	$categories = get_categories($args); ?>
 
+	<section class="content" role="main">
 
-	if (!empty($categories)) { // Show the category  ?>
+	<?php if (!empty($categories)) { // Show the category  ?>
 
-		<ul class="category-list catalog-category-list">
 		<?php foreach ($categories as $category) {
-			echo '<li><a href="'.get_term_link($category->slug, 'ground_catalog_taxonomy').'">'. $category->name . ' ' . $category->description .'</a></li>';
+			echo '<article class="cpt-category"><a href="'.get_term_link($category->slug, 'ground_catalog_taxonomy').'">'. $category->name . ' ' . $category->description .'</a></article>  <!-- End .cpt-category -->';
 		} ?>
-		</ul> <!-- End .catalog-category-list -->
 
 	<?php } else { // show the products ?>
 
-		<section class="content">
 
-			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-					<?php get_template_part( 'partials/content', 'abstract' ); ?>
+				<?php get_template_part( 'partials/content', 'abstract' ); ?>
 
-				<?php endwhile; ?>
+			<?php endwhile; ?>
 
-					<?php get_template_part( 'partials/pagination', 'numeric' ); ?>
+				<?php get_template_part( 'partials/pagination', 'numeric' ); ?>
 
-				<?php else : ?>
+			<?php else : ?>
 
-					<?php get_template_part( 'partials/content', 'none' ); ?>
+				<?php get_template_part( 'partials/content', 'none' ); ?>
 
-			<?php endif; ?>
+		<?php endif; ?>
 
-		</section> <!-- End .content -->
 
 	<?php }	?>
+
+	</section> <!-- End .content -->
 
 	<?php get_sidebar(); ?>
 

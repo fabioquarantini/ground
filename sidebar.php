@@ -1,25 +1,29 @@
-<aside class="sidebar">
+<div class="sidebar">
 
 	<?php get_search_form(); ?>
 
-	<?php get_template_part( 'partials/menu', 'cpt-category' ); ?>
+	<nav class="navigation-cpt-category" role="navigation">
+		<?php get_template_part( 'partials/menu', 'cpt-category' ); ?>
+	</nav> <!-- End .navigation-cpt-category -->
 
-	<?php get_template_part( 'partials/menu', 'page-hierarchy' ); ?>
+	<nav class="navigation-hierarchy" role="navigation">
+		<?php get_template_part( 'partials/menu', 'page-hierarchy' ); ?>
+	</nav> <!-- End .navigation-hierarchy -->
 
-	<?php
+	<?php if ( is_active_sidebar( 'sidebar-primary' ) ) { ?>
 
-	if ( is_active_sidebar( 'primary-sidebar' ) ) {
+		<div class="sidebar-primary" role="complementary">
+			<?php dynamic_sidebar( 'sidebar-primary' ); ?>
+		</div>
 
-		dynamic_sidebar( 'primary-sidebar' );
+	<?php }
 
-	}
+	if ( is_active_sidebar( 'sidebar-secondary' ) ) { ?>
 
-	if ( is_active_sidebar( 'secondary-sidebar' ) ) {
+		<div class="sidebar-secondary" role="complementary">
+			<?php dynamic_sidebar( 'sidebar-secondary' ); ?>
+		</div>
 
-		dynamic_sidebar( 'secondary-sidebar' );
+	<?php } ?>
 
-	}
-
-	?>
-
-</aside> <!-- End .sidebar -->
+</div> <!-- End .sidebar -->

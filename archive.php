@@ -2,7 +2,7 @@
 get_header();
  ?>
 
-	<section class="content">
+	<section class="content" role="main">
 
 		<?php if ( have_posts() ) : ?>
 

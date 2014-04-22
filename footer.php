@@ -1,7 +1,7 @@
-			<footer>
+			<footer class="site-footer" role="contentinfo">
 				<p>&copy; <?php echo date( 'Y' ); ?> <a href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ); ?></a> <?php echo antispambot("mail@mail.com"); ?></p>
 
-				<?php get_template_part( 'partials/menu', 'secondary' ); ?>
+				<?php get_template_part( 'partials/menu', 'secondary' ); ?><!-- End .menu-secondary -->
 
 			</footer> <!-- End footer -->
 

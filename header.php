@@ -21,14 +21,16 @@
 
 	<div class="container">
 
-		<header class="main-header">
+		<header class="main-header" role="banner">
 
 			<a href="<?php echo home_url(); ?>" class="site-title" title="<?php bloginfo('name'); ?>">
 				<h1 class="site-name"><?php bloginfo('name'); ?></h1>
 				<h2 class="site-description"><?php bloginfo('description'); ?></h2>
 			</a>
 
-			<?php get_template_part( 'partials/menu', 'primary' ); ?>
+			<nav class="navigation-primary" role="navigation">
+				<?php get_template_part( 'partials/menu', 'primary' ); ?>
+			</nav> <!-- End .navigation-primary -->
 
 		</header> <!-- End .main-header -->
 

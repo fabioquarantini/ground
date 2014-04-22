@@ -2,7 +2,7 @@
 
 get_header(); ?>
 
-<section class="content">
+<section class="content" role="main">
 
 	<h1><?php _e( 'Not found', 'ground' ); ?></h1>
 	<p><?php _e( 'It looks like nothing was found at this location. Maybe try a search?', 'ground' ); ?></p>
