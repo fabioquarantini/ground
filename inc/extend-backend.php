@@ -5,7 +5,7 @@
 	1 - Content width
 	2 - Post thumbnails size
 	3 - Localization
-	4 - Register nav menus
+	4 - Register menus
 	5 - Register sidebars
 	6 - Post formats
 	7 - Custom header
@@ -71,10 +71,10 @@ add_action( 'after_setup_theme', 'ground_load_theme_textdomain' );
 
 
 /*  ==========================================================================
-	4 - Register nav menus
+	4 - Register menus
 	==========================================================================  */
 
-function ground_register_nav_menus() {
+function ground_register_menus() {
 
 	// This feature enables Menus support
 	add_theme_support( 'menus' );
@@ -89,7 +89,7 @@ function ground_register_nav_menus() {
 
 }
 
-add_action( 'init', 'ground_register_nav_menus' );
+add_action( 'init', 'ground_register_menus' );
 
 
 /*  ==========================================================================
@@ -100,7 +100,7 @@ function ground_register_sidebars() {
 
 	// Register sidebar (primary)
 	$args_primary = array(
-		'id'			=> 'primary-sidebar',
+		'id'			=> 'sidebar-primary',
 		'name'			=> __( 'Primary sidebar', 'ground-backend' ),
 		'description'	=> __( 'Primary sidebar', 'ground-backend' ),
 		'class'			=> '',
@@ -113,7 +113,7 @@ function ground_register_sidebars() {
 
 	// Register sidebar (secondary)
 	$args_secondary = array(
-		'id'			=> 'secondary-sidebar',
+		'id'			=> 'sidebar-secondary',
 		'name'			=> __( 'Secondary sidebar', 'ground-backend' ),
 		'description'	=> __( 'Secondary sidebar', 'ground-backend' ),
 		'class'			=> '',
