@@ -33,11 +33,11 @@ add_action( 'wp_enqueue_scripts', 'ground_enqueue_styles', 9 );
 function ground_enqueue_scripts() {
 
 	// $handle, $src, $deps, $ver, $in_footer
-	wp_register_script( 'modernizr', MY_THEME_FOLDER . '/js/vendor/modernizr-2.7.1.min.js', array(), '2.7.1', false );
+	wp_register_script( 'modernizr', MY_THEME_FOLDER . '/js/vendor/modernizr-2.8.0.min.js', array(), '2.8.0', false );
 	wp_enqueue_script( 'modernizr' );
 
 	wp_deregister_script( 'jquery' );
-	wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js", array(), null, true );
+	wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js", array(), null, true );
 	wp_enqueue_script( 'jquery' );
 
 	wp_register_script( 'plugins', MY_THEME_FOLDER . '/js/plugins.js', array( 'jquery' ), '1.0', true );
