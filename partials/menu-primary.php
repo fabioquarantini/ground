@@ -3,10 +3,10 @@
 $args = array(
 	'theme_location'	=> 'menu-primary',
 	'menu'				=> '',
-	'container'			=> 'nav',
-	'container_class'	=> 'menu-container',
+	'container'			=> '',
+	'container_class'	=> '',
 	'container_id'		=> '',
-	'menu_class'		=> 'navigation',
+	'menu_class'		=> 'menu-primary',
 	'menu_id'			=> '',
 	'echo'				=> true,
 	'fallback_cb'		=> '',
@@ -22,4 +22,3 @@ $args = array(
 wp_nav_menu( $args );
 
 ?>
-<!-- End .navigation -->
