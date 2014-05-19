@@ -1,7 +1,31 @@
+/* Headings */
+
 h1,
 h2,
 h3,
 h4 {
 	font-weight:normal;
 	margin-top: 0;
+}
+
+
+/* Blockquote */
+
+blockquote {
+	margin: em(21px) em(10px);
+	padding: em(12px) em(10px);
+	quotes: "\201C""\201D""\2018""\2019";
+
+	&:before {
+		content: open-quote;
+		font-size: em(50px);
+		line-height: em(1px);
+		margin-right: em(4px);
+		vertical-align: - em(6px);
+	}
+
+	p {
+		display: inline;
+	}
+
 }

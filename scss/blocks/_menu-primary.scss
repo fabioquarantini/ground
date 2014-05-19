@@ -1,0 +1,44 @@
+.menu-primary {
+
+	.menu-item {
+		display: inline-block;
+
+		&:first-child {}
+
+		&:last-child {}
+	}
+
+	.menu-item-has-children {
+
+	}
+
+	a {
+		border: em(1px) solid $light-grey;
+		color: $grey;
+		text-decoration: none;
+		padding: em(6px);
+
+		&:hover {
+			color: $black;
+		}
+	}
+
+	.current-menu-item,
+	.current-page-ancestor,
+	.current_page_item {
+
+		a {
+			color: blue;
+		}
+	}
+
+	.sub-menu {
+
+		.menu-item {
+
+			a {}
+		}
+
+	}
+
+}

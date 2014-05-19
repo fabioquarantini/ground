@@ -1,3 +1,32 @@
+/* Align */
+
+%alignnone,
+.alignnone {
+	margin: em(5px) em(20px) em(20px) 0;
+}
+
+%aligncenter,
+.aligncenter {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	clear: both;
+}
+
+%alignleft,
+.alignleft {
+	float: left;
+	margin-right: em(21px);
+}
+
+%alignright,
+.alignright {
+	float: right;
+	margin-left: em(21px);
+}
+
+
+
 /* Image replacement */
 
 %ir,

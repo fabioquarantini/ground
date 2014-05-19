@@ -3,6 +3,10 @@
 $line-height: 1.4;
 $font-base: 16px;
 
+$light: 100;
+$regular: 400;
+$bold: 600;
+
 
 /* Font stacks */
 
@@ -20,8 +24,8 @@ $dir-img: 'img';
 
 $white: #ffffff;
 $black: #000000;
-$grey: #444444;
 $light-grey: #F3F3F3;
+$grey: #666666;
 $dark-grey: #222222;
 
 
@@ -31,6 +35,40 @@ $mq-xs: em(480px);
 $mq-sm: em(768px);
 $mq-md: em(992px);
 $mq-lg: em(1200px);
+
+
+/* Buttons */
+
+$btn-radius: em(4px);
+$btn-size-ratio: 1.2;
+$btn-background: (
+	primary: #7f8c8d,
+	secondary: #7f8c8d,
+	success: #27ae60,
+	danger: #c0392b,
+	warning: #f1c40f
+);
+$btn-background-hover: (
+	primary: #7f8c8d,
+	secondary: #7f8c8d,
+	success: #000,
+	danger: #c0392b,
+	warning: #f1c40f
+);
+$btn-text-color: (
+	primary: #7f8c8d,
+	secondary: #7f8c8d,
+	success: #27ae60,
+	danger: #c0392b,
+	warning: #f1c40f
+);
+$btn-text-color-hover: (
+	primary: #7f8c8d,
+	secondary: #7f8c8d,
+	success: #27ae60,
+	danger: #c0392b,
+	warning: #f1c40f
+);
 
 
 /* Colorbox */

@@ -1,0 +1,10 @@
+.main-header {
+	background-color: $white;
+	text-align: justify;
+
+	&:after {
+		content: '';
+		display: inline-block;
+		width: 100%;
+	}
+}

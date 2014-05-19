@@ -1,5 +1,37 @@
-/* Convert pixel to em */
+/* Mixin for basic CSS triangles @include triangle( up, #000, 100px ) */
 
-@function em($pixels, $context: $font-base) {
-	@return #{$pixels/$context}em;
+@mixin triangle( $direction:up, $color:#000, $size:100px ) {
+
+	@if( $direction == up ) {
+		border-color: transparent transparent $color;
+		border-style: solid;
+		border-width: 0 $size $size;
+		height: 0;
+		width: 0;
+	}
+
+	@if( $direction == down ) {
+		border-color: $color transparent transparent transparent;
+		border-style: solid;
+		border-width: $size;
+		height:0;
+		width:0;
+	}
+
+	@if( $direction == left ) {
+		border-color: transparent $color transparent transparent;
+		border-style: solid;
+		border-width: $size $size $size 0;
+		height: 0;
+		width: 0;
+	}
+
+	@if( $direction == right ) {
+		border-color: transparent transparent transparent $color;
+		border-style: solid;
+		border-width: $size 0 $size $size;
+		height:0;
+		width:0;
+	}
+
 }

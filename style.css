@@ -13,17 +13,17 @@ Text Domain: groundtheme
  
 */ 
 
-/*  ==========================================================================
-	Imports
-	========================================================================== */
+/* Base */
+/* Convert pixel to em */
+/* Mixin for basic CSS triangles @include triangle( up, #000, 100px ) */
 /* Typography */
 /* Font stacks */
 /* Directory */
 /* Colors */
 /* Media query*/
+/* Buttons */
 /* Colorbox */
 /* Flexslider */
-/* Convert pixel to em */
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 /**
  * 1. Set default font family to sans-serif.
@@ -420,6 +420,124 @@ th {
   padding: 0;
 }
 
+html {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 1em;
+  line-height: 1.4;
+  height: 100%;
+  color: #666666;
+  background-color: #f3f3f3;
+}
+
+body {
+  height: 100%;
+}
+
+audio,
+canvas,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove text-shadow in selection highlight */
+::selection {
+  background: #222222;
+  text-shadow: none;
+}
+
+a {
+  color: #666666;
+}
+a:hover {
+  color: #222222;
+}
+
+/* Align */
+.alignnone {
+  margin: 0.3125em 1.25em 1.25em 0;
+}
+
+.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  clear: both;
+}
+
+.alignleft {
+  float: left;
+  margin-right: 1.3125em;
+}
+
+.alignright {
+  float: right;
+  margin-left: 1.3125em;
+}
+
+/* Image replacement */
+.ir {
+  background-color: transparent;
+  border: 0;
+  overflow: hidden;
+  *text-indent: -9999px;
+}
+.ir:before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 150%;
+}
+
+/* Hide from both screenreaders and browsers */
+.hidden {
+  display: none !important;
+  visibility: hidden;
+}
+
+/* Hide only visually, but have it available for screenreaders */
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 0.0625em;
+  margin: -0.0625em;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 0.0625em;
+  /* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard */
+}
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+/* Hide visually and from screenreaders, but maintain layout */
+/* Clearfix: contain floats */
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+
+/* Headings */
 h1,
 h2,
 h3,
@@ -428,90 +546,133 @@ h4 {
   margin-top: 0;
 }
 
+/* Blockquote */
+blockquote {
+  margin: 1.3125em 0.625em;
+  padding: 0.75em 0.625em;
+  quotes: "\201C" "\201D" "\2018" "\2019";
+}
+blockquote:before {
+  content: open-quote;
+  font-size: 3.125em;
+  line-height: 0.0625em;
+  margin-right: 0.25em;
+  vertical-align: -0.375em;
+}
+blockquote p {
+  display: inline;
+}
+
+/* Layouts */
+.container {
+  padding: 0.625em;
+}
+@media (min-width: 48em) {
+  .container {
+    max-width: 60em;
+    margin: 0 auto;
+  }
+}
+
+.main-header {
+  background-color: white;
+  text-align: justify;
+}
+.main-header:after {
+  content: '';
+  display: inline-block;
+  width: 100%;
+}
+
+.sidebar {
+  background-color: #eee;
+  display: inline-block;
+  width: 20%;
+  vertical-align: top;
+}
+
 footer {
   background-color: #222222;
 }
 
-/*  ==========================================================================
-	WordPress WYSIWYG editor styles
-	==========================================================================  */
-.alignnone {
-  margin: 0.3125em 1.25em 1.25em 0;
+/* Components */
+.btn {
+  display: inline-block;
+  margin: 0 0 1em 0;
+  padding: 0 0.5em;
+  border: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background .15s;
+  text-decoration: none;
 }
-
-.aligncenter,
-div.aligncenter {
-  display: block;
-  margin: 0.3125em auto 0.3125em auto;
+.btn:active {
+  outline: none;
 }
-
-.alignleft,
-a img.alignleft {
-  float: left;
-  margin-right: 1.3125em;
+.btn--large {
+  font-size: 19.2px;
 }
-
-.alignright,
-a img.alignright {
-  float: right;
-  margin-left: 1.3125em;
+.btn--small {
+  font-size: 13.33333px;
 }
-
-.aligncenter,
-a img.aligncenter {
-  display: block;
-  clear: both;
-  margin-right: auto;
-  margin-left: auto;
+.btn--bold {
+  font-weight: bold;
 }
-
-.wp-caption {
-  margin-bottom: 1.3125em;
-  padding-top: 0.3125em;
-  max-width: 96%;
+.btn--full {
+  width: 100%;
+  padding-right: 0;
+  padding-left: 0;
   text-align: center;
 }
-.wp-caption.alignnone {
-  margin: 0.3125em 1.25em 1.25em 0;
+.btn--upper {
+  text-transform: uppercase;
 }
-.wp-caption.alignleft {
-  margin: 0.3125em 1.25em 1.25em 0;
+.btn--rounded {
+  border-radius: 0.25em;
 }
-.wp-caption.alignright {
-  margin: 0.3125em 0 1.25em 1.25em;
+.btn--primary {
+  background-color: #7f8c8d;
+  color: #7f8c8d;
 }
-.wp-caption img {
-  margin: 0;
-  padding: 0;
-  border: 0 none;
+.btn--primary:hover, .btn--primary--active {
+  background-color: #7f8c8d;
+  color: #7f8c8d;
 }
-.wp-caption p.wp-caption-text {
-  margin: 0;
-  font-size: 0.6875em;
-  line-height: 1.5;
+.btn--secondary {
+  background-color: #7f8c8d;
+  color: #7f8c8d;
+}
+.btn--secondary:hover, .btn--secondary--active {
+  background-color: #7f8c8d;
+  color: #7f8c8d;
+}
+.btn--success {
+  background-color: #27ae60;
+  color: #27ae60;
+}
+.btn--success:hover, .btn--success--active {
+  background-color: black;
+  color: #27ae60;
+}
+.btn--danger {
+  background-color: #c0392b;
+  color: #c0392b;
+}
+.btn--danger:hover, .btn--danger--active {
+  background-color: #c0392b;
+  color: #c0392b;
+}
+.btn--warning {
+  background-color: #f1c40f;
+  color: #f1c40f;
+}
+.btn--warning:hover, .btn--warning--active {
+  background-color: #f1c40f;
+  color: #f1c40f;
 }
 
-.wp-smiley {
-  margin: 0 !important;
-  max-height: 1em;
-}
-
-blockquote.left {
-  float: left;
-  margin-right: 1.25em;
-  margin-left: 0;
-  width: 33%;
-  text-align: right;
-}
-
-blockquote.right {
-  float: right;
-  margin-right: 0;
-  margin-left: 1.25em;
-  width: 33%;
-  text-align: left;
-}
-
+/* Vendors */
 /*  ==========================================================================
 	Colorbox core
 	==========================================================================  */
@@ -591,7 +752,6 @@ blockquote.right {
   box-sizing: content-box;
 }
 
-/* Default variables */
 /* Colorbox theme (c) 2014 Fabio Quarantini */
 #colorbox {
   outline: 0;
@@ -748,6 +908,7 @@ blockquote.right {
 }
 .slides img {
   width: 100%;
+  height: auto;
   display: block;
 }
 .slides:after {
@@ -776,7 +937,6 @@ html[xmlns] .slides {
   display: block;
 }
 
-/* Default variables */
 /* FlexSlider theme */
 .flexslider {
   position: relative;
@@ -820,7 +980,7 @@ html[xmlns] .slides {
 .flex-direction-nav .flex-prev {
   left: 0;
 }
-@media only screen and (min-width: em(992px) / 16pxem) {
+@media only screen and (min-width: 62em / 16pxem) {
   .flex-direction-nav .flex-prev {
     left: -2.25em;
     opacity: 0;
@@ -830,7 +990,7 @@ html[xmlns] .slides {
   right: 0;
   background-position: 100% 0;
 }
-@media only screen and (min-width: em(992px) / 16pxem) {
+@media only screen and (min-width: 62em / 16pxem) {
   .flex-direction-nav .flex-next {
     right: -2.25em;
     opacity: 0;
@@ -915,183 +1075,29 @@ html[xmlns] .slides {
   cursor: default;
 }
 
-/* Image replacement */
-.ir {
-  background-color: transparent;
-  border: 0;
-  overflow: hidden;
-  *text-indent: -9999px;
-}
-.ir:before {
-  content: "";
-  display: block;
-  width: 0;
-  height: 150%;
-}
-
-/* Hide from both screenreaders and browsers */
-.hidden {
-  display: none !important;
-  visibility: hidden;
-}
-
-/* Hide only visually, but have it available for screenreaders */
-.visuallyhidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 0.0625em;
-  margin: -0.0625em;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 0.0625em;
-  /* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard */
-}
-.visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  width: auto;
-}
-
-/* Hide visually and from screenreaders, but maintain layout */
-/* Clearfix: contain floats */
-.clearfix {
-  *zoom: 1;
-}
-.clearfix:before,
-.clearfix:after {
-  content: " ";
-  display: table;
-}
-.clearfix:after {
-  clear: both;
-}
-
-/*  ==========================================================================
-	Base styles
-	========================================================================== */
-html {
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-  font-size: 1em;
-  line-height: 1.4;
-  height: 100%;
-  color: #444444;
-  background-color: #f3f3f3;
-}
-
-body {
-  height: 100%;
-}
-
-audio,
-canvas,
-img,
-svg,
-video {
-  vertical-align: middle;
-}
-
-ul {
-  margin: 0;
-  padding: 0;
-}
-
-/* Remove text-shadow in selection highlight */
-::selection {
-  background: #222222;
-  text-shadow: none;
-}
-
-a {
-  color: #444444;
-}
-a:hover {
-  color: #222222;
-}
-
-/*  ==========================================================================
-	My styles
-	==========================================================================  */
-.container {
-  max-width: 60em;
-  margin: 0 auto;
-  padding: 0.625em;
-}
-
-.main-header {
-  background-color: white;
-  text-align: justify;
-}
-.main-header:after {
-  content: '';
-  display: inline-block;
-  width: 100%;
-}
-
-.navigation,
-.site-title {
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.site-title {
-  font-size: 1em;
-  font-weight: normal;
-  text-decoration: none;
-  color: #222222;
-}
-
-.site-description {
-  font-size: 0.75em;
-}
-
-.navigation li {
+/* Blocks */
+.menu-primary .menu-item {
   display: inline-block;
 }
-
-.navigation li a {
+.menu-primary a {
   border: 0.0625em solid #f3f3f3;
-  color: #444444;
+  color: #666666;
   text-decoration: none;
   padding: 0.375em;
-  font-weight: bold;
 }
-
-.navigation .current_page_item a {
+.menu-primary a:hover {
+  color: black;
+}
+.menu-primary .current-menu-item a,
+.menu-primary .current-page-ancestor a,
+.menu-primary .current_page_item a {
   color: blue;
 }
 
-.navigation .current_page_parent a {
-  color: green;
-}
-
-.content {
-  display: inline-block;
-  width: 78%;
-  vertical-align: top;
-}
-
-.sidebar {
-  background-color: #eee;
-  display: inline-block;
-  width: 20%;
-  vertical-align: top;
-}
-
-.current-cat > a {
-  font-weight: bold;
-  color: black;
-  background-color: blue;
-}
-
-/* Media query*/
-/*  ==========================================================================
-	Print styles
-	========================================================================== */
+/* Gallery */
+/* Basic pagination */
+/* Numeric pagination */
+/* Print */
 @media print {
   * {
     background: transparent !important;
@@ -1103,19 +1109,6 @@ a:hover {
   a,
   a:visited {
     text-decoration: underline;
-  }
-
-  a[href]:after {
-    content: " (" attr(href) ")";
-  }
-
-  abbr[title]:after {
-    content: " (" attr(title) ")";
-  }
-
-  a[href^="javascript:"]:after,
-  a[href^="#"]:after {
-    content: "";
   }
 
   pre,

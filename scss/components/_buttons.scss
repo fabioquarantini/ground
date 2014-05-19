@@ -1,0 +1,68 @@
+.btn {
+
+	display: inline-block;
+	margin: 0 0 em($font-base) 0;
+	padding: 0 em(8px);
+	border: none;
+	vertical-align: middle;
+	white-space: nowrap;
+	cursor: pointer;
+	transition: background .15s;
+	text-decoration: none;
+
+	&:visited {
+
+	}
+
+	&:hover {
+
+	}
+
+	&:active {
+		 outline: none;
+	}
+
+	&--large {
+		font-size: $font-base * $btn-size-ratio;
+	}
+
+	&--small {
+		font-size: $font-base / $btn-size-ratio;
+	}
+
+	&--bold {
+		font-weight: bold;
+	}
+
+	&--full {
+		width: 100%;
+		padding-right: 0;
+		padding-left: 0;
+		text-align: center;
+	}
+
+	&--upper {
+		text-transform: uppercase;
+	}
+
+	&--rounded {
+		border-radius: $btn-radius;
+	}
+
+	@each $key, $value in $btn-background {
+
+		&--#{$key} {
+			background-color: $value;
+			color: $value;
+		}
+
+		&--#{$key}:hover,
+		&--#{$key}--active {
+			background-color: map-get($btn-background-hover, $key);
+			color: map-get($btn-text-color-hover, $key);
+		}
+
+	}
+
+
+}

@@ -1,0 +1,23 @@
+.widget {
+
+	ul {
+
+		li {
+
+			&:first-child {}
+
+			&:last-child {}
+
+			a {}
+
+			ul {}
+
+		}
+
+	}
+
+}
+
+.widgettitle {}
+
+.no-widgets {}

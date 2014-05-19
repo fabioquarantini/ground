@@ -1,0 +1,47 @@
+html {
+	font-family: $font-primary;
+	font-size: em($font-base);
+	line-height: $line-height;
+	height: 100%;
+	color: $grey;
+	background-color: $light-grey;
+}
+
+body {
+	height: 100%;
+}
+
+audio,
+canvas,
+img,
+svg,
+video {
+	vertical-align: middle;
+}
+
+
+*,
+:before,
+:after {
+	// box-sizing: border-box;
+}
+
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+/* Remove text-shadow in selection highlight */
+
+::selection {
+ 	background: $dark-grey;
+	text-shadow: none;
+}
+
+a {
+	color: $grey;
+	&:hover {
+		color: $dark-grey;
+	}
+}

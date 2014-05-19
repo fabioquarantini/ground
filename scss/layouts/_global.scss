@@ -1,0 +1,12 @@
+.container {
+
+	padding: em(10px);
+
+	@media ( min-width: $mq-sm ) {
+
+			max-width: em(960px);
+			margin: 0 auto;
+
+	}
+
+}

@@ -1,158 +1,44 @@
-/*  ==========================================================================
-	Imports
-	========================================================================== */
+/* Base */
 
-@import "base/variables";
-@import "base/mixins";
-@import "base/normalize";
-@import "base/typography";
-@import "layouts/grid";
-@import "layouts/footer";
-@import "layouts/header";
-@import "base/buttons";
-@import "blocks/editor";
-@import "blocks/comments";
-@import "components/colorbox";
-@import "components/colorbox-theme";
-@import "components/flexslider";
-@import "components/flexslider-theme";
-@import "base/placeholders";
+@import "base/functions",
+		"base/mixins",
+		"base/variables",
+		"base/normalize",
+		"base/base",
+		"base/placeholders",
+		"base/typography";
 
 
-/*  ==========================================================================
-	Base styles
-	========================================================================== */
+/* Layouts */
 
-html {
-	font-family: $font-primary;
-	font-size: em($font-base);
-	line-height: $line-height;
-	height: 100%;
-	color: $grey;
-	background-color: $light-grey;
-}
-
-body {
-	height: 100%;
-}
-
-audio,
-canvas,
-img,
-svg,
-video {
-	vertical-align: middle;
-}
-
-ul {
-	margin: 0;
-	padding: 0;
-}
-
-/* Remove text-shadow in selection highlight */
-
-::selection {
- 	background: $dark-grey;
-	text-shadow: none;
-}
-
-a {
-	color: $grey;
-	&:hover {
-		color: $dark-grey;
-	}
-}
+@import "layouts/grid",
+		"layouts/global",
+		"layouts/header",
+		"layouts/sidebar",
+		"layouts/footer";
 
 
-/*  ==========================================================================
-	My styles
-	==========================================================================  */
+/* Components */
 
-.container {
-	max-width: em(960px);
-	margin: 0 auto;
-	padding: em(10px);
-}
-
-.main-header {
-	background-color: $white;
-	text-align: justify;
-
-	&:after {
-		content: '';
-		display: inline-block;
-		width: 100%;
-	}
-}
-
-.navigation,
-.site-title {
-	display: inline-block;
-	vertical-align: middle;
-}
-
-.site-title {
-	font-size: em(16px);
-	font-weight: normal;
-	text-decoration: none;
-	color: $dark-grey;
-}
-
-.site-description {
-	font-size: em(12px);
-}
-
-.navigation li {
-	display: inline-block;
-}
-
-.navigation li a {
-	border: em(1px) solid $light-grey;
-	color: $grey;
-	text-decoration: none;
-	padding: em(6px);
-	font-weight: bold;
-}
-
-.navigation .current_page_item a {
-	color: blue;
-}
-
-.navigation .current_page_parent a {
-	color: green;
-}
-
-.content {
-	display: inline-block;
-	width: 78%;
-	vertical-align: top;
-}
-
-.sidebar {
-	background-color: #eee;
-	display: inline-block;
-	width: 20%;
-	vertical-align: top;
-}
-
-.current-cat > a {
-	font-weight: bold;
-	color: $black;
-	background-color: blue;
-}
+@import "components/buttons";
 
 
-/* Media query*/
+/* Vendors */
 
-@media (min-width: 768px) {
+@import "vendors/colorbox",
+		"vendors/colorbox-theme",
+		"vendors/flexslider",
+		"vendors/flexslider-theme";
 
-}
+
+/* Blocks */
+
+@import "blocks/menu-primary",
+		"blocks/gallery",
+		"blocks/pagination",
+		"blocks/comments";
 
 
-/*  ==========================================================================
-	Print styles
-	========================================================================== */
+/* Print */
 
-@media print {
-	@import "base/print";
-}
+@import "base/print";
