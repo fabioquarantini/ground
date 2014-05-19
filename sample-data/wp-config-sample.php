@@ -97,14 +97,35 @@ define('WP_DEBUG_DISPLAY',	false);	// Display errors and warnings on your site.
 	Enable Multisite
 	==========================================================================  */
 
- define('WP_ALLOW_MULTISITE', false);
+define('WP_ALLOW_MULTISITE', false);
 
 
 /*  ==========================================================================
 	 Disable the plugin and theme editor for security
 	==========================================================================  */
 
- define('DISALLOW_FILE_EDIT', true);
+define('DISALLOW_FILE_EDIT', true);
+
+
+ /*  ==========================================================================
+	 Enabling the "Trash" feature for media files
+	==========================================================================  */
+
+// define( 'MEDIA_TRASH', true );
+
+
+ /*  ==========================================================================
+	 Setting a default theme
+	==========================================================================  */
+
+// define( 'WP_DEFAULT_THEME', 'ground' );
+
+
+ /*  ==========================================================================
+	 Disabling WordPress automatic update feature
+	==========================================================================  */
+
+// define( 'AUTOMATIC_UPDATER_DISABLED', true );
 
 
  /*  ==========================================================================
