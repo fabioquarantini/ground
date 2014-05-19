@@ -30,6 +30,6 @@ if($slider_posts->have_posts()) { ?>
 
 <?php }
 
-wp_reset_query();
+wp_reset_postdata();
 
 ?>
