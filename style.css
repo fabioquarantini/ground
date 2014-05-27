@@ -441,6 +441,12 @@ video {
   vertical-align: middle;
 }
 
+*,
+:before,
+:after {
+  box-sizing: border-box;
+}
+
 ul {
   margin: 0;
   padding: 0;
@@ -459,9 +465,14 @@ a:hover {
   color: #222222;
 }
 
+img {
+  height: auto;
+  max-width: 100%;
+}
+
 /* Align */
 .alignnone {
-  margin: 0.3125em 1.25em 1.25em 0;
+  margin: 0.313em 1.25em 1.25em 0;
 }
 
 .aligncenter {
@@ -473,12 +484,19 @@ a:hover {
 
 .alignleft {
   float: left;
-  margin-right: 1.3125em;
+  margin-right: 1.313em;
 }
 
 .alignright {
   float: right;
-  margin-left: 1.3125em;
+  margin-left: 1.313em;
+}
+
+/* Center block */
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Image replacement */
@@ -505,12 +523,12 @@ a:hover {
 .visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
-  height: 0.0625em;
-  margin: -0.0625em;
+  height: 0.063em;
+  margin: -0.063em;
   overflow: hidden;
   padding: 0;
   position: absolute;
-  width: 0.0625em;
+  width: 0.063em;
   /* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard */
 }
 .visuallyhidden.focusable:active,
@@ -537,6 +555,73 @@ a:hover {
   clear: both;
 }
 
+/* Visibility Classes */
+@media (min-width: 30em) {
+  .hide-xs {
+    display: none !important;
+  }
+}
+
+@media (min-width: 30em) {
+  .show-xs-inline {
+    display: inline !important;
+  }
+}
+
+@media (min-width: 48em) {
+  .hide-sm {
+    display: none !important;
+  }
+}
+
+@media (min-width: 48em) {
+  .show-sm-block {
+    display: block !important;
+  }
+}
+
+@media (min-width: 48em) {
+  .show-sm-inline {
+    display: inline !important;
+  }
+}
+
+@media (min-width: 62em) {
+  .hide-md {
+    display: none !important;
+  }
+}
+
+@media (min-width: 62em) {
+  .show-md-block {
+    display: block !important;
+  }
+}
+
+@media (min-width: 62em) {
+  .show-md-inline {
+    display: inline !important;
+  }
+}
+
+@media (min-width: 75em) {
+  .hide-lg {
+    display: none !important;
+  }
+}
+
+@media (min-width: 75em) {
+  .show-lg-block {
+    display: block !important;
+  }
+}
+
+@media (min-width: 75em) {
+  .show-lg-inline {
+    display: inline !important;
+  }
+}
+
 /* Headings */
 h1,
 h2,
@@ -548,14 +633,14 @@ h4 {
 
 /* Blockquote */
 blockquote {
-  margin: 1.3125em 0.625em;
+  margin: 1.313em 0.625em;
   padding: 0.75em 0.625em;
   quotes: "\201C" "\201D" "\2018" "\2019";
 }
 blockquote:before {
   content: open-quote;
   font-size: 3.125em;
-  line-height: 0.0625em;
+  line-height: 0.063em;
   margin-right: 0.25em;
   vertical-align: -0.375em;
 }
@@ -563,6 +648,19 @@ blockquote p {
   display: inline;
 }
 
+/* Remove default fieldset styles */
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Allow only vertical resizing of textareas */
+textarea {
+  resize: vertical;
+}
+
+/* Placeholder */
 /* Layouts */
 .container {
   padding: 0.625em;
@@ -614,7 +712,7 @@ footer {
   font-size: 19.2px;
 }
 .btn--small {
-  font-size: 13.33333px;
+  font-size: 13.333px;
 }
 .btn--bold {
   font-weight: bold;
@@ -802,7 +900,7 @@ footer {
   border: 0;
   opacity: 0;
   background: #9fa7a9 url(img/colorbox-controls.png) no-repeat;
-  text-indent: -624.9375em;
+  text-indent: -624.938em;
   transition: all 0.5s;
 }
 
@@ -862,7 +960,7 @@ footer {
 /* Content */
 #cboxContent {
   border: 0;
-  box-shadow: 0 0.625em 1.5625em rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0.625em 1.563em rgba(0, 0, 0, 0.5);
   background-color: white;
 }
 
@@ -955,7 +1053,7 @@ html[xmlns] .slides {
 }
 
 .carousel li {
-  margin-right: 0.3125em;
+  margin-right: 0.313em;
 }
 
 /* Direction Nav */
@@ -972,7 +1070,7 @@ html[xmlns] .slides {
   height: 1.875em;
   background: url("img/flexslider-nav.png") no-repeat 0 0;
   text-decoration: none;
-  text-indent: -624.9375em;
+  text-indent: -624.938em;
   opacity: 1;
   cursor: pointer;
   transition: all .3s ease;
@@ -1003,14 +1101,14 @@ html[xmlns] .slides {
 }
 
 .flexslider:hover .flex-prev {
-  left: 0.3125em;
+  left: 0.313em;
   opacity: .8;
 }
 .flexslider:hover .flex-prev:hover {
   opacity: 1;
 }
 .flexslider:hover .flex-next {
-  right: 0.3125em;
+  right: 0.313em;
   opacity: .8;
 }
 .flexslider:hover .flex-next:hover {
@@ -1034,12 +1132,12 @@ html[xmlns] .slides {
 /* Control Paging */
 .flex-control-paging a {
   display: block;
-  width: 0.6875em;
-  height: 0.6875em;
+  width: 0.688em;
+  height: 0.688em;
   border-radius: 1.25em;
   background: rgba(0, 0, 0, 0.5);
-  box-shadow: inset 0 0 0.1875em rgba(0, 0, 0, 0.3);
-  text-indent: -624.9375em;
+  box-shadow: inset 0 0 0.188em rgba(0, 0, 0, 0.3);
+  text-indent: -624.938em;
   cursor: pointer;
 }
 .flex-control-paging a:hover {
@@ -1054,7 +1152,7 @@ html[xmlns] .slides {
 .flex-control-thumbs {
   position: static;
   overflow: hidden;
-  margin: 0.3125em 0 0;
+  margin: 0.313em 0 0;
 }
 .flex-control-thumbs li {
   float: left;
@@ -1080,7 +1178,7 @@ html[xmlns] .slides {
   display: inline-block;
 }
 .menu-primary a {
-  border: 0.0625em solid #f3f3f3;
+  border: 0.063em solid #f3f3f3;
   color: #666666;
   text-decoration: none;
   padding: 0.375em;
@@ -1142,3 +1240,5 @@ html[xmlns] .slides {
     page-break-after: avoid;
   }
 }
+
+/*# sourceMappingURL=style.css.map */

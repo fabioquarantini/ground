@@ -152,9 +152,15 @@ module.exports = function(grunt) {
 				options: {
 					banner: '<%= ground.banner %>',
 					debugInfo: false,		// enable if you want to use FireSass
+					trace: false,
+					check: false,
+					precision: 3,
+					quiet: false,
+					compass: false,
+					noCache: false,
 					lineNumbers: false,
-					sourcemap: false,		// Requires Sass 3.3.0, which can be installed with gem install sass --pre
-					style: 'expanded'
+					sourcemap: true,		// Requires Sass 3.3.0
+					style: 'expanded'		// Can be nested, compact, compressed, expanded.
 				}
 			},
 			deploy: {
@@ -163,7 +169,7 @@ module.exports = function(grunt) {
 				},
 				options: {
 					style: 'compressed',
-					sourcemap: false		// Requires Sass 3.3.0, which can be installed with gem install sass --pre
+					sourcemap: false
 				}
 			}
 		},
