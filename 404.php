@@ -10,7 +10,7 @@ get_header(); ?>
 
 	<?php
 
-	// http://wp-mix.com/wordpress-404-email-alerts/
+	// Credits http://wp-mix.com/wordpress-404-email-alerts/
 
 	if ( ! is_admin() ) {
 
