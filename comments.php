@@ -31,18 +31,21 @@ if ( have_comments() ) : ?>
 	</ol> <!-- End .comment-list -->
 
 	<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
+
 		<nav class="navigation-comment" role="navigation">
 			<ul>
 				<li><?php previous_comments_link( __( '&larr; Older Comments', 'ground' ) ); ?></li>
 				<li><?php next_comments_link( __( 'Newer Comments &rarr;', 'ground' ) ); ?></li>
 			</ul>
 		</nav>  <!-- End .navigation-comment -->
+
 	<?php endif; ?>
 
 	<?php if ( ! comments_open() && get_comments_number() ) : ?>
-		<p class="no-comments"><?php _e( 'Comments are closed.' , 'ground' ); ?></p>
-	<?php endif; ?>
 
+		<p class="no-comments"><?php _e( 'Comments are closed.' , 'ground' ); ?></p>
+
+	<?php endif; ?>
 
 <?php endif; ?>
 

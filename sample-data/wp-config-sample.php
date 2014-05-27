@@ -6,9 +6,9 @@
 
 /* Switch database connections crendiantials between enviroments */
 
-define('ENVIRONMENT', 'development');
+define( 'ENVIRONMENT', 'development' );
 
-switch(ENVIRONMENT){
+switch( ENVIRONMENT ) {
 
 	case 'development':
 
