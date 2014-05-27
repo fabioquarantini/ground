@@ -1,7 +1,7 @@
 <?php
 
 /*  ==========================================================================
-	Define constants
+	Constants
 	==========================================================================  */
 
 // Template directory : returns http://www.site.com/wp-content/themes/sitename
