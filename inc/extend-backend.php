@@ -48,7 +48,7 @@ function ground_post_thumbnail_size() {
 	// Registers a new image size ($name, $width, $height, $crop)
 	add_image_size( 'thumb-small', 200, 200, true );
 	add_image_size( 'thumb-medium', 600, 150, true );
-	add_image_size( 'thumb-slider-primary', 960, 320, array( top, center ) );
+	add_image_size( 'thumb-slider-primary', 960, 320, array( 'top', 'center' ) );
 
 }
 
