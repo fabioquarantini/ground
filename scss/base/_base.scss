@@ -23,7 +23,7 @@ video {
 *,
 :before,
 :after {
-	// box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 
@@ -44,4 +44,9 @@ a {
 	&:hover {
 		color: $dark-grey;
 	}
+}
+
+img {
+	height: auto;
+	max-width: 100%;
 }
