@@ -2,56 +2,57 @@
 
 get_header(); ?>
 
-	<h1><?php single_cat_title(); ?></h1>
-	<?php echo category_description(); ?>
+	<section id="main-content" class="content" role="main">
 
-	<?php
+		<h1><?php single_cat_title(); ?></h1>
+		<?php echo category_description(); ?>
 
-	$queried_object = get_queried_object();
-	$term_id = $queried_object->term_id;
-	$term_parent = $queried_object->parent;
+		<?php
 
-	if( $term_parent == 0 ) {
-		$term_parent = $term_id;
-	}
+		$queried_object = get_queried_object();
+		$term_id = $queried_object->term_id;
+		$term_parent = $queried_object->parent;
 
-	$args = array(
-		'child_of'		=> $term_id,
-		'hide_empty'	=> 1,
-		'hierarchical'	=> 0,
-		//'parent'		=> 0,
-		'taxonomy'		=> 'ground_catalog_taxonomy'
-	);
+		if( $term_parent == 0 ) {
+			$term_parent = $term_id;
+		}
 
-	$categories = get_categories($args); ?>
+		$args = array(
+			'child_of'		=> $term_id,
+			'hide_empty'	=> 1,
+			'hierarchical'	=> 0,
+			//'parent'		=> 0,
+			'taxonomy'		=> 'ground_catalog_taxonomy'
+		);
 
-	<section class="content" role="main">
-
-	<?php if (!empty($categories)) { // Show the category  ?>
-
-		<?php foreach ($categories as $category) {
-			echo '<article class="cpt-category"><a href="'.get_term_link($category->slug, 'ground_catalog_taxonomy').'">'. $category->name . ' ' . $category->description .'</a></article>  <!-- End .cpt-category -->';
-		} ?>
-
-	<?php } else { // show the products ?>
+		$categories = get_categories($args); ?>
 
 
-		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+		<?php if (!empty($categories)) { // Show the category  ?>
 
-				<?php get_template_part( 'partials/content', 'abstract' ); ?>
+			<?php foreach ($categories as $category) {
+				echo '<article class="cpt-category"><a href="'.get_term_link($category->slug, 'ground_catalog_taxonomy').'">'. $category->name . ' ' . $category->description .'</a></article>  <!-- End .cpt-category -->';
+			} ?>
 
-			<?php endwhile; ?>
-
-				<?php get_template_part( 'partials/pagination', 'numeric' ); ?>
-
-			<?php else : ?>
-
-				<?php get_template_part( 'partials/content', 'none' ); ?>
-
-		<?php endif; ?>
+		<?php } else { // show the products ?>
 
 
-	<?php }	?>
+			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+
+					<?php get_template_part( 'partials/content', 'abstract' ); ?>
+
+				<?php endwhile; ?>
+
+					<?php get_template_part( 'partials/pagination', 'numeric' ); ?>
+
+				<?php else : ?>
+
+					<?php get_template_part( 'partials/content', 'none' ); ?>
+
+			<?php endif; ?>
+
+
+		<?php }	?>
 
 	</section> <!-- End .content -->
 

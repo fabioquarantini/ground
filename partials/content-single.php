@@ -1,4 +1,4 @@
- <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> role="main">
+ <article id="main-content" <?php post_class(); ?> role="main">
 
 	<h1><?php the_title(); ?></h1>
 
@@ -24,7 +24,7 @@
 
 			} else {
 
-				echo '<img src="'.MY_THEME_FOLDER.'/img/no-photo.jpg" class="thumb-post" />';
+				echo '<img src="'.MY_THEME_FOLDER.'/img/no-photo.jpg" class="thumb-post" alt="'. get_bloginfo('name') .'" />';
 
 			}
 		?>

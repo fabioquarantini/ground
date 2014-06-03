@@ -1,4 +1,4 @@
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
+<article <?php post_class(); ?> >
 
 	<h1><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
 
@@ -28,7 +28,7 @@
 
 		} else {
 
-			echo '<img src="'.MY_THEME_FOLDER.'/img/no-photo.jpg" class="thumb-post" />';
+			echo '<img src="'.MY_THEME_FOLDER.'/img/no-photo.jpg" class="thumb-post" alt="'. get_bloginfo('name') .'" />';
 
 		}
 	?>

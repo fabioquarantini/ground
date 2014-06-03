@@ -7,62 +7,65 @@ Description: Custom template for browsing category in catalog. Use template-{nam
 
 <?php get_header(); ?>
 
-	<h1><?php the_title(); ?></h1>
+	<section id="main-content" class="content" role="main">
 
-	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+		<h1><?php the_title(); ?></h1>
 
-		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
+		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-			<?php the_content(); ?>
+			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
 
-		</article> <!-- End article -->
+				<?php the_content(); ?>
 
-	<?php endwhile; ?>
+			</article> <!-- End article -->
 
-		<?php
+		<?php endwhile; ?>
 
-		$taxonomies = array(
-			'ground_catalog_taxonomy',
-		);
+			<?php
 
-		$args = array(
-			'orderby'		=> 'name',
-			'order'			=> 'ASC',
-			'hide_empty'	=> true,
-			'exclude'		=> array(),
-			'exclude_tree'	=> array(),
-			'include'		=> array(),
-			'number'		=> '',
-			'fields'		=> 'all',
-			'slug'			=> '',
-			'parent'		=> 0,
-			'hierarchical'	=> true,
-			'child_of'		=> 0,
-			'get'			=> '',
-			'name__like'	=> '',
-			'pad_counts'	=> false,
-			'offset'		=> '',
-			'search'		=> '',
-			'cache_domain'	=> 'core'
-		);
+			$taxonomies = array(
+				'ground_catalog_taxonomy',
+			);
 
-		$terms = get_terms( $taxonomies, $args );
+			$args = array(
+				'orderby'		=> 'name',
+				'order'			=> 'ASC',
+				'hide_empty'	=> true,
+				'exclude'		=> array(),
+				'exclude_tree'	=> array(),
+				'include'		=> array(),
+				'number'		=> '',
+				'fields'		=> 'all',
+				'slug'			=> '',
+				'parent'		=> 0,
+				'hierarchical'	=> true,
+				'child_of'		=> 0,
+				'get'			=> '',
+				'name__like'	=> '',
+				'pad_counts'	=> false,
+				'offset'		=> '',
+				'search'		=> '',
+				'cache_domain'	=> 'core'
+			);
 
-		?>
+			$terms = get_terms( $taxonomies, $args );
+
+			?>
 
 
-		<ul class="catalog-category-list">
-		<?php foreach ($terms as $term) {
-			echo '<li><a href="'.get_term_link($term->slug, 'ground_catalog_taxonomy').'">'.$term->name .' '. $term->description . '</a></li>';
-		} ?>
-		</ul> <!-- End .catalog-category-list -->
+			<ul class="catalog-category-list">
+			<?php foreach ($terms as $term) {
+				echo '<li><a href="'.get_term_link($term->slug, 'ground_catalog_taxonomy').'">'.$term->name .' '. $term->description . '</a></li>';
+			} ?>
+			</ul> <!-- End .catalog-category-list -->
 
-	<?php else : ?>
+		<?php else : ?>
 
-		<?php get_template_part( 'partials/content', 'none' ); ?>
+			<?php get_template_part( 'partials/content', 'none' ); ?>
 
-	<?php endif; ?>
+		<?php endif; ?>
 
+	</section>
 
 	<?php get_sidebar(); ?>
 
