@@ -29,3 +29,26 @@ blockquote {
 	}
 
 }
+
+
+/* Cite */
+
+cite {
+	color: $grey;
+	font-style: italic;
+
+	&:before {
+		content: '\2014 \00A0';
+	}
+}
+
+
+/* Hr */
+
+hr {
+	border-bottom: 1px solid $grey;
+	border-left: none;
+	border-right: none;
+	border-top: none;
+	margin: em(21px) 0;
+}
