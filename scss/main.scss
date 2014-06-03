@@ -14,6 +14,15 @@
 		"base/typography";
 
 
+/* Vendors */
+
+@import	"vendors/gridle/gridle",
+		"vendors/colorbox",
+		"vendors/colorbox-theme",
+		"vendors/flexslider",
+		"vendors/flexslider-theme";
+
+
 /* Layouts */
 
 @import	"layouts/grid",
@@ -28,15 +37,6 @@
 @import	"components/buttons",
 		"components/tables",
 		"components/forms";
-
-
-/* Vendors */
-
-@import	"vendors/gridle/gridle",
-		"vendors/colorbox",
-		"vendors/colorbox-theme",
-		"vendors/flexslider",
-		"vendors/flexslider-theme";
 
 
 /* Blocks */
