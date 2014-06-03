@@ -17,6 +17,7 @@
 	13 - Excerpt custom lenght
 	14 - Trim title length
 	15 - Extend walker for selective page hierarchy in wp_list_pages()
+	16 - Remove special characters from uploaded files
 
 	==========================================================================  */
 
@@ -399,5 +400,17 @@ class Ground_Selective_Page_Hierarchy extends Walker_Page {
 	}
 }
 
+
+/*  ==========================================================================
+	16 - Remove special characters from uploaded files
+	==========================================================================  */
+
+function ground_sanitize_uploads ( $filename ) {
+
+	return remove_accents( $filename );
+
+}
+
+add_filter( 'sanitize_file_name', 'ground_sanitize_uploads', 10 );
 
 ?>
