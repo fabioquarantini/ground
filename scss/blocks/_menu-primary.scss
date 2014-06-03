@@ -1,7 +1,40 @@
 .menu-primary {
 
+	max-height: 0;
+	transition: all 0.4s;
+	overflow: hidden;
+
+	&.active {
+		max-height: em(300px);
+		overflow: scroll;
+
+		@media ( min-width: $mq-sm ) {
+
+			overflow: auto;
+
+		}
+
+	}
+
+	@media ( min-width: $mq-sm ) {
+
+		max-height: none;
+		display: block;
+
+	}
+
+
 	.menu-item {
-		display: inline-block;
+
+		display: block;
+		border: em(1px) solid $light-grey;
+		padding: em(6px);
+
+		@media ( min-width: $mq-sm ) {
+
+			display: inline-block;
+
+		}
 
 		&:first-child {}
 
@@ -13,10 +46,9 @@
 	}
 
 	a {
-		border: em(1px) solid $light-grey;
+
 		color: $grey;
 		text-decoration: none;
-		padding: em(6px);
 
 		&:hover {
 			color: $black;

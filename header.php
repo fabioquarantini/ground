@@ -21,16 +21,19 @@
 
 	<div class="container">
 
+		<a class="visuallyhidden" href="#main-content"><?php _e( 'Skip to main content', 'ground' ); ?></a>
+
 		<header class="main-header" role="banner">
 
-			<a href="<?php echo home_url(); ?>" class="site-title" title="<?php bloginfo('name'); ?>">
-				<h1 class="site-name"><?php bloginfo('name'); ?></h1>
-				<h2 class="site-description"><?php bloginfo('description'); ?></h2>
+			<a href="<?php echo home_url(); ?>" class="site-logo" title="<?php bloginfo('name'); ?>">
+				<img src="<?php echo MY_THEME_FOLDER ?>/img/site-logo.png" alt="<?php bloginfo('name'); ?>" />
 			</a>
 
 			<nav class="navigation-primary" role="navigation">
 				<?php get_template_part( 'partials/menu', 'primary' ); ?>
 			</nav> <!-- End .navigation-primary -->
+
+			<span class="navicon">Menu</span>
 
 		</header> <!-- End .main-header -->
 

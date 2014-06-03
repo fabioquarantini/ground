@@ -1,18 +1,22 @@
+/* Charset */
+
+@charset "UTF-8";
+
+
 /* Base */
 
-@import "base/functions",
+@import	"base/functions",
 		"base/mixins",
-		"base/variables",
+		"base/settings",
 		"base/normalize",
 		"base/base",
 		"base/placeholders",
-		"base/typography",
-		"base/forms";
+		"base/typography";
 
 
 /* Layouts */
 
-@import "layouts/grid",
+@import	"layouts/grid",
 		"layouts/global",
 		"layouts/header",
 		"layouts/sidebar",
@@ -21,12 +25,15 @@
 
 /* Components */
 
-@import "components/buttons";
+@import	"components/buttons",
+		"components/tables",
+		"components/forms";
 
 
 /* Vendors */
 
-@import "vendors/colorbox",
+@import	"vendors/gridle/gridle",
+		"vendors/colorbox",
 		"vendors/colorbox-theme",
 		"vendors/flexslider",
 		"vendors/flexslider-theme";
@@ -34,12 +41,14 @@
 
 /* Blocks */
 
-@import "blocks/menu-primary",
+@import	"blocks/menu-primary",
+		"blocks/navicon",
 		"blocks/gallery",
 		"blocks/pagination",
+		"blocks/widgets",
 		"blocks/comments";
 
 
 /* Print */
 
-@import "base/print";
+@import	"base/print";

@@ -1,0 +1,37 @@
+/* Navicon */
+
+.navicon {
+	position: absolute;
+	top: 0;
+	right: 0;
+	box-sizing: content-box;
+	width: em(44px);
+	height: em(44px);
+	background-color: $dark-grey;
+	text-indent: - em(9989px);
+	cursor: pointer;
+	transition: all 0.5s;
+
+	@media ( min-width: $mq-sm ) {
+
+		display: none;
+
+	}
+
+	&:hover {
+		background-color: $grey;
+	}
+
+}
+
+.navicon:before {
+	position: absolute;
+	top: em(12px);
+	left: em(8px);
+	box-sizing: content-box;
+	width: em(29px);
+	height: em(4px);
+	border-top: em(12px) double $white;
+	border-bottom: em(4px) solid $white;
+	content: "";
+}

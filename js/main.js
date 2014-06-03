@@ -16,6 +16,21 @@ jQuery( document ).ready( function( $ ) {
 				siteInit.slider();
 			}
 
+			if ( $('.navicon').length > 0 ) {
+				siteInit.mobileMenu();
+			}
+
+		},
+
+
+		/* FlexSlider */
+
+		mobileMenu: function() {
+
+			$('body').on( 'click', '.navicon', function() {
+				$('.menu-primary').toggleClass ('active');
+			});
+
 		},
 
 
