@@ -2554,9 +2554,6 @@ html.default .visible {
 
 .sidebar {
   background-color: #eee;
-  display: inline-block;
-  width: 20%;
-  vertical-align: top;
 }
 
 footer {
@@ -2714,6 +2711,8 @@ input[type="checkbox"],
 input[type="radio"] {
   display: inline;
   border: 0;
+  width: auto;
+  margin: 0 10px 0 0;
 }
 
 select {

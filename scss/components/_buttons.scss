@@ -52,8 +52,8 @@
 	@each $key, $value in $btn-background {
 
 		&--#{$key} {
-			background-color: $value;
-			color: $value;
+			background-color: map-get($btn-background, $key);
+			color: map-get($btn-text-color, $key);
 		}
 
 		&--#{$key}:hover,
