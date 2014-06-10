@@ -49,14 +49,22 @@ module.exports = function(grunt) {
 			options: {
 				browsers: [
 					'last 3 version',
+					'Firefox ESR',
+					'Opera 12.1',
 					'> 1%',
 					'ie 8',
 					'ie 7'
-				]
+				],
+				map: false,
+				cascade: false,
+				diff: false,
+				mapInline: false,
 			},
-			files: {
-				'style.css': ['style.css']
-			}
+			dev: {
+				expand: false,
+				flatten: false,
+				src: 'style.css'
+			},
 		},
 
 
