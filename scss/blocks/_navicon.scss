@@ -22,16 +22,40 @@
 		background-color: $grey;
 	}
 
-}
+	&:before,
+	&:after {
+		transition: all 0.5s;
+		position: absolute;
+		left: em(8px);
+		width: em(29px);
+		height: em(4px);
+		box-sizing: content-box;
+		content: "";
+	}
 
-.navicon:before {
-	position: absolute;
-	top: em(12px);
-	left: em(8px);
-	box-sizing: content-box;
-	width: em(29px);
-	height: em(4px);
-	border-top: em(12px) double $white;
-	border-bottom: em(4px) solid $white;
-	content: "";
+	&:before {
+		top: 28px;
+		border-top: em(4px) solid $white;
+	}
+
+	&:after {
+		top: 12px;
+		border-top: em(12px) double $white;
+	}
+
+	&.active:after,
+	&.active:before {
+		box-sizing: border-box;
+		border-top: em(4px) solid $white;
+		top: 48%;
+	}
+
+	&.active:after {
+		transform: rotate(45deg);
+	}
+
+	&.active:before {
+		transform: rotate(-45deg);
+	}
+
 }

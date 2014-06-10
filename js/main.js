@@ -29,6 +29,7 @@ jQuery( document ).ready( function( $ ) {
 
 			$('body').on( 'click', '.navicon', function() {
 				$('.menu-primary').toggleClass ('active');
+				$('.navicon').toggleClass ('active');
 			});
 
 		},

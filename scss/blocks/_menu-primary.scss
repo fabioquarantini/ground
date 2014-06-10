@@ -2,15 +2,15 @@
 
 	max-height: 0;
 	transition: all 0.4s;
-	overflow: hidden;
+	overflow-y: hidden;
 
 	&.active {
 		max-height: em(300px);
-		overflow: scroll;
+		overflow-y: scroll;
 
 		@media ( min-width: $mq-sm ) {
 
-			overflow: auto;
+			overflow-y: auto;
 
 		}
 
