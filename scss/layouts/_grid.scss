@@ -4,7 +4,7 @@
 	debug : true
 ));
 
-@include gridle_generate_classes();
+// @include gridle_generate_classes();
 
 // register special columns :
 @include gridle_register_column('1on5', 1, 5);
