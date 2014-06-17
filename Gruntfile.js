@@ -20,6 +20,8 @@ var bannerCss = '/* \n' +
 				'*/ \n';
 
 
+
+
 module.exports = function(grunt) {
 
 	// Load all grunt task in package.json
@@ -39,6 +41,7 @@ module.exports = function(grunt) {
 		ground: {
 			scssFolder: 'scss',
 			jsFolder: 'js',
+			host: 'ground',
 			banner: bannerCss
 		},
 
@@ -65,6 +68,39 @@ module.exports = function(grunt) {
 				flatten: false,
 				src: 'style.css'
 			},
+		},
+
+
+		// [ browser sync ] Keep multiple browsers & devices in sync when building websites ( https://github.com/shakyShane/grunt-browser-sync )
+
+		browserSync: {
+			
+			dev: {
+				files: {
+					src : [
+						'style.css',
+						'**/*.php',
+						'{,*/}*.js',
+						'img/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+					],
+					
+				},
+			},
+
+			options: {
+				watchTask: true,
+				injectChanges: false,
+				ghostMode: {
+					clicks: true,
+					scroll: true,
+					links: true,
+					forms: true
+				},
+				proxy: {
+					host: '<%= ground.host %>'
+				},
+			},
+
 		},
 
 
@@ -162,7 +198,7 @@ module.exports = function(grunt) {
 					debugInfo: false,		// enable if you want to use FireSass
 					trace: false,
 					check: false,
-					precision: 3,
+					precision: 8,
 					quiet: false,
 					compass: false,
 					noCache: false,
@@ -239,6 +275,7 @@ module.exports = function(grunt) {
 		'notify:concat',
 		'jshint',
 		'notify:jshint',
+		'browserSync',
 		'watch'
 	]);
 
