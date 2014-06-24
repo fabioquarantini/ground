@@ -13,13 +13,9 @@ var bannerCss = '/* \n' +
 				'Version: <%= pkg.version %> \n' +
 				'License: <%= pkg.licenses.type %> \n' +
 				'License URI: <%= pkg.licenses.url %> \n' +
-				'Tags: <%= pkg.keywords %> \n' +
-				'Text Domain: <%= pkg.textDomain %> \n' +
 				'\n' +
 				'<%= pkg.comments %> \n' +
 				'*/ \n';
-
-
 
 
 module.exports = function(grunt) {
@@ -41,7 +37,7 @@ module.exports = function(grunt) {
 		ground: {
 			scssFolder: 'scss',
 			jsFolder: 'js',
-			host: 'ground',
+			host: 'localhost',
 			banner: bannerCss
 		},
 
@@ -64,8 +60,6 @@ module.exports = function(grunt) {
 				mapInline: false,
 			},
 			dev: {
-				expand: false,
-				flatten: false,
 				src: 'style.css'
 			},
 		},
@@ -74,19 +68,6 @@ module.exports = function(grunt) {
 		// [ browser sync ] Keep multiple browsers & devices in sync when building websites ( https://github.com/shakyShane/grunt-browser-sync )
 
 		browserSync: {
-			
-			dev: {
-				files: {
-					src : [
-						'style.css',
-						'**/*.php',
-						'{,*/}*.js',
-						'img/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
-					],
-					
-				},
-			},
-
 			options: {
 				watchTask: true,
 				injectChanges: false,
@@ -100,7 +81,16 @@ module.exports = function(grunt) {
 					host: '<%= ground.host %>'
 				},
 			},
-
+			dev: {
+				files: {
+					src : [
+						'style.css',
+						'**/*.php',
+						'{,*/}*.js',
+						'img/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+					],
+				},
+			},
 		},
 
 
@@ -124,8 +114,10 @@ module.exports = function(grunt) {
 				banner: '<%= ground.banner %>',
 				keepSpecialComments: '0',
 			},
-			files: {
-				'style.css': ['style.css']
+			deploy: {
+				files: {
+					'style.css': ['style.css']
+				}
 			}
 		},
 
@@ -139,7 +131,11 @@ module.exports = function(grunt) {
 				failOnError: false, // defaults to true
 				reporter: require('jshint-stylish')
 			},
-			all: ['<%= ground.jsFolder %>/main.js']
+			dev: {
+				files: {
+					src: ['<%= ground.jsFolder %>/main.js']
+				},
+			}
 		},
 
 
@@ -189,32 +185,33 @@ module.exports = function(grunt) {
 		// [ grunt sass ] Compiles sass files (https://github.com/gruntjs/grunt-contrib-sass)
 
 		sass: {
+			options: {
+				banner: '<%= ground.banner %>',
+				precision: 8,
+				compass: false,
+				noCache: false,
+				sourcemap: true,			// Requires Sass 3.3.0
+			},
 			dev: {
-				files: {
-					'style.css': '<%= ground.scssFolder %>/main.scss'
-				},
 				options: {
-					banner: '<%= ground.banner %>',
 					debugInfo: false,		// enable if you want to use FireSass
 					trace: false,
 					check: false,
-					precision: 8,
 					quiet: false,
-					compass: false,
-					noCache: false,
 					lineNumbers: false,
-					sourcemap: true,		// Requires Sass 3.3.0
 					style: 'expanded'		// Can be nested, compact, compressed, expanded.
-				}
-			},
-			deploy: {
+				},
 				files: {
 					'style.css': '<%= ground.scssFolder %>/main.scss'
 				},
+			},
+			deploy: {
 				options: {
-					style: 'compressed',
-					sourcemap: false
-				}
+					style: 'compressed'
+				},
+				files: {
+					'style.css': '<%= ground.scssFolder %>/main.scss'
+				},
 			}
 		},
 
@@ -223,11 +220,12 @@ module.exports = function(grunt) {
 
 		uglify: {
 			options: {
-				banner: '<%= ground.banner %>'
+				sourceMap: true,
 			},
-			files: {
-				'<%= ground.jsFolder %>/plugins.js': ['<%= ground.jsFolder %>/plugins.js'],
-				'<%= ground.jsFolder %>/main.js': ['<%= ground.jsFolder %>/main.js']
+			deploy: {
+				files: {
+					'<%= ground.jsFolder %>/plugins.js': ['<%= ground.jsFolder %>/plugins.js'],
+				}
 			}
 		},
 
@@ -259,12 +257,10 @@ module.exports = function(grunt) {
 				]
 			}
 		},
-
-
 	});
 
 
-	// Register tasks
+	// Registered default tasks
 
 	grunt.registerTask('default', [
 		'sass:dev',
@@ -278,6 +274,9 @@ module.exports = function(grunt) {
 		'browserSync',
 		'watch'
 	]);
+
+
+	// Registered deploy tasks
 
 	grunt.registerTask('deploy', [
 		'sass:deploy',
