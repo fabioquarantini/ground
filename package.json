@@ -1,12 +1,8 @@
 {
   "name": "Ground",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "WordPress starter kit",
-  "keywords": [
-    "light"
-  ],
   "comments": "",
-  "textDomain": "groundtheme",
   "homepage": "https://github.com/fabioquarantini/ground",
   "bugs": "https://github.com/fabioquarantini/ground/issues",
   "author": {
