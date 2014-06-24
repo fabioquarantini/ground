@@ -4,11 +4,9 @@ Theme URI: https://github.com/fabioquarantini/ground
 Author: Fabio Quarantini 
 Author URI: http://www.fabioquarantini.com 
 Description: WordPress starter kit 
-Version: 0.3.0 
+Version: 0.4.1 
 License: MIT 
 License URI: http://opensource.org/licenses/MIT 
-Tags: light 
-Text Domain: groundtheme 
 
  
 */ 
@@ -482,7 +480,7 @@ img {
 
 /* Align */
 .alignnone {
-  margin: 0.313em 1.25em 1.25em 0;
+  margin: 0.3125em 1.25em 1.25em 0;
 }
 
 .aligncenter {
@@ -494,12 +492,12 @@ img {
 
 .alignleft {
   float: left;
-  margin-right: 1.313em;
+  margin-right: 1.3125em;
 }
 
 .alignright {
   float: right;
-  margin-left: 1.313em;
+  margin-left: 1.3125em;
 }
 
 /* Center block */
@@ -533,12 +531,12 @@ img {
 .visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
-  height: 0.063em;
-  margin: -0.063em;
+  height: 0.0625em;
+  margin: -0.0625em;
   overflow: hidden;
   padding: 0;
   position: absolute;
-  width: 0.063em;
+  width: 0.0625em;
   /* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard */
 }
 .visuallyhidden.focusable:active,
@@ -649,14 +647,14 @@ h4 {
 
 /* Blockquote */
 blockquote {
-  margin: 1.313em 0.625em;
+  margin: 1.3125em 0.625em;
   padding: 0.75em 0.625em;
   quotes: "\201C" "\201D" "\2018" "\2019";
 }
 blockquote:before {
   content: open-quote;
   font-size: 3.125em;
-  line-height: 0.063em;
+  line-height: 0.0625em;
   margin-right: 0.25em;
   vertical-align: -0.375em;
 }
@@ -679,7 +677,7 @@ hr {
   border-left: none;
   border-right: none;
   border-top: none;
-  margin: 1.313em 0;
+  margin: 1.3125em 0;
 }
 
 /* Vendors */
@@ -927,7 +925,7 @@ hr {
   border: 0;
   opacity: 0;
   background: #9fa7a9 url(img/modal-controls.png) no-repeat;
-  text-indent: -624.938em;
+  text-indent: -624.9375em;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
@@ -988,8 +986,8 @@ hr {
 /* Content */
 #cboxContent {
   border: 0;
-  -webkit-box-shadow: 0 0.625em 1.563em rgba(0, 0, 0, 0.5);
-  box-shadow: 0 0.625em 1.563em rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0.625em 1.5625em rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0.625em 1.5625em rgba(0, 0, 0, 0.5);
   background-color: white;
 }
 
@@ -1083,7 +1081,7 @@ html[xmlns] .slides {
 }
 
 .carousel li {
-  margin-right: 0.313em;
+  margin-right: 0.3125em;
 }
 
 /* Direction Nav */
@@ -1100,7 +1098,7 @@ html[xmlns] .slides {
   height: 1.875em;
   background: url("img/slider-nav.png") no-repeat 0 0;
   text-decoration: none;
-  text-indent: -624.938em;
+  text-indent: -624.9375em;
   opacity: 1;
   cursor: pointer;
   -webkit-transition: all .3s ease;
@@ -1132,14 +1130,14 @@ html[xmlns] .slides {
 }
 
 .flexslider:hover .flex-prev {
-  left: 0.313em;
+  left: 0.3125em;
   opacity: .8;
 }
 .flexslider:hover .flex-prev:hover {
   opacity: 1;
 }
 .flexslider:hover .flex-next {
-  right: 0.313em;
+  right: 0.3125em;
   opacity: .8;
 }
 .flexslider:hover .flex-next:hover {
@@ -1163,11 +1161,11 @@ html[xmlns] .slides {
 /* Control Paging */
 .flex-control-paging a {
   display: block;
-  width: 0.688em;
-  height: 0.688em;
+  width: 0.6875em;
+  height: 0.6875em;
   border-radius: 1.25em;
   background: rgba(0, 0, 0, 0.5);
-  text-indent: -624.938em;
+  text-indent: -624.9375em;
   cursor: pointer;
 }
 .flex-control-paging a:hover {
@@ -1182,7 +1180,7 @@ html[xmlns] .slides {
 .flex-control-thumbs {
   position: static;
   overflow: hidden;
-  margin: 0.313em 0 0;
+  margin: 0.3125em 0 0;
 }
 .flex-control-thumbs li {
   float: left;
@@ -1223,10 +1221,6 @@ html[xmlns] .slides {
   background-color: #eee;
 }
 
-footer {
-  background-color: #222222;
-}
-
 /* Components */
 .btn {
   display: inline-block;
@@ -1247,7 +1241,7 @@ footer {
   font-size: 19.2px;
 }
 .btn--small {
-  font-size: 13.333px;
+  font-size: 13.33333333px;
 }
 .btn--bold {
   font-weight: bold;
@@ -1315,13 +1309,13 @@ table {
 th {
   border-bottom: 1px solid #666666;
   font-weight: bold;
-  padding: 1.313em 0;
+  padding: 1.3125em 0;
   text-align: left;
 }
 
 td {
   border-bottom: 1px solid #666666;
-  padding: 1.313em 0;
+  padding: 1.3125em 0;
 }
 
 tr,
@@ -1352,7 +1346,7 @@ select {
   margin: 0 0 1.25em 0;
   padding: 0.375em 0.25em;
   outline: none;
-  border: 0.063em solid #f3f3f3;
+  border: 0.0625em solid #f3f3f3;
   background: white;
   color: #666666;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
@@ -1427,7 +1421,7 @@ textarea {
 }
 .menu-primary .menu-item {
   display: block;
-  border: 0.063em solid #f3f3f3;
+  border: 0.0625em solid #f3f3f3;
   padding: 0.375em;
 }
 @media (min-width: 48em) {
@@ -1459,7 +1453,7 @@ textarea {
   width: 2.75em;
   height: 2.75em;
   background-color: #222222;
-  text-indent: -624.313em;
+  text-indent: -624.3125em;
   cursor: pointer;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
@@ -1477,7 +1471,7 @@ textarea {
   transition: all 0.5s;
   position: absolute;
   left: 0.5em;
-  width: 1.813em;
+  width: 1.8125em;
   height: 0.25em;
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
