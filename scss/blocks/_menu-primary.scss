@@ -4,6 +4,13 @@
 	transition: all 0.4s;
 	overflow-y: hidden;
 
+	@media ( min-width: $mq-sm ) {
+
+		max-height: none;
+		display: block;
+
+	}
+
 	&.active {
 		max-height: em(300px);
 		overflow-y: scroll;
@@ -15,14 +22,6 @@
 		}
 
 	}
-
-	@media ( min-width: $mq-sm ) {
-
-		max-height: none;
-		display: block;
-
-	}
-
 
 	.menu-item {
 

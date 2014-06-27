@@ -1222,7 +1222,7 @@ html[xmlns] .slides {
 }
 
 /* Components */
-.btn {
+.button {
   display: inline-block;
   margin: 0 0 1em 0;
   padding: 0 0.5em;
@@ -1234,67 +1234,67 @@ html[xmlns] .slides {
   transition: background .15s;
   text-decoration: none;
 }
-.btn:active {
+.button:active {
   outline: none;
 }
-.btn--large {
+.button--large {
   font-size: 19.2px;
 }
-.btn--small {
+.button--small {
   font-size: 13.33333333px;
 }
-.btn--bold {
+.button--bold {
   font-weight: bold;
 }
-.btn--full {
+.button--full {
   width: 100%;
   padding-right: 0;
   padding-left: 0;
   text-align: center;
 }
-.btn--upper {
+.button--upper {
   text-transform: uppercase;
 }
-.btn--rounded {
+.button--rounded {
   border-radius: 0.25em;
 }
-.btn--primary {
+.button--primary {
   background-color: #7f8c8d;
   color: #7f8c8d;
 }
-.btn--primary:hover, .btn--primary--active {
+.button--primary:hover, .button--primary--active {
   background-color: #7f8c8d;
   color: #7f8c8d;
 }
-.btn--secondary {
+.button--secondary {
   background-color: #7f8c8d;
   color: #7f8c8d;
 }
-.btn--secondary:hover, .btn--secondary--active {
+.button--secondary:hover, .button--secondary--active {
   background-color: #7f8c8d;
   color: #7f8c8d;
 }
-.btn--success {
+.button--success {
   background-color: #27ae60;
   color: #27ae60;
 }
-.btn--success:hover, .btn--success--active {
+.button--success:hover, .button--success--active {
   background-color: black;
   color: #27ae60;
 }
-.btn--danger {
+.button--danger {
   background-color: #c0392b;
   color: #c0392b;
 }
-.btn--danger:hover, .btn--danger--active {
+.button--danger:hover, .button--danger--active {
   background-color: #c0392b;
   color: #c0392b;
 }
-.btn--warning {
+.button--warning {
   background-color: #f1c40f;
   color: #f1c40f;
 }
-.btn--warning:hover, .btn--warning--active {
+.button--warning:hover, .button--warning--active {
   background-color: #f1c40f;
   color: #f1c40f;
 }
@@ -1404,6 +1404,12 @@ textarea {
   transition: all 0.4s;
   overflow-y: hidden;
 }
+@media (min-width: 48em) {
+  .menu-primary {
+    max-height: none;
+    display: block;
+  }
+}
 .menu-primary.active {
   max-height: 18.75em;
   overflow-y: scroll;
@@ -1411,12 +1417,6 @@ textarea {
 @media (min-width: 48em) {
   .menu-primary.active {
     overflow-y: auto;
-  }
-}
-@media (min-width: 48em) {
-  .menu-primary {
-    max-height: none;
-    display: block;
   }
 }
 .menu-primary .menu-item {
