@@ -1,8 +1,22 @@
 table {
   border-collapse: collapse;
+  border-spacing: 0;
   margin: 0;
   table-layout: fixed;
+  max-width: 100%;
   width: 100%;
+}
+
+thead {
+
+}
+
+tbody {
+
+}
+
+tfoot {
+
 }
 
 th {
