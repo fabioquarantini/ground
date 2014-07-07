@@ -13,7 +13,9 @@
 			<span><?php the_time(get_option('date_format')); ?></span>
 			<span><?php the_author_posts_link(); ?></span>
 			<span><?php _e('Category:','ground'); the_category(', '); ?></span>
-			<span><?php _e('Tags:','ground');  the_tags(); ?></span>
+			<?php if ( has_tag() ) { ?>
+				<span><?php the_tags(); ?></span>
+			<?php } ?>
 			<?php edit_post_link(); ?>
 		</p>
 
