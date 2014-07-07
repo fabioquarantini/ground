@@ -194,7 +194,7 @@ module.exports = function(grunt) {
 			},
 			dev: {
 				options: {
-					debugInfo: false,		// enable if you want to use FireSass
+					debugInfo: true,		// enable if you want to use FireSass
 					trace: false,
 					check: false,
 					quiet: false,
