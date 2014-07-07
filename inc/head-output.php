@@ -7,6 +7,7 @@
 	3 - Hide WordPress Version Number from scripts and css
 	4 - Clean up head output
 	5 - Hide WordPress Version Number from RSS feed
+	6 - Remove recent comments style
 
 	==========================================================================  */
 
@@ -141,6 +142,20 @@ function ground_remove_rss_version() {
 }
 
 // add_filter( 'the_generator', 'ground_remove_rss_version' );
+
+
+/*  ==========================================================================
+	6 - Remove recent comments style
+	==========================================================================  */
+
+function ground_remove_comment_style() {
+
+	global $wp_widget_factory;
+	remove_action( 'wp_head', array( $wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style' ) );
+
+}
+
+add_action( 'widgets_init', 'ground_remove_comment_style' );
 
 
 ?>
