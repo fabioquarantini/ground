@@ -28,6 +28,7 @@
 		display: block;
 		border: em(1px) solid $light-grey;
 		padding: em(6px);
+		margin: 0;
 
 		@media ( min-width: $mq-sm ) {
 

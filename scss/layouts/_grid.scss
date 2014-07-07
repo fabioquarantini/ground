@@ -1,21 +1,44 @@
+// Grid setup ( http://gridle.org )
+
 @include gridle_setup((
 	context : 12,
 	gutter-width : 20px,
-	debug : true
+	classes : true,
+	debug : false,
+	debug-show-class-names : true,
+	ie7-support : false,
+	html-states-classes : false,
+	generate-push-classes : true,
+	generate-pull-classes : true,
+	generate-prefix-classes : true,
+	generate-suffix-classes : true,
+	generate-helpers-classes : true
 ));
 
-// @include gridle_generate_classes();
 
-// register special columns :
-@include gridle_register_column('1on5', 1, 5);
+// Register media queries breakpoint
 
-// clear each classes :
-@include gridle_register_clear_each(2, left);
-@include gridle_register_clear_each(12, both);
+@include gridle_register_state ( xs , (
+	min-width : $mq-xs,
+	gutter-width : 20px
+) );
 
-// register states :
-@include gridle_register_default_states();
-@include gridle_register_state(ipad-landscape, (
-	query : "only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)",
-	gutter-width :0
-));
+@include gridle_register_state ( sm , (
+	min-width : $mq-sm,
+	gutter-width : 20px
+) );
+
+@include gridle_register_state ( md , (
+	min-width : $mq-md,
+	gutter-width : 20px
+) );
+
+@include gridle_register_state ( lg , (
+	min-width : $mq-lg,
+	gutter-width : 20px
+) );
+
+
+// Generate all classes for html use
+
+//@include gridle_generate_classes();

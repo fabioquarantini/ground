@@ -11,8 +11,6 @@ License URI: http://opensource.org/licenses/MIT
  
 */ 
 
-/* Charset */
-/* Base */
 /* Convert pixel to em */
 /* Mixin for basic CSS triangles @include triangle( up, #000, 100px ) */
 /* Typography */
@@ -29,6 +27,7 @@ License URI: http://opensource.org/licenses/MIT
  * 2. Prevent iOS text size adjust after orientation change, without disabling
  *    user zoom.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_normalize\.scss}line{font-family:\000039}}
 html {
   font-family: sans-serif;
   /* 1 */
@@ -41,6 +40,7 @@ html {
 /**
  * Remove default margin.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_normalize\.scss}line{font-family:\0000319}}
 body {
   margin: 0;
 }
@@ -52,6 +52,7 @@ body {
  * Correct `block` display not defined for `details` or `summary` in IE 10/11 and Firefox.
  * Correct `block` display not defined for `main` in IE 11.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_normalize\.scss}line{font-family:\0000332}}
 article,
 aside,
 details,
@@ -71,6 +72,7 @@ summary {
  * 1. Correct `inline-block` display not defined in IE 8/9.
  * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_normalize\.scss}line{font-family:\0000352}}
 audio,
 canvas,
 progress,
@@ -85,6 +87,7 @@ video {
  * Prevent modern browsers from displaying `audio` without controls.
  * Remove excess height in iOS 5 devices.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_normalize\.scss}line{font-family:\0000365}}
 audio:not([controls]) {
   display: none;
   height: 0;
@@ -94,6 +97,7 @@ audio:not([controls]) {
  * Address `[hidden]` styling not present in IE 8/9/10.
  * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_normalize\.scss}line{font-family:\0000375}}
 [hidden],
 template {
   display: none;
@@ -104,6 +108,7 @@ template {
 /**
  * Remove the gray background color from active links in IE 10.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_normalize\.scss}line{font-family:\0000387}}
 a {
   background: transparent;
 }
@@ -111,6 +116,7 @@ a {
 /**
  * Improve readability when focused and also mouse hovered in all browsers.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_normalize\.scss}line{font-family:\0000395}}
 a:active,
 a:hover {
   outline: 0;
@@ -121,6 +127,7 @@ a:hover {
 /**
  * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_normalize\.scss}line{font-family:\00003107}}
 abbr[title] {
   border-bottom: 1px dotted;
 }
@@ -128,6 +135,7 @@ abbr[title] {
 /**
  * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_normalize\.scss}line{font-family:\00003115}}
 b,
 strong {
   font-weight: bold;
@@ -136,6 +144,7 @@ strong {
 /**
  * Address styling not present in Safari and Chrome.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_normalize\.scss}line{font-family:\00003124}}
 dfn {
   font-style: italic;
 }
@@ -144,6 +153,7 @@ dfn {
  * Address variable `h1` font-size and margin within `section` and `article`
  * contexts in Firefox 4+, Safari, and Chrome.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_normalize\.scss}line{font-family:\00003133}}
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
@@ -152,6 +162,7 @@ h1 {
 /**
  * Address styling not present in IE 8/9.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_normalize\.scss}line{font-family:\00003142}}
 mark {
   background: #ff0;
   color: #000;
@@ -160,6 +171,7 @@ mark {
 /**
  * Address inconsistent and variable font size in all browsers.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_normalize\.scss}line{font-family:\00003151}}
 small {
   font-size: 80%;
 }
@@ -167,6 +179,7 @@ small {
 /**
  * Prevent `sub` and `sup` affecting `line-height` in all browsers.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_normalize\.scss}line{font-family:\00003159}}
 sub,
 sup {
   font-size: 75%;
@@ -175,10 +188,12 @@ sup {
   vertical-align: baseline;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_normalize\.scss}line{font-family:\00003167}}
 sup {
   top: -0.5em;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_normalize\.scss}line{font-family:\00003171}}
 sub {
   bottom: -0.25em;
 }
@@ -188,6 +203,7 @@ sub {
 /**
  * Remove border when inside `a` element in IE 8/9/10.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_normalize\.scss}line{font-family:\00003182}}
 img {
   border: 0;
 }
@@ -195,6 +211,7 @@ img {
 /**
  * Correct overflow not hidden in IE 9/10/11.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_normalize\.scss}line{font-family:\00003190}}
 svg:not(:root) {
   overflow: hidden;
 }
@@ -204,6 +221,7 @@ svg:not(:root) {
 /**
  * Address margin not present in IE 8/9 and Safari.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_normalize\.scss}line{font-family:\00003201}}
 figure {
   margin: 1em 40px;
 }
@@ -211,6 +229,7 @@ figure {
 /**
  * Address differences between Firefox and other browsers.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_normalize\.scss}line{font-family:\00003209}}
 hr {
   -moz-box-sizing: content-box;
   -webkit-box-sizing: content-box;
@@ -221,6 +240,7 @@ hr {
 /**
  * Contain overflow in all browsers.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_normalize\.scss}line{font-family:\00003219}}
 pre {
   overflow: auto;
 }
@@ -228,6 +248,7 @@ pre {
 /**
  * Address odd `em`-unit font size rendering in all browsers.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_normalize\.scss}line{font-family:\00003227}}
 code,
 kbd,
 pre,
@@ -248,6 +269,7 @@ samp {
  * 2. Correct font properties not being inherited.
  * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_normalize\.scss}line{font-family:\00003250}}
 button,
 input,
 optgroup,
@@ -264,6 +286,7 @@ textarea {
 /**
  * Address `overflow` set to `hidden` in IE 8/9/10/11.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_normalize\.scss}line{font-family:\00003264}}
 button {
   overflow: visible;
 }
@@ -274,6 +297,7 @@ button {
  * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
  * Correct `select` style inheritance in Firefox.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_normalize\.scss}line{font-family:\00003275}}
 button,
 select {
   text-transform: none;
@@ -286,6 +310,7 @@ select {
  * 3. Improve usability and consistency of cursor style between image-type
  *    `input` and others.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_normalize\.scss}line{font-family:\00003288}}
 button,
 html input[type="button"],
 input[type="reset"],
@@ -299,6 +324,7 @@ input[type="submit"] {
 /**
  * Re-set default cursor for disabled elements.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_normalize\.scss}line{font-family:\00003300}}
 button[disabled],
 html input[disabled] {
   cursor: default;
@@ -307,6 +333,7 @@ html input[disabled] {
 /**
  * Remove inner padding and border in Firefox 4+.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_normalize\.scss}line{font-family:\00003309}}
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
@@ -317,6 +344,7 @@ input::-moz-focus-inner {
  * Address Firefox 4+ setting `line-height` on `input` using `!important` in
  * the UA stylesheet.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_normalize\.scss}line{font-family:\00003320}}
 input {
   line-height: normal;
 }
@@ -328,6 +356,7 @@ input {
  * 1. Address box sizing set to `content-box` in IE 8/9/10.
  * 2. Remove excess padding in IE 8/9/10.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_normalize\.scss}line{font-family:\00003332}}
 input[type="checkbox"],
 input[type="radio"] {
   -webkit-box-sizing: border-box;
@@ -343,6 +372,7 @@ input[type="radio"] {
  * `font-size` values of the `input`, it causes the cursor style of the
  * decrement button to change from `default` to `text`.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_normalize\.scss}line{font-family:\00003344}}
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   height: auto;
@@ -353,6 +383,7 @@ input[type="number"]::-webkit-outer-spin-button {
  * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
  *    (include `-moz` to future-proof).
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_normalize\.scss}line{font-family:\00003355}}
 input[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
@@ -367,6 +398,7 @@ input[type="search"] {
  * Safari (but not Chrome) clips the cancel button when the search input has
  * padding (and `textfield` appearance).
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_normalize\.scss}line{font-family:\00003368}}
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
@@ -375,6 +407,7 @@ input[type="search"]::-webkit-search-decoration {
 /**
  * Define consistent border, margin, and padding.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_normalize\.scss}line{font-family:\00003377}}
 fieldset {
   border: 1px solid #c0c0c0;
   margin: 0 2px;
@@ -385,6 +418,7 @@ fieldset {
  * 1. Correct `color` not being inherited in IE 8/9/10/11.
  * 2. Remove padding so people aren't caught out if they zero out fieldsets.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_normalize\.scss}line{font-family:\00003388}}
 legend {
   border: 0;
   /* 1 */
@@ -395,6 +429,7 @@ legend {
 /**
  * Remove default vertical scrollbar in IE 8/9/10/11.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_normalize\.scss}line{font-family:\00003397}}
 textarea {
   overflow: auto;
 }
@@ -403,6 +438,7 @@ textarea {
  * Don't inherit the `font-weight` (applied by a rule above).
  * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_normalize\.scss}line{font-family:\00003406}}
 optgroup {
   font-weight: bold;
 }
@@ -412,16 +448,19 @@ optgroup {
 /**
  * Remove most spacing between table cells.
  */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_normalize\.scss}line{font-family:\00003417}}
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_normalize\.scss}line{font-family:\00003422}}
 td,
 th {
   padding: 0;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_base\.scss}line{font-family:\000031}}
 html {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-size: 1em;
@@ -431,10 +470,12 @@ html {
   background-color: #f3f3f3;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_base\.scss}line{font-family:\0000310}}
 body {
   height: 100%;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_base\.scss}line{font-family:\0000314}}
 audio,
 canvas,
 img,
@@ -443,6 +484,7 @@ video {
   vertical-align: middle;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_base\.scss}line{font-family:\0000323}}
 *,
 :before,
 :after {
@@ -451,38 +493,53 @@ video {
   box-sizing: border-box;
 }
 
-ul {
-  margin: 0;
-  padding: 0;
-}
-
-/* Remove text-shadow in selection highlight */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_base\.scss}line{font-family:\0000330}}
 ::-moz-selection {
-  background: #222222;
+  background: #b3d4fc;
   text-shadow: none;
 }
 ::selection {
-  background: #222222;
+  background: #b3d4fc;
   text-shadow: none;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_base\.scss}line{font-family:\0000336}}
 a {
   color: #666666;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_base\.scss}line{font-family:\0000339}}
 a:hover {
   color: #222222;
+  text-decoration: none;
 }
 
-img {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_base\.scss}line{font-family:\0000346}}
+ul,
+ol {
+  margin: 0 0 1em 0;
+  padding: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_base\.scss}line{font-family:\0000351}}
+ul li,
+ol li {
+  margin-left: 1em;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_base\.scss}line{font-family:\0000363}}
+img,
+video,
+object {
   height: auto;
   max-width: 100%;
 }
 
 /* Align */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_placeholders\.scss}line{font-family:\000033}}
 .alignnone {
   margin: 0.3125em 1.25em 1.25em 0;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_placeholders\.scss}line{font-family:\000038}}
 .aligncenter {
   display: block;
   margin-left: auto;
@@ -490,30 +547,41 @@ img {
   clear: both;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_placeholders\.scss}line{font-family:\0000316}}
 .alignleft {
   float: left;
   margin-right: 1.3125em;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_placeholders\.scss}line{font-family:\0000322}}
 .alignright {
   float: right;
   margin-left: 1.3125em;
 }
 
 /* Center block */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_placeholders\.scss}line{font-family:\0000331}}
 .center-block {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
+/* Centered */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_placeholders\.scss}line{font-family:\0000341}}
+.centered {
+  text-align: center;
+}
+
 /* Image replacement */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_placeholders\.scss}line{font-family:\0000349}}
 .ir {
   background-color: transparent;
   border: 0;
   overflow: hidden;
   *text-indent: -9999px;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_placeholders\.scss}line{font-family:\0000356}}
 .ir:before {
   content: "";
   display: block;
@@ -522,12 +590,14 @@ img {
 }
 
 /* Hide from both screenreaders and browsers */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_placeholders\.scss}line{font-family:\0000368}}
 .hidden {
   display: none !important;
   visibility: hidden;
 }
 
 /* Hide only visually, but have it available for screenreaders */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_placeholders\.scss}line{font-family:\0000377}}
 .visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
@@ -539,6 +609,7 @@ img {
   width: 0.0625em;
   /* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard */
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_placeholders\.scss}line{font-family:\0000390}}
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
   clip: auto;
@@ -551,106 +622,77 @@ img {
 
 /* Hide visually and from screenreaders, but maintain layout */
 /* Clearfix: contain floats */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_placeholders\.scss}line{font-family:\00003114}}
 .clearfix {
   *zoom: 1;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_placeholders\.scss}line{font-family:\00003118}}
 .clearfix:before,
 .clearfix:after {
   content: " ";
   display: table;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_placeholders\.scss}line{font-family:\00003124}}
 .clearfix:after {
   clear: both;
 }
 
-/* Visibility Classes */
-@media (min-width: 30em) {
-  .hide-xs {
-    display: none !important;
-  }
-}
-
-@media (min-width: 30em) {
-  .show-xs-block {
-    display: block !important;
-  }
-}
-
-@media (min-width: 30em) {
-  .show-xs-inline {
-    display: inline !important;
-  }
-}
-
-@media (min-width: 48em) {
-  .hide-sm {
-    display: none !important;
-  }
-}
-
-@media (min-width: 48em) {
-  .show-sm-block {
-    display: block !important;
-  }
-}
-
-@media (min-width: 48em) {
-  .show-sm-inline {
-    display: inline !important;
-  }
-}
-
-@media (min-width: 62em) {
-  .hide-md {
-    display: none !important;
-  }
-}
-
-@media (min-width: 62em) {
-  .show-md-block {
-    display: block !important;
-  }
-}
-
-@media (min-width: 62em) {
-  .show-md-inline {
-    display: inline !important;
-  }
-}
-
-@media (min-width: 75em) {
-  .hide-lg {
-    display: none !important;
-  }
-}
-
-@media (min-width: 75em) {
-  .show-lg-block {
-    display: block !important;
-  }
-}
-
-@media (min-width: 75em) {
-  .show-lg-inline {
-    display: inline !important;
-  }
-}
-
 /* Headings */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_typography\.scss}line{font-family:\000033}}
 h1,
 h2,
 h3,
 h4 {
   font-weight: normal;
-  margin-top: 0;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_typography\.scss}line{font-family:\0000311}}
+h1,
+.h1 {
+  font-size: 2em;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_typography\.scss}line{font-family:\0000316}}
+h2,
+.h2 {
+  font-size: 1.5em;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_typography\.scss}line{font-family:\0000321}}
+h3,
+.h3 {
+  font-size: 1.125em;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_typography\.scss}line{font-family:\0000326}}
+h4,
+.h4 {
+  font-size: 0.8125em;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_typography\.scss}line{font-family:\0000331}}
+h5,
+.h5 {
+  font-size: 0.75em;
+}
+
+/* Text */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_typography\.scss}line{font-family:\0000339}}
+p,
+dl,
+ol,
+ul {
+  font-size: 16px;
 }
 
 /* Blockquote */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_typography\.scss}line{font-family:\0000349}}
 blockquote {
   margin: 1.3125em 0.625em;
   padding: 0.75em 0.625em;
   quotes: "\201C" "\201D" "\2018" "\2019";
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_typography\.scss}line{font-family:\0000354}}
 blockquote:before {
   content: open-quote;
   font-size: 3.125em;
@@ -658,20 +700,24 @@ blockquote:before {
   margin-right: 0.25em;
   vertical-align: -0.375em;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_typography\.scss}line{font-family:\0000362}}
 blockquote p {
   display: inline;
 }
 
 /* Cite */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_typography\.scss}line{font-family:\0000371}}
 cite {
   color: #666666;
   font-style: italic;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_typography\.scss}line{font-family:\0000375}}
 cite:before {
   content: '\2014 \00A0';
 }
 
 /* Hr */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_typography\.scss}line{font-family:\0000383}}
 hr {
   border-bottom: 1px solid #666666;
   border-left: none;
@@ -680,7 +726,29 @@ hr {
   margin: 1.3125em 0;
 }
 
-/* Vendors */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/gridle\/_silent-classes\.scss}line{font-family:\0000330}}
+.container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/gridle\/_silent-classes\.scss}line{font-family:\0000359}}
+.container {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/gridle\/_silent-classes\.scss}line{font-family:\0000390}}
+.main-header, #main-content, .sidebar, footer {
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 /**
  * Map set
  *
@@ -797,6 +865,7 @@ hr {
 /*  ==========================================================================
 	Colorbox core
 	==========================================================================  */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_colorbox\.scss}line{font-family:\000035}}
 #colorbox,
 #cboxOverlay,
 #cboxWrapper {
@@ -807,34 +876,41 @@ hr {
   overflow: hidden;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_colorbox\.scss}line{font-family:\0000315}}
 #cboxWrapper {
   max-width: none;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_colorbox\.scss}line{font-family:\0000319}}
 #cboxOverlay {
   position: fixed;
   width: 100%;
   height: 100%;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_colorbox\.scss}line{font-family:\0000325}}
 #cboxMiddleLeft,
 #cboxBottomLeft {
   clear: left;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_colorbox\.scss}line{font-family:\0000330}}
 #cboxContent {
   position: relative;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_colorbox\.scss}line{font-family:\0000334}}
 #cboxLoadedContent {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_colorbox\.scss}line{font-family:\0000339}}
 #cboxTitle {
   margin: 0;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_colorbox\.scss}line{font-family:\0000343}}
 #cboxLoadingOverlay,
 #cboxLoadingGraphic {
   position: absolute;
@@ -844,6 +920,7 @@ hr {
   height: 100%;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_colorbox\.scss}line{font-family:\0000352}}
 #cboxPrevious,
 #cboxNext,
 #cboxClose,
@@ -851,6 +928,7 @@ hr {
   cursor: pointer;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_colorbox\.scss}line{font-family:\0000359}}
 .cboxPhoto {
   float: left;
   margin: auto;
@@ -860,6 +938,7 @@ hr {
   -ms-interpolation-mode: bicubic;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_colorbox\.scss}line{font-family:\0000368}}
 .cboxIframe {
   width: 100%;
   height: 100%;
@@ -867,6 +946,7 @@ hr {
   border: 0;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_colorbox\.scss}line{font-family:\0000375}}
 #colorbox,
 #cboxContent,
 #cboxLoadedContent {
@@ -876,26 +956,31 @@ hr {
 }
 
 /* Colorbox theme (c) 2014 Fabio Quarantini */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_colorbox-theme\.scss}line{font-family:\000033}}
 #colorbox {
   outline: 0;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_colorbox-theme\.scss}line{font-family:\000037}}
 #colorbox,
 #cboxOverlay,
 #cboxWrapper {
   overflow: visible;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_colorbox-theme\.scss}line{font-family:\0000313}}
 #colorbox:active,
 #colorbox:focus {
   outline: none;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_colorbox-theme\.scss}line{font-family:\0000318}}
 #cboxOverlay {
   background-color: black;
 }
 
 /* Title */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_colorbox-theme\.scss}line{font-family:\0000325}}
 #cboxTitle {
   position: absolute;
   bottom: -1.875em;
@@ -906,6 +991,7 @@ hr {
 }
 
 /* Current image*/
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_colorbox-theme\.scss}line{font-family:\0000337}}
 #cboxCurrent {
   position: absolute;
   bottom: -1.875em;
@@ -914,6 +1000,7 @@ hr {
 }
 
 /* Button */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_colorbox-theme\.scss}line{font-family:\0000347}}
 #cboxPrevious,
 #cboxNext,
 #cboxSlideshow,
@@ -931,59 +1018,71 @@ hr {
 }
 
 /* .touch works only with modernizr */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_colorbox-theme\.scss}line{font-family:\0000365}}
 .touch #colorbox button,
 #colorbox:hover button {
   opacity: 1;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_colorbox-theme\.scss}line{font-family:\0000370}}
 #cboxPrevious {
   right: 3.5em;
   background-position: 0 0;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_colorbox-theme\.scss}line{font-family:\0000375}}
 #cboxNext {
   right: 1.75em;
   background-position: -1.75em 0;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_colorbox-theme\.scss}line{font-family:\0000380}}
 #cboxNext:hover,
 #cboxPrevious:hover {
   background-color: #788083;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_colorbox-theme\.scss}line{font-family:\0000385}}
 #cboxClose {
   right: 0;
   background-color: #788083;
   background-position: -3.5em 0;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_colorbox-theme\.scss}line{font-family:\0000391}}
 #cboxClose:hover {
   background-color: #333333;
 }
 
 /* Slide show button */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_colorbox-theme\.scss}line{font-family:\0000398}}
 #cboxSlideshow {
   right: 5.25em;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_colorbox-theme\.scss}line{font-family:\00003102}}
 #cboxSlideshow:hover {
   background-color: #788083;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_colorbox-theme\.scss}line{font-family:\00003106}}
 .cboxSlideshow_off #cboxSlideshow {
   background-position: -5.25em 0;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_colorbox-theme\.scss}line{font-family:\00003110}}
 .cboxSlideshow_on #cboxSlideshow {
   background-position: -7em 0;
 }
 
 /* Loading */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_colorbox-theme\.scss}line{font-family:\00003117}}
 #cboxLoadingGraphic {
   background: url("img/loading.gif") center center no-repeat;
 }
 
 /* Content */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_colorbox-theme\.scss}line{font-family:\00003124}}
 #cboxContent {
   border: 0;
   -webkit-box-shadow: 0 0.625em 1.5625em rgba(0, 0, 0, 0.5);
@@ -992,16 +1091,19 @@ hr {
 }
 
 /* Iframe */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_colorbox-theme\.scss}line{font-family:\00003133}}
 .cboxIframe {
   background: white;
 }
 
 /* Error */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_colorbox-theme\.scss}line{font-family:\00003140}}
 #cboxError {
   padding: 3.125em;
 }
 
 /* Browser resets */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_flexslider\.scss}line{font-family:\000033}}
 .flex-container a:active,
 .flexslider a:active,
 .flex-container a:focus,
@@ -1009,6 +1111,7 @@ hr {
   outline: none;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_flexslider\.scss}line{font-family:\0000310}}
 .slides,
 .flex-control-nav,
 .flex-direction-nav {
@@ -1018,24 +1121,30 @@ hr {
 }
 
 /* FlexSlider necessary styles */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_flexslider\.scss}line{font-family:\0000321}}
 .flexslider {
   margin: 0;
   padding: 0;
   zoom: 1;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_flexslider\.scss}line{font-family:\0000327}}
 .slides {
   zoom: 1;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_flexslider\.scss}line{font-family:\0000330}}
 .slides li {
   display: none;
+  margin: 0;
   -webkit-backface-visibility: hidden;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_flexslider\.scss}line{font-family:\0000336}}
 .slides img {
   width: 100%;
   height: auto;
   display: block;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_flexslider\.scss}line{font-family:\0000342}}
 .slides:after {
   content: "\0020";
   display: block;
@@ -1045,49 +1154,60 @@ hr {
   height: 0;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_flexslider\.scss}line{font-family:\0000353}}
 html[xmlns] .slides {
   display: block;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_flexslider\.scss}line{font-family:\0000357}}
 * html .slides {
   height: 1%;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_flexslider\.scss}line{font-family:\0000361}}
 .flex-pauseplay span {
   text-transform: capitalize;
 }
 
 /* No javaScript fallback with Modernizr */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_flexslider\.scss}line{font-family:\0000367}}
 .no-js .slides > li:first-child {
   display: block;
 }
 
 /* FlexSlider theme */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_flexslider-theme\.scss}line{font-family:\000033}}
 .flexslider {
   position: relative;
   margin: 0 auto;
+  clear: both;
   width: 100%;
   background: white;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_flexslider-theme\.scss}line{font-family:\0000311}}
 .flex-viewport {
   max-height: 125em;
   -webkit-transition: all 1s ease;
   transition: all 1s ease;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_flexslider-theme\.scss}line{font-family:\0000316}}
 .loading .flex-viewport {
   max-height: 18.75em;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_flexslider-theme\.scss}line{font-family:\0000320}}
 .carousel li {
   margin-right: 0.3125em;
 }
 
 /* Direction Nav */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_flexslider-theme\.scss}line{font-family:\0000327}}
 .flex-direction-nav {
   *height: 0;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_flexslider-theme\.scss}line{font-family:\0000330}}
 .flex-direction-nav a {
   position: absolute;
   top: 50%;
@@ -1104,53 +1224,64 @@ html[xmlns] .slides {
   -webkit-transition: all .3s ease;
   transition: all .3s ease;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_flexslider-theme\.scss}line{font-family:\0000346}}
 .flex-direction-nav .flex-prev {
   left: 0;
 }
 @media only screen and (min-width: 62em / 16pxem) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_flexslider-theme\.scss}line{font-family:\0000346}}
   .flex-direction-nav .flex-prev {
     left: -2.25em;
     opacity: 0;
   }
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_flexslider-theme\.scss}line{font-family:\0000355}}
 .flex-direction-nav .flex-next {
   right: 0;
   background-position: 100% 0;
 }
 @media only screen and (min-width: 62em / 16pxem) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_flexslider-theme\.scss}line{font-family:\0000355}}
   .flex-direction-nav .flex-next {
     right: -2.25em;
     opacity: 0;
   }
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_flexslider-theme\.scss}line{font-family:\0000366}}
 .flex-direction-nav .flex-disabled {
   opacity: 0.3 !important;
   filter: alpha(opacity=30);
   cursor: default;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_flexslider-theme\.scss}line{font-family:\0000377}}
 .flexslider:hover .flex-prev {
   left: 0.3125em;
   opacity: .8;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_flexslider-theme\.scss}line{font-family:\0000381}}
 .flexslider:hover .flex-prev:hover {
   opacity: 1;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_flexslider-theme\.scss}line{font-family:\0000387}}
 .flexslider:hover .flex-next {
   right: 0.3125em;
   opacity: .8;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_flexslider-theme\.scss}line{font-family:\0000391}}
 .flexslider:hover .flex-next:hover {
   opacity: 1;
 }
 
 /* Control Nav */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_flexslider-theme\.scss}line{font-family:\00003101}}
 .flex-control-nav {
   position: absolute;
   bottom: -2.5em;
   width: 100%;
   text-align: center;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_flexslider-theme\.scss}line{font-family:\00003107}}
 .flex-control-nav li {
   display: inline-block;
   margin: 0 0.375em;
@@ -1159,6 +1290,7 @@ html[xmlns] .slides {
 }
 
 /* Control Paging */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_flexslider-theme\.scss}line{font-family:\00003121}}
 .flex-control-paging a {
   display: block;
   width: 0.6875em;
@@ -1168,60 +1300,357 @@ html[xmlns] .slides {
   text-indent: -624.9375em;
   cursor: pointer;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_flexslider-theme\.scss}line{font-family:\00003130}}
 .flex-control-paging a:hover {
   background: rgba(0, 0, 0, 0.7);
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_flexslider-theme\.scss}line{font-family:\00003134}}
 .flex-control-paging a.flex-active {
   background: rgba(0, 0, 0, 0.9);
   cursor: default;
 }
 
 /* Control thumbs */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_flexslider-theme\.scss}line{font-family:\00003145}}
 .flex-control-thumbs {
   position: static;
   overflow: hidden;
   margin: 0.3125em 0 0;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_flexslider-theme\.scss}line{font-family:\00003150}}
 .flex-control-thumbs li {
   float: left;
   margin: 0;
   width: 25%;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_flexslider-theme\.scss}line{font-family:\00003156}}
 .flex-control-thumbs img {
   display: block;
   width: 100%;
   opacity: .7;
   cursor: pointer;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_flexslider-theme\.scss}line{font-family:\00003163}}
 .flex-control-thumbs img:hover {
   opacity: 1;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/vendors\/_flexslider-theme\.scss}line{font-family:\00003167}}
 .flex-control-thumbs .flex-active {
   opacity: 1;
   cursor: default;
 }
 
-/* Layouts */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/layouts\/_global\.scss}line{font-family:\000031}}
 .container {
-  padding: 0.625em;
+  max-width: 75em;
+  margin: 0 auto;
+  background-color: white;
 }
-@media (min-width: 48em) {
-  .container {
-    max-width: 60em;
-    margin: 0 auto;
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/layouts\/_header\.scss}line{font-family:\000031}}
+.main-header {
+  width: 100%;
+  position: relative;
+}
+@media screen and (max-width: 99999999px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/layouts\/_header\.scss}line{font-family:\000031}}
+  .main-header {
+    float: left;
+    direction: ltr;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media screen and (min-width: 30em) and (max-width: 99999999px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/layouts\/_header\.scss}line{font-family:\000031}}
+  .main-header {
+    float: left;
+    direction: ltr;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media screen and (min-width: 48em) and (max-width: 99999999px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/layouts\/_header\.scss}line{font-family:\000031}}
+  .main-header {
+    float: left;
+    direction: ltr;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media screen and (min-width: 62em) and (max-width: 99999999px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/layouts\/_header\.scss}line{font-family:\000031}}
+  .main-header {
+    float: left;
+    direction: ltr;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media screen and (min-width: 75em) and (max-width: 99999999px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/layouts\/_header\.scss}line{font-family:\000031}}
+  .main-header {
+    float: left;
+    direction: ltr;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
 
-.main-header {
-  background-color: white;
-  position: relative;
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/layouts\/_content\.scss}line{font-family:\000031}}
+#main-content {
+  width: 100%;
+}
+@media screen and (max-width: 99999999px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/layouts\/_content\.scss}line{font-family:\000031}}
+  #main-content {
+    float: left;
+    direction: ltr;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media screen and (min-width: 30em) and (max-width: 99999999px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/layouts\/_content\.scss}line{font-family:\000031}}
+  #main-content {
+    float: left;
+    direction: ltr;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media screen and (min-width: 48em) and (max-width: 99999999px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/layouts\/_content\.scss}line{font-family:\000031}}
+  #main-content {
+    float: left;
+    direction: ltr;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media screen and (min-width: 62em) and (max-width: 99999999px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/layouts\/_content\.scss}line{font-family:\000031}}
+  #main-content {
+    float: left;
+    direction: ltr;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media screen and (min-width: 75em) and (max-width: 99999999px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/layouts\/_content\.scss}line{font-family:\000031}}
+  #main-content {
+    float: left;
+    direction: ltr;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media screen and (max-width: 99999999px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/layouts\/_content\.scss}line{font-family:\000031}}
+  #main-content {
+    float: left;
+    direction: ltr;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media screen and (min-width: 30em) and (max-width: 99999999px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/layouts\/_content\.scss}line{font-family:\000031}}
+  #main-content {
+    float: left;
+    direction: ltr;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media screen and (min-width: 48em) and (max-width: 99999999px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/layouts\/_content\.scss}line{font-family:\000031}}
+  #main-content {
+    float: left;
+    direction: ltr;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media screen and (min-width: 62em) and (max-width: 99999999px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/layouts\/_content\.scss}line{font-family:\000031}}
+  #main-content {
+    float: left;
+    direction: ltr;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media screen and (min-width: 75em) and (max-width: 99999999px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/layouts\/_content\.scss}line{font-family:\000031}}
+  #main-content {
+    float: left;
+    direction: ltr;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media screen and (min-width: 48em) and (max-width: 99999999px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/layouts\/_content\.scss}line{font-family:\000031}}
+  #main-content {
+    width: 75%;
+  }
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/layouts\/_sidebar\.scss}line{font-family:\000031}}
 .sidebar {
-  background-color: #eee;
+  width: 100%;
+}
+@media screen and (max-width: 99999999px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/layouts\/_sidebar\.scss}line{font-family:\000031}}
+  .sidebar {
+    float: left;
+    direction: ltr;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media screen and (min-width: 30em) and (max-width: 99999999px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/layouts\/_sidebar\.scss}line{font-family:\000031}}
+  .sidebar {
+    float: left;
+    direction: ltr;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media screen and (min-width: 48em) and (max-width: 99999999px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/layouts\/_sidebar\.scss}line{font-family:\000031}}
+  .sidebar {
+    float: left;
+    direction: ltr;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media screen and (min-width: 62em) and (max-width: 99999999px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/layouts\/_sidebar\.scss}line{font-family:\000031}}
+  .sidebar {
+    float: left;
+    direction: ltr;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media screen and (min-width: 75em) and (max-width: 99999999px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/layouts\/_sidebar\.scss}line{font-family:\000031}}
+  .sidebar {
+    float: left;
+    direction: ltr;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media screen and (max-width: 99999999px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/layouts\/_sidebar\.scss}line{font-family:\000031}}
+  .sidebar {
+    float: left;
+    direction: ltr;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media screen and (min-width: 30em) and (max-width: 99999999px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/layouts\/_sidebar\.scss}line{font-family:\000031}}
+  .sidebar {
+    float: left;
+    direction: ltr;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media screen and (min-width: 48em) and (max-width: 99999999px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/layouts\/_sidebar\.scss}line{font-family:\000031}}
+  .sidebar {
+    float: left;
+    direction: ltr;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media screen and (min-width: 62em) and (max-width: 99999999px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/layouts\/_sidebar\.scss}line{font-family:\000031}}
+  .sidebar {
+    float: left;
+    direction: ltr;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media screen and (min-width: 75em) and (max-width: 99999999px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/layouts\/_sidebar\.scss}line{font-family:\000031}}
+  .sidebar {
+    float: left;
+    direction: ltr;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media screen and (min-width: 48em) and (max-width: 99999999px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/layouts\/_sidebar\.scss}line{font-family:\000031}}
+  .sidebar {
+    width: 25%;
+  }
 }
 
-/* Components */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/layouts\/_footer\.scss}line{font-family:\000031}}
+footer {
+  width: 100%;
+}
+@media screen and (max-width: 99999999px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/layouts\/_footer\.scss}line{font-family:\000031}}
+  footer {
+    float: left;
+    direction: ltr;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media screen and (min-width: 30em) and (max-width: 99999999px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/layouts\/_footer\.scss}line{font-family:\000031}}
+  footer {
+    float: left;
+    direction: ltr;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media screen and (min-width: 48em) and (max-width: 99999999px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/layouts\/_footer\.scss}line{font-family:\000031}}
+  footer {
+    float: left;
+    direction: ltr;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media screen and (min-width: 62em) and (max-width: 99999999px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/layouts\/_footer\.scss}line{font-family:\000031}}
+  footer {
+    float: left;
+    direction: ltr;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media screen and (min-width: 75em) and (max-width: 99999999px) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/layouts\/_footer\.scss}line{font-family:\000031}}
+  footer {
+    float: left;
+    direction: ltr;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/components\/_buttons\.scss}line{font-family:\000031}}
 .button {
   display: inline-block;
   margin: 0 0 1em 0;
@@ -1234,78 +1663,99 @@ html[xmlns] .slides {
   transition: background .15s;
   text-decoration: none;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/components\/_buttons\.scss}line{font-family:\0000321}}
 .button:active {
   outline: none;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/components\/_buttons\.scss}line{font-family:\0000325}}
 .button--large {
   font-size: 19.2px;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/components\/_buttons\.scss}line{font-family:\0000329}}
 .button--small {
   font-size: 13.33333333px;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/components\/_buttons\.scss}line{font-family:\0000333}}
 .button--bold {
   font-weight: bold;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/components\/_buttons\.scss}line{font-family:\0000337}}
 .button--full {
   width: 100%;
   padding-right: 0;
   padding-left: 0;
   text-align: center;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/components\/_buttons\.scss}line{font-family:\0000344}}
 .button--upper {
   text-transform: uppercase;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/components\/_buttons\.scss}line{font-family:\0000348}}
 .button--rounded {
   border-radius: 0.25em;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/components\/_buttons\.scss}line{font-family:\0000354}}
 .button--primary {
   background-color: #7f8c8d;
   color: #7f8c8d;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/components\/_buttons\.scss}line{font-family:\0000359}}
 .button--primary:hover, .button--primary--active {
   background-color: #7f8c8d;
   color: #7f8c8d;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/components\/_buttons\.scss}line{font-family:\0000354}}
 .button--secondary {
   background-color: #7f8c8d;
   color: #7f8c8d;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/components\/_buttons\.scss}line{font-family:\0000359}}
 .button--secondary:hover, .button--secondary--active {
   background-color: #7f8c8d;
   color: #7f8c8d;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/components\/_buttons\.scss}line{font-family:\0000354}}
 .button--success {
   background-color: #27ae60;
   color: #27ae60;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/components\/_buttons\.scss}line{font-family:\0000359}}
 .button--success:hover, .button--success--active {
   background-color: black;
   color: #27ae60;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/components\/_buttons\.scss}line{font-family:\0000354}}
 .button--danger {
   background-color: #c0392b;
   color: #c0392b;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/components\/_buttons\.scss}line{font-family:\0000359}}
 .button--danger:hover, .button--danger--active {
   background-color: #c0392b;
   color: #c0392b;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/components\/_buttons\.scss}line{font-family:\0000354}}
 .button--warning {
   background-color: #f1c40f;
   color: #f1c40f;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/components\/_buttons\.scss}line{font-family:\0000359}}
 .button--warning:hover, .button--warning--active {
   background-color: #f1c40f;
   color: #f1c40f;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/components\/_tables\.scss}line{font-family:\000031}}
 table {
   border-collapse: collapse;
+  border-spacing: 0;
   margin: 0;
   table-layout: fixed;
+  max-width: 100%;
   width: 100%;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/components\/_tables\.scss}line{font-family:\0000322}}
 th {
   border-bottom: 1px solid #666666;
   font-weight: bold;
@@ -1313,32 +1763,38 @@ th {
   text-align: left;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/components\/_tables\.scss}line{font-family:\0000329}}
 td {
   border-bottom: 1px solid #666666;
   padding: 1.3125em 0;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/components\/_tables\.scss}line{font-family:\0000334}}
 tr,
 td,
 th {
   vertical-align: middle;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/components\/_forms\.scss}line{font-family:\000035}}
 fieldset {
   margin: 0;
   padding: 0;
   border: 0;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/components\/_forms\.scss}line{font-family:\0000311}}
 label,
 legend {
   display: block;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/components\/_forms\.scss}line{font-family:\0000315}}
 label.required:after,
 legend.required:after {
   content: "*";
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/components\/_forms\.scss}line{font-family:\0000320}}
 input,
 textarea,
 select {
@@ -1352,6 +1808,7 @@ select {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   width: 100%;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/components\/_forms\.scss}line{font-family:\0000333}}
 input:focus, input:active,
 textarea:focus,
 textarea:active,
@@ -1362,6 +1819,7 @@ select:active {
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
   color: #444;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/components\/_forms\.scss}line{font-family:\0000340}}
 input[disabled],
 textarea[disabled],
 select[disabled] {
@@ -1370,6 +1828,7 @@ select[disabled] {
   cursor: not-allowed;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/components\/_forms\.scss}line{font-family:\0000347}}
 input[type="checkbox"],
 input[type="radio"] {
   display: inline;
@@ -1378,18 +1837,21 @@ input[type="radio"] {
   margin: 0 10px 0 0;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/components\/_forms\.scss}line{font-family:\0000355}}
 select {
   width: auto;
   max-width: 100%;
   padding: 0;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/components\/_forms\.scss}line{font-family:\0000361}}
 textarea {
   min-height: 10em;
   max-width: 100%;
   resize: vertical;
 }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/components\/_forms\.scss}line{font-family:\0000367}}
 ::-webkit-input-placeholder,
 :-moz-placeholder,
 ::-moz-placeholder,
@@ -1397,7 +1859,7 @@ textarea {
   color: #f3f3f3;
 }
 
-/* Blocks */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/blocks\/_menu-primary\.scss}line{font-family:\000031}}
 .menu-primary {
   max-height: 0;
   -webkit-transition: all 0.4s;
@@ -1405,37 +1867,46 @@ textarea {
   overflow-y: hidden;
 }
 @media (min-width: 48em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/blocks\/_menu-primary\.scss}line{font-family:\000031}}
   .menu-primary {
     max-height: none;
     display: block;
   }
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/blocks\/_menu-primary\.scss}line{font-family:\0000314}}
 .menu-primary.active {
   max-height: 18.75em;
   overflow-y: scroll;
 }
 @media (min-width: 48em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/blocks\/_menu-primary\.scss}line{font-family:\0000314}}
   .menu-primary.active {
     overflow-y: auto;
   }
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/blocks\/_menu-primary\.scss}line{font-family:\0000326}}
 .menu-primary .menu-item {
   display: block;
   border: 0.0625em solid #f3f3f3;
   padding: 0.375em;
+  margin: 0;
 }
 @media (min-width: 48em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/blocks\/_menu-primary\.scss}line{font-family:\0000326}}
   .menu-primary .menu-item {
     display: inline-block;
   }
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/blocks\/_menu-primary\.scss}line{font-family:\0000348}}
 .menu-primary a {
   color: #666666;
   text-decoration: none;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/blocks\/_menu-primary\.scss}line{font-family:\0000353}}
 .menu-primary a:hover {
   color: black;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/blocks\/_menu-primary\.scss}line{font-family:\0000362}}
 .menu-primary .current-menu-item a,
 .menu-primary .current-page-ancestor a,
 .menu-primary .current_page_item a {
@@ -1443,6 +1914,7 @@ textarea {
 }
 
 /* Navicon */
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/blocks\/_navicon\.scss}line{font-family:\000033}}
 .navicon {
   position: absolute;
   top: 0;
@@ -1459,13 +1931,16 @@ textarea {
   transition: all 0.5s;
 }
 @media (min-width: 48em) {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/blocks\/_navicon\.scss}line{font-family:\000033}}
   .navicon {
     display: none;
   }
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/blocks\/_navicon\.scss}line{font-family:\0000321}}
 .navicon:hover {
   background-color: #666666;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/blocks\/_navicon\.scss}line{font-family:\0000325}}
 .navicon:before, .navicon:after {
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
@@ -1478,14 +1953,17 @@ textarea {
   box-sizing: content-box;
   content: "";
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/blocks\/_navicon\.scss}line{font-family:\0000336}}
 .navicon:before {
   top: 28px;
   border-top: 0.25em solid white;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/blocks\/_navicon\.scss}line{font-family:\0000341}}
 .navicon:after {
   top: 12px;
   border-top: 0.75em double white;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/blocks\/_navicon\.scss}line{font-family:\0000346}}
 .navicon.active:after, .navicon.active:before {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1493,11 +1971,13 @@ textarea {
   border-top: 0.25em solid white;
   top: 48%;
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/blocks\/_navicon\.scss}line{font-family:\0000353}}
 .navicon.active:after {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/blocks\/_navicon\.scss}line{font-family:\0000357}}
 .navicon.active:before {
   -webkit-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
@@ -1507,8 +1987,8 @@ textarea {
 /* Gallery */
 /* Basic pagination */
 /* Numeric pagination */
-/* Print */
 @media print {
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_print\.scss}line{font-family:\000033}}
   * {
     background: transparent !important;
     color: #000 !important;
@@ -1517,30 +1997,36 @@ textarea {
     text-shadow: none !important;
   }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_print\.scss}line{font-family:\0000310}}
   a,
   a:visited {
     text-decoration: underline;
   }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_print\.scss}line{font-family:\0000328}}
   pre,
   blockquote {
     border: 1px solid #999;
     page-break-inside: avoid;
   }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_print\.scss}line{font-family:\0000334}}
   thead {
     display: table-header-group;
   }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_print\.scss}line{font-family:\0000338}}
   tr,
   img {
     page-break-inside: avoid;
   }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_print\.scss}line{font-family:\0000343}}
   img {
     max-width: 100% !important;
   }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_print\.scss}line{font-family:\0000347}}
   p,
   h2,
   h3 {
@@ -1548,6 +2034,7 @@ textarea {
     widows: 3;
   }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/C\:\/Users\/fabio\/Dropbox\/Code\/Ground\/wp-content\/themes\/ground\/scss\/base\/_print\.scss}line{font-family:\0000354}}
   h2,
   h3 {
     page-break-after: avoid;

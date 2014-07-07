@@ -1,3 +1,4 @@
 .sidebar {
-	background-color: #eee;
+	@include gridle(12);
+	@include gridle(3, sm);
 }

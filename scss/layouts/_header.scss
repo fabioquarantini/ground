@@ -1,4 +1,4 @@
 .main-header {
-	background-color: $white;
+	@include gridle(12);
 	position: relative;
 }

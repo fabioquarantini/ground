@@ -49,7 +49,7 @@ function ground_post_thumbnail_size() {
 	// Registers a new image size ($name, $width, $height, $crop)
 	add_image_size( 'thumb-small', 200, 200, true );
 	add_image_size( 'thumb-medium', 600, 150, true );
-	add_image_size( 'thumb-slider-primary', 960, 320, array( 'top', 'center' ) );
+	add_image_size( 'thumb-slider-primary', 1200, 600, array( 'top', 'center' ) );
 
 }
 
@@ -301,7 +301,11 @@ function ground_excerpt( $character_length = 100, $word, $continue = '...' ) {
 
 		}
 
-		echo $continue . '<a href="' . get_permalink( $post->ID ) . '" title="' . $word . ' ' . get_the_title( $post->ID ) . '">' . $word . '</a>';
+		echo $continue;
+
+		if ( !empty($word) ) {
+			echo ' <a href="' . get_permalink( $post->ID ) . '" title="' . $word . ' ' . get_the_title( $post->ID ) . '">' . $word . '</a>';
+		}
 
 	} else {
 

@@ -1,54 +1,59 @@
-/* Charset */
+// Charset
 
 @charset "UTF-8";
 
 
-/* Base */
+// Imports
 
-@import	"base/functions",
-		"base/mixins",
-		"base/settings",
-		"base/normalize",
-		"base/base",
-		"base/placeholders",
-		"base/typography";
+@import
 
+// Base
 
-/* Vendors */
-
-@import	"vendors/gridle/gridle",
-		"vendors/colorbox",
-		"vendors/colorbox-theme",
-		"vendors/flexslider",
-		"vendors/flexslider-theme";
+"base/functions",
+"base/mixins",
+"base/settings",
+"base/normalize",
+"base/base",
+"base/placeholders",
+"base/typography",
 
 
-/* Layouts */
+// Vendors
 
-@import	"layouts/grid",
-		"layouts/global",
-		"layouts/header",
-		"layouts/sidebar",
-		"layouts/footer";
-
-
-/* Components */
-
-@import	"components/buttons",
-		"components/tables",
-		"components/forms";
+"vendors/gridle/gridle",
+"vendors/colorbox",
+"vendors/colorbox-theme",
+"vendors/flexslider",
+"vendors/flexslider-theme",
 
 
-/* Blocks */
+// Layouts
 
-@import	"blocks/menu-primary",
-		"blocks/navicon",
-		"blocks/gallery",
-		"blocks/pagination",
-		"blocks/widgets",
-		"blocks/comments";
+"layouts/grid",
+"layouts/global",
+"layouts/header",
+"layouts/content",
+"layouts/sidebar",
+"layouts/footer",
 
 
-/* Print */
+// Components
 
-@import	"base/print";
+"components/buttons",
+"components/tables",
+"components/forms",
+
+
+// Blocks
+
+"blocks/menu-primary",
+"blocks/navicon",
+"blocks/gallery",
+"blocks/pagination",
+"blocks/widgets",
+"blocks/comments",
+
+
+// Print
+
+"base/print";

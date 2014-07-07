@@ -1,13 +1,12 @@
 .container {
 
-	// @include gridle_grid_background();
-
-	padding: em(10px);
+	//@include gridle_grid_background();
+	@include gridle_container();
+	max-width: $mq-lg;
+	margin:0 auto;
+	background-color: $white;
 
 	@media ( min-width: $mq-sm ) {
-
-			max-width: em(960px);
-			margin: 0 auto;
 
 	}
 
