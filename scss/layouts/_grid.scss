@@ -1,42 +1,18 @@
 // Grid setup ( http://gridle.org )
 
-@include gridle_setup((
-	context : 12,
-	gutter-width : 20px,
-	classes : true,
-	debug : false,
-	debug-show-class-names : true,
-	ie7-support : false,
-	html-states-classes : false,
-	generate-push-classes : true,
-	generate-pull-classes : true,
-	generate-prefix-classes : true,
-	generate-suffix-classes : true,
-	generate-helpers-classes : true
-));
+
+@include gridle_setup( $grid-settings );
 
 
 // Register media queries breakpoint
 
-@include gridle_register_state ( xs , (
-	min-width : $mq-xs,
-	gutter-width : 20px
-) );
+@include gridle_register_state ( $grid-xs-name , $grid-xs-settings );
 
-@include gridle_register_state ( sm , (
-	min-width : $mq-sm,
-	gutter-width : 20px
-) );
+@include gridle_register_state ( $grid-sm-name , $grid-sm-settings );
 
-@include gridle_register_state ( md , (
-	min-width : $mq-md,
-	gutter-width : 20px
-) );
+@include gridle_register_state ( $grid-md-name , $grid-md-settings );
 
-@include gridle_register_state ( lg , (
-	min-width : $mq-lg,
-	gutter-width : 20px
-) );
+@include gridle_register_state ( $grid-lg-name , $grid-lg-settings );
 
 
 // Generate all classes for html use

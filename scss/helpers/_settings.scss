@@ -38,6 +38,56 @@ $mq-md: em(992px);
 $mq-lg: em(1200px);
 
 
+/* Grid */
+
+$grid-settings : (
+	context : 12,
+	gutter-width : 20px,
+	classes : true,
+	debug : false,
+	debug-show-class-names : true,
+	ie7-support : false,
+	html-states-classes : false,
+	generate-push-classes : true,
+	generate-pull-classes : true,
+	generate-prefix-classes : true,
+	generate-suffix-classes : true,
+	generate-helpers-classes : true
+);
+
+
+$grid-xs-name : xs ;
+$grid-xs-settings : (
+	context : 12,
+	min-width : $mq-xs,
+	gutter-width : 20px
+);
+
+
+$grid-sm-name : sm ;
+$grid-sm-settings : (
+	context : 12,
+	min-width : $mq-sm,
+	gutter-width : 20px
+);
+
+
+$grid-md-name : md ;
+$grid-md-settings : (
+	context : 12,
+	min-width : $mq-md,
+	gutter-width : 20px
+);
+
+
+$grid-lg-name : lg ;
+$grid-lg-settings : (
+	context : 12,
+	min-width : $mq-lg,
+	gutter-width : 20px
+);
+
+
 /* Buttons */
 
 $btn-radius: em(4px);
