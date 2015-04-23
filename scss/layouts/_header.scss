@@ -1,4 +1,11 @@
-.main-header {
-	@include gridle(12);
+.header {
+
+}
+
+.header--primary {
+	//@include gridle(12);
+	max-width: $mq-lg;
+	margin: 0 auto;
 	position: relative;
+	min-height: em(44px);
 }

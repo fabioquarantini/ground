@@ -1,6 +1,5 @@
 // Grid setup ( http://gridle.org )
 
-
 @include gridle_setup( $grid-settings );
 
 
@@ -17,4 +16,4 @@
 
 // Generate all classes for html use
 
-//@include gridle_generate_classes();
+// @include gridle_generate_classes();

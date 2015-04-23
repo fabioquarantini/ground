@@ -4,11 +4,8 @@
 	Constants
 	==========================================================================  */
 
-// Template directory : returns http://www.site.com/wp-content/themes/sitename
-define('MY_THEME_FOLDER', get_template_directory_uri() );
-
-// Keep multiple browsers and devices in sync when building theme
-define('BROWSER_SYNC', true );
+// Template directory :
+define('MY_THEME_FOLDER', get_template_directory_uri() ); // returns http://www.site.com/wp-content/themes/sitename
 
 
 /*  ==========================================================================
@@ -44,6 +41,5 @@ require_once('inc/cpt-catalog.php');
 	==========================================================================  */
 
 require_once('inc/shortcode.php');
-
 
 ?>

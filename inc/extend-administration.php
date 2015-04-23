@@ -21,7 +21,7 @@ function ground_login_form_css() {
 
 	echo'<style>
 			.login h1 a {
-				background: transparent url("' . MY_THEME_FOLDER . '/img/ground-login.png") center center no-repeat;
+				background: transparent url("' . MY_THEME_FOLDER . '/img/login.png") center center no-repeat;
 				width: 326px;
 				height: 67px;
 			}
@@ -96,7 +96,7 @@ function ground_remove_wp_logo_admin_bar( $wp_admin_bar ) {
 function ground_backend_footer_left_text( $text ) {
 
 	$my_theme = wp_get_theme();
-	$text = '<span>' . __( 'Developed by', 'ground-backend' ) . ' ' . $my_theme->Author . '</span>';
+	$text = '<span>' . __( 'Developed by', 'ground-admin' ) . ' ' . $my_theme->Author . '</span>';
 	return $text;
 
 }
@@ -108,7 +108,7 @@ function ground_backend_footer_left_text( $text ) {
 function ground_admin_footer_right_text( $text ) {
 
 	$my_theme = wp_get_theme();
-	$text = __( 'Version', 'ground-backend' ) . ' ' . $my_theme->Version ;
+	$text = __( 'Version', 'ground-admin' ) . ' ' . $my_theme->Version ;
 	return $text;
 
 }
@@ -142,13 +142,13 @@ function ground_disable_default_dashboard_widgets() {
 
 function ground_dashboard_widget_function() {
 
-	echo "<p>" . __( 'Widget text example', 'ground-backend' ) . "</p>";
+	echo "<p>" . __( 'Widget text example', 'ground-admin' ) . "</p>";
 
 }
 
 function ground_add_dashboard_widgets() {
 
-	wp_add_dashboard_widget( 'wp_dashboard_widget', __( 'Custom widget', 'ground-backend' ) , 'ground_dashboard_widget_function' );
+	wp_add_dashboard_widget( 'wp_dashboard_widget', __( 'Custom widget', 'ground-admin' ) , 'ground_dashboard_widget_function' );
 
 }
 

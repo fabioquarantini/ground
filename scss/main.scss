@@ -1,9 +1,4 @@
-// Charset
-
 @charset "UTF-8";
-
-
-// Imports
 
 @import
 
@@ -11,8 +6,11 @@
 
 "helpers/functions",
 "helpers/mixins",
-"helpers/settings",
-"helpers/placeholders",
+
+
+// Settings
+
+"base/settings",
 
 
 // Base
@@ -20,15 +18,19 @@
 "base/normalize",
 "base/base",
 "base/typography",
+"base/links",
+"base/lists",
+"base/forms",
+"base/tables",
+"base/buttons",
+"base/debug",
 
 
 // Vendors
 
 "vendors/gridle/gridle",
 "vendors/colorbox",
-"vendors/colorbox-theme",
-"vendors/flexslider",
-"vendors/flexslider-theme",
+"vendors/slick",
 
 
 // Layouts
@@ -37,25 +39,38 @@
 "layouts/global",
 "layouts/header",
 "layouts/content",
-"layouts/sidebar",
+"layouts/main-content",
 "layouts/footer",
-
-
-// Components
-
-"components/buttons",
-"components/tables",
-"components/forms",
 
 
 // Blocks
 
-"blocks/menu-primary",
+"blocks/logo",
+"blocks/navigation",
+"blocks/navigation-primary",
 "blocks/navicon",
-"blocks/gallery",
-"blocks/pagination",
+"blocks/slider",
+"blocks/article",
+"blocks/page",
+"blocks/blog",
+"blocks/archive",
+"blocks/catalog",
+"blocks/catalog-taxonomy-item",
+"blocks/search",
+"blocks/search-form",
+"blocks/sidebar",
 "blocks/widgets",
-"blocks/comments",
+"blocks/pagination",
+"blocks/gallery",
+"blocks/modal",
+"blocks/comments-list",
+"blocks/comments-form",
+"blocks/error",
+
+
+// Placeholders
+
+"helpers/placeholders",
 
 
 // Print

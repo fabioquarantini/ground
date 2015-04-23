@@ -4,7 +4,6 @@ html {
 	line-height: $line-height;
 	height: 100%;
 	color: $grey;
-	background-color: $light-grey;
 }
 
 body {
@@ -13,12 +12,12 @@ body {
 
 audio,
 canvas,
+iframe,
 img,
 svg,
 video {
 	vertical-align: middle;
 }
-
 
 *,
 :before,
@@ -26,39 +25,10 @@ video {
 	box-sizing: border-box;
 }
 
-
 ::selection {
  	background: $light-blue;
 	text-shadow: none;
 }
-
-
-a {
-	color: $grey;
-
-	&:hover {
-		color: $dark-grey;
-		text-decoration: none;
-	}
-}
-
-
-ul,
-ol {
-	margin: 0 0 em(16px) 0;
-	padding: 0;
-
-	li {
-		margin-left: em(16px);
-	}
-}
-
-
-dl {
-	dt {}
-	dd {}
-}
-
 
 img,
 video,

@@ -1,10 +1,23 @@
 /* Basic pagination */
 
 .pagination-basic {
+	margin-left: 0;
+}
 
-	.pagination-previuos {}
+.pagination-basic__item {
+	display: inline;
+	list-style-type: none;
 
-	.pagination-next {}
+	a {
+		text-decoration: none;
+	}
+}
+
+.pagination-basic__item--previus {
+
+}
+
+.pagination-basic__item--next {
 
 }
 
@@ -13,12 +26,28 @@
 
 .page-numbers {
 
-	li {}
+	margin-left: 0;
 
-	.page-numbers {}
+	li {
+		display: inline;
+		list-style-type: none;
+		padding-left: 0;
+	}
 
-	.prev {}
+	.page-numbers {
+		text-decoration: none;
+	}
 
-	.next {}
+	.prev {
+
+	}
+
+	.next {
+
+	}
+
+	.current {
+
+	}
 
 }

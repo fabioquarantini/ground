@@ -1,13 +1,40 @@
 .container {
-
 	//@include gridle_grid_background();
 	@include gridle_container();
-	max-width: $mq-lg;
 	margin:0 auto;
-	background-color: $white;
+	width: 100%;
+	position: relative;
+	right: 0;
+	top: 0;
+	transition: all ease 0.5s;
 
 	@media ( min-width: $mq-sm ) {
 
+	}
+
+	.navigation--open & {
+
+		right: 85%;
+
+		@media ( min-width: $mq-sm ) {
+			right: 0;
+		}
+
+		&:after {
+			transition: ease 0.5s;
+			background: none repeat scroll 0 0 rgba(0, 0, 0, 0.8);
+		    content: "";
+		    right: 0;
+		    position: fixed;
+		    height: 100%;
+		    width: 100%;
+		    top: 0;
+		    z-index: 50;
+
+		    @media ( min-width: $mq-sm ) {
+				content: normal;
+			}
+		}
 	}
 
 }

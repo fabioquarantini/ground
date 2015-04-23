@@ -1,12 +1,12 @@
 <?php /* The template for displaying archive pages. */
-get_header();
+get_template_part( 'partials/header' );
  ?>
 
-	<section id="main-content" class="content" role="main">
+	<section class="archive" id="main-content" role="main">
 
 		<?php if ( have_posts() ) : ?>
 
-			<h1>
+			<h1 class="archive__title">
 				<?php if ( is_category() ) {
 
 					single_cat_title();
@@ -17,19 +17,19 @@ get_header();
 
 				} elseif ( is_author() ) { ?>
 
-					<span><?php _e( "Author:", "ground" ); ?></span> <?php  get_the_author(); ?>
+					<span class="archive__sub-title"><?php _e( "Author:", "ground" ); ?></span> <?php  get_the_author(); ?>
 
 				<?php } elseif ( is_day() ) { ?>
 
-					<span><?php _e( "Day:", "ground" ); ?></span> <?php the_time('l, F j, Y'); ?>
+					<span class="archive__sub-title"><?php _e( "Day:", "ground" ); ?></span> <?php the_time('l, F j, Y'); ?>
 
 				<?php } elseif ( is_month() ) { ?>
 
-					<span><?php _e( "Month:", "ground" ); ?></span> <?php the_time('F Y'); ?>
+					<span class="archive__sub-title"><?php _e( "Month:", "ground" ); ?></span> <?php the_time('F Y'); ?>
 
 				<?php } elseif ( is_year() ) { ?>
 
-					<span><?php _e( "Year:", "ground" ); ?></span> <?php the_time('Y'); ?>
+					<span class="archive__sub-title"><?php _e( "Year:", "ground" ); ?></span> <?php the_time('Y'); ?>
 
 				<?php } else {
 
@@ -42,7 +42,7 @@ get_header();
 
 			if ( ! empty( $term_description ) ) { ?>
 
-				<div class="taxonomy-description"> <?php echo $term_description ?></div>
+				<div class="archive__description"> <?php echo $term_description ?></div>
 
 			<?php } ?>
 
@@ -60,8 +60,8 @@ get_header();
 
 		<?php endif; ?>
 
-	</section> <!-- End .content -->
+	</section> <!-- End .archive -->
 
-	<?php get_sidebar(); ?>
+	<?php get_template_part( 'partials/sidebar', 'secondary' ); ?>
 
-<?php get_footer(); ?>
+<?php get_template_part( 'partials/footer' ); ?>

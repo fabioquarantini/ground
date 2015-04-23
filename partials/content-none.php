@@ -1,4 +1,4 @@
-<article id="main-content" <?php post_class('page-not-found'); ?> role="main">
+<article <?php post_class('page-not-found'); ?> >
 
 	<h1><?php _e("Not found", "ground"); ?></h1>
 

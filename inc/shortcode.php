@@ -4,7 +4,7 @@
 
 	1 - Mail antispambot : [email]you@you.com[/email]
 	2 - Google maps : [googlemap width="200" height="200" src="[url]"] or [googlemap src="google_map_url"]
-	3 - Button : [link_button href="link" target="_self|_blank"]text[/link_button]
+	3 - Button : [button href="link" target="_blank" class="button--primary"]Button text[/button]
 	4 - Tag <pre> : [pre]content[/pre]
 	5 - Content only for logged in user : [loggedin]content[/loggedin]
 
@@ -47,19 +47,26 @@ add_shortcode("googlemaps", "ground_maps");
 
 
 /*  ==========================================================================
-	3 - Button : [button href="link" target="_self|_blank"]text[/button]
+	3 - Button : [button href="link" target="_blank" class="button--primary"]Button text[/button]
 	==========================================================================  */
 
 function ground_button( $atts, $content = null ) {
 
 	$args = array(
 		'href'		=> '',
-		'target'	=> '_self'
+		'target'	=> '',
+		'class'	=> ''
 	);
 
 	extract( shortcode_atts( $args , $atts ) );
 
-	return '<a href="' . $href . '" target="' . $target . '" class="button">' . do_shortcode($content) . '</a>';
+	if ( empty($target)) {
+		$target = '';
+	} else {
+		$target = 'target="' . $target . '"';
+	}
+
+	return '<a href="' . $href . '" class="button ' . $class .'"'. $target .'>' . do_shortcode($content) . '</a>';
 
 }
 

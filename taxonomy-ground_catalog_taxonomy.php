@@ -1,61 +1,68 @@
 <?php /* Rename file with the name of custom post type category (taxonomy-name_of_custom_post_type_category.php) */
 
-get_header(); ?>
+get_template_part( 'partials/header' ); ?>
 
-	<section id="main-content" class="content" role="main">
+		<div class="sidebar sidebar--primary">
 
-		<h1><?php single_cat_title(); ?></h1>
-		<?php echo category_description(); ?>
+			<?php get_template_part( 'partials/navigation', 'custom-taxonomy' ); ?>
 
-		<?php
+		</div> <!-- End .sidebar- -primary -->
 
-		$queried_object = get_queried_object();
-		$term_id = $queried_object->term_id;
-		$term_parent = $queried_object->parent;
+		<section class="catalog" id="main-content" role="main">
 
-		if( $term_parent == 0 ) {
-			$term_parent = $term_id;
-		}
+			<h1 class="catalog__title"><?php single_cat_title(); ?></h1>
+			<?php echo category_description(); ?>
 
-		$args = array(
-			'child_of'		=> $term_id,
-			'hide_empty'	=> 1,
-			'hierarchical'	=> 0,
-			//'parent'		=> 0,
-			'taxonomy'		=> 'ground_catalog_taxonomy'
-		);
+			<?php
 
-		$categories = get_categories($args); ?>
+			$queried_object = get_queried_object();
+			$term_id = $queried_object->term_id;
+			$term_parent = $queried_object->parent;
 
+			if( $term_parent == 0 ) {
+				$term_parent = $term_id;
+			}
 
-		<?php if (!empty($categories)) { // Show the category  ?>
+			$args = array(
+				'child_of'		=> $term_id,
+				'hide_empty'	=> 1,
+				'hierarchical'	=> 0,
+				//'parent'		=> 0,
+				'taxonomy'		=> 'ground_catalog_taxonomy'
+			);
 
-			<?php foreach ($categories as $category) {
-				echo '<article class="cpt-category"><a href="'.get_term_link($category->slug, 'ground_catalog_taxonomy').'">'. $category->name . ' ' . $category->description .'</a></article>  <!-- End .cpt-category -->';
+			$taxonomies = get_categories($args);
+
+			if ( !empty($taxonomies) ) { // Show the category
+
+			 foreach ( $taxonomies as $taxonomy ) {
+
+					$taxonomySlug = $taxonomy->slug;
+					$taxonomyName = $taxonomy->name;
+					$taxonomyDescription = $taxonomy->description;
+
+					include( locate_template( 'partials/content-taxonomy.php' ) );
+
+				}
+
+			} else { // show the products
+
+				if (have_posts()) : while (have_posts()) : the_post();
+
+					get_template_part( 'partials/content', 'abstract' );
+
+				endwhile;
+
+					get_template_part( 'partials/pagination', 'numeric' );
+
+				else :
+
+					get_template_part( 'partials/content', 'none' );
+
+				endif;
+
 			} ?>
 
-		<?php } else { // show the products ?>
+		</section> <!-- End .catalog -->
 
-
-			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-
-					<?php get_template_part( 'partials/content', 'abstract' ); ?>
-
-				<?php endwhile; ?>
-
-					<?php get_template_part( 'partials/pagination', 'numeric' ); ?>
-
-				<?php else : ?>
-
-					<?php get_template_part( 'partials/content', 'none' ); ?>
-
-			<?php endif; ?>
-
-
-		<?php }	?>
-
-	</section> <!-- End .content -->
-
-	<?php get_sidebar(); ?>
-
-<?php get_footer(); ?>
+<?php get_template_part( 'partials/footer' ); ?>

@@ -1,0 +1,40 @@
+.navigation {
+
+}
+
+.navigation--mobile {
+
+	display: block;
+	background-color: $color-secondary;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 100%;
+	width: 100%;
+	overflow: auto;
+	z-index: 100;
+	transition: left ease 0.5s;
+
+	@media ( min-width: $mq-sm ) {
+
+		float: right;
+		overflow: visible;
+		background-color: transparent;
+		position: relative;
+		top: auto;
+		bottom: auto;
+		right: auto;
+		left: auto;
+		width: auto;
+		position: absolute;
+		top: 0;
+		right: 0;
+
+	}
+
+	.navigation--open & {
+		left: 15%;
+	}
+
+}

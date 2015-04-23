@@ -1,6 +1,8 @@
-<?php get_header(); ?>
+<?php get_template_part( 'partials/header' ); ?>
 
-	<section id="main-content" class="content" role="main">
+	<section class="blog" id="main-content" role="main">
+
+		<h1 class="blog__title"><?php single_post_title(); ?></h1>
 
 		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
@@ -16,8 +18,8 @@
 
 		<?php endif; ?>
 
-	</section> <!-- End .content -->
+	</section> <!-- End .blog -->
 
-	<?php get_sidebar(); ?>
+	<?php get_template_part( 'partials/sidebar', 'secondary' ); ?>
 
-<?php get_footer(); ?>
+<?php get_template_part( 'partials/footer' ); ?>

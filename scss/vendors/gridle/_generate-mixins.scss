@@ -34,10 +34,16 @@
 			$stateName : map-get($stateName, name);
 		}
 
+		// classes :
+		$classes : _gridle_get_var_value(classes, $stateName);
+
 		// genrate the classname :
-		@include gridle_state($stateName, false) {
-			#{_gridle_classname($pattern, $stateName)} {
-				@content;
+		@if $classes
+		{
+			@include gridle_state($stateName, false) {
+				#{_gridle_classname($pattern, $stateName)} {
+					@content;
+				}
 			}
 		}
 	}
@@ -190,14 +196,14 @@
 			$clearWhat : map-get($clearMap, clearWhat);
 			// generate the class :
 			#{_gridle_classname($gridle-clear-each-pattern, $state, $clearCount)} {
-				@include _gridle_clear_each($clearCount, $clearWhat, $state);
+				@include _gridle_clear_each($clearCount, $clearWhat);
 			}
 		}
 	}
 
 	// debug colors :
 	$debug : _gridle_get_var_value(debug, $state);
-	@if $debug {
+	@if $debug and ( $what == null or index($what, debug_colors) or index($what, helpers) ) {
 		// debug color classes :
 		#{_gridle_classname($gridle-debug-color-name-pattern, $state, 1)} {
 			#{$gridle-debug-selector} {
@@ -262,7 +268,7 @@
 			} @elseif type-of($value) == bool {
 				$gridle-settings-states : "#{$gridle-settings-states} \"#{$varName}\" : #{$value},";
 			} @else {
-				$gridle-settings-states : "#{$gridle-settings-states} \"#{$varName}\" : \"#{$value}\",";		
+				$gridle-settings-states : "#{$gridle-settings-states} \"#{$varName}\" : \"#{$value}\",";
 			}
 		}
 
@@ -310,15 +316,37 @@
 	$what : null,
 	$scope : null
 ) {
-	// check if a scope exist :
-	@if $scope {
-		// wrapp grid into scope :
-		.#{$scope} {
-			@include _gridle_generate_classes($stateName, $what, true);
+	// if the what parameter is not null, mean that we need to generate only certain classes in a certain order :
+	@if $what
+	{
+		// loop on each what item to generate the corresponding classes :
+		@each $w in $what
+		{
+			// check if a scope exist :
+			@if $scope {
+				// wrapp grid into scope :
+				.#{$scope} {
+					@include _gridle_generate_classes($stateName, ( $w ), true);
+				}
+			} @else {
+				// generate classes :
+				@include _gridle_generate_classes($stateName, ( $w ), false);
+			}
 		}
-	} @else {
-		// generate classes :
-		@include _gridle_generate_classes($stateName, $what, false);
+	}
+	@else
+	{
+		// don't have any "what" parameter so generate all the classes
+		// check if a scope exist :
+		@if $scope {
+			// wrapp grid into scope :
+			.#{$scope} {
+				@include _gridle_generate_classes($stateName, null, true);
+			}
+		} @else {
+			// generate classes :
+			@include _gridle_generate_classes($stateName, null, false);
+		}
 	}
 }
 $_gridle_generateOnlyOnce : true; // keep track of generate once classes
@@ -353,7 +381,7 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 		@if $what == null or index($what, container) or index($what, default)
 		{
 			$container-selector : ();
-			$container-selector : append( $container-selector, unquote(_gridle_classname($gridle-container-name-pattern)), comma);
+			$container-selector : append( $container-selector, unquote("#{_gridle_classname($gridle-container-name-pattern)}"), comma);
 			#{$container-selector} {
 				@include gridle_container();
 			}
@@ -380,7 +408,10 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 		// // | ------------------------
 	 
 		// // generate json settings :
-		@include gridle_generate_json_settings();
+		@if $gridle-generate-json-settings
+		{
+			@include gridle_generate_json_settings();
+		}
 
 	}
 
@@ -434,9 +465,10 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 				
 				// name :
 				$columnName : "#{$j*$name-multiplicator}";
+				$columnWidth : $j * $name-multiplicator;
 
 				// // create a column :
-				$col : _gridle_create_column($columnName, $j,  $context);
+				$col : _gridle_create_column($columnName, $columnWidth, $context, $name-multiplicator);
 
 				// // add column in columns map :
 				$columnsMap : map-set($columnsMap, $columnName,  $col);
@@ -447,19 +479,19 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 		 	
 				// add selector :
 				@if $what == null or index($what, grid) or index($what, default) {
-					$grid-common-selector : append( $grid-common-selector, unquote(_gridle_classname($gridle-grid-name-pattern, $media, $columnName)), comma );
+					$grid-common-selector : append( $grid-common-selector, unquote("#{_gridle_classname($gridle-grid-name-pattern, $media, $columnName)}"), comma );
 				}
 				@if $generate-push-classes and ($what == null or index($what, push) or index($what, default)) {
-					$push-common-selector : append( $push-common-selector, unquote(_gridle_classname($gridle-push-name-pattern, $media, $columnName)), comma );
+					$push-common-selector : append( $push-common-selector, unquote("#{_gridle_classname($gridle-push-name-pattern, $media, $columnName)}"), comma );
 				}
 				@if $generate-pull-classes and ($what == null or index($what, pull) or index($what, default)) {
-					$pull-common-selector : append( $pull-common-selector, unquote(_gridle_classname($gridle-pull-name-pattern, $media, $columnName)), comma );
+					$pull-common-selector : append( $pull-common-selector, unquote("#{_gridle_classname($gridle-pull-name-pattern, $media, $columnName)}"), comma );
 				}
 				@if $generate-prefix-classes and ($what == null or index($what, prefix) or index($what, default)) {
-					$prefix-common-selector : append( $prefix-common-selector, unquote(_gridle_classname($gridle-prefix-name-pattern, $media, $columnName)), comma );
+					$prefix-common-selector : append( $prefix-common-selector, unquote("#{_gridle_classname($gridle-prefix-name-pattern, $media, $columnName)}"), comma );
 				}
 				@if $generate-suffix-classes and ($what == null or index($what, suffix) or index($what, default)) {
-					$suffix-common-selector : append( $suffix-common-selector, unquote(_gridle_classname($gridle-suffix-name-pattern, $media, $columnName)), comma );
+					$suffix-common-selector : append( $suffix-common-selector, unquote("#{_gridle_classname($gridle-suffix-name-pattern, $media, $columnName)}"), comma );
 				}
 			}
 		}
@@ -510,15 +542,15 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 		$generate-suffix-classes : _gridle_get_var_value(generate-suffix-classes, $state);
 		$generate-helpers-classes : _gridle_get_var_value(generate-helpers-classes, $state);
 
-		// parent common css :
-		$parentSelector : _gridle_classname($gridle-parent-name-pattern,$stateName,null);
-		#{$parentSelector} {
-			@extend %gridle-clearfix;
-			@extend %gridle-parent-common;
-		}
-
 		// generate all media queries grid classes :
 		@if $classes == true {
+
+			// parent common css :
+			$parentSelector : _gridle_classname($gridle-parent-name-pattern,$stateName,null);
+			#{$parentSelector} {
+				@extend %gridle-clearfix;
+				@extend %gridle-parent-common;
+			}
 
 			// generate all the classes :
 			@include gridle_state($stateName, $has-parent) {
@@ -531,9 +563,10 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 					
 					// name :
 					$columnName : "#{$j*$name-multiplicator}";
+					$columnWidth : $j * $name-multiplicator;
 
 					// // create a column :
-					$col : _gridle_create_column($columnName, $j,  $context);
+					$col : _gridle_create_column($columnName, $columnWidth, $context, $name-multiplicator);
 
 					// // add column in columns map :
 					$columnsMap : map-set($columnsMap, $columnName,  $col);
@@ -545,10 +578,12 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 					// variables :
 					$columnsCount : map-get($column, columns);
 					$columnsContext : map-get($column, context);
+					$columnsNameMultiplicator : map-get($column, name-multiplicator);
 
 					// extend context in state (for columns) :
 					$extendedState : map-merge($state, (
-						context : $columnsContext
+						context : $columnsContext,
+						name-multiplicator : $columnsNameMultiplicator // inject the name multiplicator here getted from column to handle custom registered columns
 					));
 
 					// classes :

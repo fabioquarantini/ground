@@ -5,8 +5,8 @@
 	1 - Content width
 	2 - Post thumbnails size
 	3 - Localization
-	4 - Register menus
-	5 - Register sidebars
+	4 - Register navigation menu
+	5 - Register widgets sidebar
 	6 - Post formats
 	7 - Custom header
 	8 - Custom background
@@ -44,12 +44,12 @@ function ground_post_thumbnail_size() {
 	add_theme_support( 'post-thumbnails' );
 
 	// Set the default Post Thumbnail dimensions
-	set_post_thumbnail_size( 150, 150, true );
+	set_post_thumbnail_size( 450, 150, true );
 
 	// Registers a new image size ($name, $width, $height, $crop)
 	add_image_size( 'thumb-small', 200, 200, true );
 	add_image_size( 'thumb-medium', 600, 150, true );
-	add_image_size( 'thumb-slider-primary', 1200, 600, array( 'top', 'center' ) );
+	add_image_size( 'thumb-slider-primary', 1920, 550, array( 'top', 'center' ) );
 
 }
 
@@ -63,7 +63,7 @@ add_action( 'after_setup_theme','ground_post_thumbnail_size' );
 // Loads the theme's translated strings.
 function ground_load_theme_textdomain() {
 
-	load_theme_textdomain( 'ground-backend', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'ground-admin', get_template_directory() . '/languages' );
 	load_theme_textdomain( 'ground', get_template_directory() . '/languages' );
 
 }
@@ -72,62 +72,62 @@ add_action( 'after_setup_theme', 'ground_load_theme_textdomain' );
 
 
 /*  ==========================================================================
-	4 - Register menus
+	4 - Register navigation menu
 	==========================================================================  */
 
-function ground_register_menus() {
+function ground_register_navigation_menus() {
 
 	// This feature enables Menus support
 	add_theme_support( 'menus' );
 
 	// Registers multiple custom navigation menus in the custom menu editor
 	$locations = array(
-		'menu-primary'		=> __( 'Primary menu', 'ground-backend' ),
-		'menu-secondary'	=> __( 'Secondary menu', 'ground-backend' ),
-		'menu-tertiary'		=> __( 'Tertiary menu', 'ground-backend' ),
+		'navigation-primary'		=> __( 'Primary navigation', 'ground-admin' ),
+		'navigation-secondary'		=> __( 'Secondary navigation', 'ground-admin' ),
+		'navigation-tertiary'		=> __( 'Tertiary navigation', 'ground-admin' ),
 	);
 	register_nav_menus( $locations );
 
 }
 
-add_action( 'init', 'ground_register_menus' );
+add_action( 'init', 'ground_register_navigation_menus' );
 
 
 /*  ==========================================================================
-	5 - Register sidebars
+	5 - Register widgets sidebar
 	==========================================================================  */
 
-function ground_register_sidebars() {
+function ground_register_widgets_sidebar() {
 
-	// Register sidebar (primary)
+	// Register widgets sidebar (primary)
 	$args_primary = array(
-		'id'			=> 'sidebar-primary',
-		'name'			=> __( 'Primary sidebar', 'ground-backend' ),
-		'description'	=> __( 'Primary sidebar', 'ground-backend' ),
+		'id'			=> 'widgets-primary',
+		'name'			=> __( 'Widgets primary', 'ground-admin' ),
+		'description'	=> __( 'Widgets primary', 'ground-admin' ),
 		'class'			=> '',
 		'before_widget'	=> '<div id="%1$s" class="widget %2$s">',
 		'after_widget'	=> '</div>',
-		'before_title'	=> '<h3 class="widget-title">',
+		'before_title'	=> '<h3 class="widget__title">',
 		'after_title'	=> '</h3>',
 	);
 	register_sidebar( $args_primary );
 
-	// Register sidebar (secondary)
+	// Register widgets sidebar (secondary)
 	$args_secondary = array(
-		'id'			=> 'sidebar-secondary',
-		'name'			=> __( 'Secondary sidebar', 'ground-backend' ),
-		'description'	=> __( 'Secondary sidebar', 'ground-backend' ),
+		'id'			=> 'widgets-secondary',
+		'name'			=> __( 'Widgets secondary', 'ground-admin' ),
+		'description'	=> __( 'Widgets secondary', 'ground-admin' ),
 		'class'			=> '',
 		'before_widget'	=> '<div id="%1$s" class="widget %2$s">',
 		'after_widget'	=> '</div>',
-		'before_title'	=> '<h3 class="widget-title">',
+		'before_title'	=> '<h3 class="widget__title">',
 		'after_title'	=> '</h3>',
 	);
 	register_sidebar( $args_secondary );
 
 }
 
-add_action( 'widgets_init', 'ground_register_sidebars' );
+add_action( 'widgets_init', 'ground_register_widgets_sidebar' );
 
 
 /*  ==========================================================================
@@ -271,14 +271,14 @@ add_action( 'after_setup_theme','ground_markup' );
 
 
 /*  ==========================================================================
-	13 - Excerpt custom lenght : ground_excerpt( 100, __('Read more', 'ground'), '...', );
+	13 - Excerpt custom lenght : ground_excerpt( 100, __('Read more', 'ground'), '...', 'classname' );
 	==========================================================================  */
 
 // Summary or description of a post with custom lenght
 
 $word = __('Read more', 'ground');
 
-function ground_excerpt( $character_length = 100, $word, $continue = '...' ) {
+function ground_excerpt( $character_length = 100, $word, $continue = '...', $class="button" ) {
 
 	global $post;
 
@@ -304,7 +304,7 @@ function ground_excerpt( $character_length = 100, $word, $continue = '...' ) {
 		echo $continue;
 
 		if ( !empty($word) ) {
-			echo ' <a href="' . get_permalink( $post->ID ) . '" title="' . $word . ' ' . get_the_title( $post->ID ) . '">' . $word . '</a>';
+			echo ' <a href="' . get_permalink( $post->ID ) . '" class="' . $class . '" title="' . $word . ' ' . get_the_title( $post->ID ) . '">' . $word . '</a>';
 		}
 
 	} else {

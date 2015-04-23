@@ -90,7 +90,7 @@ define( 'WP_DEBUG_DISPLAY',	false );	// Display errors and warnings on your site
 
 // define( 'WP_CONTENT_URL',	'http://example.com/wp-content' );			// Content directory
 // define( 'WP_PLUGIN_URL',		'http://example.com/wp-content/plugins' );	// Plugins directory
-// define( 'UPLOADS',			'/img' );									// Uploads directory
+// define( 'UPLOADS',			'/media ' );									// Uploads directory
 
 
 /*  ==========================================================================
@@ -134,6 +134,13 @@ define( 'FORCE_SSL_ADMIN', false );
 	==========================================================================  */
 
 define( 'WP_ALLOW_REPAIR', false );		// The script can be found at {$your_site}/wp-admin/maint/repair.php
+
+
+ /*  ==========================================================================
+	Disable Post Revisions
+	==========================================================================  */
+
+// define( 'WP_POST_REVISIONS', false );	// If you want to specify a maximum number of revisions, change false to an integer/number
 
 
  /*  ==========================================================================

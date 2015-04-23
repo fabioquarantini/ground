@@ -16,31 +16,31 @@
 function ground_register_slider_post_type() {
 
 	$labels = array(
-		'name'					=> _x( 'Slides', 'Post Type General Name', 'ground-backend' ),
-		'singular_name'			=> _x( 'Slide', 'Post Type Singular Name', 'ground-backend' ),
-		'menu_name'				=> __( 'Slides', 'ground-backend' ),
-		'parent_item_colon'		=> __( 'Parent slide:', 'ground-backend' ),
-		'all_items'				=> __( 'All slides', 'ground-backend' ),
-		'view_item'				=> __( 'View slide', 'ground-backend' ),
-		'add_new_item'			=> __( 'Add new slide', 'ground-backend' ),
-		'add_new'				=> __( 'New slide', 'ground-backend' ),
-		'edit_item'				=> __( 'Edit slide', 'ground-backend' ),
-		'update_item'			=> __( 'Update slide', 'ground-backend' ),
-		'search_items'			=> __( 'Search slides', 'ground-backend' ),
-		'not_found'				=> __( 'No slide found', 'ground-backend' ),
-		'not_found_in_trash'	=> __( 'No slide found in Trash', 'ground-backend' )
+		'name'					=> _x( 'Slides', 'Post Type General Name', 'ground-admin' ),
+		'singular_name'			=> _x( 'Slide', 'Post Type Singular Name', 'ground-admin' ),
+		'menu_name'				=> __( 'Slides', 'ground-admin' ),
+		'parent_item_colon'		=> __( 'Parent slide:', 'ground-admin' ),
+		'all_items'				=> __( 'All slides', 'ground-admin' ),
+		'view_item'				=> __( 'View slide', 'ground-admin' ),
+		'add_new_item'			=> __( 'Add new slide', 'ground-admin' ),
+		'add_new'				=> __( 'New slide', 'ground-admin' ),
+		'edit_item'				=> __( 'Edit slide', 'ground-admin' ),
+		'update_item'			=> __( 'Update slide', 'ground-admin' ),
+		'search_items'			=> __( 'Search slides', 'ground-admin' ),
+		'not_found'				=> __( 'No slide found', 'ground-admin' ),
+		'not_found_in_trash'	=> __( 'No slide found in Trash', 'ground-admin' )
 	);
 
 	$rewrite = array(
-		'slug'					=> __( 'slider', 'ground-backend' ),
+		'slug'					=> __( 'slider', 'ground-admin' ),
 		'with_front'			=> false,
 		'pages'					=> false,
 		'feeds'					=> false
 	);
 
 	$args = array(
-		'label'					=> __( 'slide', 'ground-backend' ),
-		'description'			=> __( 'slide', 'ground-backend' ),
+		'label'					=> __( 'slide', 'ground-admin' ),
+		'description'			=> __( 'slide', 'ground-admin' ),
 		'labels'				=> $labels,
 		'supports'				=> array( 'title', 'editor', 'thumbnail', 'page-attributes', ),
 		//'taxonomies'			=> array( 'category', 'post_tag' ),
@@ -74,24 +74,24 @@ add_action( 'init', 'ground_register_slider_post_type', 0 );
 function ground_register_slider_taxonomy()  {
 
 	$labels = array(
-		'name'							=> _x( 'Categories', 'Taxonomy General Name', 'ground-backend' ),
-		'singular_name'					=> _x( 'Category', 'Taxonomy Singular Name', 'ground-backend' ),
-		'menu_name'						=> __( 'Category', 'ground-backend' ),
-		'all_items'						=> __( 'All Categories', 'ground-backend' ),
-		'parent_item'					=> __( 'Parent category', 'ground-backend' ),
-		'parent_item_colon'				=> __( 'Parent category:', 'ground-backend' ),
-		'new_item_name'					=> __( 'New category name', 'ground-backend' ),
-		'add_new_item'					=> __( 'Add new category', 'ground-backend' ),
-		'edit_item'						=> __( 'Edit category', 'ground-backend' ),
-		'update_item'					=> __( 'Update category', 'ground-backend' ),
-		'separate_items_with_commas'	=> __( 'Separate Categories with commas', 'ground-backend' ),
-		'search_items'					=> __( 'Search Categories', 'ground-backend' ),
-		'add_or_remove_items'			=> __( 'Add or remove Categories', 'ground-backend' ),
-		'choose_from_most_used'			=> __( 'Choose from the most used Categories', 'ground-backend' )
+		'name'							=> _x( 'Categories', 'Taxonomy General Name', 'ground-admin' ),
+		'singular_name'					=> _x( 'Category', 'Taxonomy Singular Name', 'ground-admin' ),
+		'menu_name'						=> __( 'Category', 'ground-admin' ),
+		'all_items'						=> __( 'All Categories', 'ground-admin' ),
+		'parent_item'					=> __( 'Parent category', 'ground-admin' ),
+		'parent_item_colon'				=> __( 'Parent category:', 'ground-admin' ),
+		'new_item_name'					=> __( 'New category name', 'ground-admin' ),
+		'add_new_item'					=> __( 'Add new category', 'ground-admin' ),
+		'edit_item'						=> __( 'Edit category', 'ground-admin' ),
+		'update_item'					=> __( 'Update category', 'ground-admin' ),
+		'separate_items_with_commas'	=> __( 'Separate Categories with commas', 'ground-admin' ),
+		'search_items'					=> __( 'Search Categories', 'ground-admin' ),
+		'add_or_remove_items'			=> __( 'Add or remove Categories', 'ground-admin' ),
+		'choose_from_most_used'			=> __( 'Choose from the most used Categories', 'ground-admin' )
 	);
 
 	$rewrite = array(
-		'slug'							=> __( 'slider-category', 'ground-backend' ),
+		'slug'							=> __( 'slider-category', 'ground-admin' ),
 		'with_front'					=> true,
 		'hierarchical'					=> true
 	);
@@ -121,8 +121,8 @@ add_action( 'init', 'ground_register_slider_taxonomy', 0 );
 function ground_slider_columns( $columns ) {
 
 	//unset($columns['date']);  // Hide date column
-	$column_thumbnail = array( 'thumbnail' => __('Preview', 'ground-backend') );
-	$column_caption = array( 'caption' => __('Caption', 'ground-backend') );
+	$column_thumbnail = array( 'thumbnail' => __('Preview', 'ground-admin') );
+	$column_caption = array( 'caption' => __('Caption', 'ground-admin') );
 	$columns = array_slice( $columns, 0, 1, true ) + $column_thumbnail + array_slice( $columns, 1, NULL, true );
 	$columns = array_slice( $columns, 0, 3, true ) + $column_caption + array_slice( $columns, 3, NULL, true );
 	return $columns;

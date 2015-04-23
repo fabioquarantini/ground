@@ -1,6 +1,12 @@
 <?php /* The template for displaying all pages. */
 
-get_header(); ?>
+get_template_part( 'partials/header' ); ?>
+
+	<div class="sidebar sidebar--primary">
+
+		<?php get_template_part( 'partials/navigation', 'hierarchy' ); ?>
+
+	</div> <!-- End .sidebar- -primary -->
 
 	<?php while ( have_posts() ) : the_post(); ?>
 
@@ -8,6 +14,4 @@ get_header(); ?>
 
 	<?php endwhile; ?>
 
-	<?php get_sidebar(); ?>
-
-<?php get_footer(); ?>
+<?php get_template_part( 'partials/footer' ); ?>

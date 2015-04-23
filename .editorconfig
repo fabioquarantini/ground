@@ -27,7 +27,6 @@ trim_trailing_whitespace = true
 # Set to "true" ensure file ends with a newline when saving and "false" to ensure it doesn't.
 insert_final_newline = true
 
-
 # Style for Markdown files
 [*.md]
 

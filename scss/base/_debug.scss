@@ -1,0 +1,31 @@
+@if $debug-mq {
+
+	body:after {
+		content: "no mq";
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		z-index: 999;
+		padding: 2px 5px;
+		background-color: rgba($black, 0.7);
+		color: $white;
+
+		@media ( min-width: $mq-xs ) {
+			content: "xs: #{$mq-xs}";
+		}
+
+		@media ( min-width: $mq-sm ) {
+			content: "sm: #{$mq-sm}";
+		}
+
+		@media ( min-width: $mq-md ) {
+			content: "md: #{$mq-md}";
+		}
+
+		@media ( min-width: $mq-lg ) {
+			content: "lg: #{$mq-lg}";
+		}
+
+	}
+
+}

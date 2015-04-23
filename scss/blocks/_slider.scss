@@ -1,0 +1,95 @@
+.slider {
+
+}
+
+.slider--primary {
+
+}
+
+.slider__item {
+
+}
+
+.slider__caption {
+	width: 100%;
+	background-color: rgba($black, 0.3);
+	position: absolute;
+	color: $white;
+	bottom: 0;
+}
+
+
+/* Direction Nav */
+
+.owl-nav {
+
+}
+
+.owl-prev,
+.owl-next {
+	position: absolute;
+	top: 50%;
+	z-index: 10;
+	display: block;
+	margin: em(-20px) 0 0 0;
+	width: em(30px);
+	height: em(30px);
+	background: url("#{$dir-img}/slider-nav.png") no-repeat 0 0;
+	text-decoration: none;
+	text-indent: em(-9999px);
+	opacity: 1;
+	cursor: pointer;
+	transition: all .3s ease;
+	opacity:.5;
+
+	&:hover {
+		opacity: 1;
+	}
+}
+
+.owl-prev {
+	left: 0;
+}
+
+.owl-next {
+	right: 0;
+	background-position: 100% 0;
+}
+
+
+
+/* Control Paging */
+
+.slick-dots {
+
+	position: absolute;
+	bottom: em(5px);
+	width: 100%;
+	text-align: center;
+
+	li {
+
+		display: inline-block;
+		margin: 0 em(6px);
+		width: em(11px);
+		height: em(11px);
+		border-radius: em(20px);
+		background: $slider-paging;
+		text-indent: em(-9999px);
+		cursor: pointer;
+
+		&:hover {
+			background: $slider-paging-hover;
+		}
+
+		&.slick-active {
+			background: $slider-paging-active;
+			cursor: default;
+		}
+
+		span {
+
+		}
+
+	}
+}

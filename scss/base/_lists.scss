@@ -1,0 +1,41 @@
+ul,
+ol,
+.list {
+	margin-bottom: em(21px);
+	padding: 0;
+}
+
+ul {
+	margin-left: em(16px);
+}
+
+ol {
+	padding-left: em(22px);
+}
+
+.list--unstyled {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.list--disc {
+	list-style-type: disc;
+}
+
+li {
+
+}
+
+
+dl {
+
+}
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin-left: 0px;
+}

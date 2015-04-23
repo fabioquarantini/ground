@@ -4,6 +4,92 @@
 // |------------------------------------------------------
 // |------------------------------------------------------
 
+// Helper to apply multiple config for a certain state with one mixin
+@mixin gridle_set(
+	$settings,
+	$state : default
+) {
+	
+	// loop on each settings
+	@each $settingName, $settingValue in $settings
+	{
+		$sn : unquote("#{$settingName}");
+		$sv : $settingValue;
+
+		// check if setting name is a state :
+		@if _gridle_has_state($sn) {
+			// process the state
+			@include gridle_set($sv, $sn);
+		} @else {
+			@if $sn == container {
+				@include gridle_container($state);
+			} @else if $sn == grid {
+				@include gridle($sv, $state);
+			} @else if $sn == push {
+				@include gridle_push($sv, $state);
+			} @else if $sn == pull {
+				@include gridle_pull($sv, $state);
+			} @else if $sn == prefix {
+				@include gridle_prefix($sv, $state);
+			} @else if $sn == suffix {
+				@include gridle_suffix($sv, $state);
+			} @else if $sn == pull {
+				@include gridle_pull($sv, $state);
+			} @else if $sn == clear_each {
+				@include gridle_clear_each(nth($sv,1), nth($sv,2), $state);
+			} @else if $sn == centered {
+				@include gridle_centered($state);
+			} @else if $sn == parent {
+				@include gridle_parent($state);
+			} @else if $sn == vertical_align {
+				@include gridle_vertical_align($sv, $state);
+			} @else if $sn == hide {
+				@if $sv == true {
+					@include gridle_hide($state);
+				} @else {
+					@include gridle_show($state);
+				}
+			} @else if $sn == show {
+				@if $sv == true {
+					@include gridle_show($state);
+				} @else {
+					@include gridle_hide($state);
+				}
+			} @else if $sn == visible {
+				@if $sv == true {
+					@include gridle_visible($state);
+				} @else {
+					@include gridle_not_visible($state);
+				}
+			} @else if $sn == not_visible {
+				@if $sv == true {
+					@include gridle_not_visible($state);
+				} @else {
+					@include gridle_visible($state);
+				}
+			} @else if $sn == show_inline {
+				@if $sv == true {
+					@include gridle_show_inline($state);
+				} @else {
+					@include gridle_hide($state);
+				}
+			} @else if $sn == float {
+				@include gridle_float($sv, $state);
+			} @else if $sn == clear {
+				@include gridle_clear($sv, $state);
+			} @else if $sn == no_gutter
+				or $sn == no_margin {
+				@include gridle_no_gutter($sv, $state);
+			} @else if $sn == gutter
+				or $sn == margin {
+				@include gridle_gutter($sv, $state);
+			} @else {
+				// we do nothing
+			}
+		}
+	}
+}
+
 // Responsive helpers mixins :
 @mixin gridle_state(
 	$states,
@@ -87,7 +173,7 @@
 
 // Container mixin :
 @mixin gridle_container(
-	$state : null
+	$state : default
 ) {
 	@include _gridle_container_common($state);
 }
@@ -97,31 +183,55 @@
 // Set the width of the specified grid column :
 @mixin gridle(
 	$columns,
-	$state : null
+	$state-or-context : default,
+	$state : default
 ) {
+	// manage state and context :
+	$context : null;
+	@if type-of($state-or-context) == number {
+		$context : $state-or-context;
+	} @else {
+		$state : $state-or-context;
+	}
+
 	// common :
 	@include _gridle_grid_common();
 	// check if need media query :
 	@if $state {
 		@include gridle_state($state) {
-			@include _gridle($columns, $state);
+			@include _gridle($columns, $state, $context);
 		}
 	} @else {
-		@include _gridle($columns, $state);
+		@include _gridle($columns, $state, $context);
 	}
 }
 @mixin _gridle(
 	$columns,
-	$state : null
+	$state : default,
+	$context : null
 ) {
 	// vars :
 	$name : _gridle_get_var_value(name, $state);
-	$context : _gridle_get_var_value(context, $state);
+	@if type-of($context) != number {
+		$context : _gridle_get_var_value(context, $state);
+	}
 	$name-multiplicator : _gridle_get_var_value(name-multiplicator, $state);
 	$gutter-width : _gridle_get_var_value(gutter-width, $state);
 	$ie7-support : _gridle_get_var_value(ie7-support, $state);
 	$debug : _gridle_get_var_value(debug, $state);
 	$debug-show-class-names : _gridle_get_var_value(debug-show-class-names, $state);
+
+	// manage columns
+	@if type-of($columns) != number and map-has-key($_gridle_columns, $columns) {
+		// the columns is a saved one, get the context and column value
+		$column : map-get($_gridle_columns, $columns);
+		$context : map-get($column, context);
+		$columns : map-get($column, columns);
+	} @else if type-of($columns) == number {
+		$columns : $columns / $name-multiplicator;
+	} @else {
+		@error "the column #{$columns} does not exist...";
+	}
 
 	// vars :
 	$width : percentage(1 / $context * $columns);
@@ -131,7 +241,7 @@
 	
 	// ie7 support :
 	@if $ie7-support == true {
-		*width: expression((this.parentNode.clientWidth/#{$context}*#{$columns} - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
+		*width: expression((this.parentNode.clientWidth/#{$context}*#{($columns / $name-multiplicator)} - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
 	}
 	
 	// debug :
@@ -139,16 +249,16 @@
 		#{$gridle-debug-selector} {
 			&:before {
 				@if $name == default {
-					content:"grid-#{$name}-#{$columns * $name-multiplicator}";
+					content:"grid-#{$name}-#{$columns}";
 				} @else {
-					content:"grid-#{$name}-#{$columns * $name-multiplicator}" !important;
+					content:"grid-#{$name}-#{$columns}" !important;
 				}
 			}
 			&.parent:before {
 				@if $name == default {
-					content:"grid-parent-#{$name}-#{$columns * $name-multiplicator}";
+					content:"grid-parent-#{$name}-#{$columns}";
 				} @else {
-					content:"grid-parent-#{$name}-#{$columns * $name-multiplicator}" !important;
+					content:"grid-parent-#{$name}-#{$columns}" !important;
 				}
 			}
 		}
@@ -160,34 +270,46 @@
 // Push the element of the count of column wanted
 @mixin gridle_push(
 	$columns,
-	$state : null
+	$state-or-context : default,
+	$state : default
 ) {
+	// manage state and context
+	$context : null;
+	@if type-of($state-or-context) == number {
+		$context : $state-or-context;
+	} @else {
+		$state : $state-or-context;
+	}
+
 	// common :
 	@include _gridle_push_common($state);
 
 	// check if need media query :
 	@if $state {
 		@include gridle_state($state) {
-			@include _gridle_push($columns,$state);
+			@include _gridle_push($columns, $state, $context);
 		}
 	} @else {
-		@include _gridle_push($columns,$state);
+		@include _gridle_push($columns, $state, $context);
 	}
 }
 @mixin _gridle_push(
 	$columns,
-	$state : null
+	$state : default,
+	$context : null
 ) {
 	// variables :
 	$name : _gridle_get_var_value(name, $state);
-	$context : _gridle_get_var_value(context, $state);
+	@if type-of($context) != number {
+		$context : _gridle_get_var_value(context, $state);
+	}
 	$direction : _gridle_get_var_value(direction, $state);
 	$name-multiplicator : _gridle_get_var_value(name-multiplicator, $state);
 	$debug : _gridle_get_var_value(debug, $state);
 	$debug-show-class-names : _gridle_get_var_value(debug-show-class-names, $state);
 
 	// vars :
-	$width : percentage(1 / $context) * $columns;
+	$width : percentage(1 / $context) * ($columns / $name-multiplicator);
 	@if $direction == rtl { $width : $width*-1; }
 	left:$width;
 
@@ -196,9 +318,9 @@
 		#{$gridle-debug-selector} {
 			&:after {
 				@if $name == default {
-					content:"push-#{$name}-#{$columns * $name-multiplicator}";
+					content:"push-#{$name}-#{$columns}";
 				} @else {
-					content:"push-#{$name}-#{$columns * $name-multiplicator}" !important;
+					content:"push-#{$name}-#{$columns}" !important;
 				}
 			}
 		}
@@ -211,7 +333,7 @@
 // Pull the element of the count of column wanted
 @mixin gridle_pull(
 	$columns,
-	$state : null
+	$state : default
 ) {
 	// common :
 	@include _gridle_pull_common($state);
@@ -227,7 +349,7 @@
 }
 @mixin _gridle_pull(
 	$columns,
-	$state : null
+	$state : default
 ) {
 	// vars :
 	$name : _gridle_get_var_value(name, $state);
@@ -238,7 +360,7 @@
 	$debug-show-class-names : _gridle_get_var_value(debug-show-class-names, $state);
 
 	// vars :
-	$width : percentage(1 / $context) * $columns;
+	$width : percentage(1 / $context) * ($columns / $name-multiplicator);
 	@if $direction == rtl { $width : $width*-1; }
 	right:$width;
 
@@ -247,9 +369,9 @@
 		#{$gridle-debug-selector} {
 			&:after {
 				@if $name == default {
-					content:"pull-#{$name}-#{$columns * $name-multiplicator}";
+					content:"pull-#{$name}-#{$columns}";
 				} @else {
-					content:"pull-#{$name}-#{$columns * $name-multiplicator}" !important;
+					content:"pull-#{$name}-#{$columns}" !important;
 				}
 			}
 		}
@@ -261,7 +383,7 @@
 // Push the element of the count of column wanted
 @mixin gridle_prefix(
 	$columns,
-	$state : null
+	$state : default
 ) {
 	// common :
 	@include _gridle_prefix_common($state);
@@ -277,7 +399,7 @@
 }
 @mixin _gridle_prefix(
 	$columns,
-	$state : null
+	$state : default
 ) {
 	// vars :
 	$name : _gridle_get_var_value(name, $state);
@@ -289,7 +411,7 @@
 	$debug-show-class-names : _gridle_get_var_value(debug-show-class-names, $state);
 
 	// vars :
-	$width : percentage(1 / $context) * $columns;
+	$width : percentage(1 / $context) * ($columns / $name-multiplicator);
 
 	// set value :
 	@if $direction == rtl { margin-right:$width; }
@@ -300,9 +422,9 @@
 		#{$gridle-debug-selector} {
 			&:after {
 				@if $name == default {
-					content:"prefix-#{$name}-#{$columns * $name-multiplicator}";
+					content:"prefix-#{$name}-#{$columns}";
 				} @else {
-					content:"prefix-#{$name}-#{$columns * $name-multiplicator}" !important;
+					content:"prefix-#{$name}-#{$columns}" !important;
 				}
 			}
 		}
@@ -314,7 +436,7 @@
 // Pull the element of the count of column wanted
 @mixin gridle_suffix(
 	$columns,
-	$state : null
+	$state : default
 ) {
 	// common :
 	@include _gridle_suffix_common($state);
@@ -330,7 +452,7 @@
 }
 @mixin _gridle_suffix(
 	$columns,
-	$state : null
+	$state : default
 ) {
 	// vars :
 	$name : _gridle_get_var_value(name, $state);
@@ -342,7 +464,7 @@
 	$debug-show-class-names : _gridle_get_var_value(debug-show-class-names, $state);
 
 	// vars :
-	$width : percentage(1 / $context) * $columns;
+	$width : percentage(1 / $context) * ($columns / $name-multiplicator);
 	
 	// set value :
 	@if $direction == rtl { margin-left:$width; }
@@ -353,9 +475,9 @@
 		#{$gridle-debug-selector} {
 			&:after {
 				@if $name == default {
-					content:"suffix-#{$name}-#{$columns * $name-multiplicator}";
+					content:"suffix-#{$name}-#{$columns}";
 				} @else {
-					content:"suffix-#{$name}-#{$columns * $name-multiplicator}" !important;
+					content:"suffix-#{$name}-#{$columns}" !important;
 				}
 			}
 		}
@@ -366,7 +488,7 @@
 // grid background :
 // Display the grid background debug
 @mixin gridle_grid_background(
-	$state : null
+	$state : default
 ) {
 	// check if need media query :
 	@if $state {
@@ -378,7 +500,7 @@
 	}
 }
 @mixin _gridle_grid_background(
-	$state : null
+	$state : default
 ) {
 	
 	// variables :
@@ -408,21 +530,20 @@
 @mixin gridle_clear_each(
 	$clearEach,
 	$clearWhat : both,
-	$state : null
+	$state : default
 ) {
 	// check if need media query :
 	@if $state {
 		@include gridle_state($state) {
-			@include _gridle_clear_each($clearEach, $clearWhat, $state);
+			@include _gridle_clear_each($clearEach, $clearWhat);
 		}
 	} @else {
-		@include _gridle_clear_each($clearEach, $clearWhat, $state);
+		@include _gridle_clear_each($clearEach, $clearWhat);
 	}
 }
 @mixin _gridle_clear_each(
 	$clearEach,
-	$clearWhat,
-	$state : null
+	$clearWhat
 ) {
 	> *:nth-child(#{$clearEach}n+1) {
 		clear : $clearWhat;
@@ -432,7 +553,7 @@
 
 // Grid centered :
 @mixin gridle_centered(
-	$state : null
+	$state : default
 ) {
 	// check if need media query :
 	@if $state {
@@ -454,7 +575,7 @@
 
 // Grid parent :
 @mixin gridle_parent(
-	$state : null
+	$state : default
 ) {
 	// common :
 	@include _gridle_parent_common();
@@ -477,7 +598,7 @@
  */
 @mixin gridle_vertical_align(
 	$align : middle,
-	$state : null
+	$state : default
 ) {
 	// check if need media query :
 	@if $state {
@@ -506,7 +627,7 @@
 // Hide on :
 // @param 	String 	$media  On what state
 @mixin gridle_hide(
-	$state : null
+	$state : default
 ) {
 	// check if need media query :
 	@if $state {
@@ -525,7 +646,7 @@
 // Not visible on :
 // @param 	String 	$media 	What to hide (one of the 3 state classes name)
 @mixin gridle_not_visible(
-	$state : null
+	$state : default
 ) {
 	// check if need media query :
 	@if $state {
@@ -544,7 +665,7 @@
 // Show on
 // @param 	String 	$media 	What to hide (one of the 3 state classes name)
 @mixin gridle_show(
-	$state : null
+	$state : default
 ) {
 	// check if need media query :
 	@if $state {
@@ -566,7 +687,7 @@
  * @param 	String 		$state 		The state name
  */
 @mixin gridle_show_inline(
-	$state : null
+	$state : default
 ) {
 	// check if need media query :
 	@if $state {
@@ -585,7 +706,7 @@
 // Visible on :
 // @param 	String 	$media 	On what state
 @mixin gridle_visible(
-	$state : null
+	$state : default
 ) {
 	// check if need media query :
 	@if $state {
@@ -604,18 +725,18 @@
 // Gridle Right :
 @mixin gridle_float(
 	$float-direction : left,
-	$state : null
+	$state : default
 ) {
 	// check if need media query :
 	@if $state {
 		@include gridle_state($state) {
-			@include gridle_float($float-direction);
+			@include _gridle_float($float-direction);
 		}
 	} @else {
-		@include gridle_float($float-direction);
+		@include _gridle_float($float-direction);
 	}
 }
-@mixin gridle_float(
+@mixin _gridle_float(
 	$float-direction : left
 ) {
 	float:#{$float-direction};
@@ -627,7 +748,7 @@
 // @param 	String 	$state 				The state
 @mixin gridle_clear(
 	$clear-direction : both,
-	$state : null
+	$state : default
 ) {
 	// check if need media query :
 	@if $state {
@@ -650,7 +771,7 @@
 // @param 	String 	$state 				The state
 @mixin gridle_no_gutter(
 	$side : left right,
-	$state : null
+	$state : default
 ) {
 	// check if need media query :
 	@if $state {
@@ -663,7 +784,7 @@
 }
 @mixin gridle_no_margin(
 	$side : left right,
-	$state : null
+	$state : default
 ) {
 	@include gridle_no_gutter($side, $state);
 }
@@ -681,7 +802,7 @@
 // @param 	String 	$state 				The state
 @mixin gridle_gutter(
 	$side : left right,
-	$state : null
+	$state : default
 ) {
 	// check if need media query :
 	@if $state {
@@ -695,13 +816,13 @@
 // shortcut :
 @mixin gridle_margin(
 	$side : left right,
-	$state : null
+	$state : default
 ) {
 	@include gridle_gutter($side, $state);
 }
 @mixin _gridle_gutter(
 	$side : left right,
-	$state : null
+	$state : default
 ) {
 	$gutter-width : _gridle_get_var_value(gutter-width, $state);
 	@each $s in $side {

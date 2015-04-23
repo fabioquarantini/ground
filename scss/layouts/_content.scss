@@ -1,4 +1,4 @@
-#main-content {
-	@include gridle(12);
-	@include gridle(9, sm);
+.content {
+	max-width: $mq-lg;
+	margin: 0 auto;
 }

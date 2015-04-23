@@ -4,6 +4,41 @@
 // |------------------------------------------------------
 // |------------------------------------------------------
 
+/**
+ * Str replace
+ *
+ * @param {string}  $string    String that you want to replace
+ * @param {string}  $substr    String that is to be replaced by `$newsubstr`
+ * @param {string}  $newsubstr String that replaces `$substr`
+ * @param {number*} $all       Flag for replaceing all (1+) or not (0)
+ * @return {string}
+ */
+@function str-replace($string, $substr, $newsubstr, $all: 0) {
+	$position-found: str-index($string, $substr);
+	$processed: ();
+
+	@while ($position-found and $position-found > 0) {
+		$length-substr: str-length($substr);
+		$processed: append($processed, str-slice($string, 0, $position-found - 1));
+		$processed: append($processed, $newsubstr);
+		$string: str-slice($string, $position-found + $length-substr);
+
+		$position-found: 0;
+
+		@if ($all > 0) {
+			$position-found: str-index($string, $substr);
+		}
+	}
+
+	$processed: append($processed, $string);
+	$string: "";
+
+	@each $s in $processed {
+		$string: #{$string}#{$s};
+	}
+
+	@return $string;
+}
 
 /**
  * Map set
@@ -43,19 +78,27 @@
 @function _gridle_get_state(
 	$stateMap-or-stateName
 ) {
-	// check if has a state named like this :
-	@if (map-has-key($_gridle_states, unquote($stateMap-or-stateName)))
+	// check if has a state named like this
+	@if (type-of($stateMap-or-stateName) == string
+		and  map-has-key($_gridle_states, unquote("#{$stateMap-or-stateName}")))
 	{
-		@return map-get($_gridle_states, unquote($stateMap-or-stateName));
-	} 
+		@return map-get($_gridle_states, unquote("#{$stateMap-or-stateName}"));
+	}
 
-	// nothing finded, so return the default state :
+	// a map is passed, so it's a state himself
 	@if $stateMap-or-stateName
+		and type-of($stateMap-or-stateName) == map
 	{
 		@return map-merge($_gridle-settings, $stateMap-or-stateName);
 	}
 
-	// nothing finded, return the default state :
+	// return the default one if exist
+	@if map-has-key($_gridle_states, default)
+	{
+		@return map-get($_gridle_states, default);
+	}
+
+	// nothing finded, return the default state
 	@return $_gridle-settings;
 }
 
@@ -69,7 +112,7 @@
 @function _gridle_has_state(
 	$stateName
 ) {
-	@if map-has-key($_gridle_states, unquote($stateName)) {
+	@if map-has-key($_gridle_states, unquote("#{$stateName}")) {
 		@return true;
 	} @else {
 		@return false;
@@ -94,9 +137,9 @@
 
 	// check ig state and if has the variable :
 	@if $state
-	      and map-has-key($state,unquote($var))
+		  and map-has-key($state,unquote("#{$var}"))
 	{
-		@return map-get($state,unquote($var));
+		@return map-get($state,unquote("#{$var}"));
 	}
 
 	// nothing getted :
@@ -123,9 +166,9 @@
 
 	// extend default state with given state :
 	$props : map-merge($_gridle-settings, $state);
-	
-	@if map-has-key($props, unquote($varName)) {
-		@return map-get($state, unquote($varName));
+
+	@if map-has-key($props, unquote("#{$varName}")) {
+		@return map-get($state, unquote("#{$varName}"));
 	}
 	
 	// nothing finded :
@@ -150,13 +193,13 @@
 
 	// check ig state and if has the variable :
 	@if $state
-	      and map-has-key($state,unquote($var))
+		  and map-has-key($state,unquote("#{$var}"))
 	{
 		// set new value in state :
-		$state : map-set($state, unquote($var), $newValue);
+		$state : map-set($state, unquote("#{$var}"), $newValue);
 
 		// set states :
-		$_gridle_states : map-set($_gridle_states, unquote($stateName), $state);
+		$_gridle_states : map-set($_gridle_states, unquote("#{$stateName}"), $state);
 
 		// return new state :
 		@return $state;
@@ -178,12 +221,14 @@
 @function _gridle_create_column(
 	$name,
 	$columns,
-	$context
+	$context,
+	$name-multiplicator : 1 // used to extend the state on custom registered columns
 ) {
 	@return (
 		name : $name,
 		columns : $columns,
-		context : $context
+		context : $context,
+		name-multiplicator : $name-multiplicator
 	);
 }
 
@@ -205,7 +250,7 @@
 	$sel : ".";
 
 	// delete default :
-	@if unquote($state) == default {
+	@if unquote("#{$state}") == default {
 		$state : null;
 	}
 	
@@ -325,26 +370,6 @@
 		}
 
 	} 
-	@else if unquote($state-or-settings) == print
-	{
-		@return "only print";
-	} 
-	@else if unquote($state-or-settings) == tv
-	{
-		@return "only tv";
-	}
-	@else if unquote($state-or-settings) == portrait
-	{
-		@return "only screen and (orientation: portrait)";
-	}
-	@else if unquote($state-or-settings) == landscape
-	{
-		@return "only screen and (orientation: landscape)";
-	}
-	@else if unquote($state-or-settings) == retina
-	{
-		@return "only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx)";
-	}
 	@else
 	{
 		@return null;

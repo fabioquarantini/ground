@@ -3,14 +3,15 @@
 .navicon {
 	position: absolute;
 	top: 0;
-	right: 0;
+	right: 2%;
+	left: auto;
 	box-sizing: content-box;
 	width: em(44px);
 	height: em(44px);
-	background-color: $dark-grey;
 	text-indent: - em(9989px);
 	cursor: pointer;
-	transition: all 0.5s;
+	transition: ease 0.5s;
+	z-index: 100;
 
 	@media ( min-width: $mq-sm ) {
 
@@ -19,7 +20,7 @@
 	}
 
 	&:hover {
-		background-color: $grey;
+
 	}
 
 	&:before,
@@ -31,31 +32,31 @@
 		height: em(4px);
 		box-sizing: content-box;
 		content: "";
+
+		.navigation--open & {
+			box-sizing: border-box;
+			border-top: em(4px) solid $white;
+			top: 48%;
+		}
+
 	}
 
 	&:before {
 		top: 28px;
-		border-top: em(4px) solid $white;
+		border-top: em(4px) solid $grey;
+
+		.navigation--open & {
+			transform: rotate(-45deg);
+		}
 	}
 
 	&:after {
 		top: 12px;
-		border-top: em(12px) double $white;
-	}
+		border-top: em(12px) double $grey;
 
-	&.active:after,
-	&.active:before {
-		box-sizing: border-box;
-		border-top: em(4px) solid $white;
-		top: 48%;
-	}
-
-	&.active:after {
-		transform: rotate(45deg);
-	}
-
-	&.active:before {
-		transform: rotate(-45deg);
+		.navigation--open & {
+			transform: rotate(45deg);
+		}
 	}
 
 }

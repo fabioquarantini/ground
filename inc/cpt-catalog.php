@@ -17,31 +17,31 @@
 function ground_register_catalog_post_type() {
 
 	$labels = array(
-		'name'					=> _x( 'Products', 'Post Type General Name', 'ground-backend' ),
-		'singular_name'			=> _x( 'Product', 'Post Type Singular Name', 'ground-backend' ),
-		'menu_name'				=> __( 'Products', 'ground-backend' ),
-		'parent_item_colon'		=> __( 'Parent Product:', 'ground-backend' ),
-		'all_items'				=> __( 'All Products', 'ground-backend' ),
-		'view_item'				=> __( 'View Product', 'ground-backend' ),
-		'add_new_item'			=> __( 'Add New Product', 'ground-backend' ),
-		'add_new'				=> __( 'New Product', 'ground-backend' ),
-		'edit_item'				=> __( 'Edit Product', 'ground-backend' ),
-		'update_item'			=> __( 'Update Product', 'ground-backend' ),
-		'search_items'			=> __( 'Search products', 'ground-backend' ),
-		'not_found'				=> __( 'No products found', 'ground-backend' ),
-		'not_found_in_trash'	=> __( 'No products found in Trash', 'ground-backend' )
+		'name'					=> _x( 'Products', 'Post Type General Name', 'ground-admin' ),
+		'singular_name'			=> _x( 'Product', 'Post Type Singular Name', 'ground-admin' ),
+		'menu_name'				=> __( 'Products', 'ground-admin' ),
+		'parent_item_colon'		=> __( 'Parent Product:', 'ground-admin' ),
+		'all_items'				=> __( 'All Products', 'ground-admin' ),
+		'view_item'				=> __( 'View Product', 'ground-admin' ),
+		'add_new_item'			=> __( 'Add New Product', 'ground-admin' ),
+		'add_new'				=> __( 'New Product', 'ground-admin' ),
+		'edit_item'				=> __( 'Edit Product', 'ground-admin' ),
+		'update_item'			=> __( 'Update Product', 'ground-admin' ),
+		'search_items'			=> __( 'Search products', 'ground-admin' ),
+		'not_found'				=> __( 'No products found', 'ground-admin' ),
+		'not_found_in_trash'	=> __( 'No products found in Trash', 'ground-admin' )
 	);
 
 	$rewrite = array(
-		'slug'					=> __( 'catalog', 'ground-backend' ),
+		'slug'					=> __( 'catalog', 'ground-admin' ),
 		'with_front'			=> true,
 		'pages'					=> true,
 		'feeds'					=> true
 	);
 
 	$args = array(
-		'label'					=> __( 'catalog', 'ground-backend' ),
-		'description'			=> __( 'catalog', 'ground-backend' ),
+		'label'					=> __( 'catalog', 'ground-admin' ),
+		'description'			=> __( 'catalog', 'ground-admin' ),
 		'labels'				=> $labels,
 		'supports'				=> array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'trackbacks', 'revisions', 'custom-fields', 'page-attributes', 'post-formats', ),
 		//'taxonomies'			=> array( 'category', 'post_tag' ),
@@ -75,24 +75,24 @@ add_action( 'init', 'ground_register_catalog_post_type', 0 );
 function ground_register_catalog_taxonomy()  {
 
 	$labels = array(
-		'name'							=> _x( 'Categories', 'Taxonomy General Name', 'ground-backend' ),
-		'singular_name'					=> _x( 'Category', 'Taxonomy Singular Name', 'ground-backend' ),
-		'menu_name'						=> __( 'Category', 'ground-backend' ),
-		'all_items'						=> __( 'All Categories', 'ground-backend' ),
-		'parent_item'					=> __( 'Parent category', 'ground-backend' ),
-		'parent_item_colon'				=> __( 'Parent category:', 'ground-backend' ),
-		'new_item_name'					=> __( 'New category name', 'ground-backend' ),
-		'add_new_item'					=> __( 'Add new category', 'ground-backend' ),
-		'edit_item'						=> __( 'Edit category', 'ground-backend' ),
-		'update_item'					=> __( 'Update category', 'ground-backend' ),
-		'separate_items_with_commas'	=> __( 'Separate Categories with commas', 'ground-backend' ),
-		'search_items'					=> __( 'Search Categories', 'ground-backend' ),
-		'add_or_remove_items'			=> __( 'Add or remove Categories', 'ground-backend' ),
-		'choose_from_most_used'			=> __( 'Choose from the most used Categories', 'ground-backend' ),
+		'name'							=> _x( 'Categories', 'Taxonomy General Name', 'ground-admin' ),
+		'singular_name'					=> _x( 'Category', 'Taxonomy Singular Name', 'ground-admin' ),
+		'menu_name'						=> __( 'Categories', 'ground-admin' ),
+		'all_items'						=> __( 'All Categories', 'ground-admin' ),
+		'parent_item'					=> __( 'Parent category', 'ground-admin' ),
+		'parent_item_colon'				=> __( 'Parent category:', 'ground-admin' ),
+		'new_item_name'					=> __( 'New category name', 'ground-admin' ),
+		'add_new_item'					=> __( 'Add new category', 'ground-admin' ),
+		'edit_item'						=> __( 'Edit category', 'ground-admin' ),
+		'update_item'					=> __( 'Update category', 'ground-admin' ),
+		'separate_items_with_commas'	=> __( 'Separate Categories with commas', 'ground-admin' ),
+		'search_items'					=> __( 'Search Categories', 'ground-admin' ),
+		'add_or_remove_items'			=> __( 'Add or remove Categories', 'ground-admin' ),
+		'choose_from_most_used'			=> __( 'Choose from the most used Categories', 'ground-admin' ),
 	);
 
 	$rewrite = array(
-		'slug'							=> __( 'catalog-category', 'ground-backend' ),
+		'slug'							=> __( 'catalog-category', 'ground-admin' ),
 		'with_front'					=> true,
 		'hierarchical'					=> true
 	);
@@ -122,20 +122,20 @@ add_action( 'init', 'ground_register_catalog_taxonomy', 0 );
 function ground_register_taxonomy_tag()  {
 
 	$labels = array(
-		'name'							=> _x( 'Tags', 'Taxonomy General Name', 'ground-backend' ),
-		'singular_name'					=> _x( 'Tag', 'Taxonomy Singular Name', 'ground-backend' ),
-		'menu_name'						=> __( 'Tags', 'ground-backend' ),
-		'all_items'						=> __( 'All tags', 'ground-backend' ),
-		'parent_item'					=> __( 'Parent tag', 'ground-backend' ),
-		'parent_item_colon'				=> __( 'Parent tag:', 'ground-backend' ),
-		'new_item_name'					=> __( 'New tag name', 'ground-backend' ),
-		'add_new_item'					=> __( 'Add new tag', 'ground-backend' ),
-		'edit_item'						=> __( 'Edit Tag', 'ground-backend' ),
-		'update_item'					=> __( 'Update Tag', 'ground-backend' ),
-		'separate_items_with_commas'	=> __( 'Separate tags with commas', 'ground-backend' ),
-		'search_items'					=> __( 'Search tags', 'ground-backend' ),
-		'add_or_remove_items'			=> __( 'Add or remove tags', 'ground-backend' ),
-		'choose_from_most_used'			=> __( 'Choose from the most used tags', 'ground-backend' )
+		'name'							=> _x( 'Tags', 'Taxonomy General Name', 'ground-admin' ),
+		'singular_name'					=> _x( 'Tag', 'Taxonomy Singular Name', 'ground-admin' ),
+		'menu_name'						=> __( 'Tags', 'ground-admin' ),
+		'all_items'						=> __( 'All tags', 'ground-admin' ),
+		'parent_item'					=> __( 'Parent tag', 'ground-admin' ),
+		'parent_item_colon'				=> __( 'Parent tag:', 'ground-admin' ),
+		'new_item_name'					=> __( 'New tag name', 'ground-admin' ),
+		'add_new_item'					=> __( 'Add new tag', 'ground-admin' ),
+		'edit_item'						=> __( 'Edit Tag', 'ground-admin' ),
+		'update_item'					=> __( 'Update Tag', 'ground-admin' ),
+		'separate_items_with_commas'	=> __( 'Separate tags with commas', 'ground-admin' ),
+		'search_items'					=> __( 'Search tags', 'ground-admin' ),
+		'add_or_remove_items'			=> __( 'Add or remove tags', 'ground-admin' ),
+		'choose_from_most_used'			=> __( 'Choose from the most used tags', 'ground-admin' )
 	);
 
 	$rewrite = array(

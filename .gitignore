@@ -2,6 +2,7 @@
 # Specific for project
 #########################################
 
+# Write here
 
 
 #########################################
@@ -58,22 +59,6 @@ Icon
 
 
 #########################################
-# Packages
-#########################################
-
-*.7z
-*.dmg
-*.gz
-*.iso
-*.jar
-*.rar
-*.tar
-*.zip
-*.tgz
-*.iso
-
-
-#########################################
 # Sass
 #########################################
 
@@ -84,8 +69,7 @@ Icon
 # Sitemap
 #########################################
 
-sitemap.xml
-sitemap.xml.gz
+sitemap.*
 
 
 #########################################
@@ -111,18 +95,3 @@ Thumbs.db
 ehthumbs.db
 Desktop.ini
 $RECYCLE.BIN/
-
-
-#########################################
-# WordPress
-#########################################
-
-# wp-config.php
-# wp-content/uploads/
-# wp-content/blogs.dir/
-# wp-content/upgrade/
-# wp-content/backup-db/
-# wp-content/advanced-cache.php
-# wp-content/wp-cache-config.php
-# wp-content/cache/
-# wp-content/backups/

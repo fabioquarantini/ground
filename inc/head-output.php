@@ -18,8 +18,7 @@
 
 function ground_enqueue_styles() {
 
-	// $handle, $src, $deps, $ver, $media
-	wp_register_style( 'main-style', MY_THEME_FOLDER . '/style.css', array(), '1.0', 'all' );
+	wp_register_style( 'main-style', MY_THEME_FOLDER . '/css/main.css', array(), '1.0', 'all' ); // $handle, $src, $deps, $ver, $media
 	wp_enqueue_style( 'main-style' );
 
 }
@@ -33,22 +32,12 @@ add_action( 'wp_enqueue_scripts', 'ground_enqueue_styles', 9 );
 
 function ground_enqueue_scripts() {
 
-	// $handle, $src, $deps, $ver, $in_footer
-	wp_register_script( 'modernizr', MY_THEME_FOLDER . '/js/vendor/modernizr-2.8.0.min.js', array(), '2.8.0', false );
-	wp_enqueue_script( 'modernizr' );
-
-	wp_register_script( 'respond', MY_THEME_FOLDER . '/js/vendor/respond.min.js', array(), '1.4.2', false );
-	wp_enqueue_script( 'respond' );
-
 	wp_deregister_script( 'jquery' );
-	wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js", array(), null, true );
+	wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js", array(), null, true );
 	wp_enqueue_script( 'jquery' );
 
-	wp_register_script( 'plugins', MY_THEME_FOLDER . '/js/plugins.js', array( 'jquery' ), '1.0', true );
-	wp_enqueue_script( 'plugins' );
-
-	wp_register_script( 'main', MY_THEME_FOLDER . '/js/main.js', array( 'jquery' ), '1.0', true );
-	wp_enqueue_script( 'main' );
+	wp_register_script( 'scripts', MY_THEME_FOLDER . '/js/scripts.min.js', array( 'jquery' ), '1.0', true ); // $handle, $src, $deps, $ver, $in_footer
+	wp_enqueue_script( 'scripts' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 
@@ -58,7 +47,7 @@ function ground_enqueue_scripts() {
 
 }
 
-add_action( 'wp_enqueue_scripts', 'ground_enqueue_scripts', 10 );
+add_action( 'wp_enqueue_scripts', 'ground_enqueue_scripts', 1 );
 
 
 /*  ==========================================================================
@@ -77,8 +66,8 @@ function ground_remove_wp_ver_css_js( $src ) {
 
 }
 
-// add_filter( 'style_loader_src', 'ground_remove_wp_ver_css_js', 9999 );
-// add_filter( 'script_loader_src', 'ground_remove_wp_ver_css_js', 9999 );
+add_filter( 'style_loader_src', 'ground_remove_wp_ver_css_js', 9999 );
+add_filter( 'script_loader_src', 'ground_remove_wp_ver_css_js', 9999 );
 
 
 /*  ==========================================================================
@@ -128,7 +117,7 @@ function ground_head_output() {
 
 }
 
-// add_action( 'init', 'ground_head_output' );
+add_action( 'init', 'ground_head_output' );
 
 
 /*  ==========================================================================
@@ -141,7 +130,7 @@ function ground_remove_rss_version() {
 
 }
 
-// add_filter( 'the_generator', 'ground_remove_rss_version' );
+add_filter( 'the_generator', 'ground_remove_rss_version' );
 
 
 /*  ==========================================================================

@@ -2,17 +2,18 @@
 
 /*  ==========================================================================
 
-	1 - Remove width and height for responsive
+	1 - Remove images width and height for responsive
 	2 - Remove p around img
 	3 - Register custom stylesheet file to the TinyMCE
 	4 - Disable the wpautop filter
 	5 - Add or remove buttons/features from TinyMCE toolbar
+	6 - Add attribute to gallery
 
 	==========================================================================  */
 
 
 /*  ==========================================================================
-	1 - Remove width and height for responsive
+	1 - Remove images width and height for responsive
 	==========================================================================  */
 
 function ground_image_responsive( $html ) {
@@ -83,5 +84,18 @@ function ground_tiny_mce_buttons( $buttons ) {
 
 // add_filter( 'mce_buttons_3', 'ground_tiny_mce_buttons' );
 
+
+/*  ==========================================================================
+	6 - Add attribute to gallery
+	==========================================================================  */
+
+function ground_gallery_attribute( $link ) {
+
+	global $post;
+	return str_replace( '<a href', '<a rel="gallery" href', $link );
+
+}
+
+add_filter('wp_get_attachment_link', 'ground_gallery_attribute');
 
 ?>

@@ -1,72 +1,59 @@
 <?php
 /*
-Template Name: Catolog template
+Template Name: Catolog
 Description: Custom template for browsing category in catalog. Use template-{name-of-custom-post-type}.php
 */
 ?>
 
-<?php get_header(); ?>
+<?php get_template_part( 'partials/header' ); ?>
 
-	<section id="main-content" class="content" role="main">
 
-		<h1><?php the_title(); ?></h1>
+	<div class="sidebar sidebar--primary">
+
+		<?php get_template_part( 'partials/navigation', 'custom-taxonomy' ); ?>
+
+	</div> <!-- End .sidebar- -primary -->
+
+	<section class="catalog" id="main-content" role="main">
 
 		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
+			<h1 class="catalog__title"><?php the_title(); ?></h1>
 
-				<?php the_content(); ?>
+			<?php the_content(); ?>
 
-			</article> <!-- End article -->
+		<?php endwhile; else :
 
-		<?php endwhile; ?>
+			get_template_part( 'partials/content', 'none' );
 
-			<?php
-
-			$taxonomies = array(
-				'ground_catalog_taxonomy',
-			);
-
-			$args = array(
-				'orderby'		=> 'name',
-				'order'			=> 'ASC',
-				'hide_empty'	=> true,
-				'exclude'		=> array(),
-				'exclude_tree'	=> array(),
-				'include'		=> array(),
-				'number'		=> '',
-				'fields'		=> 'all',
-				'slug'			=> '',
-				'parent'		=> 0,
-				'hierarchical'	=> true,
-				'child_of'		=> 0,
-				'get'			=> '',
-				'name__like'	=> '',
-				'pad_counts'	=> false,
-				'offset'		=> '',
-				'search'		=> '',
-				'cache_domain'	=> 'core'
-			);
-
-			$terms = get_terms( $taxonomies, $args );
-
-			?>
+		endif;
 
 
-			<ul class="catalog-category-list">
-			<?php foreach ($terms as $term) {
-				echo '<li><a href="'.get_term_link($term->slug, 'ground_catalog_taxonomy').'">'.$term->name .' '. $term->description . '</a></li>';
-			} ?>
-			</ul> <!-- End .catalog-category-list -->
+		$args = array(
+			'orderby'		=> 'name',
+			'order'			=> 'ASC',
+			'hide_empty'	=> true,
+			'parent'		=> 0,
+			'hierarchical'	=> true,
+			'child_of'		=> 0
+		);
 
-		<?php else : ?>
+		$taxonomies = get_terms( 'ground_catalog_taxonomy', $args );
 
-			<?php get_template_part( 'partials/content', 'none' ); ?>
+		if ( !empty( $taxonomies ) && !is_wp_error( $taxonomies ) ) {
 
-		<?php endif; ?>
+			foreach ( $taxonomies as $taxonomy ) {
 
-	</section>
+				$taxonomySlug = $taxonomy->slug;
+				$taxonomyName = $taxonomy->name;
+				$taxonomyDescription = $taxonomy->description;
 
-	<?php get_sidebar(); ?>
+				include( locate_template( 'partials/content-taxonomy.php' ) );
+			}
+		}
 
-<?php get_footer(); ?>
+		?>
+
+	</section> <!-- End .catalog -->
+
+<?php get_template_part( 'partials/footer' ); ?>
