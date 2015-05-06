@@ -33,7 +33,7 @@ add_action( 'wp_enqueue_scripts', 'ground_enqueue_styles', 9 );
 function ground_enqueue_scripts() {
 
 	wp_deregister_script( 'jquery' );
-	wp_register_script('jquery', "http" . ( isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on" ? "s" : "" ) . "://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js", array(), null, true );
+	wp_register_script('jquery', "http" . ( isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on" ? "s" : "" ) . "://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js", array(), null, true );
 	wp_enqueue_script( 'jquery' );
 
 	wp_register_script( 'scripts', MY_THEME_FOLDER . '/js/scripts.min.js', array( 'jquery' ), '1.0', true ); // $handle, $src, $deps, $ver, $in_footer
