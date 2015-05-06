@@ -4,11 +4,10 @@
 	MySQL and url settings
 	==========================================================================  */
 
-define( 'ENVIRONMENT', 'development' ); // Switch database connections crendiantials between enviroments
-
 $site_host = ( isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on" ? "s" : "" ) . '://'  . $_SERVER['HTTP_HOST'];
 
-switch( ENVIRONMENT ) {
+// Switch database connections crendiantials between enviroments
+switch( development ) {
 
 	case 'development':
 
