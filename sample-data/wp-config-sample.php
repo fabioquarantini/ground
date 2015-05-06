@@ -6,6 +6,8 @@
 
 define( 'ENVIRONMENT', 'development' ); // Switch database connections crendiantials between enviroments
 
+$site_host = ( isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on" ? "s" : "" ) . '://'  . $_SERVER['HTTP_HOST'];
+
 switch( ENVIRONMENT ) {
 
 	case 'development':
@@ -17,8 +19,8 @@ switch( ENVIRONMENT ) {
 		define( 'DB_CHARSET',	'utf8' );
 		define( 'DB_COLLATE',	'' );
 
-		define( 'WP_SITEURL',	'http://' . $_SERVER['HTTP_HOST'] . '/path/to/wordpress' );
-		define( 'WP_HOME',		'http://' . $_SERVER['HTTP_HOST'] . '/path/to/wordpress' );
+		define( 'WP_SITEURL',	'http' . $site_host . '/path/to/wordpress' );
+		define( 'WP_HOME',		'http' . $site_host . '/path/to/wordpress' );
 
 		break;
 
@@ -31,8 +33,8 @@ switch( ENVIRONMENT ) {
 		define( 'DB_CHARSET',	'utf8' );
 		define( 'DB_COLLATE',	'' );
 
-		define( 'WP_SITEURL',	'http://' . $_SERVER['HTTP_HOST'] );
-		define( 'WP_HOME',		'http://' . $_SERVER['HTTP_HOST'] );
+		define( 'WP_SITEURL',	'http' . $site_host );
+		define( 'WP_HOME',		'http' . $site_host );
 
 		break;
 
