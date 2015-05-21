@@ -1,3 +1,5 @@
+// Tools variables
+
 var gulp = require('gulp'),
 	sass = require('gulp-ruby-sass'),
 	autoprefixer = require('gulp-autoprefixer'),
@@ -13,6 +15,8 @@ var gulp = require('gulp'),
 	reload = browserSync.reload;
 	sourcemaps = require('gulp-sourcemaps');
 
+
+// Project variables
 
 var cssFolder = 'css',
 	scssFolder = 'scss',
