@@ -27,7 +27,7 @@ var cssFolder = 'css',
 	jsSourceFile = jsSourceFolder + '/main.js',
 	jsMinFile = 'scripts.min.js',
 	imgFolder = 'img',
-	host = 'ground.dev';  // localhost:8888
+	host = 'localhost:8888';
 
 
 // Browser Sync task
