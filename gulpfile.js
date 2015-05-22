@@ -3,7 +3,7 @@
 var gulp = require('gulp'),
 	sass = require('gulp-ruby-sass'),
 	autoprefixer = require('gulp-autoprefixer'),
-	browserSync = require('browser-sync');
+	browserSync = require('browser-sync'),
 	minifycss = require('gulp-minify-css'),
 	jshint = require('gulp-jshint'),
 	stylish = require('jshint-stylish'),
@@ -12,7 +12,8 @@ var gulp = require('gulp'),
 	filter = require('gulp-filter'),
 	concat = require('gulp-concat'),
 	notify = require('gulp-notify'),
-	reload = browserSync.reload;
+	reload = browserSync.reload,
+	plumber = require('gulp-plumber'),
 	sourcemaps = require('gulp-sourcemaps');
 
 
@@ -95,7 +96,18 @@ gulp.task('styles', function() {
 
 gulp.task('scripts', function() {
 
+	var onError = function(err) {
+		notify.onError({
+			title: "Scripts error",
+			message: "<%= error.message %>",
+			icon: 'apple-touch-icon.png',
+			wait: true
+		})(err);
+		this.emit('end');
+	};
+
 	return gulp.src([ jsVendorFolder + '/**/*.js', jsSourceFile ])
+		.pipe(plumber({errorHandler: onError}))
 		.pipe(sourcemaps.init())
 			.pipe(uglify())
 			.pipe(concat( jsMinFile ))
