@@ -20,6 +20,7 @@
 				})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
 				ga('create', 'UA-XXXXXXXX-X', 'auto');
+				ga('set', 'anonymizeIp', true); // IP Anonymization for EU Cookie Law
 				ga('send', 'pageview');
 			</script>
 		<?php } ?>
