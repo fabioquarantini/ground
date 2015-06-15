@@ -37,7 +37,7 @@ Download [zip file](https://github.com/fabioquarantini/ground/archive/master.zip
 Copy the repository and install it as a theme in your Wordpress installation
 
 ```
-wp-content\themes\
+wp-content/themes/
 ```
 
 ## Usage 
