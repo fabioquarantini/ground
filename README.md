@@ -23,9 +23,9 @@ You may need this project if you need a simple and powerful starting kit for you
 
 ## Requirements 
 
-- [Nodejs](http://nodejs.org)
-- [Gulp](http://gulpjs.com)
-- [Sass](http://sass-lang.com)
+- [Nodejs](http://nodejs.org/) - check with ```node --version```
+- [Sass](http://sass-lang.com) - check with ```sass --version```
+- [Gulp](http://gulpjs.com) - check with ```gulp --version```
 
 Make sure you have the latest versions of these software. 
 
