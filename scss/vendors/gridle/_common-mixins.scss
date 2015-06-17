@@ -44,7 +44,7 @@ $_gridle-already-generated : ();
 		{
 			// set that we have already generated css for this selector
 			$_gridle-already-generated : map-set($_gridle-already-generated, $key, true) !global;
-
+			
 			// generate the css for this element
 			@include gridle_state($state) {
 				@if $direction != $default-direction or $stateName == default {
@@ -62,7 +62,7 @@ $_gridle-already-generated : ();
 					padding-right:$gutter-width/2;
 				}
 			}
-
+			
 			@if $debug == true {
 				#{$gridle-debug-selector} {
 					@extend %gridle-grid-debug-common;
