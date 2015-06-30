@@ -3,19 +3,16 @@
 @import
 
 // Helpers
-
 "helpers/functions",
 "helpers/mixins",
 
 
 // Settings
-
 "base/settings",
 
 
 // Base
-
-"base/normalize",
+"vendors/normalize",
 "base/base",
 "base/typography",
 "base/links",
@@ -27,14 +24,12 @@
 
 
 // Vendors
-
 "vendors/gridle/gridle",
 "vendors/colorbox",
 "vendors/slick",
 
 
 // Layouts
-
 "layouts/grid",
 "layouts/global",
 "layouts/header",
@@ -44,7 +39,6 @@
 
 
 // Blocks
-
 "blocks/logo",
 "blocks/navigation",
 "blocks/navigation-primary",
@@ -69,10 +63,8 @@
 
 
 // Placeholders
-
 "helpers/placeholders",
 
 
 // Print
-
 "base/print";
