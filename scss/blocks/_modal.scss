@@ -54,7 +54,7 @@
 	height: em(28px);
 	border: 0;
 	opacity: 0;
-	background: $colorbox-button url(#{$dir-img}/modal-controls.png) no-repeat;
+	background: $colorbox-button url(#{$path-img}modal-controls.png) no-repeat;
 	text-indent: em(-9999px);
 	transition: all 0.5s;
 }
@@ -115,7 +115,7 @@
 /* Loading */
 
 #cboxLoadingGraphic {
-	background: url("#{$dir-img}/loading.gif") center center no-repeat;
+	background: url("#{$path-img}loading.gif") center center no-repeat;
 }
 
 
