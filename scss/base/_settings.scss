@@ -1,27 +1,17 @@
 /* Typography */
-
 $line-height: 1.4;
 $font-base: 16px;
 
-$light: 100;
-$regular: 400;
-$bold: 600;
-
-
 /* Font stacks */
-
 $font-primary: Arial, "Helvetica Neue", Helvetica, sans-serif;
-$font-secondary: "Helvetica Neue", Helvetica, Arial, sans-serif;;
+$font-secondary: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $font-monospace: "Andale Mono", AndaleMono, monospace;
 
-
-/* Directory */
-
-$dir-img: '../img';
-
+/* Paths */
+$path-img: '../img/';
+$path-fonts: '../fonts/';
 
 /* Colors */
-
 $white: #ffffff;
 $black: #000000;
 $light-grey: #eeeeee;
@@ -33,18 +23,18 @@ $light-green: #5cbc97;
 
 $color-primary: $grey;
 $color-secondary: $light-green;
-
+// $alert-color: #f04124;
+// $success-color: #43AC6A;
+// $warning-color: #f08a24;
+// $info-color: #a0d3e8;
 
 /* Media queries */
-
 $mq-xs: em(480px);
 $mq-sm: em(768px);
 $mq-md: em(992px);
 $mq-lg: em(1200px);
 
-
 /* Grid */
-
 $grid-settings : (
 	context : 12,
 	gutter-width : 20px,
@@ -88,9 +78,7 @@ $grid-lg-settings : (
 	gutter-width : 20px
 );
 
-
 /* Buttons */
-
 $btn-radius: em(4px);
 $btn-size-ratio: 1.2;
 $btn-background: (
@@ -122,9 +110,7 @@ $btn-text-color-hover: (
 	warning: #f1c40f
 );
 
-
 /* Modal */
-
 $colorbox-bg: #fff;
 $colorbox-overlay: #000;
 $colorbox-text: #F3F3F3;
@@ -132,9 +118,7 @@ $colorbox-button: #9fa7a9;
 $colorbox-button-hover: #788083;
 $colorbox-button-dark: #333;
 
-
 /* Slider */
-
 $slider-bg: #fff;
 $slider-paging: rgba(0,0,0,0.5);
 $slider-paging-hover: rgba(0,0,0,0.7);
@@ -142,7 +126,7 @@ $slider-paging-active: rgba(0,0,0,0.9);
 
 $slick-font-path: "../fonts/";
 $slick-font-family: "slick";
-$slick-loader-path: $dir-img;
+$slick-loader-path: $path-img;
 $slick-arrow-color: white;
 $slick-dot-color: black;
 $slick-dot-color-active: $slick-dot-color;
@@ -154,7 +138,5 @@ $slick-opacity-default: .75;
 $slick-opacity-on-hover: 1;
 $slick-opacity-not-active: .25;
 
-
 /* Debug */
-
 $debug-mq: true;
