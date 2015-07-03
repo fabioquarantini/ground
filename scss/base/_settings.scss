@@ -1,17 +1,17 @@
-/* Typography */
+// Typography
 $line-height: 1.4;
 $font-base: 16px;
 
-/* Font stacks */
+// Font stacks
 $font-primary: Arial, "Helvetica Neue", Helvetica, sans-serif;
 $font-secondary: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $font-monospace: "Andale Mono", AndaleMono, monospace;
 
-/* Paths */
+// Paths
 $path-img: '../img/';
 $path-fonts: '../fonts/';
 
-/* Colors */
+// Colors
 $white: #ffffff;
 $black: #000000;
 $light-grey: #eeeeee;
@@ -23,19 +23,18 @@ $light-green: #5cbc97;
 
 $color-primary: $grey;
 $color-secondary: $light-green;
+$color-success: #5CB85C;
+$color-warning: #F0AD4E;
+$color-error: #D9534F;
 $color-selection: #b3d4fc;
-// $alert-color: #f04124;
-// $success-color: #43AC6A;
-// $warning-color: #f08a24;
-// $info-color: #a0d3e8;
 
-/* Media queries */
+// Media queries
 $mq-xs: em(480px);
 $mq-sm: em(768px);
 $mq-md: em(992px);
 $mq-lg: em(1200px);
 
-/* Grid */
+// Grid
 $grid-settings : (
 	context : 12,
 	gutter-width : 20px,
@@ -79,39 +78,38 @@ $grid-lg-settings : (
 	gutter-width : 20px
 );
 
-/* Buttons */
-$btn-radius: em(4px);
-$btn-size-ratio: 1.2;
-$btn-background: (
-	primary: $color-secondary,
-	secondary: #7f8c8d,
-	success: #27ae60,
-	danger: #c0392b,
-	warning: #f1c40f
-);
-$btn-background-hover: (
-	primary: $color-primary,
-	secondary: #7f8c8d,
-	success: #000,
-	danger: #c0392b,
-	warning: #f1c40f
-);
-$btn-text-color: (
-	primary: $white,
-	secondary: $white,
-	success: #27ae60,
-	danger: #c0392b,
-	warning: #f1c40f
-);
-$btn-text-color-hover: (
-	primary: $white,
-	secondary: #7f8c8d,
-	success: #27ae60,
-	danger: #c0392b,
-	warning: #f1c40f
+// Buttons
+$button-radius: em(5px);
+$button-border: 1px;
+$button: (
+	primary: (
+		background: ($color-primary, $grey),
+		color: ($black, $grey),
+		text: ($grey, $black),
+	),
+	secondary: (
+		background: ($color-secondary, #7f8c8d),
+		color: ($black, $grey),
+		text: ($grey, $black),
+	),
+	success: (
+		background: ($color-success, #7f8c8d),
+		color: ($black, $grey),
+		text: ($grey, $black),
+	),
+	warning: (
+		background: ($color-warning, #7f8c8d),
+		color: ($black, $grey),
+		text: ($grey, $black),
+	),
+	error: (
+		background: ($color-error, #7f8c8d),
+		color: ($black, $grey),
+		text: ($grey, $black),
+	)
 );
 
-/* Modal */
+// Modal
 $colorbox-bg: #fff;
 $colorbox-overlay: #000;
 $colorbox-text: #F3F3F3;
@@ -119,6 +117,5 @@ $colorbox-button: #9fa7a9;
 $colorbox-button-hover: #788083;
 $colorbox-button-dark: #333;
 
-
-/* Debug */
+// Debug
 $debug-mq: true;

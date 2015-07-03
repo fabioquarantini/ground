@@ -23,11 +23,11 @@
 	}
 
 	&--small {
-		font-size: $font-base / $btn-size-ratio;
+		font-size: 85%;
 	}
 
 	&--large {
-		font-size: $font-base * $btn-size-ratio;
+		font-size: 120%;
 	}
 
 	&--bold {
@@ -46,7 +46,7 @@
 	}
 
 	&--rounded {
-		border-radius: $btn-radius;
+		border-radius: $button-radius;
 	}
 
 	&--float {
@@ -61,25 +61,29 @@
 		box-shadow: 0px 5px 5px -2px rgba(0, 0, 0, 0.25);
 	}
 
+	&--outline {
+		border-width: $button-border;
+		border-style: solid;
+	}
+
 	&[disabled] {
-		opacity: 0.7;
+		opacity: 0.4;
 		pointer-events: none;
 		cursor: not-allowed;
 	}
 
-	@each $key, $value in $btn-background {
-
+	@each $key, $value in $button {
 		&--#{$key} {
-			background-color: map-get( $btn-background, $key );
-			color: map-get( $btn-text-color, $key );
+			background-color: nth(map-get($value, background), 1);
+			color: nth(map-get($value, color), 1);
+			border-color: nth(map-get($value, color), 1);
 		}
-
 		&--#{$key}:hover,
 		&--#{$key}--active {
-			background-color: map-get( $btn-background-hover, $key );
-			color: map-get( $btn-text-color-hover, $key );
+			background: nth(map-get($value, background), 2);
+			color: nth(map-get($value, color), 2);
+			border-color: nth(map-get($value, color), 2);
 		}
-
 	}
 
 }
