@@ -1,3 +1,4 @@
+// Slider
 .slider {
 
 }
@@ -18,54 +19,46 @@
 	bottom: 0;
 }
 
-
-/* Direction Nav */
-
-.owl-nav {
-
-}
-
-.owl-prev,
-.owl-next {
+// Slider direction nav
+.slick-prev,
+.slick-next {
 	position: absolute;
 	top: 50%;
-	z-index: 10;
+	z-index: 100;
 	display: block;
 	margin: em(-20px) 0 0 0;
 	width: em(30px);
 	height: em(30px);
 	background: url("#{$path-img}slider-nav.png") no-repeat 0 0;
-	text-decoration: none;
 	text-indent: em(-9999px);
+	overflow: hidden;
 	opacity: 1;
-	cursor: pointer;
 	transition: all .3s ease;
 	opacity:.5;
+	border:0;
 
 	&:hover {
 		opacity: 1;
+		cursor: pointer;
 	}
 }
 
-.owl-prev {
+.slick-prev {
 	left: 0;
 }
 
-.owl-next {
+.slick-next {
 	right: 0;
 	background-position: 100% 0;
 }
 
-
-
-/* Control Paging */
-
+// Slider control paging (dots)
 .slick-dots {
 
-	position: absolute;
-	bottom: em(5px);
 	width: 100%;
 	text-align: center;
+	margin-left: 0;
+	margin-bottom: 0;
 
 	li {
 
@@ -74,21 +67,14 @@
 		width: em(11px);
 		height: em(11px);
 		border-radius: em(20px);
-		background: $slider-paging;
+		background: rgba(0,0,0,0.5);
 		text-indent: em(-9999px);
 		cursor: pointer;
 
-		&:hover {
-			background: $slider-paging-hover;
-		}
-
+		&:hover,
 		&.slick-active {
-			background: $slider-paging-active;
+			background: rgba(0,0,0,0.9);
 			cursor: default;
-		}
-
-		span {
-
 		}
 
 	}
