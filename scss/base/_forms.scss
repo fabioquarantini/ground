@@ -24,7 +24,7 @@ select {
 	margin: 0 0 em(20px) 0;
 	padding: em(6px) em(4px);
 	outline: none;
-	border: 1px solid $light-grey;
+	border: 1px solid $grey-light;
 	background: $white;
 	color: $grey;
 	font-family: $font-primary;
@@ -39,7 +39,7 @@ select {
 	}
 
 	&[disabled] {
-		border-color: $light-grey;
+		border-color: $grey-light;
 		opacity: 0.6;
 		cursor: not-allowed;
 	}
@@ -74,5 +74,5 @@ textarea {
 :-moz-placeholder,
 ::-moz-placeholder,
 :-ms-input-placeholder {
-	color: $light-grey;
+	color: $grey-light;
 }
