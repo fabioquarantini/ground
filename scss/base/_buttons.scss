@@ -7,7 +7,7 @@
 	vertical-align: middle;
 	white-space: nowrap;
 	cursor: pointer;
-	transition: background .15s;
+	transition: all .15s;
 	text-decoration: none;
 
 	&:visited {
@@ -19,7 +19,7 @@
 	}
 
 	&:active {
-		 outline: none;
+		outline: none;
 	}
 
 	&--small {
@@ -66,6 +66,10 @@
 		border-style: solid;
 	}
 
+	&--transparent {
+		background-color: transparent !important;
+	}
+
 	&[disabled] {
 		opacity: 0.4;
 		pointer-events: none;
@@ -74,15 +78,15 @@
 
 	@each $key, $value in $button {
 		&--#{$key} {
-			background-color: nth(map-get($value, background), 1);
-			color: nth(map-get($value, color), 1);
-			border-color: nth(map-get($value, color), 1);
+			background-color: nth( map-get($value, background), 1 );
+			color: nth( map-get($value, text), 1 );
+			border-color: nth( map-get($value, border), 1 );
 		}
 		&--#{$key}:hover,
 		&--#{$key}--active {
-			background: nth(map-get($value, background), 2);
-			color: nth(map-get($value, color), 2);
-			border-color: nth(map-get($value, color), 2);
+			background: nth( map-get($value, background), 2 );
+			color: nth( map-get($value, text), 2 );
+			border-color: nth( map-get($value, border), 2 );
 		}
 	}
 

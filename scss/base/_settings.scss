@@ -12,20 +12,22 @@ $path-img: '../img/';
 $path-fonts: '../fonts/';
 
 // Colors
-$white: #ffffff;
-$black: #000000;
-$light-grey: #eeeeee;
-$grey: #666666;
-$dark-grey: #222222;
-$light-blue: #b3d4fc;
-$gold: #ab9457;
-$light-green: #5cbc97;
+$blue: #0288d1;
+$red: #d9534f;
+$yellow: #f0ad4e;
+$green: #5cb85c;
+$grey: #666;
+$grey-light: #eee;
+$grey-dark: #222;
+$white: #fff;
+$black: #000;
 
-$color-primary: $grey;
-$color-secondary: $light-green;
-$color-success: #5CB85C;
-$color-warning: #F0AD4E;
-$color-error: #D9534F;
+$color-primary: $blue;
+$color-secondary: $yellow;
+$color-tertiary: $red;
+$color-success: $green;
+$color-warning: $yellow;
+$color-error: $red;
 $color-selection: #b3d4fc;
 
 // Media queries
@@ -83,29 +85,29 @@ $button-radius: em(5px);
 $button-border: 1px;
 $button: (
 	primary: (
-		background: ($color-primary, $grey),
-		color: ($black, $grey),
-		text: ($grey, $black),
+		background: ($color-primary, $color-secondary),
+		text: ($white, $black),
+		border: ($black, $color-primary),
 	),
 	secondary: (
-		background: ($color-secondary, #7f8c8d),
-		color: ($black, $grey),
-		text: ($grey, $black),
+		background: ($color-secondary, $color-tertiary),
+		text: ($white, $black),
+		border: ($black, $grey),
 	),
 	success: (
-		background: ($color-success, #7f8c8d),
-		color: ($black, $grey),
-		text: ($grey, $black),
+		background: ($color-success, $color-primary),
+		text: ($white, $black),
+		border: ($black, $color-primary),
 	),
 	warning: (
-		background: ($color-warning, #7f8c8d),
-		color: ($black, $grey),
-		text: ($grey, $black),
+		background: ($color-warning, $color-success),
+		text: ($white, $black),
+		border: ($black, $color-primary),
 	),
 	error: (
-		background: ($color-error, #7f8c8d),
-		color: ($black, $grey),
-		text: ($grey, $black),
+		background: ($color-error, $color-success),
+		text: ($white, $black),
+		border: ($black, $color-primary),
 	)
 );
 
