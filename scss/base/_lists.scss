@@ -2,15 +2,15 @@ ul,
 ol,
 .list {
 	margin-bottom: em(21px);
-	padding: 0;
 }
 
 ul {
+	padding: 0;
 	margin-left: em(16px);
 }
 
 ol {
-	padding-left: em(22px);
+	padding: 0 0 0 20px;
 }
 
 ul ul,
