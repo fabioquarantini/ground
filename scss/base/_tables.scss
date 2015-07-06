@@ -7,6 +7,10 @@ table {
 	width: 100%;
 }
 
+caption {
+	text-align-last: left;
+}
+
 thead {
 
 }
@@ -19,16 +23,19 @@ tfoot {
 
 }
 
+th,
+td {
+	border: 1px solid $grey-light;
+	padding: em(14px) em(8px);
+}
+
 th {
-	border-bottom: 1px solid $grey;
 	font-weight: bold;
-	padding: em(21px) 0;
 	text-align: left;
 }
 
 td {
-	border-bottom: 1px solid $grey;
-	padding: em(21px) 0;
+
 }
 
 tr,
