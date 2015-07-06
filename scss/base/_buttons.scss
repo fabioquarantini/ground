@@ -74,7 +74,8 @@
 		background-color: transparent !important;
 	}
 
-	&[disabled] {
+	&[disabled],
+	&--disabled {
 		opacity: 0.4;
 		pointer-events: none;
 		cursor: not-allowed;
