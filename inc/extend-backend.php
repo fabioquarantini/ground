@@ -18,6 +18,7 @@
 	14 - Trim title length
 	15 - Extend walker for selective page hierarchy in wp_list_pages()
 	16 - Remove special characters from uploaded files
+	17 - Title tag support
 
 	==========================================================================  */
 
@@ -416,5 +417,17 @@ function ground_sanitize_uploads ( $filename ) {
 }
 
 add_filter( 'sanitize_file_name', 'ground_sanitize_uploads', 10 );
+
+
+/*  ==========================================================================
+	17 - Title tag support
+	==========================================================================  */
+
+function ground_title_tag_support()  {
+
+	add_theme_support( 'title-tag' );
+}
+
+add_action( 'after_setup_theme', 'ground_title_tag_support' );
 
 ?>
