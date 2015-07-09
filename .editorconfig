@@ -1,4 +1,4 @@
-# EditorConfig: http://editorconfig.org
+# EditorConfig helps developers define and maintain consistent coding styles between different editors and IDEs.: http://editorconfig.org
 
 # Set to "true" to stop .editorconfig files search on current file.
 root = true
