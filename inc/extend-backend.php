@@ -427,5 +427,3 @@ function ground_title_tag_support()  {
 }
 
 add_action( 'after_setup_theme', 'ground_title_tag_support' );
-
-?>

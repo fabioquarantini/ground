@@ -97,5 +97,3 @@ function ground_gallery_attribute( $link ) {
 }
 
 add_filter('wp_get_attachment_link', 'ground_gallery_attribute');
-
-?>

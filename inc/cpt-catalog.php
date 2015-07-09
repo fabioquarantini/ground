@@ -197,6 +197,3 @@ function get_current_value( $element ) {
 }
 
 add_filter('nav_menu_css_class', 'ground_current_type_nav_class', 10, 2);
-
-
-?>

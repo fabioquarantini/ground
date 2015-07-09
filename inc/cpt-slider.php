@@ -148,5 +148,3 @@ function ground_slider_columns_content( $column ) {
 }
 
 add_action( 'manage_ground_slider_posts_custom_column', 'ground_slider_columns_content', 10, 1 );
-
-?>

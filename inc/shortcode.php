@@ -98,5 +98,3 @@ function ground_logged_in( $atts, $content = null ) {
 }
 
 add_shortcode( 'loggedin', 'ground_logged_in' );
-
-?>

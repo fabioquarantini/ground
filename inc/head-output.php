@@ -145,6 +145,3 @@ function ground_remove_comment_style() {
 }
 
 add_action( 'widgets_init', 'ground_remove_comment_style' );
-
-
-?>

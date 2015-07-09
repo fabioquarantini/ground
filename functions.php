@@ -41,5 +41,3 @@ require_once('inc/cpt-catalog.php');
 	==========================================================================  */
 
 require_once('inc/shortcode.php');
-
-?>
