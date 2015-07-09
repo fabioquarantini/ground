@@ -1,4 +1,4 @@
-<?php /* Cpt list category  */
+<?php // Cpt list category
 
 $custom_category = "ground_catalog_taxonomy";
 $custom_post_type = 'ground_catalog';

@@ -1,4 +1,4 @@
-<?php /*  Basic pagination */
+<?php //  Basic pagination
 
 $total_pages = $wp_query->max_num_pages;
 

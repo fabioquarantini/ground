@@ -1,6 +1,4 @@
-<?php /* The template for displaying archive pages. */
-get_template_part( 'partials/header' );
- ?>
+<?php get_template_part( 'partials/header' ); ?>
 
 	<section class="archive" id="main-content" role="main">
 

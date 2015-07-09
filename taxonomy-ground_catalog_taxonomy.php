@@ -1,4 +1,4 @@
-<?php /* Rename file with the name of custom post type category (taxonomy-name_of_custom_post_type_category.php) */
+<?php // Rename file with the name of custom post type category (taxonomy-name_of_custom_post_type_category.php)
 
 get_template_part( 'partials/header' ); ?>
 

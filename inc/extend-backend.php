@@ -345,9 +345,7 @@ function ground_title( $length = 5, $after = '...' ) {
 	15 - Extend walker for selective page hierarchy in wp_list_pages()
 	==========================================================================  */
 
-/* Extend Walker_Page */
-/* http://wordpress.mfields.org/2010/selective-page-hierarchy-for-wp_list_pages/ */
-
+// Extend Walker_Page http://wordpress.mfields.org/2010/selective-page-hierarchy-for-wp_list_pages/
 class Ground_Selective_Page_Hierarchy extends Walker_Page {
 
 	function walk( $elements, $max_depth ) {
@@ -356,34 +354,34 @@ class Ground_Selective_Page_Hierarchy extends Walker_Page {
 		$args = array_slice( func_get_args(), 2 );
 		$output = '';
 
-		/* invalid parameter */
+		// invalid parameter
 		if ( $max_depth < -1 ) {
 			return $output;
 		}
 
-		/* Nothing to walk */
+		// Nothing to walk
 		if ( empty( $elements ) ) {
 			return $output;
 		}
 
-		/* Set up variables. */
+		// Set up variables
 		$top_level_elements = array();
 		$children_elements  = array();
 		$parent_field = $this->db_fields['parent'];
 		$child_of = ( isset( $args[0]['child_of'] ) ) ? (int) $args[0]['child_of'] : 0;
 
-		/* Loop elements */
+		// Loop elements
 		foreach ( (array) $elements as $e ) {
 
 			$parent_id = $e->$parent_field;
 
 			if ( isset( $parent_id ) ) {
 
-				/* Top level pages. */
+				// Top level pages
 				if( $child_of === $parent_id ) {
 					$top_level_elements[] = $e;
 				}
-				/* Only display children of the current hierarchy. */
+				// Only display children of the current hierarchy
 				else if (
 					( isset( $post->ID ) && $parent_id == $post->ID ) ||
 					( isset( $post->post_parent ) && $parent_id == $post->post_parent ) ||
@@ -396,7 +394,7 @@ class Ground_Selective_Page_Hierarchy extends Walker_Page {
 
 		}
 
-		/* Define output. */
+		// Define output
 		foreach ( $top_level_elements as $e ) {
 			$this->display_element( $e, $children_elements, $max_depth, 0, $args, $output );
 		}

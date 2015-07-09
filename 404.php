@@ -1,6 +1,4 @@
-<?php // The template for displaying 404 pages (Not Found).
-
-get_template_part( 'partials/header' ); ?>
+<?php get_template_part( 'partials/header' ); ?>
 
 <section class="error" id="main-content" role="main">
 

@@ -1,6 +1,4 @@
-<?php
-
-/* Selective page hierarchy  */
+<?php // Selective page hierarchy
 
 $id = $post->ID;
 $parent = array_reverse( get_post_ancestors($id) );

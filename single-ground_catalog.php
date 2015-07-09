@@ -1,6 +1,6 @@
-<?php /* Rename file with the name of custom post type ( single-name_of_custom_post_type.php ) */ ?>
+<?php // Rename file with the name of custom post type ( single-name_of_custom_post_type.php )
 
-<?php get_template_part( 'partials/header' ); ?>
+get_template_part( 'partials/header' ); ?>
 
 	<div class="sidebar sidebar--primary">
 

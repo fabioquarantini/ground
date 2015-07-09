@@ -1,6 +1,4 @@
-<?php /* The template for displaying all pages. */
-
-get_template_part( 'partials/header' ); ?>
+<?php get_template_part( 'partials/header' ); ?>
 
 	<div class="sidebar sidebar--primary">
 

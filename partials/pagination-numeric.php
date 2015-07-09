@@ -1,4 +1,4 @@
-<?php /* Numeric pagination */
+<?php // Numeric pagination
 
 $format = '?paged=%#%';
 
