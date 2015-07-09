@@ -31,9 +31,7 @@ $args = array(
 	'post_status'	=> 'publish'
 );
 
-?>
-
-<?php if( $count_parent != 0 || $count_children != 0 ) { ?>
+if( $count_parent != 0 || $count_children != 0 ) { ?>
 	<nav class="navigation navigation--hierarchy" role="navigation">
 		<ul class="navigation-hierarchy">
 			<?php wp_list_pages($args); ?>

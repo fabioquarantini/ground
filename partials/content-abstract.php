@@ -21,8 +21,8 @@
 		<span class="article__category"><?php _e('Category:','ground'); the_category(', '); ?></span>
 		<?php if ( has_tag() ) { ?>
 			<span class="article__tag"><?php the_tags(); ?></span>
-		<?php } ?>
-		<?php edit_post_link(); ?>
+		<?php }
+		edit_post_link(); ?>
 	</p>
 
 	<?php if ( has_post_thumbnail() ) {

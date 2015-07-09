@@ -44,22 +44,22 @@
 
 			<?php } ?>
 
-			<?php while ( have_posts() ) : the_post(); ?>
+			<?php while ( have_posts() ) : the_post();
 
-				<?php get_template_part( 'partials/content', 'abstract' ); ?>
+				get_template_part( 'partials/content', 'abstract' );
 
-			<?php endwhile; ?>
+			endwhile;
 
-				<?php get_template_part( 'partials/pagination', 'numeric' ); ?>
+				get_template_part( 'partials/pagination', 'numeric' );
 
-			<?php else : ?>
+			else :
 
-				<?php get_template_part( 'partials/content', 'none' ); ?>
+				get_template_part( 'partials/content', 'none' );
 
-		<?php endif; ?>
+		endif; ?>
 
 	</section> <!-- End .archive -->
 
-	<?php get_template_part( 'partials/sidebar', 'secondary' ); ?>
+	<?php get_template_part( 'partials/sidebar', 'secondary' );
 
-<?php get_template_part( 'partials/footer' ); ?>
+get_template_part( 'partials/footer' ); ?>

@@ -4,8 +4,8 @@
 	Constants
 	==========================================================================  */
 
-// Template directory :
-define('MY_THEME_FOLDER', get_template_directory_uri() ); // returns http://www.site.com/wp-content/themes/sitename
+// Template directory ( http://www.site.com/wp-content/themes/sitename )
+define('MY_THEME_FOLDER', get_template_directory_uri() );
 
 
 /*  ==========================================================================

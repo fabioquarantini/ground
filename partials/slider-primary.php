@@ -18,8 +18,8 @@ if( $slider_posts->have_posts() ) { ?>
 		<?php while( $slider_posts->have_posts() ) : $slider_posts->the_post() ?>
 
 			<div class="slider__item">
-				<?php the_post_thumbnail( $thumbnail, array( 'class' => 'slider__img') ); ?>
-				<?php if( $post->post_content != "" ) {
+				<?php the_post_thumbnail( $thumbnail, array( 'class' => 'slider__img') );
+				if( $post->post_content != "" ) {
 					echo '<div class="slider__caption">';
 					the_content();
 					echo '</div><!-- End .slider__caption -->';

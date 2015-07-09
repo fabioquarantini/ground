@@ -9,9 +9,9 @@
 
 		</div> <!-- End .container -->
 
-		<?php wp_footer(); ?>
+		<?php wp_footer();
 
-		<?php if ( !is_user_logged_in() ) {
+		if ( !is_user_logged_in() ) {
 			// Google Analytics: change UA-XXXXXXXX-X to be your site's ID.  ?>
 			<script>
 				(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

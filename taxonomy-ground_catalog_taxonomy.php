@@ -11,9 +11,7 @@ get_template_part( 'partials/header' ); ?>
 		<section class="catalog" id="main-content" role="main">
 
 			<h1 class="catalog__title"><?php single_cat_title(); ?></h1>
-			<?php echo category_description(); ?>
-
-			<?php
+			<?php echo category_description();
 
 			$queried_object = get_queried_object();
 			$term_id = $queried_object->term_id;

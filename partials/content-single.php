@@ -19,19 +19,19 @@
 			<span class="article__category"><?php _e('Category:','ground'); the_category(', '); ?></span>
 			<?php if ( has_tag() ) { ?>
 				<span class="article__tag"><?php the_tags(); ?></span>
-			<?php } ?>
-			<?php edit_post_link(); ?>
+			<?php }
+			edit_post_link(); ?>
 		</p>
 
 		<?php if ( has_post_thumbnail() ) {
 
 			the_post_thumbnail( 'thumb-medium', array( 'class' => 'article__img' ) );
 
-		} ?>
+		}
 
-		<?php the_content(); ?>
+		the_content();
 
-		<?php if ( comments_open() || '0' != get_comments_number() ) {
+		if ( comments_open() || '0' != get_comments_number() ) {
 
 			comments_template('/partials/comments.php');
 

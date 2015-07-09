@@ -3,9 +3,8 @@
 Template Name: Catolog
 Description: Custom template for browsing category in catalog. Use template-{name-of-custom-post-type}.php
 */
-?>
 
-<?php get_template_part( 'partials/header' ); ?>
+get_template_part( 'partials/header' ); ?>
 
 
 	<div class="sidebar sidebar--primary">
@@ -20,9 +19,9 @@ Description: Custom template for browsing category in catalog. Use template-{nam
 
 			<h1 class="catalog__title"><?php the_title(); ?></h1>
 
-			<?php the_content(); ?>
+			<?php the_content();
 
-		<?php endwhile; else :
+		endwhile; else :
 
 			get_template_part( 'partials/content', 'none' );
 

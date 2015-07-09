@@ -4,22 +4,22 @@
 
 		<h1 class="search__title"><?php _e( "Search results:", "ground" ); ?></h1>
 
-		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+		<?php if ( have_posts() ) : while ( have_posts() ) : the_post();
 
-			<?php get_template_part( 'partials/content', 'abstract' ); ?>
+			get_template_part( 'partials/content', 'abstract' );
 
-		<?php endwhile; ?>
+		endwhile;
 
-			<?php get_template_part( 'partials/pagination', 'numeric' ); ?>
+			get_template_part( 'partials/pagination', 'numeric' );
 
-		<?php else : ?>
+		else :
 
-			<?php get_template_part( 'partials/content', 'none' ); ?>
+			get_template_part( 'partials/content', 'none' );
 
-		<?php endif; ?>
+		endif; ?>
 
 	</section> <!-- End .search -->
 
-	<?php get_template_part( 'partials/sidebar', 'secondary' ); ?>
+	<?php get_template_part( 'partials/sidebar', 'secondary' );
 
-<?php get_template_part( 'partials/footer' ); ?>
+get_template_part( 'partials/footer' ); ?>

@@ -16,5 +16,4 @@ if ($total_pages > 1) : ?>
 
 <?php endif;
 
-wp_reset_query();
-?>
+wp_reset_query(); ?>

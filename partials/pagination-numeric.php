@@ -25,6 +25,4 @@ if ( $total_pages > 1 ) {
 
 }
 
-wp_reset_query();
-
-?>
+wp_reset_query(); ?>
