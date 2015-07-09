@@ -26,9 +26,7 @@ jQuery( document ).ready( function( $ ) {
 
 		},
 
-
 		// Carousel
-
 		carousel: function() {
 
 			$(".slider--primary").slick({
@@ -38,9 +36,7 @@ jQuery( document ).ready( function( $ ) {
 
 		},
 
-
 		// Modal image gallery
-
 		modalGallery: function() {
 
 			$('[rel="gallery"]').colorbox({
@@ -58,9 +54,7 @@ jQuery( document ).ready( function( $ ) {
 
 		},
 
-
 		// Modal
-
 		modal: function() {
 
 			$('[href$=".jpg"], [href$=".png"], [href$=".gif"]').colorbox({
@@ -75,9 +69,7 @@ jQuery( document ).ready( function( $ ) {
 
 		},
 
-
 		// Mobile menu
-
 		mobileMenu: function() {
 
 			$('body').on( 'click', '.navicon', function() {
@@ -85,7 +77,6 @@ jQuery( document ).ready( function( $ ) {
 			});
 
 		}
-
 
 	};
 
