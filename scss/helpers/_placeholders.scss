@@ -1,4 +1,4 @@
-/* Align */
+// Align
 
 %alignnone,
 .alignnone {
@@ -26,16 +26,14 @@
 }
 
 
-/* Centered text */
-
+// Centered text
 %centered,
 .centered {
 	text-align: center;
 }
 
 
-/* Image replacement */
-
+// Image replacement
 %ir,
 .ir {
 	background-color: transparent;
@@ -53,8 +51,7 @@
 }
 
 
-/* Hide from both screenreaders and browsers */
-
+// Hide from both screenreaders and browsers
 %hidden,
 .hidden {
 	display: none !important;
@@ -62,8 +59,7 @@
 }
 
 
-/* Hide only visually, but have it available for screenreaders */
-
+// Hide only visually, but have it available for screenreaders
 %visuallyhidden,
 .visuallyhidden {
 	border: 0;
@@ -75,8 +71,7 @@
     position: absolute;
     width: 1px;
 
-	/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard */
-
+	// Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard
 	&%focusable:active,
 	&.focusable:active,
 	&%focusable:focus,
@@ -91,16 +86,14 @@
 }
 
 
-/* Hide visually and from screenreaders, but maintain layout */
-
+// Hide visually and from screenreaders, but maintain layout
 %invisible
 .invisible {
 	visibility: hidden;
 }
 
 
-/* Clearfix: contain floats */
-
+// Clearfix: contain floats
 %clearfix,
 .clearfix {
 	*zoom: 1;
