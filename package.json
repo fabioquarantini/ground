@@ -18,7 +18,7 @@
 		"url": "http://opensource.org/licenses/MIT"
 	},
 	"devDependencies": {
-		"browser-sync": "^2.7.13",
+		"browser-sync": "^2.8.0",
 		"gulp": "^3.9.0",
 		"gulp-autoprefixer": "^2.3.1",
 		"gulp-concat": "^2.6.0",
