@@ -36,7 +36,7 @@ gulp.task('browser-sync', function() {
 
 	browserSync({
 		proxy: host,
-		port: 3000,
+		//port: 3000,
 		ghostMode: {
 			clicks: true,
 			forms: true,
