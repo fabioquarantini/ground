@@ -2,7 +2,7 @@
 
 // Tools variables
 var gulp = require('gulp'),
-	sass = require('gulp-ruby-sass'),
+	sass = require('gulp-sass'),
 	autoprefixer = require('gulp-autoprefixer'),
 	browserSync = require('browser-sync'),
 	minifycss = require('gulp-minify-css'),
@@ -45,7 +45,7 @@ gulp.task('browser-sync', function() {
 		open: true,
 		notify: true,
 		scrollProportionally: true,
-		injectChanges: true,
+		injectChanges: false,
 	});
 
 });
@@ -54,17 +54,20 @@ gulp.task('browser-sync', function() {
 // Style task
 gulp.task('styles', function() {
 
-	return sass( scssFile, {
-			sourcemap: true,
+	gulp.src( scssFile )
+		.pipe(sourcemaps.init())
+		.pipe(sass({
+			outputStyle: 'nested',
 			precision: 10,
-			style: 'nested',
-			unixNewlines: false,
-			quiet: false,
-			compass: false,
-		})
-		.on('error', function (err) {
-			console.error('Error', err.message);
-		})
+			sourceMap: true,
+			errLogToConsole: false,
+		}))
+		.on("error", notify.onError({
+			wait: true,
+        	title: "Sass error",
+        	message: "<%= error.message %>"
+      	}))
+		.pipe(gulp.dest('./css'))
 		.pipe(autoprefixer({
 			browsers: ['last 4 version', 'Firefox ESR', 'Opera 12.1', '> 1%', 'ie 8', 'ie 7'],
 			cascade: false,
@@ -97,7 +100,6 @@ gulp.task('scripts', function() {
 		notify.onError({
 			title: "Scripts error",
 			message: "<%= error.message %>",
-			icon: 'apple-touch-icon.png',
 			wait: true
 		})(err);
 		this.emit('end');
@@ -142,7 +144,6 @@ gulp.task('hint', function() {
 gulp.task('images', function() {
 
 	return gulp.src( imgFolder + '/*')
-		//.pipe(newer( imgFolder ))
 		.pipe(imagemin({
 			optimizationLevel: 4,
 			progressive: true,
