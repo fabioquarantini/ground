@@ -3,6 +3,7 @@
 <html <?php language_attributes(); ?>>
 
 <head>
+
 	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,12 +12,13 @@
 	<link rel="apple-touch-icon" href="<?php echo MY_THEME_FOLDER .'/apple-touch-icon.png' ?>">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
-	<?php wp_head(); ?>
-
 	<!--[if lt IE 9]>
     	<script src="<?php echo MY_THEME_FOLDER .'/js/html5shiv.min.js' ?>"></script>
     	<script src="<?php echo MY_THEME_FOLDER .'/js/respond.min.js' ?>"></script>
 	<![endif]-->
+
+	<?php wp_head(); ?>
+
 </head>
 
 <body <?php body_class(); ?> data-path="<?php echo MY_THEME_FOLDER ?>">
