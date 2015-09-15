@@ -19,6 +19,7 @@
 	15 - Extend walker for selective page hierarchy in wp_list_pages()
 	16 - Remove special characters from uploaded files
 	17 - Title tag support
+	18 - Disable emojis
 
 	==========================================================================  */
 
@@ -421,9 +422,27 @@ add_filter( 'sanitize_file_name', 'ground_sanitize_uploads', 10 );
 	17 - Title tag support
 	==========================================================================  */
 
-function ground_title_tag_support()  {
+function ground_title_tag_support() {
 
 	add_theme_support( 'title-tag' );
 }
 
 add_action( 'after_setup_theme', 'ground_title_tag_support' );
+
+/*  ==========================================================================
+	18 - Disable emojis
+	==========================================================================  */
+
+function ground_disable_emojis() {
+
+	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+	remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+	remove_action( 'wp_print_styles', 'print_emoji_styles' );
+	remove_action( 'admin_print_styles', 'print_emoji_styles' );
+	remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+	remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+	remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+
+}
+
+add_action( 'init', 'ground_disable_emojis' );
