@@ -137,7 +137,7 @@ function ground_slider_columns_content( $column ) {
 	global $post;
 	switch ( $column ) {
 		case 'thumbnail':
-			echo get_the_post_thumbnail( $post->ID );
+			echo get_the_post_thumbnail( $post->ID, 'thumbnail' );
 			break;
 
 		case 'caption':
