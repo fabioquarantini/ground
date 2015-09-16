@@ -132,8 +132,7 @@ gulp.task('hint', function() {
 		.pipe(jshint.reporter('fail'))
 			.on('error', notify.onError({
 				title: 'Hint',
-				message: 'Check terminal for errors',
-				icon: 'apple-touch-icon.png',
+				message: "<%= error.message %>",
 				onLast: true
 			})
 		)
