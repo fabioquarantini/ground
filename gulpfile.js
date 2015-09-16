@@ -25,8 +25,7 @@ var cssFolder = 'css',
 	scssFile = scssFolder +'/main.scss',
 	jsFolder = 'js',
 	jsSourceFolder = jsFolder + '/source',
-	jsVendorFolder = jsSourceFolder + '/vendor',
-	jsSourceFile = jsSourceFolder + '/main.js',
+	jsMainFile = jsSourceFolder + '/main.js',
 	jsMinFile = 'scripts.min.js',
 	imgFolder = 'img',
 	imgOriginalsFolder = imgFolder + '/originals',
@@ -107,7 +106,7 @@ gulp.task('scripts', function() {
 		this.emit('end');
 	};
 
-	return gulp.src([ jsVendorFolder + '/**/*.js', jsSourceFile ])
+	return gulp.src([ jsSourceFolder + '/!(' + jsMainFile.slice(0, -3).split('/').pop() + ')*.js', jsMainFile ])
 		.pipe(plumber({errorHandler: onError}))
 		.pipe(sourcemaps.init())
 			.pipe(uglify())
@@ -127,7 +126,7 @@ gulp.task('scripts', function() {
 // Hint task
 gulp.task('hint', function() {
 
-	return gulp.src( jsSourceFolder + '/*.js')
+	return gulp.src( jsMainFile )
 		.pipe(jshint('.jshintrc'))
 		.pipe(jshint.reporter('fail'))
 			.on('error', notify.onError({
@@ -170,7 +169,7 @@ gulp.task('watch', function() {
 
 	gulp.watch([ jsSourceFolder + '/**/*.js'], ['scripts' , reload ]);
 
-	gulp.watch([ jsSourceFile ], ['hint']);
+	gulp.watch([ jsMainFile ], ['hint']);
 
 	gulp.watch( imgOriginalsFolder + '/*', ['images' , reload ]);
 
