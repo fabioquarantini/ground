@@ -24,8 +24,8 @@ var cssFolder = 'css',
 	scssFolder = 'scss',
 	scssFile = scssFolder +'/main.scss',
 	jsFolder = 'js',
-	jsSourceFolder = jsFolder + '/source',
-	jsMainFile = jsSourceFolder + '/main.js',
+	jsSourcesFolder = jsFolder + '/sources',
+	jsMainFile = jsSourcesFolder + '/main.js',
 	jsMinFile = 'scripts.min.js',
 	imgFolder = 'img',
 	imgOriginalsFolder = imgFolder + '/originals',
@@ -106,7 +106,7 @@ gulp.task('scripts', function() {
 		this.emit('end');
 	};
 
-	return gulp.src([ jsSourceFolder + '/!(' + jsMainFile.slice(0, -3).split('/').pop() + ')*.js', jsMainFile ])
+	return gulp.src([ jsSourcesFolder + '/!(' + jsMainFile.slice(0, -3).split('/').pop() + ')*.js', jsMainFile ])
 		.pipe(plumber({errorHandler: onError}))
 		.pipe(sourcemaps.init())
 			.pipe(uglify())
@@ -167,7 +167,7 @@ gulp.task('watch', function() {
 
 	gulp.watch( scssFolder + '/**/*.{scss,sass}', ['styles']);
 
-	gulp.watch([ jsSourceFolder + '/**/*.js'], ['scripts' , reload ]);
+	gulp.watch([ jsSourcesFolder + '/**/*.js'], ['scripts' , reload ]);
 
 	gulp.watch([ jsMainFile ], ['hint']);
 
