@@ -12,6 +12,7 @@ var gulp = require('gulp'),
 	imagemin = require('gulp-imagemin'),
 	filter = require('gulp-filter'),
 	concat = require('gulp-concat'),
+	newer = require('gulp-newer'),
 	notify = require('gulp-notify'),
 	reload = browserSync.reload,
 	plumber = require('gulp-plumber'),
@@ -28,6 +29,7 @@ var cssFolder = 'css',
 	jsSourceFile = jsSourceFolder + '/main.js',
 	jsMinFile = 'scripts.min.js',
 	imgFolder = 'img',
+	imgOriginalsFolder = imgFolder + '/originals',
 	host = 'localhost';
 
 
@@ -143,7 +145,8 @@ gulp.task('hint', function() {
 // Images task
 gulp.task('images', function() {
 
-	return gulp.src( imgFolder + '/*')
+	return gulp.src( imgOriginalsFolder + '/*' )
+		.pipe(newer( imgFolder ))
 		.pipe(imagemin({
 			optimizationLevel: 4,
 			progressive: true,
@@ -170,7 +173,7 @@ gulp.task('watch', function() {
 
 	gulp.watch([ jsSourceFile ], ['hint']);
 
-	gulp.watch( imgFolder + '/*', ['images' , reload ]);
+	gulp.watch( imgOriginalsFolder + '/*', ['images' , reload ]);
 
 	gulp.watch('**/*.php', reload );
 
