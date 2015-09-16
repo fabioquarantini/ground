@@ -8,8 +8,11 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link rel="shortcut icon" href="<?php echo MY_THEME_FOLDER .'/favicon.ico' ?>">
-	<link rel="apple-touch-icon" href="<?php echo MY_THEME_FOLDER .'/apple-touch-icon.png' ?>">
+	<?php if ( ! function_exists( 'has_site_icon' ) || ! has_site_icon() ) { ?>
+		<link rel="shortcut icon" href="<?php echo MY_THEME_FOLDER .'/favicon.ico' ?>">
+		<link rel="apple-touch-icon" href="<?php echo MY_THEME_FOLDER .'/apple-touch-icon.png' ?>">
+	<?php } ?>
+
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
 	<!--[if lt IE 9]>
