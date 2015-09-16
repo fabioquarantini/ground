@@ -13,8 +13,8 @@
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
 	<!--[if lt IE 9]>
-    	<script src="<?php echo MY_THEME_FOLDER .'/js/html5shiv.min.js' ?>"></script>
-    	<script src="<?php echo MY_THEME_FOLDER .'/js/respond.min.js' ?>"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
 	<![endif]-->
 
 	<?php wp_head(); ?>
