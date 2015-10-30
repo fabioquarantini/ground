@@ -1,10 +1,10 @@
-// Align
-
+// Align none
 %alignnone,
 .alignnone {
 	margin: em(5px) em(20px) em(20px) 0;
 }
 
+// Align center
 %aligncenter,
 .aligncenter {
 	display: block;
@@ -13,25 +13,25 @@
 	clear: both;
 }
 
+// Align left
 %alignleft,
 .alignleft {
 	float: left;
 	margin-right: em(21px);
 }
 
+// Align right
 %alignright,
 .alignright {
 	float: right;
 	margin-left: em(21px);
 }
 
-
 // Centered text
 %centered,
 .centered {
 	text-align: center;
 }
-
 
 // Image replacement
 %ir,
@@ -50,26 +50,23 @@
 
 }
 
-
-// Hide from both screenreaders and browsers
+// Hide visually and from screen readers
 %hidden,
 .hidden {
 	display: none !important;
-	visibility: hidden;
 }
 
-
-// Hide only visually, but have it available for screenreaders
+// Hide only visually, but have it available for screen readers
 %visuallyhidden,
 .visuallyhidden {
 	border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
 
 	// Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard
 	&%focusable:active,
@@ -85,13 +82,11 @@
 	}
 }
 
-
-// Hide visually and from screenreaders, but maintain layout
+// Hide visually and from screen readers, but maintain layout
 %invisible
 .invisible {
 	visibility: hidden;
 }
-
 
 // Clearfix: contain floats
 %clearfix,
@@ -109,7 +104,6 @@
 	}
 
 }
-
 
 // Iframe responsive
 %iframe-responsive,
