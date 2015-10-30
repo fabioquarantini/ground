@@ -92,7 +92,7 @@ add_shortcode('pre', 'ground_pre');
 
 function ground_logged_in( $atts, $content = null ) {
 	if ( is_user_logged_in() ) {
-		return $content;
+		return do_shortcode($content);
 	}
 	else return;
 }
