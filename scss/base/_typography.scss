@@ -1,12 +1,10 @@
 // Headings
-
 h1,
 h2,
 h3,
 h4 {
 	font-weight:normal;
 }
-
 
 h1,
 .h1 {
@@ -33,9 +31,7 @@ h5,
 	font-size: em(12px);
 }
 
-
 // Text
-
 p,
 dl,
 ol,
@@ -43,9 +39,7 @@ ul  {
 	font-size: $font-base;
 }
 
-
 // Blockquote
-
 blockquote {
 	margin: em(21px) em(10px);
 	padding: em(12px) em(10px);
@@ -65,9 +59,7 @@ blockquote {
 
 }
 
-
 // Cite
-
 cite {
 	color: $grey;
 	font-style: italic;
@@ -77,9 +69,7 @@ cite {
 	}
 }
 
-
 // Hr
-
 hr {
 	border-bottom: 1px solid $grey;
 	border-left: none;

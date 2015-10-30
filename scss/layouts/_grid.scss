@@ -1,19 +1,11 @@
 // Grid setup ( http://gridle.org )
-
 @include gridle_setup( $grid-settings );
 
-
 // Register media queries breakpoint
-
 @include gridle_register_state ( $grid-xs-name , $grid-xs-settings );
-
 @include gridle_register_state ( $grid-sm-name , $grid-sm-settings );
-
 @include gridle_register_state ( $grid-md-name , $grid-md-settings );
-
 @include gridle_register_state ( $grid-lg-name , $grid-lg-settings );
 
-
 // Generate all classes for html use
-
 // @include gridle_generate_classes();

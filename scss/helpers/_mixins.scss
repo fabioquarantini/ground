@@ -1,5 +1,4 @@
 // Mixin for basic CSS triangles @include triangle( up, #000, 100px )
-
 @mixin triangle( $direction:up, $color:#000, $size:15px ) {
 
 	@if( $direction == up ) {
