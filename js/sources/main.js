@@ -12,10 +12,6 @@ jQuery( document ).ready( function( $ ) {
 				siteInit.carousel();
 			}
 
-			if ( $('[rel="gallery"]').length > 0 ) {
-				siteInit.modalGallery();
-			}
-
 			if ( $('[href$=".jpg"], [href$=".png"], [href$=".gif"]').length > 0 ) {
 				siteInit.modal();
 			}
@@ -36,24 +32,6 @@ jQuery( document ).ready( function( $ ) {
 
 		},
 
-		// Modal image gallery
-		modalGallery: function() {
-
-			$('[rel="gallery"]').colorbox({
-				transition: 'elastic',
-				speed: 400,
-				opacity: 0.8,
-				slideshow: true,
-				slideshowSpeed: 4000,
-				initialWidth: 50,
-				initialHeight: 50,
-				maxWidth: '90%',
-				maxHeight: '90%',
-				rel:'gallery'
-			});
-
-		},
-
 		// Modal
 		modal: function() {
 
@@ -61,6 +39,8 @@ jQuery( document ).ready( function( $ ) {
 				transition: 'elastic',
 				speed: 400,
 				opacity: 0.8,
+				slideshow: true,
+				slideshowSpeed: 4000,
 				itemsnitialWidth: 50,
 				initialHeight: 50,
 				maxWidth: '90%',
