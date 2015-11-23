@@ -71,6 +71,8 @@ sitemap.*
 #########################################
 
 sftp-config.json
+.ftpconfig
+.remote-sync.json
 *.sublime-workspace
 
 
