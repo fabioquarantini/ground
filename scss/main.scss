@@ -3,9 +3,10 @@
 // Helpers
 'helpers/functions',
 'helpers/mixins',
+'vendors/gridle/gridle',
 
 // Settings
-'base/settings',
+'settings',
 
 // Base
 'vendors/normalize',
@@ -19,12 +20,10 @@
 'base/debug',
 
 // Vendors
-'vendors/gridle/gridle',
 'vendors/colorbox',
 'vendors/slick',
 
 // Layouts
-'layouts/grid',
 'layouts/global',
 'layouts/header',
 'layouts/content',

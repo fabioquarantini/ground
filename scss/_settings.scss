@@ -37,48 +37,32 @@ $mq-md: em(992px);
 $mq-lg: em(1200px);
 
 // Grid
-$grid-settings : (
-	context : 12,
-	gutter-width : 20px,
-	classes : true,
-	debug : false,
-	debug-show-class-names : true,
-	ie7-support : false,
-	html-states-classes : false,
-	generate-push-classes : true,
-	generate-pull-classes : true,
-	generate-prefix-classes : true,
-	generate-suffix-classes : true,
-	generate-helpers-classes : true
-);
+@include gridle_setup((
+	context: 12,			// number of columns in your grid
+	gutter-width: 20px,		// size of the gutters
+	gutter-left: 10px,		// size of left gutter
+	gutter-right: 10px,		// size of right gutter
+	states-classes: false,	// if we need to generate the states classes
+	classes-prefix: ''		// the prefix used for all classes
+));
 
-$grid-xs-name : xs ;
-$grid-xs-settings : (
-	context : 12,
+@include gridle_register_state(xs, (
 	min-width : $mq-xs,
-	gutter-width : 20px
-);
+));
 
-$grid-sm-name : sm ;
-$grid-sm-settings : (
-	context : 12,
+@include gridle_register_state(sm, (
 	min-width : $mq-sm,
-	gutter-width : 20px
-);
+));
 
-$grid-md-name : md ;
-$grid-md-settings : (
-	context : 12,
+@include gridle_register_state(md, (
 	min-width : $mq-md,
-	gutter-width : 20px
-);
+));
 
-$grid-lg-name : lg ;
-$grid-lg-settings : (
-	context : 12,
+@include gridle_register_state(lg, (
 	min-width : $mq-lg,
-	gutter-width : 20px
-);
+));
+
+//@include gridle_generate_classes();
 
 // Buttons
 $button-radius: em(5px);
