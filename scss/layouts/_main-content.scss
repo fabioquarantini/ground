@@ -1,4 +1,3 @@
 #main-content {
-	@include gridle(12);
-	@include gridle(9, sm);
+	@include gridle(12 sm 9);
 }

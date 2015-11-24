@@ -1,6 +1,5 @@
 .sidebar {
-	@include gridle(12);
-	@include gridle(3, sm);
+	@include gridle(12 sm 3);
 }
 
 .sidebar--primary {

@@ -8,7 +8,7 @@
 	top: 0;
 	transition: all ease 0.5s;
 
-	@media ( min-width: $mq-sm ) {
+	@media only screen and ( min-width: $mq-sm ) {
 
 	}
 
@@ -16,7 +16,7 @@
 
 		right: 85%;
 
-		@media ( min-width: $mq-sm ) {
+		@media only screen and ( min-width: $mq-sm ) {
 			right: 0;
 		}
 
@@ -31,7 +31,7 @@
 		    top: 0;
 		    z-index: 50;
 
-		    @media ( min-width: $mq-sm ) {
+		    @media only screen and ( min-width: $mq-sm ) {
 				content: normal;
 			}
 		}

@@ -8,7 +8,7 @@
 
 	}
 
-	@media ( min-width: $mq-sm ) {
+	@media only screen and ( min-width: $mq-sm ) {
 
 		&.gallery-columns-2 {
 			.gallery-item {

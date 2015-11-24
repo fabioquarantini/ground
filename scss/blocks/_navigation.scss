@@ -16,7 +16,7 @@
 	z-index: 100;
 	transition: left ease 0.5s;
 
-	@media ( min-width: $mq-sm ) {
+	@media only screen and ( min-width: $mq-sm ) {
 
 		float: right;
 		overflow: visible;
