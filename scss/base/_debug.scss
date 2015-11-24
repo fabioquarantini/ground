@@ -1,7 +1,6 @@
 @if $debug-mq {
 
 	body:after {
-		content: "no mq";
 		position: fixed;
 		bottom: 0;
 		right: 0;
@@ -10,20 +9,16 @@
 		background-color: rgba($black, 0.7);
 		color: $white;
 
-		@media ( min-width: $mq-xs ) {
-			content: "xs: #{$mq-xs}";
-		}
+		$statesNames : gridle_get_states_names();
 
-		@media ( min-width: $mq-sm ) {
-			content: "sm: #{$mq-sm}";
-		}
+		@each $name in $statesNames {
 
-		@media ( min-width: $mq-md ) {
-			content: "md: #{$mq-md}";
-		}
+			$query: gridle_get_media_query($name);
 
-		@media ( min-width: $mq-lg ) {
-			content: "lg: #{$mq-lg}";
+			@include gridle_state ( #{$name} ) {
+				content: "#{$name}: #{$query}";
+			}
+
 		}
 
 	}
