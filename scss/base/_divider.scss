@@ -1,0 +1,18 @@
+hr,
+.divider {
+	border: 0;
+	border-top: 1px solid $black;
+	margin-bottom: em(21px);
+}
+
+.divider--double {
+	border-top: 3px double $black;
+}
+
+.divider--dotted {
+	border-top: 1px dotted $black;
+}
+
+.divider--dashed {
+	border-top: 1px dashed $black;
+}
