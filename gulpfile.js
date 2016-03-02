@@ -5,7 +5,7 @@ var gulp = require('gulp'),
 	sass = require('gulp-sass'),
 	autoprefixer = require('gulp-autoprefixer'),
 	browserSync = require('browser-sync'),
-	minifycss = require('gulp-minify-css'),
+	cleanCSS = require('gulp-clean-css'),
 	jshint = require('gulp-jshint'),
 	stylish = require('jshint-stylish'),
 	uglify = require('gulp-uglify'),
@@ -70,7 +70,7 @@ gulp.task('styles', function() {
 			cascade: false,
 			remove: true
 		}))
-		.pipe(minifycss({
+		.pipe(cleanCSS({
 			keepSpecialComments: '*'
 		}))
 		.pipe(sourcemaps.write( '.', {
