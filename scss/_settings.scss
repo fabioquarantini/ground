@@ -43,6 +43,7 @@ $mq-lg: em(1200px);
 	gutter-left: 10px,		// size of left gutter
 	gutter-right: 10px,		// size of right gutter
 	states-classes: false,	// if we need to generate the states classes
+	classes: true,			// is used to generate all the classes
 	classes-prefix: ''		// the prefix used for all classes
 ));
 
@@ -62,7 +63,7 @@ $mq-lg: em(1200px);
 	min-width : $mq-lg,
 ));
 
-//@include gridle_generate_classes();
+@include gridle_generate_classes();
 
 // Buttons
 $button-radius: em(5px);
