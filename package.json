@@ -18,18 +18,18 @@
 		"url": "http://opensource.org/licenses/MIT"
 	},
 	"devDependencies": {
-		"browser-sync": "^2.10.0",
-		"gulp": "^3.9.0",
+		"browser-sync": "^2.11.1",
+		"gulp": "^3.9.1",
 		"gulp-autoprefixer": "^3.1.0",
 		"gulp-concat": "^2.6.0",
-		"gulp-filter": "^3.0.1",
+		"gulp-filter": "^4.0.0",
 		"gulp-jshint": "^2.0.0",
-		"gulp-minify-css": "^1.2.1",
+		"gulp-minify-css": "^1.2.4",
 		"gulp-notify": "^2.2.0",
-		"gulp-plumber": "^1.0.1",
-		"gulp-sass": "^2.1.0",
+		"gulp-plumber": "^1.1.0",
+		"gulp-sass": "^2.2.0",
 		"gulp-sourcemaps": "^1.6.0",
-		"gulp-uglify": "^1.5.1",
+		"gulp-uglify": "^1.5.3",
 		"jshint-stylish": "~2.1.0"
 	}
 }
