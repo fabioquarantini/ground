@@ -38,9 +38,9 @@
 
 			<?php get_template_part( 'partials/navigation', 'primary' ); ?>
 
-			<span class="navicon">Menu</span>
+			<span class="navicon js-navicon">Menu</span>
 
-		</header> <!-- End .header- -primary -->
+		</header> <!-- End .header -->
 
 		<?php get_template_part( 'partials/header', 'image' ); ?>
 

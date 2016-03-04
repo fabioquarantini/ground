@@ -8,7 +8,7 @@
 		'container'			=> '',
 		'container_class'	=> '',
 		'container_id'		=> '',
-		'menu_class'		=> 'navigation-secondary',
+		'menu_class'		=> 'navigation__list',
 		'menu_id'			=> '',
 		'echo'				=> true,
 		'fallback_cb'		=> '',

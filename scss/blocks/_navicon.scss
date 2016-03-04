@@ -17,10 +17,6 @@
 
 	}
 
-	&:hover {
-
-	}
-
 	&:before,
 	&:after {
 		transition: all 0.5s;
@@ -30,31 +26,34 @@
 		height: em(4px);
 		box-sizing: content-box;
 		content: "";
-
-		.navigation--open & {
-			box-sizing: border-box;
-			border-top: em(4px) solid $white;
-			top: 48%;
-		}
-
 	}
 
 	&:before {
 		top: 28px;
 		border-top: em(4px) solid $grey;
-
-		.navigation--open & {
-			transform: rotate(-45deg);
-		}
 	}
 
 	&:after {
 		top: 12px;
 		border-top: em(12px) double $grey;
-
-		.navigation--open & {
-			transform: rotate(45deg);
-		}
 	}
 
+}
+
+.navicon--active {
+
+	&:before,
+	&:after {
+		box-sizing: border-box;
+		border-top: em(4px) solid $white;
+		top: 48%;
+	}
+
+	&:after {
+		transform: rotate(45deg);
+	}
+
+	&:before {
+		transform: rotate(-45deg);
+	}
 }

@@ -16,7 +16,7 @@ jQuery( document ).ready( function( $ ) {
 				siteInit.modal();
 			}
 
-			if ( $('.navicon').length > 0 ) {
+			if ( $('.js-navicon').length > 0 ) {
 				siteInit.mobileMenu();
 			}
 
@@ -52,8 +52,9 @@ jQuery( document ).ready( function( $ ) {
 		// Mobile menu
 		mobileMenu: function() {
 
-			$('body').on( 'click', '.navicon', function() {
-				$('body').toggleClass('navigation--open');
+			$('body').on( 'click', '.js-navicon', function() {
+				$(this).toggleClass('navicon--active');
+				$('.navigation--primary').toggleClass('navigation--open');
 			});
 
 		}

@@ -1,4 +1,4 @@
-<nav class="navigation navigation--primary navigation--mobile" role="navigation">
+<nav class="navigation navigation--primary" role="navigation">
 
 	<?php
 
@@ -8,7 +8,7 @@
 		'container'			=> '',
 		'container_class'	=> '',
 		'container_id'		=> '',
-		'menu_class'		=> 'navigation-primary',
+		'menu_class'		=> 'navigation__list',
 		'menu_id'			=> '',
 		'echo'				=> true,
 		'fallback_cb'		=> '',
