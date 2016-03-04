@@ -1,11 +1,12 @@
 			</div> <!-- End .content -->
 
-			<footer class="page-footer" role="contentinfo">
-				<p class="page-footer__organization">&copy; <?php echo date( 'Y' ); ?> <a href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ); ?></a> <?php echo antispambot("mail@mail.com"); ?></p>
+			<footer class="footer" role="contentinfo">
+
+				<p>&copy; <?php echo date( 'Y' ); ?> <a href="<?php echo home_url(); ?>"><?php bloginfo( 'name' ); ?></a> <?php echo antispambot("mail@mail.com"); ?></p>
 
 				<?php get_template_part( 'partials/navigation', 'secondary' ); ?>
 
-			</footer> <!-- End .page-footer -->
+			</footer> <!-- End .footer -->
 
 		</div> <!-- End .container -->
 
