@@ -20,6 +20,7 @@
 	16 - Remove special characters from uploaded files
 	17 - Title tag support
 	18 - Disable emojis
+	19 - Login form customization (wp-login.php)
 
 	==========================================================================  */
 
@@ -429,6 +430,7 @@ function ground_title_tag_support() {
 
 add_action( 'after_setup_theme', 'ground_title_tag_support' );
 
+
 /*  ==========================================================================
 	18 - Disable emojis
 	==========================================================================  */
@@ -447,3 +449,43 @@ function ground_disable_emojis() {
 }
 
 add_action( 'init', 'ground_disable_emojis' );
+
+
+/*  ==========================================================================
+	19 - Login form customization (wp-login.php)
+	==========================================================================  */
+
+// Add css will be loaded in login form for replace the image
+function ground_login_form_css() {
+
+	echo'<style>
+			.login h1 a {
+				background: transparent url("' . MY_THEME_FOLDER . '/img/login.png") center center no-repeat;
+				width: 326px;
+				height: 67px;
+			}
+		</style>';
+
+}
+
+add_action( 'login_head', 'ground_login_form_css' );
+
+
+// Change the url of the logo with home url
+function ground_login_form_url() {
+
+	return home_url();
+
+}
+
+add_filter( 'login_headerurl', 'ground_login_form_url' );
+
+
+// Change the url of the title with blogname
+function ground_login_form_title() {
+
+	return get_option( 'blogname' );
+
+}
+
+add_filter( 'login_headertitle', 'ground_login_form_title' );

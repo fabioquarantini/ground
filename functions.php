@@ -21,9 +21,6 @@ require_once('inc/extend-backend.php');
 // Extend text editor
 require_once('inc/extend-text-editor.php');
 
-// Extend administration
-require_once('inc/extend-administration.php');
-
 
 /*  ==========================================================================
 	Custom post type
