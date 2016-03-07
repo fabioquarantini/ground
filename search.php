@@ -2,7 +2,7 @@
 
 	<section class="search" id="main-content" role="main">
 
-		<h1 class="search__title"><?php _e( "Search results:", "ground" ); ?></h1>
+		<h1 class="search__title"><?php _e( 'Search results:', 'ground' ); ?></h1>
 
 		<?php if ( have_posts() ) : while ( have_posts() ) : the_post();
 

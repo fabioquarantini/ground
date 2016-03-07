@@ -15,23 +15,23 @@
 
 				} elseif ( is_author() ) { ?>
 
-					<span class="archive__sub-title"><?php _e( "Author:", "ground" ); ?></span> <?php  get_the_author(); ?>
+					<span class="archive__sub-title"><?php _e( 'Author:', 'ground' ); ?></span> <?php  get_the_author(); ?>
 
 				<?php } elseif ( is_day() ) { ?>
 
-					<span class="archive__sub-title"><?php _e( "Day:", "ground" ); ?></span> <?php the_time('l, F j, Y'); ?>
+					<span class="archive__sub-title"><?php _e( 'Day:', 'ground' ); ?></span> <?php the_time('l, F j, Y'); ?>
 
 				<?php } elseif ( is_month() ) { ?>
 
-					<span class="archive__sub-title"><?php _e( "Month:", "ground" ); ?></span> <?php the_time('F Y'); ?>
+					<span class="archive__sub-title"><?php _e( 'Month:', 'ground' ); ?></span> <?php the_time('F Y'); ?>
 
 				<?php } elseif ( is_year() ) { ?>
 
-					<span class="archive__sub-title"><?php _e( "Year:", "ground" ); ?></span> <?php the_time('Y'); ?>
+					<span class="archive__sub-title"><?php _e( 'Year:', 'ground' ); ?></span> <?php the_time('Y'); ?>
 
 				<?php } else {
 
-					_e( "Archives", "ground" );
+					_e( 'Archives', 'ground' );
 
 				} ?>
 			</h1>
