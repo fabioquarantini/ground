@@ -8,12 +8,11 @@
 
 **Ground** in it's core uses:
 
-- [Gulp](http://gulpjs.com)
 - [Html5Boilerplate](http://html5boilerplate.com)
 - [Sass](http://sass-lang.com)
+- [Gulp](http://gulpjs.com)
 - [Autoprefixer](https://github.com/postcss/autoprefixer)
 - [BrowserSync](http://www.browsersync.io)
-- [Imagemin](https://github.com/imagemin/imagemin)
 - [UglifyJS](http://marijnhaverbeke.nl/uglifyjs)
 - [JSHint](http://jshint.com)
 
