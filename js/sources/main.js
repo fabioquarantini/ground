@@ -8,7 +8,7 @@ jQuery( document ).ready( function( $ ) {
 
 		DOMready: function() {
 
-			if ( $('.slider--primary').length > 0 ) {
+			if ( $('.js-slider--primary').length > 0 ) {
 				siteInit.slider();
 			}
 
@@ -25,7 +25,7 @@ jQuery( document ).ready( function( $ ) {
 		// Slider
 		slider: function() {
 
-			$(".slider--primary").slick({
+			$(".js-slider--primary").slick({
 				dots: true,
 				speed: 500
 			});

@@ -13,7 +13,7 @@ $slider_posts = new WP_Query( $args );
 
 if( $slider_posts->have_posts() ) { ?>
 
-	<div class="slider slider--primary">
+	<div class="slider slider--primary js-slider--primary">
 
 		<?php while( $slider_posts->have_posts() ) : $slider_posts->the_post() ?>
 
