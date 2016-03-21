@@ -4,7 +4,7 @@ get_template_part( 'partials/header' ); ?>
 
 	<div class="sidebar sidebar--primary">
 
-		<?php get_template_part( 'partials/menu', 'cpt-category' ); ?>
+		<?php get_template_part( 'partials/navigation', 'custom-taxonomy' ); ?>
 
 	</div> <!-- End .sidebar- -primary -->
 
