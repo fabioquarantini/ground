@@ -70,9 +70,20 @@ textarea {
 	resize: vertical;
 }
 
-::-webkit-input-placeholder,
-:-moz-placeholder,
-::-moz-placeholder,
+::-webkit-input-placeholder {
+	color: $grey-light;
+}
+
+:-moz-placeholder {
+	color: $grey-light;
+	opacity: 1;
+}
+
+::-moz-placeholder {
+	color: $grey-light;
+	opacity: 1;
+}
+
 :-ms-input-placeholder {
 	color: $grey-light;
 }
