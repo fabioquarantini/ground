@@ -213,8 +213,8 @@ function ground_custom_background() {
 	9 - Image quality compression
 	==========================================================================  */
 
-// Set jpeg quality (default 90)
-//add_filter( 'jpeg_quality', create_function( '', 'return 90;' ) );
+// Set jpeg quality (default 82)
+//add_filter( 'jpeg_quality', create_function( '', 'return 82;' ) );
 
 
 /*  ==========================================================================
