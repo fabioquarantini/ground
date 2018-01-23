@@ -1,0 +1,23 @@
+.media {
+	position: relative;
+	overflow: hidden;
+}
+
+.media__img {
+
+	.media--zoom & {
+
+		transition: transform .2s ease-in-out;
+
+		&:hover {
+			transform: scale(1.1);
+		}
+
+	}
+
+
+}
+
+.media__video {
+
+}

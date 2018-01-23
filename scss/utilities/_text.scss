@@ -1,0 +1,69 @@
+@include breakpoint-styles('.text-nowrap') {
+	white-space: nowrap;
+};
+
+@include breakpoint-styles('.text-lowercase') {
+	text-transform: lowercase;
+};
+
+@include breakpoint-styles('.text-uppercase') {
+	text-transform: uppercase;
+};
+
+@include breakpoint-styles('.text-capitalize') {
+	text-transform: capitalize;
+};
+
+@include breakpoint-styles('.text-underline') {
+	text-decoration: underline;
+};
+
+@include breakpoint-styles('.text-decoration-none') {
+	text-decoration: none;
+};
+
+@include breakpoint-styles('.text-truncate') {
+	max-width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	word-wrap: normal;
+};
+
+@include breakpoint-styles('.text-justify') {
+	text-align: justify;
+};
+
+@include breakpoint-styles('.text-left') {
+	text-align: left;
+};
+
+@include breakpoint-styles('.text-right') {
+	text-align: right;
+};
+
+@include breakpoint-styles('.text-center') {
+	text-align: center;
+};
+
+@include breakpoint-styles('.text-bold') {
+	font-weight: bold;
+};
+
+@include breakpoint-styles('.text-ellipsis') {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+};
+
+@include breakpoint-styles('.text-clip') {
+	text-overflow: clip;
+	white-space: nowrap;
+	overflow: hidden;
+};
+
+@include breakpoint-styles('.text-break') {
+	hyphens: auto;
+	word-break: break-word;
+	word-wrap: break-word;
+};

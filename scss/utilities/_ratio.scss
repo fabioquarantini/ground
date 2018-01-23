@@ -1,0 +1,23 @@
+@include breakpoint-styles('.ratio--16-9') {
+	@include ratio(16, 9);
+}
+
+@include breakpoint-styles('.ratio--4-3') {
+	@include ratio(4, 3);
+}
+
+@include breakpoint-styles('.ratio--3-4') {
+	@include ratio(3, 4);
+}
+
+@include breakpoint-styles('.ratio--2-1') {
+	@include ratio(2, 1);
+}
+
+@include breakpoint-styles('.ratio--1-2') {
+	@include ratio(1, 2);
+}
+
+@include breakpoint-styles('.ratio--1-1') {
+	@include ratio(1, 1);
+}

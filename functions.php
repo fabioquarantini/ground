@@ -4,37 +4,18 @@
 	Constants
 	==========================================================================  */
 
-// Template directory ( http://www.site.com/wp-content/themes/sitename )
-define('MY_THEME_FOLDER', get_template_directory_uri() );
+define('SITE_URL', site_url() ); // http://www.site.com
+define('TEMPLATE_URL', get_template_directory_uri() ); // http://www.site.com/wp-content/themes/themename
+define('TEMPLATE_PATH', get_template_directory() ); // /home/user/public_html/wp-content/themes/themename
 
 
 /*  ==========================================================================
-	Extend backend
+	Functions
 	==========================================================================  */
 
-// Clean head output
+require_once('inc/extend.php');
 require_once('inc/head-output.php');
-
-// Extend backend
-require_once('inc/extend-backend.php');
-
-// Extend text editor
-require_once('inc/extend-text-editor.php');
-
-
-/*  ==========================================================================
-	Custom post type
-	==========================================================================  */
-
-// Slider
-require_once('inc/cpt-slider.php');
-
-// Catalog
+require_once('inc/seo.php');
+require_once('inc/walker.php');
 require_once('inc/cpt-catalog.php');
-
-
-/*  ==========================================================================
-	Shortcode
-	==========================================================================  */
-
 require_once('inc/shortcode.php');

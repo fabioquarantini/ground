@@ -1,21 +1,17 @@
-<?php // Rename file with the name of custom post type ( single-name_of_custom_post_type.php )
+<?php get_template_part( 'partials/header' ); ?>
 
-get_template_part( 'partials/header' ); ?>
+	<div class="gr-12 gr-9@md push-3@md">
 
-	<div class="sidebar sidebar--primary">
+		<?php if ( have_posts() ) : while ( have_posts() ) : the_post();
 
-		<?php get_template_part( 'partials/navigation', 'custom-taxonomy' ); ?>
+			get_template_part( 'partials/content', 'single-ground_catalog' );
 
-	</div> <!-- End .sidebar- -primary -->
+		endwhile; endif; ?>
 
-	<?php if ( have_posts() ) : while ( have_posts() ) : the_post();
+	</div>
 
-		get_template_part( 'partials/content', 'single' );
+	<div class="gr-12 gr-3@md pull-9@md">
+		<?php get_template_part( 'partials/sidebar', 'secondary' ); ?>
+	</div>
 
-	endwhile; else :
-
-		get_template_part( 'partials/content', 'none' );
-
-	endif;
-
-get_template_part( 'partials/footer' ); ?>
+<?php get_template_part( 'partials/footer' ); ?>

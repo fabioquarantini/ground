@@ -4,10 +4,9 @@
 
 	1 - Register and enqueue css
 	2 - Register and enqueue js
-	3 - Hide WordPress Version Number from scripts and css
-	4 - Clean up head output
-	5 - Hide WordPress Version Number from RSS feed
-	6 - Remove recent comments style
+	3 - Clean up head output
+	4 - Disable emojis
+	5 - Remove login logo
 
 	==========================================================================  */
 
@@ -18,8 +17,7 @@
 
 function ground_enqueue_styles() {
 
-	wp_register_style( 'main-style', MY_THEME_FOLDER . '/css/main.css', array(), '1.0', 'all' ); // $handle, $src, $deps, $ver, $media
-	wp_enqueue_style( 'main-style' );
+	wp_enqueue_style( 'main-style', TEMPLATE_URL . '/css/main.css', array(), '1.0', 'all' );
 
 }
 
@@ -33,16 +31,12 @@ add_action( 'wp_enqueue_scripts', 'ground_enqueue_styles', 9 );
 function ground_enqueue_scripts() {
 
 	wp_deregister_script( 'jquery' );
-	wp_register_script('jquery', "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js", array(), null, true );
-	wp_enqueue_script( 'jquery' );
+	wp_enqueue_script( 'jquery', "https://code.jquery.com/jquery-1.12.4.min.js", array(), null, true );
 
-	wp_register_script( 'scripts', MY_THEME_FOLDER . '/js/scripts.min.js', array( 'jquery' ), '1.0', true ); // $handle, $src, $deps, $ver, $in_footer
-	wp_enqueue_script( 'scripts' );
+	wp_enqueue_script( 'scripts', TEMPLATE_URL . '/js/scripts.min.js', array( 'jquery' ), '1.0', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-
 		wp_enqueue_script( 'comment-reply' );
-
 	}
 
 }
@@ -51,69 +45,37 @@ add_action( 'wp_enqueue_scripts', 'ground_enqueue_scripts', 1 );
 
 
 /*  ==========================================================================
-	3 - Hide WordPress Version Number from scripts and css
-	==========================================================================  */
-
-function ground_remove_wp_ver_css_js( $src ) {
-
-	if ( strpos( $src, 'ver=' ) ) {
-
-		$src = remove_query_arg( 'ver', $src );
-
-	}
-
-	return $src;
-
-}
-
-add_filter( 'style_loader_src', 'ground_remove_wp_ver_css_js', 9999 );
-add_filter( 'script_loader_src', 'ground_remove_wp_ver_css_js', 9999 );
-
-
-/*  ==========================================================================
-	4 - Clean up head output
+	3 - Clean up head output
 	==========================================================================  */
 
 function ground_head_output() {
 
-	// This feature enables post and comment RSS feed links to head
+	// Enables RSS posts and comments
 	add_theme_support( 'automatic-feed-links' );
 
-	// Display relational links for the posts adjacent to the current post.
-	remove_action( 'wp_head', 'adjacent_posts_rel_link', 10, 0 );
+	// Allows themes to add document title tag to HTML <head>
+	add_theme_support( 'title-tag' );
 
-	// Links for Adjacent Posts Display relational links for the posts adjacent to the current post.
+	// Remove adjacent posts links to the current post
 	remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
 
-	// Display the links to the general feeds: Post and Comment Feed
-	remove_action( 'wp_head', 'feed_links', 2 );
-
-	// Display the links to the extra feeds such as category feeds
-	remove_action( 'wp_head', 'feed_links_extra', 3 );
-
-	// Index link
-	remove_action( 'wp_head', 'index_rel_link' );
-
-	// Previous link
-	remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );
-
-	// Rel canonical
-	remove_action( 'wp_head', 'rel_canonical' );
-
-	// EditURI link Display the link to the Really Simple Discovery service endpoint, EditURI link
+	// Remove the Really Simple Discovery service endpoint, EditURI link
 	remove_action( 'wp_head', 'rsd_link' );
 
-	// Start link
-	remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );
-
-	// Display the link to 	the Windows Live Writer manifest file.
+	// Remove the link to Windows Live Writer.
 	remove_action( 'wp_head', 'wlwmanifest_link' );
 
-	// Remove wp version
+	// Remove WordPress version
 	remove_action( 'wp_head', 'wp_generator' );
 
-	// Return a shortlink for a post, page, attachment, or blog
+	// Remove post, page, attachment shortlink
 	remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );
+
+	// Remove recent comments inline styles
+	add_filter( 'show_recent_comments_widget_style', '__return_false' );
+
+	// Remove rel canonical
+	//remove_action( 'wp_head', 'rel_canonical' );
 
 }
 
@@ -121,27 +83,57 @@ add_action( 'init', 'ground_head_output' );
 
 
 /*  ==========================================================================
-	5 - Hide WordPress Version Number from RSS feed
+	4 - Disable emojis
 	==========================================================================  */
 
-function ground_remove_rss_version() {
+function ground_disable_emojis() {
 
-	return '';
+	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+	remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+	remove_action( 'wp_print_styles', 'print_emoji_styles' );
+	remove_action( 'admin_print_styles', 'print_emoji_styles' );
+	remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+	remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+	remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+	add_filter( 'tiny_mce_plugins', 'ground_disable_emojis_tinymce' );
+	add_filter( 'wp_resource_hints', 'ground_disable_emojis_remove_dns_prefetch', 10, 2 );
 
 }
 
-add_filter( 'the_generator', 'ground_remove_rss_version' );
+function ground_disable_emojis_tinymce( $plugins ) {
+
+	if ( is_array( $plugins ) ) {
+		return array_diff( $plugins, array( 'wpemoji' ) );
+	} else {
+		return array();
+	}
+
+}
+
+function ground_disable_emojis_remove_dns_prefetch( $urls, $relation_type ) {
+
+	if ( 'dns-prefetch' == $relation_type ) {
+		$emoji_svg_url = apply_filters( 'emoji_svg_url', 'https://s.w.org/images/core/emoji/2/svg/' );
+		$urls = array_diff( $urls, array( $emoji_svg_url ) );
+	}
+
+	return $urls;
+
+}
+
+add_action( 'init', 'ground_disable_emojis' );
 
 
 /*  ==========================================================================
-	6 - Remove recent comments style
+	5 - Remove login logo
 	==========================================================================  */
 
-function ground_remove_comment_style() {
+function ground_login_css() { ?>
+	<style type="text/css">
+		#login h1 {
+			display: none;
+		}
+	</style>
+<?php }
 
-	global $wp_widget_factory;
-	remove_action( 'wp_head', array( $wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style' ) );
-
-}
-
-add_action( 'widgets_init', 'ground_remove_comment_style' );
+add_action( 'login_enqueue_scripts', 'ground_login_css' );

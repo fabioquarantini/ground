@@ -1,0 +1,28 @@
+@include breakpoint-styles('.overflow-visible') {
+	overflow: visible;
+}
+
+@include breakpoint-styles('.overflow-hidden') {
+	overflow: hidden;
+}
+
+// Prevent scrolling on element (fix for iOS)
+@include breakpoint-styles('.overflow-fixed') {
+	overflow: hidden;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+}
+
+@include breakpoint-styles('.overflow-scroll') {
+	overflow: scroll;
+}
+
+@include breakpoint-styles('.overflow-auto') {
+	overflow: auto;
+}
+
+// Smooth overflow scrolling in iOS
+@include breakpoint-styles('.overflow-scrolling') {
+	-webkit-overflow-scrolling: touch;
+}

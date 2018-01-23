@@ -1,0 +1,80 @@
+.button {
+	@include adjust-font-size-to(16px);
+	@include rhythm-borders(1px, 0.5);
+	@include apply-side-rhythm-border(left, 1px, 1);
+	@include apply-side-rhythm-border(right, 1px, 1);
+	padding-left: rhythm(1);
+	padding-right: rhythm(1);
+	margin: 0 0 rhythm(1) 0;
+	border-color: $color-primary;
+	background-color: $color-primary;
+	color: $color-white;
+	display: inline-block;
+	vertical-align: middle;
+	white-space: nowrap;
+	cursor: pointer;
+	transition: all .15s;
+	text-decoration: none;
+	text-align: center;
+
+	&--secondary {
+		background-color: $color-secondary;
+		color: $color-white;
+		border-color: $color-secondary;
+
+		&:hover,
+		&--active {
+			background-color: $color-primary;
+			color: $color-black;
+			border-color: $color-primary;
+		}
+
+	}
+
+	&:hover,
+	&--active {
+		background-color: $color-secondary;
+		color: $color-black;
+	}
+
+	&--small {
+		@include rhythm-borders(1px, 0.25);
+		margin-top: rhythm(0.25);
+		margin-bottom: rhythm(1.25);
+	}
+
+	&--large {
+		@include rhythm-borders(1px, 1);
+	}
+
+	&--rounded {
+		border-radius: rhythm(0.25);
+	}
+
+	&--full-width {
+		width: 100%;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	&--centered {
+		display: table;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	&--pill {
+		border-radius: 1000px;
+	}
+
+	&[disabled],
+	&.is-disabled {
+		opacity: 0.4;
+		cursor: not-allowed;
+	}
+
+	&:active {
+		outline: none;
+	}
+
+}

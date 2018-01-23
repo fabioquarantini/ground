@@ -1,0 +1,63 @@
+@mixin navicon-icon($width: 30px, $height: 3px, $gutter: 5px, $color: $color-black, $border-radius: 0, $transition-duration: .3s) {
+
+	position: relative;
+	margin-top: $height + $gutter;
+	margin-bottom: $height + $gutter;
+	user-select: none;
+	cursor: pointer;
+
+	&,
+	&:before,
+	&:after {
+		display: block;
+		width: $width;
+		height: $height;
+		background-color: $color;
+		transition-property: background-color, transform;
+		transition-duration: $transition-duration;
+		@if $border-radius != 0 {
+			border-radius: $border-radius;
+		}
+	}
+
+	&:before,
+	&:after {
+		position: absolute;
+		content: '';
+	}
+
+	&:before {
+		top: -( $height + $gutter );
+		box-sizing: content-box;
+	}
+
+	&:after {
+		top: $height + $gutter;
+	}
+
+	.is-active & {
+
+		& {
+			background-color: transparent;
+		}
+
+		@if ($color != auto) {
+
+			&:before,
+			&:after {
+				background-color: $color;
+			}
+
+		}
+
+		&:before {
+			transform: translateY($gutter + $height) rotate(45deg);
+		}
+
+		&:after {
+			transform: translateY(-($gutter + $height )) rotate(-45deg);
+		}
+
+	}
+
+}

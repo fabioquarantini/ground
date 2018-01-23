@@ -1,13 +1,19 @@
-html {
+html,
+body {
 	font-family: $font-primary;
-	font-size: em($font-base);
-	line-height: $line-height;
-	height: 100%;
-	color: $grey;
+	color: $color-black;
+	min-height: 100%;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	overflow-x: hidden;
+	// overflow-y: scroll; // Scrollbars always visible
+	// height: 100%;
 }
 
-body {
-	height: 100%;
+*,
+:before,
+:after {
+	box-sizing: border-box;
 }
 
 audio,
@@ -19,20 +25,13 @@ video {
 	vertical-align: middle;
 }
 
-*,
-:before,
-:after {
-	box-sizing: border-box;
-}
-
-::selection {
- 	background: $color-selection;
-	text-shadow: none;
-}
-
 img,
 video,
 object {
 	height: auto;
 	max-width: 100%;
+}
+
+figure {
+	margin: 0;
 }

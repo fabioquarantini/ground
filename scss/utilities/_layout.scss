@@ -1,0 +1,54 @@
+// Clearfix: contain floats
+@include breakpoint-styles('.clear-fix') {
+
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+	}
+
+	&:after {
+		clear: both;
+	}
+
+}
+
+// Clear
+@include breakpoint-styles('.clear-both') {
+	clear: both;
+}
+
+@include breakpoint-styles('.clear-left') {
+	clear: left;
+}
+
+@include breakpoint-styles('.clear-right') {
+	clear: right;
+}
+
+@include breakpoint-styles('.clear-none') {
+	clear: none;
+}
+
+// Floats
+@include breakpoint-styles('.float-left') {
+	float: left;
+}
+
+@include breakpoint-styles('.float-right') {
+	float: right;
+}
+
+@include breakpoint-styles('.float-none') {
+	float: none;
+}
+
+// Column
+@for $i from 0 through 4 {
+
+	@include breakpoint-styles('.column--#{$i}') {
+		column-count: $i;
+		column-gap: rhythm(1);
+	}
+
+}

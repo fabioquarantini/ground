@@ -67,13 +67,14 @@ sitemap.*
 
 
 #########################################
-# Sublime Text
+# Editors
 #########################################
 
 sftp-config.json
+sftp-config-alt.json
+*.sublime-workspace
 .ftpconfig
 .remote-sync.json
-*.sublime-workspace
 
 
 #########################################

@@ -1,0 +1,19 @@
+@include breakpoint-styles('.border--0') {
+	border: 0;
+}
+
+@include breakpoint-styles('.border-top--0') {
+	border-top: 0;
+}
+
+@include breakpoint-styles('.border-bottom--0') {
+	border-bottom: 0;
+}
+
+@include breakpoint-styles('.border-left--0') {
+	border-left: 0;
+}
+
+@include breakpoint-styles('.border-right--0') {
+	border-right: 0;
+}

@@ -1,37 +1,27 @@
-<?php
-
-// Name of the thumbnails set in add_image_size
-$thumbnail = 'thumb-slider-primary';
-
-$args = array(
-	'post_type' => 'ground_slider',
-	'posts_per_page' => '10',
-	'slide-category' => ''
-);
-
-$slider_posts = new WP_Query( $args );
-
-if( $slider_posts->have_posts() ) { ?>
-
-	<div class="slider slider--primary js-slider--primary">
-
-		<?php while( $slider_posts->have_posts() ) : $slider_posts->the_post() ?>
-
-			<div class="slider__item">
-				<?php the_post_thumbnail( $thumbnail, array( 'class' => 'slider__img') );
-				if( $post->post_content != "" ) {
-					echo '<div class="slider__caption">';
-					the_content();
-					echo '</div><!-- End .slider__caption -->';
-				} ?>
-			</div><!-- End .slider__item -->
-
-		<?php endwhile ?>
-
-	</div><!-- End .slider- -primary -->
-
-<?php }
-
-wp_reset_postdata();
-
-?>
+<!-- TODO: Dynamic content -->
+<div class="slider slider--primary owl-carousel full-viewport js-slider">
+	<div class="slider__item">
+		<img class="slider__img" src="http://via.placeholder.com/1920x1080">
+		<div class="slider__body">
+			<h3 class="slider__title">Title</h3>
+			<p class="slider__text">Text</p>
+			<a class="slider__btn button" href="#">More</a>
+		</div>
+	</div>
+	<div class="slider__item">
+		<img class="slider__img" src="http://via.placeholder.com/1920x1080">
+		<div class="slider__body">
+			<h3 class="slider__title">Title</h3>
+			<p class="slider__text">Text</p>
+			<a class="slider__btn button" href="#">More</a>
+		</div>
+	</div>
+	<div class="slider__item">
+		<img class="slider__img" src="http://via.placeholder.com/1920x1080">
+		<div class="slider__body">
+			<h3 class="slider__title">Title</h3>
+			<p class="slider__text">Text</p>
+			<a class="slider__btn button" href="#">More</a>
+		</div>
+	</div>
+</div>

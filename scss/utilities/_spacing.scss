@@ -1,0 +1,41 @@
+// Margin
+@for $i from 0 through 5 {
+
+	@include breakpoint-styles('.margin-top--#{$i}') {
+		margin-top: rhythm($i);
+	}
+
+	@include breakpoint-styles('.margin-bottom--#{$i}') {
+		margin-bottom: rhythm($i);
+	}
+
+	@include breakpoint-styles('.margin-left--#{$i}') {
+		margin-left: rhythm($i);
+	}
+
+	@include breakpoint-styles('.margin-right--#{$i}') {
+		margin-right: rhythm($i);
+	}
+
+}
+
+// Padding
+@for $i from 0 through 5 {
+
+	@include breakpoint-styles('.padding-top--#{$i}') {
+		padding-top: rhythm($i);
+	}
+
+	@include breakpoint-styles('.padding-bottom--#{$i}') {
+		padding-bottom: rhythm($i);
+	}
+
+	@include breakpoint-styles('.padding-left--#{$i}') {
+		padding-left: rhythm($i);
+	}
+
+	@include breakpoint-styles('.padding-right--#{$i}') {
+		padding-right: rhythm($i);
+	}
+
+}

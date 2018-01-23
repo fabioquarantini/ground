@@ -1,0 +1,84 @@
+@include breakpoint-styles('.animate') {
+	animation-duration: 0.8s;
+	animation-fill-mode: both;
+}
+
+@include breakpoint-styles('.animate--infinite') {
+	animation-iteration-count: infinite;
+}
+
+@include breakpoint-styles('.animate--fade-in') {
+	animation-name: fade-in;
+}
+
+@include breakpoint-styles('.animate--fade-in-up') {
+	animation-name: fade-in-up;
+}
+
+@include breakpoint-styles('.animate--fade-in-right') {
+	animation-name: fade-in-right;
+}
+
+@include breakpoint-styles('.animate--fade-in-down') {
+	animation-name: fade-in-down;
+}
+
+@include breakpoint-styles('.animate--fade-in-left') {
+	animation-name: fade-in-left;
+}
+
+@include breakpoint-styles('.animate--fade-out') {
+	animation-name: fade-out;
+}
+
+@include breakpoint-styles('.animate--fade-out-up') {
+	animation-name: fade-out-up;
+}
+
+@include breakpoint-styles('.animate--fade-out-right') {
+	animation-name: fade-out-right;
+}
+
+@include breakpoint-styles('.animate--fade-out-down') {
+	animation-name: fade-out-down;
+}
+
+@include breakpoint-styles('.animate--fade-out-left') {
+	animation-name: fade-out-left;
+}
+
+@include breakpoint-styles('.animate--slide-in-up') {
+	animation-name: slide-in-up;
+}
+
+@include breakpoint-styles('.animate--slide-in-right') {
+	animation-name: slide-in-right;
+}
+
+@include breakpoint-styles('.animate--slide-in-down') {
+	animation-name: slide-in-down;
+}
+
+@include breakpoint-styles('.animate--slide-in-left') {
+	animation-name: slide-in-left;
+}
+
+@include breakpoint-styles('.animate--slide-out-up') {
+	animation-name: slide-out-up;
+}
+
+@include breakpoint-styles('.animate--slide-out-right') {
+	animation-name: slide-out-right;
+}
+
+@include breakpoint-styles('.animate--slide-out-down') {
+	animation-name: slide-out-down;
+}
+
+@include breakpoint-styles('.animate--slide-out-left') {
+	animation-name: slide-out-left;
+}
+
+@include breakpoint-styles('.animate--shake') {
+	animation-name: shake;
+}

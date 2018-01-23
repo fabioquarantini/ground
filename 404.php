@@ -1,11 +1,16 @@
 <?php get_template_part( 'partials/header' ); ?>
 
-<section class="error" id="main-content" role="main">
+<article class="page page--404">
 
-	<h1 class="error__title"><?php _e( 'Not found', 'ground' ); ?></h1>
-	<p><?php _e( 'It looks like nothing was found at this location. Maybe try a search?', 'ground' ); ?></p>
-	<p><?php get_search_form(); ?></p>
+	<header class="page__header">
+		<h1 class="page__title"><?php _e( 'Oops!', 'ground' ); ?></h1>
+	</header>
 
-</section> <!-- End .error -->
+	<div class="page__body">
+		<h3><?php _e( "The page you're looking for can't be found", 'ground' ); ?></h3>
+		<p><em><?php _e( "Error code: 404", 'ground' ); ?></em></p>
+	</div> <!-- End .page__body -->
+
+</article> <!-- End .page -->
 
 <?php get_template_part( 'partials/footer' ); ?>

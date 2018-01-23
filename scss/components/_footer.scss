@@ -1,0 +1,24 @@
+.footer {
+	padding: rhythm(2);
+	background-color: $color-grey;
+}
+
+.footer__bottom {
+	margin-top: rhythm(1);
+}
+
+.footer__column {
+	margin-bottom: rhythm(1);
+	@include media('>=md') {
+		margin:0;
+	}
+}
+
+.footer__content,
+.footer__item {
+	@include adjust-font-size-to(16px);
+	color:$color-white;
+	@include media('>=md') {
+		color:$color-secondary;
+	}
+}

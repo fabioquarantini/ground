@@ -1,67 +1,68 @@
-<?php
-
-if ( post_password_required() ) {
+<!-- TODO: Update BEM class -->
+<?php if ( post_password_required() ) {
 	return;
-}
+} ?>
+<div class="comments">
 
-?>
+	<?php if ( have_comments() ) { ?>
 
-<?php if ( have_comments() ) { ?>
+		<?php $comment_template = function($comment, $args, $depth) { ?>
 
-	<?php
-	$args = array(
-		'walker'			=> null,
-		'max_depth'			=> '',
-		'style'				=> 'ol',
-		'callback'			=> null,
-		'end-callback'		=> null,
-		'type'				=> 'comment',
-		'reply_text'		=> __( 'Reply', 'ground' ),
-		'login_text'		=> __( 'Log in to Reply', 'ground' ),
-		'page'				=> '',
-		'per_page'			=> '',
-		'avatar_size'		=> 74,
-		'reverse_top_level'	=> null,
-		'reverse_children'	=> '',
-		'format'			=> 'html5',
-		'short_ping'		=> false
-	);
-	?>
+			<li class="comments__item">
 
-	<ol class="comments-list">
-		<?php wp_list_comments( $args, $comments ); ?>
-	</ol> <!-- End .comments-list -->
+				<!-- TODO: Update BEM class -->
+				<article class="comments__body comments__body--<?php comment_ID() ?> <?php empty( $args['has_children'] ) ? '' : 'comments__body--parent' ?>" id="comment-<?php comment_ID() ?>">
 
-<?php }
-if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) { ?>
+					<?php if ( $args['avatar_size'] != 0 ) {
+						echo get_avatar( $comment, $args['avatar_size'], '', false, array( 'class' => array( 'comments__img' ) ) );
+					} ?>
 
-	<p class="comments-close"><?php _e( 'Comments are closed.' , 'ground' ); ?></p> <!-- End .no-comments -->
+					<span class="comments__author"><?php echo get_comment_author(); ?></span>
+					<time class="comments__date" datetime="<?php echo get_comment_date('c'); ?>"><?php printf( __('%1$s at %2$s'), get_comment_date(),  get_comment_time() ); ?></time>
+					<a class="comments__edit" href="<?php echo get_edit_comment_link(); ?>"><?php _e( '(Edit)' ) ?></a>
 
-<?php }
+					<?php if ( $comment->comment_approved == '0' ) : ?>
+						<?php _e( 'Your comment is awaiting moderation.' ); ?>
+					<?php endif; ?>
 
+					<div class="comments__content">
+						<?php comment_text(); ?>
+					</div>
 
-$commenter = wp_get_current_commenter();
-$req = get_option( 'require_name_email' );
-$aria_req = ( $req ? " aria-required='true'" : '' );
+					<div class="comments__reply">
+						<?php $reply_link = get_comment_reply_link( array_merge( $args, array(
+							'add_below' => 'comment',
+							'depth' => $depth,
+							'max_depth' => $args['max_depth']
+						) ) );
+						echo str_replace("comment-reply-link", "comments__reply-link", $reply_link); ?>
+					</div>
 
-$fields = array(
+				</article>
 
-	'author'	=> '<p class="comments-form-author"><label for="author" ' . ( $req ? 'class="required"' : '' ) . '>' . __( 'Name', 'ground' ) . '</label><input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' /></p>',
-	'email'	=> '<p class="comments-form-email"><label for="email" ' . ( $req ? 'class="required"' : '' ) . '>' . __( 'Email', 'ground' ) . '</label> <input id="email" name="email" type="text" value="' . esc_attr( $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /></p>',
-	'url'	=> '<p class="comments-form-url"><label for="url">' . __( 'Website', 'ground' ) . '</label>' . '<input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></p>',
+			<?php // Don't close <li> ?>
 
-);
+		<?php };
 
-$comments_args = array(
+		$args = array(
+			'max_depth'			=> '',
+			'style'				=> 'ol',
+			'callback'			=> $comment_template,
+			'type'				=> 'comment',
+			//'reply_text'		=> __( 'Reply', 'ground' ),
+			//'login_text'		=> __( 'Log in to Reply', 'ground' ),
+			'per_page'			=> '',
+			'avatar_size'		=> 74,
+		); ?>
 
-	'comment_field'	=> '<p class="comments-form-comment"><label for="comment">' . __( 'Comment', 'ground' ) . '</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
-	'fields'	=> apply_filters( 'comment_form_default_fields', $fields ),
-	//'comment_notes_before'	=> '',
-	//'comment_notes_after'	=> '',
-	'label_submit'	=> __( 'Post Comment' , 'ground'),
+		<h2 class="comments__title"><?php _e( 'Comments' , 'ground' ); ?></h2>
 
-);
+		<ol class="comments__list">
+			<?php wp_list_comments( $args ); ?>
+		</ol> <!-- End .comments-list -->
 
-comment_form( $comments_args );
+	<?php } ?>
 
-?>
+	<?php get_template_part( 'partials/comments', 'form' ); ?>
+
+</div> <!-- .comments -->

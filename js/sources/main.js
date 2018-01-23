@@ -1,66 +1,128 @@
 'use strict';
 
-jQuery.noConflict();
+var currentLanguage = $('html').attr('lang');
+var siteUrl = $('body').data('site-url');
+var templateUrl = $('body').data('template-url');
 
-jQuery( document ).ready( function( $ ) {
+$(document).ready(function() {
 
-	var siteInit = {
+	siteInit.slider();
+	siteInit.modal();
+	siteInit.toggleClass();
 
-		DOMready: function() {
+});
 
-			if ( $('.js-slider--primary').length > 0 ) {
-				siteInit.slider();
-			}
+$(window).on('load', function() {
+	// Load function
+});
 
-			if ( $('[href$=".jpg"], [href$=".png"], [href$=".gif"]').length > 0 ) {
-				siteInit.modal();
-			}
+$(window).scroll(function() {
+	// Scroll function
+});
 
-			if ( $('.js-navicon').length > 0 ) {
-				siteInit.mobileMenu();
-			}
+$(window).resize(function() {
 
-		},
+	if (window.matchMedia('(min-width: 992px)').matches) {
+		// The viewport is at least 992 pixels wide
+	}
 
-		// Slider
-		slider: function() {
+});
 
-			$(".js-slider--primary").slick({
-				dots: true,
-				speed: 500
-			});
+var siteInit = {
+	// Slider
+	slider: function() {
 
-		},
+		var $el = $('.js-slider');
 
-		// Modal
-		modal: function() {
+		if ($el.length == 0) {
 
-			$('[href$=".jpg"], [href$=".png"], [href$=".gif"]').colorbox({
-				transition: 'elastic',
-				speed: 400,
-				opacity: 0.8,
-				slideshow: true,
-				slideshowSpeed: 4000,
-				itemsnitialWidth: 50,
-				initialHeight: 50,
-				maxWidth: '90%',
-				maxHeight: '90%',
-			});
-
-		},
-
-		// Mobile menu
-		mobileMenu: function() {
-
-			$('body').on( 'click', '.js-navicon', function() {
-				$(this).toggleClass('navicon--active');
-				$('.navigation--primary').toggleClass('navigation--open');
-			});
+			return;
 
 		}
 
-	};
+		$el.owlCarousel({
+			loop: false,
+			dots: true,
+			margin: 0,
+			center: false,
+			stagePadding: 0,
+			responsiveClass: true,
+			responsive: {
+				0: {
+					autoplay: true,
+					nav: false,
+					items: 1,
+					dots: true
+				},
+				992: {
+					items: 1,
+					nav: true,
+					dots: false
+				}
+			}
+		});
 
-	siteInit.DOMready();
+	},
 
-});
+	// Modal
+	modal: function() {
+
+		var $el = $('[href$=".jpg"], [href$=".png"], [href$=".gif"], [href$=".jpeg"], [href$=".webp"]');
+
+		if ($el.length == 0) {
+
+			return;
+
+		}
+
+		$el.fancybox();
+
+	},
+
+	// Toggle class
+	toggleClass: function() {
+
+		var elName = '.js-toggle-class';
+		var $el = $(elName);
+
+		if ($el.length == 0) {
+
+			return;
+
+		}
+
+		$('body').on('click', elName, function(event) {
+
+			event.preventDefault();
+			var $elCliked = $(this);
+			var toggleClassName = 'is-active';
+
+			// Add data-toggle-class-name="customclass" to change the default class name
+			if ($elCliked.attr('data-toggle-class-name')) {
+
+				toggleClassName = $elCliked.data('toggle-class-name');
+
+			}
+
+			// Add data-toggle-class-selector="selector1 selector2" to toggle class on different tag
+			if ($elCliked.attr('data-toggle-class-selector')) {
+
+				var toggleClassSelector = $elCliked.data('toggle-class-selector');
+				var obj = toggleClassSelector.split(' ');
+
+				$.each(obj, function(index, value) {
+
+					$('.' + value).toggleClass(toggleClassName);
+
+				});
+
+			} else {
+
+				$elCliked.toggleClass(toggleClassName);
+
+			}
+
+		});
+
+	}
+};

@@ -1,25 +1,25 @@
 <?php get_template_part( 'partials/header' ); ?>
 
-	<section class="blog" id="main-content" role="main">
+	<?php get_template_part( 'partials/slider', 'primary' ); ?>
 
-		<h1 class="blog__title"><?php single_post_title(); ?></h1>
+	<section class="page">
 
-		<?php if ( have_posts() ) : while ( have_posts() ) : the_post();
+		<header class="page__header">
+			<h1 class="page__title"><?php single_post_title(); ?></h1>
+		</header>
 
-			get_template_part( 'partials/content', 'abstract' );
+		<div class="page__body">
+			<?php if ( have_posts() ) : while ( have_posts() ) : the_post();
 
-		endwhile;
+				get_template_part( 'partials/abstract', 'post' );
 
-			get_template_part( 'partials/pagination', 'numeric' );
+			endwhile;
 
-		else :
+				get_template_part( 'partials/pagination' );
 
-			get_template_part( 'partials/content', 'none' );
+			endif; ?>
+		</div> <!-- End .page__body -->
 
-		endif; ?>
+	</section> <!-- End .page -->
 
-	</section> <!-- End .blog -->
-
-	<?php get_template_part( 'partials/sidebar', 'secondary' );
-
-get_template_part( 'partials/footer' ); ?>
+<?php get_template_part( 'partials/footer' ); ?>

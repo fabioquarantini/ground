@@ -1,0 +1,48 @@
+// CSS triangles : @include triangle( top, $color-black, 15px )
+@mixin triangle($direction: top, $color: $color-black, $size: 15px) {
+
+	height: 0;
+	width: 0;
+	border-style: solid;
+
+	@if( $direction == top ) {
+		border-width: 0 $size $size $size;
+		border-color: transparent transparent $color transparent;
+	}
+
+	@if( $direction == top-right ) {
+		border-width: 0 $size $size 0;
+		border-color: transparent $color transparent transparent;
+	}
+
+	@if( $direction == right ) {
+		border-width: $size 0 $size $size;
+		border-color: transparent transparent transparent $color;
+	}
+
+	@if( $direction == bottom-right ) {
+		border-width: 0 0 $size $size;
+		border-color: transparent transparent $color transparent;
+	}
+
+	@if( $direction == bottom ) {
+		border-width: $size $size 0 $size;
+		border-color: $color transparent transparent transparent;
+	}
+
+	@if( $direction == bottom-left ) {
+		border-width: $size 0 0 $size;
+		border-color: transparent transparent transparent $color;
+	}
+
+	@if( $direction == left ) {
+		border-width: $size $size $size 0;
+		border-color: transparent $color transparent transparent;
+	}
+
+	@if( $direction == top-left ) {
+		border-width: $size $size 0 0;
+		border-color: $color transparent transparent transparent;
+	}
+
+}

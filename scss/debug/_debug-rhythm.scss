@@ -1,0 +1,8 @@
+// Debug vertical rhythm
+@if $debug-rhythm {
+
+	body {
+		@include debug-vertical-alignment;
+	}
+
+}

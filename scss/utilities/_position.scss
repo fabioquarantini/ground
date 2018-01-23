@@ -1,0 +1,64 @@
+@include breakpoint-styles('.position-absolute') {
+	position: absolute;
+}
+
+@include breakpoint-styles('.position-relative') {
+	position: relative;
+}
+
+@include breakpoint-styles('.position-static') {
+	position: static;
+}
+
+@include breakpoint-styles('.position-fixed') {
+	position: fixed;
+	backface-visibility: hidden;
+}
+
+// Centered
+@include breakpoint-styles('.centered') {
+	@include centered();
+}
+
+@include breakpoint-styles('.centered--horizontal') {
+	@include centered( true, false );
+}
+
+@include breakpoint-styles('.centered--vertical') {
+	@include centered( false, true );
+}
+
+// Fit an element to the dimensions of its parent
+@include breakpoint-styles('.fit') {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	top: 0;
+	margin: auto;
+}
+
+// Full width
+@include breakpoint-styles('.full-width') {
+	width: 100%;
+}
+
+// Fixes an element over the viewport
+@include breakpoint-styles('.full-screen') {
+	position: fixed;
+	backface-visibility: hidden;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	top: 0;
+	margin: auto;
+}
+
+// Full Viewport
+@include breakpoint-styles('.full-viewport') {
+	width: 100vw;
+	transform: translateX(-50%);
+	margin-left: 50%;
+	margin-right: 0;
+	max-width: none;
+}

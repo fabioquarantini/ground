@@ -3,10 +3,10 @@
 /*  ==========================================================================
 
 	1 - Mail antispambot : [email]you@you.com[/email]
-	2 - Google maps : [googlemap width="200" height="200" src="[url]"] or [googlemap src="google_map_url"]
-	3 - Button : [button href="link" target="_blank" class="button--primary"]Button text[/button]
-	4 - Tag <pre> : [pre]content[/pre]
-	5 - Content only for logged in user : [loggedin]content[/loggedin]
+	2 - Google maps : [map ratio="16-9" width="200" height="200" src="[url]"] or [map src="[url]"]
+	3 - Button : [button link="link" target="_blank" class="button button--primary"]Button text[/button]
+	4 - Content only for logged in user : [loggedin]content[/loggedin]
+	5 - Get variables from url : [get variable="name"]
 
 	==========================================================================  */
 
@@ -15,45 +15,53 @@
 	1 - Mail antispambot : [email]you@you.com[/email]
 	==========================================================================  */
 
-function ground_emailbot( $atts, $content = null ) {
-	if ( ! is_email ($content) ) {
+function ground_shortcode_antispambot( $atts, $content = null ) {
+
+	if ( !is_email ($content) ) {
 		return;
 	}
-	return '<a href="mailto:' . antispambot($content) . '" class="mail" >' . antispambot($content) . '</a>';
+
+	return '<a href="mailto:' . antispambot($content) . '" class="link link--mail" >' . antispambot($content) . '</a>';
+
 }
 
-add_shortcode( 'email', 'ground_emailbot' );
+add_shortcode( 'email', 'ground_shortcode_antispambot' );
 
 
 /*  ==========================================================================
-	2 - Google maps : [googlemaps width="200" height="200" src="[url]"] or [googlemaps src="google_map_url"]
+	2 - Google maps : [map ratio="16-9" width="200" height="200" src="[url]"] or [map src="[url]"]
 	==========================================================================  */
 
-function ground_maps( $atts, $content = null ) {
+function ground_shortcode_map( $atts, $content = null ) {
 
 	$args = array(
 		"width"		=> '640',
 		"height"	=> '480',
-		"src"		=> ''
+		"src"		=> '',
+		"ratio"		=> ''
 	);
 
 	extract(shortcode_atts( $args , $atts));
 
-	return '<iframe width="' . $width . '" height="' . $height . '" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="' . $src . '&amp;output=embed"></iframe>';
+	if ( empty($ratio) ) {
+		return '<iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="' . $src . '&amp;output=embed"></iframe>';
+	} else {
+		return '<div class="ratio--' . $ratio . '"><iframe width="' . $width . '" height="' . $height . '" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="' . $src . '&amp;output=embed"></iframe></div>';
+	}
 
 }
 
-add_shortcode("googlemaps", "ground_maps");
+add_shortcode("map", "ground_shortcode_map");
 
 
 /*  ==========================================================================
-	3 - Button : [button href="link" target="_blank" class="button--primary"]Button text[/button]
+	3 - Button : [button link="link" target="_blank" class="button button--primary"]Button text[/button]
 	==========================================================================  */
 
-function ground_button( $atts, $content = null ) {
+function ground_shortcode_button( $atts, $content = null ) {
 
 	$args = array(
-		'href'		=> '',
+		'link'		=> '',
 		'target'	=> '',
 		'class'	=> ''
 	);
@@ -63,38 +71,57 @@ function ground_button( $atts, $content = null ) {
 	if ( empty($target)) {
 		$target = '';
 	} else {
-		$target = 'target="' . $target . '"';
+		$target = ' target="' . $target . '"';
 	}
 
-	return '<a href="' . $href . '" class="button ' . $class .'"'. $target .'>' . do_shortcode($content) . '</a>';
+	if ( empty($class)) {
+		$class = '';
+	} else {
+		$class = ' class="' . $class . '"';
+	}
+
+	return '<a href="' . $link . '"' . $class . $target .'>' . do_shortcode($content) . '</a>';
 
 }
 
-add_shortcode('button', 'ground_button');
+add_shortcode('button', 'ground_shortcode_button');
 
 
 /*  ==========================================================================
-	4 - Tag <pre> : [pre]content[/pre]
+	4 - Content only for logged in user : [loggedin]content[/loggedin]
 	==========================================================================  */
 
-function ground_pre( $atts, $content = null ) {
+function ground_shortcode_logged_in( $atts, $content = null ) {
 
-	return '<pre>' . do_shortcode($content) . '</pre>';
-
-}
-
-add_shortcode('pre', 'ground_pre');
-
-
-/*  ==========================================================================
-	5 - Content only for logged in user : [loggedin]content[/loggedin]
-	==========================================================================  */
-
-function ground_logged_in( $atts, $content = null ) {
 	if ( is_user_logged_in() ) {
 		return do_shortcode($content);
+	} else {
+		return;
 	}
-	else return;
+
 }
 
-add_shortcode( 'loggedin', 'ground_logged_in' );
+add_shortcode( 'loggedin', 'ground_shortcode_logged_in' );
+
+
+/*  ==========================================================================
+	5 - Get variables from url : [get variable="name"]
+	==========================================================================  */
+
+function ground_shortcode_get( $atts, $content = null ) {
+
+	$args = array(
+		"variable"	=> ''
+	);
+
+	extract(shortcode_atts( $args , $atts));
+
+	if ( isset($_GET[$variable]) ) {
+		return $_GET[$variable];
+	} else {
+		return;
+	}
+
+}
+
+add_shortcode( 'get', 'ground_shortcode_get' );

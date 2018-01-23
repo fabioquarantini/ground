@@ -1,25 +1,29 @@
 <?php get_template_part( 'partials/header' ); ?>
 
-	<section class="search" id="main-content" role="main">
+	<section class="page page--search">
 
-		<h1 class="search__title"><?php _e( 'Search results:', 'ground' ); ?></h1>
+		<header class="page__header">
+			<h1 class="page__title"><?php _e( 'Search results:', 'ground' ); ?></h1>
+		</header>
 
-		<?php if ( have_posts() ) : while ( have_posts() ) : the_post();
+		<div class="page__body">
 
-			get_template_part( 'partials/content', 'abstract' );
+			<?php if ( have_posts() ) : while ( have_posts() ) : the_post();
 
-		endwhile;
+				get_template_part( 'partials/abstract', 'post' );
 
-			get_template_part( 'partials/pagination', 'numeric' );
+			endwhile;
 
-		else :
+				get_template_part( 'partials/pagination' );
 
-			get_template_part( 'partials/content', 'none' );
+			else : ?>
 
-		endif; ?>
+				<p><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'ground' ); ?></p>
 
-	</section> <!-- End .search -->
+			<?php endif; ?>
 
-	<?php get_template_part( 'partials/sidebar', 'secondary' );
+		</div> <!-- End .page__body -->
 
-get_template_part( 'partials/footer' ); ?>
+	</section> <!-- End .page -->
+
+<?php get_template_part( 'partials/footer' ); ?>

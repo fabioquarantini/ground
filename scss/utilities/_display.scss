@@ -1,0 +1,63 @@
+@include breakpoint-styles('.display-block') {
+	display: block;
+}
+
+@include breakpoint-styles('.display-inline') {
+	display: inline;
+}
+
+@include breakpoint-styles('.display-inline-block') {
+	display: inline-block;
+}
+
+@include breakpoint-styles('.display-table') {
+	display: table;
+}
+
+@include breakpoint-styles('.display-table-cell') {
+	display: table-cell;
+}
+
+@include breakpoint-styles('.display-table-row') {
+	display: table-row;
+}
+
+// Hide visually and from screen readers
+@include breakpoint-styles('.display-none') {
+	display: none;
+}
+
+// Hide only visually, but have it available for screen readers
+@include breakpoint-styles('.display-none-visually') {
+	border: 0;
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	white-space: nowrap;
+}
+
+// Hide visually and from screen readers, but maintain layout
+@include breakpoint-styles('.display-invisible') {
+	visibility: hidden;
+}
+
+// Image replacement
+@include breakpoint-styles('.image-replacement') {
+	background-color: transparent;
+	border: 0;
+	overflow: hidden;
+	*text-indent: -9999px;
+
+	&:before {
+		content: "";
+		display: block;
+		width: 0;
+		height: 150%;
+	}
+
+}

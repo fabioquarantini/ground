@@ -1,0 +1,55 @@
+@include breakpoint-styles('.color-primary') {
+	color: $color-primary;
+}
+
+@include breakpoint-styles('.color-secondary') {
+	color: $color-secondary;
+}
+
+@include breakpoint-styles('.color-success') {
+	color: $color-success;
+}
+
+@include breakpoint-styles('.color-warning') {
+	color: $color-warning;
+}
+
+@include breakpoint-styles('.color-error') {
+	color: $color-error;
+}
+
+@include breakpoint-styles('.color-white') {
+	color: $color-white;
+}
+
+@include breakpoint-styles('.color-black') {
+	color: $color-black;
+}
+
+@include breakpoint-styles('.background-primary') {
+	background-color: $color-primary;
+}
+
+@include breakpoint-styles('.background-secondary') {
+	background-color: $color-secondary;
+}
+
+@include breakpoint-styles('.background-success') {
+	background-color: $color-success;
+}
+
+@include breakpoint-styles('.background-warning') {
+	background-color: $color-warning;
+}
+
+@include breakpoint-styles('.background-error') {
+	background-color: $color-error;
+}
+
+@include breakpoint-styles('.background-white') {
+	background-color: $color-white;
+}
+
+@include breakpoint-styles('.background-black') {
+	background-color: $color-black;
+}
