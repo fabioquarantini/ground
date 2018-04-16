@@ -5,7 +5,7 @@
 		<footer class="footer">
 			<div class="container">
 
-				<div class="footer__row row">
+				<div class="footer__row clear-fix">
 					<div class="footer__column text-center text-left@md gr-6@md">
 						<?php get_template_part( 'partials/navigation', 'secondary' ); ?>
 					</div>
@@ -15,7 +15,7 @@
 					</div>
 				</div> <!-- End .footer__row -->
 
-				<div class="footer__row row">
+				<div class="footer__row clear-fix">
 					<div class="footer__column gr-11@md">
 						<div class="footer__content text-center text-left@xl">
 							<span class="footer__item">Organization name</span> -
