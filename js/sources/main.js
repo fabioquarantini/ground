@@ -45,6 +45,7 @@ var siteInit = {
 			dots: true,
 			margin: 0,
 			center: false,
+			autoHeight: false,
 			stagePadding: 0,
 			responsiveClass: true,
 			responsive: {
