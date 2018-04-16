@@ -14,6 +14,10 @@
 	text-transform: capitalize;
 };
 
+@include breakpoint-styles('.text-transform-none') {
+	text-transform: none;
+};
+
 @include breakpoint-styles('.text-underline') {
 	text-decoration: underline;
 };
