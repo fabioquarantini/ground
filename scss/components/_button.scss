@@ -39,6 +39,8 @@
 
 	&--small {
 		@include rhythm-borders(1px, 0.25);
+		padding-left: rhythm(1);
+		padding-right: rhythm(1);
 		margin-top: rhythm(0.25);
 		margin-bottom: rhythm(1.25);
 	}
