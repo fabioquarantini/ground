@@ -1,7 +1,7 @@
 <?php
 $current_id = $post->ID;
 $parent = array_reverse( get_post_ancestors($current_id) );
-$children = get_pages("child_of=' . $current_id . '");
+$children = get_pages('child_of=' . $current_id );
 $count_parent = count($parent);
 $count_children = count($children);
 
