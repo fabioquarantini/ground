@@ -36,7 +36,7 @@ get_template_part( 'partials/header' ); ?>
 
 					$taxonomies = get_terms( 'ground_catalog_taxonomy', $taxonomies_args );
 
-					// Show categories
+					// Categories
 					if ( !empty( $taxonomies ) && !is_wp_error( $taxonomies ) ) :
 
 						foreach ( $taxonomies as $taxonomy ) {
@@ -51,7 +51,7 @@ get_template_part( 'partials/header' ); ?>
 
 						<?php }
 
-					// Show products
+					// Products
 					else :
 
 						$catalog_args = array(
