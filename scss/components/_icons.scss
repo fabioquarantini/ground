@@ -1,0 +1,464 @@
+@font-face {
+	font-family: "icons";
+	src: url('../fonts/icons.eot');
+	src: url('../fonts/icons.eot?#iefix') format('eot'),
+		url('../fonts/icons.woff2') format('woff2'),
+		url('../fonts/icons.woff') format('woff'),
+		url('../fonts/icons.ttf') format('truetype'),
+		url('../fonts/icons.svg#icons') format('svg');
+}
+
+@mixin icon-styles {
+	font-family: "icons";
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	// speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+	text-decoration: none;
+	text-transform: none;
+}
+
+%icon {
+	@include icon-styles;
+}
+
+@function icon-char($filename) {
+	$char: "";
+
+	@if $filename == alert-circle {
+		$char: "\E001";
+	}
+	@if $filename == alert-triangle {
+		$char: "\E002";
+	}
+	@if $filename == arrow-down-circle {
+		$char: "\E003";
+	}
+	@if $filename == arrow-down {
+		$char: "\E004";
+	}
+	@if $filename == arrow-left-circle {
+		$char: "\E005";
+	}
+	@if $filename == arrow-left {
+		$char: "\E006";
+	}
+	@if $filename == arrow-right-circle {
+		$char: "\E007";
+	}
+	@if $filename == arrow-right {
+		$char: "\E008";
+	}
+	@if $filename == arrow-up-circle {
+		$char: "\E009";
+	}
+	@if $filename == arrow-up {
+		$char: "\E00A";
+	}
+	@if $filename == award {
+		$char: "\E00B";
+	}
+	@if $filename == calendar {
+		$char: "\E00C";
+	}
+	@if $filename == camera-off {
+		$char: "\E00D";
+	}
+	@if $filename == camera {
+		$char: "\E00E";
+	}
+	@if $filename == check-circle {
+		$char: "\E00F";
+	}
+	@if $filename == check {
+		$char: "\E010";
+	}
+	@if $filename == chevron-down {
+		$char: "\E011";
+	}
+	@if $filename == chevron-left {
+		$char: "\E012";
+	}
+	@if $filename == chevron-right {
+		$char: "\E013";
+	}
+	@if $filename == chevron-up {
+		$char: "\E014";
+	}
+	@if $filename == clock {
+		$char: "\E015";
+	}
+	@if $filename == file-text {
+		$char: "\E016";
+	}
+	@if $filename == file {
+		$char: "\E017";
+	}
+	@if $filename == filter {
+		$char: "\E018";
+	}
+	@if $filename == folder {
+		$char: "\E019";
+	}
+	@if $filename == grid {
+		$char: "\E01A";
+	}
+	@if $filename == heart {
+		$char: "\E01B";
+	}
+	@if $filename == help-circle {
+		$char: "\E01C";
+	}
+	@if $filename == home {
+		$char: "\E01D";
+	}
+	@if $filename == image {
+		$char: "\E01E";
+	}
+	@if $filename == info {
+		$char: "\E01F";
+	}
+	@if $filename == list {
+		$char: "\E020";
+	}
+	@if $filename == lock {
+		$char: "\E021";
+	}
+	@if $filename == log-in {
+		$char: "\E022";
+	}
+	@if $filename == log-out {
+		$char: "\E023";
+	}
+	@if $filename == mail {
+		$char: "\E024";
+	}
+	@if $filename == map-pin {
+		$char: "\E025";
+	}
+	@if $filename == map {
+		$char: "\E026";
+	}
+	@if $filename == maximize-2 {
+		$char: "\E027";
+	}
+	@if $filename == maximize {
+		$char: "\E028";
+	}
+	@if $filename == menu {
+		$char: "\E029";
+	}
+	@if $filename == message-circle {
+		$char: "\E02A";
+	}
+	@if $filename == message-square {
+		$char: "\E02B";
+	}
+	@if $filename == minimize-2 {
+		$char: "\E02C";
+	}
+	@if $filename == minus-circle {
+		$char: "\E02D";
+	}
+	@if $filename == minus {
+		$char: "\E02E";
+	}
+	@if $filename == more-horizontal {
+		$char: "\E02F";
+	}
+	@if $filename == more-vertical {
+		$char: "\E030";
+	}
+	@if $filename == move {
+		$char: "\E031";
+	}
+	@if $filename == pause-circle {
+		$char: "\E032";
+	}
+	@if $filename == pause {
+		$char: "\E033";
+	}
+	@if $filename == play-circle {
+		$char: "\E034";
+	}
+	@if $filename == play {
+		$char: "\E035";
+	}
+	@if $filename == plus-circle {
+		$char: "\E036";
+	}
+	@if $filename == plus {
+		$char: "\E037";
+	}
+	@if $filename == power {
+		$char: "\E038";
+	}
+	@if $filename == printer {
+		$char: "\E039";
+	}
+	@if $filename == refresh-ccw {
+		$char: "\E03A";
+	}
+	@if $filename == refresh-cw {
+		$char: "\E03B";
+	}
+	@if $filename == shopping-cart {
+		$char: "\E03C";
+	}
+	@if $filename == star {
+		$char: "\E03D";
+	}
+	@if $filename == trash-2 {
+		$char: "\E03E";
+	}
+	@if $filename == trash {
+		$char: "\E03F";
+	}
+	@if $filename == unlock {
+		$char: "\E040";
+	}
+	@if $filename == user {
+		$char: "\E041";
+	}
+	@if $filename == users {
+		$char: "\E042";
+	}
+	@if $filename == x-circle {
+		$char: "\E043";
+	}
+	@if $filename == x {
+		$char: "\E044";
+	}
+	@if $filename == zoom-in {
+		$char: "\E045";
+	}
+	@if $filename == zoom-out {
+		$char: "\E046";
+	}
+
+	@return $char;
+}
+
+@mixin icon($filename, $insert: before, $extend: true) {
+	&:#{$insert} {
+		@if $extend {
+			@extend %icon;
+		} @else {
+			@include icon-styles;
+		}
+		content: icon-char($filename);
+	}
+}
+
+.icon-alert-circle {
+	@include icon(alert-circle);
+}
+.icon-alert-triangle {
+	@include icon(alert-triangle);
+}
+.icon-arrow-down-circle {
+	@include icon(arrow-down-circle);
+}
+.icon-arrow-down {
+	@include icon(arrow-down);
+}
+.icon-arrow-left-circle {
+	@include icon(arrow-left-circle);
+}
+.icon-arrow-left {
+	@include icon(arrow-left);
+}
+.icon-arrow-right-circle {
+	@include icon(arrow-right-circle);
+}
+.icon-arrow-right {
+	@include icon(arrow-right);
+}
+.icon-arrow-up-circle {
+	@include icon(arrow-up-circle);
+}
+.icon-arrow-up {
+	@include icon(arrow-up);
+}
+.icon-award {
+	@include icon(award);
+}
+.icon-calendar {
+	@include icon(calendar);
+}
+.icon-camera-off {
+	@include icon(camera-off);
+}
+.icon-camera {
+	@include icon(camera);
+}
+.icon-check-circle {
+	@include icon(check-circle);
+}
+.icon-check {
+	@include icon(check);
+}
+.icon-chevron-down {
+	@include icon(chevron-down);
+}
+.icon-chevron-left {
+	@include icon(chevron-left);
+}
+.icon-chevron-right {
+	@include icon(chevron-right);
+}
+.icon-chevron-up {
+	@include icon(chevron-up);
+}
+.icon-clock {
+	@include icon(clock);
+}
+.icon-file-text {
+	@include icon(file-text);
+}
+.icon-file {
+	@include icon(file);
+}
+.icon-filter {
+	@include icon(filter);
+}
+.icon-folder {
+	@include icon(folder);
+}
+.icon-grid {
+	@include icon(grid);
+}
+.icon-heart {
+	@include icon(heart);
+}
+.icon-help-circle {
+	@include icon(help-circle);
+}
+.icon-home {
+	@include icon(home);
+}
+.icon-image {
+	@include icon(image);
+}
+.icon-info {
+	@include icon(info);
+}
+.icon-list {
+	@include icon(list);
+}
+.icon-lock {
+	@include icon(lock);
+}
+.icon-log-in {
+	@include icon(log-in);
+}
+.icon-log-out {
+	@include icon(log-out);
+}
+.icon-mail {
+	@include icon(mail);
+}
+.icon-map-pin {
+	@include icon(map-pin);
+}
+.icon-map {
+	@include icon(map);
+}
+.icon-maximize-2 {
+	@include icon(maximize-2);
+}
+.icon-maximize {
+	@include icon(maximize);
+}
+.icon-menu {
+	@include icon(menu);
+}
+.icon-message-circle {
+	@include icon(message-circle);
+}
+.icon-message-square {
+	@include icon(message-square);
+}
+.icon-minimize-2 {
+	@include icon(minimize-2);
+}
+.icon-minus-circle {
+	@include icon(minus-circle);
+}
+.icon-minus {
+	@include icon(minus);
+}
+.icon-more-horizontal {
+	@include icon(more-horizontal);
+}
+.icon-more-vertical {
+	@include icon(more-vertical);
+}
+.icon-move {
+	@include icon(move);
+}
+.icon-pause-circle {
+	@include icon(pause-circle);
+}
+.icon-pause {
+	@include icon(pause);
+}
+.icon-play-circle {
+	@include icon(play-circle);
+}
+.icon-play {
+	@include icon(play);
+}
+.icon-plus-circle {
+	@include icon(plus-circle);
+}
+.icon-plus {
+	@include icon(plus);
+}
+.icon-power {
+	@include icon(power);
+}
+.icon-printer {
+	@include icon(printer);
+}
+.icon-refresh-ccw {
+	@include icon(refresh-ccw);
+}
+.icon-refresh-cw {
+	@include icon(refresh-cw);
+}
+.icon-shopping-cart {
+	@include icon(shopping-cart);
+}
+.icon-star {
+	@include icon(star);
+}
+.icon-trash-2 {
+	@include icon(trash-2);
+}
+.icon-trash {
+	@include icon(trash);
+}
+.icon-unlock {
+	@include icon(unlock);
+}
+.icon-user {
+	@include icon(user);
+}
+.icon-users {
+	@include icon(users);
+}
+.icon-x-circle {
+	@include icon(x-circle);
+}
+.icon-x {
+	@include icon(x);
+}
+.icon-zoom-in {
+	@include icon(zoom-in);
+}
+.icon-zoom-out {
+	@include icon(zoom-out);
+}

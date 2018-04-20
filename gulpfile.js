@@ -10,6 +10,8 @@ var gulp = require('gulp'),
 	uglify = require('gulp-uglify'),
 	concat = require('gulp-concat'),
 	notify = require('gulp-notify'),
+	iconFont = require('gulp-iconfont'),
+	iconFontCss = require('gulp-iconfont-css'),
 	yargs = require('yargs'),
 	pump = require('pump'),
 	sourcemaps = require('gulp-sourcemaps'),
@@ -26,7 +28,11 @@ var cssFolder = 'css',
 	jsMainMinFile = 'scripts.min.js',
 	jsMainFilePath = jsSourcesFolder + '/' + jsMainFile,
 	imgFolder = 'img',
+	iconFolder = imgFolder + '/icons',
 	icon = imgFolder + '/' + 'icon.png',
+	fontFolder = 'fonts',
+	fontIconsName = 'icons',
+	runTimestamp = Math.round(Date.now() / 1000),
 	staticServerPath = './',
 	host = 'localhost', // Or use V-host like site.dev
 	prettify = yargs.argv.prettify === undefined ? false : true,
@@ -164,18 +170,52 @@ gulp.task('lint', function() {
 
 });
 
+gulp.task('iconFont', function() {
+
+	gulp
+		.src([iconFolder + '/*.svg'])
+		.pipe(
+			iconFontCss({
+				fontName: fontIconsName,
+				cssClass: 'icon',
+				path: 'node_modules/gulp-iconfont-css/templates/_icons.scss',
+				targetPath: '../' + scssFolder + '/components/_icons.scss',
+				fontPath: '../' + fontFolder + '/'
+			})
+		)
+		.pipe(
+			iconFont({
+				fontName: fontIconsName,
+				prependUnicode: true,
+				normalize: true,
+				fontHeight: 1001,
+				timestamp: runTimestamp
+			})
+		)
+		.pipe(gulp.dest('fonts/'))
+		.pipe(
+			notify({
+				title: 'Icon font',
+				message: 'Task complete',
+				icon: icon
+			})
+		);
+
+});
+
 // Watch
 gulp.task('watch', function() {
 
 	gulp.watch(scssFolder + '/**/*.{scss,sass}', ['styles']);
 	gulp.watch([jsSourcesFolder + '/**/*.js'], ['scripts']).on('change', reload);
 	gulp.watch([jsMainFilePath], ['lint']);
+	gulp.watch(iconFolder + '/**/*.svg', ['iconFont']);
 	gulp.watch('**/*.{php,html}').on('change', reload);
 
 });
 
 // Default
-gulp.task('default', ['browser-sync'], function() {
+gulp.task('default', ['iconFont', 'browser-sync'], function() {
 
 	gulp.start('styles', 'lint', 'scripts', 'watch');
 
