@@ -4,9 +4,11 @@
 
 	<section class="page">
 
-		<header class="page__header">
-			<h1 class="page__title"><?php single_post_title(); ?></h1>
-		</header>
+		<?php if (single_post_title()): ?>
+			<header class="page__header">
+				<h1 class="page__title"><?php single_post_title(); ?></h1>
+			</header>
+		<?php endif; ?>
 
 		<div class="page__body">
 			<?php if ( have_posts() ) : while ( have_posts() ) : the_post();
