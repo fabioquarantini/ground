@@ -19,8 +19,14 @@ function ground_register_post_type_catalog() {
 		'singular_name'			=> _x( 'Product', 'Post Type Singular Name', 'ground-admin' )
 	);
 
+	$rewrite = array(
+		'slug' 					=> __( 'catalog', 'ground-admin' ),
+		'with_front'			=> true,
+		'flat_base_slug'		=> true // flat_base_slug is a custom value to flat single post slug
+	);
+
 	$args = array(
-		'rewrite'				=> array( 'slug' => __( 'catalog', 'ground-admin' ),  'flat_base_slug' => true ), // flat_base_slug is a custom value to flat single post slug
+		'rewrite'				=> $rewrite,
 		'supports'				=> array( 'title', 'editor', 'excerpt', 'thumbnail', 'comments', 'revisions', 'page-attributes' ),
 		'labels'				=> $labels,
 		'has_archive'			=> true,
@@ -46,7 +52,8 @@ function ground_register_taxonomy_catalog()  {
 
 	$rewrite = array(
 		'slug'					=> __( 'catalog-category', 'ground-admin' ),
-		'hierarchical'			=> true
+		'hierarchical'			=> true,
+		'with_front'			=> true,
 	);
 
 	$args = array(
