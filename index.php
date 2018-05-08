@@ -4,23 +4,28 @@
 
 	<section class="page">
 
-		<?php if (single_post_title()): ?>
+		<?php if (single_post_title()) : ?>
 			<header class="page__header">
 				<h1 class="page__title"><?php single_post_title(); ?></h1>
 			</header>
 		<?php endif; ?>
 
-		<div class="page__body">
-			<?php if ( have_posts() ) : while ( have_posts() ) : the_post();
+		<?php if ( have_posts() ) { ?>
 
-				get_template_part( 'partials/abstract', 'post' );
+			<div class="page__body">
 
-			endwhile;
+				<?php while ( have_posts() ) {
 
-				get_template_part( 'partials/pagination' );
+					the_post();
+					get_template_part( 'partials/abstract', 'post' );
 
-			endif; ?>
-		</div> <!-- End .page__body -->
+				}
+
+				get_template_part( 'partials/pagination' ); ?>
+
+			</div> <!-- End .page__body -->
+
+		<?php } ?>
 
 	</section> <!-- End .page -->
 
