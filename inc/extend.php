@@ -125,15 +125,17 @@ function ground_excerpt( $length = 100, $more = '...', $post_id = null ) {
 		} else {
 			$post_content = $post->post_content;
 		}
-		$excerpt = mb_substr( strip_tags($post_content), 0, $length, $charset );
+		$content = strip_tags( $post_content );
+		$excerpt = mb_substr( $content, 0, $length, $charset );
 
 	} else {
 
-		$excerpt = mb_substr( get_the_excerpt(), 0, $length, $charset );
+		$content = get_the_excerpt();
+		$excerpt = mb_substr( $content, 0, $length, $charset );
 
 	}
 
-	if ( strlen($excerpt) < $length && $more !== '' ) {
+	if ( strlen($content) > $length) {
 
 		$excerpt = $excerpt . $more;
 
