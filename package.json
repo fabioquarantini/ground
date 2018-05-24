@@ -14,11 +14,11 @@
 		"url": "http://www.fabioquarantini.com"
 	},
 	"devDependencies": {
-		"browser-sync": "^2.23.6",
+		"browser-sync": "^2.24.4",
 		"gulp": "^3.9.1",
 		"gulp-cli": "^2.0.1",
 		"gulp-autoprefixer": "^5.0.0",
-		"gulp-clean-css": "^3.9.3",
+		"gulp-clean-css": "^3.9.4",
 		"gulp-concat": "^2.6.1",
 		"gulp-eslint": "^4.0.2",
 		"gulp-iconfont": "^9.1.0",
