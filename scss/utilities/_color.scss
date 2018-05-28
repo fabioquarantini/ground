@@ -18,12 +18,16 @@
 	color: $color-error;
 }
 
-@include breakpoint-styles('.color-white') {
-	color: $color-white;
-}
-
 @include breakpoint-styles('.color-black') {
 	color: $color-black;
+}
+
+@include breakpoint-styles('.color-grey') {
+	color: $color-grey;
+}
+
+@include breakpoint-styles('.color-white') {
+	color: $color-white;
 }
 
 @include breakpoint-styles('.background-primary') {
@@ -46,10 +50,14 @@
 	background-color: $color-error;
 }
 
-@include breakpoint-styles('.background-white') {
-	background-color: $color-white;
-}
-
 @include breakpoint-styles('.background-black') {
 	background-color: $color-black;
+}
+
+@include breakpoint-styles('.background-grey') {
+	background-color: $color-grey;
+}
+
+@include breakpoint-styles('.background-white') {
+	background-color: $color-white;
 }
