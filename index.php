@@ -4,7 +4,7 @@
 
 	<section class="page">
 
-		<?php if (single_post_title()) : ?>
+		<?php if (single_post_title('', false)) : ?>
 			<header class="page__header">
 				<h1 class="page__title"><?php single_post_title(); ?></h1>
 			</header>
