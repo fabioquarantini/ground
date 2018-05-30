@@ -1,0 +1,9 @@
+.loader {
+	animation: rotate 0.8s infinite linear;
+	border: 3px solid $color-primary;
+	border-radius: 50%;
+	border-right-color: transparent;
+	height: rhythm(2);
+	width: rhythm(2);
+	margin: 1lh auto;
+}
