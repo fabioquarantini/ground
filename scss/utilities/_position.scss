@@ -21,7 +21,9 @@
 }
 
 @include breakpoint-styles('.centered--horizontal') {
-	@include centered( true, false );
+	display: table;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 @include breakpoint-styles('.centered--vertical') {
