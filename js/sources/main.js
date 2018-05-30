@@ -9,6 +9,7 @@ $(document).ready(function() {
 	siteInit.slider();
 	siteInit.modal();
 	siteInit.toggleClass();
+	siteInit.infiniteScroll();
 
 });
 
@@ -77,6 +78,28 @@ var siteInit = {
 		}
 
 		$el.fancybox();
+
+	},
+
+	// Infinite scroll
+	infiniteScroll: function() {
+
+		var $el = $('.js-infinite-container');
+
+		if ($el.length == 0) {
+
+			return;
+
+		}
+
+		$el.infiniteScroll({
+			path: '.js-next-page',
+			append: '.js-infinite-post',
+			history: false,
+			scrollThreshold: 400,
+			hideNav: '.pagination',
+			status: '.js-infinite-status'
+		});
 
 	},
 

@@ -1,4 +1,4 @@
-<article class="item" >
+<article class="item js-infinite-post">
 
 	<header class="item__header">
 		<h2 class="item__title">

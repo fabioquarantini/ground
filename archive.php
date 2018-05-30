@@ -8,7 +8,7 @@
 				<?php the_archive_title( '<h1 class="page__title">', '</h1>' ); ?>
 			</header>
 
-			<div class="page__body">
+			<div class="page__body js-infinite-container">
 
 				<?php the_archive_description(); ?>
 
@@ -18,7 +18,8 @@
 
 				endwhile;
 
-					get_template_part( 'partials/pagination' ); ?>
+					get_template_part( 'partials/pagination' );
+					get_template_part( 'partials/loader' ); ?>
 
 			</div>  <!-- End .page__body -->
 

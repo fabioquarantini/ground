@@ -12,18 +12,21 @@
 
 		<?php if ( have_posts() ) { ?>
 
-			<div class="page__body">
+			<div class="page__body js-infinite-container">
 
 				<?php while ( have_posts() ) {
 
 					the_post();
 					get_template_part( 'partials/abstract', 'post' );
 
-				}
-
-				get_template_part( 'partials/pagination' ); ?>
+				} ?>
 
 			</div> <!-- End .page__body -->
+
+			<?php
+				get_template_part( 'partials/pagination' );
+			 	get_template_part( 'partials/loader' );
+			?>
 
 		<?php } ?>
 
