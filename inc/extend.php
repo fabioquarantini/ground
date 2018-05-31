@@ -12,7 +12,7 @@
 	8 - Remove special characters from uploaded files
 	9 - Html5 markup
 	10 - Remove <p> around images
-	11 - Remove WordPress responsive images
+	11 - Remove the maximum image width in a ‘srcset’ attribute.
 	12 - Remove width and height attributes from inserted images
 	13 - Gets the featured image of a specifific post
 	14 - Add gallery modal
@@ -220,10 +220,16 @@ function ground_remove_p_around_img($content) {
 
 
 /*  ==========================================================================
-	11 - Remove WordPress responsive images
+	11 - Remove the maximum image width in a ‘srcset’ attribute.
 	==========================================================================  */
 
-add_filter('max_srcset_image_width', create_function('', 'return 1;'));
+function ground_remove_max_srcset_image_width( $max_width ) {
+
+	return false;
+
+}
+
+add_filter( 'max_srcset_image_width', 'ground_remove_max_srcset_image_width' );
 
 
 /*  ==========================================================================
