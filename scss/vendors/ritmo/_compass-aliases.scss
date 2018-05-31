@@ -1,0 +1,31 @@
+// Aliases Ritmo namespaced variables, functions, and mixins back to the original names from the Compass Veritcial Rhythm toolkit. Including this partial makes it possible to use Ritmo as a nearly plug and play replacement. You will still need to define the newer Ritmo configurable variables for $base-line-unit and $base-line-multi in place of $base-line-height.
+
+// ALIASED VARIABLES
+
+$ritmo-unit: $rhythm-unit !default;
+$ritmo-border-width: $default-rhythm-border-width !default;
+
+// ALIASED FUNCTIONS
+
+@function rhythm($args...) { @return ritmo($args...); }
+
+// ALIASED MIXINS
+
+@mixin establish-baseline($args...) { @include ritmo-baseline($args...); }
+@mixin adjust-font-size-to($args...) { @include ritmo-font-size($args...); }
+@mixin adjust-leading-to($args...) { @include ritmo-leading($args...); }
+@mixin leader($args...) { @include ritmo-top($args...); }
+@mixin padding-leader($args...) { @include ritmo-top-padding($args...); }
+@mixin margin-leader($args...) { @include ritmo-top-margin($args...); }
+@mixin trailer($args...) { @include ritmo-bottom($args...); }
+@mixin padding-trailer($args...) { @include ritmo-bottom-padding($args...); }
+@mixin margin-trailer($args...) { @include ritmo-bottom-margin($args...); }
+@mixin rhythm($args...) { @include ritmo($args...); }
+@mixin rhythm-margins($args...) { @include ritmo-margins($args...); }
+@mixin rhythm-padding($args...) { @include ritmo-padding($args...); }
+@mixin apply-side-rhythm-border($args...) { @include ritmo-side-border($args...); }
+@mixin leading-border($args...) { @include ritmo-top-border($args...); }
+@mixin trailing-border($args...) { @include ritmo-bottom-border($args...); }
+@mixin horizontal-borders($args...) { @include ritmo-horizontal-borders($args...); }
+@mixin h-borders($args...) { @include ritmo-horizontal-borders($args...); }
+@mixin rhythm-borders($args...) { @include ritmo-horizontal-borders($args...); }

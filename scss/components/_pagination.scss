@@ -1,6 +1,6 @@
 .pagination {
 	list-style: none;
-	margin: rhythm(2) 0 rhythm(2) 0;
+	margin: ritmo(2) 0 ritmo(2) 0;
 	text-align: center;
 
 	@include media('>=md') {
@@ -33,7 +33,7 @@
 }
 
 .pagination__text {
-	padding: rhythm(.75);
+	padding: ritmo(.75);
 	text-decoration: none;
 	color: $color-grey;
 	cursor: pointer;

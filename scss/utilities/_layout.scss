@@ -48,7 +48,7 @@
 
 	@include breakpoint-styles('.column--#{$i}') {
 		column-count: $i;
-		column-gap: rhythm(1);
+		column-gap: ritmo(1);
 	}
 
 }

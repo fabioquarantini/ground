@@ -1,13 +1,13 @@
 .breadcrumb {
-	height: rhythm(2); //fixed height to avoid scrollbar on mobile
+	height: ritmo(2); //fixed height to avoid scrollbar on mobile
 	overflow-y: hidden;
-	margin-bottom: rhythm(1);
+	margin-bottom: ritmo(1);
 }
 
 
 .breadcrumb__list {
-	padding-top: rhythm(1);
-	padding-bottom: rhythm(1);
+	padding-top: ritmo(1);
+	padding-bottom: ritmo(1);
 	overflow-x: auto;
 	white-space: nowrap;
 	-webkit-overflow-scrolling: touch;
@@ -36,7 +36,7 @@
 
 	&:after {
 		content: '/';
-		padding: 0 rhythm(.25) 0 rhythm(.5);
+		padding: 0 ritmo(.25) 0 ritmo(.5);
 	}
 
 	&:last-child {

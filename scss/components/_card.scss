@@ -2,11 +2,11 @@
 	position: relative;
 	overflow: hidden;
 	border: 1px solid $color-grey;
-	margin-bottom: rhythm(1);
+	margin-bottom: ritmo(1);
 }
 
 .card--rounded {
-	border-radius: rhythm(0.4);
+	border-radius: ritmo(0.4);
 }
 
 .card--shadow {
@@ -14,17 +14,17 @@
 }
 
 .card__header {
-	padding: rhythm(0.5);
+	padding: ritmo(0.5);
 }
 
 .card__body {
 	@extend .clear-fix;
-	padding: rhythm(0.5);
+	padding: ritmo(0.5);
 }
 
 .card__footer {
 	border-top: 1px solid lighten($color-black, 95%);
-	padding: rhythm(0.5);
+	padding: ritmo(0.5);
 }
 
 .card__link {

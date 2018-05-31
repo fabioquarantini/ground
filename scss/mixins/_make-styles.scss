@@ -1,11 +1,11 @@
 @mixin make-styles($font-size, $line-height: 1, $margin-top: 0, $margin-bottom: 1) {
 
-	@include adjust-font-size-to($font-size, $line-height);
+	@include ritmo-font-size($font-size, $line-height);
 	@if $margin-top != null {
-		@include leader($margin-top, $font-size);
+		@include ritmo-top($margin-top, $font-size);
 	}
 	@if $margin-bottom != null {
-		@include trailer($margin-bottom, $font-size);
+		@include ritmo-bottom($margin-bottom, $font-size);
 	}
 
 }

@@ -1,11 +1,11 @@
 .button {
-	@include adjust-font-size-to(16px);
-	@include rhythm-borders(1px, 0.5);
-	@include apply-side-rhythm-border(left, 1px, 1);
-	@include apply-side-rhythm-border(right, 1px, 1);
-	padding-left: rhythm(1);
-	padding-right: rhythm(1);
-	margin: 0 0 rhythm(1) 0;
+	@include ritmo-font-size(16px);
+	@include ritmo-horizontal-borders(1px, 0.5);
+	@include ritmo-side-border(left, 1px, 1);
+	@include ritmo-side-border(right, 1px, 1);
+	padding-left: ritmo(1);
+	padding-right: ritmo(1);
+	margin: 0 0 ritmo(1) 0;
 	border-color: $color-primary;
 	background-color: $color-primary;
 	color: $color-white;
@@ -38,19 +38,19 @@
 	}
 
 	&--small {
-		@include rhythm-borders(1px, 0.25);
-		padding-left: rhythm(1);
-		padding-right: rhythm(1);
-		margin-top: rhythm(0.25);
-		margin-bottom: rhythm(1.25);
+		@include ritmo-horizontal-borders(1px, 0.25);
+		padding-left: ritmo(1);
+		padding-right: ritmo(1);
+		margin-top: ritmo(0.25);
+		margin-bottom: ritmo(1.25);
 	}
 
 	&--large {
-		@include rhythm-borders(1px, 1);
+		@include ritmo-horizontal-borders(1px, 1);
 	}
 
 	&--rounded {
-		border-radius: rhythm(0.25);
+		border-radius: ritmo(0.25);
 	}
 
 	&--full-width {

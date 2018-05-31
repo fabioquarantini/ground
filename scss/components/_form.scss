@@ -5,16 +5,16 @@ form {
 
 .form__fieldset,
 fieldset {
-	@include rhythm-borders( 1px, 1 );
+	@include ritmo-horizontal-borders( 1px, 1 );
 	border-color: $color-grey;
-	margin: 0 0 rhythm(1) 0;
+	margin: 0 0 ritmo(1) 0;
 }
 
 .form__legend,
 legend {
 	font-weight: bold;
-	padding: 0 rhythm(1);
-	height: rhythm(1);
+	padding: 0 ritmo(1);
+	height: ritmo(1);
 }
 
 .form__label,
@@ -45,10 +45,10 @@ textarea,
 .form__select,
 select {
 	display: block;
-	margin: 0 0 rhythm(1) 0;
+	margin: 0 0 ritmo(1) 0;
 	border: 1px solid $color-grey;
-	padding: rhythm(.35);
-	height: rhythm(2);
+	padding: ritmo(.35);
+	height: ritmo(2);
 	outline: none;
 	background: $color-white;
 	color: $color-grey;
@@ -104,7 +104,7 @@ textarea {
 	height: auto;
 	max-width: 100%;
 	resize: vertical;
-	min-height: rhythm(8);
+	min-height: ritmo(8);
 }
 
 .form__input--checkbox,
@@ -118,7 +118,7 @@ textarea {
 	display: inline;
 	border: 0;
 	vertical-align: middle;
-	margin: 0 rhythm(0.25) 0 0;
+	margin: 0 ritmo(0.25) 0 0;
 }
 
 // Radio and checkbox
@@ -320,25 +320,25 @@ textarea {
 select {
 
 	max-width: 100%;
-	padding: rhythm(.25);
-	height: rhythm(2);
+	padding: ritmo(.25);
+	height: ritmo(2);
 
 	option {
-		padding: 0 rhythm(1);
+		padding: 0 ritmo(1);
 	}
 
 }
 
 .form__select--multiple,
 select[multiple] {
-	@include rhythm-borders( 1px, 1 );
+	@include ritmo-horizontal-borders( 1px, 1 );
 	border-color: $color-grey;
 	padding: 0 !important;
-	height: rhythm(5);
+	height: ritmo(5);
 
 	option {
-		height: rhythm(1.5);
-		padding-top: rhythm(0.5);
+		height: ritmo(1.5);
+		padding-top: ritmo(0.5);
 	}
 
 }
@@ -369,7 +369,7 @@ input + .message,
 select + .message,
 .form__textarea + .message,
 textarea + .message {
-	margin-top: - rhythm(1);
+	margin-top: - ritmo(1);
 }
 
 // Buttons

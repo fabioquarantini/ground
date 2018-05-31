@@ -55,7 +55,7 @@ code {
 }
 
 pre {
-	margin: rhythm(1) 0;
+	margin: ritmo(1) 0;
 }
 
 small {
@@ -65,9 +65,9 @@ small {
 blockquote {
 
 	border-left: 1px solid $color-grey;
-	margin: 0 0 rhythm(1) 0;
+	margin: 0 0 ritmo(1) 0;
 	display: block;
-	padding: rhythm(1) 0 rhythm(1) rhythm(1);
+	padding: ritmo(1) 0 ritmo(1) ritmo(1);
 	font-style: italic;
 
 	p {

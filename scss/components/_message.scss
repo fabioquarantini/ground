@@ -1,8 +1,8 @@
 .message {
 	display: block;
 	position: relative;
-	padding-top: rhythm( 0.5 );
-	padding-bottom: rhythm( 0.5 );
+	padding-top: ritmo( 0.5 );
+	padding-bottom: ritmo( 0.5 );
 	color: $color-primary;
 	border-color: $color-primary;
 
@@ -43,23 +43,23 @@
 
 	&--bordered {
 
-		@include rhythm-borders( 1px, 0.5 );
-		@include apply-side-rhythm-border(left, 1px, 1);
-		@include apply-side-rhythm-border(right, 1px, 1);
+		@include ritmo-horizontal-borders( 1px, 0.5 );
+		@include ritmo-side-border(left, 1px, 1);
+		@include ritmo-side-border(right, 1px, 1);
 
 		&.message--small {
-			height: $base-line-height;
+			height: $base-line-unit;
 		}
 
 		&.message--big {
-			@include rhythm-borders( 1px, 1 );
+			@include ritmo-horizontal-borders( 1px, 1 );
 		}
 
 	}
 
 	&--fill {
-		padding-left: rhythm( 1 );
-		padding-right: rhythm( 1 );
+		padding-left: ritmo( 1 );
+		padding-right: ritmo( 1 );
 		background-color: $color-primary;
 		color: $color-white;
 
@@ -99,8 +99,8 @@
 	}
 
 	&--big {
-		padding-top: rhythm(1);
-		padding-bottom: rhythm(1);
+		padding-top: ritmo(1);
+		padding-bottom: ritmo(1);
 	}
 
 	&--rounded {
