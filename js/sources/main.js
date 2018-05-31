@@ -42,13 +42,14 @@ var siteInit = {
 		}
 
 		$el.owlCarousel({
-			loop: false,
+			loop: true,
 			dots: true,
 			margin: 0,
 			center: false,
 			autoHeight: false,
 			stagePadding: 0,
 			responsiveClass: true,
+			autoplayTimeout: 3000,
 			responsive: {
 				0: {
 					autoplay: true,
@@ -57,8 +58,9 @@ var siteInit = {
 					dots: true
 				},
 				992: {
-					items: 1,
+					autoplay: true,
 					nav: true,
+					items: 1,
 					dots: false
 				}
 			}

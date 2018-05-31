@@ -1,7 +1,8 @@
 .slider--primary {
 
 	.owl-nav {
-		margin-top: 10px;
+		@extend .centered--vertical;
+		width: 100%;
 		text-align: center;
 		-webkit-tap-highlight-color: transparent;
 	}
@@ -18,14 +19,30 @@
 	}
 
 	.owl-nav [class*='owl-']:hover {
-		background: $color-primary;
-		color: #FFF;
 		text-decoration: none;
 	}
 
 	.owl-nav .disabled {
 		opacity: 0.5;
 		cursor: default;
+	}
+
+	.owl-prev,
+	.owl-next {
+
+		span {
+			@include ritmo-font-size(36px);
+			padding-left: ritmo(0.5);
+			padding-right: ritmo(0.5);
+		}
+	}
+
+	.owl-prev {
+		float: left;
+	}
+
+	.owl-next {
+		float: right;
 	}
 
 	.owl-nav.disabled + .owl-dots {
