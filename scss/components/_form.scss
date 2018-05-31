@@ -7,6 +7,7 @@ form {
 fieldset {
 	@include ritmo-horizontal-borders( 1px, 1 );
 	border-color: $color-grey;
+	border-style: solid;
 	margin: 0 0 ritmo(1) 0;
 }
 
@@ -333,6 +334,7 @@ select {
 select[multiple] {
 	@include ritmo-horizontal-borders( 1px, 1 );
 	border-color: $color-grey;
+	border-style: solid;
 	padding: 0 !important;
 	height: ritmo(5);
 

@@ -46,6 +46,7 @@
 		@include ritmo-horizontal-borders( 1px, 0.5 );
 		@include ritmo-side-border(left, 1px, 1);
 		@include ritmo-side-border(right, 1px, 1);
+		border-style: solid;
 
 		&.message--small {
 			height: $base-line-unit;
