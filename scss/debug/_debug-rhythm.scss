@@ -3,6 +3,6 @@
 	html {
 		$grid-color: rgba(red, 0.15);
 		background: linear-gradient($grid-color, $grid-color 1px, transparent 1px);
-		background-size: 1px 24px;
+		background-size: 1px $base-line-unit;
 	}
 }
