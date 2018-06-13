@@ -1,7 +1,6 @@
 .slider--primary {
 
 	.owl-nav {
-		@extend .centered--vertical;
 		width: 100%;
 		text-align: center;
 		-webkit-tap-highlight-color: transparent;
@@ -30,6 +29,9 @@
 	.owl-prev,
 	.owl-next {
 
+		
+		@include centered( false, true );
+
 		span {
 			@include ritmo-font-size(36px);
 			padding-left: ritmo(0.5);
@@ -38,11 +40,11 @@
 	}
 
 	.owl-prev {
-		float: left;
+		left: 0;
 	}
 
 	.owl-next {
-		float: right;
+		right: 0;
 	}
 
 	.owl-nav.disabled + .owl-dots {
@@ -56,8 +58,6 @@
 
 	.owl-dots .owl-dot {
 		display: inline-block;
-		zoom: 1;
-		*display: inline;
 	}
 
 	.owl-dots .owl-dot span {
