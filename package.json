@@ -21,7 +21,7 @@
 		"gulp-clean-css": "^3.9.4",
 		"gulp-concat": "^2.6.1",
 		"gulp-eslint": "^4.0.2",
-		"gulp-iconfont": "^9.1.0",
+		"gulp-iconfont": "^10.0.1",
 		"gulp-iconfont-css": "^2.1.0",
 		"gulp-notify": "^3.2.0",
 		"gulp-sass": "^4.0.1",
