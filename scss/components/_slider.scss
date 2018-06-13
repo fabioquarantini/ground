@@ -1,24 +1,8 @@
-.slider--primary {
+.slider {
 
 	.owl-nav {
 		width: 100%;
-		text-align: center;
 		-webkit-tap-highlight-color: transparent;
-	}
-
-	.owl-nav [class*='owl-'] {
-		color: #FFF;
-		font-size: 14px;
-		margin: 5px;
-		padding: 4px 7px;
-		background: $color-grey;
-		display: inline-block;
-		cursor: pointer;
-		border-radius: 3px;
-	}
-
-	.owl-nav [class*='owl-']:hover {
-		text-decoration: none;
 	}
 
 	.owl-nav .disabled {
@@ -29,7 +13,7 @@
 	.owl-prev,
 	.owl-next {
 
-		
+		margin: 0;
 		@include centered( false, true );
 
 		span {
@@ -47,33 +31,28 @@
 		right: 0;
 	}
 
-	.owl-nav.disabled + .owl-dots {
-		margin-top: 10px;
-	}
-
 	.owl-dots {
+		height: ritmo(1);
 		text-align: center;
 		-webkit-tap-highlight-color: transparent;
-	}
 
-	.owl-dots .owl-dot {
-		display: inline-block;
-	}
+		.owl-dot {
+			width: ritmo(0.5);
+			height: ritmo(0.5);
+			margin: ritmo(0.25) ritmo(0.25);
+			background: $color-grey;
+			display: inline-block;
+			vertical-align: middle;
+			backface-visibility: visible;
+			transition: opacity 200ms ease;
+			border-radius: 30px;
 
-	.owl-dots .owl-dot span {
-		width: 10px;
-		height: 10px;
-		margin: 5px 7px;
-		background: $color-grey;
-		display: block;
-		-webkit-backface-visibility: visible;
-		transition: opacity 200ms ease;
-		border-radius: 30px;
-	}
+			&:hover,
+			&.active {
+				background: $color-primary;
+			}
+		}
 
-	.owl-dots .owl-dot.active span,
-	.owl-dots .owl-dot:hover span {
-		background: $color-primary;
 	}
 
 }
