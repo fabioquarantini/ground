@@ -1,33 +1,31 @@
 // Generate styles with breakpoints
-@mixin breakpoint-styles ($selector) {
+@mixin breakpoint-styles($selector) {
 
-	#{$selector} {
+	#{$selector}\@all {
 		@content;
 	}
 
-	@each $key, $value in $breakpoints {
+	$first: map-get($breakpoints, nth(map-keys($breakpoints), 1));
 
-		@if map-get-next($breakpoints, $key, false, key) != false  {
-
-			@include media('>=#{$key}', '<#{map-get-next($breakpoints,$key, false, key)}') {
-
-				#{$selector}\@#{$key} {
-					@content;
-				}
-
-			}
-
-		} @else {
-
-			@include media('>#{$key}') {
-
-				#{$selector}\@#{$key} {
-					@content;
-				}
-
-			}
+	@include media('<#{$first}') {
+		#{$selector} {
+			@content;
 		}
-
 	}
 
+	@each $key, $value in $breakpoints {
+		@if map-get-next($breakpoints, $key, false, key) != false {
+			@include media('>=#{$key}', '<#{map-get-next($breakpoints,$key, false, key)}') {
+				#{$selector}\@#{$key} {
+					@content;
+				}
+			}
+		} @else {
+			@include media('>#{$key}') {
+				#{$selector}\@#{$key} {
+					@content;
+				}
+			}
+		}
+	}
 }
