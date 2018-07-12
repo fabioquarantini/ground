@@ -14,7 +14,7 @@
             }
         ],
         "linebreak-style": [
-            "error",
+            "warn",
             "unix"
         ],
         "quotes": [
@@ -22,11 +22,11 @@
             "single"
         ],
         "semi": [
-            "error",
+            "warn",
             "always"
         ],
         'max-len': [
-            "error",
+            "warn",
             {
                 "code": 120,
                 "ignoreUrls": true,
@@ -36,19 +36,19 @@
             }
         ],
         "padded-blocks": [
-            "error",
+            "warn",
             "always"
         ],
         space-before-function-paren: [
-            "error",
+            "warn",
             "never"
         ],
         space-in-parens: [
-            "error",
+            "warn",
             "never"
         ],
         no-unused-vars: "off",
-        no-console: "warn"
+        no-console: "off"
     },
     "globals": {
         "TimelineLite": false,
