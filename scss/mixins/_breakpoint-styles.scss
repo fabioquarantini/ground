@@ -21,7 +21,7 @@
 				}
 			}
 		} @else {
-			@include media('>#{$key}') {
+			@include media('>=#{$key}') {
 				#{$selector}\@#{$key} {
 					@content;
 				}
