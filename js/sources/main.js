@@ -17,6 +17,10 @@ $(window).on('load', function() {
 	// Load function
 });
 
+$('body').imagesLoaded({ background: true }, function() {
+	// Detect when background images have loaded, in addition to <img>s
+});
+
 $(window).scroll(function() {
 	// Scroll function
 });
