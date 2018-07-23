@@ -16,12 +16,14 @@
 
 					get_template_part( 'partials/abstract', 'post' );
 
-				endwhile;
-
-					get_template_part( 'partials/pagination' );
-					get_template_part( 'partials/loader' ); ?>
+				endwhile; ?>
 
 			</div>  <!-- End .page__body -->
+
+			<?php
+			get_template_part( 'partials/pagination' );
+			get_template_part( 'partials/loader' );
+			?>
 
 		<?php endif; ?>
 

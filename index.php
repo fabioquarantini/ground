@@ -24,8 +24,8 @@
 			</div> <!-- End .page__body -->
 
 			<?php
-				get_template_part( 'partials/pagination' );
-			 	get_template_part( 'partials/loader' );
+			get_template_part( 'partials/pagination' );
+			get_template_part( 'partials/loader' );
 			?>
 
 		<?php } ?>

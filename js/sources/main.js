@@ -86,7 +86,7 @@ var siteInit = {
 	// Infinite scroll
 	infiniteScroll: function() {
 
-		var $el = $('.js-infinite-container');
+		var $el = $('.js-next-page');
 
 		if ($el.length == 0) {
 
@@ -94,7 +94,7 @@ var siteInit = {
 
 		}
 
-		$el.infiniteScroll({
+		$('.js-infinite-container').infiniteScroll({
 			path: '.js-next-page',
 			append: '.js-infinite-post',
 			history: false,
