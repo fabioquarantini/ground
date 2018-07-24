@@ -1,1 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve">
+<path d="M40.348,23.401l-15-10.909c-0.351-0.256-0.826-0.256-1.177,0l-15,10.909c-0.446,0.324-0.545,0.95-0.22,1.396
+	c0.325,0.447,0.949,0.544,1.397,0.221l1.974-1.436v13.718c0,0.553,0.448,1,1,1h8.075c0.552,0,1-0.447,1-1v-9.393h4.725v9.393
+	c0,0.553,0.448,1,1,1h8.075c0.552,0,1-0.447,1-1V23.583l1.974,1.436c0.178,0.129,0.384,0.191,0.587,0.191
+	c0.309,0,0.614-0.143,0.81-0.412C40.894,24.352,40.794,23.726,40.348,23.401z M35.197,36.301h-6.075v-9.393c0-0.553-0.448-1-1-1
+	h-6.725c-0.552,0-1,0.447-1,1v9.393h-6.075V22.128l10.438-7.591l10.438,7.591V36.301z"/>
+</svg>
