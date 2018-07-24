@@ -1,19 +1,27 @@
-@include breakpoint-styles('.border--0') {
-	border: 0;
-}
+$breakpoints: map-merge(( default: 0px ), $breakpoints);
 
-@include breakpoint-styles('.border-top--0') {
-	border-top: 0;
-}
+@each $key, $value in $breakpoints {
+	@include media('>=#{$key}') {
+		$breakpoint: if($key == default, '', \@#{$key});
 
-@include breakpoint-styles('.border-bottom--0') {
-	border-bottom: 0;
-}
+		.border--0#{$breakpoint} {
+			border: 0;
+		}
 
-@include breakpoint-styles('.border-left--0') {
-	border-left: 0;
-}
+		.border-top--0#{$breakpoint} {
+			border-top: 0;
+		}
 
-@include breakpoint-styles('.border-right--0') {
-	border-right: 0;
+		.border-bottom--0#{$breakpoint} {
+			border-bottom: 0;
+		}
+
+		.border-left--0#{$breakpoint} {
+			border-left: 0;
+		}
+
+		.border-right--0#{$breakpoint} {
+			border-right: 0;
+		}
+	}
 }

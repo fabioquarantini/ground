@@ -1,63 +1,72 @@
-@include breakpoint-styles('.color-primary') {
-	color: $color-primary;
-}
+$breakpoints: map-merge(( default: 0px ), $breakpoints);
 
-@include breakpoint-styles('.color-secondary') {
-	color: $color-secondary;
-}
+@each $key, $value in $breakpoints {
+	@include media('>=#{$key}') {
+		$breakpoint: if($key == default, '', \@#{$key});
 
-@include breakpoint-styles('.color-success') {
-	color: $color-success;
-}
+		.color-primary#{$breakpoint} {
+			color: $color-primary;
+		}
 
-@include breakpoint-styles('.color-warning') {
-	color: $color-warning;
-}
+		.color-secondary#{$breakpoint} {
+			color: $color-secondary;
+		}
 
-@include breakpoint-styles('.color-error') {
-	color: $color-error;
-}
+		.color-success#{$breakpoint} {
+			color: $color-success;
+		}
 
-@include breakpoint-styles('.color-black') {
-	color: $color-black;
-}
+		.color-warning#{$breakpoint} {
+			color: $color-warning;
+		}
 
-@include breakpoint-styles('.color-grey') {
-	color: $color-grey;
-}
+		.color-error#{$breakpoint} {
+			color: $color-error;
+		}
 
-@include breakpoint-styles('.color-white') {
-	color: $color-white;
-}
+		.color-black#{$breakpoint} {
+			color: $color-black;
+		}
 
-@include breakpoint-styles('.background-primary') {
-	background-color: $color-primary;
-}
+		.color-grey#{$breakpoint} {
+			color: $color-grey;
+		}
 
-@include breakpoint-styles('.background-secondary') {
-	background-color: $color-secondary;
-}
+		.color-white#{$breakpoint} {
+			color: $color-white;
+		}
 
-@include breakpoint-styles('.background-success') {
-	background-color: $color-success;
-}
+		.background-primary#{$breakpoint} {
+			background-color: $color-primary;
+		}
 
-@include breakpoint-styles('.background-warning') {
-	background-color: $color-warning;
-}
+		.background-secondary#{$breakpoint} {
+			background-color: $color-secondary;
+		}
 
-@include breakpoint-styles('.background-error') {
-	background-color: $color-error;
-}
+		.background-success#{$breakpoint} {
+			background-color: $color-success;
+		}
 
-@include breakpoint-styles('.background-black') {
-	background-color: $color-black;
-}
+		.background-warning#{$breakpoint} {
+			background-color: $color-warning;
+		}
 
-@include breakpoint-styles('.background-grey') {
-	background-color: $color-grey;
-}
+		.background-error#{$breakpoint} {
+			background-color: $color-error;
+		}
 
-@include breakpoint-styles('.background-white') {
-	background-color: $color-white;
+		.background-black#{$breakpoint} {
+			background-color: $color-black;
+		}
+
+		.background-grey#{$breakpoint} {
+			background-color: $color-grey;
+		}
+
+		.background-white#{$breakpoint} {
+			background-color: $color-white;
+		}
+
+	}
 }

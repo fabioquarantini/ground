@@ -1,36 +1,45 @@
-@include breakpoint-styles('.list-unstyled') {
-	list-style-type: none;
-	margin-left: 0;
-}
+$breakpoints: map-merge(( default: 0px ), $breakpoints);
 
-@include breakpoint-styles('.list-disc') {
-	list-style-type: disc;
-}
+@each $key, $value in $breakpoints {
+	@include media('>=#{$key}') {
+		$breakpoint: if($key == default, '', \@#{$key});
 
-@include breakpoint-styles('.list-square') {
-	list-style-type: square;
-}
-
-@include breakpoint-styles('.list-circle') {
-	list-style-type: circle;
-}
-
-@include breakpoint-styles('.list-decimal') {
-	list-style-type: decimal;
-}
-
-@include breakpoint-styles('.list-inline') {
-
-	list-style-type: none;
-	margin-left: 0;
-
-	li {
-		display: inline;
-		padding-left: ritmo(1);
-
-		&:first-child {
-			padding-left: 0;
+		.list-unstyled#{$breakpoint} {
+			list-style-type: none;
+			margin-left: 0;
 		}
-	}
 
+		.list-disc#{$breakpoint} {
+			list-style-type: disc;
+		}
+
+		.list-square#{$breakpoint} {
+			list-style-type: square;
+		}
+
+		.list-circle#{$breakpoint} {
+			list-style-type: circle;
+		}
+
+		.list-decimal#{$breakpoint} {
+			list-style-type: decimal;
+		}
+
+		.list-inline#{$breakpoint} {
+
+			list-style-type: none;
+			margin-left: 0;
+
+			li {
+				display: inline;
+				padding-left: ritmo(1);
+
+				&:first-child {
+					padding-left: 0;
+				}
+			}
+
+		}
+
+	}
 }

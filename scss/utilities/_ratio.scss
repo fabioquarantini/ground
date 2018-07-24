@@ -1,23 +1,32 @@
-@include breakpoint-styles('.ratio--16-9') {
-	@include ratio(16, 9);
-}
+$breakpoints: map-merge(( default: 0px ), $breakpoints);
 
-@include breakpoint-styles('.ratio--4-3') {
-	@include ratio(4, 3);
-}
+@each $key, $value in $breakpoints {
+	@include media('>=#{$key}') {
+		$breakpoint: if($key == default, '', \@#{$key});
 
-@include breakpoint-styles('.ratio--3-4') {
-	@include ratio(3, 4);
-}
+		.ratio--16-9#{$breakpoint} {
+			@include ratio(16, 9);
+		}
 
-@include breakpoint-styles('.ratio--2-1') {
-	@include ratio(2, 1);
-}
+		.ratio--4-3#{$breakpoint} {
+			@include ratio(4, 3);
+		}
 
-@include breakpoint-styles('.ratio--1-2') {
-	@include ratio(1, 2);
-}
+		.ratio--3-4#{$breakpoint} {
+			@include ratio(3, 4);
+		}
 
-@include breakpoint-styles('.ratio--1-1') {
-	@include ratio(1, 1);
+		.ratio--2-1#{$breakpoint} {
+			@include ratio(2, 1);
+		}
+
+		.ratio--1-2#{$breakpoint} {
+			@include ratio(1, 2);
+		}
+
+		.ratio--1-1#{$breakpoint} {
+			@include ratio(1, 1);
+		}
+
+	}
 }

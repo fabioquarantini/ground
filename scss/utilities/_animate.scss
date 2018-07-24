@@ -1,84 +1,92 @@
-@include breakpoint-styles('.animate') {
-	animation-duration: 0.8s;
-	animation-fill-mode: both;
-}
+$breakpoints: map-merge(( default: 0px ), $breakpoints);
 
-@include breakpoint-styles('.animate--infinite') {
-	animation-iteration-count: infinite;
-}
+@each $key, $value in $breakpoints {
+	@include media('>=#{$key}') {
+		$breakpoint: if($key == default, '', \@#{$key});
 
-@include breakpoint-styles('.animate--fade-in') {
-	animation-name: fade-in;
-}
+		.animate#{$breakpoint} {
+			animation-duration: 0.8s;
+			animation-fill-mode: both;
+		}
 
-@include breakpoint-styles('.animate--fade-in-up') {
-	animation-name: fade-in-up;
-}
+		.animate--infinite#{$breakpoint} {
+			animation-iteration-count: infinite;
+		}
 
-@include breakpoint-styles('.animate--fade-in-right') {
-	animation-name: fade-in-right;
-}
+		.animate--fade-in#{$breakpoint} {
+			animation-name: fade-in;
+		}
 
-@include breakpoint-styles('.animate--fade-in-down') {
-	animation-name: fade-in-down;
-}
+		.animate--fade-in-up#{$breakpoint} {
+			animation-name: fade-in-up;
+		}
 
-@include breakpoint-styles('.animate--fade-in-left') {
-	animation-name: fade-in-left;
-}
+		.animate--fade-in-right#{$breakpoint} {
+			animation-name: fade-in-right;
+		}
 
-@include breakpoint-styles('.animate--fade-out') {
-	animation-name: fade-out;
-}
+		.animate--fade-in-down#{$breakpoint} {
+			animation-name: fade-in-down;
+		}
 
-@include breakpoint-styles('.animate--fade-out-up') {
-	animation-name: fade-out-up;
-}
+		.animate--fade-in-left#{$breakpoint} {
+			animation-name: fade-in-left;
+		}
 
-@include breakpoint-styles('.animate--fade-out-right') {
-	animation-name: fade-out-right;
-}
+		.animate--fade-out#{$breakpoint} {
+			animation-name: fade-out;
+		}
 
-@include breakpoint-styles('.animate--fade-out-down') {
-	animation-name: fade-out-down;
-}
+		.animate--fade-out-up#{$breakpoint} {
+			animation-name: fade-out-up;
+		}
 
-@include breakpoint-styles('.animate--fade-out-left') {
-	animation-name: fade-out-left;
-}
+		.animate--fade-out-right#{$breakpoint} {
+			animation-name: fade-out-right;
+		}
 
-@include breakpoint-styles('.animate--slide-in-up') {
-	animation-name: slide-in-up;
-}
+		.animate--fade-out-down#{$breakpoint} {
+			animation-name: fade-out-down;
+		}
 
-@include breakpoint-styles('.animate--slide-in-right') {
-	animation-name: slide-in-right;
-}
+		.animate--fade-out-left#{$breakpoint} {
+			animation-name: fade-out-left;
+		}
 
-@include breakpoint-styles('.animate--slide-in-down') {
-	animation-name: slide-in-down;
-}
+		.animate--slide-in-up#{$breakpoint} {
+			animation-name: slide-in-up;
+		}
 
-@include breakpoint-styles('.animate--slide-in-left') {
-	animation-name: slide-in-left;
-}
+		.animate--slide-in-right#{$breakpoint} {
+			animation-name: slide-in-right;
+		}
 
-@include breakpoint-styles('.animate--slide-out-up') {
-	animation-name: slide-out-up;
-}
+		.animate--slide-in-down#{$breakpoint} {
+			animation-name: slide-in-down;
+		}
 
-@include breakpoint-styles('.animate--slide-out-right') {
-	animation-name: slide-out-right;
-}
+		.animate--slide-in-left#{$breakpoint} {
+			animation-name: slide-in-left;
+		}
 
-@include breakpoint-styles('.animate--slide-out-down') {
-	animation-name: slide-out-down;
-}
+		.animate--slide-out-up#{$breakpoint} {
+			animation-name: slide-out-up;
+		}
 
-@include breakpoint-styles('.animate--slide-out-left') {
-	animation-name: slide-out-left;
-}
+		.animate--slide-out-right#{$breakpoint} {
+			animation-name: slide-out-right;
+		}
 
-@include breakpoint-styles('.animate--shake') {
-	animation-name: shake;
+		.animate--slide-out-down#{$breakpoint} {
+			animation-name: slide-out-down;
+		}
+
+		.animate--slide-out-left#{$breakpoint} {
+			animation-name: slide-out-left;
+		}
+
+		.animate--shake#{$breakpoint} {
+			animation-name: shake;
+		}
+	}
 }

@@ -1,28 +1,37 @@
-@include breakpoint-styles('.overflow-visible') {
-	overflow: visible;
-}
+$breakpoints: map-merge(( default: 0px ), $breakpoints);
 
-@include breakpoint-styles('.overflow-hidden') {
-	overflow: hidden;
-}
+@each $key, $value in $breakpoints {
+	@include media('>=#{$key}') {
+		$breakpoint: if($key == default, '', \@#{$key});
 
-// Prevent scrolling on element (fix for iOS)
-@include breakpoint-styles('.overflow-fixed') {
-	overflow: hidden;
-	position: fixed;
-	height: 100%;
-	width: 100%;
-}
+		.overflow-visible#{$breakpoint} {
+			overflow: visible;
+		}
 
-@include breakpoint-styles('.overflow-scroll') {
-	overflow: scroll;
-}
+		.overflow-hidden#{$breakpoint} {
+			overflow: hidden;
+		}
 
-@include breakpoint-styles('.overflow-auto') {
-	overflow: auto;
-}
+		// Prevent scrolling on element (fix for iOS)
+		.overflow-fixed#{$breakpoint} {
+			overflow: hidden;
+			position: fixed;
+			height: 100%;
+			width: 100%;
+		}
 
-// Smooth overflow scrolling in iOS
-@include breakpoint-styles('.overflow-scrolling') {
-	-webkit-overflow-scrolling: touch;
+		.overflow-scroll#{$breakpoint} {
+			overflow: scroll;
+		}
+
+		.overflow-auto#{$breakpoint} {
+			overflow: auto;
+		}
+
+		// Smooth overflow scrolling in iOS
+		.overflow-scrolling#{$breakpoint} {
+			-webkit-overflow-scrolling: touch;
+		}
+
+	}
 }

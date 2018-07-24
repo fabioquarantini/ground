@@ -1,41 +1,50 @@
-// Margin
-@for $i from 0 through 5 {
+$breakpoints: map-merge(( default: 0px ), $breakpoints);
 
-	@include breakpoint-styles('.margin-top--#{$i}') {
-		margin-top: ritmo($i);
+@each $key, $value in $breakpoints {
+	@include media('>=#{$key}') {
+		$breakpoint: if($key == default, '', \@#{$key});
+
+		// Margin
+		@for $i from 0 through 5 {
+
+			.margin-top--#{$i}#{$breakpoint} {
+				margin-top: ritmo($i);
+			}
+
+			.margin-bottom--#{$i}#{$breakpoint} {
+				margin-bottom: ritmo($i);
+			}
+
+			.margin-left--#{$i}#{$breakpoint} {
+				margin-left: ritmo($i);
+			}
+
+			.margin-right--#{$i}#{$breakpoint} {
+				margin-right: ritmo($i);
+			}
+
+		}
+
+		// Padding
+		@for $i from 0 through 5 {
+
+			.padding-top--#{$i}#{$breakpoint} {
+				padding-top: ritmo($i);
+			}
+
+			.padding-bottom--#{$i}#{$breakpoint} {
+				padding-bottom: ritmo($i);
+			}
+
+			.padding-left--#{$i}#{$breakpoint} {
+				padding-left: ritmo($i);
+			}
+
+			.padding-right--#{$i}#{$breakpoint} {
+				padding-right: ritmo($i);
+			}
+
+		}
+
 	}
-
-	@include breakpoint-styles('.margin-bottom--#{$i}') {
-		margin-bottom: ritmo($i);
-	}
-
-	@include breakpoint-styles('.margin-left--#{$i}') {
-		margin-left: ritmo($i);
-	}
-
-	@include breakpoint-styles('.margin-right--#{$i}') {
-		margin-right: ritmo($i);
-	}
-
-}
-
-// Padding
-@for $i from 0 through 5 {
-
-	@include breakpoint-styles('.padding-top--#{$i}') {
-		padding-top: ritmo($i);
-	}
-
-	@include breakpoint-styles('.padding-bottom--#{$i}') {
-		padding-bottom: ritmo($i);
-	}
-
-	@include breakpoint-styles('.padding-left--#{$i}') {
-		padding-left: ritmo($i);
-	}
-
-	@include breakpoint-styles('.padding-right--#{$i}') {
-		padding-right: ritmo($i);
-	}
-
 }

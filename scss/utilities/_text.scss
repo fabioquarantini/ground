@@ -1,73 +1,82 @@
-@include breakpoint-styles('.text-nowrap') {
-	white-space: nowrap;
-};
+$breakpoints: map-merge(( default: 0px ), $breakpoints);
 
-@include breakpoint-styles('.text-lowercase') {
-	text-transform: lowercase;
-};
+@each $key, $value in $breakpoints {
+	@include media('>=#{$key}') {
+		$breakpoint: if($key == default, '', \@#{$key});
 
-@include breakpoint-styles('.text-uppercase') {
-	text-transform: uppercase;
-};
+		.text-nowrap#{$breakpoint} {
+			white-space: nowrap;
+		};
 
-@include breakpoint-styles('.text-capitalize') {
-	text-transform: capitalize;
-};
+		.text-lowercase#{$breakpoint} {
+			text-transform: lowercase;
+		};
 
-@include breakpoint-styles('.text-transform-none') {
-	text-transform: none;
-};
+		.text-uppercase#{$breakpoint} {
+			text-transform: uppercase;
+		};
 
-@include breakpoint-styles('.text-underline') {
-	text-decoration: underline;
-};
+		.text-capitalize#{$breakpoint} {
+			text-transform: capitalize;
+		};
 
-@include breakpoint-styles('.text-decoration-none') {
-	text-decoration: none;
-};
+		.text-transform-none#{$breakpoint} {
+			text-transform: none;
+		};
 
-@include breakpoint-styles('.text-truncate') {
-	max-width: 100%;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	word-wrap: normal;
-};
+		.text-underline#{$breakpoint} {
+			text-decoration: underline;
+		};
 
-@include breakpoint-styles('.text-justify') {
-	text-align: justify;
-};
+		.text-decoration-none#{$breakpoint} {
+			text-decoration: none;
+		};
 
-@include breakpoint-styles('.text-left') {
-	text-align: left;
-};
+		.text-truncate#{$breakpoint} {
+			max-width: 100%;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			word-wrap: normal;
+		};
 
-@include breakpoint-styles('.text-right') {
-	text-align: right;
-};
+		.text-justify#{$breakpoint} {
+			text-align: justify;
+		};
 
-@include breakpoint-styles('.text-center') {
-	text-align: center;
-};
+		.text-left#{$breakpoint} {
+			text-align: left;
+		};
 
-@include breakpoint-styles('.text-bold') {
-	font-weight: bold;
-};
+		.text-right#{$breakpoint} {
+			text-align: right;
+		};
 
-@include breakpoint-styles('.text-ellipsis') {
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	overflow: hidden;
-};
+		.text-center#{$breakpoint} {
+			text-align: center;
+		};
 
-@include breakpoint-styles('.text-clip') {
-	text-overflow: clip;
-	white-space: nowrap;
-	overflow: hidden;
-};
+		.text-bold#{$breakpoint} {
+			font-weight: bold;
+		};
 
-@include breakpoint-styles('.text-break') {
-	hyphens: auto;
-	word-break: break-word;
-	word-wrap: break-word;
-};
+		.text-ellipsis#{$breakpoint} {
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+		};
+
+		.text-clip#{$breakpoint} {
+			text-overflow: clip;
+			white-space: nowrap;
+			overflow: hidden;
+		};
+
+		.text-break#{$breakpoint} {
+			hyphens: auto;
+			word-break: break-word;
+			word-wrap: break-word;
+		};
+
+	}
+}

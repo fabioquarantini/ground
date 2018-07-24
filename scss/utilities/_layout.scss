@@ -1,54 +1,63 @@
-// Clearfix: contain floats
-@include breakpoint-styles('.clear-fix') {
+$breakpoints: map-merge(( default: 0px ), $breakpoints);
 
-	&:before,
-	&:after {
-		content: " ";
-		display: table;
+@each $key, $value in $breakpoints {
+	@include media('>=#{$key}') {
+		$breakpoint: if($key == default, '', \@#{$key});
+
+		// Clearfix: contain floats
+		.clear-fix#{$breakpoint} {
+
+			&:before,
+			&:after {
+				content: " ";
+				display: table;
+			}
+
+			&:after {
+				clear: both;
+			}
+
+		}
+
+		// Clear
+		.clear-both#{$breakpoint} {
+			clear: both;
+		}
+
+		.clear-left#{$breakpoint} {
+			clear: left;
+		}
+
+		.clear-right#{$breakpoint} {
+			clear: right;
+		}
+
+		.clear-none#{$breakpoint} {
+			clear: none;
+		}
+
+		// Floats
+		.float-left#{$breakpoint} {
+			float: left;
+		}
+
+		.float-right#{$breakpoint} {
+			float: right;
+		}
+
+		.float-none#{$breakpoint} {
+			float: none;
+		}
+
+		// Column
+		@for $i from 0 through 4 {
+
+			.column--#{$i}#{$breakpoint} {
+				column-count: $i;
+				column-gap: ritmo(1);
+			}
+
+		}
+
 	}
-
-	&:after {
-		clear: both;
-	}
-
-}
-
-// Clear
-@include breakpoint-styles('.clear-both') {
-	clear: both;
-}
-
-@include breakpoint-styles('.clear-left') {
-	clear: left;
-}
-
-@include breakpoint-styles('.clear-right') {
-	clear: right;
-}
-
-@include breakpoint-styles('.clear-none') {
-	clear: none;
-}
-
-// Floats
-@include breakpoint-styles('.float-left') {
-	float: left;
-}
-
-@include breakpoint-styles('.float-right') {
-	float: right;
-}
-
-@include breakpoint-styles('.float-none') {
-	float: none;
-}
-
-// Column
-@for $i from 0 through 4 {
-
-	@include breakpoint-styles('.column--#{$i}') {
-		column-count: $i;
-		column-gap: ritmo(1);
-	}
-
 }
