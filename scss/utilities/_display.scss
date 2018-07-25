@@ -2,37 +2,37 @@
 	@include media('>=#{$key}') {
 		$breakpoint: if($key == default, '', \@#{$key});
 
-		.display-block#{breakpoint} {
+		.display-block#{$breakpoint} {
 			display: block;
 		}
 
-		.display-inline#{breakpoint} {
+		.display-inline#{$breakpoint} {
 			display: inline;
 		}
 
-		.display-inline-block#{breakpoint} {
+		.display-inline-block#{$breakpoint} {
 			display: inline-block;
 		}
 
-		.display-table#{breakpoint} {
+		.display-table#{$breakpoint} {
 			display: table;
 		}
 
-		.display-table-cell#{breakpoint} {
+		.display-table-cell#{$breakpoint} {
 			display: table-cell;
 		}
 
-		.display-table-row#{breakpoint} {
+		.display-table-row#{$breakpoint} {
 			display: table-row;
 		}
 
 		// Hide visually and from screen readers
-		.display-none#{breakpoint} {
+		.display-none#{$breakpoint} {
 			display: none;
 		}
 
 		// Hide only visually, but have it available for screen readers
-		.display-none-visually#{breakpoint} {
+		.display-none-visually#{$breakpoint} {
 			border: 0;
 			clip: rect(0 0 0 0);
 			clip-path: inset(50%);
@@ -46,12 +46,12 @@
 		}
 
 		// Hide visually and from screen readers, but maintain layout
-		.display-invisible#{breakpoint} {
+		.display-invisible#{$breakpoint} {
 			visibility: hidden;
 		}
 
 		// Image replacement
-		.image-replacement#{breakpoint} {
+		.image-replacement#{$breakpoint} {
 			background-color: transparent;
 			border: 0;
 			overflow: hidden;
