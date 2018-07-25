@@ -86,6 +86,7 @@
         "ScrollMagic": false,
         "Barba": false,
         "Promise": false,
+        "Swiper": false,
         "Yacc": false
     }
 }
