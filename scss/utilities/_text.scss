@@ -4,8 +4,24 @@ $breakpoints: map-merge(( default: 0px ), $breakpoints);
 	@include media('>=#{$key}') {
 		$breakpoint: if($key == default, '', \@#{$key});
 
-		.text-nowrap#{$breakpoint} {
-			white-space: nowrap;
+		.text-left#{$breakpoint} {
+			text-align: left;
+		};
+
+		.text-right#{$breakpoint} {
+			text-align: right;
+		};
+
+		.text-center#{$breakpoint} {
+			text-align: center;
+		};
+
+		.text-justify#{$breakpoint} {
+			text-align: justify;
+		};
+
+		.text-bold#{$breakpoint} {
+			font-weight: bold;
 		};
 
 		.text-lowercase#{$breakpoint} {
@@ -32,32 +48,16 @@ $breakpoints: map-merge(( default: 0px ), $breakpoints);
 			text-decoration: none;
 		};
 
+		.text-nowrap#{$breakpoint} {
+			white-space: nowrap;
+		};
+
 		.text-truncate#{$breakpoint} {
 			max-width: 100%;
 			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: nowrap;
 			word-wrap: normal;
-		};
-
-		.text-justify#{$breakpoint} {
-			text-align: justify;
-		};
-
-		.text-left#{$breakpoint} {
-			text-align: left;
-		};
-
-		.text-right#{$breakpoint} {
-			text-align: right;
-		};
-
-		.text-center#{$breakpoint} {
-			text-align: center;
-		};
-
-		.text-bold#{$breakpoint} {
-			font-weight: bold;
 		};
 
 		.text-ellipsis#{$breakpoint} {
@@ -77,6 +77,38 @@ $breakpoints: map-merge(( default: 0px ), $breakpoints);
 			word-break: break-word;
 			word-wrap: break-word;
 		};
+
+		.h1#{$breakpoint} {
+			@include type('h1');
+		}
+
+		.h2#{$breakpoint} {
+			@include type('h2');
+		}
+
+		.h3#{$breakpoint} {
+			@include type('h3');
+		}
+
+		.h4#{$breakpoint} {
+			@include type('h4');
+		}
+
+		.h5#{$breakpoint} {
+			@include type('h5');
+		}
+
+		.h6#{$breakpoint} {
+			@include type('h6');
+		}
+
+		.p#{$breakpoint} {
+			@include type('p');
+		}
+
+		.small#{$breakpoint} {
+			@include type('small');
+		}
 
 	}
 }
