@@ -1,5 +1,3 @@
-$breakpoints: map-merge(( default: 0px ), $breakpoints);
-
 @each $key, $value in $breakpoints {
 	@include media('>=#{$key}') {
 		$breakpoint: if($key == default, '', \@#{$key});

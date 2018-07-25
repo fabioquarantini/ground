@@ -52,6 +52,7 @@ $color-error-darkest: darken($color-error, 80%);
 
 // Breakpoints
 $breakpoints: (
+	default: 0px,
 	xs: 480px,
 	sm: 768px,
 	md: 992px,
@@ -107,9 +108,11 @@ $type-styles: (
 ));
 
 @each $key, $value in $breakpoints {
-	@include gridle_register_state(
-		$key, ( min-width: $value )
-	);
+	@if $key != 'default' {
+		@include gridle_register_state(
+			$key, ( min-width: $value )
+		);
+	}
 }
 
 // @include gridle_register_clear_each( 4 , left );
