@@ -54,6 +54,10 @@ $breakpoints: map-merge(( default: 0px ), $breakpoints);
 		// Full viewport width
 		.full-viewport-width#{$breakpoint} {
 			width: 100vw;
+			transform: translateX(-50%);
+			margin-left: 50%;
+			margin-right: 0;
+			max-width: none;
 		}
 
 		// Full height
@@ -75,15 +79,6 @@ $breakpoints: map-merge(( default: 0px ), $breakpoints);
 			right: 0;
 			top: 0;
 			margin: auto;
-		}
-
-		// Full Viewport
-		.full-viewport#{$breakpoint} {
-			width: 100vw;
-			transform: translateX(-50%);
-			margin-left: 50%;
-			margin-right: 0;
-			max-width: none;
 		}
 
 	}
