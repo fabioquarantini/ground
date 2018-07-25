@@ -1,6 +1,0 @@
-// Convert pixel to em
-@function em( $pixels, $context: $base-font-size ) {
-
-	@return #{$pixels/$context}em;
-
-}
