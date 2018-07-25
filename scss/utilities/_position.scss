@@ -33,7 +33,7 @@ $breakpoints: map-merge(( default: 0px ), $breakpoints);
 		}
 
 		.centered--vertical#{$breakpoint} {
-			@include centered( false, true );
+			@include centered(false, true);
 		}
 
 		// Fit an element to the dimensions of its parent
@@ -49,6 +49,11 @@ $breakpoints: map-merge(( default: 0px ), $breakpoints);
 		// Full width
 		.full-width#{$breakpoint} {
 			width: 100%;
+		}
+
+		// Full viewport width
+		.full-viewport-width#{$breakpoint} {
+			width: 100vw;
 		}
 
 		// Fixes an element over the viewport
