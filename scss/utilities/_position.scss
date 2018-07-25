@@ -56,6 +56,16 @@ $breakpoints: map-merge(( default: 0px ), $breakpoints);
 			width: 100vw;
 		}
 
+		// Full height
+		.full-height#{$breakpoint} {
+			height: 100%;
+		}
+
+		// Full viewport height
+		.full-viewport-height#{$breakpoint} {
+			height: 100vh;
+		}
+
 		// Fixes an element over the viewport
 		.full-screen#{$breakpoint} {
 			position: fixed;
