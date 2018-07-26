@@ -10,7 +10,8 @@
 				$font-size: map-get($font-map, 'font-size'),
 				$line-height: map-get($font-map, 'line-height'),
 				$margin-top: map-get($font-map, 'margin-top'),
-				$margin-bottom: map-get($font-map, 'margin-bottom')
+				$margin-bottom: map-get($font-map, 'margin-bottom'),
+				$letter-spacing: map-get($font-map, 'letter-spacing')
 			);
 
 		} @else {
@@ -21,7 +22,8 @@
 					$font-size: map-get($font-map, 'font-size'),
 					$line-height: map-get($font-map, 'line-height'),
 					$margin-top: map-get($font-map, 'margin-top'),
-					$margin-bottom: map-get($font-map, 'margin-bottom')
+					$margin-bottom: map-get($font-map, 'margin-bottom'),
+					$letter-spacing: map-get($font-map, 'letter-spacing')
 				);
 			}
 
