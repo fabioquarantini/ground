@@ -78,7 +78,7 @@ rules:
     shorthand-values: 0
     url-quotes: 1
     variable-for-property: 1
-    zero-unit: 1
+    zero-unit: 0
 
     # Inner Spacing
     space-after-comma: 1
