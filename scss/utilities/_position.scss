@@ -79,5 +79,11 @@
 			margin: auto;
 		}
 
+		// Evenly distributes child elements within a parent element
+		.flex-space-between#{$breakpoint} {
+			display: flex;
+			justify-content: space-between;
+		}
+
 	}
 }
