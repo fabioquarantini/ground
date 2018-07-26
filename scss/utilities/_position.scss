@@ -85,5 +85,12 @@
 			justify-content: space-between;
 		}
 
+		// Horizontally and vertically centers a child element within a parent element using flexbox
+		.flex-centered#{$breakpoint} {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
 	}
 }
