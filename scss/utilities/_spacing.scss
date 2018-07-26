@@ -5,6 +5,10 @@
 		// Margin
 		@for $i from 0 through 5 {
 
+			.margin--#{$i}#{$breakpoint} {
+				margin: ritmo($i);
+			}
+
 			.margin-top--#{$i}#{$breakpoint} {
 				margin-top: ritmo($i);
 			}
@@ -25,6 +29,10 @@
 
 		// Padding
 		@for $i from 0 through 5 {
+
+			.padding--#{$i}#{$breakpoint} {
+				padding: ritmo($i);
+			}
 
 			.padding-top--#{$i}#{$breakpoint} {
 				padding-top: ritmo($i);
