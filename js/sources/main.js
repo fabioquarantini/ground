@@ -17,8 +17,12 @@ $(window).on('load', function() {
 	// Load function
 });
 
+// Detect when background images have loaded, in addition to <img>s
 $('body').imagesLoaded({ background: true }, function() {
-	// Detect when background images have loaded, in addition to <img>s
+
+	$('body').addClass('is-loaded');
+	siteInit.loaderPage();
+
 });
 
 $(window).scroll(function() {
@@ -84,6 +88,21 @@ var siteInit = {
 		}
 
 		$el.fancybox();
+
+	},
+
+	// Loader
+	loaderPage: function() {
+
+		var $el = $('.js-loader-page');
+
+		if ($el.length == 0) {
+
+			return;
+
+		}
+
+		$el.fadeOut();
 
 	},
 

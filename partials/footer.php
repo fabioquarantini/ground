@@ -33,6 +33,8 @@
 			</div> <!-- End .container -->
 		</footer> <!-- End .footer -->
 
+		<?php get_template_part( 'partials/loader', 'page' ); ?>
+
 		<?php wp_footer();
 
 		// Google Analytics: change UA-XXXXXXXX-X to be your site's ID.  ?>

@@ -1,4 +1,18 @@
 .loader {
+
+	&--page {
+		@extend .full-screen;
+		background-color: $color-white;
+		z-index: 100000;
+	}
+
+	&--infinite {
+
+	}
+
+}
+
+.loader__spinner {
 	animation: rotate 0.8s infinite linear;
 	border: 3px solid $color-primary;
 	border-radius: 50%;

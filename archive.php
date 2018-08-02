@@ -22,7 +22,7 @@
 
 			<?php
 			get_template_part( 'partials/pagination' );
-			get_template_part( 'partials/loader' );
+			get_template_part( 'partials/loader', 'infinite' );
 			?>
 
 		<?php endif; ?>
