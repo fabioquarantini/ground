@@ -1,5 +1,3 @@
-<!-- TODO: Css class bem wp_list_categories -->
-
 <?php // List custom post type taxonomy
 $custom_taxonomy_name = "ground_catalog_taxonomy";
 $custom_post_type_name = 'ground_catalog';
@@ -28,11 +26,12 @@ if ( is_page_template( 'templates/template-' . $custom_post_type_name . '.php' )
 		'hierarchical'		=> 1,
 		'title_li'			=> '',
 		'taxonomy'			=> $custom_taxonomy_name,
-		'current_category'	=> $term_id
+		'current_category'	=> $term_id,
+		'walker' => new Ground_Wp_List_Categories_Bem
 	); ?>
 
-	<nav class="navigation navigation--custom-taxonomy" role="navigation">
-		<ul class="navigation-custom-taxonomy">
+	<nav class="navigation-container navigation-container--ground-catalog-taxonomy" role="navigation">
+		<ul class="navigation navigation--ground-catalog-taxonomy">
 			<?php wp_list_categories( $args ); ?>
 		</ul>
 	</nav> <!-- End .navigation -->
