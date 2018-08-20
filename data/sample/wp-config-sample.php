@@ -139,7 +139,7 @@ define( 'WP_POST_REVISIONS', true );	// If you want to specify a maximum number 
 
 // define( 'WP_CONTENT_URL',	'http://example.com/wp-content' );			// Custom 'wp-content' URI
 // define( 'WP_PLUGIN_URL',		'http://example.com/wp-content/plugins' );	// Custom 'wp-content/plugins' URI
-// define( 'UPLOADS',			'/media ' );								// Custom 'wp-content/uploads' folder
+// define( 'UPLOADS',			'wp-content/uploads' );						// Custom 'wp-content/uploads' folder
 
 
 /*  ==========================================================================
