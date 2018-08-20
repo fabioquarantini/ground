@@ -26,6 +26,7 @@ if ( is_page_template( 'templates/template-' . $custom_post_type_name . '.php' )
 		'orderby'			=> 'name',
 		//'child_of'		=> $child_id,
 		'hierarchical'		=> 1,
+		'title_li'			=> '',
 		'taxonomy'			=> $custom_taxonomy_name,
 		'current_category'	=> $term_id
 	); ?>
