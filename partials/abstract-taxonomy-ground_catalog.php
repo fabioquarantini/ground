@@ -1,9 +1,9 @@
 <article class="card card--rounded">
 
 	<a class="card__link" href="<?php echo get_term_link($taxonomy_slug, 'ground_catalog_taxonomy') ?>">
-		<figure class="media media--zoom">
+		<figure class="media">
 			<?php //TODO: ACF category thumbnail ?>
-			<img class="media__img full-width" src=" http://via.placeholder.com/200x150" />
+			<img class="media__img media__img--zoom full-width" src=" http://via.placeholder.com/200x150" />
 		</figure>
 	</a>
 

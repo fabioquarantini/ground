@@ -3,21 +3,10 @@
 	overflow: hidden;
 }
 
-.media__img {
+.media__img--zoom {
+	transition: transform 0.2s ease-in-out;
 
-	.media--zoom & {
-
-		transition: transform .2s ease-in-out;
-
-		&:hover {
-			transform: scale(1.1);
-		}
-
+	&:hover {
+		transform: scale(1.1);
 	}
-
-
-}
-
-.media__video {
-
 }
