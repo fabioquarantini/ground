@@ -2,10 +2,10 @@
 	font-family: "icons";
 	src: url('../fonts/icons.eot');
 	src: url('../fonts/icons.eot?#iefix') format('eot'),
-		url('../fonts/icons.woff2') format('woff2'),
 		url('../fonts/icons.woff') format('woff'),
-		url('../fonts/icons.ttf') format('truetype'),
-		url('../fonts/icons.svg#icons') format('svg');
+		url('../fonts/icons.ttf') format('truetype');
+		/* url('../fonts/icons.woff2') format('woff2'), */
+		/* url('../fonts/icons.svg#icons') format('svg'); */
 }
 
 @mixin icon-styles {
@@ -28,217 +28,217 @@
 	$char: "";
 
 	@if $filename == align-left {
-		$char: "\E001";
+		$char: "\EA01";
 	}
 	@if $filename == align-middle {
-		$char: "\E002";
+		$char: "\EA02";
 	}
 	@if $filename == align-right {
-		$char: "\E003";
+		$char: "\EA03";
 	}
 	@if $filename == arrow {
-		$char: "\E004";
+		$char: "\EA04";
 	}
 	@if $filename == bell {
-		$char: "\E005";
+		$char: "\EA05";
 	}
 	@if $filename == blank {
-		$char: "\E006";
+		$char: "\EA06";
 	}
 	@if $filename == bluetooth {
-		$char: "\E007";
+		$char: "\EA07";
 	}
 	@if $filename == browser {
-		$char: "\E008";
+		$char: "\EA08";
 	}
 	@if $filename == camera {
-		$char: "\E009";
+		$char: "\EA09";
 	}
 	@if $filename == cart {
-		$char: "\E00A";
+		$char: "\EA0A";
 	}
 	@if $filename == chat {
-		$char: "\E00B";
+		$char: "\EA0B";
 	}
 	@if $filename == check-mark {
-		$char: "\E00C";
+		$char: "\EA0C";
 	}
 	@if $filename == clock {
-		$char: "\E00D";
+		$char: "\EA0D";
 	}
 	@if $filename == close {
-		$char: "\E00E";
+		$char: "\EA0E";
 	}
 	@if $filename == compass {
-		$char: "\E00F";
+		$char: "\EA0F";
 	}
 	@if $filename == connection {
-		$char: "\E010";
+		$char: "\EA10";
 	}
 	@if $filename == cursor {
-		$char: "\E011";
+		$char: "\EA11";
 	}
 	@if $filename == display {
-		$char: "\E012";
+		$char: "\EA12";
 	}
 	@if $filename == download {
-		$char: "\E013";
+		$char: "\EA13";
 	}
 	@if $filename == drop {
-		$char: "\E014";
+		$char: "\EA14";
 	}
 	@if $filename == empty-blank {
-		$char: "\E015";
+		$char: "\EA15";
 	}
 	@if $filename == flag {
-		$char: "\E016";
+		$char: "\EA16";
 	}
 	@if $filename == forward-2 {
-		$char: "\E017";
+		$char: "\EA17";
 	}
 	@if $filename == forward {
-		$char: "\E018";
+		$char: "\EA18";
 	}
 	@if $filename == gift {
-		$char: "\E019";
+		$char: "\EA19";
 	}
 	@if $filename == graphic {
-		$char: "\E01A";
+		$char: "\EA1A";
 	}
 	@if $filename == grid {
-		$char: "\E01B";
+		$char: "\EA1B";
 	}
 	@if $filename == hamburger-menu {
-		$char: "\E01C";
+		$char: "\EA1C";
 	}
 	@if $filename == headphones {
-		$char: "\E01D";
+		$char: "\EA1D";
 	}
 	@if $filename == heart {
-		$char: "\E01E";
+		$char: "\EA1E";
 	}
 	@if $filename == home {
-		$char: "\E01F";
+		$char: "\EA1F";
 	}
 	@if $filename == hyperlink {
-		$char: "\E020";
+		$char: "\EA20";
 	}
 	@if $filename == justify-all {
-		$char: "\E021";
+		$char: "\EA21";
 	}
 	@if $filename == key {
-		$char: "\E022";
+		$char: "\EA22";
 	}
 	@if $filename == label {
-		$char: "\E023";
+		$char: "\EA23";
 	}
 	@if $filename == lock-closed {
-		$char: "\E024";
+		$char: "\EA24";
 	}
 	@if $filename == lock-open {
-		$char: "\E025";
+		$char: "\EA25";
 	}
 	@if $filename == magnet {
-		$char: "\E026";
+		$char: "\EA26";
 	}
 	@if $filename == magnifying-glass-2 {
-		$char: "\E027";
+		$char: "\EA27";
 	}
 	@if $filename == magnifying-glass-minus {
-		$char: "\E028";
+		$char: "\EA28";
 	}
 	@if $filename == magnifying-glass-plus {
-		$char: "\E029";
+		$char: "\EA29";
 	}
 	@if $filename == magnifying-glass {
-		$char: "\E02A";
+		$char: "\EA2A";
 	}
 	@if $filename == mail {
-		$char: "\E02B";
+		$char: "\EA2B";
 	}
 	@if $filename == map-pin {
-		$char: "\E02C";
+		$char: "\EA2C";
 	}
 	@if $filename == map {
-		$char: "\E02D";
+		$char: "\EA2D";
 	}
 	@if $filename == maximize {
-		$char: "\E02E";
+		$char: "\EA2E";
 	}
 	@if $filename == microphone {
-		$char: "\E02F";
+		$char: "\EA2F";
 	}
 	@if $filename == minimize {
-		$char: "\E030";
+		$char: "\EA30";
 	}
 	@if $filename == minus {
-		$char: "\E031";
+		$char: "\EA31";
 	}
 	@if $filename == mouse {
-		$char: "\E032";
+		$char: "\EA32";
 	}
 	@if $filename == music {
-		$char: "\E033";
+		$char: "\EA33";
 	}
 	@if $filename == navigation {
-		$char: "\E034";
+		$char: "\EA34";
 	}
 	@if $filename == notifications {
-		$char: "\E035";
+		$char: "\EA35";
 	}
 	@if $filename == pause {
-		$char: "\E036";
+		$char: "\EA36";
 	}
 	@if $filename == play {
-		$char: "\E037";
+		$char: "\EA37";
 	}
 	@if $filename == plus {
-		$char: "\E038";
+		$char: "\EA38";
 	}
 	@if $filename == power {
-		$char: "\E039";
+		$char: "\EA39";
 	}
 	@if $filename == print {
-		$char: "\E03A";
+		$char: "\EA3A";
 	}
 	@if $filename == repeat {
-		$char: "\E03B";
+		$char: "\EA3B";
 	}
 	@if $filename == selection {
-		$char: "\E03C";
+		$char: "\EA3C";
 	}
 	@if $filename == settings {
-		$char: "\E03D";
+		$char: "\EA3D";
 	}
 	@if $filename == share {
-		$char: "\E03E";
+		$char: "\EA3E";
 	}
 	@if $filename == shuffle {
-		$char: "\E03F";
+		$char: "\EA3F";
 	}
 	@if $filename == sound-minus {
-		$char: "\E040";
+		$char: "\EA40";
 	}
 	@if $filename == sound-plus {
-		$char: "\E041";
+		$char: "\EA41";
 	}
 	@if $filename == speaker {
-		$char: "\E042";
+		$char: "\EA42";
 	}
 	@if $filename == star {
-		$char: "\E043";
+		$char: "\EA43";
 	}
 	@if $filename == statistics {
-		$char: "\E044";
+		$char: "\EA44";
 	}
 	@if $filename == stop {
-		$char: "\E045";
+		$char: "\EA45";
 	}
 	@if $filename == trash-bin {
-		$char: "\E046";
+		$char: "\EA46";
 	}
 	@if $filename == upload {
-		$char: "\E047";
+		$char: "\EA47";
 	}
 
 	@return $char;

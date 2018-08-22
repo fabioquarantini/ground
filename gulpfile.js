@@ -6,14 +6,15 @@ var gulp = require('gulp'),
 	autoprefixer = require('gulp-autoprefixer'),
 	browserSync = require('browser-sync').create(),
 	cleanCSS = require('gulp-clean-css'),
+	consolidate = require('gulp-consolidate'),
 	eslint = require('gulp-eslint'),
 	uglify = require('gulp-uglify'),
 	concat = require('gulp-concat'),
 	notify = require('gulp-notify'),
 	iconFont = require('gulp-iconfont'),
-	iconFontCss = require('gulp-iconfont-css'),
 	yargs = require('yargs'),
 	pump = require('pump'),
+	rename = require('gulp-rename'),
 	sourcemaps = require('gulp-sourcemaps'),
 	reload = browserSync.reload;
 
@@ -34,7 +35,7 @@ var cssFolder = 'css',
 	fontIconsName = 'icons',
 	runTimestamp = Math.round(Date.now() / 1000),
 	staticServerPath = './',
-	host = 'localhost', // Or use V-host like site.dev
+	host = 'ground.develop',
 	prettify = yargs.argv.prettify === undefined ? false : true,
 	server = yargs.argv.server === undefined ? false : true;
 
@@ -172,27 +173,36 @@ gulp.task('lint', function() {
 
 gulp.task('iconFont', function() {
 
-	gulp
+	return gulp
 		.src([iconFolder + '/*.svg'])
-		.pipe(
-			iconFontCss({
-				fontName: fontIconsName,
-				cssClass: 'icon',
-				path: 'node_modules/gulp-iconfont-css/templates/_icons.scss',
-				targetPath: '../' + scssFolder + '/components/_icons.scss',
-				fontPath: '../' + fontFolder + '/'
-			})
-		)
 		.pipe(
 			iconFont({
 				fontName: fontIconsName,
-				prependUnicode: true,
-				normalize: true,
 				fontHeight: 1001,
-				timestamp: runTimestamp
+				normalize: true,
+				formats: ['ttf', 'eot', 'woff'], // default, 'woff2' and 'svg' are available
+				timestamp: runTimestamp // recommended to get consistent builds when watching files
 			})
 		)
-		.pipe(gulp.dest('fonts/'))
+		.on('glyphs', function(glyphs, options) {
+
+			//console.log(glyphs, options);
+			gulp
+				.src(scssFolder + '/functions/_generate-icons.scss')
+				.pipe(
+					consolidate('lodash', {
+						glyphs: glyphs,
+						fontName: fontIconsName,
+						fontPath: '../' + fontFolder + '/',
+						className: 'icon',
+						cssClass: 'icon'
+					})
+				)
+				.pipe(rename('_icons.scss'))
+				.pipe(gulp.dest(scssFolder + '/components'));
+
+		})
+		.pipe(gulp.dest(fontFolder))
 		.pipe(
 			notify({
 				title: 'Icon font',
