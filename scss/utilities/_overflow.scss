@@ -10,14 +10,6 @@
 			overflow: hidden;
 		}
 
-		// Prevent scrolling on element (fix for iOS)
-		.overflow-fixed#{$breakpoint} {
-			overflow: hidden;
-			position: fixed;
-			height: 100%;
-			width: 100%;
-		}
-
 		.overflow-scroll#{$breakpoint} {
 			overflow: scroll;
 		}
