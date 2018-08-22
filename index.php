@@ -1,7 +1,5 @@
 <?php get_template_part( 'partials/header' ); ?>
 
-	<?php get_template_part( 'partials/slider', 'primary' ); ?>
-
 	<section class="page">
 
 		<?php if (single_post_title('', false)) : ?>
