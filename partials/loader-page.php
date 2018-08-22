@@ -1,3 +1,3 @@
-<div class="loader loader--page js-loader-page">
-	<div class="loader__spinner centered"></div>
+<div class="loader loader--page js-loader-page flex-centered">
+	<div class="loader__spinner"></div>
 </div>
