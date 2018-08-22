@@ -1,12 +1,12 @@
 .navicon {
 	position: absolute;
-	top: 20px;
-	right: 3%;
+	top: ritmo(0.5);
+	right: 0;
+	padding: ritmo(0.5);
 	left: auto;
 	z-index: 1000;
 	border: 0;
 	background-color: transparent;
-	padding: 0;
 	cursor: pointer;
 
 	@include media(">=md") {
@@ -16,5 +16,5 @@
 }
 
 .navicon__icon {
-	@include navicon-icon( 30px, 3px, 5px );
+	@include navicon-icon( 35px, 1px, 11px );
 }

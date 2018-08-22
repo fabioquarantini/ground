@@ -3,7 +3,7 @@
 	<?php
 	$args = array(
 		'theme_location'	=> 'navigation-primary',
-		'menu_class'		=> 'navigation navigation--primary list-inline',
+		'menu_class'		=> 'navigation navigation--primary',
 		'items_wrap'		=> '<ul class="%2$s">%3$s</ul>',
 		'fallback_cb'		=> false,
 		'depth'				=> 0,

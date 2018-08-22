@@ -1,0 +1,22 @@
+.header {
+	position: fixed;
+	z-index: 10;
+	top: 0;
+	left: 0;
+	right: 0;
+	background-color: $color-white;
+	height: ritmo(3);
+	box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+	@extend .clear-fix;
+
+	@include media('>=md') {
+		position: static;
+		top: auto;
+		left: auto;
+		right: auto;
+		height: auto;
+		background-color: transparent;
+		box-shadow: none;
+		margin-bottom: ritmo(2);
+	}
+}
