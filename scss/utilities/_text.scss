@@ -80,37 +80,5 @@
 			word-wrap: break-word;
 		};
 
-		.h1#{$breakpoint} {
-			@include type('h1');
-		}
-
-		.h2#{$breakpoint} {
-			@include type('h2');
-		}
-
-		.h3#{$breakpoint} {
-			@include type('h3');
-		}
-
-		.h4#{$breakpoint} {
-			@include type('h4');
-		}
-
-		.h5#{$breakpoint} {
-			@include type('h5');
-		}
-
-		.h6#{$breakpoint} {
-			@include type('h6');
-		}
-
-		.p#{$breakpoint} {
-			@include type('p');
-		}
-
-		.small#{$breakpoint} {
-			@include type('small');
-		}
-
 	}
 }
