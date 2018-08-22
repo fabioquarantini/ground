@@ -1,6 +1,6 @@
 .footer {
 	padding: ritmo(2);
-	background-color: $color-grey;
+	background-color: $color-black;
 }
 
 .footer__bottom {
@@ -18,7 +18,4 @@
 .footer__item {
 	@include ritmo-font-size(16px);
 	color:$color-white;
-	@include media('>=md') {
-		color:$color-secondary;
-	}
 }
