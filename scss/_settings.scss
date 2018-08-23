@@ -100,7 +100,7 @@ $type-styles: (
 );
 
 // Grid
-@include gridle_setup((
+@include g-setup((
 	context: 12,
 	gutter-width: 24px,
 	states-classes: false,
@@ -109,15 +109,13 @@ $type-styles: (
 
 @each $key, $value in $breakpoints {
 	@if $key != 'default' {
-		@include gridle_register_state(
+		@include g-register-state(
 			$key, ( min-width: $value )
 		);
 	}
 }
 
-// @include gridle_register_clear_each( 4 , left );
-
-@include gridle_generate_classes();
+@include g-classes();
 
 // Paths
 $path-img: '../img/';
