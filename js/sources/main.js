@@ -49,27 +49,31 @@ var siteInit = {
 
 		}
 
-		$el.owlCarousel({
+		var groundSwiper = new Swiper($el, {
+			direction: 'horizontal',
 			loop: true,
-			dots: true,
-			margin: 0,
-			center: false,
+			effect: 'slide',
 			autoHeight: false,
-			stagePadding: 0,
-			responsiveClass: true,
-			autoplayTimeout: 3000,
-			responsive: {
-				0: {
-					autoplay: true,
-					nav: false,
-					items: 1,
-					dots: true
+			parallax: true,
+			autoplay: {
+				delay: 3000
+			},
+			pagination: {
+				el: '.swiper-pagination'
+			},
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev'
+			},
+			slidesPerView: 1,
+			spaceBetween: 0,
+			breakpoints: {
+				// when window width is <= 320px
+				320: {
+					slidesPerView: 1
 				},
 				992: {
-					autoplay: true,
-					nav: true,
-					items: 1,
-					dots: false
+					slidesPerView: 3
 				}
 			}
 		});
@@ -177,17 +181,14 @@ var siteInit = {
 
 	// Utility
 	utility: {
-
 		isTouch: function() {
 
-			if (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
+			if ('ontouchstart' in window || (window.DocumentTouch && document instanceof DocumentTouch)) {
 
 				return true;
 
 			}
 
 		}
-
 	}
-
 };

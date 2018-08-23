@@ -1,58 +1,7 @@
 .slider {
 
-	.owl-nav {
-		width: 100%;
-		-webkit-tap-highlight-color: transparent;
-	}
+}
 
-	.owl-nav .disabled {
-		opacity: 0.5;
-		cursor: default;
-	}
-
-	.owl-prev,
-	.owl-next {
-
-		margin: 0;
-		@include centered( false, true );
-
-		span {
-			@include ritmo-font-size(36px);
-			padding-left: ritmo(0.5);
-			padding-right: ritmo(0.5);
-		}
-	}
-
-	.owl-prev {
-		left: 0;
-	}
-
-	.owl-next {
-		right: 0;
-	}
-
-	.owl-dots {
-		height: ritmo(1);
-		text-align: center;
-		-webkit-tap-highlight-color: transparent;
-
-		.owl-dot {
-			width: ritmo(0.5);
-			height: ritmo(0.5);
-			margin: ritmo(0.25) ritmo(0.25);
-			background: $color-grey;
-			display: inline-block;
-			vertical-align: middle;
-			backface-visibility: visible;
-			transition: opacity 200ms ease;
-			border-radius: 30px;
-
-			&:hover,
-			&.active {
-				background: $color-primary;
-			}
-		}
-
-	}
+.slider--primary {
 
 }
