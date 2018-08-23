@@ -82,7 +82,7 @@ gulp.task('styles', function() {
 			notify.onError({
 				wait: true,
 				title: 'Sass error',
-				message: '<%= error.message %>'
+				message: '⛔ <%= error.message %>'
 			})
 		)
 		.pipe(
@@ -108,7 +108,7 @@ gulp.task('styles', function() {
 		.pipe(
 			notify({
 				title: 'Styles',
-				message: 'Task complete',
+				message: '👍 Task complete!',
 				icon: icon
 			})
 		);
@@ -128,7 +128,7 @@ gulp.task('scripts', function() {
 			gulp.dest(jsFolder),
 			notify({
 				title: 'Scripts',
-				message: 'Task complete',
+				message: '👍 Task complete!',
 				icon: icon
 			})
 		]);
@@ -144,7 +144,7 @@ gulp.task('scripts', function() {
 			gulp.dest(jsFolder),
 			notify({
 				title: 'Scripts',
-				message: 'Task complete',
+				message: '👍 Task complete!',
 				icon: icon
 			})
 		]);
@@ -165,7 +165,7 @@ gulp.task('lint', function() {
 			'error',
 			notify.onError({
 				title: 'Hint',
-				message: '<%= error.message %>'
+				message: '⛔ <%= error.message %>'
 			})
 		);
 
@@ -206,7 +206,7 @@ gulp.task('iconFont', function() {
 		.pipe(
 			notify({
 				title: 'Icon font',
-				message: 'Task complete',
+				message: '👍 Task complete!',
 				icon: icon
 			})
 		);
