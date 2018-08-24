@@ -5,6 +5,7 @@ A flexible and powerful WordPress starter theme using a modern development workf
 * Compile Sass files to CSS
 * Live reloading. Auto reload page when change code across many browsers and devices (Sass, JavaScript, PHP, HTML)
 * Inject CSS instead of browser page reload
+* Advanced Sass framework
 * Concatenates, minify and compress JavaScript files
 * Add vendor prefixes to CSS rules using values from Can I Use
 * Generate JavaScript and CSS sourcemaps
@@ -14,8 +15,8 @@ A flexible and powerful WordPress starter theme using a modern development workf
 * Notifications feedback on task complete
 * Apache Server Configs
 * Advanced wp-config.php base kit
+* Vertical Rhythm
 * Multilingual ready
-* Advanced Sass framework
 
 ## Requirements
 Make sure you have the latest versions of these software.
