@@ -47,7 +47,7 @@ Open the Ground folder using the terminal and type one of the following commands
 * **Mixins** - Groups of CSS declarations that you want to reuse throughout your site
 * **Utilities** - Single use classes to perform a single function or change a single attribute (.display-none, .clear-fix ...)
 * **Vendors** - Third party libraries
-* **_settings.scss** - Variables, colors, grid, config switches ecc...
+* **_settings.scss** - Variables, colors, grid setup, config switches ecc...
 * **main.scss** - Import all other files
 
 ## Credits
