@@ -50,6 +50,10 @@ Open the Ground folder using the terminal and type one of the following commands
 * **_settings.scss** - Variables, colors, grid setup, config switches ecc...
 * **main.scss** - Import all other files
 
+## Namespaces
+* `.js-` — JavaScript hooks: Signify that this piece of the DOM has some behaviour acting upon it, and that JavaScript binds onto it to provide that behaviour.
+* `.is-|.has-` — State classes: Signify that the piece of UI in question is currently styled a certain way because of a state or condition.
+
 ## Credits
 [Fabio Quarantini](http://www.fabioquarantini.com)
 
