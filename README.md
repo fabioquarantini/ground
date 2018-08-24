@@ -36,16 +36,18 @@ Open the Ground folder using the terminal and type one of the following commands
 * `yarn server` — Concatenates, compile, minify and compress assets when changes are made, start Browsersync
 * `yarn prettify` — Concatenates, compile assets when changes are made
 
-## Sass folder
-* Animations - Library of CSS animations
-* Base — Bare HTML elements (html, h1, a, p, etc…)
-* Components - Specific UI components that are reusable. Each component should be isolated
-* Debug - Tools to debug CSS
-* Functions - Blocks of code that return a single value of any Sass data type
-* Layouts - Macro layout styles ( container, grid ...)
-* Mixins - Groups of CSS declarations that you want to reuse throughout your site
-* Utilities — Single use classes to perform a single function or change a single attribute (.display-none, .clear-fix ...)
-* Vendors — Third party libraries
+## Sass structure
+* **Animations** - Library of CSS animations
+* **Base** - Bare HTML elements (html, h1, a, p, etc…)
+* **Components** - Specific UI components that are reusable. Each component should be isolated
+* **Debug** - Tools to debug CSS
+* **Functions** - Blocks of code that return a single value of any Sass data type
+* **Layouts** - Macro layout styles ( container, grid ...)
+* **Mixins** - Groups of CSS declarations that you want to reuse throughout your site
+* **Utilities** - Single use classes to perform a single function or change a single attribute (.display-none, .clear-fix ...)
+* **Vendors** - Third party libraries
+* **_settings.scss** - Variables, colors, grid, config switches ecc...
+* **main.scss** - Import all other files
 
 ## Credits
 [Fabio Quarantini](http://www.fabioquarantini.com)
