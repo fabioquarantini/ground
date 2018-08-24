@@ -1,4 +1,4 @@
-# Ground Wordpress theme
+# Ground
 A flexible and powerful WordPress starter theme using a modern development workflow.
 
 ## Features
