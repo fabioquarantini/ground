@@ -46,7 +46,7 @@ function ground_shortcode_map( $atts, $content = null ) {
 	if ( empty($ratio) ) {
 		return '<iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="' . $src . '&amp;output=embed"></iframe>';
 	} else {
-		return '<div class="ratio--' . $ratio . '"><iframe width="' . $width . '" height="' . $height . '" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="' . $src . '&amp;output=embed"></iframe></div>';
+		return '<div class="ratio-' . $ratio . '"><iframe width="' . $width . '" height="' . $height . '" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="' . $src . '&amp;output=embed"></iframe></div>';
 	}
 
 }

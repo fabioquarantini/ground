@@ -160,7 +160,7 @@ textarea {
 
 		&:after {
 			animation-duration: 0.3s;
-			@extend .animate--fade-in;
+			@extend .animate-fade-in;
 			background-color: $color-primary;
 			content: " ";
 			width: 8px;
@@ -216,7 +216,7 @@ textarea {
 		position: relative;
 
 		&:after {
-			@extend .animate--fade-in;
+			@extend .animate-fade-in;
 			animation-duration: 0.3s;
 			color: $color-primary;
 			content: "\2713";

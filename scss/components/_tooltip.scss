@@ -31,7 +31,7 @@
 	&:hover {
 		&:after,
 		&:before {
-			@extend .animate--fade-in;
+			@extend .animate-fade-in;
 		}
 	}
 

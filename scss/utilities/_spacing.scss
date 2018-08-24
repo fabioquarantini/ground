@@ -5,23 +5,23 @@
 		// Margin
 		@for $i from 0 through 5 {
 
-			.margin--#{$i}#{$breakpoint} {
+			.margin-#{$i}#{$breakpoint} {
 				margin: ritmo($i);
 			}
 
-			.margin-top--#{$i}#{$breakpoint} {
+			.margin-top-#{$i}#{$breakpoint} {
 				margin-top: ritmo($i);
 			}
 
-			.margin-bottom--#{$i}#{$breakpoint} {
+			.margin-bottom-#{$i}#{$breakpoint} {
 				margin-bottom: ritmo($i);
 			}
 
-			.margin-left--#{$i}#{$breakpoint} {
+			.margin-left-#{$i}#{$breakpoint} {
 				margin-left: ritmo($i);
 			}
 
-			.margin-right--#{$i}#{$breakpoint} {
+			.margin-right-#{$i}#{$breakpoint} {
 				margin-right: ritmo($i);
 			}
 
@@ -30,23 +30,23 @@
 		// Padding
 		@for $i from 0 through 5 {
 
-			.padding--#{$i}#{$breakpoint} {
+			.padding-#{$i}#{$breakpoint} {
 				padding: ritmo($i);
 			}
 
-			.padding-top--#{$i}#{$breakpoint} {
+			.padding-top-#{$i}#{$breakpoint} {
 				padding-top: ritmo($i);
 			}
 
-			.padding-bottom--#{$i}#{$breakpoint} {
+			.padding-bottom-#{$i}#{$breakpoint} {
 				padding-bottom: ritmo($i);
 			}
 
-			.padding-left--#{$i}#{$breakpoint} {
+			.padding-left-#{$i}#{$breakpoint} {
 				padding-left: ritmo($i);
 			}
 
-			.padding-right--#{$i}#{$breakpoint} {
+			.padding-right-#{$i}#{$breakpoint} {
 				padding-right: ritmo($i);
 			}
 

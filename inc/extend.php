@@ -343,7 +343,7 @@ add_filter('acf/settings/load_json', 'ground_acf_json_load_point');
 function ground_oembed_responsive( $html, $url, $attr, $post_id ) {
 
 	if ( strpos( $url, 'vimeo.com' ) !== false || strpos( $url, 'youtube.com' ) !== false || strpos( $url, 'youtu.be' ) !== false  ) {
-		$class = 'ratio--16-9';
+		$class = 'ratio-16-9';
 		return '<div class="' . $class . '">' . $html . '</div>';
 	}
 

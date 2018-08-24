@@ -2,27 +2,27 @@
 	@include media('>=#{$key}') {
 		$breakpoint: if($key == default, '', \@#{$key});
 
-		.ratio--16-9#{$breakpoint} {
+		.ratio-16-9#{$breakpoint} {
 			@include ratio(16, 9);
 		}
 
-		.ratio--4-3#{$breakpoint} {
+		.ratio-4-3#{$breakpoint} {
 			@include ratio(4, 3);
 		}
 
-		.ratio--3-4#{$breakpoint} {
+		.ratio-3-4#{$breakpoint} {
 			@include ratio(3, 4);
 		}
 
-		.ratio--2-1#{$breakpoint} {
+		.ratio-2-1#{$breakpoint} {
 			@include ratio(2, 1);
 		}
 
-		.ratio--1-2#{$breakpoint} {
+		.ratio-1-2#{$breakpoint} {
 			@include ratio(1, 2);
 		}
 
-		.ratio--1-1#{$breakpoint} {
+		.ratio-1-1#{$breakpoint} {
 			@include ratio(1, 1);
 		}
 

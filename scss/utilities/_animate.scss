@@ -7,83 +7,83 @@
 			animation-fill-mode: both;
 		}
 
-		.animate--infinite#{$breakpoint} {
+		.animate-infinite#{$breakpoint} {
 			animation-iteration-count: infinite;
 		}
 
-		.animate--fade-in#{$breakpoint} {
+		.animate-fade-in#{$breakpoint} {
 			animation-name: fade-in;
 		}
 
-		.animate--fade-in-up#{$breakpoint} {
+		.animate-fade-in-up#{$breakpoint} {
 			animation-name: fade-in-up;
 		}
 
-		.animate--fade-in-right#{$breakpoint} {
+		.animate-fade-in-right#{$breakpoint} {
 			animation-name: fade-in-right;
 		}
 
-		.animate--fade-in-down#{$breakpoint} {
+		.animate-fade-in-down#{$breakpoint} {
 			animation-name: fade-in-down;
 		}
 
-		.animate--fade-in-left#{$breakpoint} {
+		.animate-fade-in-left#{$breakpoint} {
 			animation-name: fade-in-left;
 		}
 
-		.animate--fade-out#{$breakpoint} {
+		.animate-fade-out#{$breakpoint} {
 			animation-name: fade-out;
 		}
 
-		.animate--fade-out-up#{$breakpoint} {
+		.animate-fade-out-up#{$breakpoint} {
 			animation-name: fade-out-up;
 		}
 
-		.animate--fade-out-right#{$breakpoint} {
+		.animate-fade-out-right#{$breakpoint} {
 			animation-name: fade-out-right;
 		}
 
-		.animate--fade-out-down#{$breakpoint} {
+		.animate-fade-out-down#{$breakpoint} {
 			animation-name: fade-out-down;
 		}
 
-		.animate--fade-out-left#{$breakpoint} {
+		.animate-fade-out-left#{$breakpoint} {
 			animation-name: fade-out-left;
 		}
 
-		.animate--slide-in-up#{$breakpoint} {
+		.animate-slide-in-up#{$breakpoint} {
 			animation-name: slide-in-up;
 		}
 
-		.animate--slide-in-right#{$breakpoint} {
+		.animate-slide-in-right#{$breakpoint} {
 			animation-name: slide-in-right;
 		}
 
-		.animate--slide-in-down#{$breakpoint} {
+		.animate-slide-in-down#{$breakpoint} {
 			animation-name: slide-in-down;
 		}
 
-		.animate--slide-in-left#{$breakpoint} {
+		.animate-slide-in-left#{$breakpoint} {
 			animation-name: slide-in-left;
 		}
 
-		.animate--slide-out-up#{$breakpoint} {
+		.animate-slide-out-up#{$breakpoint} {
 			animation-name: slide-out-up;
 		}
 
-		.animate--slide-out-right#{$breakpoint} {
+		.animate-slide-out-right#{$breakpoint} {
 			animation-name: slide-out-right;
 		}
 
-		.animate--slide-out-down#{$breakpoint} {
+		.animate-slide-out-down#{$breakpoint} {
 			animation-name: slide-out-down;
 		}
 
-		.animate--slide-out-left#{$breakpoint} {
+		.animate-slide-out-left#{$breakpoint} {
 			animation-name: slide-out-left;
 		}
 
-		.animate--shake#{$breakpoint} {
+		.animate-shake#{$breakpoint} {
 			animation-name: shake;
 		}
 	}

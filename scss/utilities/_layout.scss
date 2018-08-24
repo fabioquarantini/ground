@@ -50,7 +50,7 @@
 		// Column
 		@for $i from 0 through 4 {
 
-			.column--#{$i}#{$breakpoint} {
+			.column-#{$i}#{$breakpoint} {
 				column-count: $i;
 				column-gap: ritmo(1);
 			}
