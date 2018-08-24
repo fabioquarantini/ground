@@ -33,9 +33,9 @@ Make sure you have the latest versions of these software.
 ## Workflow
 Open the Ground folder using the terminal and type one of the following commands
 
-* `yarn start` — Concatenates, compile, minify and compress assets when changes are made
-* `yarn server` — Concatenates, compile, minify and compress assets when changes are made, start Browsersync
-* `yarn prettify` — Concatenates, compile assets when changes are made
+* `yarn start` - Concatenates, compile, minify and compress assets when changes are made
+* `yarn server` - Concatenates, compile, minify and compress assets when changes are made, start Browsersync
+* `yarn prettify` - Concatenates, compile assets when changes are made
 
 ## Sass structure
 * **Animations** - Library of CSS animations
@@ -51,8 +51,8 @@ Open the Ground folder using the terminal and type one of the following commands
 * **main.scss** - Import all other files
 
 ## Namespaces
-* `.js-` — JavaScript hooks: Signify that this piece of the DOM has some behaviour acting upon it, and that JavaScript binds onto it to provide that behaviour.
-* `.is-|.has-` — State classes: Signify that the piece of UI in question is currently styled a certain way because of a state or condition.
+* `.js-` - JavaScript hooks: Signify that this piece of the DOM has some behaviour acting upon it, and that JavaScript binds onto it to provide that behaviour.
+* `.is-|.has-` - State classes: Signify that the piece of UI in question is currently styled a certain way because of a state or condition.
 
 ## Credits
 [Fabio Quarantini](http://www.fabioquarantini.com)
