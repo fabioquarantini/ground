@@ -26,13 +26,14 @@ Make sure you have the latest versions of these software.
 
 ## Installation
 * Download the repository and install it as a theme in your Wordpress installation `wp-content/themes/`
-* With your terminal of choice go to your directory where you have downloaded Ground and run `yarn` (or `npm install`)
+* Rename the theme folder with the name chosen by you
+* With your terminal go to your renamed theme folder and run `yarn` (or `npm install`)
 
 ## Workflow
 Open the Ground folder using the terminal and type one of the following commands
 
 * `yarn start` — Concatenates, compile, minify and compress assets when changes are made
-* `yarn server` — Concatenates, compile, minify and compress assets when changes are made, start Browsersync session
+* `yarn server` — Concatenates, compile, minify and compress assets when changes are made, start Browsersync
 * `yarn prettify` — Concatenates, compile assets when changes are made
 
 ## Credits
