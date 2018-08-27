@@ -168,7 +168,7 @@ var siteInit = {
 			// Class will remain on element outside of scene
 			//scene.removeClassToggle(false);
 
-			// Debug
+			// Debug (enable script in head-output.php)
 			// scene.addIndicators({
 			// 	name: "Indicator"
 			// })
