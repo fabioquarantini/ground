@@ -140,8 +140,7 @@ var siteInit = {
 				triggerHook: triggerHook,
 				reverse: true,
 				loglevel: 2
-			})
-			.addTo(controller);
+			}).addTo(controller);
 
 			// Timeline GSAP
 			timeLine.fromTo(
@@ -157,7 +156,7 @@ var siteInit = {
 					ease: Linear.easeNone
 				}
 			);
-			scene.setTween(timeLine)
+			scene.setTween(timeLine);
 
 			// Add "class" to an element during a scene
 			scene.setClassToggle(el, 'is-in-scene');
