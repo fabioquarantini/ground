@@ -21,8 +21,8 @@ $args = array(
 
 if( $count_parent != 0 || $count_children != 0 ) { ?>
 
-	<nav class="navigation-container navigation-container--page-hierarchy">
-		<ul class="navigation navigation--page-hierarchy">
+	<nav class="navigation navigation--page-hierarchy">
+		<ul class="navigation__list">
 			<?php wp_list_pages( $args ); ?>
 		</ul> <!-- End .navigation -->
 	</nav> <!-- End .navigation-container -->

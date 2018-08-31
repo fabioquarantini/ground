@@ -1,37 +1,33 @@
-.navigation {
+.navigation--primary {
+	position: fixed;
+	transition-timing-function: ease-in;
+	transition: 0.2s;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	background: $color-grey-lighter;
+	margin: 0;
+	overflow-y: auto;
 
-	&--primary {
-		position: fixed;
-		transition-timing-function: ease-in;
-		transition: 0.2s;
-		top: 0;
-		left: -100%;
+	@include media('>=md') {
+		position: relative;
+		z-index: 10;
+		top: auto;
+		left: auto;
+		width: auto;
+		background: transparent;
+		overflow-y: visible;
+		float: right;
+	}
+
+	&.is-navigation-open {
+		transition: 0.25s;
+		transition-timing-function: ease-out;
+		left: 0;
+		bottom: 0;
 		width: 100%;
-		background: $color-grey-lighter;
-		margin: 0;
-		overflow-y: auto;
-
-		@include media('>=md') {
-			position: relative;
-			z-index: 10;
-			top: auto;
-			left: auto;
-			width: auto;
-			background: transparent;
-			overflow-y: visible;
-			float: right;
-		}
-
-		&.is-navigation-open {
-			transition: 0.25s;
-			transition-timing-function: ease-out;
-			left: 0;
-			bottom: 0;
-			width: 100%;
-			@extend .overflow-scrolling;
-			z-index: 1000;
-		}
-
+		@extend .overflow-scrolling;
+		z-index: 1000;
 	}
 
 	.navigation__list {

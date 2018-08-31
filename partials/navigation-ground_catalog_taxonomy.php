@@ -30,8 +30,8 @@ if ( is_page_template( 'templates/template-' . $custom_post_type_name . '.php' )
 		'walker' => new Ground_Wp_List_Categories_Bem
 	); ?>
 
-	<nav class="navigation-container navigation-container--ground-catalog-taxonomy" role="navigation">
-		<ul class="navigation navigation--ground-catalog-taxonomy">
+	<nav class="navigation navigation--ground-catalog-taxonomy" role="navigation">
+		<ul class="navigation__list">
 			<?php wp_list_categories( $args ); ?>
 		</ul>
 	</nav> <!-- End .navigation -->
