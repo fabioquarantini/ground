@@ -18,6 +18,9 @@
 	// speak: none; // only necessary if not using the private unicode range (firstGlyph option)
 	text-decoration: none;
 	text-transform: none;
+	vertical-align: top;
+	display: inline-block;
+	@include ritmo-font-size(42px, 1);
 }
 
 %<%= cssClass%> {
@@ -26,21 +29,22 @@
 
 @function <%= cssClass%>-char($filename) {
 	$char: "";
-<% _.each(glyphs, function(glyph) { %>
-	@if $filename == <%= glyph.name %> {
-		$char: "\<%= glyph.unicode[0].charCodeAt(0).toString(16).toUpperCase() %>";
-	}<% }); %>
+	<% _.each(glyphs, function(glyph) { %>
+		@if $filename == <%= glyph.name %> {
+			$char: "\<%= glyph.unicode[0].charCodeAt(0).toString(16).toUpperCase() %>";
+		}
+	<% }); %>
 
 	@return $char;
 }
 
 @mixin <%= cssClass%>($filename, $insert: before, $extend: true) {
+	@if $extend {
+		@extend %<%= cssClass%>;
+	} @else {
+		@include <%= cssClass%>-styles;
+	}
 	&:#{$insert} {
-		@if $extend {
-			@extend %<%= cssClass%>;
-		} @else {
-			@include <%= cssClass%>-styles;
-		}
 		content: <%= cssClass%>-char($filename);
 	}
 }

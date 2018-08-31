@@ -1,0 +1,544 @@
+@font-face {
+	font-family: "icons";
+	src: url('../fonts/icons.eot');
+	src: url('../fonts/icons.eot?#iefix') format('eot'),
+		url('../fonts/icons.woff') format('woff'),
+		url('../fonts/icons.ttf') format('truetype');
+		/* url('../fonts/icons.woff2') format('woff2'), */
+		/* url('../fonts/icons.svg#icons') format('svg'); */
+}
+
+@mixin icon-styles {
+	font-family: "icons";
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	// speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+	text-decoration: none;
+	text-transform: none;
+	vertical-align: top;
+	display: inline-block;
+	@include ritmo-font-size(42px, 1);
+}
+
+%icon {
+	@include icon-styles;
+}
+
+@function icon-char($filename) {
+	$char: "";
+	
+		@if $filename == align-left {
+			$char: "\EA01";
+		}
+	
+		@if $filename == align-middle {
+			$char: "\EA02";
+		}
+	
+		@if $filename == align-right {
+			$char: "\EA03";
+		}
+	
+		@if $filename == arrow {
+			$char: "\EA04";
+		}
+	
+		@if $filename == bell {
+			$char: "\EA05";
+		}
+	
+		@if $filename == blank {
+			$char: "\EA06";
+		}
+	
+		@if $filename == bluetooth {
+			$char: "\EA07";
+		}
+	
+		@if $filename == browser {
+			$char: "\EA08";
+		}
+	
+		@if $filename == camera {
+			$char: "\EA09";
+		}
+	
+		@if $filename == cart {
+			$char: "\EA0A";
+		}
+	
+		@if $filename == chat {
+			$char: "\EA0B";
+		}
+	
+		@if $filename == check-mark {
+			$char: "\EA0C";
+		}
+	
+		@if $filename == clock {
+			$char: "\EA0D";
+		}
+	
+		@if $filename == close {
+			$char: "\EA0E";
+		}
+	
+		@if $filename == compass {
+			$char: "\EA0F";
+		}
+	
+		@if $filename == connection {
+			$char: "\EA10";
+		}
+	
+		@if $filename == cursor {
+			$char: "\EA11";
+		}
+	
+		@if $filename == display {
+			$char: "\EA12";
+		}
+	
+		@if $filename == download {
+			$char: "\EA13";
+		}
+	
+		@if $filename == drop {
+			$char: "\EA14";
+		}
+	
+		@if $filename == empty-blank {
+			$char: "\EA15";
+		}
+	
+		@if $filename == flag {
+			$char: "\EA16";
+		}
+	
+		@if $filename == forward-2 {
+			$char: "\EA17";
+		}
+	
+		@if $filename == forward {
+			$char: "\EA18";
+		}
+	
+		@if $filename == gift {
+			$char: "\EA19";
+		}
+	
+		@if $filename == graphic {
+			$char: "\EA1A";
+		}
+	
+		@if $filename == grid {
+			$char: "\EA1B";
+		}
+	
+		@if $filename == hamburger-menu {
+			$char: "\EA1C";
+		}
+	
+		@if $filename == headphones {
+			$char: "\EA1D";
+		}
+	
+		@if $filename == heart {
+			$char: "\EA1E";
+		}
+	
+		@if $filename == home {
+			$char: "\EA1F";
+		}
+	
+		@if $filename == hyperlink {
+			$char: "\EA20";
+		}
+	
+		@if $filename == justify-all {
+			$char: "\EA21";
+		}
+	
+		@if $filename == key {
+			$char: "\EA22";
+		}
+	
+		@if $filename == label {
+			$char: "\EA23";
+		}
+	
+		@if $filename == lock-closed {
+			$char: "\EA24";
+		}
+	
+		@if $filename == lock-open {
+			$char: "\EA25";
+		}
+	
+		@if $filename == magnet {
+			$char: "\EA26";
+		}
+	
+		@if $filename == magnifying-glass-2 {
+			$char: "\EA27";
+		}
+	
+		@if $filename == magnifying-glass-minus {
+			$char: "\EA28";
+		}
+	
+		@if $filename == magnifying-glass-plus {
+			$char: "\EA29";
+		}
+	
+		@if $filename == magnifying-glass {
+			$char: "\EA2A";
+		}
+	
+		@if $filename == mail {
+			$char: "\EA2B";
+		}
+	
+		@if $filename == map-pin {
+			$char: "\EA2C";
+		}
+	
+		@if $filename == map {
+			$char: "\EA2D";
+		}
+	
+		@if $filename == maximize {
+			$char: "\EA2E";
+		}
+	
+		@if $filename == microphone {
+			$char: "\EA2F";
+		}
+	
+		@if $filename == minimize {
+			$char: "\EA30";
+		}
+	
+		@if $filename == minus {
+			$char: "\EA31";
+		}
+	
+		@if $filename == mouse {
+			$char: "\EA32";
+		}
+	
+		@if $filename == music {
+			$char: "\EA33";
+		}
+	
+		@if $filename == navigation {
+			$char: "\EA34";
+		}
+	
+		@if $filename == notifications {
+			$char: "\EA35";
+		}
+	
+		@if $filename == pause {
+			$char: "\EA36";
+		}
+	
+		@if $filename == play {
+			$char: "\EA37";
+		}
+	
+		@if $filename == plus {
+			$char: "\EA38";
+		}
+	
+		@if $filename == power {
+			$char: "\EA39";
+		}
+	
+		@if $filename == print {
+			$char: "\EA3A";
+		}
+	
+		@if $filename == repeat {
+			$char: "\EA3B";
+		}
+	
+		@if $filename == selection {
+			$char: "\EA3C";
+		}
+	
+		@if $filename == settings {
+			$char: "\EA3D";
+		}
+	
+		@if $filename == share {
+			$char: "\EA3E";
+		}
+	
+		@if $filename == shuffle {
+			$char: "\EA3F";
+		}
+	
+		@if $filename == sound-minus {
+			$char: "\EA40";
+		}
+	
+		@if $filename == sound-plus {
+			$char: "\EA41";
+		}
+	
+		@if $filename == speaker {
+			$char: "\EA42";
+		}
+	
+		@if $filename == star {
+			$char: "\EA43";
+		}
+	
+		@if $filename == statistics {
+			$char: "\EA44";
+		}
+	
+		@if $filename == stop {
+			$char: "\EA45";
+		}
+	
+		@if $filename == trash-bin {
+			$char: "\EA46";
+		}
+	
+		@if $filename == upload {
+			$char: "\EA47";
+		}
+	
+
+	@return $char;
+}
+
+@mixin icon($filename, $insert: before, $extend: true) {
+	@if $extend {
+		@extend %icon;
+	} @else {
+		@include icon-styles;
+	}
+	&:#{$insert} {
+		content: icon-char($filename);
+	}
+}
+
+.icon-align-left {
+	@include icon(align-left);
+}
+.icon-align-middle {
+	@include icon(align-middle);
+}
+.icon-align-right {
+	@include icon(align-right);
+}
+.icon-arrow {
+	@include icon(arrow);
+}
+.icon-bell {
+	@include icon(bell);
+}
+.icon-blank {
+	@include icon(blank);
+}
+.icon-bluetooth {
+	@include icon(bluetooth);
+}
+.icon-browser {
+	@include icon(browser);
+}
+.icon-camera {
+	@include icon(camera);
+}
+.icon-cart {
+	@include icon(cart);
+}
+.icon-chat {
+	@include icon(chat);
+}
+.icon-check-mark {
+	@include icon(check-mark);
+}
+.icon-clock {
+	@include icon(clock);
+}
+.icon-close {
+	@include icon(close);
+}
+.icon-compass {
+	@include icon(compass);
+}
+.icon-connection {
+	@include icon(connection);
+}
+.icon-cursor {
+	@include icon(cursor);
+}
+.icon-display {
+	@include icon(display);
+}
+.icon-download {
+	@include icon(download);
+}
+.icon-drop {
+	@include icon(drop);
+}
+.icon-empty-blank {
+	@include icon(empty-blank);
+}
+.icon-flag {
+	@include icon(flag);
+}
+.icon-forward-2 {
+	@include icon(forward-2);
+}
+.icon-forward {
+	@include icon(forward);
+}
+.icon-gift {
+	@include icon(gift);
+}
+.icon-graphic {
+	@include icon(graphic);
+}
+.icon-grid {
+	@include icon(grid);
+}
+.icon-hamburger-menu {
+	@include icon(hamburger-menu);
+}
+.icon-headphones {
+	@include icon(headphones);
+}
+.icon-heart {
+	@include icon(heart);
+}
+.icon-home {
+	@include icon(home);
+}
+.icon-hyperlink {
+	@include icon(hyperlink);
+}
+.icon-justify-all {
+	@include icon(justify-all);
+}
+.icon-key {
+	@include icon(key);
+}
+.icon-label {
+	@include icon(label);
+}
+.icon-lock-closed {
+	@include icon(lock-closed);
+}
+.icon-lock-open {
+	@include icon(lock-open);
+}
+.icon-magnet {
+	@include icon(magnet);
+}
+.icon-magnifying-glass-2 {
+	@include icon(magnifying-glass-2);
+}
+.icon-magnifying-glass-minus {
+	@include icon(magnifying-glass-minus);
+}
+.icon-magnifying-glass-plus {
+	@include icon(magnifying-glass-plus);
+}
+.icon-magnifying-glass {
+	@include icon(magnifying-glass);
+}
+.icon-mail {
+	@include icon(mail);
+}
+.icon-map-pin {
+	@include icon(map-pin);
+}
+.icon-map {
+	@include icon(map);
+}
+.icon-maximize {
+	@include icon(maximize);
+}
+.icon-microphone {
+	@include icon(microphone);
+}
+.icon-minimize {
+	@include icon(minimize);
+}
+.icon-minus {
+	@include icon(minus);
+}
+.icon-mouse {
+	@include icon(mouse);
+}
+.icon-music {
+	@include icon(music);
+}
+.icon-navigation {
+	@include icon(navigation);
+}
+.icon-notifications {
+	@include icon(notifications);
+}
+.icon-pause {
+	@include icon(pause);
+}
+.icon-play {
+	@include icon(play);
+}
+.icon-plus {
+	@include icon(plus);
+}
+.icon-power {
+	@include icon(power);
+}
+.icon-print {
+	@include icon(print);
+}
+.icon-repeat {
+	@include icon(repeat);
+}
+.icon-selection {
+	@include icon(selection);
+}
+.icon-settings {
+	@include icon(settings);
+}
+.icon-share {
+	@include icon(share);
+}
+.icon-shuffle {
+	@include icon(shuffle);
+}
+.icon-sound-minus {
+	@include icon(sound-minus);
+}
+.icon-sound-plus {
+	@include icon(sound-plus);
+}
+.icon-speaker {
+	@include icon(speaker);
+}
+.icon-star {
+	@include icon(star);
+}
+.icon-statistics {
+	@include icon(statistics);
+}
+.icon-stop {
+	@include icon(stop);
+}
+.icon-trash-bin {
+	@include icon(trash-bin);
+}
+.icon-upload {
+	@include icon(upload);
+}

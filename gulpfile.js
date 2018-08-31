@@ -188,7 +188,7 @@ gulp.task('iconFont', function() {
 
 			//console.log(glyphs, options);
 			gulp
-				.src(scssFolder + '/functions/_generate-icons.scss')
+				.src(scssFolder + '/vendors/iconfont/_iconfont-template.scss')
 				.pipe(
 					consolidate('lodash', {
 						glyphs: glyphs,
@@ -198,7 +198,7 @@ gulp.task('iconFont', function() {
 						cssClass: 'icon'
 					})
 				)
-				.pipe(rename('_icons.scss'))
+				.pipe(rename('_icons-generated.scss'))
 				.pipe(gulp.dest(scssFolder + '/components'));
 
 		})
