@@ -41,7 +41,7 @@ class Ground_Wp_Nav_Menu_Bem extends Walker_Nav_Menu {
 		$indent = str_repeat( $t, $depth );
 
 		// Default class.
-		$classes = array( $block . '__sub-menu' );
+		$classes = array( 'navigation__sub-menu' );
 
 		/**
 		* Filters the CSS class(es) applied to a menu list element.
@@ -208,26 +208,26 @@ class Ground_Wp_Nav_Menu_Bem extends Walker_Nav_Menu {
 
 		$block = isset( $args->block ) ? $args->block : explode(' ', $args->menu_class);
 		$block = is_array( $block ) ? $block[0] : $block;
-		$classes = array( $block . '__item' );
+		$classes = array( 'navigation__item' );
 
 		if ( $item->current ) {
 			$classes[] = 'is-active';
 		}
 
 		if ( $item->current_item_ancestor ) {
-			$classes[] = $block . '__item--ancestor';
+			$classes[] = 'navigation__item--ancestor';
 		}
 
 		if ( $item->current_item_parent ) {
-			$classes[] = $block . '__item--parent';
+			$classes[] = 'navigation__item--parent';
 		}
 
 		if ( in_array( 'menu-item-has-children', (array) $item->classes ) ) {
-			$classes[] = $block . '__item--has-children';
+			$classes[] = 'navigation__item--has-children';
 		}
 
 		if ( $depth ) {
-			$classes[] = $block . '__item--child';
+			$classes[] = 'navigation__item--child';
 		}
 
 		$item->classes = $classes;

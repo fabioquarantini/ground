@@ -1,9 +1,9 @@
-<nav class="navigation-container navigation-container--secondary">
+<nav class="navigation navigation--secondary">
 
 	<?php
 	$args = array(
 		'theme_location'	=> 'navigation-secondary',
-		'menu_class'		=> 'navigation navigation--secondary list-inline',
+		'menu_class'		=> 'navigation__list list-inline',
 		'items_wrap'		=> '<ul class="%2$s">%3$s</ul>',
 		'fallback_cb'		=> false,
 		'depth'				=> 0,
@@ -13,4 +13,4 @@
 
 	wp_nav_menu( $args ); ?>
 
-</nav> <!-- End .navigation-container -->
+</nav> <!-- End .navigation -->
