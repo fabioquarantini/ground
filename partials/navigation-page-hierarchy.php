@@ -24,7 +24,7 @@ if( $count_parent != 0 || $count_children != 0 ) { ?>
 	<nav class="navigation navigation--page-hierarchy">
 		<ul class="navigation__list">
 			<?php wp_list_pages( $args ); ?>
-		</ul> <!-- End .navigation -->
-	</nav> <!-- End .navigation-container -->
+		</ul>
+	</nav> <!-- End .navigation -->
 
 <?php } ?>
