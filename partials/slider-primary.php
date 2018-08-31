@@ -34,7 +34,7 @@
 		</div>
 	</div> <!-- End .swiper-wrapper -->
 
-	<div class="swiper-pagination"></div>
-	<div class="swiper-button-prev"></div>
-	<div class="swiper-button-next"></div>
+	<div class="slider__pagination swiper-pagination"></div>
+	<div class="slider__navigation slider__navigation--prev swiper-button-prev"></div>
+	<div class="slider__navigation slider__navigation--next swiper-button-next"></div>
 </div> <!-- End .slider -->
