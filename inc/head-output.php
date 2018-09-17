@@ -33,7 +33,7 @@ function ground_enqueue_scripts() {
 	wp_deregister_script( 'jquery' );
 	wp_enqueue_script( 'jquery', "https://code.jquery.com/jquery-3.3.1.min.js", array(), null, true );
 	wp_enqueue_script( 'imagesloaded', "https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js", array(), null, true );
-	wp_enqueue_script( 'swiper', "https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/js/swiper.min.js", array(), null, true );
+	wp_enqueue_script( 'swiper', "https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js", array(), null, true );
 	wp_enqueue_script( 'fancybox', "https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js", array(), null, true );
 	wp_enqueue_script( 'infinitescroll', "https://cdnjs.cloudflare.com/ajax/libs/jquery-infinitescroll/3.0.4/infinite-scroll.pkgd.min.js", array(), null, true );
 	wp_enqueue_script( 'tweenmax', "https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js", array(), null, true );
