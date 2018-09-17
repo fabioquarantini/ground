@@ -68,10 +68,7 @@
 			> .navigation__link {
 
 				position: relative;
-
-				@include media('>=md') {
-					color: $color-primary;
-				}
+				color: $color-primary;
 
 				&:after {
 					content: "";
@@ -118,6 +115,7 @@
 		&:hover {
 			transition: background 0.3s ease-in-out;
 			background-color: $color-grey-light;
+			color: $color-primary;
 
 			@include media('>=md') {
 				background-color: transparent;
