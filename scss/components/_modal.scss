@@ -1,0 +1,59 @@
+.modal--follow-mouse {
+	.fancybox-bg {
+		opacity: 1;
+	}
+
+	.fancybox-slide--image {
+		padding: 64px 0;
+	}
+
+	.fancybox-button {
+		background-color: $color-grey-darkest;
+	}
+
+	.fancybox-button--close {
+		width: 40px;
+		height: 40px;
+		margin: 10px 10px 25px 25px;
+		border-radius: 100%;
+		transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+		&:hover {
+			transform: scale(1.15);
+		}
+	}
+
+	.fancybox-button--arrow_left,
+	.fancybox-button--arrow_right {
+		cursor: none;
+		display: block;
+		position: fixed !important;
+		width: 40px;
+		height: 40px;
+		border-radius: 100%;
+		top: -100%;
+		left: auto;
+		right: auto;
+		transform: translate(-50%, -50%);
+
+		&:before {
+			content: '';
+			background-color: $color-grey-darkest;
+			border-radius: 50%;
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			transform: scale(1, 1);
+		}
+		&:focus {
+			outline: 0;
+			color: $color-white;
+			&:before {
+				animation: pulse 0.8s ease-out;
+			}
+		}
+	}
+}
