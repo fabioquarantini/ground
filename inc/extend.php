@@ -20,6 +20,7 @@
 	16 - BEM body class
 	17 - ACF local JSON
 	18 - Oembed responsive
+	19 - Rename attachment slug
 
 	==========================================================================  */
 
@@ -350,3 +351,18 @@ function ground_oembed_responsive( $html, $url, $attr, $post_id ) {
 }
 
 add_filter('embed_oembed_html', 'ground_oembed_responsive', 99, 4);
+
+
+/*  ==========================================================================
+	19 - Rename attachment slug
+	==========================================================================  */
+
+function ground_rename_attachment_slug( $post_ID ) {
+
+	wp_update_post(array(
+		'ID' => $post_ID,
+		'post_name' => uniqid( '-' )
+	));
+}
+
+add_action( 'add_attachment', 'ground_rename_attachment_slug' );
