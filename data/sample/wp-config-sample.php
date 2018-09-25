@@ -24,7 +24,7 @@ switch( $enviroments ) {
 
 		break;
 
-	case 'deploy':
+	case 'production':
 
 		define( 'DB_NAME',		'database_name_here' );
 		define( 'DB_USER',		'username_here' );
