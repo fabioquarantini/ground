@@ -158,6 +158,15 @@ define( 'WP_ALLOW_MULTISITE', false );
 
 
 /*  ==========================================================================
+	Plugins
+	==========================================================================  */
+
+// Contact form 7 restricting access to the administration panel
+// define( 'WPCF7_ADMIN_READ_CAPABILITY', 'manage_options' );
+// define( 'WPCF7_ADMIN_READ_WRITE_CAPABILITY', 'manage_options' );
+
+
+/*  ==========================================================================
 	Absolute path to the WordPress directory
 	==========================================================================  */
 
