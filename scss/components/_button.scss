@@ -18,6 +18,12 @@
 	text-decoration: none;
 	text-align: center;
 
+	&:hover,
+	&--active {
+		background-color: $color-secondary;
+		color: $color-black;
+	}
+
 	&--secondary {
 		background-color: $color-secondary;
 		color: $color-white;
@@ -30,12 +36,6 @@
 			border-color: $color-primary;
 		}
 
-	}
-
-	&:hover,
-	&--active {
-		background-color: $color-secondary;
-		color: $color-black;
 	}
 
 	&--small {
