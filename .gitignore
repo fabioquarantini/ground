@@ -75,6 +75,8 @@ sftp-config-alt.json
 *.sublime-workspace
 .ftpconfig
 .remote-sync.json
+*.code-workspace
+.vscode
 
 
 #########################################
