@@ -2,6 +2,6 @@
 @import 'icons-generated';
 
 [class^="icon"] {
-	@include ritmo-font-size(42px, 1);
+	@include ritmo-font-size(24px, 1);
 	color: $color-primary;
 }

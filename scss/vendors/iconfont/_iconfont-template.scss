@@ -20,7 +20,7 @@
 	text-transform: none;
 	vertical-align: top;
 	display: inline-block;
-	@include ritmo-font-size(42px, 1);
+	@include ritmo-font-size(24px, 1);
 }
 
 %<%= cssClass%> {

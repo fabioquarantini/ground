@@ -20,7 +20,7 @@
 	text-transform: none;
 	vertical-align: top;
 	display: inline-block;
-	@include ritmo-font-size(42px, 1);
+	@include ritmo-font-size(24px, 1);
 }
 
 %icon {
@@ -42,276 +42,280 @@
 			$char: "\EA03";
 		}
 	
-		@if $filename == arrow {
+		@if $filename == arrow-left {
 			$char: "\EA04";
 		}
 	
-		@if $filename == bell {
+		@if $filename == arrow-right {
 			$char: "\EA05";
 		}
 	
-		@if $filename == blank {
+		@if $filename == bell {
 			$char: "\EA06";
 		}
 	
-		@if $filename == bluetooth {
+		@if $filename == blank {
 			$char: "\EA07";
 		}
 	
-		@if $filename == browser {
+		@if $filename == bluetooth {
 			$char: "\EA08";
 		}
 	
-		@if $filename == camera {
+		@if $filename == browser {
 			$char: "\EA09";
 		}
 	
-		@if $filename == cart {
+		@if $filename == camera {
 			$char: "\EA0A";
 		}
 	
-		@if $filename == chat {
+		@if $filename == cart {
 			$char: "\EA0B";
 		}
 	
-		@if $filename == check-mark {
+		@if $filename == chat {
 			$char: "\EA0C";
 		}
 	
-		@if $filename == clock {
+		@if $filename == check-mark {
 			$char: "\EA0D";
 		}
 	
-		@if $filename == close {
+		@if $filename == clock {
 			$char: "\EA0E";
 		}
 	
-		@if $filename == compass {
+		@if $filename == close {
 			$char: "\EA0F";
 		}
 	
-		@if $filename == connection {
+		@if $filename == compass {
 			$char: "\EA10";
 		}
 	
-		@if $filename == cursor {
+		@if $filename == connection {
 			$char: "\EA11";
 		}
 	
-		@if $filename == display {
+		@if $filename == cursor {
 			$char: "\EA12";
 		}
 	
-		@if $filename == download {
+		@if $filename == display {
 			$char: "\EA13";
 		}
 	
-		@if $filename == drop {
+		@if $filename == download {
 			$char: "\EA14";
 		}
 	
-		@if $filename == empty-blank {
+		@if $filename == drop {
 			$char: "\EA15";
 		}
 	
-		@if $filename == flag {
+		@if $filename == empty-blank {
 			$char: "\EA16";
 		}
 	
-		@if $filename == forward-2 {
+		@if $filename == flag {
 			$char: "\EA17";
 		}
 	
-		@if $filename == forward {
+		@if $filename == forward-2 {
 			$char: "\EA18";
 		}
 	
-		@if $filename == gift {
+		@if $filename == forward {
 			$char: "\EA19";
 		}
 	
-		@if $filename == graphic {
+		@if $filename == gift {
 			$char: "\EA1A";
 		}
 	
-		@if $filename == grid {
+		@if $filename == graphic {
 			$char: "\EA1B";
 		}
 	
-		@if $filename == hamburger-menu {
+		@if $filename == grid {
 			$char: "\EA1C";
 		}
 	
-		@if $filename == headphones {
+		@if $filename == hamburger-menu {
 			$char: "\EA1D";
 		}
 	
-		@if $filename == heart {
+		@if $filename == headphones {
 			$char: "\EA1E";
 		}
 	
-		@if $filename == home {
+		@if $filename == heart {
 			$char: "\EA1F";
 		}
 	
-		@if $filename == hyperlink {
+		@if $filename == home {
 			$char: "\EA20";
 		}
 	
-		@if $filename == justify-all {
+		@if $filename == hyperlink {
 			$char: "\EA21";
 		}
 	
-		@if $filename == key {
+		@if $filename == justify-all {
 			$char: "\EA22";
 		}
 	
-		@if $filename == label {
+		@if $filename == key {
 			$char: "\EA23";
 		}
 	
-		@if $filename == lock-closed {
+		@if $filename == label {
 			$char: "\EA24";
 		}
 	
-		@if $filename == lock-open {
+		@if $filename == lock-closed {
 			$char: "\EA25";
 		}
 	
-		@if $filename == magnet {
+		@if $filename == lock-open {
 			$char: "\EA26";
 		}
 	
-		@if $filename == magnifying-glass-2 {
+		@if $filename == magnet {
 			$char: "\EA27";
 		}
 	
-		@if $filename == magnifying-glass-minus {
+		@if $filename == magnifying-glass-2 {
 			$char: "\EA28";
 		}
 	
-		@if $filename == magnifying-glass-plus {
+		@if $filename == magnifying-glass-minus {
 			$char: "\EA29";
 		}
 	
-		@if $filename == magnifying-glass {
+		@if $filename == magnifying-glass-plus {
 			$char: "\EA2A";
 		}
 	
-		@if $filename == mail {
+		@if $filename == magnifying-glass {
 			$char: "\EA2B";
 		}
 	
-		@if $filename == map-pin {
+		@if $filename == mail {
 			$char: "\EA2C";
 		}
 	
-		@if $filename == map {
+		@if $filename == map-pin {
 			$char: "\EA2D";
 		}
 	
-		@if $filename == maximize {
+		@if $filename == map {
 			$char: "\EA2E";
 		}
 	
-		@if $filename == microphone {
+		@if $filename == maximize {
 			$char: "\EA2F";
 		}
 	
-		@if $filename == minimize {
+		@if $filename == microphone {
 			$char: "\EA30";
 		}
 	
-		@if $filename == minus {
+		@if $filename == minimize {
 			$char: "\EA31";
 		}
 	
-		@if $filename == mouse {
+		@if $filename == minus {
 			$char: "\EA32";
 		}
 	
-		@if $filename == music {
+		@if $filename == mouse {
 			$char: "\EA33";
 		}
 	
-		@if $filename == navigation {
+		@if $filename == music {
 			$char: "\EA34";
 		}
 	
-		@if $filename == notifications {
+		@if $filename == navigation {
 			$char: "\EA35";
 		}
 	
-		@if $filename == pause {
+		@if $filename == notifications {
 			$char: "\EA36";
 		}
 	
-		@if $filename == play {
+		@if $filename == pause {
 			$char: "\EA37";
 		}
 	
-		@if $filename == plus {
+		@if $filename == play {
 			$char: "\EA38";
 		}
 	
-		@if $filename == power {
+		@if $filename == plus {
 			$char: "\EA39";
 		}
 	
-		@if $filename == print {
+		@if $filename == power {
 			$char: "\EA3A";
 		}
 	
-		@if $filename == repeat {
+		@if $filename == print {
 			$char: "\EA3B";
 		}
 	
-		@if $filename == selection {
+		@if $filename == repeat {
 			$char: "\EA3C";
 		}
 	
-		@if $filename == settings {
+		@if $filename == selection {
 			$char: "\EA3D";
 		}
 	
-		@if $filename == share {
+		@if $filename == settings {
 			$char: "\EA3E";
 		}
 	
-		@if $filename == shuffle {
+		@if $filename == share {
 			$char: "\EA3F";
 		}
 	
-		@if $filename == sound-minus {
+		@if $filename == shuffle {
 			$char: "\EA40";
 		}
 	
-		@if $filename == sound-plus {
+		@if $filename == sound-minus {
 			$char: "\EA41";
 		}
 	
-		@if $filename == speaker {
+		@if $filename == sound-plus {
 			$char: "\EA42";
 		}
 	
-		@if $filename == star {
+		@if $filename == speaker {
 			$char: "\EA43";
 		}
 	
-		@if $filename == statistics {
+		@if $filename == star {
 			$char: "\EA44";
 		}
 	
-		@if $filename == stop {
+		@if $filename == statistics {
 			$char: "\EA45";
 		}
 	
-		@if $filename == trash-bin {
+		@if $filename == stop {
 			$char: "\EA46";
 		}
 	
-		@if $filename == upload {
+		@if $filename == trash-bin {
 			$char: "\EA47";
+		}
+	
+		@if $filename == upload {
+			$char: "\EA48";
 		}
 	
 
@@ -338,8 +342,11 @@
 .icon-align-right {
 	@include icon(align-right);
 }
-.icon-arrow {
-	@include icon(arrow);
+.icon-arrow-left {
+	@include icon(arrow-left);
+}
+.icon-arrow-right {
+	@include icon(arrow-right);
 }
 .icon-bell {
 	@include icon(bell);

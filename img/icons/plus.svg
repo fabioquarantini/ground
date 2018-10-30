@@ -1,8 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 17.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve">
-<path d="M9.077,25.99h14v14c0,0.553,0.448,1,1,1s1-0.447,1-1v-14h14c0.552,0,1-0.447,1-1s-0.448-1-1-1h-14v-14c0-0.553-0.448-1-1-1
-	s-1,0.447-1,1v14h-14c-0.552,0-1,0.447-1,1S8.525,25.99,9.077,25.99z"/>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g class="plus" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M0.75,12.75 L11.25,12.75 L11.25,23.25 C11.25,23.66475 11.586,24 12,24 C12.414,24 12.75,23.66475 12.75,23.25 L12.75,12.75 L23.25,12.75 C23.664,12.75 24,12.41475 24,12 C24,11.58525 23.664,11.25 23.25,11.25 L12.75,11.25 L12.75,0.75 C12.75,0.33525 12.414,2.58681965e-14 12,2.58681965e-14 C11.586,2.58681965e-14 11.25,0.33525 11.25,0.75 L11.25,11.25 L0.75,11.25 C0.336,11.25 -4.13419299e-14,11.58525 -4.13419299e-14,12 C-4.13419299e-14,12.41475 0.336,12.75 0.75,12.75 Z" fill="#000000"></path>
+    </g>
 </svg>
