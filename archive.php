@@ -18,7 +18,7 @@
 
 				endwhile; ?>
 
-			</div>  <!-- End .page__body -->
+			</div> <!-- End .page__body -->
 
 			<?php
 			get_template_part( 'partials/pagination' );
