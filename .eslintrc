@@ -25,7 +25,7 @@
             "warn",
             "always"
         ],
-        'max-len': [
+        "max-len": [
             "warn",
             {
                 "code": 120,
@@ -39,16 +39,16 @@
             "warn",
             "always"
         ],
-        space-before-function-paren: [
+        "space-before-function-paren": [
             "warn",
             "never"
         ],
-        space-in-parens: [
+        "space-in-parens": [
             "warn",
             "never"
         ],
-        no-unused-vars: "off",
-        no-console: "off",
-        no-undef: "off"
+        "no-unused-vars": "off",
+        "no-console": "off",
+        "no-undef": "off"
     }
 }
