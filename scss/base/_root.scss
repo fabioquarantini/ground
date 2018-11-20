@@ -5,13 +5,13 @@ body {
 	min-height: 100vh;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	overflow-x: hidden;
-	// overflow-y: scroll; // Scrollbars always visible
 	// height: 100vh;
 }
 
 body {
 	padding-top: ritmo(4);
+	overflow-x: hidden;
+	// overflow-y: scroll; // Scrollbars always visible
 
 	@include media('>=md') {
 		padding-top: 0;
