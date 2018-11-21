@@ -3,6 +3,7 @@
 
 	@font-face {
 		font-family: $family;
+		font-display: auto;
 		src: url('#{$filename}.eot'); // IE9 compat
 		src: url('#{$filename}.eot?#iefix') format('embedded-opentype'), // IE8 and below
 			url('#{$filename}.woff') format('woff'), // Standards
