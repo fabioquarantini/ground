@@ -1,7 +1,7 @@
 <?php $format = '?paged=%#%';
 
 if ( get_option('permalink_structure') ) {
-	$format = 'page/%#%';
+	$format = 'page/%#%/';
 }
 
 $total_pages = $wp_query->max_num_pages;
