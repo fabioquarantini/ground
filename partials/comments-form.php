@@ -5,8 +5,8 @@ $req = get_option( 'require_name_email' );
 $aria_req = ( $req ? " aria-required='true'" : '' );
 $required_text = sprintf( ' ' . __('Required fields are marked %s'), '<span class="required">*</span>' );
 $fields = array(
-	'author'	=> '<div class="form__group"><label class="form__label" for="author" ' . ( $req ? 'class="required"' : '' ) . '>' . __( 'Name', 'ground' ) . '</label><input class="form__input" id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' /></div>',
-	'email'	=> '<div class="form__group"><label class="form__label" for="email" ' . ( $req ? 'class="required"' : '' ) . '>' . __( 'Email', 'ground' ) . '</label> <input class="form__input" id="email" name="email" type="text" value="' . esc_attr( $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /></div>',
+	'author'	=> '<div class="form__group"><label class="form__label ' . ( $req ? 'required' : '' ) . '" for="author">' . __( 'Name', 'ground' ) . '</label><input class="form__input" id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' /></div>',
+	'email'	=> '<div class="form__group"><label class="form__label ' . ( $req ? 'required' : '' ) . '" for="email">' . __( 'Email', 'ground' ) . '</label> <input class="form__input" id="email" name="email" type="text" value="' . esc_attr( $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /></div>',
 	'url'	=> '<div class="form__group"><label class="form__label" for="url">' . __( 'Website', 'ground' ) . '</label>' . '<input class="form__input" id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></div>',
 );
 
