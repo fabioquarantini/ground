@@ -1,0 +1,122 @@
+.message {
+	display: block;
+	position: relative;
+	padding-top: ritmo( 0.5 );
+	padding-bottom: ritmo( 0.5 );
+	color: $color-primary;
+	border-color: $color-primary;
+
+	&.has-error,
+	.has-error & {
+		border-color: $color-error;
+		color: $color-error;
+		.message__close {
+			color: $color-error;
+		}
+	}
+
+	&.has-success,
+	.has-success & {
+		border-color: $color-success;
+		color: $color-success;
+		.message__close {
+			color: $color-success;
+		}
+	}
+
+	&.has-warning,
+	.has-warning & {
+		border-color: $color-warning;
+		color: $color-warning;
+		.message__close {
+			color: $color-warning;
+		}
+	}
+
+	&--secondary {
+		color: $color-secondary;
+		border-color: $color-secondary;
+		.message__close {
+			color: $color-secondary;
+		}
+	}
+
+	&--bordered {
+
+		@include ritmo-horizontal-borders( 1px, 0.5 );
+		@include ritmo-side-border(left, 1px, 1);
+		@include ritmo-side-border(right, 1px, 1);
+		border-style: solid;
+
+		&.message--small {
+			height: $base-line-unit;
+		}
+
+		&.message--big {
+			@include ritmo-horizontal-borders( 1px, 1 );
+		}
+
+	}
+
+	&--fill {
+		padding-left: ritmo( 1 );
+		padding-right: ritmo( 1 );
+		background-color: $color-primary;
+		color: $color-white;
+
+		.has-error &,
+		&.has-error {
+			background-color: $color-error;
+			color: $color-white;
+		}
+
+		.has-success &,
+		&.has-success {
+			background-color: $color-success;
+			color: $color-white;
+		}
+
+		.has-warning &,
+		&.has-warning {
+			background-color: $color-warning;
+			color: $color-white;
+		}
+
+		.message--secondary &,
+		&.message--secondary {
+			color: $color-white;
+			background-color: $color-secondary;
+		}
+
+		.message__close {
+			color: $color-white;
+		}
+
+	}
+
+	&--small {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+
+	&--big {
+		padding-top: ritmo(1);
+		padding-bottom: ritmo(1);
+	}
+
+	&--rounded {
+		border-radius: 5px;
+	}
+
+	&--pill {
+		border-radius: 1000px;
+	}
+
+}
+
+
+.message__close {
+	float: right;
+	text-decoration: none;
+	color: $color-primary;
+}

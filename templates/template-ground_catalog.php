@@ -1,58 +1,95 @@
 <?php
 /*
-Template Name: Catolog
-Description: Custom template for browsing category in catalog. Use template-{name-of-custom-post-type}.php
+Template Name: Catalog
 */
 
 get_template_part( 'partials/header' ); ?>
 
+	<div class="gr-12 gr-9@md push-3@md">
 
-	<div class="sidebar sidebar--primary">
+		<section class="page page--catalog">
 
-		<?php get_template_part( 'partials/navigation', 'custom-taxonomy' ); ?>
+			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-	</div> <!-- End .sidebar- -primary -->
+				<header class="page__header">
+					<h1 class="page__title"><?php the_title(); ?></h1>
+				</header>
 
-	<section class="catalog" id="main-content" role="main">
+				<div class="page__body">
 
-		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+					<?php if ( has_post_thumbnail() ) { ?>
+						<figure class="media">
+							<?php the_post_thumbnail( 'medium', array( 'class' => 'media__img' ) ); ?>
+						</figure>
+					<?php } ?>
 
-			<h1 class="catalog__title"><?php the_title(); ?></h1>
+					<?php the_content(); ?>
 
-			<?php the_content();
+					<?php $taxonomies_args = array(
+						'orderby'		=> 'name',
+						'order'			=> 'ASC',
+						'hide_empty'	=> true,
+						'parent'		=> 0,
+						'hierarchical'	=> true,
+						'child_of'		=> 0
+					);
 
-		endwhile; else :
+					$taxonomies = get_terms( 'ground_catalog_taxonomy', $taxonomies_args );
 
-			get_template_part( 'partials/content', 'none' );
+					// Categories
+					if ( !empty( $taxonomies ) && !is_wp_error( $taxonomies ) ) :
 
-		endif;
+						foreach ( $taxonomies as $taxonomy ) {
 
+							$taxonomy_slug = $taxonomy->slug;
+							$taxonomy_name = $taxonomy->name;
+							$taxonomy_description = $taxonomy->description; ?>
 
-		$args = array(
-			'orderby'		=> 'name',
-			'order'			=> 'ASC',
-			'hide_empty'	=> true,
-			'parent'		=> 0,
-			'hierarchical'	=> true,
-			'child_of'		=> 0
-		);
+							<div class="gr-12 gr-4@md">
+								<?php include( locate_template( 'partials/abstract-taxonomy-ground_catalog.php' ) ); ?>
+							</div>
 
-		$taxonomies = get_terms( 'ground_catalog_taxonomy', $args );
+						<?php }
 
-		if ( !empty( $taxonomies ) && !is_wp_error( $taxonomies ) ) {
+					// Products
+					else :
 
-			foreach ( $taxonomies as $taxonomy ) {
+						$catalog_args = array(
+							'post_type' 		=> 'ground_catalog',
+							'order'				=> 'ASC',
+							'orderby'			=> 'menu_order',
+							'paged'				=> $paged,
+							'posts_per_page'	=> 10
+						);
 
-				$taxonomySlug = $taxonomy->slug;
-				$taxonomyName = $taxonomy->name;
-				$taxonomyDescription = $taxonomy->description;
+						$wp_query = new WP_Query();
+						$wp_query->query($catalog_args);
 
-				include( locate_template( 'partials/content-taxonomy.php' ) );
-			}
-		}
+						if ( $wp_query->have_posts()) : while($wp_query->have_posts()) : $wp_query->the_post();
 
-		?>
+							get_template_part( 'partials/abstract', 'ground_catalog' );
 
-	</section> <!-- End .catalog -->
+						endwhile;
+
+							get_template_part( 'partials/pagination' );
+							wp_reset_query();
+
+						endif;
+
+					endif; ?>
+
+				</div> <!-- End .page__body -->
+
+			<?php endwhile; endif; ?>
+
+		</section> <!-- End .page -->
+
+	</div>
+
+	<div class="gr-12 gr-3@md pull-9@md">
+
+		<?php get_template_part( 'partials/sidebar', 'secondary' ); ?>
+
+	</div>
 
 <?php get_template_part( 'partials/footer' ); ?>

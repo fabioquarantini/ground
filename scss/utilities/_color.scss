@@ -1,0 +1,70 @@
+@each $key, $value in $breakpoints {
+	@include media('>=#{$key}') {
+		$breakpoint: if($key == default, '', \@#{$key});
+
+		.color-primary#{$breakpoint} {
+			color: $color-primary;
+		}
+
+		.color-secondary#{$breakpoint} {
+			color: $color-secondary;
+		}
+
+		.color-success#{$breakpoint} {
+			color: $color-success;
+		}
+
+		.color-warning#{$breakpoint} {
+			color: $color-warning;
+		}
+
+		.color-error#{$breakpoint} {
+			color: $color-error;
+		}
+
+		.color-black#{$breakpoint} {
+			color: $color-black;
+		}
+
+		.color-grey#{$breakpoint} {
+			color: $color-grey;
+		}
+
+		.color-white#{$breakpoint} {
+			color: $color-white;
+		}
+
+		.background-primary#{$breakpoint} {
+			background-color: $color-primary;
+		}
+
+		.background-secondary#{$breakpoint} {
+			background-color: $color-secondary;
+		}
+
+		.background-success#{$breakpoint} {
+			background-color: $color-success;
+		}
+
+		.background-warning#{$breakpoint} {
+			background-color: $color-warning;
+		}
+
+		.background-error#{$breakpoint} {
+			background-color: $color-error;
+		}
+
+		.background-black#{$breakpoint} {
+			background-color: $color-black;
+		}
+
+		.background-grey#{$breakpoint} {
+			background-color: $color-grey;
+		}
+
+		.background-white#{$breakpoint} {
+			background-color: $color-white;
+		}
+
+	}
+}

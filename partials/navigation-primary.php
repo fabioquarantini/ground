@@ -1,26 +1,16 @@
-<nav class="navigation navigation--primary" role="navigation">
+<nav class="navigation navigation--primary">
 
 	<?php
-
 	$args = array(
 		'theme_location'	=> 'navigation-primary',
-		'menu'				=> '',
-		'container'			=> '',
-		'container_class'	=> '',
-		'container_id'		=> '',
 		'menu_class'		=> 'navigation__list',
-		'menu_id'			=> '',
-		'echo'				=> true,
-		'fallback_cb'		=> '',
-		'before'			=> '',
-		'after'				=> '',
-		'link_before'		=> '',
-		'link_after'		=> '',
-		'items_wrap'		=> '<ul id="%1$s" class="%2$s">%3$s</ul>',
+		'items_wrap'		=> '<ul class="%2$s">%3$s</ul>',
+		'fallback_cb'		=> false,
 		'depth'				=> 0,
-		'walker'			=> ''
+		'container'			=> '',
+		'walker' 			=> new Ground_Wp_Nav_Menu_Bem
 	);
 
 	wp_nav_menu( $args ); ?>
 
-</nav> <!-- End .navigation- -primary -->
+</nav> <!-- End .navigation -->

@@ -1,0 +1,181 @@
+.table,
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	margin: 0 0 ritmo(1, $offset: -3px) 0;
+	table-layout: fixed;
+	max-width: 100%;
+	width: 100%;
+	background-color: $color-white;
+}
+
+.table--striped {
+
+	tbody tr:nth-child(even) {
+		background-color: $color-grey;
+	}
+
+}
+
+.table--hover {
+
+	tbody tr:hover {
+		background-color: $color-grey;
+		color: $color-white;
+	}
+
+}
+
+.table--scroll {
+	display: block;
+	width: 100%;
+	min-height: .01%;
+	overflow-x: auto;
+}
+
+.table--responsive {
+
+	display: block;
+
+	@include media('>=sm') {
+		display: table;
+	}
+
+	thead,
+	tbody,
+	tfoot,
+	tr,
+	th,
+	td {
+		display: block;
+	}
+
+	thead {
+
+		@include media('>=sm') {
+			display: table-header-group;
+		}
+
+		th {
+
+			position: absolute;
+			top: -9999px;
+			left: -9999px;
+
+			@include media('>=sm') {
+				position: relative;
+				top: auto;
+				left: auto;
+			}
+
+		}
+
+	}
+
+	tbody {
+
+		@include media('>=sm') {
+			display: table-row-group;
+		}
+
+	}
+
+	tfoot {
+
+		@include media('>=sm') {
+			display: table-footer-group;
+		}
+
+	}
+
+	tr {
+
+		margin-bottom: ritmo(1);
+
+		@include media('>=sm') {
+			display:table-row;
+		}
+
+	}
+
+	td,
+	th {
+
+		@include media('>=sm') {
+			display:table-cell;
+		}
+
+	}
+
+	td {
+
+		vertical-align: top;
+
+		&:before {
+
+			color: $color-black;
+			content: attr(data-title);
+			font-variant: small-caps;
+			text-transform: uppercase;
+			display: block;
+			font-weight: bold;
+
+			@include media('>=sm') {
+				display: none;
+			}
+
+		}
+
+	}
+
+}
+
+.table--condensed {
+
+	td,
+	th {
+		@include ritmo-horizontal-borders( 1px, 0.5 );
+		border-style: solid;
+	}
+
+}
+
+.table__caption,
+caption {
+
+}
+
+.table__head,
+thead {
+
+}
+
+.table__body,
+tbody {
+
+}
+
+.table__foot,
+tfoot {
+
+}
+
+.table__row,
+tr {
+	vertical-align: middle;
+}
+
+.table__cell,
+td {
+	@include ritmo-horizontal-borders( 1px, 1 );
+	border-style: solid;
+	border-color: $color-grey;
+	vertical-align: middle;
+}
+
+.table__cell--head,
+th {
+	@extend .table__cell;
+	text-align: left;
+	font-weight: bold;
+}

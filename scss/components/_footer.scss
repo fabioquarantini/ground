@@ -1,0 +1,21 @@
+.footer {
+	padding: ritmo(2);
+	background-color: $color-black;
+}
+
+.footer__bottom {
+	margin-top: ritmo(1);
+}
+
+.footer__column {
+	margin-bottom: ritmo(1);
+	@include media('>=md') {
+		margin:0;
+	}
+}
+
+.footer__content,
+.footer__item {
+	@include ritmo-font-size(16px);
+	color:$color-white;
+}

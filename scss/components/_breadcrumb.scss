@@ -1,0 +1,60 @@
+.breadcrumb {
+	height: ritmo(2); //fixed height to avoid scrollbar on mobile
+	overflow-y: hidden;
+	margin-bottom: ritmo(1);
+}
+
+
+.breadcrumb__list {
+	padding-top: ritmo(1);
+	padding-bottom: ritmo(1);
+	overflow-x: auto;
+	white-space: nowrap;
+	-webkit-overflow-scrolling: touch;
+	margin-left: 0;
+	position: relative;
+
+	@include media('>=md') {
+		position: relative;
+
+		&:after {
+			content: '';
+			background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.99) 99%, rgba(255,255,255,1) 100%);
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+
+	}
+
+}
+
+.breadcrumb__item {
+	display: inline-block;
+
+	&:after {
+		content: '/';
+		padding: 0 ritmo(.25) 0 ritmo(.5);
+	}
+
+	&:last-child {
+		pointer-events: none;
+		cursor: default;
+		font-weight: bold;
+
+		&:after {
+			content: none;
+		}
+	}
+}
+
+.breadcrumb__link {
+	color: $color-black;
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}

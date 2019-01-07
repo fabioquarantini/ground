@@ -1,0 +1,21 @@
+.navicon {
+	position: absolute;
+	top: ritmo(0.5);
+	right: 0;
+	padding: ritmo(0.5);
+	left: auto;
+	z-index: 1000;
+	border: 0;
+	background-color: transparent;
+	cursor: pointer;
+	outline: none;
+
+	@include media(">=md") {
+		display: none;
+	}
+
+}
+
+.navicon__icon {
+	@include navicon-icon( 35px, 1px, 11px );
+}

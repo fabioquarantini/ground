@@ -1,28 +1,32 @@
 <?php get_template_part( 'partials/header' ); ?>
 
-	<section class="archive" id="main-content" role="main">
+	<section class="page page--archive">
 
-		<?php if ( have_posts() ) :
+		<?php if ( have_posts() ) : ?>
 
-			the_archive_title( '<h1 class="archive__title">', '</h1>' );
-			the_archive_description( '<div class="archive__description">', '</div>' );
+			<header class="page__header">
+				<?php the_archive_title( '<h1 class="page__title">', '</h1>' ); ?>
+			</header>
 
-			while ( have_posts() ) : the_post();
+			<div class="page__body js-infinite-container">
 
-				get_template_part( 'partials/content', 'abstract' );
+				<?php the_archive_description(); ?>
 
-			endwhile;
+				<?php while ( have_posts() ) : the_post();
 
-				get_template_part( 'partials/pagination', 'numeric' );
+					get_template_part( 'partials/abstract', 'post' );
 
-			else :
+				endwhile; ?>
 
-				get_template_part( 'partials/content', 'none' );
+			</div> <!-- End .page__body -->
 
-		endif; ?>
+			<?php
+			get_template_part( 'partials/pagination' );
+			get_template_part( 'partials/loader', 'infinite' );
+			?>
 
-	</section> <!-- End .archive -->
+		<?php endif; ?>
 
-	<?php get_template_part( 'partials/sidebar', 'secondary' );
+	</section> <!-- End .page -->
 
-get_template_part( 'partials/footer' ); ?>
+<?php get_template_part( 'partials/footer' ); ?>

@@ -1,0 +1,178 @@
+// @private Outputs rhythm values. For rem units, outputs pixel fallbacks
+// by default.
+@mixin output-ritmo($property, $values) {
+  @if $ritmo-unit == rem and $rem-with-px-fallback {
+    @include rem($property, $values);
+  }
+  @else {
+    $output: ();
+    @each $value in $values {
+      @if unit($value) == px {
+        // Ensure all pixel values are rounded to the nearest pixel.
+        $output: join($output, round($value));
+      }
+      @else {
+        $output: join($output, $value);
+      }
+    }
+    #{$property}: $output;
+  }
+}
+
+// Establishes a font baseline for the given font-size.
+@mixin ritmo-baseline($font-size: $base-font-size) {
+  $relative-size: 100% * ($font-size / $browser-default-font-size);
+
+  html {
+    font-size: if($relative-font-sizing, $relative-size, $font-size);
+
+    // Webkit has a bug that prevents line-height being set in rem on <html>;
+    // To work around this and simplify output, we can set initial line-height
+    // in ems for all relative rhythm units, even when $ritmo-unit is `rem`.
+    @if $relative-font-sizing {
+      line-height: convert-length($base-line-unit * $base-line-multi, em);
+    }
+    @else {
+      line-height: round($base-line-unit * $base-line-multi);
+    }
+  }
+}
+
+// Adjust a block to have a different font size and line height to maintain the
+// rhythm. $lines specifies how many multiples of the baseline rhythm each line
+// of this font should use up. It does not have to be an integer, but it
+// defaults to the smallest integer that is large enough to fit the font.
+// Use $from-size to adjust from a font-size other than the base font-size.
+@mixin ritmo-font-size($to-size, $lines: auto, $from-size: $base-font-size) {
+  $to-size: convert-length($to-size, px, $from-size);
+  @if $lines == auto {
+    $lines: lines-for-font-size($to-size);
+  }
+  @include output-ritmo(font-size, convert-length($to-size, $ritmo-unit, $from-size));
+  @include ritmo-leading($lines, $to-size);
+}
+
+// Adjust a block to have different line height to maintain the rhythm.
+// $lines specifies how many multiples of the baseline rhythm each line of this
+// font should use up. It does not have to be an integer, but it defaults to the
+// smallest integer that is large enough to fit the font.
+@mixin ritmo-leading($lines, $font-size: $base-font-size) {
+  @include output-ritmo(line-height, ritmo($lines, $font-size));
+}
+
+// Apply leading whitespace. The $property can be margin or padding.
+@mixin ritmo-top($lines: 1, $font-size: $base-font-size, $property: margin) {
+  @include output-ritmo(#{$property}-top, ritmo($lines, $font-size));
+}
+
+// Apply leading whitespace as padding.
+@mixin ritmo-top-padding($lines: 1, $font-size: $base-font-size) {
+  @include output-ritmo(padding-top, ritmo($lines, $font-size));
+}
+
+// Apply leading whitespace as margin.
+@mixin ritmo-top-margin($lines: 1, $font-size: $base-font-size) {
+  @include output-ritmo(margin-top, ritmo($lines, $font-size));
+}
+
+// Apply trailing whitespace. The $property can be margin or padding.
+@mixin ritmo-bottom($lines: 1, $font-size: $base-font-size, $property: margin) {
+  @include output-ritmo(#{$property}-bottom, ritmo($lines, $font-size));
+}
+
+// Apply trailing whitespace as padding.
+@mixin ritmo-bottom-padding($lines: 1, $font-size: $base-font-size) {
+  @include output-ritmo(padding-bottom, ritmo($lines, $font-size));
+}
+
+// Apply trailing whitespace as margin.
+@mixin ritmo-bottom-margin($lines: 1, $font-size: $base-font-size) {
+  @include output-ritmo(margin-bottom, ritmo($lines, $font-size));
+}
+
+// Shorthand mixin to apply whitespace for top and bottom margins and padding.
+@mixin ritmo(
+  $leader: 1,
+  $padding-leader: 0,
+  $padding-trailer: $padding-leader,
+  $trailer: $leader,
+  $font-size: $base-font-size
+) {
+  @include ritmo-top($leader, $font-size);
+  @include ritmo-top-padding($padding-leader, $font-size);
+  @include ritmo-bottom-padding($padding-trailer, $font-size);
+  @include ritmo-bottom($trailer, $font-size);
+}
+
+// Shorthand mixin to apply whitespace for top and bottom margins.
+@mixin ritmo-margins(
+  $leader: 1,
+  $trailer: $leader,
+  $font-size: $base-font-size
+) {
+  @include ritmo-top($leader, $font-size);
+  @include ritmo-bottom($trailer, $font-size);
+}
+
+// Shorthand mixin to apply whitespace for top and bottom padding.
+@mixin ritmo-paddings(
+  $padding-leader: 1,
+  $padding-trailer: $padding-leader,
+  $font-size: $base-font-size
+) {
+  @include ritmo-top-padding($padding-leader, $font-size);
+  @include ritmo-bottom-padding($padding-trailer, $font-size);
+}
+
+// Apply a border and whitespace to any side without destroying the vertical
+// rhythm. The whitespace must be greater than the width of the border.
+@mixin ritmo-side-border(
+  $side,
+  $width: $ritmo-border-width,
+  $lines: 1,
+  $font-size: $base-font-size
+) {
+  // If applying borders to all sides, use shorthand properties
+  $border-prop: if($side == all, border, border-#{$side});
+  @include output-ritmo(#{$border-prop}-width, convert-length($width, $ritmo-unit, $font-size));
+  $padding-prop: if($side == all, padding, padding-#{$side});
+  @include output-ritmo(#{$padding-prop}, ritmo($lines, $font-size, $offset: $width));
+}
+
+// Apply a leading border.
+// $border-style and $width are deprecated and will be removed in a future version of Compass.
+@mixin ritmo-top-border(
+  $width: $ritmo-border-width,
+  $lines: 1,
+  $font-size: $base-font-size
+) {
+  @include ritmo-side-border(top, $width, $lines, $font-size);
+}
+
+// Apply a trailing border.
+@mixin ritmo-bottom-border(
+  $width: $ritmo-border-width,
+  $lines: 1,
+  $font-size: $base-font-size
+) {
+  @include ritmo-side-border(bottom, $width, $lines, $font-size);
+}
+
+// Apply both leading and trailing borders.
+@mixin ritmo-horizontal-borders(
+  $width: $ritmo-border-width,
+  $lines: 1,
+  $font-size: $base-font-size
+) {
+  @include ritmo-top-border($width, $lines, $font-size);
+  @include ritmo-bottom-border($width, $lines, $font-size);
+}
+
+// Apply borders and whitespace equally to all sides.
+@mixin ritmo-borders(
+  $width: $ritmo-border-width,
+  $lines: 1,
+  $font-size: $base-font-size
+) {
+  @include ritmo-side-border(all, $width, $lines, $font-size);
+}

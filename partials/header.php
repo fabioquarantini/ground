@@ -1,49 +1,36 @@
 <!doctype html>
-
 <html <?php language_attributes(); ?>>
+	<head>
+		<meta charset="<?php bloginfo('charset'); ?>">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<?php if ( !function_exists( 'has_site_icon' ) || !has_site_icon() ) { ?>
+			<link rel="icon" type="image/png" href="<?php echo TEMPLATE_URL .'/img/favicon.png' ?>">
+			<link rel="apple-touch-icon" href="<?php echo TEMPLATE_URL .'/img/icon.png' ?>">
+		<?php } ?>
+		<?php wp_head(); ?>
+	</head>
 
-<head>
+	<body <?php body_class(); ?> data-site-url="<?php echo SITE_URL ?>" data-template-url="<?php echo TEMPLATE_URL ?>">
 
-	<meta charset="<?php bloginfo('charset'); ?>">
-	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<div class="container">
 
-	<?php if ( ! function_exists( 'has_site_icon' ) || ! has_site_icon() ) { ?>
-		<link rel="shortcut icon" href="<?php echo MY_THEME_FOLDER .'/favicon.ico' ?>">
-		<link rel="apple-touch-icon" href="<?php echo MY_THEME_FOLDER .'/apple-touch-icon.png' ?>">
-	<?php } ?>
+			<header class="header">
 
-	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+				<a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo('name'); ?>">
+					<img class="logo__img" src="<?php echo TEMPLATE_URL ?>/img/logo.svg" alt="<?php bloginfo('name'); ?>" />
+				</a> <!-- End .logo -->
 
-	<!--[if lt IE 9]>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
-	<![endif]-->
+				<?php get_template_part( 'partials/navigation', 'primary' ); ?>
 
-	<?php wp_head(); ?>
+				<button class="navicon js-toggle-class" data-toggle-class-selector="navicon navigation--primary" data-toggle-class-name="is-navigation-open">
+					<i class="navicon__icon"></i>
+				</button> <!-- End .navicon -->
 
-</head>
+			</header> <!-- End .header -->
 
-<body <?php body_class(); ?> data-path="<?php echo MY_THEME_FOLDER ?>">
+			<?php if ( is_front_page() ) {
+				get_template_part( 'partials/slider', 'primary' );
+			} ?>
 
-	<div class="container">
-
-		<a class="visuallyhidden" href="#main-content"><?php _e( 'Skip to main content', 'ground' ); ?></a>
-
-		<header class="header header--primary" role="banner">
-
-			<a class="logo" href="<?php echo home_url(); ?>" title="<?php bloginfo('name'); ?>">
-				<img class="logo__img" src="<?php echo MY_THEME_FOLDER ?>/img/logo.png" alt="<?php bloginfo('name'); ?>" />
-			</a> <!-- End .logo -->
-
-			<?php get_template_part( 'partials/navigation', 'primary' ); ?>
-
-			<span class="navicon js-navicon">Menu</span>
-
-		</header> <!-- End .header -->
-
-		<?php get_template_part( 'partials/header', 'image' ); ?>
-
-		<?php get_template_part( 'partials/slider', 'primary' ); ?>
-
-		<div class="content">
+			<main class="clear-fix" role="main">

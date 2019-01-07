@@ -1,0 +1,19 @@
+.loader {
+
+	&--page {
+		@extend .full-screen;
+		background-color: $color-white;
+		z-index: 100000;
+	}
+
+}
+
+.loader__spinner {
+	animation: rotate 0.8s infinite linear;
+	border: 3px solid $color-primary;
+	border-radius: 50%;
+	border-right-color: transparent;
+	height: ritmo(2);
+	width: ritmo(2);
+	margin: 1lh auto;
+}

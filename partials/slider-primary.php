@@ -1,37 +1,40 @@
-<?php
+<div class="slider slider--primary swiper-container js-slider">
+	<div class="swiper-wrapper">
+		<div class="slider__item swiper-slide">
+			<img class="slider__img" src="http://via.placeholder.com/1920x1080">
+			<div class="slider__body centered text-center">
+				<h3 class="slider__title" data-swiper-parallax="-300">Title ipsum 1</h3>
+				<p class="slider__text" data-swiper-parallax-scale="0.15">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+				<a class="slider__btn button" href="#">More</a>
+			</div>
+		</div>
+		<div class="slider__item swiper-slide">
+			<img class="slider__img" src="http://via.placeholder.com/1920x1080">
+			<div class="slider__body centered text-center">
+				<h3 class="slider__title" data-swiper-parallax="-300">Title ipsum 2</h3>
+				<p class="slider__text" data-swiper-parallax-scale="0.15">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+				<a class="slider__btn button" href="#">More</a>
+			</div>
+		</div>
+		<div class="slider__item swiper-slide">
+			<img class="slider__img" src="http://via.placeholder.com/1920x1080">
+			<div class="slider__body centered text-center">
+				<h3 class="slider__title" data-swiper-parallax="-300">Title ipsum 3</h3>
+				<p class="slider__text" data-swiper-parallax-scale="0.15">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+				<a class="slider__btn button" href="#">More</a>
+			</div>
+		</div>
+		<div class="slider__item swiper-slide">
+			<img class="slider__img" src="http://via.placeholder.com/1920x1080">
+			<div class="slider__body centered text-center">
+				<h3 class="slider__title" data-swiper-parallax="-300">Title ipsum 4</h3>
+				<p class="slider__text" data-swiper-parallax-scale="0.15">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+				<a class="slider__btn button" href="#">More</a>
+			</div>
+		</div>
+	</div> <!-- End .swiper-wrapper -->
 
-// Name of the thumbnails set in add_image_size
-$thumbnail = 'thumb-slider-primary';
-
-$args = array(
-	'post_type' => 'ground_slider',
-	'posts_per_page' => '10',
-	'slide-category' => ''
-);
-
-$slider_posts = new WP_Query( $args );
-
-if( $slider_posts->have_posts() ) { ?>
-
-	<div class="slider slider--primary js-slider--primary">
-
-		<?php while( $slider_posts->have_posts() ) : $slider_posts->the_post() ?>
-
-			<div class="slider__item">
-				<?php the_post_thumbnail( $thumbnail, array( 'class' => 'slider__img') );
-				if( $post->post_content != "" ) {
-					echo '<div class="slider__caption">';
-					the_content();
-					echo '</div><!-- End .slider__caption -->';
-				} ?>
-			</div><!-- End .slider__item -->
-
-		<?php endwhile ?>
-
-	</div><!-- End .slider- -primary -->
-
-<?php }
-
-wp_reset_postdata();
-
-?>
+	<div class="slider__pagination swiper-pagination"></div>
+	<div class="slider__navigation slider__navigation--prev swiper-button-prev"></div>
+	<div class="slider__navigation slider__navigation--next swiper-button-next"></div>
+</div> <!-- End .slider -->

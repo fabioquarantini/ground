@@ -1,0 +1,116 @@
+.pagination {
+	list-style: none;
+	margin: ritmo(2) 0 ritmo(2) 0;
+	text-align: center;
+
+	@include media('>=md') {
+		display: table-row;
+	}
+
+	.is-active {
+		display: inline-block;
+		text-align: center;
+		@include media('>=md') {
+			text-align: left;
+			display: table-cell;
+		}
+		.pagination__text {
+			text-decoration: none;
+			background: $color-black;
+			color: $color-white;
+			cursor: default;
+			@include media('<=md') {
+				color: $color-black;
+				border: none;
+				background: none;
+				&:before {
+					content: attr(data-page);
+				}
+			}
+		}
+	}
+
+}
+
+.pagination__text {
+	padding: ritmo(.75);
+	text-decoration: none;
+	color: $color-grey;
+	cursor: pointer;
+	position: relative;
+	display: block;
+	line-height: 1.25;
+	margin-left: -1px;
+
+	&:hover {
+		background: $color-primary;
+		color: $color-white;
+	}
+
+}
+
+.pagination__item {
+	display: none;
+	color: $color-black;
+	line-height: 1.25;
+	text-align: center;
+
+	@include media('>=md') {
+		display: table-cell;
+		margin-left: -1px;
+		width: auto;
+		text-align: left;
+	}
+
+	&--prev,
+	&--next {
+		display: inline-block !important;
+		.pagination__text {
+			background: $color-black;
+			color: $color-white;
+			border: none;
+			cursor:pointer;
+			&:hover {
+				background-color: $color-primary;
+			}
+
+			@include media('>=md') {
+				background: none;
+				color: $color-grey;
+				&:hover {
+					color:$color-black;
+					background-color: transparent;
+				}
+			}
+
+		}
+	}
+
+	&--prev {
+		.pagination__text {
+			&:before {
+				content: "< ";
+			}
+		}
+	}
+
+	&--next {
+		.pagination__text {
+			&:after {
+				content: " >";
+			}
+		}
+	}
+
+	&--dots {
+		.pagination__text {
+			font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+			cursor: default;
+
+			&:hover {
+				background: none;
+				color: $color-grey;
+			}
+		}
+	}
+}

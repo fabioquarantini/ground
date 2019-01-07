@@ -1,0 +1,11 @@
+a {
+	color: $color-primary;
+	transition: color .1s;
+
+	&:hover,
+	&:active,
+	&:focus {
+		color: $color-secondary;
+		text-decoration: none;
+	}
+}

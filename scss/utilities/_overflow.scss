@@ -1,0 +1,27 @@
+@each $key, $value in $breakpoints {
+	@include media('>=#{$key}') {
+		$breakpoint: if($key == default, '', \@#{$key});
+
+		.overflow-visible#{$breakpoint} {
+			overflow: visible;
+		}
+
+		.overflow-hidden#{$breakpoint} {
+			overflow: hidden;
+		}
+
+		.overflow-scroll#{$breakpoint} {
+			overflow: scroll;
+		}
+
+		.overflow-auto#{$breakpoint} {
+			overflow: auto;
+		}
+
+		// Smooth overflow scrolling in iOS
+		.overflow-scrolling#{$breakpoint} {
+			-webkit-overflow-scrolling: touch;
+		}
+
+	}
+}

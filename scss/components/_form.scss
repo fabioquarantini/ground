@@ -1,0 +1,401 @@
+.form,
+form {
+	width: 100%;
+}
+
+.form__fieldset,
+fieldset {
+	@include ritmo-horizontal-borders( 1px, 1 );
+	border-color: $color-grey;
+	border-style: solid;
+	margin: 0 0 ritmo(1) 0;
+}
+
+.form__legend,
+legend {
+	font-weight: bold;
+	padding: 0 ritmo(1);
+	height: ritmo(1);
+}
+
+.form__label,
+label {
+	display: block;
+
+	&.has-error,
+	.has-error & {
+		color: $color-error;
+	}
+
+	&.has-success,
+	.has-success & {
+		color: $color-success;
+	}
+
+	&.has-warning,
+	.has-warning & {
+		color: $color-warning;
+	}
+
+}
+
+.form__input,
+input,
+.form__textarea,
+textarea,
+.form__select,
+select {
+	display: block;
+	margin: 0 0 ritmo(1) 0;
+	border: 1px solid $color-grey;
+	padding: ritmo(.35);
+	height: ritmo(2);
+	outline: none;
+	background: $color-white;
+	color: $color-grey;
+	width: 100%;
+	border-radius: 0;
+
+	&:focus,
+	&:active {
+		box-shadow: inset 0 0 3px rgba( $color-grey, .4 );
+		color: #444;
+		outline: none;
+	}
+
+	&[readonly],
+	&[disabled] {
+		border-color: $color-grey;
+		opacity: 0.6;
+		cursor: not-allowed;
+		background-color: $color-grey;
+		color: $color-black;
+
+		&:hover {
+			background-color: $color-grey;
+		}
+
+		&:focus,
+		&:active {
+			box-shadow: none;
+			outline: none;
+		}
+
+	}
+
+	&.has-error,
+	.has-error & {
+		border-color: $color-error;
+	}
+
+	&.has-success,
+	.has-success & {
+		border-color: $color-success;
+	}
+
+	&.has-warning,
+	.has-warning & {
+		border-color: $color-warning;
+	}
+}
+
+// Textarea
+.form__textarea,
+textarea {
+	height: auto;
+	max-width: 100%;
+	resize: vertical;
+	min-height: ritmo(8);
+}
+
+.form__input--checkbox,
+[type="checkbox"],
+.form__input--radio,
+[type="radio"] {
+	height: auto;
+	width: auto;
+	line-height: normal;
+	padding: 0;
+	display: inline;
+	border: 0;
+	vertical-align: middle;
+	margin: 0 ritmo(0.25) 0 0;
+}
+
+// Radio and checkbox
+.form__input--checkbox + label,
+[type="checkbox"] + label,
+.form__input--radio + label,
+[type="radio"] + label {
+	display: inline-block;
+}
+
+// Radio custom ( Wrap the radio with this class )
+.form__group--custom-radio {
+
+	[type="radio"] {
+		display:none;
+	}
+
+	[type="radio"] + label {
+		&:before {
+			content: "";
+			width: 14px;
+			height: 14px;
+			display: inline-block;
+			background-color: $color-grey;
+			margin-right: 10px;
+			cursor: pointer;
+			border-radius:100%;
+		}
+
+		&:after {
+			@extend .animate;
+		}
+	}
+
+	[type="radio"]:checked + label {
+
+		position: relative;
+
+		&:after {
+			animation-duration: 0.3s;
+			@extend .animate-fade-in;
+			background-color: $color-primary;
+			content: " ";
+			width: 8px;
+			height: 8px;
+			position: absolute;
+			left: 3px;
+			top: 7px;
+			border-radius: 100%;
+			cursor: pointer;
+		}
+
+	}
+
+	[readonly] + label,
+	[disabled] + label {
+
+		&:after,
+		&:before {
+			border-color: $color-grey;
+			opacity: 0.4;
+			cursor: not-allowed;
+		}
+
+	}
+
+}
+
+// Checkbox custom  ( Wrap the checkbox with this class )
+.form__group--custom-checkbox {
+
+	[type="checkbox"] {
+		display:none;
+	}
+
+	[type="checkbox"] + label {
+		&:before {
+			content: "";
+			width: 14px;
+			height: 14px;
+			display: inline-block;
+			background-color: $color-grey;
+			margin-right: 10px;
+			cursor: pointer;
+		}
+
+		&:after {
+			@extend .animate;
+		}
+	}
+
+	[type="checkbox"]:checked + label {
+
+		position: relative;
+
+		&:after {
+			@extend .animate-fade-in;
+			animation-duration: 0.3s;
+			color: $color-primary;
+			content: "\2713";
+			position: absolute;
+			left: 0;
+			top: -1px;
+			cursor: pointer;
+		}
+
+	}
+
+	[readonly] + label,
+	[disabled] + label {
+
+		&:after,
+		&:before {
+			border-color: $color-grey;
+			opacity: 0.4;
+			cursor: not-allowed;
+		}
+
+	}
+
+}
+
+
+// File
+[type="file"] {
+	border: none;
+	line-height: 100%;
+	padding: 0;
+}
+
+// Range
+[type="range"] {
+
+	border: none;
+	padding: 0;
+	width: 100%;
+	outline: none;
+	background: transparent;
+	appearance: none;
+
+	&:focus {
+		outline: none;
+	}
+
+	&::-webkit-slider-runnable-track {
+		background-color: $color-grey;
+		border: none;
+		border-radius: 3px;
+		height: 5px;
+	}
+
+	&::-moz-range-track {
+		background-color: $color-grey;
+		border: none;
+		border-radius: 3px;
+		height: 5px;
+	}
+
+	&::-ms-track {
+		background-color: $color-grey;
+		border: none;
+		border-radius: 3px;
+		color: transparent;
+		height: 5px;
+	}
+
+	&::-webkit-slider-thumb {
+		border: none;
+		border-radius: 50%;
+		background-color: $color-primary;
+		height: 16px;
+		margin-top: -5px;
+		width: 16px;
+		-webkit-appearance: none;
+	}
+
+	&::-moz-range-thumb {
+		border: none;
+		border-radius: 50%;
+		background-color: $color-primary;
+		height: 16px;
+		margin-top: -5px;
+		width: 16px;
+	}
+
+	&::-ms-thumb {
+		border: none;
+		border-radius: 50%;
+		background-color: $color-primary;
+		height: 16px;
+		margin-top: -5px;
+		width: 16px;
+	}
+
+}
+
+// Select
+.form__select,
+select {
+
+	max-width: 100%;
+	padding: ritmo(.25);
+	height: ritmo(2);
+
+	option {
+		padding: 0 ritmo(1);
+	}
+
+}
+
+.form__select--multiple,
+select[multiple] {
+	@include ritmo-horizontal-borders( 1px, 1 );
+	border-color: $color-grey;
+	border-style: solid;
+	padding: 0 !important;
+	height: ritmo(5);
+
+	option {
+		height: ritmo(1.5);
+		padding-top: ritmo(0.5);
+	}
+
+}
+
+// Select custom ( Wrap the select with this class )
+.form__group--select-custom {
+
+	position: relative;
+
+	&:before {
+		content: "";
+		position: absolute;
+		top: 42%;
+		right: 10px;
+		@include triangle( bottom, $color-grey, 6px )
+	}
+
+	select {
+		appearance: none;
+	}
+
+}
+
+// Messages
+.form__input + .message,
+input + .message,
+.form__select + .message,
+select + .message,
+.form__textarea + .message,
+textarea + .message {
+	margin-top: - ritmo(1);
+}
+
+// Buttons
+[type="button"],
+[type="submit"] {
+	width: auto;
+	@extend .button;
+}
+
+// Placeholders
+::-webkit-input-placeholder {
+	color: grey;
+}
+
+:-moz-placeholder {
+	color: grey;
+	opacity: 1;
+}
+
+::-moz-placeholder {
+	color: grey;
+	opacity: 1;
+}
+
+:-ms-input-placeholder {
+	color: grey;
+}

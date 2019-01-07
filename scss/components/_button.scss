@@ -1,0 +1,83 @@
+.button {
+	@include ritmo-font-size(16px);
+	@include ritmo-horizontal-borders(1px, 0.5);
+	@include ritmo-side-border(left, 1px, 1);
+	@include ritmo-side-border(right, 1px, 1);
+	padding-left: ritmo(1);
+	padding-right: ritmo(1);
+	margin: 0 0 ritmo(1) 0;
+	border-color: $color-primary;
+	background-color: $color-primary;
+	border-style: solid;
+	color: $color-white;
+	display: inline-block;
+	vertical-align: middle;
+	white-space: nowrap;
+	cursor: pointer;
+	transition: all .15s;
+	text-decoration: none;
+	text-align: center;
+
+	&:hover,
+	&--active {
+		background-color: $color-secondary;
+		color: $color-black;
+	}
+
+	&--secondary {
+		background-color: $color-secondary;
+		color: $color-white;
+		border-color: $color-secondary;
+
+		&:hover,
+		&--active {
+			background-color: $color-primary;
+			color: $color-black;
+			border-color: $color-primary;
+		}
+
+	}
+
+	&--small {
+		@include ritmo-horizontal-borders(1px, 0.25);
+		padding-left: ritmo(1);
+		padding-right: ritmo(1);
+		margin-top: ritmo(0.25);
+		margin-bottom: ritmo(1.25);
+	}
+
+	&--large {
+		@include ritmo-horizontal-borders(1px, 1);
+	}
+
+	&--rounded {
+		border-radius: ritmo(0.25);
+	}
+
+	&--full-width {
+		width: 100%;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	&--centered {
+		display: table;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	&--pill {
+		border-radius: 1000px;
+	}
+
+	&[disabled],
+	&.is-disabled {
+		opacity: 0.4;
+		cursor: not-allowed;
+	}
+
+	&:active {
+		outline: none;
+	}
+
+}

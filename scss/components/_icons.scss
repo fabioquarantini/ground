@@ -1,0 +1,7 @@
+// Import file generated with gulp-icon (vendors/iconfont/)
+@import 'icons-generated';
+
+[class^="icon"] {
+	@include ritmo-font-size(24px, 1);
+	color: $color-primary;
+}

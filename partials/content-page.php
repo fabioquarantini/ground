@@ -1,19 +1,20 @@
-<article id="main-content" <?php post_class(); ?> role="main">
+<article class="page">
 
-	<h1 class="page__title"><?php the_title(); ?></h1>
+	<header class="page__header">
+		<h1 class="page__title"><?php the_title(); ?></h1>
+	</header>
 
-	<?php if ( has_post_thumbnail() ) {
-
-			the_post_thumbnail( 'thumb-medium', array( 'class' => 'page__img' ) );
-
-	} ?>
-
-	<?php the_content(); ?>
+	<div class="page__body">
+		<?php if ( has_post_thumbnail() ) { ?>
+			<figure class="media">
+				<?php the_post_thumbnail( 'medium', array( 'class' => 'media__img' ) ); ?>
+			</figure>
+		<?php } ?>
+		<?php the_content(); ?>
+	</div> <!-- End .page__body -->
 
 	<?php if ( comments_open() || get_comments_number() ) {
-
 		comments_template('/partials/comments.php');
-
 	} ?>
 
 </article> <!-- End .page -->

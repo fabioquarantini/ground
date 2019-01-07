@@ -1,12 +1,30 @@
-//
-// Layout helper
-//
-@mixin gridle_layout(
+/**
+ * @name 	Base API
+ * This are all the base API mixins that are exposed by gridle.
+ */
+
+/**
+ * Specify a layout using a single call like in the example bellow
+ * @param 		{Map} 				$layout 				The map layout wanted
+ * @param 		{Map|List|String} 	[$context=null] 		The context in which to apply the layout
+ * @example 	scss
+ * body {
+ * 	\@include g-layout((
+ * 	 	'#header' : 12,
+ * 	 	'#sidebar' : 4 mobile 12,
+ * 	 	'#content' : 8 mobile 12,
+ * 	 	'#footer' : 12
+ * 	));
+ * }
+ *
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-layout(
 	$layout,
 	$context : null
 ) {
-	@include gridle_state($context) {
-		@include gridle_row();
+	@include g-state($context) {
+		@include g-row();
 		@each $sel, $l in $layout {
 			> #{$sel} {
 				@include gridle($l);
@@ -15,13 +33,34 @@
 	}
 }
 
-//
-// Gridle state
-//
-// @param 	string|map|list 	$states 		A list of states, a state name or a state map
-// @param 	boolean 			$has-parent 	Mostly always true, mean that the mixin is used in a css selector and not in css root level
-//
-@mixin gridle_state(
+/**
+ * Apply some styling in a passed state
+ * @param 		{Map|List|String} 		$states 		The states to apply the css for. Can be a state map, a list of states or a state name
+ * @example 	scss
+ * .my-cool-element {
+ * 	// specify a register state name
+ * 	\@include g-state(mobile) {
+ * 		// your css code here...
+ * 	}
+ * 	// specify more than one register states
+ * 	\@include g-state(mobile tablet) {
+ * 		// your css code here...
+ * 	}
+ *  // specify a min and max width
+ * 	\@include g-state(200px, 500px) {
+ * 		// your css code here...
+ * 	}
+ * 	// passing a state map (complexe usage)
+ * 	\@include g-state((
+ * 		query : 'print only'
+ * 	)) {
+ * 		// your code here...
+ * 	}
+ * }
+ *
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-state(
 	$states,
 	$has-parent : true
 ) {
@@ -30,13 +69,13 @@
 	@if type-of($states) == number and type-of($has-parent) == number {
 
 		// get a new state from settings passed
-		$state : gridle_get_state((
+		$state : g-get-state((
 			min-width : $states,
 			max-width : $has-parent
 		));
 
 		// make a query
-		@include gridle_state($state) {
+		@include g-state($state) {
 			@content;
 		}
 
@@ -47,10 +86,10 @@
 		@each $state in $states
 		{
 			// make sure we have the state object
-			$state : gridle_get_state($state);
+			$state : g-get-state($state);
 
 			// make gridle state
-			@include _gridle_state($state, $has-parent, true) {
+			@include _g-state($state, $has-parent, true) {
 				@content;
 			}
 		}
@@ -58,10 +97,10 @@
 	} @elseif type-of($states) == map {
 
 		// get a state from the passed one
-		$state : gridle_get_state($states);
+		$state : g-get-state($states);
 
 		// make gridle state
-		@include _gridle_state($state, $has-parent, true) {
+		@include _g-state($state, $has-parent, true) {
 			@content;
 		}
 	} @else {
@@ -69,242 +108,342 @@
 	}
 }
 
-
-//
-// Element queries
-//
-@mixin gridle_eq(
-	$var,
+/**
+ * Apply some css depending on the element size (element queries)
+ * **Using this mixin requires that you import the ```gridle-eq.js``` file into your javascript code**
+ * @param 	{Number} 	$size 				The size to take care of. If negative, mean lower than, if positive, mean greater than.
+ * @param 	{Boolean} 	[$height=false] 	Set to true to handle height instead of width
+ * @example 	scss
+ * .my-cool-element {
+ *  	\@include g-eq(-400px) {
+ *  		// your css that will be applied when element
+ *  		// is between 0 and 399px wide
+ *  	}
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-eq(
+	$size,
 	$height : false
 ) {
 	$op : "min-width";
 	@if $height {
-		@if $var < 0 {
+		@if $size < 0 {
 			$op : "max-height";
-			$var : $var * -1;
+			$size : $size * -1;
 		} @else {
 			$op : "min-height";
 		}
 	} @else {
-		@if $var < 0 {
+		@if $size < 0 {
 			$op : "max-width";
-			$var : $var * -1;
+			$size : $size * -1;
 		}
 	}
 
-	&[#{$op}~="#{$var}"] {
+	&[#{$op}~="#{$size}"] {
 		@content;
 	}
 }
 
 
-//
-// Gridle use state
-// This mixin will only set the current state to use and NOT print out any media query
-//
-@mixin gridle_use_state(
+/**
+ * Basically, this is the same as the ```g-state``` mixin, with the difference that it will not print any media queries. It will just create a state context in which your inside code will refer.
+ * @param 		{Map|List|String} 		$states 		The states to apply the css for. Can be a state map, a list of states or a state name
+ * @example 	scss
+ * @warn(g-get-state-var(min-width)); // will output the min-width of the default state
+ * \@include g-state-context(mobile) {
+ *  	@warn(g-get-state-var(min-width)); // will output the min-width of the mobile state
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-state-context(
 	$state
 ) {
 	// get the state
-	$state : gridle_get_state($state);
-	$stateName : gridle_get_state_var(name, $state);
+	$state : g-get-state($state);
+	$stateName : g-get-state-var(name, $state);
 
 	// save the current state
-	$savedState : $_gridle_current_state;
-	$savedStateName : $_gridle_current_stateName;
+	$savedState : $_g-current_state;
+	$savedStateName : $_g-current_stateName;
 
 	// set the current state
-	$_gridle_current_state : $state !global;
-	$_gridle_current_stateName : $stateName !global;
+	$_g-current_state : $state !global;
+	$_g-current_stateName : $stateName !global;
 
 	// generate content
 	@content;
 
 	// reset the state
-	$_gridle_current_state : $savedState !global;
-	$_gridle_current_stateName : $savedStateName !global;
+	$_g-current_state : $savedState !global;
+	$_g-current_stateName : $savedStateName !global;
 }
 
 
-//
-// Gridle selector
-//
-@mixin gridle_selector(
-	$for,
-	$states : null
+/**
+ * Will print the generated selector depending on the "package" wanted, the state and some optional values that might be needed by the package (like for row-align that need a "side" value)
+ * @param 		{String} 							$package 			The package to generate the selector for (see _settings.scss file)
+ * @param 		{String|List<String} 				[$states=null] 		The list of state to generate the selector for. If not specified, will generate for all registered states
+ * @param 		{Mixed} 							[$value=null] 		The value that will be used to replace the "%{tokenName}" inside the package pattern
+ * @example 	scss
+ * \@include g-selector(grid, mobile, 2) {
+ * 	// your code here
+ * 	// The selector will be .gr-2@mobile
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-selector(
+	$package,
+	$states : null,
+	$value : null
 ) {
-	#{gridle_selector($for, $states)} {
+	#{g-selector($package, $states, $value)} {
 		@content;
 	}
 }
 
 
-//
-// Gridle helper
-//
-@mixin gridle($layout) {
-	$map : _gridle_get_gridle_set_map_from_list($layout);
-	@if type-of($map) == map {
-		@include gridle_set($map);
+/**
+ * Helper gridle mixin that let you specify the grid properties through ```g-set``` map, or a list of properties like "8 push 2 mobile 12 push 0"
+ * @param 		{Map|List} 			$properties 			The grid properties to apply
+ * @example 	scss
+ * #content {
+ * 	// using list
+ * 	\@include gridle(8 mobile 12);
+ * 	// using a map
+ * 	\@include gridle((
+ * 		grid : 8,
+ * 		mobile : (
+ * 			grid : 12
+ * 		)
+ * 	));
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin gridle($properties) {
+	@if type-of($properties) == map {
+		@include g-set($map);
+	} @else if type-of($properties) == list
+	 	or type-of($properties) == number
+		or type-of($properties) == string {
+		$map : _g-get-gridle-set-map-from-list($properties);
+		@if type-of($map) == map {
+			@include g-set($map);
+		}
+	} @else {
+		@error("The passed layout #{inspect($properties)} is not a valid layout list or map...");
 	}
 }
 
-
-//
-// Helper to apply multiple config for a certain state with one mixin
-//
-@mixin gridle_set(
-	$settings,
+/**
+ * Helper mixin that let you specify the grid properties through map formated like in the example bellow.
+ * Here's the possible properties:
+ *
+ * - ```grid``` {Integer} : The grid column count
+ * - ```container``` {Boolean} : Set the element as container
+ * - ```grid-grow``` {Boolean} : Set the element a grid column that grow
+ * - ```grid-adapt``` {Boolean} : Set the element a grid column that adapt
+ * - ```grid-table``` {Boolean} : Set the element a grid column of type table
+ * - ```push``` {Integer} : Set the push count
+ * - ```pull``` {Integer} : Set the pull count
+ * - ```prefix``` {Integer} : Set the prefix count
+ * - ```suffix``` {Integer} : Set the suffix count
+ * - ```clear-each``` {Integer} : Set the clear each count
+ * - ```grid-centered``` {Boolean} : Set the grid column as centered
+ * - ```row``` {Boolean} : Set the element as a grid row
+ * - ```row-full``` {Boolean} : Set the element as a grid row full
+ * - ```col``` {Boolean} : Set the element as a grid column (vertical)
+ * - ```row-align``` {String} : Set the row alignement
+ * - ```row-no-gutter``` {Boolean} : Remove the gutters on columns inside this row
+ * - ```nowrap``` {Boolean} : Set a nowrap on the row
+ * - ```wrap``` {Boolean} : Reset the wrap property on the row
+ * - ```order``` {Integer} : Set the order of the column (flex driver)
+ * - ```hide``` {Boolean} : Hide the element
+ * - ```show``` {Boolean} : Show the element
+ * - ```visible``` {Boolean} : Set the visibility of the element to visible
+ * - ```not-visible``` {Boolean} : Set the visibility of the element to hidden
+ * - ```invisible``` {Boolean} : Set the visibility of the element to hidden
+ * - ```show-inline``` {Boolean} : Set the display of the element to inline-block
+ * - ```float``` {String} : Set the specified float of the element
+ * - ```clear``` {String} : Clear the specified float of the element
+ * - ```no-gutter``` {Boolean|String|List<String>} : Remove the specified gutters
+ * - ```gutter``` {Boolean|String|List<String>} : Apply the specified gutters
+ *
+ * @param 		{Map} 			$properties 			The grid map properties to apply
+ * @example 	scss
+ * #content {
+ * 	// using a map
+ * 	\@include gridle((
+ * 		grid : 8,
+ * 		push : 2
+ * 		mobile : (
+ * 			grid : 12
+ * 		),
+ * 		{stateName} : {mapProperties}
+ * 	));
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-set(
+	$propertiesMap,
 	$state : current
 ) {
 	// init if needed
-	@include gridle_init();
+	@include g-init();
 	// wrap in media query
-	@include gridle_state($state) {
-		@include _gridle_set($settings);
+	@include g-state($state) {
+		@include _g-set($propertiesMap);
 	}
 }
-@mixin _gridle_set(
-	$settings
+@mixin _g-set(
+	$propertiesMap
 ) {
 	// loop on each settings
-	@each $settingName, $settingValue in $settings
+	@each $propertyName, $propertyValue in $propertiesMap
 	{
-		$sn : unquote("#{$settingName}");
-		$sv : $settingValue;
+		$sn : unquote("#{$propertyName}");
+		$sv : $propertyValue;
 
 		// check if setting name is a state :
-		@if gridle_has_state($sn) {
+		@if g-has-state($sn) {
 			// process the state
-			@include gridle_set($sv, $sn);
+			@include g-set($sv, $sn);
 		} @else {
 			@if $sn == container {
 				@if $sv == true {
-					@include gridle_container();
+					@include g-container();
 				}
 			} @else if $sn == grid {
 				@if length($sv) == 2 {
-					@include gridle_grid(nth($sv,1), nth($sv,2));
+					@include g-grid(nth($sv,1), nth($sv,2));
 				} @else if type-of($sv) == list and length($sv) == 1 {
-					@include gridle_grid(nth($sv,1));
+					@include g-grid(nth($sv,1));
 				} @else {
-					@include gridle_grid($sv);
+					@include g-grid($sv);
 				}
 			} @else if $sn == grid-grow {
 				@if $sv == true {
-					@include gridle_grid_grow();
+					@include g-grid-grow();
 				}
 			} @else if $sn == grid-adapt {
 				@if $sv == true {
-					@include gridle_grid_adapt();
+					@include g-grid-adapt();
 				}
 			} @else if $sn == grid-table {
 				@if $sv == true {
-					@include gridle_grid_table();
+					@include g-grid-table();
 				}
 			} @else if $sn == push {
 				@if length($sv) == 2 {
-					@include gridle_push(nth($sv,1), nth($sv,2));
+					@include g-push(nth($sv,1), nth($sv,2));
 				} @else {
-					@include gridle_push($sv);
+					@include g-push($sv);
 				}
 			} @else if $sn == pull {
 				@if length($sv) == 2 {
-					@include gridle_pull(nth($sv,1), nth($sv,2));
+					@include g-pull(nth($sv,1), nth($sv,2));
 				} @else {
-					@include gridle_pull($sv);
+					@include g-pull($sv);
 				}
 			} @else if $sn == prefix {
 				@if length($sv) == 2 {
-					@include gridle_prefix(nth($sv,1), nth($sv,2));
+					@include g-prefix(nth($sv,1), nth($sv,2));
 				} @else {
-					@include gridle_prefix($sv);
+					@include g-prefix($sv);
 				}
 			} @else if $sn == suffix {
 				@if length($sv) == 2 {
-					@include gridle_suffix(nth($sv,1), nth($sv,2));
+					@include g-suffix(nth($sv,1), nth($sv,2));
 				} @else {
-					@include gridle_suffix($sv);
+					@include g-suffix($sv);
 				}
 			} @else if $sn == clear-each {
 				@if length($sv) == 2 {
-					@include gridle_clear_each(nth($sv,1), nth($sv,2));
+					@include g-clear-each(nth($sv,1), nth($sv,2));
 				} @else {
-					@include gridle_clear_each($sv);
+					@include g-clear-each($sv);
 				}
 			} @else if $sn == grid-centered and $sv == true {
-				@include gridle_grid_centered();
+				@include g-grid-centered();
 			} @else if $sn == row and $sv == true {
-				@include gridle_row();
+				@include g-row();
 			} @else if $sn == row-full and $sv == true {
-				@include gridle_row_full();
+				@include g-row-full();
 			} @else if $sn == col and $sv == true {
-				@include gridle_col();
+				@include g-col();
 			} @else if $sn == row-align {
-				@include gridle_row_align($sv);
+				@include g-row-align($sv);
+			} @else if $sn == row-no-gutter {
+				@include g-row-no-gutter($sv);
 			} @else if $sn == nowrap {
 				@if $sv == true {
-					@include gridle_nowrap();
+					@include g-nowrap();
 				} @else {
-					@include gridle_wrap();
+					@include g-wrap();
 				}
 			} @else if $sn == wrap {
 				@if $sv == true {
-					@include gridle_wrap();
+					@include g-wrap();
 				} @else {
-					@include gridle_nowrap();
+					@include g-nowrap();
 				}
 			} @else if $sn == order {
-				@include gridle_order($sv);
+				@include g-order($sv);
 			} @else if $sn == hide {
 				@if $sv == true {
-					@include gridle_hide();
+					@include g-hide();
 				} @else {
-					@include gridle_show();
+					@include g-show();
 				}
 			} @else if $sn == show {
 				@if $sv == true {
-					@include gridle_show();
+					@include g-show();
 				} @else {
-					@include gridle_hide();
+					@include g-hide();
 				}
 			} @else if $sn == visible {
 				@if $sv == true {
-					@include gridle_visible();
+					@include g-visible();
 				} @else {
-					@include gridle_not_visible();
+					@include g-not-visible();
 				}
-			} @else if $sn == not-visible {
+			} @else if $sn == not-visible or $sn == invisible {
 				@if $sv == true {
-					@include gridle_not_visible();
+					@include g-not-visible();
 				} @else {
-					@include gridle_visible();
+					@include g-visible();
 				}
 			} @else if $sn == show-inline {
 				@if $sv == true {
-					@include gridle_show_inline();
+					@include g-show-inline();
 				} @else {
-					@include gridle_hide();
+					@include g-hide();
 				}
 			} @else if $sn == float {
-				@include gridle_float($sv);
+				@include g-float($sv);
 			} @else if $sn == clear {
 				@if $sv == true {
-					@include gridle_clear();
+					@include g-clear();
 				} @else {
-					@include gridle_clear($sv);
+					@include g-clear($sv);
 				}
 			} @else if $sn == no-gutter {
 				@if $sv == true {
-					@include gridle_no_gutter();
+					@include g-no-gutter();
 				} @else {
-					@include gridle_no_gutter($sv);
+					@include g-no-gutter($sv);
 				}
 			} @else if $sn == gutter or $sn == gutter-width {
 				@if $sv == true {
-					@include gridle_gutter();
+					@include g-gutter();
 				} @else {
-					@include gridle_gutter($sv);
+					@include g-gutter($sv);
 				}
 			} @else {
 				// we do nothing
@@ -314,16 +453,13 @@
 }
 
 
-//
-// Push
-//
-@mixin _gridle_common_push(
+@mixin _g-common-push(
 	$state : default
 ) {
 	// css
 	position:relative;
 	// handle direction attribute
-	@if gridle_get_state_var(dir-attribute, $state) {
+	@if g-get-state-var(dir-attribute, $state) {
 		[dir="rtl"] & {
 			left: auto;
 		}
@@ -332,18 +468,29 @@
 		}
 	}
 }
-@mixin gridle_push(
+/**
+ * Set the push count for the column
+ * @param 		{Integer} 		$columns 			The number of columns to push this column
+ * @param 		{Integer} 		[$context=null]  	The context on which to calculate the push value. By default, it is the default context setted with ```g-setup```.
+ * @example 	scss
+ * .my-cool-column {
+ * 	\@include g-push(2);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-push(
 	$columns,
 	$context : null
 ) {
-	@include _gridle_call(push) {
+	@include _g-call(push) {
 		// variables :
 		@if type-of($context) != number {
-			$context : gridle_get_state_var(context);
+			$context : g-get-state-var(context);
 		}
-		$direction : gridle_get_state_var(direction);
-		$name-multiplicator : gridle_get_state_var(name-multiplicator);
-		$column-width : gridle_get_state_var(column-width);
+		$direction : g-get-state-var(direction);
+		$name-multiplicator : g-get-state-var(name-multiplicator);
+		$column-width : g-get-state-var(column-width);
 
 		// vars :
 		$width : 0;
@@ -364,7 +511,7 @@
 		@if $direction == rtl { right:$width;left:auto; }
 		@else { left:$width;right:auto; }
 		// handle direction attribute
-		@if gridle_get_state_var(dir-attribute) {
+		@if g-get-state-var(dir-attribute) {
 			[dir="rtl"] & {
 				right: $width;
 			}
@@ -376,16 +523,13 @@
 }
 
 
-//
-// Pull
-//
-@mixin _gridle_common_pull(
+@mixin _g-common-pull(
 	$state : default
 ) {
 	// css
 	position:relative;
 	// handle direction attribute
-	@if gridle_get_state_var(dir-attribute, $state) {
+	@if g-get-state-var(dir-attribute, $state) {
 		[dir="rtl"] & {
 			right: auto;
 		}
@@ -394,18 +538,29 @@
 		}
 	}
 }
-@mixin gridle_pull(
+/**
+ * Set the pull count for the column
+ * @param 		{Integer} 		$columns 			The number of columns to pull this column
+ * @param 		{Integer} 		[$context=null]  	The context on which to calculate the pull value. By default, it is the default context setted with ```g-setup```.
+ * @example 	scss
+ * .my-cool-column {
+ * 	\@include g-pull(2);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-pull(
 	$columns,
 	$context : null
 ) {
-	@include _gridle_call(pull) {
+	@include _g-call(pull) {
 		// variables :
 		@if type-of($context) != number {
-			$context : gridle_get_state_var(context);
+			$context : g-get-state-var(context);
 		}
-		$direction : gridle_get_state_var(direction);
-		$name-multiplicator : gridle_get_state_var(name-multiplicator);
-		$column-width : gridle_get_state_var(column-width);
+		$direction : g-get-state-var(direction);
+		$name-multiplicator : g-get-state-var(name-multiplicator);
+		$column-width : g-get-state-var(column-width);
 
 		// vars :
 		$width : 0;
@@ -426,7 +581,7 @@
 		@if $direction == rtl { left:$width;right:auto; }
 		@else { right:$width;left:auto; }
 		// handle direction attribute
-		@if gridle_get_state_var(dir-attribute) {
+		@if g-get-state-var(dir-attribute) {
 			[dir="rtl"] & {
 				left: $width;
 			}
@@ -438,14 +593,11 @@
 }
 
 
-//
-// Prefix
-//
-@mixin _gridle_common_prefix(
+@mixin _g-common-prefix(
 	$state : default
 ) {
 	// handle direction attribute
-	@if gridle_get_state_var(dir-attribute, $state) {
+	@if g-get-state-var(dir-attribute, $state) {
 		[dir="rtl"] & {
 			margin-left: auto;
 		}
@@ -454,18 +606,29 @@
 		}
 	}
 }
-@mixin gridle_prefix(
+/**
+ * Set the prefix count for the column
+ * @param 		{Integer} 		$columns 			The number of columns to prefix this column
+ * @param 		{Integer} 		[$context=null]  	The context on which to calculate the prefix value. By default, it is the default context setted with ```g-setup```.
+ * @example 	scss
+ * .my-cool-column {
+ * 	\@include g-prefix(2);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-prefix(
 	$columns,
 	$context : null
 ) {
-	@include _gridle_call(prefix) {
+	@include _g-call(prefix) {
 		// vars :
 		@if type-of($context) != number {
-			$context : gridle_get_state_var(context);
+			$context : g-get-state-var(context);
 		}
-		$direction : gridle_get_state_var(direction);
-		$name-multiplicator : gridle_get_state_var(name-multiplicator);
-		$column-width : gridle_get_state_var(column-width);
+		$direction : g-get-state-var(direction);
+		$name-multiplicator : g-get-state-var(name-multiplicator);
+		$column-width : g-get-state-var(column-width);
 
 		// vars :
 		$width : 0;
@@ -479,7 +642,7 @@
 		@if $direction == rtl { margin-right:$width; }
 		@else { margin-left:$width; }
 		// handle direction attribute
-		@if gridle_get_state_var(dir-attribute) {
+		@if g-get-state-var(dir-attribute) {
 			[dir="rtl"] & {
 				margin-right: $width;
 			}
@@ -491,13 +654,10 @@
 }
 
 
-//
-// Suffix
-//
-@mixin _gridle_common_suffix(
+@mixin _g-common-suffix(
 	$state : default
 ) {
-	@if gridle_get_state_var(dir-attribute, $state) {
+	@if g-get-state-var(dir-attribute, $state) {
 		[dir="rtl"] & {
 			margin-right: auto;
 		}
@@ -506,18 +666,29 @@
 		}
 	}
 }
-@mixin gridle_suffix(
+/**
+ * Set the suffix count for the column
+ * @param 		{Integer} 		$columns 			The number of columns to suffix this column
+ * @param 		{Integer} 		[$context=null]  	The context on which to calculate the suffix value. By default, it is the default context setted with ```g-setup```.
+ * @example 	scss
+ * .my-cool-column {
+ * 	\@include g-suffix(2);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-suffix(
 	$columns,
 	$context : null
 ) {
-	@include _gridle_call(suffix) {
+	@include _g-call(suffix) {
 		// vars :
 		@if type-of($context) != number {
-			$context : gridle_get_state_var(context);
+			$context : g-get-state-var(context);
 		}
-		$direction : gridle_get_state_var(direction);
-		$name-multiplicator : gridle_get_state_var(name-multiplicator);
-		$column-width : gridle_get_state_var(column-width);
+		$direction : g-get-state-var(direction);
+		$name-multiplicator : g-get-state-var(name-multiplicator);
+		$column-width : g-get-state-var(column-width);
 
 		// vars :
 		$width : 0;
@@ -532,7 +703,7 @@
 		@else { margin-right:$width; }
 
 		// handle direction attribute
-		@if gridle_get_state_var(dir-attribute) {
+		@if g-get-state-var(dir-attribute) {
 			[dir="rtl"] & {
 				margin-left: $width;
 			}
@@ -547,16 +718,23 @@
 //
 // Row debug
 //
-@mixin _gridle_common_row_debug(
+@mixin _g-common-row-debug(
 	$state : default
 ) {
 }
-@mixin gridle_row_debug(
-	$states : null
-) {
-	@include _gridle_call(row-debug) {
+/**
+ * Display a debug grid on top of the row
+ * @example 	scss
+ * .my-row {
+ * 	\@include g-row-debug();
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-row-debug() {
+	@include _g-call(row-debug) {
 		// variables :
-		$context : gridle_get_state_var(context);
+		$context : g-get-state-var(context);
 
 		position:relative;
 		z-index:99999;
@@ -578,51 +756,7 @@
 }
 
 
-//
-// Debug
-//
-@mixin gridle_debug(
-	$what,
-	$output : shell
-) {
-	@if $gridle-debug {
-		@if $output == shell {
-			@debug(inspect($what));
-		} @else {
-			@if type-of($what) == map {
-				@include gridle_debug_map($what);
-			} @else {
-				@_ {
-					#{type-of($what)} : inspect($what);
-				}
-			}
-		}
-	}
-}
-
-
-//
-// Debug a map
-//
-@mixin gridle_debug_map($map, $name : '') {
-	@at-root {
-		@_ #{$name} {
-			@each $key, $value in $map {
-				@if type-of($value) == map {
-					@include gridle_debug_map($value, $key);
-				} @else {
-					#{$key}: inspect($value);
-				}
-			}
-		}
-	}
-}
-
-
-//
-// Container
-//
-@mixin _gridle_common_container(
+@mixin _g-common-container(
 	$state : default
 ) {
 	&:after {
@@ -632,17 +766,55 @@
 	}
 
 }
-@mixin gridle_container(
+/**
+ * Make the element a grid container
+ * @example 	scss
+ * .my-cool-container {
+ * 	\@include g-container();
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-container(
 ) {
-	@include _gridle_call(container) {
+	@include _g-call(container) {
 	}
 }
 
 
 //
-// Centered
+// Row no gutter
 //
-@mixin _gridle_common_grid_centered(
+@mixin _g-common-row-no-gutter(
+	$state : default
+) {
+}
+
+/**
+ * Remove the gutters on each columns inside the row
+ * @param 		{String|List<String>} 		[$sides=top right bottom left] 		The sides to clear
+ * @example 	scss
+ * .my-cool-row {
+ * 	\@include g-row-no-gutter(left right);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-row-no-gutter(
+	$sides : top right bottom left
+) {
+	@include _g-call(row-no-gutter) {
+		margin-left: 0;
+		margin-right: 0;
+
+		> #{_g-get-generic-selector('grid')} {
+			@include g-no-gutter($sides);
+		}
+	}
+}
+
+
+@mixin _g-common-grid-centered(
 	$state : default
 ) {
 	display:block !important;
@@ -651,24 +823,39 @@
 	margin-right:auto !important;
 	clear:both !important;
 }
-@mixin gridle_grid_centered(
+/**
+ * Make a column centered
+ * @example 	scss
+ * .my-cool-column {
+ * 	\@include g-grid-centered();
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-grid-centered(
 ) {
-	@include _gridle_call(grid-centered) {
+	@include _g-call(grid-centered) {
 	}
 }
 
 
-//
-// Hide
-//
-@mixin _gridle_common_hide(
+@mixin _g-common-hide(
 	$state : default
 ) {
 }
-@mixin gridle_hide(
+/**
+ * Hide an element
+ * @example 	scss
+ * .my-cool-element {
+ * 	\@include g-hide();
+ * }
+ *
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-hide(
 ) {
-	@include _gridle_call(hide) {
-		display:none;
+	@include _g-call(hide) {
+		display:none !important;
 	}
 }
 
@@ -676,111 +863,169 @@
 //
 // Not visible on
 //
-@mixin _gridle_common_not_visible(
+@mixin _g-common-not-visible(
 	$state : default
 ) {
 }
-@mixin gridle_not_visible(
+/**
+ * Set the visibility of an element to hidden
+ * @example 	scss
+ * .my-cool-element {
+ * 	\@include g-not-visible();
+ * }
+ *
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-not-visible(
 ) {
-	@include _gridle_call(not-visible) {
+	@include _g-call(not-visible) {
+		visibility:hidden;
+	}
+}
+/**
+ * Set the visibility of an element to hidden
+ * @example 	scss
+ * .my-cool-element {
+ * 	\@include g-invisible();
+ * }
+ *
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-invisible(
+) {
+	@include _g-call(not-visible) {
 		visibility:hidden;
 	}
 }
 
 
-//
-// Show on
-//
-// @param 	String 	$media 	What to hide (one of the 3 state classes name)
-//
-@mixin _gridle_common_show(
+@mixin _g-common-show(
 	$state : default
 ) {
 }
-@mixin gridle_show(
+/**
+ * Set the display of an element to block
+ * @example 	scss
+ * .my-cool-element {
+ * 	\@include g-show();
+ * }
+ *
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-show(
 ) {
-	@include _gridle_call(show) {
-		display:block;
+	@include _g-call(show) {
+		display:block !important;
 	}
 }
 
 
-//
-// Show inline
-//
-// @param 	String 		$state 		The state name
-//
-@mixin _gridle_common_show_inline(
+@mixin _g-common-show-inline(
 	$state : default
 ) {
 }
-@mixin gridle_show_inline(
+/**
+ * Set the display of an element to inline-block
+ * @example 	scss
+ * .my-cool-element {
+ * 	\@include g-show();
+ * }
+ *
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-show-inline(
 ) {
-	@include _gridle_call(show-inline) {
-		display:inline-block;
+	@include _g-call(show-inline) {
+		display:inline-block !important;
 	}
 }
 
 
-//
-// Visible on :
-// @param 	String 	$media 	On what state
-//
-@mixin _gridle_common_visible(
+@mixin _g-common-visible(
 	$state : default
 ) {
 }
-@mixin gridle_visible(
+/**
+ * Set the visibility of an element to visible
+ * @example 	scss
+ * .my-cool-element {
+ * 	\@include g-show();
+ * }
+ *
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-visible(
 ) {
-	@include _gridle_call(visible) {
+	@include _g-call(visible) {
 		visibility:visible;
 	}
 }
 
 
-//
-// Float :
-//
-@mixin _gridle_common_float(
+@mixin _g-common-float(
 	$state : default
 ) {
 }
-@mixin gridle_float(
+/**
+ * Set the float property of the element to the specified direction
+ * @param 		{String} 		[$float=left] 		The float direction to set
+ * @example 	scss
+ * .my-cool-element {
+ * 	\@include g-float(right);
+ * }
+ *
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-float(
 	$float-direction : left
 ) {
-	@include _gridle_call(float) {
+	@include _g-call(float) {
 		float:#{$float-direction};
 	}
 }
 
 
-//
-// Gridle clear :
-//
-@mixin _gridle_common_clear(
+@mixin _g-common-clear(
 	$state : default
 ) {
 }
-@mixin gridle_clear(
+/**
+ * Clear the float property of the element to the specified direction
+ * @param 		{String} 		[$float=left] 		The float direction to clear
+ * @example 	scss
+ * .my-cool-element {
+ * 	\@include g-clear(right);
+ * }
+ *
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-clear(
 	$clear-direction : both
 ) {
-	@include _gridle_call(clear) {
+	@include _g-call(clear) {
 		clear:#{$clear-direction};
 	}
 }
 
 
-//
-// Gridle no gutter :
-//
-@mixin _gridle_common_no_gutter(
+@mixin _g-common-no-gutter(
 	$state : default
 ) {
 }
-@mixin gridle_no_gutter(
+/**
+ * Remove the gutters on the column
+ * @param 		{String|List<String>} 		[$sides=top right bottom left] 		The sides to clear
+ * @example 	scss
+ * .my-cool-column {
+ * 	\@include g-no-gutter(left right);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-no-gutter(
 	$side : top right bottom left
 ) {
-	@include _gridle_call(no-gutter) {
+	@include _g-call(no-gutter) {
 		@each $s in $side {
 			padding-#{$s} : 0;
 		}
@@ -788,20 +1033,27 @@
 }
 
 
-//
-// Gridle gutter :
-//
-@mixin _gridle_common_gutter(
+@mixin _g-common-gutter(
 	$state : default
 ) {
 }
-@mixin gridle_gutter(
-	$side-or-size : top right bottom left
+/**
+ * Set the gutters on the column
+ * @param 		{String|List<String>} 		[$sides=top right bottom left] 		The sides to apply gutters on
+ * @example 	scss
+ * .my-cool-column {
+ * 	\@include g-gutter(left right);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-gutter(
+	$side-or-size : right left
 ) {
-	@include _gridle_call(gutter) {
+	@include _g-call(gutter) {
 
 		// get a gutter map
-		$gutters : _gridle_forge_gutters_map($side-or-size);
+		$gutters : _g-forge-gutters-map($side-or-size);
 
 		// check that we have a gutter map
 		@each $side, $value in $gutters {

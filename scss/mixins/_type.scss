@@ -1,0 +1,34 @@
+// Responsive typography
+@mixin type($type-style) {
+
+	@each $key, $value in $type-styles {
+
+		@if $key == 'default' {
+
+			$font-map: map-get($value, $type-style);
+			@include make-styles(
+				$font-size: map-get($font-map, 'font-size'),
+				$line-height: map-get($font-map, 'line-height'),
+				$margin-top: map-get($font-map, 'margin-top'),
+				$margin-bottom: map-get($font-map, 'margin-bottom'),
+				$letter-spacing: map-get($font-map, 'letter-spacing')
+			);
+
+		} @else {
+
+			$font-map: map-get($value, $type-style);
+			@include media('>=#{$key}') {
+				@include make-styles(
+					$font-size: map-get($font-map, 'font-size'),
+					$line-height: map-get($font-map, 'line-height'),
+					$margin-top: map-get($font-map, 'margin-top'),
+					$margin-bottom: map-get($font-map, 'margin-bottom'),
+					$letter-spacing: map-get($font-map, 'letter-spacing')
+				);
+			}
+
+		}
+
+	}
+
+}
