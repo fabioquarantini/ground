@@ -27,6 +27,7 @@
 	.fancybox-button--arrow_right {
 		cursor: none;
 		display: block;
+		padding: 0;
 		position: fixed !important;
 		width: 40px;
 		height: 40px;
@@ -48,12 +49,23 @@
 			left: 0;
 			transform: scale(1, 1);
 		}
-		&:focus {
+		&.is-active {
 			outline: 0;
 			color: $color-white;
 			&:before {
 				animation: pulse 0.8s ease-out;
 			}
 		}
+
+		svg,
+		div {
+			background: transparent;
+		}
+	}
+
+
+	.fancybox-content,
+	.fancybox-inner {
+		cursor: none;
 	}
 }

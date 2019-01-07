@@ -13,12 +13,12 @@
 'mixins/navicon-icon',
 
 // Vendors
-'vendors/ritmo/ritmo',
-'vendors/gridle/gridle',
-'vendors/normalize',
-'vendors/include-media',
-'vendors/fancybox',
-'vendors/swiper',
+'../node_modules/ritmo/ritmo',
+'../node_modules/@fancyapps/fancybox/dist/jquery.fancybox',
+'../node_modules/coffeekraken-gridle/_index',
+'../node_modules/normalize.css/normalize',
+'../node_modules/include-media/dist/_include-media',
+'../node_modules/swiper/dist/css/swiper',
 
 // Settings
 '_settings',

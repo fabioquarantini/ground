@@ -5,18 +5,18 @@ var gulp = require('gulp'),
 	sass = require('gulp-sass'),
 	autoprefixer = require('gulp-autoprefixer'),
 	browserSync = require('browser-sync').create(),
-	cleanCSS = require('gulp-clean-css'),
+	cssnano = require('gulp-cssnano'),
+	babel = require('gulp-babel'),
 	consolidate = require('gulp-consolidate'),
-	eslint = require('gulp-eslint'),
-	uglify = require('gulp-uglify'),
-	concat = require('gulp-concat'),
 	notify = require('gulp-notify'),
 	iconFont = require('gulp-iconfont'),
 	yargs = require('yargs'),
-	pump = require('pump'),
 	rename = require('gulp-rename'),
 	sourcemaps = require('gulp-sourcemaps'),
-	reload = browserSync.reload;
+	reload = browserSync.reload,
+	plumber = require('gulp-plumber'),
+	compiler = require('webpack'),
+	webpack = require('webpack-stream');
 
 // Project variables
 var cssFolder = 'css',
@@ -24,10 +24,9 @@ var cssFolder = 'css',
 	scssFile = 'main.scss',
 	scssFilePath = scssFolder + '/' + scssFile,
 	jsFolder = 'js',
-	jsSourcesFolder = jsFolder + '/sources',
 	jsMainFile = 'main.js',
 	jsMainMinFile = 'scripts.min.js',
-	jsMainFilePath = jsSourcesFolder + '/' + jsMainFile,
+	jsMainFilePath = jsFolder + '/' + jsMainFile,
 	imgFolder = 'img',
 	iconFolder = imgFolder + '/icons',
 	icon = imgFolder + '/' + 'icon.png',
@@ -36,8 +35,8 @@ var cssFolder = 'css',
 	runTimestamp = Math.round(Date.now() / 1000),
 	staticServerPath = './',
 	host = 'ground.develop',
-	prettify = yargs.argv.prettify === undefined ? false : true,
-	server = yargs.argv.server === undefined ? false : true;
+	server = yargs.argv.server === undefined ? false : true,
+	enviroments = yargs.argv.development === undefined ? 'production' : 'development';
 
 // Browser Sync
 gulp.task('browser-sync', function() {
@@ -58,7 +57,7 @@ gulp.task('browser-sync', function() {
 			injectChanges: true,
 			port: 3000
 		});
-
+	
 	}
 
 });
@@ -68,6 +67,19 @@ gulp.task('styles', function() {
 
 	gulp
 		.src(scssFilePath)
+		.pipe(
+			plumber({
+				errorHandler: function(err) {
+
+					notify.onError({
+						title: 'Styles error',
+						message: '⛔ ' + err.plugin + ': ' + err.toString(),
+						icon: icon
+					})(err);
+				
+				}
+			})
+		)
 		.pipe(sourcemaps.init())
 		.pipe(
 			sass({
@@ -75,14 +87,6 @@ gulp.task('styles', function() {
 				precision: 10,
 				sourceMap: true,
 				errLogToConsole: false
-			})
-		)
-		.on(
-			'error',
-			notify.onError({
-				wait: true,
-				title: 'Sass error',
-				message: '⛔ <%= error.message %>'
 			})
 		)
 		.pipe(
@@ -93,8 +97,8 @@ gulp.task('styles', function() {
 			})
 		)
 		.pipe(
-			cleanCSS({
-				level: { 1: { specialComments: 0 } }
+			cssnano({
+				discardComments: { removeAll: true }
 			})
 		)
 		.pipe(
@@ -118,54 +122,48 @@ gulp.task('styles', function() {
 // Scripts
 gulp.task('scripts', function() {
 
-	if (prettify) {
-
-		pump([
-			gulp.src([jsSourcesFolder + '/!(' + jsMainFile.slice(0, -3) + ')*.js', jsMainFilePath]),
-			sourcemaps.init(),
-			concat(jsMainMinFile),
-			sourcemaps.write('.'),
-			gulp.dest(jsFolder),
-			notify({
-				title: 'Scripts',
-				message: '👍 Task complete!',
-				icon: icon
-			})
-		]);
-
-	} else {
-
-		pump([
-			gulp.src([jsSourcesFolder + '/!(' + jsMainFile.slice(0, -3) + ')*.js', jsMainFilePath]),
-			sourcemaps.init(),
-			uglify(),
-			concat(jsMainMinFile),
-			sourcemaps.write('.'),
-			gulp.dest(jsFolder),
-			notify({
-				title: 'Scripts',
-				message: '👍 Task complete!',
-				icon: icon
-			})
-		]);
-
-	}
-
-});
-
-// Lint
-gulp.task('lint', function() {
-
 	return gulp
 		.src(jsMainFilePath)
-		.pipe(eslint())
-		.pipe(eslint.format())
-		.pipe(eslint.failAfterError())
-		.on(
-			'error',
-			notify.onError({
-				title: 'Hint',
-				message: '⛔ <%= error.message %>'
+		.pipe(
+			plumber({
+				errorHandler: function(err) {
+
+					notify.onError({
+						title: 'Scripts error',
+						message: '⛔ ' + err.plugin + ': ' + err.toString(),
+						icon: icon
+					})(err);
+				
+				}
+			})
+		)
+		.pipe(
+			babel({
+				presets: ['@babel/env']
+			})
+		)
+		.pipe(
+			webpack(
+				{
+					mode: enviroments,
+					devtool: 'source-map',
+					output: {
+						path: __dirname + 'dist',
+						filename: jsMainMinFile
+					},
+					performance: {
+						hints: false
+					}
+				},
+				compiler
+			)
+		)
+		.pipe(gulp.dest(jsFolder))
+		.pipe(
+			notify({
+				title: 'Scripts',
+				message: '👍 Task complete!',
+				icon: icon
 			})
 		);
 
@@ -175,6 +173,19 @@ gulp.task('iconFont', function() {
 
 	return gulp
 		.src([iconFolder + '/*.svg'])
+		.pipe(
+			plumber({
+				errorHandler: function(err) {
+
+					notify.onError({
+						title: 'Icon error',
+						message: '⛔ ' + err.plugin + ': ' + err.toString(),
+						icon: icon
+					})(err);
+				
+				}
+			})
+		)
 		.pipe(
 			iconFont({
 				fontName: fontIconsName,
@@ -186,9 +197,8 @@ gulp.task('iconFont', function() {
 		)
 		.on('glyphs', function(glyphs, options) {
 
-			//console.log(glyphs, options);
 			gulp
-				.src(scssFolder + '/vendors/iconfont/_iconfont-template.scss')
+				.src('data/icons/iconfont-template.lodash')
 				.pipe(
 					consolidate('lodash', {
 						glyphs: glyphs,
@@ -200,7 +210,7 @@ gulp.task('iconFont', function() {
 				)
 				.pipe(rename('_icons-generated.scss'))
 				.pipe(gulp.dest(scssFolder + '/components'));
-
+		
 		})
 		.pipe(gulp.dest(fontFolder))
 		.pipe(
@@ -216,9 +226,8 @@ gulp.task('iconFont', function() {
 // Watch
 gulp.task('watch', function() {
 
-	gulp.watch(scssFolder + '/**/*.{scss,sass}', ['styles']);
-	gulp.watch([jsSourcesFolder + '/**/*.js'], ['scripts']).on('change', reload);
-	gulp.watch([jsMainFilePath], ['lint']);
+	gulp.watch(scssFolder + '/**/*.scss', ['styles']);
+	gulp.watch([jsFolder + '/**/*.js', '!js/**/*.min.js', '!js/**/*.map'], ['scripts']).on('change', reload);
 	gulp.watch(iconFolder + '/**/*.svg', ['iconFont']);
 	gulp.watch('**/*.{php,html}').on('change', reload);
 
@@ -227,6 +236,6 @@ gulp.task('watch', function() {
 // Default
 gulp.task('default', ['iconFont', 'browser-sync'], function() {
 
-	gulp.start('styles', 'lint', 'scripts', 'watch');
+	gulp.start('styles', 'scripts', 'watch');
 
 });

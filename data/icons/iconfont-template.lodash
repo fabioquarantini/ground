@@ -1,5 +1,6 @@
 @font-face {
 	font-family: "<%= fontName %>";
+	font-display: auto;
 	src: url('<%= fontPath %><%= fontName %>.eot');
 	src: url('<%= fontPath %><%= fontName %>.eot?#iefix') format('eot'),
 		url('<%= fontPath %><%= fontName %>.woff') format('woff'),

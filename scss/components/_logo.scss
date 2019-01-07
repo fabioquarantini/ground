@@ -11,5 +11,9 @@
 }
 
 .logo__img {
-
+	fill: $color-grey;
+	transition: all 0.4s;
+	&:hover {
+		fill: $color-primary;
+	}
 }

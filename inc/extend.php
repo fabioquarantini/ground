@@ -266,7 +266,7 @@ function ground_get_image_by_id( $id,  $size = 'medium' ) {
 
 function ground_gallery_modal( $link ) {
 
-	return str_replace( '<a href', '<a data-fancybox="gallery" href', $link );
+	return str_replace( '<a href', '<a data-fancybox="gallery" data-router-disabled href', $link );
 
 }
 

@@ -2,7 +2,6 @@
 'use strict';
 
 (function() {
-
 	var method;
 	var noop = function() {};
 	var methods = [
@@ -35,16 +34,11 @@
 	var console = (window.console = window.console || {});
 
 	while (length--) {
-
 		method = methods[length];
 
 		// Only stub undefined methods.
 		if (!console[method]) {
-
 			console[method] = noop;
-
 		}
-
 	}
-
 })();
