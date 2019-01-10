@@ -1,18 +1,26 @@
 import Highway from '@dogstudio/highway';
 import quicklink from 'quicklink/dist/quicklink.mjs';
+import dispatcher from '../utilities/dispatcher.js';
 import basic from '../transitions/basic.js';
 import fade from '../transitions/fade.js';
 import overlap from '../transitions/overlap.js';
+
+const modalLinks = $('[href$=".jpg"], [href$=".png"], [href$=".gif"], [href$=".jpeg"], [href$=".webp"]');
 
 const H = new Highway.Core({
 	transitions: {
 		default: fade
 	}
 });
+for (let link of modalLinks) {
+	link.removeEventListener('click', H._navigate);
+}
 
 H.on('NAVIGATE_IN', (to, location) => {
-	//TODO: creare evento js puro
-	$(document).trigger('NAVIGATE_IN');
+	dispatcher.trigger('NAVIGATE_IN', {
+		to: to,
+		location: location
+	});
 
 	$('.navigation__item').each(function(index) {
 		var currentHref = $(this)
@@ -27,8 +35,26 @@ H.on('NAVIGATE_IN', (to, location) => {
 	});
 });
 
+/**
+ *
+ */
+H.on('NAVIGATE_OUT', (from, location) => {
+	dispatcher.trigger('NAVIGATE_OUT', {
+		from: from,
+		location: location
+	});
+});
+
 // Listen the `NAVIGATE_END` event
 H.on('NAVIGATE_END', (from, to, location) => {
+	dispatcher.trigger('NAVIGATE_END', {
+		from: from,
+		to: to,
+		location: location
+	});
+	for (let link of modalLinks) {
+		link.removeEventListener('click', H._navigate);
+	}
 	// Enable prefetch
 	quicklink();
 
