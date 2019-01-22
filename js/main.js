@@ -6,3 +6,4 @@ import Split from './components/split.js';
 var split = new Split;
 var navigation = new Navigation;
 var modal = new Modal('.js-modal');
+var slider = new Slider('.js-slider-primary');
