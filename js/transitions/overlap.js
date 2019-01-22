@@ -2,7 +2,7 @@ import Highway from '@dogstudio/highway';
 import Tween from 'gsap';
 
 class Overlap extends Highway.Transition {
-	in(from, to, done) {
+	in({ from, to, trigger, done }) {
 		// Reset Scroll
 		window.scrollTo(0, 0);
 
@@ -31,7 +31,7 @@ class Overlap extends Highway.Transition {
 		);
 	}
 
-	out(from, done) {
+	out({ from, trigger, done }) {
 		done();
 	}
 }

@@ -2,7 +2,7 @@ import Highway from '@dogstudio/highway';
 import Tween from 'gsap';
 
 class Fade extends Highway.Transition {
-	in(from, to, done) {
+	in({ from, to, trigger, done }) {
 		// Reset Scroll
 		window.scrollTo(0, 0);
 
@@ -19,7 +19,7 @@ class Fade extends Highway.Transition {
 		);
 	}
 
-	out(from, done) {
+	out({ from, trigger, done }) {
 		// Animation
 		Tween.fromTo(from, 0.5,
 			{ opacity: 1 },
