@@ -2,6 +2,7 @@ import Utilities from './utilities/utilities.js';
 import './components/highway.js';
 import Slider from './components/slider.js';
 import Modal from './components/modal.js';
+import Split from './components/split.js';
 
 //import './components/console.js';
 //import './components/infiniteScroll.js';
@@ -12,11 +13,9 @@ import Modal from './components/modal.js';
 //import './components/parallax.js';
 
 import 'lazysizes';
-var slider = new Slider('.js-slider-primary', {
-	init: false
-});
-slider.start();
-var modal = new Modal('.js-modal');
+var slider = new Slider;
 
-import Splitting from 'splitting';
-Splitting();
+var split = new Split;
+
+
+//var modal = new Modal('.js-modal');
