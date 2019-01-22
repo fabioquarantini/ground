@@ -21,6 +21,7 @@
 	17 - ACF local JSON
 	18 - Oembed responsive
 	19 - Rename attachment slug
+	20 - Echoes the highway view name tag
 
 	==========================================================================  */
 
@@ -366,3 +367,31 @@ function ground_rename_attachment_slug( $post_ID ) {
 }
 
 add_action( 'add_attachment', 'ground_rename_attachment_slug' );
+
+
+
+/*  ==========================================================================
+	20 - Echoes the highway view name tag
+	==========================================================================  */
+
+function ground_view_name() {
+
+	global $wp_query;
+
+	if ( is_front_page() ) {
+		$view_name = 'home';
+	} elseif ( is_page_template('templates/template-ground_catalog.php') ) {
+		$view_name = 'catalog';
+	} elseif ( is_home() ) {
+		$view_name = 'blog';
+	} elseif ( is_search() ) {
+		$view_name = 'search';
+	} elseif ( is_archive() ) {
+		$view_name = 'archive';
+	} else {
+		$view_name = 'page';
+	}
+
+	echo 'data-router-view="' . $view_name . '"';
+
+}

@@ -34,8 +34,7 @@
 
 			<div data-router-wrapper>
 
-				<!-- TODO: Rendere dinamico il nome della vista -->
-				<main class="clear-fix" role="main" data-router-view="name">
+				<main class="clear-fix" role="main" <?php ground_view_name(); ?>>
 
 					<?php if ( is_front_page() ) {
 						get_template_part( 'partials/slider', 'primary' );
