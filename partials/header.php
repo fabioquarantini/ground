@@ -4,8 +4,10 @@
 		<meta charset="<?php bloginfo('charset'); ?>">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<link rel="icon" type="image/png" href="<?php echo TEMPLATE_URL .'/img/favicon.png' ?>">
-		<link rel="apple-touch-icon" href="<?php echo TEMPLATE_URL .'/img/icon.png' ?>">
+		<?php if ( !function_exists( 'has_site_icon' ) || !has_site_icon() ) { ?>
+			<link rel="icon" type="image/png" href="<?php echo TEMPLATE_URL .'/img/favicon.png' ?>">
+			<link rel="apple-touch-icon" href="<?php echo TEMPLATE_URL .'/img/icon.png' ?>">
+		<?php } ?>
 		<?php wp_head(); ?>
 	</head>
 
