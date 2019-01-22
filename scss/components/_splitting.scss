@@ -1,0 +1,33 @@
+.splitting {
+	overflow: hidden;
+	
+	.word:before {
+		content: attr(data-word);
+		position: absolute;
+		display: inline-block;
+		transition: transform 0.4s, opacity 0.3s;
+		transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+	}
+	
+	.char {
+		opacity: 0;
+		transform: translate3d(0, -10px, 0);
+		transition: transform 0.3s, opacity 0.3s;
+		transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+	}
+	
+	&:hover {
+		.word:before {
+			opacity: 0;
+			transform: translate3d(0, 100%, 0);
+		}
+	
+		.char {
+			opacity: 1;
+			display: inline-block;
+			transform: translate3d(0, 0, 0);
+			transition-delay: calc(50ms * var(--char-index));
+		}
+	
+	}
+}

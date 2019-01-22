@@ -17,3 +17,6 @@ var slider = new Slider('.js-slider-primary', {
 });
 slider.start();
 var modal = new Modal('.js-modal');
+
+import Splitting from 'splitting';
+Splitting();
