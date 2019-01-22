@@ -34,7 +34,7 @@
 		"yargs": "12.0.5"
 	},
 	"dependencies": {
-		"@dogstudio/highway": "2.1.1",
+		"@dogstudio/highway": "2.1.2",
 		"@fancyapps/fancybox": "3.5.6",
 		"coffeekraken-gridle": "3.0.1",
 		"quicklink": "1.0.0",
