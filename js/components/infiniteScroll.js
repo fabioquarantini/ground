@@ -1,23 +1,27 @@
-var InfiniteScroll = require('infinite-scroll');
+var InfiniteScrollPlugin = require('infinite-scroll');
 
-$(document).ready(function() {
-
-	var classSelector = '.js-infinite-container';
-	var $el = $(classSelector);
-
-	if ($el.length == 0) {
-
-		return;
-
+export default class InfiniteScroll {
+	constructor() {
+		this.el = '.js-infinite-container';
+		window.addEventListener('DOMContentLoaded', this.init());
+		window.addEventListener('NAVIGATE_IN', () => {
+			this.init();
+		});
 	}
 
-	var infScroll = new InfiniteScroll(classSelector, {
-		path: '.js-next-page',
-		append: '.js-infinite-post',
-		history: false,
-		scrollThreshold: 400,
-		hideNav: '.pagination',
-		status: '.js-infinite-status'
-	});
+	init() {
+		if (document.querySelectorAll(this.el).length == 0) {
+			Debug.error('DOM node does not exist');
+			return;
+		}
 
-});
+		var infScroll = new InfiniteScrollPlugin(this.el, {
+			path: '.js-next-page',
+			append: '.js-infinite-post',
+			history: false,
+			scrollThreshold: 400,
+			hideNav: '.pagination',
+			status: '.js-infinite-status'
+		});
+	}
+}
