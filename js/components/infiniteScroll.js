@@ -1,4 +1,5 @@
 var InfiniteScrollPlugin = require('infinite-scroll');
+import Debug from '../utilities/debug.js';
 
 export default class InfiniteScroll {
 	constructor() {
