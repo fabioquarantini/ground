@@ -20,10 +20,7 @@
 
 			</div> <!-- End .page__body -->
 
-			<?php
-			get_template_part( 'partials/pagination' );
-			get_template_part( 'partials/loader', 'infinite' );
-			?>
+			<?php get_template_part( 'partials/pagination' ); ?>
 
 		<?php endif; ?>
 

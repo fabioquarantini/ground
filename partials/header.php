@@ -13,7 +13,7 @@
 
 	<body <?php body_class(); ?> data-template-url="<?php echo TEMPLATE_URL ?>">
 
-		<?php //get_template_part( 'partials/loader', 'page' ); ?>
+		<?php get_template_part( 'partials/preloader' ); ?>
 
 		<div class="container">
 
