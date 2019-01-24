@@ -1,6 +1,6 @@
 import imagesLoaded from 'imagesLoaded';
 import Debug from '../utilities/debug.js';
-import TimelineLite from 'gsap/TimelineLite';
+import TweenMax from 'gsap/TweenMax';
 
 export default class Loader {
 	constructor() {

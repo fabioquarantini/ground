@@ -1,5 +1,5 @@
 import Highway from '@dogstudio/highway';
-import TimelineLite from 'gsap/TimelineLite';
+import TweenMax from 'gsap/TweenMax';
 
 class Reveal extends Highway.Transition {
 	constructor(wrap, name) {
