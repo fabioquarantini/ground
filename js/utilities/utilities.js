@@ -122,8 +122,8 @@ export default class Utilities {
 		// This is the function that is actually executed when
 		// the DOM event is triggered.
 		return function executedFunction() {
-		// Store the context of this and any
-		// parameters passed to executedFunction
+			// Store the context of this and any
+			// parameters passed to executedFunction
 			var context = this;
 			var args = arguments;
 
@@ -216,5 +216,28 @@ export default class Utilities {
 		var dt = tmax - tmin;
 		var tv = tmin + pc * dt;
 		return tv;
+	}
+
+	/**
+	 * Cross-browser mouse position
+	 * @param {Object} e - Event
+	 * @return {Object}
+	 * @see http://www.quirksmode.org/js/events_properties.html#position
+	 */
+	static getMousePosition(e) {
+		let posx = 0;
+		let posy = 0;
+		if (!e) e = window.event;
+		if (e.pageX || e.pageY) {
+			posx = e.pageX;
+			posy = e.pageY;
+		} else if (e.clientX || e.clientY) {
+			posx = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+			posy = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+		}
+		return {
+			x: posx,
+			y: posy
+		};
 	}
 }
