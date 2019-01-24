@@ -1,9 +1,7 @@
 import Highway from '@dogstudio/highway';
 import Quicklink from 'quicklink/dist/quicklink.mjs';
 import Dispatcher from '../utilities/dispatcher.js';
-import Basic from '../transitions/basic.js';
-import Fade from '../transitions/fade.js';
-import Overlap from '../transitions/overlap.js';
+import Reveal from '../transitions/reveal.js';
 import Debug from '../utilities/debug.js';
 
 export default class Navigation {
@@ -14,7 +12,7 @@ export default class Navigation {
 	init() {
 		this.H = new Highway.Core({
 			transitions: {
-				default: Fade
+				default: Reveal
 			}
 		});
 

@@ -17,6 +17,10 @@ body {
 		padding-top: 0;
 	}
 
+	&.is-loading {
+		overflow: hidden;
+	}
+
 }
 
 *,

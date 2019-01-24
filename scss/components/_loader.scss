@@ -1,0 +1,13 @@
+.loader {
+	@extend .full-screen;
+	z-index: 100000;
+}
+
+.loader__bg {
+	@extend .full-screen;
+	background-color: $color-black;
+}
+
+.loader__content {
+	@include centered();
+}

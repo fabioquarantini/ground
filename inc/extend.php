@@ -301,7 +301,11 @@ add_filter( 'nav_menu_css_class', 'ground_custom_parent_menu_item_classes', 10, 
 function ground_body_class_bem( $classes ) {
 
 	foreach ($classes as &$value) {
-		$value = 'body--' . $value;
+		if (\strpos($value, 'is-') !== false) {
+			$value = $value;
+		} else {
+			$value = 'body--' . $value;
+		}
 	}
 
 	array_unshift($classes, 'body');

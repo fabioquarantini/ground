@@ -11,9 +11,9 @@
 		<?php wp_head(); ?>
 	</head>
 
-	<body <?php body_class(); ?> data-template-url="<?php echo TEMPLATE_URL ?>">
+	<body <?php body_class('is-loading'); ?> data-template-url="<?php echo TEMPLATE_URL ?>">
 
-		<?php get_template_part( 'partials/preloader' ); ?>
+		<?php get_template_part( 'partials/loader' ); ?>
 
 		<div class="container">
 
