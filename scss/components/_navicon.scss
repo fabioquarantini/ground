@@ -24,10 +24,6 @@ $navicon-transition-duration: .3s;
 }
 
 .navicon__icon {
-	//@include navicon-icon( 35px, 1px, 11px );
-
-	
-
 	position: relative;
 	margin-top: $navicon-height + $navicon-gutter;
 	margin-bottom: $navicon-height + $navicon-gutter;
