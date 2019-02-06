@@ -1,5 +1,6 @@
 import Highway from '@dogstudio/highway';
 import TweenMax from 'gsap/TweenMax';
+import { $body } from '../utilities/environment.js';
 
 class Reveal extends Highway.Transition {
 	constructor(wrap, name) {
@@ -7,6 +8,11 @@ class Reveal extends Highway.Transition {
 		this.$el = $('.js-loader');
 		this.$elBg = this.$el.find('.loader__bg');
 		this.$elContent = this.$el.find('.loader__content');
+
+		// TODO: Fix multi trigger
+		window.addEventListener('NAVIGATE_IN', (data) => {
+			$body.removeClass().addClass(data.detail.to.page.body.className);
+		});
 	}
 
 	in({ from, to, trigger, done }) {

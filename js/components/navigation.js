@@ -16,25 +16,21 @@ export default class Navigation {
 			}
 		});
 
-		this.H.on('NAVIGATE_IN', ({to, trigger, location}) => {
-			this.navigateIn({to, trigger, location});
+		this.H.on('NAVIGATE_IN', (data) => {
+			this.navigateIn(data);
 		});
 
-		this.H.on('NAVIGATE_OUT', ({from, trigger, location}) => {
-			this.navigateOut({from, trigger, location});
+		this.H.on('NAVIGATE_OUT', (data) => {
+			this.navigateOut(data);
 		});
 
-		this.H.on('NAVIGATE_END', ({to, from, trigger, location}) => {
-			this.navigateEnd({to, from, trigger, location});
+		this.H.on('NAVIGATE_END', (data) => {
+			this.navigateEnd(data);
 		});
 	}
 
-	navigateIn({to, trigger, location}) {
-		Dispatcher.trigger('NAVIGATE_IN', {
-			to: to,
-			trigger: trigger,
-			location: location
-		});
+	navigateIn(data) {
+		Dispatcher.trigger('NAVIGATE_IN', data);
 
 		$('.navigation__item').each(function(index) {
 			var currentHref = $(this)
@@ -49,25 +45,16 @@ export default class Navigation {
 		});
 	}
 
-	navigateOut({from, trigger, location}) {
-		Dispatcher.trigger('NAVIGATE_OUT', {
-			from: from,
-			trigger: trigger,
-			location: location
-		});
+	navigateOut(data) {
+		Dispatcher.trigger('NAVIGATE_OUT', data);
 	}
 
-	navigateEnd({to, from, trigger, location}) {
-		Dispatcher.trigger('NAVIGATE_END', {
-			to: to,
-			from: from,
-			trigger: trigger,
-			location: location
-		});
+	navigateEnd(data) {
+		Dispatcher.trigger('NAVIGATE_END', data);
 
 		// Prefetch
 		Quicklink({
-			el: to.view
+			el: data.to.view
 		});
 	}
 }
