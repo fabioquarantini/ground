@@ -15,27 +15,27 @@
 
 		<?php get_template_part( 'partials/loader' ); ?>
 
-		<div class="container">
+		<header class="header">
 
-			<header class="header">
+			<a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo('name'); ?>">
+				<?php /* <img class="logo__img" src="<?php echo TEMPLATE_URL ?>/img/logo.svg" alt="<?php bloginfo('name'); ?>" /> */ ?>
+				<?php echo file_get_contents(TEMPLATE_URL ."/img/logo.svg"); ?>
+			</a> <!-- End .logo -->
 
-				<a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo('name'); ?>">
-					<?php /* <img class="logo__img" src="<?php echo TEMPLATE_URL ?>/img/logo.svg" alt="<?php bloginfo('name'); ?>" /> */ ?>
-					<?php echo file_get_contents(TEMPLATE_URL ."/img/logo.svg"); ?>
-				</a> <!-- End .logo -->
+			<?php get_template_part( 'partials/navigation', 'primary' ); ?>
 
-				<?php get_template_part( 'partials/navigation', 'primary' ); ?>
+			<button class="navicon js-toggle-class" data-toggle-class-selector="navicon navigation--primary" data-toggle-class-name="is-navigation-open">
+				<i class="navicon__icon"></i>
+			</button> <!-- End .navicon -->
 
-				<button class="navicon js-toggle-class" data-toggle-class-selector="navicon navigation--primary" data-toggle-class-name="is-navigation-open">
-					<i class="navicon__icon"></i>
-				</button> <!-- End .navicon -->
+		</header> <!-- End .header -->
 
-			</header> <!-- End .header -->
+		<div data-router-wrapper>
 
-			<div data-router-wrapper>
+			<main class="clear-fix" role="main" <?php ground_view_name(); ?>>
 
-				<main class="clear-fix" role="main" <?php ground_view_name(); ?>>
-
-					<?php if ( is_front_page() ) {
-						get_template_part( 'partials/slider', 'primary' );
-					} ?>
+				<?php if ( is_front_page() ) {
+					get_template_part( 'partials/slider', 'secondary' );
+				} else {
+					get_template_part( 'partials/slider', 'primary' );
+				} ?>

@@ -1,6 +1,6 @@
 <?php get_template_part( 'partials/header' ); ?>
 
-	<section class="page">
+	<section class="page container">
 
 		<?php if (single_post_title('', false)) : ?>
 			<header class="page__header">
