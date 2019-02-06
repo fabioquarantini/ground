@@ -10,5 +10,6 @@ const infiniteScroll = new InfiniteScroll;
 const loader = new Loader;
 const modal = new Modal('.js-modal');
 const navigation = new Navigation;
-const slider = new Slider('.js-slider-primary');
+const sliderPrimary = new Slider('.js-slider-primary');
+const sliderSecondary = new Slider('.js-slider-secondary');
 const split = new Split;
