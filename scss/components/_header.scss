@@ -19,4 +19,16 @@
 		box-shadow: none;
 		margin-bottom: ritmo(1);
 	}
+
+	.body--home & {
+
+		@include media('>=md') {
+			position: fixed;
+			z-index: 10;
+			top: 0;
+			left: 0;
+			right: 0;
+		}
+
+	}
 }

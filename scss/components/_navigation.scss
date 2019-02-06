@@ -106,9 +106,13 @@
 		transition: background 0.3s ease-in-out, border 0.3s ease-in-out, color 0.3s ease-in-out;
 
 		@include media('>=md') {
-			@include ritmo-font-size(14px);
+			@include ritmo-font-size(12px);
+			letter-spacing: 2px;
+			text-transform: uppercase;
 			padding-left: 0;
 			border: 0;
+			padding-left: ritmo(0.75);
+			padding-right: ritmo(0.75);
 			font-weight: normal;
 		}
 
