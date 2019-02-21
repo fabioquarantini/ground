@@ -14,7 +14,7 @@
 		"url": "http://www.fabioquarantini.com"
 	},
 	"devDependencies": {
-		"@babel/core": "7.2.2",
+		"@babel/core": "7.3.3",
 		"@babel/preset-env": "7.3.1",
 		"browser-sync": "2.26.3",
 		"gulp": "3.9.1",
@@ -28,26 +28,26 @@
 		"gulp-plumber": "1.2.1",
 		"gulp-rename": "1.4.0",
 		"gulp-sass": "4.0.2",
-		"gulp-sourcemaps": "2.6.4",
-		"webpack": "4.29.0",
+		"gulp-sourcemaps": "2.6.5",
+		"webpack": "4.29.5",
 		"webpack-stream": "5.2.1",
 		"yargs": "12.0.5"
 	},
 	"dependencies": {
 		"@dogstudio/highway": "2.1.2",
 		"@fancyapps/fancybox": "3.5.6",
-		"coffeekraken-gridle": "3.0.1",
+		"coffeekraken-gridle": "3.0.2",
 		"quicklink": "1.0.0",
-		"gsap": "2.0.2",
+		"gsap": "2.1.0",
 		"imagesloaded": "4.1.4",
 		"include-media": "1.4.9",
-		"lazysizes": "4.1.5",
+		"lazysizes": "4.1.6",
 		"infinite-scroll": "3.0.5",
 		"normalize.css": "8.0.1",
 		"ritmo": "0.5.0",
 		"scrollmagic": "2.0.6",
 		"splitting": "1.0.6",
 		"swiper": "4.4.6",
-		"scroll-out": "2.2.4"
+		"scroll-out": "2.2.7"
 	}
 }
