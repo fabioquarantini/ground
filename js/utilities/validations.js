@@ -33,6 +33,15 @@ export default class Validation {
 	}
 
 	/**
+	 * Check if the value is a JavaScript number.
+	 * @param {string} value
+	 * @returns {boolean}
+	 */
+	static isNumeric(value) {
+		return !isNaN(parseFloat(value)) && isFinite(value);
+	}
+
+	/**
 	 * Check if the value is float
 	 * @param {string} value
 	 * @returns {boolean}
