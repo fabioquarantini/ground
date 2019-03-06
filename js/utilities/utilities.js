@@ -1,3 +1,7 @@
+/**
+ * Utilities module
+ */
+
 export default class Utilities {
 	/**
 	 * Get current language
@@ -39,7 +43,7 @@ export default class Utilities {
 	 * @param  {Number} min - Min value
 	 * @param  {Number} max - Max value
 	 * @param  {Number} decimal
-	 * @return {Number}
+	 * @returns {Number}
 	 */
 	static getRandomNumber(min, max, decimal) {
 		const result = Math.random() * (max - min) + min;
@@ -53,7 +57,7 @@ export default class Utilities {
 	 * Get random integer
 	 * @param  {Number} min - Min value
 	 * @param  {Number} max - Max value
-	 * @return {Number}
+	 * @returns {Number}
 	 */
 	static getRandomInt(min, max) {
 		return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -74,7 +78,7 @@ export default class Utilities {
 	/**
 	 * Match CSS media queries and JavaScript window width
 	 * @see http://stackoverflow.com/a/11310353
-	 * @return {Object}
+	 * @returns {Object}
 	 */
 	static getViewportSize() {
 		let e = window;
@@ -92,7 +96,7 @@ export default class Utilities {
 	/**
 	 * Detect Touch Events
 	 * @see http://www.stucox.com/blog/you-cant-detect-a-touchscreen/
-	 * @return {boolean}
+	 * @returns {boolean}
 	 */
 	static isTouch() {
 		return true === ('ontouchstart' in window || (window.DocumentTouch && document instanceof DocumentTouch));
@@ -100,7 +104,7 @@ export default class Utilities {
 
 	/**
 	 * Get device orientation
-	 * @return {string}
+	 * @returns {string}
 	 */
 	static getDeviceOrientation() {
 		let mql = window.matchMedia('(orientation: portrait)');
@@ -200,40 +204,41 @@ export default class Utilities {
 		createCookie(name, '', -1);
 	}
 
-	// TODO: add description
 	/**
-	 *  Normalize
-	 * @param {number} v
-	 * @param {number} vmin
-	 * @param {number} vmax
-	 * @param {number} tmin
-	 * @param {number} tmax
+	 * Normalize the value calculating the proportion between the actual range and the new one
+	 * @param {number} value - The value to be normalized
+	 * @param {number} actualMinRange - The minimum actual value of the range
+	 * @param {number} actualMaxRange - The maximum actual value of the range
+	 * @param {number} newMinRange - The minimum new value of the range
+	 * @param {number} newMaxRange - The maximum new value of the range
+	 * @returns {number} The value inside the new range's values
+	 * @see https://github.com/yakudoo/TheAviator/blob/d19b8744e745f74fb70b4f255d700394aa6b3200/js/game.js#L965
 	 */
-	static normalize(v, vmin, vmax, tmin, tmax) {
-		var nv = Math.max(Math.min(v, vmax), vmin);
-		var dv = vmax - vmin;
-		var pc = (nv - vmin) / dv;
-		var dt = tmax - tmin;
-		var tv = tmin + pc * dt;
-		return tv;
+	static normalize(value, actualMinRange, actualMaxRange, newMinRange, newMaxRange) {
+		var sanitizedValue = Math.max(Math.min(value, actualMaxRange), actualMinRange);
+		var actualRangeDelta = actualMaxRange - actualMinRange;
+		var coefficent = (sanitizedValue - actualMinRange) / actualRangeDelta;
+		var newRangeDelta = newMaxRange - newMinRange;
+		var newValue = newMinRange + coefficent * newRangeDelta;
+		return newValue;
 	}
 
 	/**
 	 * Cross-browser mouse position
-	 * @param {Object} e - Event
-	 * @return {Object}
+	 * @param {Object} event - Event
+	 * @returns {Object}
 	 * @see http://www.quirksmode.org/js/events_properties.html#position
 	 */
-	static getMousePosition(e) {
+	static getMousePosition(event) {
 		let posx = 0;
 		let posy = 0;
-		if (!e) e = window.event;
-		if (e.pageX || e.pageY) {
-			posx = e.pageX;
-			posy = e.pageY;
-		} else if (e.clientX || e.clientY) {
-			posx = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
-			posy = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+		if (!event) event = window.event;
+		if (event.pageX || event.pageY) {
+			posx = event.pageX;
+			posy = event.pageY;
+		} else if (event.clientX || event.clientY) {
+			posx = event.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+			posy = event.clientY + document.body.scrollTop + document.documentElement.scrollTop;
 		}
 		return {
 			x: posx,
