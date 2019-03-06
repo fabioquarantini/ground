@@ -24,7 +24,7 @@ var cssFolder = 'css',
 	scssFile = 'main.scss',
 	scssFilePath = scssFolder + '/' + scssFile,
 	jsFolder = 'js',
-	jsMainFile = 'main.js',
+	jsMainFile = 'app.js',
 	jsMainMinFile = 'scripts.min.js',
 	jsMainFilePath = jsFolder + '/' + jsMainFile,
 	imgFolder = 'img',
@@ -40,9 +40,7 @@ var cssFolder = 'css',
 
 // Browser Sync
 gulp.task('browser-sync', function() {
-
 	if (server) {
-
 		browserSync.init({
 			proxy: host,
 			// server: { baseDir: staticServerPath }, // Static HTML/JS/CSS server
@@ -57,26 +55,21 @@ gulp.task('browser-sync', function() {
 			injectChanges: true,
 			port: 3000
 		});
-	
 	}
-
 });
 
 // Style
 gulp.task('styles', function() {
-
 	gulp
 		.src(scssFilePath)
 		.pipe(
 			plumber({
 				errorHandler: function(err) {
-
 					notify.onError({
 						title: 'Styles error',
 						message: '⛔ ' + err.plugin + ': ' + err.toString(),
 						icon: icon
 					})(err);
-				
 				}
 			})
 		)
@@ -116,24 +109,20 @@ gulp.task('styles', function() {
 				icon: icon
 			})
 		);
-
 });
 
 // Scripts
 gulp.task('scripts', function() {
-
 	return gulp
 		.src(jsMainFilePath)
 		.pipe(
 			plumber({
 				errorHandler: function(err) {
-
 					notify.onError({
 						title: 'Scripts error',
 						message: '⛔ ' + err.plugin + ': ' + err.toString(),
 						icon: icon
 					})(err);
-				
 				}
 			})
 		)
@@ -166,23 +155,19 @@ gulp.task('scripts', function() {
 				icon: icon
 			})
 		);
-
 });
 
 gulp.task('iconFont', function() {
-
 	return gulp
 		.src([iconFolder + '/*.svg'])
 		.pipe(
 			plumber({
 				errorHandler: function(err) {
-
 					notify.onError({
 						title: 'Icon error',
 						message: '⛔ ' + err.plugin + ': ' + err.toString(),
 						icon: icon
 					})(err);
-				
 				}
 			})
 		)
@@ -196,7 +181,6 @@ gulp.task('iconFont', function() {
 			})
 		)
 		.on('glyphs', function(glyphs, options) {
-
 			gulp
 				.src('data/icons/iconfont-template.lodash')
 				.pipe(
@@ -210,7 +194,6 @@ gulp.task('iconFont', function() {
 				)
 				.pipe(rename('_icons-generated.scss'))
 				.pipe(gulp.dest(scssFolder + '/components'));
-		
 		})
 		.pipe(gulp.dest(fontFolder))
 		.pipe(
@@ -220,22 +203,17 @@ gulp.task('iconFont', function() {
 				icon: icon
 			})
 		);
-
 });
 
 // Watch
 gulp.task('watch', function() {
-
 	gulp.watch(scssFolder + '/**/*.scss', ['styles']);
 	gulp.watch([jsFolder + '/**/*.js', '!js/**/*.min.js', '!js/**/*.map'], ['scripts']).on('change', reload);
 	gulp.watch(iconFolder + '/**/*.svg', ['iconFont']);
 	gulp.watch('**/*.{php,html}').on('change', reload);
-
 });
 
 // Default
 gulp.task('default', ['iconFont', 'browser-sync'], function() {
-
 	gulp.start('styles', 'scripts', 'watch');
-
 });
