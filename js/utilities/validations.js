@@ -1,5 +1,5 @@
 /**
- * Validation module
+ * Validations module
  */
 
 export default class Validation {
