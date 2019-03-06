@@ -1,5 +1,5 @@
 /**
- * validation module
+ * Validation module
  */
 
 export default class Validation {
@@ -28,7 +28,7 @@ export default class Validation {
 	 * @param {string} value
 	 * @returns {boolean}
 	 */
-	static isInt(value) {
+	static isInteger(value) {
 		return /^-?\d+$/.test(value);
 	}
 
