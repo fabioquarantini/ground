@@ -1,7 +1,12 @@
+/**
+ * validation module
+ */
+
 export default class Validation {
 	/**
 	 * Check if the value is a valid email address
-	 * @param {string} value 
+	 * @param {string} value
+	 * @returns {boolean}
 	 */
 	static isEmail(value) {
 		// eslint-disable-next-line max-len
@@ -10,7 +15,8 @@ export default class Validation {
 
 	/**
 	 * Check if the value is a valid url
-	 * @param {string} value 
+	 * @param {string} value
+	 * @returns {boolean}
 	 */
 	static isUrl(value) {
 		// eslint-disable-next-line max-len
@@ -19,7 +25,8 @@ export default class Validation {
 
 	/**
 	 * Check if the value is an integer
-	 * @param {string} value 
+	 * @param {string} value
+	 * @returns {boolean}
 	 */
 	static isInt(value) {
 		return /^-?\d+$/.test(value);
@@ -27,7 +34,8 @@ export default class Validation {
 
 	/**
 	 * Check if the value is float
-	 * @param {string} value 
+	 * @param {string} value
+	 * @returns {boolean}
 	 */
 	static isFloat(value) {
 		return /-?\d+\.\d+/.test(value);
@@ -35,7 +43,8 @@ export default class Validation {
 
 	/**
 	 * Check if the value is empty
-	 * @param {string} value 
+	 * @param {string} value
+	 * @returns {boolean}
 	 */
 	static isEmpty(value, ignoreWhiteSpace) {
 		return (ignoreWhiteSpace ? value.trim().length : value.length) === 0;
