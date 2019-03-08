@@ -23,7 +23,7 @@
 
 			<?php get_template_part( 'partials/navigation', 'primary' ); ?>
 
-			<button class="navicon js-toggle-class" data-toggle-class-selector="navicon navigation--primary" data-toggle-class-name="is-navigation-open">
+			<button class="navicon js-toggle" data-toggle-target=".navicon .navigation--primary" data-toggle-class-name="is-navigation-open">
 				<i class="navicon__icon"></i>
 			</button> <!-- End .navicon -->
 
