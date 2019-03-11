@@ -61,7 +61,7 @@ export default class Slider {
 			this.init();
 		});
 
-		window.addEventListener('NAVIGATE_IN', () => {
+		window.addEventListener('NAVIGATE_END', () => {
 			this.init();
 		});
 	}

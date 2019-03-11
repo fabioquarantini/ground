@@ -80,7 +80,7 @@ export default class Modal {
 		window.addEventListener('DOMContentLoaded', () => {
 			this.init();
 		});
-		window.addEventListener('NAVIGATE_IN', () => {
+		window.addEventListener('NAVIGATE_END', () => {
 			this.init();
 		});
 
