@@ -1,115 +1,148 @@
+/**
+ * Slider module
+ * Modern mobile touch slider with hardware accelerated transitions
+ * @see http://idangero.us/swiper
+ */
 import Swiper from 'swiper';
-import TweenMax from 'gsap/TweenMax';
-import Debug from '../utilities/debug.js';
+import * as deepmerge from 'deepmerge';
 
 export default class Slider {
-	constructor(classToAttach, options) {
-		this.$el = classToAttach;
-		this.options = options || {};
-		window.addEventListener('DOMContentLoaded', () => {
-			this.init();
-			this.animateIn();
-		});
-		window.addEventListener('NAVIGATE_IN', () => {
-			this.init();
-			this.animateIn();
-		});
-		window.addEventListener('NAVIGATE_OUT', () => {
-			this.destroy();
-		});
-	}
-
-	init() {
-		if (document.querySelectorAll(this.$el).length == 0) {
-			return;
-		}
-
-		this.slider = new Swiper(this.$el, {
-			init: (this.options.init == false) ? false : true,
-			direction: this.options.direction || 'horizontal',
-			loop: (this.options.loop == false) ? false : true,
-			effect: this.options.effect || 'fade',
-			autoHeight: (this.options.autoHeight == true) ? true : false,
-			parallax: (this.options.parallax == false) ? false : true,
-			preloadImages: (this.options.preloadImages == false) ? false : false,
-			lazy: this.options.lazy || {
+	/**
+	 * @param {string} element - Selector
+	 * @param {Object} options - User options
+	 */
+	constructor(element, options) {
+		this.element = element || '.js-slider';
+		this.defaults = {
+			init: true,
+			initialSlide: 0,
+			direction: 'horizontal',
+			speed: 300,
+			loop: true,
+			effect: 'fade',
+			autoHeight: false,
+			parallax: true,
+			preloadImages: true,
+			lazy: {
 				loadPrevNext: true,
 				loadPrevNextAmount: 1,
 				loadOnTransitionStart: true,
 			},
-			autoplay: this.options.autoplay || {
+			autoplay: {
 				delay: 5000
 			},
-			pagination: this.options.pagination || {
+			pagination: {
 				el: '.js-slider-primary-pagination',
-				clickable: true
+				clickable: true,
+				type: 'bullets'
 			},
-			navigation: this.options.navigation || {
+			navigation: {
 				prevEl: '.js-slider-primary-navigation-prev',
 				nextEl: '.js-slider-primary-navigation-next'
 			},
-			speed: 800,
-			slidesPerView: this.options.slidesPerView || 1,
-			spaceBetween: this.options.spaceBetween || 0,
-			breakpoints: this.options.breakpoints || {
-				// when window width is <= 320px
-				320: {
+			slidesPerView: 1,
+			spaceBetween: 0,
+			breakpoints: {
+				// Caution: No mobile first - when window width is <= 320px
+				480: {
+					slidesPerView: 1
+				},
+				768: {
 					slidesPerView: 1
 				},
 				992: {
 					slidesPerView: 1
 				}
 			}
+		};
+		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
+		
+		window.addEventListener('DOMContentLoaded', () => {
+			this.init();
+		});
+
+		window.addEventListener('NAVIGATE_IN', () => {
+			this.init();
 		});
 	}
 
-	start() {
-		if (this.slider === undefined) {
-			Debug.error('Slider does not exist');
+	/**
+	 * Initialize plugin
+	 */
+	init() {
+		if (document.querySelectorAll(this.element).length == 0) {
 			return;
 		}
-		this.slider.init();
+
+		this.slider = new Swiper(this.element, this.options);
 	}
 
-	play() {
+	/**
+	 * Start autoplay
+	 */
+	autoplayStart() {
 		if (this.slider === undefined) {
-			Debug.error('Slider does not exist');
 			return;
 		}
 		this.slider.autoplay.start();
 	}
 
-	stop() {
+	/**
+	 * Stop autoplay
+	 */
+	autoplayStop() {
 		if (this.slider === undefined) {
-			Debug.error('Slider does not exist');
 			return;
 		}
 		this.slider.autoplay.stop();
 	}
 
-	destroy() {
+	/**
+	 * Destroy slider instance and detach all events listeners
+	 * @param {boolean} deleteInstance - Set it to false (by default it is true) to not to delete Swiper instance
+	 * @param {boolean} cleanStyles - Set it to true (by default it is true) and all custom styles will be removed from slides, wrapper and container.
+	 */
+	destroy(deleteInstance, cleanStyles) {
 		if (this.slider === undefined) {
-			Debug.error('Slider does not exist');
 			return;
-		} else {
-			this.slider.destroy(true, false);
-		}
+		}	
+		this.slider.destroy(deleteInstance, cleanStyles);
+	}	
+
+	/**
+	 * Run transition to previous slide
+	 * @param {number} speed - transition duration (in ms). Optional
+	 * @param {boolean} runCallbacks Set it to false (by default it is true) and transition will not produce transition events. Optional
+	 */
+	slidePrev(speed, runCallbacks) {
+		if (this.slider === undefined) {
+			return;
+		}	
+		this.slider.slidePrev(speed, runCallbacks);
 	}
 
-	animateIn() {
+	/**
+	 * Run transition to next slide
+	 * @param {number} speed - transition duration (in ms). Optional
+	 * @param {boolean} runCallbacks - Set it to false (by default it is true) and transition will not produce transition events. Optional 
+	 */
+	slideNext(speed, runCallbacks) {
 		if (this.slider === undefined) {
-			Debug.error('Slider does not exist');
 			return;
-		} else {
-			const $activeSlide = $(this.$el).find('.swiper-slide-active');
-			const $activeSlideImage = $activeSlide.find('.slider__img');
+		}	
+		this.slider.slideNext(speed, runCallbacks);
+	}
 
-			TweenMax.from($activeSlideImage, 1, {
-				force3D: true,
-				scale: 1.15,
-				delay: 0.4,
-				ease: Power2.easeOut
-			});
-		}
+	/**
+	 * Run transition to the slide with index number equal to 'index' parameter for the duration equal to 'speed' parameter.
+	 * @param {number} index - index number of slide
+	 * @param {number} speed - transition duration (in ms). Optional
+	 * @param {boolean} runCallbacks Set it to false (by default it is true) and transition will not produce transition events. Optional
+	 */
+	slideTo(index, speed, runCallbacks) {
+		if (this.slider === undefined) {
+			return;
+		}	
+		this.slider.slideTo(index, speed, runCallbacks);
 	}
 }
