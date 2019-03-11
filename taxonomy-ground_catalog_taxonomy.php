@@ -24,7 +24,7 @@
 					'child_of'		=> $term_id,
 					'hide_empty'	=> 1,
 					'hierarchical'	=> 0,
-					//'parent'		=> 0,
+					'parent'		=> $term_id,
 					'taxonomy'		=> 'ground_catalog_taxonomy'
 				);
 
