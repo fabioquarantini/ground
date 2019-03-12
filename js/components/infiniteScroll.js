@@ -1,28 +1,61 @@
-var InfiniteScrollPlugin = require('infinite-scroll');
-import Debug from '../utilities/debug.js';
+/**
+ * Infinite Scroll module
+ * Automatically add next page
+ * @see https://infinite-scroll.com
+ */
+import * as deepmerge from 'deepmerge';
+import { DEBUG_MODE } from '../utilities/environment';
+var infScroll = require('infinite-scroll');
 
 export default class InfiniteScroll {
-	constructor() {
-		this.el = '.js-infinite-container';
-		window.addEventListener('DOMContentLoaded', this.init());
-		window.addEventListener('NAVIGATE_IN', () => {
-			this.init();
-		});
-	}
-
-	init() {
-		if (document.querySelectorAll(this.el).length == 0) {
-			Debug.error('DOM node does not exist');
-			return;
-		}
-
-		var infScroll = new InfiniteScrollPlugin(this.el, {
-			path: '.js-next-page',
+	/**
+	 * @param {string} element - Container element
+	 * @param {Object} options - User options
+	 */
+	constructor(element, options) {
+		this.element = element || '.js-infinite-container';
+		this.defaults = {
+			path: '.js-infinite-next-page',
 			append: '.js-infinite-post',
 			history: false,
 			scrollThreshold: 400,
-			hideNav: '.pagination',
-			status: '.js-infinite-status'
+			hideNav: '.js-pagination',
+			status: '.js-infinite-status',
+			debug: DEBUG_MODE ? true : false
+		};
+		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
+		
+		window.addEventListener('DOMContentLoaded', () => {
+			this.init();
 		});
+		window.addEventListener('NAVIGATE_END', () => {
+			this.init();
+		});
+		window.addEventListener('NAVIGATE_OUT', () => {
+			this.destroy();
+		});
+	}
+
+	/**
+	 * Initialize plugin
+	 */
+	init() {
+		
+		if (document.querySelectorAll(this.element).length == 0) {
+			return;
+		}
+		this.infScroll = new infScroll(this.element, this.options);
+
+	}
+	
+	/**
+	 * Remove Infinite Scroll functionality completely
+	 */
+	destroy() {
+		
+		if (this.infScroll === undefined) {
+			return;
+		}
+		this.infScroll.destroy();
 	}
 }
