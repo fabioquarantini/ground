@@ -8,7 +8,7 @@ $total_pages = $wp_query->max_num_pages;
 
 if ( $total_pages > 1 ) {
 
-	echo '<ol class="pagination">';
+	echo '<ol class="pagination js-pagination">';
 
 	$current_page = max( 1, get_query_var('paged') );
 	$args = array(
@@ -26,7 +26,7 @@ if ( $total_pages > 1 ) {
 	foreach( $pagination_old as $pagination_new) {
 
 		$old_class = array("page-numbers", "next", "prev", "dots");
-		$new_class = array("pagination__text", "pagination__text--next js-next-page", "pagination__text--prev", "pagination__text--dots");
+		$new_class = array("pagination__text", "pagination__text--next js-infinite-next-page", "pagination__text--prev", "pagination__text--dots");
 
 		if (strpos( $pagination_new, 'current') !== false) {
 			$is_active_pagination_item = " is-active";
