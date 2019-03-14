@@ -56,7 +56,7 @@ export default class Slider {
 			}
 		};
 		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
-		
+
 		window.addEventListener('DOMContentLoaded', () => {
 			this.init();
 		});
@@ -105,9 +105,9 @@ export default class Slider {
 	destroy(deleteInstance, cleanStyles) {
 		if (this.slider === undefined) {
 			return;
-		}	
+		}
 		this.slider.destroy(deleteInstance, cleanStyles);
-	}	
+	}
 
 	/**
 	 * Run transition to previous slide
@@ -117,7 +117,7 @@ export default class Slider {
 	slidePrev(speed, runCallbacks) {
 		if (this.slider === undefined) {
 			return;
-		}	
+		}
 		this.slider.slidePrev(speed, runCallbacks);
 	}
 
@@ -129,7 +129,7 @@ export default class Slider {
 	slideNext(speed, runCallbacks) {
 		if (this.slider === undefined) {
 			return;
-		}	
+		}
 		this.slider.slideNext(speed, runCallbacks);
 	}
 
@@ -142,7 +142,7 @@ export default class Slider {
 	slideTo(index, speed, runCallbacks) {
 		if (this.slider === undefined) {
 			return;
-		}	
+		}
 		this.slider.slideTo(index, speed, runCallbacks);
 	}
 }

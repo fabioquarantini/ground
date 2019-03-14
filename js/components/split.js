@@ -21,7 +21,7 @@ export default class Split {
 		window.addEventListener('DOMContentLoaded', () => {
 			this.init();
 		});
-		
+
 		window.addEventListener('NAVIGATE_END', () => {
 			this.init();
 		});
