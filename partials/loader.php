@@ -1,6 +1,6 @@
-<div class="loader js-loader">
-	<div class="loader__bg"></div>
-	<div class="loader__content">
+<div class="loader" id="js-loader">
+	<div class="loader__bg" id="js-loader-bg"></div>
+	<div class="loader__content" id="js-loader-content">
 		<?php echo file_get_contents(TEMPLATE_URL ."/img/logo.svg"); ?>
 	</div>
 </div>

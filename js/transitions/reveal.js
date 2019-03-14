@@ -1,18 +1,17 @@
 import Highway from '@dogstudio/highway';
 import TweenMax from 'gsap/TweenMax';
-import { $body } from '../utilities/environment.js';
 
 class Reveal extends Highway.Transition {
+	/**
+	 * @param {object} wrap - [data-router-wrapper] node
+	 * @param {object} name - Transition name
+	 */
 	constructor(wrap, name) {
 		super(wrap, name);
-		this.$el = $('.js-loader');
-		this.$elBg = this.$el.find('.loader__bg');
-		this.$elContent = this.$el.find('.loader__content');
 
-		// TODO: Fix multi trigger
-		window.addEventListener('NAVIGATE_IN', (data) => {
-			$body.removeClass().addClass(data.detail.to.page.body.className);
-		});
+		this.element = document.getElementById('js-loader');
+		this.elementBg = document.getElementById('js-loader-bg');
+		this.elementContent = document.getElementById('js-loader-content');
 	}
 
 	in({ from, to, trigger, done }) {
@@ -20,24 +19,33 @@ class Reveal extends Highway.Transition {
 		const tlLoaderContent = new TimelineLite({
 			delay: 0.2
 		});
-
+		// Reset Scroll
 		window.scrollTo(0, 0);
+
+		// Remove Old View
 		from.remove();
 
-		tlLoaderBg.to(this.$elBg, 1, {
+		// Update body class
+		document.body.classList.remove('is-loading');
+		document.body.classList.add('is-loaded');
+
+		// Animations
+		tlLoaderBg.to(this.elementBg, 1, {
 			yPercent: -100,
 			ease: Quart.easeInOut,
 			force3D: true,
 			rotation: 0.01,
 			onComplete: () => {
-				document.body.classList.remove('is-loading');
-				document.body.classList.add('is-loaded');
-				this.$el.hide();
+				// Update body class
+				document.body.classList.add('is-loader-complete');
+				// Hide loader
+				this.element.classList.add('display-none');
+				// Done
 				done();
 			}
 		}, 0.1);
 
-		tlLoaderContent.to(this.$elContent, 0.8, {
+		tlLoaderContent.to(this.elementContent, 0.8, {
 			ease: Power3.easeOut,
 			y: -65,
 			opacity: 0
@@ -50,11 +58,15 @@ class Reveal extends Highway.Transition {
 			delay: 0.6
 		});
 
+		// Update body class
 		document.body.classList.add('is-loading');
 		document.body.classList.remove('is-loaded');
-		this.$el.show();
 
-		tlLoaderBg.fromTo(this.$elBg, 1.5, {
+		// Show loader
+		this.element.classList.remove('display-none');
+
+		// Animations
+		tlLoaderBg.fromTo(this.elementBg, 1.5, {
 			yPercent: 100
 		}, {
 			yPercent: 0,
@@ -62,11 +74,12 @@ class Reveal extends Highway.Transition {
 			force3D: true,
 			rotation: 0.01,
 			onComplete: () => {
+				// Done
 				done();
 			}
 		}, 0);
 
-		tlLoaderContent.fromTo(this.$elContent, 0.8, {
+		tlLoaderContent.fromTo(this.elementContent, 0.8, {
 			y: 65,
 			opacity: 0
 		}, {

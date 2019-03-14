@@ -1,12 +1,18 @@
+/**
+ * Navigation ajax module
+ * A Modern Javascript Transitions Manager
+ * @see https://highway.js.org
+ */
 import Highway from '@dogstudio/highway';
-import Quicklink from 'quicklink/dist/quicklink.mjs';
-import Dispatcher from '../utilities/dispatcher.js';
+import Quicklink from 'quicklink/dist/quicklink.js';
 import Reveal from '../transitions/reveal.js';
-import Debug from '../utilities/debug.js';
+import Dispatcher from '../utilities/dispatcher.js';
 
 export default class Navigation {
 	constructor() {
-		window.addEventListener('DOMContentLoaded', this.init());
+		window.addEventListener('DOMContentLoaded', () => {
+			this.init();
+		});
 	}
 
 	init() {
@@ -29,29 +35,41 @@ export default class Navigation {
 		});
 	}
 
+	/**
+	 * This event is sent everytime a data-router-view is added to the DOM Tree
+	 */
 	navigateIn(data) {
+		const links = document.querySelectorAll('.navigation__item');
+		// Clean class
+		document.body.className = data.to.page.body.className;
 		Dispatcher.trigger('NAVIGATE_IN', data);
 
-		$('.navigation__item').each(function(index) {
-			var currentHref = $(this)
-				.find('a')
-				.attr('href');
+		for (let i = 0; i < links.length; i++) {
+			const item = links[i];
+			const link = item.firstElementChild;
 
-			$(this).removeClass('is-active');
+			// Clean class
+			item.classList.remove('is-active');
 
-			if (currentHref === location.href) {
-				$(this).addClass('is-active');
+			// Active link
+			if (link.href === location.href) {
+				item.classList.add('is-active');
 			}
-		});
+		}
 	}
 
+	/**
+	 * This event is sent everytime the out() method of a transition is run to hide a data-router-view
+	 */
 	navigateOut(data) {
 		Dispatcher.trigger('NAVIGATE_OUT', data);
 	}
 
+	/**
+	 * This event is sent everytime the done() method is called in the in() method of a transition
+	 */
 	navigateEnd(data) {
 		Dispatcher.trigger('NAVIGATE_END', data);
-
 		// Prefetch
 		Quicklink({
 			el: data.to.view

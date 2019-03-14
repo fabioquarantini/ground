@@ -10,15 +10,15 @@ body {
 
 body {
 	padding-top: ritmo(3);
-	overflow-x: hidden;
-	// overflow-y: scroll; // Scrollbars always visible
-
+	overflow: hidden;
+	
 	@include media('>=md') {
 		padding-top: 0;
 	}
-
-	&.is-loading {
-		overflow: hidden;
+	
+	&.is-loader-complete {
+		overflow-x: hidden;
+		overflow-y: visible;
 	}
 
 }
