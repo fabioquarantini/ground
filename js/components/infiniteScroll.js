@@ -24,7 +24,7 @@ export default class InfiniteScroll {
 			debug: DEBUG_MODE ? true : false
 		};
 		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
-		
+
 		window.addEventListener('DOMContentLoaded', () => {
 			this.init();
 		});
@@ -40,19 +40,16 @@ export default class InfiniteScroll {
 	 * Initialize plugin
 	 */
 	init() {
-		
 		if (document.querySelectorAll(this.element).length == 0) {
 			return;
 		}
 		this.infScroll = new infScroll(this.element, this.options);
-
 	}
-	
+
 	/**
 	 * Remove Infinite Scroll functionality completely
 	 */
 	destroy() {
-		
 		if (this.infScroll === undefined) {
 			return;
 		}
