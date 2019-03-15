@@ -7,6 +7,7 @@ import Slider from './components/slider.js';
 import Loader from './components/loader.js';
 import Split from './components/split.js';
 import Toggle from './components/toggle.js';
+import Scroll from './components/scroll.js';
 
 const infiniteScroll = new InfiniteScroll;
 const loader = new Loader;
@@ -16,4 +17,5 @@ const sliderPrimary = new Slider('.js-slider-primary');
 const sliderSecondary = new Slider('.js-slider-secondary');
 const split = new Split();
 const toggle = new Toggle();
+const scroll = new Scroll();
 //const parallax = new Parallax('.js-parallax');

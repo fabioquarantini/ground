@@ -5,6 +5,7 @@
  */
 import * as deepmerge from 'deepmerge';
 import { DEBUG_MODE } from '../utilities/environment';
+import Dispatcher from '../utilities/dispatcher';
 var infScroll = require('infinite-scroll');
 
 export default class InfiniteScroll {
@@ -44,6 +45,10 @@ export default class InfiniteScroll {
 			return;
 		}
 		this.infScroll = new infScroll(this.element, this.options);
+
+		this.infScroll.on('append', () => {
+			this.onAppend();
+		});
 	}
 
 	/**
@@ -54,5 +59,16 @@ export default class InfiniteScroll {
 			return;
 		}
 		this.infScroll.destroy();
+	}
+
+	/**
+	 * Triggered after item elements have been appended to the container
+	 */
+	onAppend() {
+		if (this.infScroll === undefined) {
+			return;
+		}
+
+		Dispatcher.trigger('infiniteScrollAppended');
 	}
 }

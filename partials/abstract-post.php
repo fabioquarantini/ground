@@ -1,7 +1,7 @@
 <article class="item js-infinite-post">
 
 	<header class="item__header">
-		<h2 class="item__title">
+		<h2 class="item__title" data-splitting data-scroll>
 			<a class="item__link" href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
 		</h2>
 	</header>

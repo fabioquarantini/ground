@@ -22,7 +22,11 @@ export default class Split {
 			this.init();
 		});
 
-		window.addEventListener('NAVIGATE_END', () => {
+		window.addEventListener('NAVIGATE_IN', () => {
+			this.init();
+		});
+
+		window.addEventListener('infiniteScrollAppended', () => {
 			this.init();
 		});
 	}
