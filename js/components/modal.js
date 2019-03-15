@@ -77,9 +77,11 @@ export default class Modal {
 			dblclickOutside: false,
 		};
 		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
+
 		window.addEventListener('DOMContentLoaded', () => {
 			this.init();
 		});
+
 		window.addEventListener('NAVIGATE_END', () => {
 			this.init();
 		});

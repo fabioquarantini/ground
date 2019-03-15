@@ -23,6 +23,8 @@ export default class Slider {
 			autoHeight: false,
 			parallax: true,
 			preloadImages: true,
+			observer: true,
+			observeParents: true,
 			lazy: {
 				loadPrevNext: true,
 				loadPrevNextAmount: 1,
@@ -62,6 +64,10 @@ export default class Slider {
 		});
 
 		window.addEventListener('NAVIGATE_END', () => {
+			this.init();
+		});
+
+		window.addEventListener('infiniteScrollAppended', () => {
 			this.init();
 		});
 	}
@@ -145,4 +151,5 @@ export default class Slider {
 		}
 		this.slider.slideTo(index, speed, runCallbacks);
 	}
+
 }
