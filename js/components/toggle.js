@@ -33,18 +33,18 @@ export default class Toggle {
 			return;
 		}
 
-		this.element.forEach(element => {
-			element.addEventListener('click', (event) => {
+		this.element.forEach(el => {
+			el.addEventListener('click', (event) => {
 				event.preventDefault();
 
 				// Add data-toggle-class-name="customclass" to change the default class name
-				if (event.target.hasAttribute('data-toggle-class-name')) {
-					this.options.toggleClassName = event.target.dataset.toggleClassName;
+				if (el.hasAttribute('data-toggle-class-name')) {
+					this.options.toggleClassName = el.dataset.toggleClassName;
 				}
 
 				// Add data-toggle-target=".selector1 #selector2" to toggle different target
-				if (event.target.hasAttribute('data-toggle-target')) {
-					let targetList = event.target.dataset.toggleTarget.split(' ');
+				if (el.hasAttribute('data-toggle-target')) {
+					let targetList = el.dataset.toggleTarget.split(' ');
 
 					targetList.forEach(element => {
 						let target = document.querySelectorAll(element);
@@ -53,7 +53,7 @@ export default class Toggle {
 						}, this);
 					}, this);
 				} else {
-					event.target.classList.toggle(this.options.toggleClassName);
+					el.classList.toggle(this.options.toggleClassName);
 				}
 			});
 		}, this);
