@@ -97,6 +97,10 @@ export default class Modal {
 		$(document).on('onActivate.fb', (e, instance, slide) => {
 			this.onActivate();
 		});
+
+		window.addEventListener('NAVIGATE_OUT', () => {
+			this.destroy();
+		});
 	}
 
 	init() {
@@ -154,5 +158,9 @@ export default class Modal {
 
 	onActivate(e, instance, slide) {
 		$('html').addClass('overflow-hidden');
+	}
+
+	destroy() {
+		$.fancybox.destroy();
 	}
 }
