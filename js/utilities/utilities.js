@@ -245,4 +245,14 @@ export default class Utilities {
 			y: posy
 		};
 	}
+
+	/**
+	 * Linear interpolation - Calculates a number between two numbers at a specific increment
+	 * @param {number} start - Start value
+	 * @param {number} end - End value
+	 * @param {float} amount - The amount to interpolate between the two values where 0.0 equal to the first point, 0.1 is very near the first point, 0.5 is half-way in between, etc.
+	 */
+	static lerp(start, end, amount) {
+		return (1 - amount) * start + amount * end;
+	}
 }
