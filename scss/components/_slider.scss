@@ -75,3 +75,31 @@
 	}
 
 }
+
+.slider--cursor-navigation {
+
+	.slider__navigation {
+		width: 50%;
+		height: 100%;
+		margin-top: 0;
+		top: 0;
+		background-image: none;
+		cursor: none;
+
+		&:before {
+			display: none;
+		}
+
+		&:active {
+			outline: none;
+		}
+	}
+
+	.slider__navigation--prev {
+		left: 0;
+	}
+
+	.slider__navigation--next {
+		right: 0;
+	}
+}

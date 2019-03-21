@@ -32,6 +32,13 @@
 
 			</div> <!-- End .container -->
 		</footer> <!-- End .footer -->
+
+		<div class="cursor" id="js-cursor">
+			<div class="cursor__circle cursor__circle--outer"></div>
+			<div class="cursor__circle cursor__circle--inner">
+				<i class="cursor__icon"></i>
+			</div>
+		</div>
 			
 		<?php wp_footer();
 

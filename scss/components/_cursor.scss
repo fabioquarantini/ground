@@ -1,0 +1,52 @@
+.cursor__circle {
+	z-index: 200000;
+	pointer-events: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	//mix-blend-mode: difference;
+	border-radius: 50%;
+}
+
+.cursor__circle--inner {
+	width: 8px;
+	height: 8px;
+	//background: $color-primary;
+	transform-origin: center;
+
+	.is-navigation & {
+		//background-color: transparent;
+	}
+
+	.cursor__icon {
+		@extend .centered;
+		font-size: 16px;
+		color: $color-white;
+		display: inline-block;
+	}
+
+}
+
+.cursor__circle--outer {
+	width: 40px;
+	height: 40px;
+	border: 1px solid $color-black;
+	background-color: transparent;
+	transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+
+	.is-enter & {
+		background-color: rgba($color-grey, 0.5);
+		border: 0px solid $color-grey;
+	}
+
+	.is-navigation & {
+		background-color: $color-black;
+		border: 0;
+	}
+
+	.is-zoom & {
+		background-color: $color-black;
+		border: 0;
+	}
+
+}

@@ -8,6 +8,7 @@ import Loader from './components/loader.js';
 import Split from './components/split.js';
 import Toggle from './components/toggle.js';
 import Scroll from './components/scroll.js';
+import Cursor from './components/cursor.js';
 
 const infiniteScroll = new InfiniteScroll;
 const loader = new Loader;
@@ -19,3 +20,4 @@ const split = new Split();
 const toggle = new Toggle();
 const scroll = new Scroll();
 //const parallax = new Parallax('.js-parallax');
+const cursor = new Cursor();
