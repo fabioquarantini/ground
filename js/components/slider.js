@@ -21,7 +21,7 @@ export default class Slider {
 			loop: true,
 			effect: 'fade',
 			autoHeight: false,
-			parallax: true,
+			parallax: false,
 			preloadImages: true,
 			observer: true,
 			observeParents: true,
