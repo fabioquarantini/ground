@@ -22,8 +22,8 @@ export default class Loader {
 		window.scrollTo(0, 0);
 
 		// Update body class
-		document.body.classList.remove('is-loading');
-		document.body.classList.add('is-loaded');
+		document.body.classList.replace('is-loading', 'is-loaded');
+
 
 		// Animations
 		this.tlLoader.to(this.elementBg, 1.5, {
