@@ -33,6 +33,8 @@ export default class Navigation {
 		this.H.on('NAVIGATE_END', (data) => {
 			this.navigateEnd(data);
 		});
+
+		document.body.classList.add('is-ajax');
 	}
 
 	/**
@@ -41,7 +43,7 @@ export default class Navigation {
 	navigateIn(data) {
 		const links = document.querySelectorAll('.navigation__item');
 		// Clean class
-		document.body.className = data.to.page.body.className;
+		document.body.className = data.to.page.body.className + ' is-ajax';
 		Dispatcher.trigger('NAVIGATE_IN', data);
 
 		for (let i = 0; i < links.length; i++) {
