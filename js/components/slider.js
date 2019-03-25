@@ -19,7 +19,7 @@ export default class Slider {
 			direction: 'horizontal',
 			speed: 300,
 			loop: true,
-			effect: 'fade',
+			effect: 'slide',
 			autoHeight: false,
 			parallax: false,
 			preloadImages: true,
@@ -151,5 +151,4 @@ export default class Slider {
 		}
 		this.slider.slideTo(index, speed, runCallbacks);
 	}
-
 }
