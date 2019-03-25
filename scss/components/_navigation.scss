@@ -20,7 +20,7 @@
 		float: right;
 	}
 
-	&.is-navigation-open {
+	.is-navigation-open & {
 		transition: 0.25s;
 		transition-timing-function: ease-out;
 		left: 0;

@@ -16,14 +16,14 @@
 
 		<header class="header">
 
-			<a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo('name'); ?>">
+			<a class="logo js-cursor-hide" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo('name'); ?>">
 				<?php /* <img class="logo__img" src="<?php echo TEMPLATE_URL ?>/img/logo.svg" alt="<?php bloginfo('name'); ?>" /> */ ?>
 				<?php echo file_get_contents(TEMPLATE_URL ."/img/logo.svg"); ?>
 			</a> <!-- End .logo -->
 
 			<?php get_template_part( 'partials/navigation', 'primary' ); ?>
 
-			<button class="navicon js-toggle" data-toggle-target=".navicon .navigation--primary" data-toggle-class-name="is-navigation-open">
+			<button class="navicon js-toggle" data-toggle-target="body" data-toggle-class-name="is-navigation-open">
 				<i class="navicon__icon"></i>
 			</button> <!-- End .navicon -->
 
