@@ -4,13 +4,16 @@
  * @see https://highway.js.org
  */
 import Highway from '@dogstudio/highway';
-import Quicklink from 'quicklink/dist/quicklink.js';
 import Reveal from '../transitions/reveal.js';
 import Dispatcher from '../utilities/dispatcher.js';
 
 export default class Navigation {
 	constructor() {
 		window.addEventListener('DOMContentLoaded', () => {
+			this.init();
+		});
+
+		window.addEventListener('infiniteScrollAppended', () => {
 			this.init();
 		});
 	}
@@ -72,9 +75,5 @@ export default class Navigation {
 	 */
 	navigateEnd(data) {
 		Dispatcher.trigger('NAVIGATE_END', data);
-		// Prefetch
-		Quicklink({
-			el: data.to.view
-		});
 	}
 }
