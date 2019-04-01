@@ -23,10 +23,13 @@ function ground_single_custom_flat_slug( $post_link, $post ) {
 
 		foreach ( $post_types as $post_type ) {
 
-			if ( $post->post_type == $post_type->name && $post_type->rewrite['flat_base_slug'] === true) {
+			if (isset($post_type->rewrite['flat_base_slug'])) {
 
-				$post_link = str_replace( '/'. $post_type->rewrite['slug'] .'/', '/', $post_link );
+				if ( $post->post_type == $post_type->name && $post_type->rewrite['flat_base_slug'] === true) {
 
+					$post_link = str_replace( '/'. $post_type->rewrite['slug'] .'/', '/', $post_link );
+
+				}
 			}
 
 		}
