@@ -23,6 +23,8 @@
 
 			<?php get_template_part( 'partials/navigation', 'primary' ); ?>
 
+			<?php get_template_part( 'partials/woocommerce/minicart' ); ?>
+
 			<button class="navicon js-toggle" data-toggle-target="body" data-toggle-class-name="is-navigation-open">
 				<i class="navicon__icon"></i>
 			</button> <!-- End .navicon -->
@@ -31,10 +33,8 @@
 
 		<div data-router-wrapper>
 
-			<main class="clear-fix" role="main" <?php ground_view_name(); ?>>
+			<main role="main" <?php ground_view_name(); ?>>
 
 				<?php if ( is_front_page() ) {
 					get_template_part( 'partials/slider', 'secondary' );
-				} else {
-					get_template_part( 'partials/slider', 'primary' );
 				} ?>

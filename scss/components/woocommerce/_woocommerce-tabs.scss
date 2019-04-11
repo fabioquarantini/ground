@@ -1,0 +1,30 @@
+.woocommerce-tabs {
+	margin: ritmo(2) 0;
+	@extend .clear-fix;
+
+	.tabs {
+		width: 25%;
+		float: left;
+		margin: 0 5% 0 0;
+		border-top: 1px solid rgba(0,0,0,.05);
+
+		li {
+			display: block;
+			margin: 0;
+			border-bottom: 1px solid rgba(0,0,0,.05);
+			position: relative;
+		}
+
+		a {
+			padding: 1em 0;
+			display: block;
+		}
+	}
+
+	.panel {
+		width: 70%;
+		float: right;
+		margin-right: 0;
+		margin-top: 0;
+	}
+}

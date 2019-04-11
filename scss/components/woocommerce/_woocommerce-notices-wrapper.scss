@@ -1,0 +1,17 @@
+// NOTICES WRAPPER
+.woocommerce-notices-wrapper {
+
+	.woocommerce-message {
+		@extend .message;
+
+		.button {
+			@include media('>=md') {
+				position: absolute;
+				top: 0;
+				right: 0;
+			}
+
+		}
+	}
+
+}

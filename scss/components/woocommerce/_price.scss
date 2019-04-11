@@ -1,0 +1,22 @@
+.price {
+	display: block;
+	margin-bottom: ritmo(1);
+
+	.amount {
+		@include ritmo-font-size(20px);
+		color: $color-primary;
+		font-weight: bold;
+	}
+
+	del {
+		color: $color-grey;
+		.amount {
+			@include ritmo-font-size(16px);
+			color: $color-grey;
+		}
+	}
+
+	ins {
+		text-decoration: none;
+	}
+}

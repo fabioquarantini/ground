@@ -1,0 +1,16 @@
+.cart {
+	.quantity {
+		display: inline-block;
+		vertical-align: bottom;
+		margin-right: ritmo(1);
+	}
+
+	.qty {
+		max-width: ritmo(3);
+	}
+
+	.single_add_to_cart_button {
+		display: inline-block;
+		vertical-align: bottom;
+	}
+}
