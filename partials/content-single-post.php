@@ -1,4 +1,4 @@
-<article class="page page--post">
+<article class="page page--post-single">
 
 	<header class="page__header">
 		<h1 class="page__title" data-splitting data-scroll><?php the_title(); ?></h1>
