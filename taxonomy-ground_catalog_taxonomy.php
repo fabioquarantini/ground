@@ -1,75 +1,79 @@
 <?php get_template_part( 'partials/header' ); ?>
 
-	<div class="gr-12 gr-9@md push-3@md">
+	<div class="container">
+		<div class="clear-fix">
+			<div class="gr-12 gr-9@md push-3@md">
 
-		<section class="page page--catalog-archive">
+				<section class="page page--catalog-archive">
 
-			<header class="page__header">
-				<h1 class="page__title"><?php single_cat_title(); ?></h1>
-			</header>
+					<header class="page__header">
+						<h1 class="page__title"><?php single_cat_title(); ?></h1>
+					</header>
 
-			<div class="page__body">
+					<div class="page__body">
 
-				<?php echo category_description();
+						<?php echo category_description();
 
-				$queried_object = get_queried_object();
-				$term_id = $queried_object->term_id;
-				$term_parent = $queried_object->parent;
+						$queried_object = get_queried_object();
+						$term_id = $queried_object->term_id;
+						$term_parent = $queried_object->parent;
 
-				if ( $term_parent == 0 ) {
-					$term_parent = $term_id;
-				}
+						if ( $term_parent == 0 ) {
+							$term_parent = $term_id;
+						}
 
-				$args = array(
-					'child_of'		=> $term_id,
-					'hide_empty'	=> 1,
-					'hierarchical'	=> 0,
-					'parent'		=> $term_id,
-					'taxonomy'		=> 'ground_catalog_taxonomy'
-				);
+						$args = array(
+							'child_of'		=> $term_id,
+							'hide_empty'	=> 1,
+							'hierarchical'	=> 0,
+							'parent'		=> $term_id,
+							'taxonomy'		=> 'ground_catalog_taxonomy'
+						);
 
-				$taxonomies = get_categories($args);
+						$taxonomies = get_categories($args);
 
-				// Show categories
-				if ( !empty( $taxonomies ) && !is_wp_error( $taxonomies ) ) :
+						// Show categories
+						if ( !empty( $taxonomies ) && !is_wp_error( $taxonomies ) ) :
 
-					foreach ( $taxonomies as $taxonomy ) {
+							foreach ( $taxonomies as $taxonomy ) {
 
-						$taxonomy_slug = $taxonomy->slug;
-						$taxonomy_name = $taxonomy->name;
-						$taxonomy_description = $taxonomy->description; ?>
+								$taxonomy_slug = $taxonomy->slug;
+								$taxonomy_name = $taxonomy->name;
+								$taxonomy_description = $taxonomy->description; ?>
 
-						<div class="gr-12 gr-4@md">
-							<?php include( locate_template( 'partials/abstract-taxonomy-ground_catalog.php' ) ); ?>
-						</div>
+								<div class="gr-12 gr-4@md">
+									<?php include( locate_template( 'partials/abstract-taxonomy-ground_catalog.php' ) ); ?>
+								</div>
 
-					<?php }
+							<?php }
 
-				// Show products
-				else :
+						// Show products
+						else :
 
-					if (have_posts()) : while (have_posts()) : the_post();
+							if (have_posts()) : while (have_posts()) : the_post();
 
-						get_template_part( 'partials/abstract', 'ground_catalog' );
+								get_template_part( 'partials/abstract', 'ground_catalog' );
 
-					endwhile;
+							endwhile;
 
-						get_template_part( 'partials/pagination' );
+								get_template_part( 'partials/pagination' );
 
-					endif;
+							endif;
 
-				endif; ?>
+						endif; ?>
 
-			</div> <!-- End .page__body -->
+					</div> <!-- End .page__body -->
 
-		</section> <!-- End .page -->
+				</section> <!-- End .page -->
 
-	</div>
+			</div>
 
-	<div class="gr-12 gr-3@md pull-9@md">
+			<div class="gr-12 gr-3@md pull-9@md">
 
-		<?php get_template_part( 'partials/sidebar', 'secondary' ); ?>
+				<?php get_template_part( 'partials/sidebar', 'secondary' ); ?>
 
-	</div>
+			</div>
+		</div> <!-- End .clear-fix -->
+	</div> <!-- End .container -->
 
 <?php get_template_part( 'partials/footer' ); ?>

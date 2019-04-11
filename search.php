@@ -1,29 +1,35 @@
 <?php get_template_part( 'partials/header' ); ?>
 
-	<section class="page page--search">
+	<div class="container">
+		<div class="clear-fix">
+			<div class="gr-12">
+				<section class="page page--search">
 
-		<header class="page__header">
-			<h1 class="page__title"><?php _e( 'Search results:', 'ground' ); ?></h1>
-		</header>
+					<header class="page__header">
+						<h1 class="page__title"><?php _e( 'Search results:', 'ground' ); ?></h1>
+					</header>
 
-		<div class="page__body">
+					<div class="page__body">
 
-			<?php if ( have_posts() ) : while ( have_posts() ) : the_post();
+						<?php if ( have_posts() ) : while ( have_posts() ) : the_post();
 
-				get_template_part( 'partials/abstract', 'post' );
+							get_template_part( 'partials/abstract', 'post' );
 
-			endwhile;
+						endwhile;
 
-				get_template_part( 'partials/pagination' );
+							get_template_part( 'partials/pagination' );
 
-			else : ?>
+						else : ?>
 
-				<p><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'ground' ); ?></p>
+							<p><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'ground' ); ?></p>
 
-			<?php endif; ?>
+						<?php endif; ?>
 
-		</div> <!-- End .page__body -->
+					</div> <!-- End .page__body -->
 
-	</section> <!-- End .page -->
+				</section> <!-- End .page -->
+			</div>
+		</div> <!-- End .clear-fix -->
+	</div> <!-- End .container -->
 
 <?php get_template_part( 'partials/footer' ); ?>

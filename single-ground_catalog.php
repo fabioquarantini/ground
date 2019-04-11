@@ -1,17 +1,23 @@
 <?php get_template_part( 'partials/header' ); ?>
 
-	<div class="gr-12 gr-9@md push-3@md">
+<div class="container">
+	<div class="clear-fix">
 
-		<?php if ( have_posts() ) : while ( have_posts() ) : the_post();
+		<div class="gr-12 gr-9@md push-3@md">
 
-			get_template_part( 'partials/content', 'single-ground_catalog' );
+			<?php if ( have_posts() ) : while ( have_posts() ) : the_post();
 
-		endwhile; endif; ?>
+				get_template_part( 'partials/content', 'single-ground_catalog' );
 
-	</div>
+			endwhile; endif; ?>
 
-	<div class="gr-12 gr-3@md pull-9@md">
-		<?php get_template_part( 'partials/sidebar', 'secondary' ); ?>
-	</div>
+		</div>
+
+		<div class="gr-12 gr-3@md pull-9@md">
+			<?php get_template_part( 'partials/sidebar', 'secondary' ); ?>
+		</div>
+
+	</div> <!-- End .clear-fix -->
+</div> <!-- End .container -->
 
 <?php get_template_part( 'partials/footer' ); ?>
