@@ -1,4 +1,4 @@
-<article class="card card--rounded">
+<article class="card">
 
 	<a class="card__link" href="<?php echo get_term_link($taxonomy_slug, 'ground_catalog_taxonomy') ?>">
 		<figure class="media">

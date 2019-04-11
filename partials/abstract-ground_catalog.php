@@ -1,4 +1,4 @@
-<article class="card card--rounded">
+<article class="card">
 
 	<a class="card__link" href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>">
 		<figure class="media">
