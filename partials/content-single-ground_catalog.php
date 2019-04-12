@@ -5,7 +5,7 @@
 	</header>
 
 	<div class="page__body">
-		<figure class="media margin-bottom--1">
+		<figure class="media margin-bottom-1">
 			<?php if ( has_post_thumbnail() ) { ?>
 				<?php the_post_thumbnail( 'medium', array( 'class' => 'media__img full-width' ) ); ?>
 			<?php } else { ?>
