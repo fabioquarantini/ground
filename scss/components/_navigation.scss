@@ -5,7 +5,6 @@
 	top: 0;
 	left: -100%;
 	width: 100%;
-	background: $color-grey-lighter;
 	margin: 0;
 	overflow-y: auto;
 
@@ -17,10 +16,12 @@
 		width: auto;
 		background: transparent;
 		overflow-y: visible;
-		float: right;
+		display: inline-block;
+		vertical-align: top;
 	}
 
 	.is-navigation-open & {
+		background: $color-grey-lighter;
 		transition: 0.25s;
 		transition-timing-function: ease-out;
 		left: 0;

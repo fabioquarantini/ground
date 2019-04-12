@@ -88,9 +88,9 @@ $type-styles: (
 		),
 	md:
 		(
-			h1: ('font-size': 48px, 'line-height': 2, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
-			h2: ('font-size': 40px, 'line-height': 2, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
-			h3: ('font-size': 31px, 'line-height': 1, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
+			h1: ('font-size': 36px, 'line-height': 2, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
+			h2: ('font-size': 31px, 'line-height': 2, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
+			h3: ('font-size': 28px, 'line-height': 1, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
 			h4: ('font-size': 26px, 'line-height': 1, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
 			h5: ('font-size': 22px, 'line-height': 1, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
 			h6: ('font-size': 18px, 'line-height': 1, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
@@ -123,5 +123,5 @@ $path-fonts: '../fonts/';
 
 // Debug
 $debug-breakpoints: false;
-$debug-rhythm: true;
+$debug-rhythm: false;
 $debug-css: false;

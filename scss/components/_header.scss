@@ -6,7 +6,7 @@
 	right: 0;
 	background-color: $color-white;
 	height: ritmo(3);
-	box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+	box-shadow: 0 0 25px rgba(0,0,0,0.08);
 	@extend .clear-fix;
 
 	@include media('>=md') {
@@ -17,7 +17,7 @@
 		height: auto;
 		background-color: transparent;
 		box-shadow: none;
-		margin-bottom: ritmo(1);
+		text-align: right;
 	}
 
 	.body--home & {

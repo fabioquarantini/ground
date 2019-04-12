@@ -3,7 +3,7 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 	margin: 0 0 ritmo(1, $offset: -3px) 0;
-	table-layout: fixed;
+	table-layout: auto;
 	max-width: 100%;
 	width: 100%;
 	background-color: $color-white;
@@ -111,6 +111,12 @@ table {
 
 		vertical-align: top;
 
+		@include media('>=sm') {
+			width: 1px;
+			white-space:nowrap;
+		}
+
+
 		&:before {
 
 			color: $color-black;
@@ -167,7 +173,7 @@ tr {
 
 .table__cell,
 td {
-	@include ritmo-horizontal-borders( 1px, 1 );
+	@include ritmo-borders( 1px, 1 );
 	border-style: solid;
 	border-color: $color-grey;
 	vertical-align: middle;
