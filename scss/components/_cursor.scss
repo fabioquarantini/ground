@@ -1,28 +1,36 @@
-.cursor__circle {
+.cursor {
+	opacity: 1;
+	transition: opacity 0.5s ease;
 	z-index: 200000;
 	pointer-events: none;
 	position: absolute;
 	top: 0;
 	left: 0;
 	//mix-blend-mode: difference;
+	
+	&.is-cursor-hide {
+		opacity: 0;
+	}
+}
+
+.cursor__circle {
 	border-radius: 50%;
 }
 
 .cursor__circle--inner {
+	@extend .centered;
 	width: 8px;
 	height: 8px;
 	//background: $color-primary;
-	transform-origin: center;
+	//transform-origin: center;
 
-	.is-navigation & {
+	.is-cursor-navigation & {
 		//background-color: transparent;
 	}
 
-	.cursor__icon {
-		@extend .centered;
-		font-size: 16px;
-		color: $color-white;
-		display: inline-block;
+	.is-cursor-hover & {
+		height: 16px;
+		width: 16px;
 	}
 
 }
@@ -32,21 +40,58 @@
 	height: 30px;
 	border: 2px solid $color-black;
 	background-color: transparent;
-	transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+	transition: background-color 0.3s ease, border 0.1s ease;
+	opacity: 1;
 
-	.is-enter & {
+	.is-cursor-hover & {
 		background-color: rgba($color-grey, 0.5);
-		border: 0px solid $color-grey;
+		border: 2px solid transparent;
 	}
 
-	.is-navigation & {
+	.is-cursor-navigation & {
 		background-color: $color-black;
 		border: 0;
 	}
 
-	.is-zoom & {
+	.is-cursor-zoom & {
 		background-color: $color-black;
 		border: 0;
 	}
 
+	.is-cursor-loading & {
+		background-color: $color-primary;
+		border-color: $color-primary;
+	}
+
+}
+
+.cursor__icon {
+	@extend .centered;
+	font-size: 14px;
+	color: $color-white;
+	display: inline-block;
+}
+
+
+.cursor__loader {
+	display: none;
+	border-radius: 50%;
+	width: 64px;
+	height: 64px;
+	position: absolute;
+	top: -32px;
+	left: -32px;
+	border: 4px solid transparent;
+	border-top: 4px solid $color-primary;
+	animation: rotating 1.2s infinite linear;
+	
+	.is-cursor-loading & {
+		display: block;
+	}
+}
+
+@keyframes rotating {
+	100% {
+		transform: rotate(360deg);
+	}
 }
