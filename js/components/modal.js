@@ -5,6 +5,7 @@
  * @todo Remove jQuery dependency
  */
 import * as deepmerge from 'deepmerge';
+import Dispatcher from '../utilities/dispatcher';
 require('@fancyapps/fancybox');
 
 export default class Modal {
@@ -87,15 +88,19 @@ export default class Modal {
 		});
 
 		$(document).on('beforeShow.fb', (e, instance, slide) => {
-			this.beforeShow();
-		});
-
-		$(document).on('beforeClose.fb', (e, instance, slide) => {
-			this.beforeClose();
+			//this.beforeShow();
 		});
 
 		$(document).on('onActivate.fb', (e, instance, slide) => {
-			this.onActivate();
+			Dispatcher.trigger('fancyboxOnActivate');
+		});
+
+		$(document).on('beforeClose.fb', (e, instance, slide) => {
+			//this.beforeClose();
+		});
+
+		$(document).on('onActivate.fb', (e, instance, slide) => {
+			//this.onActivate();
 		});
 
 		window.addEventListener('NAVIGATE_OUT', () => {
