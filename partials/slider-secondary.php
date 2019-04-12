@@ -1,4 +1,4 @@
-<div class="slider slider--secondary swiper-container js-slider-secondary full-viewport-height">
+<div class="slider slider--secondary swiper-container js-slider-secondary">
 	<div class="swiper-wrapper">
 		<div class="slider__item swiper-slide">
 			<img class="slider__img cover" src="<?php echo TEMPLATE_URL ?>/img/sample-2.jpg">

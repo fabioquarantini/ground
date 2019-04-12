@@ -9,6 +9,13 @@
 	}
 }
 
+.slider--secondary {
+	height: calc(100vh - #{ritmo(3)});
+	@include media('>=sm') {
+		height: 100vh;
+	}
+}
+
 .slider__item {
 	overflow: hidden;
 }
