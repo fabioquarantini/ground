@@ -3,7 +3,7 @@
 	<a class="card__link" href="<?php echo get_term_link($taxonomy_slug, 'ground_catalog_taxonomy') ?>">
 		<figure class="media">
 			<?php //TODO: ACF category thumbnail ?>
-			<img class="media__img media__img--zoom full-width" src="http://via.placeholder.com/200x150" alt="" />
+			<img class="media__img media__img--zoom full-width" src="<?php echo TEMPLATE_URL ?>/img/no-image.svg" alt="" />
 		</figure>
 	</a>
 
