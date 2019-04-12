@@ -13,7 +13,7 @@ import Cursor from './components/cursor.js';
 const infiniteScroll = new InfiniteScroll;
 const loader = new Loader;
 const modal = new Modal();
-const navigation = new Navigation;
+//const navigation = new Navigation;
 const sliderPrimary = new Slider('.js-slider-primary');
 const sliderSecondary = new Slider('.js-slider-secondary');
 const split = new Split();
