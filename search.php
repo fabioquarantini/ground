@@ -1,7 +1,7 @@
 <?php get_template_part( 'partials/header' ); ?>
 
 	<div class="container">
-		<div class="clear-fix">
+		<div class="row">
 			<div class="gr-12">
 				<section class="page page--search">
 
@@ -29,7 +29,7 @@
 
 				</section> <!-- End .page -->
 			</div>
-		</div> <!-- End .clear-fix -->
+		</div> <!-- End .row -->
 	</div> <!-- End .container -->
 
 <?php get_template_part( 'partials/footer' ); ?>

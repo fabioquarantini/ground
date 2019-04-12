@@ -100,9 +100,6 @@ get_template_part( 'partials/header' ); ?>
 						 */
 						do_action( 'woocommerce_no_products_found' );
 					}
-
-
-
 				?>
 
 				</div>

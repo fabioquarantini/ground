@@ -1,7 +1,7 @@
 <?php get_template_part( 'partials/header' ); ?>
 
 	<div class="container">
-		<div class="clear-fix">
+		<div class="row">
 			<div class="gr-12 gr-9@md push-3@md">
 
 				<section class="page page--catalog-archive">
@@ -33,32 +33,36 @@
 						$taxonomies = get_categories($args);
 
 						// Show categories
-						if ( !empty( $taxonomies ) && !is_wp_error( $taxonomies ) ) :
+						if ( !empty( $taxonomies ) && !is_wp_error( $taxonomies ) ) : ?>
 
-							foreach ( $taxonomies as $taxonomy ) {
+							<div class="row">
+								<?php foreach ( $taxonomies as $taxonomy ) {
 
-								$taxonomy_slug = $taxonomy->slug;
-								$taxonomy_name = $taxonomy->name;
-								$taxonomy_description = $taxonomy->description; ?>
+									$taxonomy_slug = $taxonomy->slug;
+									$taxonomy_name = $taxonomy->name;
+									$taxonomy_description = $taxonomy->description; ?>
 
-								<div class="gr-12 gr-4@md">
-									<?php include( locate_template( 'partials/abstract-taxonomy-ground_catalog.php' ) ); ?>
-								</div>
+									<div class="gr-12 gr-4@md">
+										<?php include( locate_template( 'partials/abstract-taxonomy-ground_catalog.php' ) ); ?>
+									</div>
 
-							<?php }
+								<?php } ?> <!-- End .row -->
+							</div>
 
-						// Show products
+						<?php // Show products
 						else :
 
-							if (have_posts()) : while (have_posts()) : the_post();
-
-								get_template_part( 'partials/abstract', 'ground_catalog' );
-
-							endwhile;
-
-								get_template_part( 'partials/pagination' );
-
-							endif;
+							if ( have_posts() ) { ?>
+								<div class="row">
+									<?php while ( have_posts() ) {
+										the_post(); ?>
+										<div class="gr-12 gr-4@md">
+											<?php get_template_part( 'partials/abstract', 'ground_catalog' ); ?>
+										</div>
+									<?php } ?>
+								</div> <!-- End .row -->
+								<?php get_template_part( 'partials/pagination' );
+							}
 
 						endif; ?>
 
@@ -73,7 +77,7 @@
 				<?php get_template_part( 'partials/sidebar', 'secondary' ); ?>
 
 			</div>
-		</div> <!-- End .clear-fix -->
+		</div> <!-- End .row -->
 	</div> <!-- End .container -->
 
 <?php get_template_part( 'partials/footer' ); ?>

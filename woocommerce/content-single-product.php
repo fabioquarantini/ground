@@ -32,7 +32,6 @@ if ( post_password_required() ) {
 
 <div id="product-<?php the_ID(); ?>" <?php wc_product_class('woocommerce-product-details'); ?>>
 
-
 	<div class="row">
 
 		<div class="gr-12 gr-6@md">
@@ -71,8 +70,7 @@ if ( post_password_required() ) {
 
 		</div>
 
-	</div>
-
+	</div> <!-- End .row -->
 
 	<div class="row">
 
@@ -91,9 +89,8 @@ if ( post_password_required() ) {
 
 		</div>
 
-	</div>
+	</div> <!-- End .row -->
 
-
-</div>
+</div> <!-- End .woocommerce-product-details -->
 
 <?php do_action( 'woocommerce_after_single_product' ); ?>

@@ -1,7 +1,7 @@
 <?php get_template_part( 'partials/header' ); ?>
 
 <div class="container">
-	<div class="clear-fix">
+	<div class="row">
 
 		<div class="gr-12 gr-9@md push-3@md">
 
@@ -17,7 +17,7 @@
 			<?php get_template_part( 'partials/sidebar', 'secondary' ); ?>
 		</div>
 
-	</div> <!-- End .clear-fix -->
+	</div> <!-- End .row -->
 </div> <!-- End .container -->
 
 <?php get_template_part( 'partials/footer' ); ?>

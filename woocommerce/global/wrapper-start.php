@@ -21,4 +21,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 } ?>
 
 <div class="container">
-	<div class="clear-fix">
+	<div class="row">

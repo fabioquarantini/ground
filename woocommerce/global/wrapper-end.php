@@ -20,5 +20,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 } ?>
 
-	</div> <!-- End .clear-fix -->
+	</div> <!-- End .row -->
 </div> <!-- End .container -->
