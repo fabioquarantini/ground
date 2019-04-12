@@ -1,13 +1,18 @@
 .logo {
 	height: ritmo(1);
-	margin-left: ritmo(0.5);
+	margin-left: ritmo(1);
 	margin-top: ritmo(1);
 	margin-bottom: ritmo(1);
 	display: inline-block;
+	float: left;
+
+	svg, g {
+		@extend .logo__img;
+	}
 }
 
 .logo__img {
-	fill: $color-grey;
+	fill: $color-black;
 	transition: all 0.4s;
 	&:hover {
 		fill: $color-primary;
