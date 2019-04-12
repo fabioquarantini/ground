@@ -50,5 +50,4 @@ export default class Scroll {
 	destroy() {
 		this.scroll.teardown();
 	}
-
 }
