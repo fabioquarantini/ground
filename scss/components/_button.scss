@@ -22,6 +22,7 @@
 	&--active {
 		background-color: $color-secondary;
 		color: $color-black;
+		border-color: $color-secondary;
 	}
 
 	&--secondary {
