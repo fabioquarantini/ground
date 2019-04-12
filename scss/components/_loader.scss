@@ -10,4 +10,8 @@
 
 .loader__content {
 	@include centered();
+
+	g {
+		fill: $color-white;
+	}
 }
