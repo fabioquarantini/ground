@@ -1,5 +1,5 @@
 .breadcrumb {
-	height: ritmo(2); //fixed height to avoid scrollbar on mobile
+	height: ritmo(1); //fixed height to avoid scrollbar on mobile
 	overflow-y: hidden;
 	margin-bottom: ritmo(1);
 
@@ -26,9 +26,9 @@
 }
 
 .breadcrumb__list {
-	padding-top: ritmo(1);
 	padding-bottom: ritmo(1);
 	padding-right: ritmo(3);
+	margin-bottom: 0;
 	overflow-x: auto;
 	overflow-y: hidden;
 	white-space: nowrap;
@@ -39,10 +39,11 @@
 
 .breadcrumb__item {
 	display: inline-block;
+	@include ritmo-font-size(14px);
 
 	&:after {
 		content: '/';
-		padding: 0 ritmo(0.25) 0 ritmo(0.5);
+		padding: 0 ritmo(0.5) 0 ritmo(0.5);
 	}
 
 	&:last-child {

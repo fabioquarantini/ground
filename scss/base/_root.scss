@@ -5,19 +5,30 @@ body {
 	min-height: 100vh;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	overflow-x: hidden;
 	// height: 100vh;
 }
 
 body {
-	padding-top: ritmo(3);
-	overflow: hidden;
-	
+	padding-top: ritmo(4);
+
 	@include media('>=md') {
 		padding-top: 0;
 	}
-	
+
+	&.body--home {
+		padding-top: ritmo(3);
+
+		@include media('>=md') {
+			padding-top: 0;
+		}
+	}
+
+	&.is-loading {
+		overflow-y: hidden;
+	}
+
 	&.is-loader-complete {
-		overflow-x: hidden;
 		overflow-y: visible;
 	}
 
