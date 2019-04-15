@@ -5,3 +5,30 @@
 .item__link {
 	text-decoration: none;
 }
+
+.item__footer {
+
+}
+
+.item__data {
+	display: block;
+	color: $color-grey-dark;
+
+	@include media('>=md') {
+		display: inline;
+		&:after {
+			content: '-';
+			padding: 0 ritmo(0.5) 0 ritmo(0.5);
+		}
+
+		&:last-child {
+			&:after {
+				content: none;
+			}
+		}
+	}
+
+	time {
+		color: $color-black;
+	}
+}
