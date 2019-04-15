@@ -31,7 +31,23 @@ get_template_part( 'partials/header' ); ?>
 
 	?>
 
-	<div class="gr-12 gr-9@md push-3@md">
+	<div class="gr-12 gr-3@md">
+
+		<?php get_template_part( 'partials/sidebar', 'woocommerce' ); ?>
+
+		<?php
+			/**
+			 * Hook: woocommerce_sidebar.
+			 *
+			 * @hooked woocommerce_get_sidebar - 10
+			 */
+			do_action( 'woocommerce_sidebar' );
+
+		?>
+
+	</div>
+
+	<div class="gr-12 gr-9@md">
 		<section class="page page--woocommerce-archive">
 
 				<header class="page__header">
@@ -104,22 +120,6 @@ get_template_part( 'partials/header' ); ?>
 
 				</div>
 			</section>
-
-	</div>
-
-	<div class="gr-12 gr-3@md pull-9@md">
-
-		<?php get_template_part( 'partials/sidebar', 'woocommerce' ); ?>
-
-		<?php
-			/**
-			 * Hook: woocommerce_sidebar.
-			 *
-			 * @hooked woocommerce_get_sidebar - 10
-			 */
-			do_action( 'woocommerce_sidebar' );
-
-		?>
 
 	</div>
 

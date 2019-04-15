@@ -2,7 +2,12 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="gr-12 gr-9@md push-3@md">
+
+			<div class="gr-12 gr-3@md">
+				<?php get_template_part( 'partials/sidebar', 'secondary' ); ?>
+			</div>
+
+			<div class="gr-12 gr-9@md">
 
 				<section class="page page--catalog-archive">
 
@@ -72,11 +77,6 @@
 
 			</div>
 
-			<div class="gr-12 gr-3@md pull-9@md">
-
-				<?php get_template_part( 'partials/sidebar', 'secondary' ); ?>
-
-			</div>
 		</div> <!-- End .row -->
 	</div> <!-- End .container -->
 
