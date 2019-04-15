@@ -1,6 +1,6 @@
 .woocommerce-tabs {
-	margin: ritmo(2) 0;
 	@extend .clear-fix;
+	margin-bottom: ritmo(2);
 
 	.tabs {
 		width: 25%;

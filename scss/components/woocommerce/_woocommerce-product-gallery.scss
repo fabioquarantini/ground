@@ -1,7 +1,22 @@
-/* Gallery*/
 .woocommerce-product-gallery {
+	margin-bottom: ritmo(1);
 }
 
 .woocommerce-product-gallery__wrapper {
 
+}
+
+.woocommerce-product-gallery__image {
+	display: inline-block;
+	margin-right: ritmo(1);
+	margin-bottom: ritmo(1);
+
+	&:first-child {
+		display: block;
+		margin-right: 0;
+	}
+
+	&:last-child {
+		margin-right: 0;
+	}
 }
