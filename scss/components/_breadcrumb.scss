@@ -42,7 +42,9 @@
 	@include ritmo-font-size(14px);
 
 	&:after {
-		content: '/';
+		content: '▸';
+		color: $color-grey-dark;
+		@include ritmo-font-size(20px);
 		padding: 0 ritmo(0.5) 0 ritmo(0.5);
 	}
 
@@ -55,13 +57,18 @@
 			content: none;
 		}
 	}
+
+	a {
+		@extend .breadcrumb__link;
+	}
 }
 
 .breadcrumb__link {
-	color: $color-black;
+	color: $color-grey-dark;
 	text-decoration: none;
 
 	&:hover {
 		text-decoration: underline;
+		color: $color-primary;
 	}
 }
