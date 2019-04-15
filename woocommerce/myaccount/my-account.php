@@ -24,7 +24,7 @@ defined( 'ABSPATH' ) || exit;
  */
 do_action( 'woocommerce_account_navigation' ); ?>
 
-<!-- .row is opened in myaccount/navigation.php -->
+<?php // .row is opened in myaccount/navigation.php ?>
 
 	<div class="gr-12 gr-9@md">
 		<div class="woocommerce-MyAccount-content">
