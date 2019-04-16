@@ -20,7 +20,6 @@
 
 	<footer class="item__footer">
 		<span class="item__data item__data--date"><?php _e('Date', 'ground') ?>: <time datetime="<?php echo get_the_date( 'c' ); ?>"><?php echo get_the_date(); ?></time></span>
-		<span class="item__data item__data--author"><?php _e('Author', 'ground') ?>: <?php the_author_posts_link(); ?></span>
 		<span class="item__data item__data--category"><?php _e('Category', 'ground') ?>: <?php the_category(', '); ?></span>
 		<?php if ( has_tag() ) { ?> <?php the_tags('<span class="item__data item__data--tag">' . __('Tag', 'ground') . ': ', ', ', '</span>' ); ?><?php } ?>
 		<?php if( comments_open() && !post_password_required() ) { ?>

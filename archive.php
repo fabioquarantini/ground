@@ -2,6 +2,9 @@
 
 	<div class="container">
 		<div class="row">
+
+			<?php get_template_part( 'partials/breadcrumbs' ); ?>
+
 			<div class="gr-12">
 				<section class="page page--archive">
 

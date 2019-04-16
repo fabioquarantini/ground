@@ -22,6 +22,7 @@
 	18 - Oembed responsive
 	19 - Rename attachment slug
 	20 - Echoes the highway view name tag
+	21 - Custom Breadcrumb using Yoast SEO Plugin
 
 	==========================================================================  */
 
@@ -398,4 +399,43 @@ function ground_view_name() {
 
 	echo 'data-router-view="' . $view_name . '"';
 
+}
+
+
+/*  ==========================================================================
+	21 - Custom Breadcrumb using Yoast SEO Plugin https://fellowtuts.com/wordpress/custom-breadcrumb-navigation-yoast-seo/
+	==========================================================================  */
+
+function ground_yoast_breadcrumb(){
+	$crumb = array();
+	$dom = new DOMDocument();
+	$dom->loadHTML(yoast_breadcrumb('', '', false));
+	$items = $dom->getElementsByTagName('a');
+
+	foreach ($items as $tag)
+		$crumb[] = array('text' => $tag->nodeValue, 'href' => $tag->getAttribute('href'));
+
+	// Get the current page text and href
+	$items = new DOMXpath($dom);
+	$dom = $items->query('//*[contains(@class, "breadcrumb_last")]');
+	$crumb[] = array('text' => $dom->item(0)->nodeValue, 'href' => '');
+
+	$html = '';
+	if($crumb) {
+		$items = count($crumb) - 1;
+		$html = '<nav class="breadcrumb">';
+		$html .= '<ol class="breadcrumb__list">';
+			foreach($crumb as $k => $v){
+				$html .= '<li class="breadcrumb__item">';
+				if($k == $items) // If it's the last item then output the text only
+					$html .= $v['text'];
+				else // Preceding items with URLs
+					$html .= sprintf('<a class="breadcrumb__link" href="%s">%s</a>', $v['href'], $v['text']);
+
+				$html .= '</li>';
+			}
+		$html .= '</ol>';
+		$html .= '</nav>';
+	}
+	echo $html;
 }

@@ -8,10 +8,10 @@ get_template_part( 'partials/header' ); ?>
 	<div class="container">
 		<div class="row">
 
+			<?php get_template_part( 'partials/breadcrumbs' ); ?>
+
 			<div class="gr-12 gr-3@md">
-
 				<?php get_template_part( 'partials/sidebar', 'secondary' ); ?>
-
 			</div>
 
 			<div class="gr-12 gr-9@md">

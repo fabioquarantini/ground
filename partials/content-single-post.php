@@ -15,7 +15,6 @@
 
 	<footer class="page__footer">
 		<span class="page__data page__data--date"><?php _e('Date', 'ground') ?>: <time datetime="<?php echo get_the_date( 'c' ); ?>"><?php echo get_the_date(); ?></time></span>
-		<span class="page__data page__data--author"><?php _e('Author', 'ground') ?>: <?php the_author_posts_link(); ?></span>
 		<span class="page__data page__data--category"><?php _e('Category', 'ground') ?>: <?php the_category(', '); ?></span>
 		<?php if ( has_tag() ) { ?> <?php the_tags('<span class="page__data page__data--tag">' . __('Tag', 'ground') . ': ', ', ', '</span>' ); ?><?php } ?>
 		<?php if( comments_open() && !post_password_required() ) { ?>

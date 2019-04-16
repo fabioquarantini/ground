@@ -29,7 +29,7 @@ function ground_register_post_type_catalog() {
 		'rewrite'				=> $rewrite,
 		'supports'				=> array( 'title', 'editor', 'excerpt', 'thumbnail', 'comments', 'revisions', 'page-attributes' ),
 		'labels'				=> $labels,
-		'has_archive'			=> true,
+		'has_archive'			=> false,
 		'public'				=> true,
 		'show_in_rest'			=> false,
 		'menu_position'			=> 5,

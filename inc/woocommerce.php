@@ -12,6 +12,7 @@
 	8 - WooCommerce remove default functions
 	9 - WooCommerce body class
 	10 - WooCommerce custom pagination
+	11 - Remove Yoast "BreadcrumbList" schema data in WooCommerce pages
 
 ==========================================================================  */
 
@@ -176,3 +177,17 @@ function ground_woocommerce_pagination() {
 
 remove_action( 'woocommerce_after_shop_loop', 'woocommerce_pagination', 10 );
 add_action( 'woocommerce_after_shop_loop', 'ground_woocommerce_pagination', 10);
+
+
+/*  ==========================================================================
+	11 - Remove Yoast "BreadcrumbList" schema data in WooCommerce pages
+	==========================================================================  */
+
+function ground_woocommerce_disable_yoast_schema_data($data){
+	if (is_woocommerce() && $data["@type"] === 'BreadcrumbList') {
+		$data = array();
+	}
+	return $data;
+}
+
+add_filter('wpseo_json_ld_output', 'ground_woocommerce_disable_yoast_schema_data', 10, 1);

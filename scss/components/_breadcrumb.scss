@@ -2,6 +2,7 @@
 	height: ritmo(1); //fixed height to avoid scrollbar on mobile
 	overflow-y: hidden;
 	margin-bottom: ritmo(1);
+	@include ritmo-font-size(14px);
 
 	&:after {
 		content: '';
@@ -39,7 +40,6 @@
 
 .breadcrumb__item {
 	display: inline-block;
-	@include ritmo-font-size(14px);
 
 	&:after {
 		content: '▸';
