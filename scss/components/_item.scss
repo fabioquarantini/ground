@@ -10,25 +10,20 @@
 
 }
 
+.item__title {
+	margin-bottom: 0;
+}
+
+.item__header {
+	margin-bottom: ritmo(1);
+}
+
 .item__data {
 	display: block;
+}
+
+.item__data--date {
+	@include ritmo-font-size(12px);
+	font-weight: bold;
 	color: $color-grey-dark;
-
-	@include media('>=md') {
-		display: inline;
-		&:after {
-			content: '-';
-			padding: 0 ritmo(0.5) 0 ritmo(0.5);
-		}
-
-		&:last-child {
-			&:after {
-				content: none;
-			}
-		}
-	}
-
-	time {
-		color: $color-black;
-	}
 }
