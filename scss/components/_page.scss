@@ -41,6 +41,7 @@
 	a {
 		@include ritmo-font-size(12px, 1);
 		border: 1px solid $color-grey;
+		font-weight: bold;
 		padding: ritmo(0.20) ritmo(0.5);
 		text-decoration: none;
 		display: inline-block;
