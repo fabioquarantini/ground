@@ -409,7 +409,11 @@ function ground_view_name() {
 function ground_yoast_breadcrumb(){
 	$crumb = array();
 	$dom = new DOMDocument();
-	$dom->loadHTML(yoast_breadcrumb('', '', false));
+
+	if ( yoast_breadcrumb('', '', false) ) {
+		$dom->loadHTML(yoast_breadcrumb('', '', false));
+	}
+
 	$items = $dom->getElementsByTagName('a');
 
 	foreach ($items as $tag)
@@ -418,7 +422,10 @@ function ground_yoast_breadcrumb(){
 	// Get the current page text and href
 	$items = new DOMXpath($dom);
 	$dom = $items->query('//*[contains(@class, "breadcrumb_last")]');
-	$crumb[] = array('text' => $dom->item(0)->nodeValue, 'href' => '');
+
+	if ( $dom->item(0) && $dom->item(0)->nodeValue ) {
+		$crumb[] = array('text' => $dom->item(0)->nodeValue, 'href' => '');
+	}
 
 	$html = '';
 	if($crumb) {
