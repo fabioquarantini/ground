@@ -44,15 +44,30 @@ export default class Slider {
 			},
 			slidesPerView: 1,
 			spaceBetween: 0,
+			breakpointsInverse: true,
 			breakpoints: {
-				// Caution: No mobile first - when window width is <= 320px
+				// when window width is >= xs
 				480: {
-					slidesPerView: 1
+					slidesPerView: 1,
+					//slidesPerView: 'auto',
+					//freeMode: true,
+					//spaceBetween: 48
 				},
+				// when window width is >= sm
 				768: {
 					slidesPerView: 1
+					//freeMode: false,
 				},
+				// when window width is >= md
 				992: {
+					slidesPerView: 1
+				},
+				// when window width is >= lg
+				1200: {
+					slidesPerView: 1
+				},
+				// when window width is >= xl
+				1440: {
 					slidesPerView: 1
 				}
 			}
@@ -130,7 +145,7 @@ export default class Slider {
 	/**
 	 * Run transition to next slide
 	 * @param {number} speed - transition duration (in ms). Optional
-	 * @param {boolean} runCallbacks - Set it to false (by default it is true) and transition will not produce transition events. Optional 
+	 * @param {boolean} runCallbacks - Set it to false (by default it is true) and transition will not produce transition events. Optional
 	 */
 	slideNext(speed, runCallbacks) {
 		if (this.slider === undefined) {
