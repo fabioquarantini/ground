@@ -69,3 +69,56 @@
 		//cursor: none;
 	}
 }
+
+.fancybox-container {
+
+	.fancybox-button--arrow_left,
+	.fancybox-button--arrow_right {
+		width: 50%;
+		height: 100%;
+		margin-top: 0;
+		top: 0;
+		background: transparent;
+		padding: 0;
+		//cursor: none;
+
+		div {
+			display: none;
+		}
+
+		&:before {
+			display: none;
+		}
+
+		&:active {
+			outline: none;
+		}
+	}
+
+	.fancybox-button--arrow_left {
+		left: 0;
+	}
+
+	.fancybox-button--arrow_right {
+		right: 0;
+	}
+
+	.fancybox-button--close {
+		width: 40px;
+		height: 40px;
+		margin: 10px 10px 25px 25px;
+		border-radius: 100%;
+		position: relative;
+		z-index: 100000000;
+		transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+		&:hover {
+			transform: scale(1.15);
+		}
+	}
+
+
+	.fancybox-toolbar {
+		z-index: 1000000;
+	}
+}
