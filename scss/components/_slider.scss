@@ -71,10 +71,14 @@
 
 	.swiper-pagination-bullet {
 		border-radius: 0;
-		width: 44px;
+		width: 22px;
 		height: 1px;
 		margin-left: ritmo(0.3) !important;
 		margin-right: ritmo(0.3) !important;
+
+		@include media('>=md') {
+			width: 44px;
+		}
 	}
 
 	.swiper-pagination-bullet-active {
@@ -107,5 +111,14 @@
 
 	.slider__navigation--next {
 		right: 0;
+	}
+}
+
+.slider--freemode {
+	.swiper-slide {
+		max-width: 65%;
+		@include media('>=sm') {
+			max-width: none;
+		}
 	}
 }
