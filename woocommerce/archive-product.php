@@ -68,10 +68,15 @@ get_template_part( 'partials/header' ); ?>
 
 				<div class="page__body">
 
-					<?php
-					if ( woocommerce_product_loop() ) {
 
-						/**
+					<?php
+					if ( woocommerce_product_loop() ) { ?>
+
+						<button class="button button--centered js-toggle hide@md" data-toggle-target=".sidebar" data-toggle-class-name="is-sidebar-open">
+							Filter by
+						</button>
+
+						<?php /**
 						 * Hook: woocommerce_before_shop_loop.
 						 *
 						 * @hooked wc_print_notices - 10

@@ -1,0 +1,25 @@
+.widget {
+	border-bottom: 1px solid $color-grey;
+	margin-bottom: ritmo(1);
+
+	&:last-child {
+		border-bottom: 0;
+	}
+}
+
+.widgettitle {
+
+}
+
+.widget_top_rated_products {
+
+}
+
+.product_list_widget {
+	list-style-type: none;
+	margin: 0;
+
+	li {
+		margin-bottom: ritmo(1);
+	}
+}

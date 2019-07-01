@@ -4,11 +4,11 @@
 	right: ritmo(2);
 	display: inline-block;
 	vertical-align: top;
-	width: ritmo(3);
 	height: ritmo(3);
 	text-align: left;
 
 	@include media('>=md') {
+		width: ritmo(3);
 		position: relative;
 		top: auto;
 		right: auto;
@@ -39,7 +39,6 @@
 	margin-top: ritmo(0.6);
 	margin-bottom: ritmo(0.6);
 	height: ritmo(1.8);
-	width: ritmo(1.8);
 	line-height: ritmo(1.8);
 	color: $color-black;
 	border-radius: 50%;
@@ -47,6 +46,7 @@
 	text-decoration: none;
 
 	@include media(">=md") {
+		width: ritmo(1.8);
 		color: $color-white;
 		background: $color-primary;
 	}

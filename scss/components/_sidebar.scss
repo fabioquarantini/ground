@@ -1,0 +1,43 @@
+.sidebar {
+	display: none;
+	@include media('>=md') {
+		display: block;
+	}
+
+	&.is-sidebar-open {
+		display: block;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 100%;
+		background: #fff;
+		z-index: 99;
+		overflow: scroll;
+	}
+}
+
+.sidebar__body {
+	padding: ritmo(1) ritmo(1) ritmo(3) ritmo(1);
+
+	@include media('>=md') {
+		padding: 0;
+	}
+}
+
+.sidebar__footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	margin: 0;
+	width: 100%;
+
+	@include media('>=md') {
+		display: none;
+	}
+}
+
+.sidebar__button {
+	width: 100%;
+	margin: 0;
+}
