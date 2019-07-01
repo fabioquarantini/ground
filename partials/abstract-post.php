@@ -8,7 +8,7 @@
 	</header>
 
 	<a class="item__link" href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>">
-		<figure class="media margin-bottom-1">
+		<figure class="item__media media margin-bottom-1">
 			<?php if ( has_post_thumbnail() ) {
 				the_post_thumbnail( 'medium', array( 'class' => 'media__img' ) );
 			} else { ?>
