@@ -1,57 +1,70 @@
-$(document).ready(function() {
-	var $el = $('.js-parallax');
+/**
+ * Parallax module
+ * @see https://dixonandmoe.com/rellax/
+ */
+import Rellax from 'rellax';
+import * as deepmerge from 'deepmerge';
 
-	if ($el.length == 0) {
-		return;
+export default class Split {
+	/**
+	 * @param {string} element - Selector
+	 * @param {Object} options - User options
+	 */
+	constructor(element, options) {
+		this.element = element || '.js-parallax';
+		this.defaults = {
+			speed: -2,
+			center: false,
+			wrapper: null,
+			round: true,
+			vertical: true,
+			horizontal: false
+		};
+		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
+
+		window.addEventListener('DOMContentLoaded', () => {
+			this.init();
+		});
+
+		window.addEventListener('NAVIGATE_IN', () => {
+			this.init();
+		});
+
+		window.addEventListener('infiniteScrollAppended', () => {
+			this.init();
+		});
 	}
 
-	var scene;
-	var controller = new ScrollMagic.Controller();
+	/**
+	 * Initialize plugin
+	 */
+	init() {
+		if (document.querySelectorAll(this.element).length == 0) {
+			return;
+		}
 
-	$el.each(function(index, el) {
-		var $selector = $(el);
-		var from = $selector.data('parallax-from') || '0';
-		var to = $selector.data('parallax-to') || '0';
-		var duration = $selector.data('parallax-duration') || '200%';
-		var triggerHook = $selector.data('parallax-trigger-hook') || 'onEnter';
-		var timeLine = new TimelineMax();
+		this.parallax = new Rellax(this.element, this.options);
+	}
 
-		scene = new ScrollMagic.Scene({
-			duration: duration,
-			triggerElement: el,
-			triggerHook: triggerHook,
-			reverse: true,
-			loglevel: 2
-		}).addTo(controller);
+	/**
+	 * Refresh
+	 * Destroy and create again parallax with previous settings
+	 */
+	refresh() {
+		if (this.parallax === undefined) {
+			return;
+		}
+		this.parallax.refresh();
+	}
 
-		// Timeline GSAP
-		timeLine.fromTo(
-			$selector,
-			1,
-			{
-				y: from,
-				force3D: true
-			},
-			{
-				y: to,
-				force3D: true,
-				ease: Linear.easeNone
-			}
-		);
-		scene.setTween(timeLine);
-
-		// Add "class" to an element during a scene
-		scene.setClassToggle(el, 'is-in-scene');
-
-		// Pin element for the duration of scene
-		//scene.setPin('.js-parallax-pin');
-
-		// Class will remain on element outside of scene
-		//scene.removeClassToggle(false);
-
-		// Debug (enable script in head-output.php)
-		// scene.addIndicators({
-		// 	name: "Indicator"
-		// })
-	});
-});
+	/**
+	 * Destroy
+	 * End Rellax and reset parallax elements to their original positions
+	 */
+	destroy() {
+		if (this.parallax === undefined) {
+			return;
+		}
+		this.parallax.destroy();
+	}
+}
