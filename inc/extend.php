@@ -23,6 +23,7 @@
 	19 - Rename attachment slug
 	20 - Echoes the highway view name tag
 	21 - Custom Breadcrumb using Yoast SEO Plugin
+	22 - Ajax search result
 
 	==========================================================================  */
 
@@ -445,4 +446,18 @@ function ground_yoast_breadcrumb(){
 		$html .= '</nav>';
 	}
 	echo $html;
+}
+
+
+/*  ==========================================================================
+	22 - Ajax search result
+	==========================================================================  */
+
+add_action('wp_ajax_data_fetch' , 'ground_ajax_search_data_fetch');
+add_action('wp_ajax_nopriv_data_fetch','ground_ajax_search_data_fetch');
+
+function ground_ajax_search_data_fetch(){
+	ob_start();
+	get_template_part('partials/abstract-ajax-search');
+	return ob_get_clean();
 }

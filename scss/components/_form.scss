@@ -3,6 +3,65 @@ form {
 	width: 100%;
 }
 
+.form--search {
+
+	position: relative;
+
+	&.is-search-loading {
+		.form__button {
+			opacity: 0;
+		}
+	}
+
+	.form__label {
+		color: $color-grey;
+	}
+
+	.form__input {
+		border: 0;
+		border-bottom: 1px solid $color-grey;
+		padding: ritmo(1) 0;
+		height: auto;
+		font-weight: bold;
+		@include ritmo-font-size(21px, 1);
+
+		@include media('>=md') {
+			@include ritmo-font-size(42px, 2);
+			padding: ritmo(1) 0;
+		}
+
+		&:focus,
+		&:active {
+			box-shadow: none;
+			color: #444;
+			outline: none;
+		}
+	}
+
+	.form__button {
+		position: absolute;
+		bottom: ritmo(1);
+		right: 0;
+		margin: 0;
+		background-color: transparent;
+		border: 0;
+		padding: 0;
+		opacity: 1;
+		transition: opacity 0.4s;
+		@include media('>=md') {
+			bottom: ritmo(0.5);
+		}
+	}
+
+	.form__icon {
+		color: $color-black;
+		@include ritmo-font-size(28px, 1);
+		@include media('>=md') {
+			@include ritmo-font-size(42px, 2);
+		}
+	}
+}
+
 .form__fieldset,
 fieldset {
 	@include ritmo-horizontal-borders( 1px, 1 );

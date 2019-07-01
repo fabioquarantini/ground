@@ -2,6 +2,37 @@
 	margin-bottom: ritmo(2);
 }
 
+.item--small {
+	margin-bottom: ritmo(1);
+
+	.item__media {
+		float: left;
+		margin-right: ritmo(1);
+		max-width: ritmo(4);
+	}
+
+	.item__title {
+		//@include ritmo-font-size(21px);
+		margin-top: ritmo(0.25);
+		margin-bottom: ritmo(0.25);
+		font-weight: bold;
+		color: $color-black;
+	}
+
+	.item__body {
+		margin-bottom: 0;
+		color: $color-grey;
+	}
+
+	.item__link {
+		display: block;
+		transition: all 0.4s;
+		&:hover {
+			background-color: $color-grey-light;
+		}
+	}
+}
+
 .item__link {
 	text-decoration: none;
 }

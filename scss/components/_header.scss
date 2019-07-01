@@ -33,3 +33,30 @@
 
 	}
 }
+
+.header__search {
+	background-color: transparent;
+	cursor: pointer;
+	outline: none;
+	border: 0;
+
+
+	position: absolute;
+	top: 0;
+	right: ritmo(4.5);
+	display: inline-block;
+	vertical-align: top;
+	height: ritmo(3);
+
+	@include media('>=md') {
+		width: ritmo(3);
+		position: relative;
+		top: auto;
+		right: auto;
+	}
+
+
+	i {
+		color: $color-black;
+	}
+}

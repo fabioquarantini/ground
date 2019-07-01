@@ -37,6 +37,8 @@
 			</div> <!-- End .container -->
 		</footer> <!-- End .footer -->
 
+		<?php get_template_part( 'partials/search', 'form'); ?>
+
 		<div class="cursor" id="js-cursor">
 			<div class="cursor__circle cursor__circle--outer" id="js-cursor-outer"></div>
 			<div class="cursor__circle cursor__circle--inner"></div>
