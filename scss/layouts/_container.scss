@@ -14,3 +14,20 @@
 .container--fluid {
 	max-width: none;
 }
+
+.container--scroll {
+	display: flex;
+	flex-wrap: nowrap;
+	overflow-x: auto;
+	padding-left: ritmo(1);
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+
+	> * {
+		flex: 0 0 auto;
+		width: 65%;
+		margin-right: ritmo(1);
+	}
+}
