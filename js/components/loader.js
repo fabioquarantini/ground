@@ -1,44 +1,51 @@
 import imagesLoaded from 'imagesLoaded';
 import TweenMax from 'gsap/TweenMax';
+const isMobile = require('ismobilejs');
+
 
 export default class Loader {
 	constructor() {
-		this.DOM = { element: document.getElementById('js-loader')};
-		this.DOM.body = document.body;
-		this.DOM.background = document.getElementById('js-loader-bg');
-		this.DOM.content = document.getElementById('js-loader-content');
+		this.element = document.getElementById('js-loader');
+		this.elementBg = document.getElementById('js-loader-bg');
+		this.elementContent = document.getElementById('js-loader-content');
 		this.tlLoader = new TimelineLite();
 		this.tlLoaderContent = new TimelineLite({
 			delay: 0.2
 		});
 
-		new imagesLoaded(this.DOM.body, { background: true }, this.init());
+		new imagesLoaded(document.body, { background: true }, this.init());
 	}
 
 	init() {
-		if (!this.DOM.element) {
+		if (this.element.length == 0) {
 			return;
 		}
+		
 		// Reset Scroll
 		window.scrollTo(0, 0);
 
 		// Update body class
-		this.DOM.body.classList.replace('is-loading', 'is-loaded');
+		document.body.classList.replace('is-loading', 'is-loaded');
+
+		if (isMobile.any) {
+			document.body.classList.add('is-mobile');
+		}
+
 
 		// Animations
-		this.tlLoader.to(this.DOM.background, 1.5, {
+		this.tlLoader.to(this.elementBg, 1.5, {
 			yPercent: 100,
 			force3D: true,
 			rotation: 0.01,
 			ease: Quart.easeInOut,
 			onComplete: () => {
 				// Update body class
-				this.DOM.body.classList.add('is-loader-complete');
+				document.body.classList.add('is-loader-complete');
 				// Hide loader
-				this.DOM.element.classList.add('display-none');
+				this.element.classList.add('display-none');
 			}
 		});
-		this.tlLoaderContent.to(this.DOM.content, 0.8, {
+		this.tlLoaderContent.to(this.elementContent, 0.8, {
 			ease: Power3.easeOut,
 			y: 65,
 			opacity: 0

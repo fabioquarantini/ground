@@ -1,24 +1,35 @@
 /**
- * 
- * 
- * @see https://scroll-out.github.io
+ * Scroll module
+ * Detection of elements in viewport & smooth scrolling with parallax.
+ * @see https://github.com/locomotivemtl/locomotive-scroll
  */
-import ScrollOut from 'scroll-out';
+import imagesLoaded from 'imagesLoaded';
+import locomotiveScroll from 'locomotive-scroll';
 import * as deepmerge from 'deepmerge';
+import { DEBUG_MODE } from '../utilities/environment';
+
 
 export default class Scroll {
 	/**
 	 * @param {Object} options - User options
 	 */
 	constructor(options) {
+
 		this.defaults = {
-			once: false,
-			targets: '[data-scroll]'
+			el: document.querySelector('#js-scroll'),
+			smooth: true,
+			getSpeed: true,
+			getDirection: true,
+			smoothMobile: false,
+			scrollbarClass: 'scrollbar'
 		};
 		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
 
+
+		new imagesLoaded(document.body, { background: true }, this.init());
+
 		window.addEventListener('DOMContentLoaded', () => {
-			this.init();
+			document.body.classList.add('has-scroll-animation');
 		});
 
 		window.addEventListener('NAVIGATE_END', () => {
@@ -26,28 +37,51 @@ export default class Scroll {
 		});
 
 		window.addEventListener('infiniteScrollAppended', () => {
-			this.update();
+			this.init();
 		});
 	}
 
-	/**
-	 * Initialize plugin
-	 */
 	init() {
-		this.scroll = ScrollOut(this.options);
+
+		this.scroll = new locomotiveScroll(this.options);
+		this.onScroll();
+
+	}
+
+	/**
+	 * Scroll instance,
+	 */
+	onScroll() {
+
+		/**
+		 * @param {Object} istance (delta, direction, limit, scroll, speed)
+		 */
+
+		this.scroll.on('scroll', (instance) => {
+
+			if (DEBUG_MODE) {
+				console.log(instance);
+				console.log(instance.scroll.y);
+			}
+
+			document.documentElement.setAttribute('data-direction', instance.direction)	
+		});
+	
 	}
 
 	/**
 	 * Manually refresh the DOM
 	 */
 	update() {
-		this.scroll.index();
+		this.scroll.update();
 	}
 
 	/**
-	 * Destroy a ScrollOut instance,
+	 * Destroy instance,
 	 */
 	destroy() {
-		this.scroll.teardown();
+		this.scroll.destroy();
 	}
+
+
 }

@@ -10,12 +10,12 @@
 	@extend .clear-fix;
 
 	@include media('>=md') {
-		position: static;
+		position: relative;
 		top: auto;
 		left: auto;
 		right: auto;
 		height: auto;
-		background-color: transparent;
+		width: 100%;
 		box-shadow: none;
 		text-align: right;
 		margin-bottom: ritmo(1);

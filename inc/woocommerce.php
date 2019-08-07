@@ -115,10 +115,11 @@ function ground_woocommerce_category_image() {
 	if ( is_product_category() ){
 		global $wp_query;
 		$cat = $wp_query->get_queried_object();
-		$thumbnail_id = get_woocommerce_term_meta( $cat->term_id, 'thumbnail_id', true );
-		$image = wp_get_attachment_url( $thumbnail_id );
+		$meta = get_term_meta($cat->term_id );
+		$thumbnail_id = $meta['thumbnail_id'][0];
+		$image = wp_get_attachment_image( $thumbnail_id , 'banner');
 		if ( $image ) {
-			echo '<img src="' . $image . '" alt="' . $cat->name . '" />';
+			echo $image;
 		}
 	}
 }

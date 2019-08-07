@@ -9,6 +9,24 @@ body {
 	// height: 100vh;
 }
 
+html {
+
+    // &:not(.has-scroll-init) {
+    //     cursor: wait;
+    //     overflow: hidden;
+    // }
+
+    &.has-scroll-smooth {
+        overflow: hidden;
+    }
+
+    &.has-scroll-dragging {
+        user-select: none;
+    }
+
+}
+
+
 body {
 	padding-top: ritmo(4);
 
@@ -26,13 +44,20 @@ body {
 
 	&.is-loading {
 		overflow-y: hidden;
+        cursor: wait;
 	}
 
 	&.is-loader-complete {
 		overflow-y: visible;
 	}
 
+	.has-scroll-smooth & {
+        overflow: hidden;
+    }
+
 }
+
+
 
 *,
 :before,

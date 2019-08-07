@@ -1,0 +1,191 @@
+body.has-scroll-animation {
+        
+    // FADE IN DOWN
+    [data-scroll-animation="fade-in-down"] {
+        opacity: 0;
+        transform: translateY($offset-animation);
+        transition: opacity 0.6s $easing, transform 0.6s $easing;
+        &.is-inview {
+            transform: none;
+            opacity: 1;    
+        }
+    }
+
+    // FADE IN UP
+    [data-scroll-animation="fade-in-up"] {
+        opacity: 0;
+        transform: translateY(-$offset-animation);
+        transition: opacity 0.6s $easing, transform 0.6s $easing;
+        &.is-inview {
+            transform: none;
+            opacity: 1;    
+        }
+    }
+
+    // FADE IN RIGHT
+    [data-scroll-animation="fade-in-right"] {
+        opacity: 0;
+        transform: translateX($offset-animation);
+        transition: opacity 0.6s $easing, transform 0.6s $easing;
+        &.is-inview {
+            transform: none;
+            opacity: 1;    
+        }
+    }
+
+    // FADE IN LEFT
+    [data-scroll-animation="fade-in-left"] {
+        opacity: 0;
+        transform: translateX(-$offset-animation);
+        transition: opacity 0.6s $easing, transform 0.6s $easing;
+        &.is-inview {
+            transform: none;
+            opacity: 1;    
+        }
+    }
+
+    // ZOOM IN
+    [data-scroll-animation="zoom-in"] {
+        opacity: 0;
+        transform: scale(2);
+        transition: opacity 0.6s $easing, transform 2s $easing;
+        &.is-inview {
+            transform: none;
+            opacity: 1;    
+        }
+    }
+
+    // FADE IN DOWN STAGGERED
+    [data-scroll-animation="fade-in-down-staggered"] {
+        opacity: 0;
+        transform: translateY($offset-animation);
+        transition: opacity 0.6s $easing, transform 0.6s $easing;
+        &.is-inview {
+            transform: none;
+            opacity: 1;    
+
+            @for $i from 1 through 20 {
+                &:nth-child(#{$i}){
+                    transition-delay: $i*0.15s;
+                }
+            }
+        }
+    }
+
+    // FADE IN UP STAGGERED
+    [data-scroll-animation="fade-in-up-staggered"] {
+        opacity: 0;
+        transform: translateY(-$offset-animation);
+        transition: opacity 0.6s $easing, transform 0.6s $easing;
+        &.is-inview {
+            transform: none;
+            opacity: 1;    
+
+            @for $i from 1 through 20 {
+                &:nth-child(#{$i}){
+                    transition-delay: $i*0.15s;
+                }
+            }
+        }
+    }
+
+    // FADE IN RIGHT STAGGERED
+    [data-scroll-animation="fade-in-right-staggered"] {
+        opacity: 0;
+        transform: translateX($offset-animation);
+        transition: opacity 0.6s $easing, transform 0.6s $easing;
+        &.is-inview {
+            transform: none;
+            opacity: 1;    
+
+            @for $i from 1 through 20 {
+                &:nth-child(#{$i}){
+                    transition-delay: $i*0.15s;
+                }
+            }
+        }
+    }
+
+    // FADE IN LEFT STAGGERED
+    [data-scroll-animation="fade-in-left-staggered"] {
+        opacity: 0;
+        transform: translateX(-$offset-animation);
+        transition: opacity 0.6s $easing, transform 0.6s $easing;
+        &.is-inview {
+            transform: none;
+            opacity: 1;    
+
+            @for $i from 1 through 20 {
+                &:nth-child(#{$i}){
+                    transition-delay: $i*0.15s;
+                }
+            }
+        }
+    }
+
+    // ZOOM IN
+    [data-scroll-animation="zoom-in-staggered"] {
+
+        figure {
+            opacity: 0;
+            transform: scale(1.4);
+            transition: opacity 0.6s $easing, transform 0.6s $easing;
+        }
+
+        &.is-inview {
+            
+            figure {
+                transform: none;
+                opacity: 1;   
+            }
+
+            @for $i from 1 through 20 {
+                &:nth-child(#{$i}){
+                    figure {
+                        transition-delay: $i*0.2s;
+                    }
+                }
+            } 
+
+        }
+    }
+
+}
+
+
+
+// DIRECTION BLOCK
+.direction-block {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+.direction-block__item {
+    position: absolute;
+    font-size: 10vw;
+    white-space: nowrap;
+    text-transform: uppercase;
+    line-height: 1;
+
+    span {
+        display: block;
+        background-color: $color-white;
+        white-space: nowrap;
+        padding: 0 20px;
+    }
+
+    &--one {
+        top: 33%;
+        transform: translateX(-50vw) rotate(26deg);
+    }
+    &--two {
+        top: 45%;
+        transform: translateX(-50vw) rotate(26deg);        
+    }
+
+}
