@@ -3,7 +3,7 @@
  * Detection of elements in viewport & smooth scrolling with parallax.
  * @see https://github.com/locomotivemtl/locomotive-scroll
  */
-
+import imagesLoaded from 'imagesLoaded';
 import locomotiveScroll from 'locomotive-scroll';
 import * as deepmerge from 'deepmerge';
 import { DEBUG_MODE } from '../utilities/environment';
@@ -26,8 +26,10 @@ export default class Scroll {
 		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
 
 
+		new imagesLoaded(document.body, { background: true }, this.init());
+
 		window.addEventListener('DOMContentLoaded', () => {
-			this.init();
+			document.body.classList.add('has-scroll-animation');
 		});
 
 		window.addEventListener('NAVIGATE_END', () => {
@@ -41,7 +43,6 @@ export default class Scroll {
 
 	init() {
 
-		document.body.classList.add('has-scroll-animation');
 		this.scroll = new locomotiveScroll(this.options);
 		this.onScroll();
 
