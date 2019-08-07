@@ -20,17 +20,16 @@ export default class Loader {
 		if (this.element.length == 0) {
 			return;
 		}
-		
+
 		// Reset Scroll
 		window.scrollTo(0, 0);
 
 		// Update body class
-		document.body.classList.replace('is-loading', 'is-loaded');
+		this.DOM.body.classList.replace('is-loading', 'is-loaded');
 
 		if (isMobile.any) {
 			document.body.classList.add('is-mobile');
 		}
-
 
 		// Animations
 		this.tlLoader.to(this.elementBg, 1.5, {
@@ -45,6 +44,7 @@ export default class Loader {
 				this.element.classList.add('display-none');
 			}
 		});
+
 		this.tlLoaderContent.to(this.elementContent, 0.8, {
 			ease: Power3.easeOut,
 			y: 65,
