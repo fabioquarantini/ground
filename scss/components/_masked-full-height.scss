@@ -1,0 +1,30 @@
+.masked-full-height {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+    
+    &__target {
+        position: absolute;
+        top: -100vh;
+        bottom: -100vh;
+        right: 0;
+        left: 0;
+    }
+
+    &__bg {
+        position: absolute;
+        top: -100vh;
+        right: 0;
+        left: 0;
+        height: 100vh;
+        background-size: cover;
+        background-position: center center;
+        opacity: 0.75;
+        mix-blend-mode: multiply;
+    
+        html:not(.has-scroll-smooth) & {
+            top: 0;
+        }
+    }
+
+}

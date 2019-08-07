@@ -3,7 +3,6 @@
 	margin-left: ritmo(1);
 	margin-top: ritmo(1);
 	margin-bottom: ritmo(1);
-	display: inline-block;
 	float: left;
 
 	svg, g {
@@ -13,7 +12,7 @@
 
 .logo__img {
 	fill: $color-black;
-	transition: all 0.4s;
+
 	&:hover {
 		fill: $color-primary;
 	}

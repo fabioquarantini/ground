@@ -1,5 +1,7 @@
 import imagesLoaded from 'imagesLoaded';
 import TweenMax from 'gsap/TweenMax';
+const isMobile = require('ismobilejs');
+
 
 export default class Loader {
 	constructor() {
@@ -18,11 +20,16 @@ export default class Loader {
 		if (this.element.length == 0) {
 			return;
 		}
+		
 		// Reset Scroll
 		window.scrollTo(0, 0);
 
 		// Update body class
 		document.body.classList.replace('is-loading', 'is-loaded');
+
+		if (isMobile.any) {
+			document.body.classList.add('is-mobile');
+		}
 
 
 		// Animations
