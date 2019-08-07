@@ -5,15 +5,16 @@ const isMobile = require('ismobilejs');
 
 export default class Loader {
 	constructor() {
-		this.element = document.getElementById('js-loader');
-		this.elementBg = document.getElementById('js-loader-bg');
-		this.elementContent = document.getElementById('js-loader-content');
+		this.DOM = { element: document.getElementById('js-loader')};
+		this.DOM.body = document.body;
+		this.DOM.background = document.getElementById('js-loader-bg');
+		this.DOM.content = document.getElementById('js-loader-content');
 		this.tlLoader = new TimelineLite();
 		this.tlLoaderContent = new TimelineLite({
 			delay: 0.2
 		});
 
-		new imagesLoaded(document.body, { background: true }, this.init());
+		new imagesLoaded(this.DOM.body, { background: true }, this.init());
 	}
 
 	init() {
