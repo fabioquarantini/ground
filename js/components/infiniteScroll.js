@@ -15,6 +15,7 @@ export default class InfiniteScroll {
 	 */
 	constructor(element, options) {
 		this.element = element || '.js-infinite-container';
+		this.DOM = {element: document.querySelector(this.element)};
 		this.defaults = {
 			path: '.js-infinite-next-page',
 			append: '.js-infinite-post',
@@ -41,9 +42,10 @@ export default class InfiniteScroll {
 	 * Initialize plugin
 	 */
 	init() {
-		if (document.querySelectorAll(this.element).length == 0) {
+		if (!this.DOM.element) {
 			return;
 		}
+
 		this.infScroll = new infScroll(this.element, this.options);
 
 		this.infScroll.on('append', () => {
@@ -68,7 +70,6 @@ export default class InfiniteScroll {
 		if (this.infScroll === undefined) {
 			return;
 		}
-
 		Dispatcher.trigger('infiniteScrollAppended');
 	}
 }
