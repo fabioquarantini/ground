@@ -28,19 +28,19 @@ html {
 
 
 body {
-	padding-top: ritmo(4);
+	// padding-top: ritmo(4);
 
 	@include media('>=md') {
 		padding-top: 0;
 	}
 
-	&.body--home {
-		padding-top: ritmo(3);
+	// &.body--home {
+	// 	padding-top: ritmo(3);
 
-		@include media('>=md') {
-			padding-top: 0;
-		}
-	}
+	// 	@include media('>=md') {
+	// 		padding-top: 0;
+	// 	}
+	// }
 
 	&.is-loading {
 		overflow-y: hidden;

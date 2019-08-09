@@ -1,21 +1,27 @@
 .splitting {
+	
+	&[data-splitting="masked"] {
+		overflow: hidden;
+		display: inline-block;
+	}
 
 	&[data-scroll] {
 		.char {
-			transition: transform .3s cubic-bezier(.3, 0, .3, 1), opacity .3s linear;
-			transition-delay: calc(35ms * var(--char-index));
-			transform: translateY(.25em);
+			transition: transform .8s $easing, opacity .3s $easing;
+			transition-delay: calc(30ms * var(--char-index));
+			transform: translateY(100%);
 			opacity: 0;
 		}
 	}
 
 	.is-loader-complete & {
 
-		&[data-scroll="in"] {
+		&[data-scroll="in"],
+		&.is-inview {
 			.char {
 
 				opacity: 1;
-				transform: translateY(0);
+				transform: none;
 			}
 
 		}

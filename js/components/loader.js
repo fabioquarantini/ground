@@ -18,7 +18,7 @@ export default class Loader {
 	}
 
 	init() {
-		if (this.element.length == 0) {
+		if (this.DOM.element.length == 0) {
 			return;
 		}
 
@@ -33,7 +33,7 @@ export default class Loader {
 		}
 
 		// Animations
-		this.tlLoader.to(this.elementBg, 1.5, {
+		this.tlLoader.to(this.DOM.background, 1.5, {
 			yPercent: 100,
 			force3D: true,
 			rotation: 0.01,
@@ -42,11 +42,11 @@ export default class Loader {
 				// Update body class
 				document.body.classList.add('is-loader-complete');
 				// Hide loader
-				this.element.classList.add('display-none');
+				this.DOM.element.classList.add('display-none');
 			}
 		});
 
-		this.tlLoaderContent.to(this.elementContent, 0.8, {
+		this.tlLoaderContent.to(this.DOM.content, 0.8, {
 			ease: Power3.easeOut,
 			y: 65,
 			opacity: 0

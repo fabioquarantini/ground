@@ -5,6 +5,7 @@
  */
 import imagesLoaded from 'imagesLoaded';
 import locomotiveScroll from 'locomotive-scroll';
+import TweenMax from 'gsap/TweenMax';
 import * as deepmerge from 'deepmerge';
 import { DEBUG_MODE } from '../utilities/environment';
 
@@ -15,8 +16,11 @@ export default class Scroll {
 	 */
 	constructor(options) {
 
+		this.DOM = { element: document.getElementById('js-scroll')};
+		this.DOM.body = document.body;
+		this.DOM.scrollProgress = document.getElementById('js-scroll-progress');
 		this.defaults = {
-			el: document.querySelector('#js-scroll'),
+			el: this.DOM.element,
 			smooth: true,
 			getSpeed: true,
 			getDirection: true,
@@ -43,8 +47,17 @@ export default class Scroll {
 
 	init() {
 
-		this.scroll = new locomotiveScroll(this.options);
-		this.onScroll();
+		if (this.DOM.element.length == 0) {
+			return;
+		}
+
+		setTimeout(() => {
+
+			this.scroll = new locomotiveScroll(this.options);
+			this.onScroll();
+
+		}, 10)
+
 
 	}
 
@@ -60,11 +73,17 @@ export default class Scroll {
 		this.scroll.on('scroll', (instance) => {
 
 			if (DEBUG_MODE) {
-				console.log(instance);
-				console.log(instance.scroll.y);
+				console.log("Istance:" + instance);
+				console.log("scrollY:" + instance.scroll.y);
+				console.log("Limit:" + instance.limit);
+				console.log("Scroll Progress:" + progress_rounded + '%');
 			}
 
-			document.documentElement.setAttribute('data-direction', instance.direction)	
+			let progress = (instance.scroll.y / (this.DOM.element.offsetHeight - window.innerHeight)) * 100;
+			let progress_rounded = Math.round(progress);
+			TweenMax.set(this.DOM.scrollProgress, {height: progress_rounded + '%'});
+			document.documentElement.setAttribute('data-direction', instance.direction);
+
 		});
 	
 	}
