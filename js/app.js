@@ -19,7 +19,6 @@ const loader = new Loader;
 const modal = new Modal();
 //const ajaxNavigation = new AjaxNavigation;
 const sliderPrimary = new Slider('.js-slider-primary');
-const sliderSecondary = new Slider('.js-slider-secondary');
 const split = new Split();
 const toggle = new Toggle();
 // const scrollOld = new ScrollOld();
@@ -28,3 +27,44 @@ const parallax = new Parallax();
 const cursor = new Cursor();
 const search = new Search();
 const magnet = new Magnet();
+
+const carousel = new Slider('.js-carousel',{
+    loop: false,
+    autoHeight: false,
+    effect: 'slide',
+    slidesPerView: 'auto',
+    spaceBetween: 30,
+    parallax: false,
+    autoplay: false,
+    freeMode: true,
+    pagination: {
+        el: '.swiper-pagination',
+        type: 'progressbar',
+    },
+    breakpoints: {
+        // when window width is >= xs
+        480: {
+            slidesPerView: 'auto',
+            //slidesPerView: 'auto',
+            //freeMode: true,
+            //spaceBetween: 48
+        },
+        // when window width is >= sm
+        768: {
+            slidesPerView: 'auto'
+            //freeMode: false,
+        },
+        // when window width is >= md
+        992: {
+            slidesPerView: 'auto'
+        },
+        // when window width is >= lg
+        1200: {
+            slidesPerView: 'auto'
+        },
+        // when window width is >= xl
+        1440: {
+            slidesPerView: 'auto'
+        }
+    }
+});

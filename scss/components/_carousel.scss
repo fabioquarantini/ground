@@ -1,0 +1,85 @@
+.carousel {
+
+    &__item {
+		overflow: hidden;
+		width: 500px;
+		height: 600px;
+    }
+    
+    &__pagination {
+		position: relative;
+		height: 1px;
+		background: rgba(0,0,0,0.15);
+
+		.swiper-pagination-progressbar-fill {
+			background: $color-black;
+		}
+    }
+    
+    &__navigation-container {
+		position: relative;
+		background: $color-white;
+		display: inline-block;
+		z-index: 11;
+        width: 100%;        
+
+		.carousel__navigation {
+			position: relative;
+			top: 0;
+			margin-top: 0;
+			width: 30px;
+            height: 40px;
+            line-height: 40px;
+			left: auto;
+			right: auto;
+            text-align: center;
+            color: $color-black;
+            background-image: none;
+			
+			&--prev {
+                float: left;
+	            @include icon(arrow-left);
+            }
+            
+			&--next {
+                float: right;
+	            @include icon(arrow-right);            
+			}
+		}
+	}
+}
+
+.carousel__text,
+.carousel__title,
+.carousel__button {
+	opacity: 0;
+	transform: translateY(30px);
+	transition: .8s all .2s cubic-bezier(.115,.19,.305,.91);
+
+    .swiper-slide-active & {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.carousel__img {
+	transition: 1.2s all .2s cubic-bezier(.115,.19,.305,.91);
+
+    .swiper-slide-active & {
+		transform: scale(1.15) rotate(2deg);
+		opacity: 0.3;
+	}
+
+}
+
+.carousel__title {
+	transition-delay: .2s;
+}
+
+.carousel__text {
+	transition-delay: .4s;
+}
+
+.carousel__button {
+	transition-delay: .6s;
+}

@@ -35,6 +35,16 @@ get_template_part( 'partials/header' ); ?>
 <div class="container margin-top-5 margin-bottom-5">
     <div class="row">
         <div class="gr-12">
+            <?php get_template_part( 'partials/carousel','primary' ); ?>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container margin-top-5 margin-bottom-5">
+    <div class="row">
+        <div class="gr-12">
         
             <div style="font-size: 160px; line-height: 160px;">
                 <h1 class="display-inline-block">
@@ -326,6 +336,7 @@ get_template_part( 'partials/header' ); ?>
         </div>
     </div>
 </div>
+
 
 
 
