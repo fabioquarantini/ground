@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Scroll
+Template Name: Example
 */
 
 get_template_part( 'partials/header' ); ?>
