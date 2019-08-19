@@ -11,6 +11,7 @@ import Toggle from './components/toggle.js';
 import Scroll from './components/scroll.js';
 import Cursor from './components/cursor.js';
 import Search from './components/search.js';
+import Magnet from './components/magnet.js';
 
 
 const infiniteScroll = new InfiniteScroll;
@@ -26,3 +27,4 @@ const scroll = new Scroll();
 const parallax = new Parallax();
 const cursor = new Cursor();
 const search = new Search();
+const magnet = new Magnet();
