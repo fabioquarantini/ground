@@ -17,6 +17,7 @@
 		background-color: $color-success;
 	}
 
+	.woocommerce-placeholder,
 	.attachment-woocommerce_thumbnail {
 		width: 100%;
 	}
@@ -29,6 +30,7 @@
 			color: transparent;
 			background-color: $color-secondary;
 			border-color: $color-secondary;
+
 			&:after {
 				content: "";
 				position: absolute;
