@@ -96,6 +96,31 @@ get_template_part( 'partials/header' ); ?>
 </div>
 
 
+<div class="container margin-top-5">
+    <div class="row">
+        <div class="gr-12">
+        
+            <div style="font-size: 160px; line-height: 160px;">
+                <h1 class="display-inline-block">
+                    <span style="font-size: 160px; line-height: 160px;" data-splitting="masked" data-scroll data-scroll-offset="10%">SLIDER GALLERY</span>
+                </h1>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="container container--fluid padding-0 margin-bottom-5">
+    <div class="row">
+        <div class="gr-10@md gr-8 gr-centered">
+            <?php get_template_part( 'partials/slider','gallery' ); ?>
+        </div>
+    </div>
+</div>
+
+
+
 <div class="container position-relative margin-top-5 margin-bottom-5">
     <div class="row">
 

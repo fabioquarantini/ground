@@ -28,6 +28,28 @@ const cursor = new Cursor();
 const search = new Search();
 const magnet = new Magnet();
 
+
+
+const sliderGallery = new Slider('.js-slider-gallery',{
+    direction: 'horizontal',
+    loop: false,
+    effect: 'slide',
+    speed: 600,
+    autoHeight: false,
+    parallax: true,
+    autoplay: false,
+    slidesPerView: 1,
+    spaceBetween: 40,
+    breakpoints: {
+        // when window width is >= xl
+        1440: {
+            speed: 1400,
+            spaceBetween: 80,
+        }
+    }
+});
+
+
 const carousel = new Slider('.js-carousel',{
     loop: false,
     autoHeight: false,
