@@ -17,7 +17,6 @@
 		height: auto;
 		width: 100%;
 		text-align: right;
-		margin-bottom: ritmo(1);
 		transition: transform $speed $easing;
 
 		[data-direction="down"] & {

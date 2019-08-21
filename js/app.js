@@ -20,7 +20,7 @@ const modal = new Modal();
 //const ajaxNavigation = new AjaxNavigation;
 const sliderPrimary = new Slider('.js-slider-primary');
 const split = new Split();
-const toggle = new Toggle();
+//const toggle = new Toggle();
 // const scrollOld = new ScrollOld();
 const scroll = new Scroll();
 const parallax = new Parallax();
@@ -37,34 +37,36 @@ const carousel = new Slider('.js-carousel',{
     parallax: false,
     autoplay: false,
     freeMode: true,
+    touchEventsTarget: '.swiper-wrapper',
     pagination: {
         el: '.swiper-pagination',
         type: 'progressbar',
     },
-    breakpoints: {
-        // when window width is >= xs
-        480: {
-            slidesPerView: 'auto',
-            //slidesPerView: 'auto',
-            //freeMode: true,
-            //spaceBetween: 48
+    on: {
+
+        touchStart: function() {
+
+            var swiper = this;
+            for (var i = 0; i < swiper.slides.length; i++) {
+
+                TweenMax.to(swiper.slides[i], 0.6, { ease: Circ.easeOut, scale: 0.9})
+                TweenMax.to(swiper.slides[i].querySelector(".carousel__media"), 2, { ease: Circ.easeOut, scale: 1.2})
+
+            }
+            
         },
-        // when window width is >= sm
-        768: {
-            slidesPerView: 'auto'
-            //freeMode: false,
+    
+        touchEnd: function() {
+
+            var swiper = this;
+            for (var i = 0; i < swiper.slides.length; i++) {
+
+                TweenMax.to(swiper.slides[i], 0.2, { ease: Circ.easeOut, scale: 1})
+                TweenMax.to(swiper.slides[i].querySelector(".carousel__media"), 0.2, { ease: Circ.easeOut, scale: 1})
+
+            }
+            
         },
-        // when window width is >= md
-        992: {
-            slidesPerView: 'auto'
-        },
-        // when window width is >= lg
-        1200: {
-            slidesPerView: 'auto'
-        },
-        // when window width is >= xl
-        1440: {
-            slidesPerView: 'auto'
-        }
+
     }
 });

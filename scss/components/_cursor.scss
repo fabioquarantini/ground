@@ -11,6 +11,75 @@
 	&.is-cursor-hide {
 		opacity: 0;
 	}
+
+	// .is-cursor-navigation & {
+	// 	background-color: $color-black;
+	// 	border: 0;
+	// }
+
+	// .is-cursor-zoom & {
+	// 	background-color: $color-black;
+	// 	border: 0;
+	// }
+
+	// .is-cursor-loading & {
+	// 	background-color: $color-primary;
+	// 	border-color: $color-primary;
+	// }
+
+
+	&.is-cursor-clicked {
+		.cursor__circle--outer {
+			transform: scale(3) !important;
+			opacity: 0 !important;
+		}
+	}
+
+
+	&.is-cursor-dragged {
+		.cursor__circle--outer {
+			background-color: rgba($color-grey, 0.5);
+			transform: scale(2.5);
+			border: 2px solid transparent;
+		}
+		.cursor__icon {
+			@include icon(justify-all);
+		}
+	}	
+
+	&.is-cursor-hover {	
+		.cursor__circle--outer {
+			background-color: rgba($color-grey, 0.5);
+			border: 2px solid transparent;
+			transform: scale(2.5);
+		}
+		.cursor__icon {
+			opacity: 0;
+		}
+	}
+
+	&.is-cursor-right {
+		.cursor__icon {
+			opacity: 1;
+			@include icon(arrow-right);
+		}
+	}
+
+	&.is-cursor-left {
+		.cursor__icon {
+			opacity: 1;
+			@include icon(arrow-left);
+		}
+	}
+
+	&.is-cursor-zoom {
+		.cursor__icon {
+			opacity: 1;
+			@include icon(plus);
+		}
+	}
+
+
 }
 
 .cursor__circle {
@@ -40,36 +109,16 @@
 	height: 30px;
 	border: 2px solid $color-black;
 	background-color: transparent;
-	transition: background-color 0.3s ease, border 0.1s ease;
 	opacity: 1;
-
-	.is-cursor-hover & {
-		background-color: rgba($color-grey, 0.5);
-		border: 2px solid transparent;
-	}
-
-	.is-cursor-navigation & {
-		background-color: $color-black;
-		border: 0;
-	}
-
-	.is-cursor-zoom & {
-		background-color: $color-black;
-		border: 0;
-	}
-
-	.is-cursor-loading & {
-		background-color: $color-primary;
-		border-color: $color-primary;
-	}
-
+	transition: all $speed $easing;
 }
 
 .cursor__icon {
 	@extend .centered;
 	font-size: 14px;
-	color: $color-white;
+	color: $color-black;
 	display: inline-block;
+	transition: all $speed $easing;
 }
 
 
