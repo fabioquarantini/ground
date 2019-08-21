@@ -34,6 +34,6 @@
 	</div> <!-- End .swiper-wrapper -->
 
 	<!-- <div class="slider__pagination swiper-pagination js-slider-primary-pagination"></div> -->
-	<div class="slider__navigation slider__navigation--prev swiper-button-prev js-slider-primary-navigation-prev"></div>
-	<div class="slider__navigation slider__navigation--next swiper-button-next js-slider-primary-navigation-next"></div>
+	<div class="slider__navigation slider__navigation--prev swiper-button-prev js-slider-primary-navigation-prev js-cursor-left"></div>
+	<div class="slider__navigation slider__navigation--next swiper-button-next js-slider-primary-navigation-next js-cursor-right"></div>
 </div> <!-- End .slider -->

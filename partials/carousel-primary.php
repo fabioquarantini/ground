@@ -86,8 +86,8 @@
 
 		<div class="gr-1 display-none display-inline-block@md">
 			<div class="carousel__navigation-container">
-				<div class="carousel__navigation carousel__navigation--prev swiper-button-prev js-slider-primary-navigation-prev js-cursor-left js-magnet js-audio" data-dist="2"></div>
-				<div class="carousel__navigation carousel__navigation--next swiper-button-next js-slider-primary-navigation-next js-cursor-right js-magnet js-audio" data-dist="2"></div>
+				<div class="carousel__navigation carousel__navigation--prev swiper-button-prev js-slider-primary-navigation-prev js-cursor-left js-magnet" data-dist="2"></div>
+				<div class="carousel__navigation carousel__navigation--next swiper-button-next js-slider-primary-navigation-next js-cursor-right js-magnet" data-dist="2"></div>
 			</div>
 		</div>
 
