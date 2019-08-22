@@ -16,52 +16,44 @@ export default class Magnet {
 
         if (this.DOM.element.length == 0) {
 			return;
-		}
+        }
+    
+        this.DOM.element.forEach( (magnet) => {
+            magnet.addEventListener('mousemove', this.moveMagnet );
+            magnet.addEventListener('mouseout', function(event) {
+                
+                if (magnet.classList.contains("is-magnet")) {
+                    magnet.classList.remove('is-magnet');
+                }
 
-        this.DOM.element.forEach(element => {
+                TweenMax.to( event.currentTarget, 0.4, {x: 0, y: 0, ease: Back.easeOut})
 
-            window.addEventListener('mousemove', event => this.magnetize(element, event));
-
+            } );
         });
 
     }
     
-
     /**
-     * Magnetize
+     * moveMagnet
     */
-    magnetize(element, event) {
+    moveMagnet(event) {
 
-        let mX = event.pageX,
-            mY = event.pageY;
-        const item = element;
+        let magnetButton = event.currentTarget;
+        let bounding = magnetButton.getBoundingClientRect();
         
-        const customDist = item.getAttribute('data-dist') * 20 || 120;
-        const centerX = item.offsetLeft + (item.clientWidth/2);
-        const centerY = item.offsetTop + (item.clientHeight/2);
-        
-        let deltaX = Math.floor((centerX - mX)) * -0.45;
-        let deltaY = Math.floor((centerY - mY)) * -0.45;
-        
-        let distance = this.calculateDistance(item, mX, mY);
-            
-        if(distance < customDist) {
-            TweenMax.to(item, 0.5, { y: deltaY, x: deltaX, scale: 1.2 });
-            item.classList.add('is-magnet');
-        } else {
-            TweenMax.to(item, 0.6, { y: 0, x: 0, scale: 1, });
-            item.classList.remove('is-magnet');
+        if (!magnetButton.classList.contains("is-magnet")) {
+            magnetButton.classList.add('is-magnet');
         }
+        //console.log(magnetButton, bounding)
 
-    }
+        TweenMax.to( magnetButton, 1, {
+            x: ((( event.clientX - bounding.left)/magnetButton.offsetWidth) - 0.5) * 70,
+            y: ((( event.clientY - bounding.top)/magnetButton.offsetHeight) - 0.5) * 70,
+            ease: Power4.easeOut
+        })
 
-    /**
-     * calculateDistance
-    */
-    calculateDistance(element, mouseX, mouseY) {
+        //   magnetButton.style.transform = 'translate(' + (((( event.clientX - bounding.left)/(magnetButton.offsetWidth))) - 0.5) * strength + 'px,'+ (((( event.clientY - bounding.top)/(magnetButton.offsetHeight))) - 0.5) * strength + 'px)';
 
-        return Math.floor(Math.sqrt(Math.pow(mouseX - (element.offsetLeft+(element.clientWidth/2)), 2) + Math.pow(mouseY - (element.offsetTop+(element.clientHeight/2)), 2)));
-    
     }
 
 }
