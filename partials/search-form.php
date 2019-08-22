@@ -7,7 +7,7 @@
 			<button class="form__button" type="submit"><i class="form__icon icon-magnifying-glass"></i></button>
 			<div class="search__spinner spinner js-ajax-search-spinner"></div>
 		</form> <!-- End .form -->
-		<i class="search__close icon-close js-toggle js-magnet" data-toggle-target=".search" data-toggle-class-name="is-search-open"></i>
+		<i class="search__close icon-close js-toggle js-magnet js-cursor-hover" data-toggle-target=".search" data-toggle-class-name="is-search-open"></i>
 		<div class="search__result" id="js-ajax-search-result"></div>
 	</div>
 </div>

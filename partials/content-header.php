@@ -7,7 +7,7 @@
 
     <?php get_template_part( 'partials/navigation', 'primary' ); ?>
 
-    <button class="header__search js-toggle js-magnet" data-toggle-target=".search" data-toggle-class-name="is-search-open">
+    <button class="header__search js-toggle js-magnet js-cursor-hover" data-toggle-target=".search" data-toggle-class-name="is-search-open">
         <i class="icon-magnifying-glass"></i>
     </button> <!-- End .navicon -->
 
