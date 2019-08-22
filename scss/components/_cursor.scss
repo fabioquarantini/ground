@@ -43,7 +43,7 @@
 			border: 2px solid transparent;
 		}
 		.cursor__icon {
-			@include icon(justify-all);
+			@include icon(drag);
 		}
 	}	
 
