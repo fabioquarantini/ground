@@ -55,7 +55,7 @@ export default class Scroll {
 			this.scroll = new locomotiveScroll(this.options);
 			this.onScroll();
 
-		}, 10)
+		}, 1000)
 
 
 	}

@@ -79,6 +79,7 @@
 	opacity: 0;
 	transform: translateY(30px);
 	transition: .5s all cubic-bezier(.115,.19,.305,.91);
+	will-change: transform;
 }
 
 .carousel__title {
