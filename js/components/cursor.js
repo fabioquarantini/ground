@@ -2,16 +2,22 @@
  * Cursor module
  * Mouse interactions
  */
-import * as deepmerge from 'deepmerge';
 import Utilities from '../utilities/utilities';
 const isMobile = require('ismobilejs');
 
 export default class Cursor {
-	constructor(el) {
-		this.element = document.getElementById('js-cursor');
-		this.outerCursor = document.getElementById('js-cursor-outer');
-		this.icon = document.getElementById('js-cursor-icon');
-		this.bounds = this.element.getBoundingClientRect();
+	/**
+	 * @param {string} element - Selector
+	 */
+	constructor(element) {
+		this.element = element || 'js-cursor';
+		this.DOM = {
+			element: document.getElementById(this.element)
+		};
+		this.DOM.outerCursor = document.getElementById('js-cursor-outer');
+		this.DOM.icon = document.getElementById('js-cursor-icon');
+
+		this.bounds = this.DOM.element.getBoundingClientRect();
 		this.amount = {
 			inner: 0.15,
 			outer: 0.15
@@ -32,23 +38,26 @@ export default class Cursor {
 		window.addEventListener('DOMContentLoaded', () => {
 			this.init();
 		});
-
-		window.addEventListener('NAVIGATE_OUT', () => {
-			this.destroyEvents();
-		});
 	}
 
+	/**
+	 * Initialize
+	 */
 	init() {
-		if (isMobile.any && document.querySelectorAll(this.element).length == 0) {
+		if (isMobile.any && !this.DOM.element) {
 			return;
 		}
 
 		this.initEvents();
-		//TODO: togliere il request animation frame alla chiusura  window.cancelAnimationFrame(this.requestId);
 		requestAnimationFrame(() => this.render());
+	}
 
-		let root = document;
-		var that = this;
+	/**
+	 * Observe DOM Node Changes
+	 */
+	initObservation() {
+		//let root = document;
+		//var that = this;
 		// function bindedUpdateNode(mutationsList, observer) {
 		// 	for(var mutation of mutationsList) {
 		// 		if (mutation.type == 'childList') {
@@ -89,17 +98,21 @@ export default class Cursor {
 		// });
 	}
 
+	/**
+	 * Initialize events
+	 */
 	initEvents() {
-		window.addEventListener('mousemove', event => this.mousePosition(event));
+		window.addEventListener('mousemove', event => Utilities.getMousePosition(event));
 		document.addEventListener('click', event => this.click(event));
-		[
-			...document.querySelectorAll('a, .js-cursor-drag, .js-cursor-hover, .js-cursor-right, .js-cursor-left, .js-cursor-zoom, [data-fancybox-prev], [data-fancybox-next]')
-		].forEach(link => {
+		[...document.querySelectorAll('a, .js-cursor-drag, .js-cursor-hover, .js-cursor-right, .js-cursor-left, .js-cursor-zoom, [data-fancybox-prev], [data-fancybox-next]')].forEach(link => {
 			link.addEventListener('mouseenter', event => this.toggle(event));
 			link.addEventListener('mouseleave', event => this.toggle(event));
 		});
 	}
 
+	/**
+	 * Render animation
+	 */
 	render() {
 		this.lastMousePos.x = Utilities.lerp(
 			this.lastMousePos.x,
@@ -113,108 +126,60 @@ export default class Cursor {
 		);
 		this.lastScale = Utilities.lerp(this.lastScale, this.scale, 0.15);
 		this.lastOpacity = Utilities.lerp(this.lastOpacity, this.opacity, 0.1);
-		this.element.style.transform = `translateX(${this.lastMousePos.x}px) translateY(${this.lastMousePos.y}px)`;
-		// this.outerCursor.style.transform = `scale(${this.lastScale})`;
-		this.outerCursor.style.opacity = this.lastOpacity;
+		this.DOM.element.style.transform = `translateX(${this.lastMousePos.x}px) translateY(${this.lastMousePos.y}px)`;
+		// this.DOM.outerCursor.style.transform = `scale(${this.lastScale})`;
+		this.DOM.outerCursor.style.opacity = this.lastOpacity;
 		requestAnimationFrame(() => this.render());
 	}
 
-	mousePosition(event) {
-		this.mousePos = Utilities.getMousePosition(event);
-	}
-
+	/**
+	 * On click
+	 * @param {Object} event
+	 */
 	click(event) {
-		if (
-			!event.target.classList.contains('js-cursor-drag')
-		) {
-			this.element.classList.add('is-cursor-clicked');
+		if (!event.target.classList.contains('js-cursor-drag')) {
+			this.DOM.element.classList.add('is-cursor-clicked');
 			setTimeout(() => {
-				this.element.classList.remove('is-cursor-clicked');
+				this.DOM.element.classList.remove('is-cursor-clicked');
 			}, 100);
 		}
 	}
 
-	toggle(event) {		
-
-		if (
-			!event.target.classList.contains('js-cursor-drag')
-		) {
-			this.element.classList.toggle('is-cursor-hover');
-		}
-	
-		if (
-			event.target.classList.contains('js-cursor-drag')
-		) {
-			this.element.classList.toggle('is-cursor-dragged');
+	/**
+	 * Toggle classes
+	 * @param {Object} event
+	 */
+	toggle(event) {
+		if (!event.target.classList.contains('js-cursor-drag')) {
+			this.DOM.element.classList.toggle('is-cursor-hover');
 		}
 
-		if (
-			event.target.classList.contains('js-cursor-zoom')
-		) {
-			this.element.classList.toggle('is-cursor-zoom');
+		if (event.target.classList.contains('js-cursor-drag')) {
+			this.DOM.element.classList.toggle('is-cursor-dragged');
 		}
 
-		if (
-			event.target.classList.contains('js-cursor-right')
-		) {
-			this.element.classList.toggle('is-cursor-right');
+		if (event.target.classList.contains('js-cursor-zoom')) {
+			this.DOM.element.classList.toggle('is-cursor-zoom');
 		}
 
-		if (
-			event.target.classList.contains('js-cursor-left')
-		) {
-			this.element.classList.toggle('is-cursor-left');
+		if (event.target.classList.contains('js-cursor-right')) {
+			this.DOM.element.classList.toggle('is-cursor-right');
 		}
 
-		if (
-			 event.target.classList.contains('[data-fancybox-next]')
-		) {
-			this.element.classList.toggle('is-cursor-right');
+		if (event.target.classList.contains('js-cursor-left')) {
+			this.DOM.element.classList.toggle('is-cursor-left');
 		}
 
-		if (
-			 event.target.classList.contains('[data-fancybox-prev]')
-		) {
-			this.element.classList.toggle('is-cursor-left');
+		if (event.target.classList.contains('[data-fancybox-next]')) {
+			this.DOM.element.classList.toggle('is-cursor-right');
 		}
 
+		if (event.target.classList.contains('[data-fancybox-prev]')) {
+			this.DOM.element.classList.toggle('is-cursor-left');
+		}
 
-		// if (
-		// 	event.target.classList.contains('slider__navigation') ||
-		// 	event.target.classList.contains('fancybox-button')
-		// ) {
-		// 	this.element.classList.toggle('is-cursor-navigation');
-		// }
-
-		// if (
-		// 	event.target.classList.contains('slider__navigation--next') ||
-		// 	event.target.classList.contains('fancybox-button--arrow_right')
-		// ) {
-		// 	this.icon.classList.toggle('icon-arrow-right');
-		// }
-
-		// if (
-		// 	event.target.classList.contains('slider__navigation--prev') ||
-		// 	event.target.classList.contains('fancybox-button--arrow_left')
-		// ) {
-		// 	this.icon.classList.toggle('icon-arrow-left');
-		// }
-
-		// if (event.target.classList.contains('fancybox-button--close')) {
-		// 	this.icon.classList.toggle('icon-close');
-		// }
-
-		// if (event.target.hasAttribute('data-fancybox')) {
-		// 	this.element.classList.toggle('is-cursor-zoom');
-		// 	this.icon.classList.toggle('icon-plus');
-		// }
-
-		// if (event.target.classList.contains('js-cursor-hide')) {
-		// 	this.element.classList.toggle('is-cursor-hide');
-		// }
+		if (event.target.classList.contains('js-cursor-hide')) {
+			this.DOM.element.classList.toggle('is-cursor-hide');
+		}
 	}
-
-	destroy() {}
-
-	destroyEvents() {}
 }
