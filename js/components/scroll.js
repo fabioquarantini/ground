@@ -5,7 +5,6 @@
  */
 import imagesLoaded from 'imagesLoaded';
 import locomotiveScroll from 'locomotive-scroll';
-import TweenMax from 'gsap/TweenMax';
 import * as deepmerge from 'deepmerge';
 import { DEBUG_MODE } from '../utilities/environment';
 
@@ -81,7 +80,7 @@ export default class Scroll {
 
 			let progress = (instance.scroll.y / (this.DOM.element.offsetHeight - window.innerHeight)) * 100;
 			let progress_rounded = Math.round(progress);
-			TweenMax.set(this.DOM.scrollProgress, {height: progress_rounded + '%'});
+			this.DOM.scrollProgress.style.height = progress_rounded + '%';
 			document.documentElement.setAttribute('data-direction', instance.direction);
 
 		});

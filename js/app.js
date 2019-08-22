@@ -29,7 +29,6 @@ const search = new Search();
 const magnet = new Magnet();
 
 
-
 const sliderGallery = new Slider('.js-slider-gallery',{
     direction: 'horizontal',
     loop: false,
