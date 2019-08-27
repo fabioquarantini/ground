@@ -80,8 +80,6 @@ export default class Cursor extends AbstractComponent {
 	 * @param {Object} target - Selector
 	 */
 	updateEvents(target) {
-		console.log('update', target);
-
 		target.addEventListener('mouseenter', event => this.toggle(event));
 		target.addEventListener('mouseleave', event => this.toggle(event));
 	}
