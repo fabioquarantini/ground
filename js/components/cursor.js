@@ -3,20 +3,26 @@
  * Mouse interactions
  */
 import Utilities from '../utilities/utilities';
+import AbstractComponent from '../components/abstractComponent';
+
 const isMobile = require('ismobilejs');
 
-export default class Cursor {
+export default class Cursor extends AbstractComponent {
 	/**
 	 * @param {string} element - Selector
+	 * @param {Object} options - User options
 	 */
-	constructor(element) {
+	constructor(element, options) {
+		super(element, options);
 		this.element = element || 'js-cursor';
+		this.triggers = 'a, .js-cursor-drag, .js-cursor-hover, .js-cursor-right, .js-cursor-left, .js-cursor-zoom, .fancybox-button';
 		this.DOM = {
 			element: document.getElementById(this.element)
 		};
 		this.DOM.outerCursor = document.getElementById('js-cursor-outer');
 		this.DOM.icon = document.getElementById('js-cursor-icon');
 
+		this.updateEvents = this.updateEvents.bind(this);
 		this.bounds = this.DOM.element.getBoundingClientRect();
 		this.amount = {
 			inner: 0.15,
@@ -35,6 +41,7 @@ export default class Cursor {
 		this.lastScale = 1;
 		this.lastOpacity = 1;
 
+		// TODO: Fix listener
 		window.addEventListener('DOMContentLoaded', () => {
 			this.init();
 		});
@@ -47,71 +54,40 @@ export default class Cursor {
 		if (isMobile.any && !this.DOM.element) {
 			return;
 		}
-
-		this.initEvents();
 		requestAnimationFrame(() => this.render());
+		this.initEvents(this.triggers);
+		super.initObserver(this.triggers, this.updateEvents);
 	}
 
-	/**
-	 * Observe DOM Node Changes
-	 */
-	initObservation() {
-		//let root = document;
-		//var that = this;
-		// function bindedUpdateNode(mutationsList, observer) {
-		// 	for(var mutation of mutationsList) {
-		// 		if (mutation.type == 'childList') {
-		// 			if (mutation.addedNodes) {
-		// 				root = mutation.addedNodes;
-		// 				that.initEvents(root);
-		// 			}
-		// 		}
-		// 		else if (mutation.type == 'attributes') {
-		// 			console.log('The ' + mutation.attributeName + ' attribute was modified.', mutation);
-		// 		}
-		// 	}
-		// }
-
-		// let bindedUpdateNode = (mutationsList, observer) => {
-		// //function bindedUpdateNode(mutationsList, observer) {
-		// 	for(var mutation of mutationsList) {
-		// 		if (mutation.type == 'childList') {
-		// 			if (mutation.addedNodes.length > 0) {
-		// 				//console.log('A child node has been added.');
-		// 				//console.log(mutation);
-		// 				//console.log(mutation.addedNodes);
-		// 				this.updateEvents(mutation.addedNodes);
-		// 			}
-		// 		}
-		// 		else if (mutation.type == 'attributes') {
-		// 			console.log('The ' + mutation.attributeName + ' attribute was modified.');
-		// 		}
-		// 	}
-		// }
-
-		// this.domObserver = new window.MutationObserver(bindedUpdateNode);
-		// this.domObserver.observe(document.body, {
-		// 	childList: true,
-		// 	attributes: false,
-		// 	characterData: false,
-		// 	subtree: true
-		// });
-	}
 
 	/**
 	 * Initialize events
+	 * @param {string} triggers - Selectors
 	 */
-	initEvents() {
-		window.addEventListener('mousemove', event => Utilities.getMousePosition(event));
+	initEvents(triggers) {
+		window.addEventListener('mousemove', event => {
+			this.mousePos = Utilities.getMousePosition(event);
+		});
 		document.addEventListener('click', event => this.click(event));
-		[...document.querySelectorAll('a, .js-cursor-drag, .js-cursor-hover, .js-cursor-right, .js-cursor-left, .js-cursor-zoom, [data-fancybox-prev], [data-fancybox-next]')].forEach(link => {
+		[...document.querySelectorAll(triggers)].forEach(link => {
 			link.addEventListener('mouseenter', event => this.toggle(event));
 			link.addEventListener('mouseleave', event => this.toggle(event));
 		});
 	}
 
 	/**
-	 * Render animation
+	 * Update events
+	 * @param {Object} target - Selector
+	 */
+	updateEvents(target) {
+		console.log('update', target);
+
+		target.addEventListener('mouseenter', event => this.toggle(event));
+		target.addEventListener('mouseleave', event => this.toggle(event));
+	}
+
+	/**
+	 * Render cursor animation
 	 */
 	render() {
 		this.lastMousePos.x = Utilities.lerp(
@@ -170,12 +146,16 @@ export default class Cursor {
 			this.DOM.element.classList.toggle('is-cursor-left');
 		}
 
-		if (event.target.classList.contains('[data-fancybox-next]')) {
+		if (event.target.classList.contains('fancybox-button--arrow_right')) {
 			this.DOM.element.classList.toggle('is-cursor-right');
 		}
 
-		if (event.target.classList.contains('[data-fancybox-prev]')) {
+		if (event.target.classList.contains('fancybox-button--arrow_left')) {
 			this.DOM.element.classList.toggle('is-cursor-left');
+		}
+
+		if (event.target.classList.contains('fancybox-button--close')) {
+			this.DOM.element.classList.toggle('is-cursor-close');
 		}
 
 		if (event.target.classList.contains('js-cursor-hide')) {
