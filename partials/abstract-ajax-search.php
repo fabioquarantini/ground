@@ -13,11 +13,11 @@ if ( $query->have_posts() ) {
 
 			<div class="item item--small">
 				<a class="item__link clear-fix" href="<?php echo esc_url( post_permalink() ); ?>">
-					<figure class="item__media media">
+					<figure class="item__media media ratio-1-1">
 						<?php if ( has_post_thumbnail() ) { ?>
-							<img class="media__img lazyload" data-src="<?php the_post_thumbnail_url('medium'); ?>"/>
+							<img class="media__img lazyload cover" data-src="<?php the_post_thumbnail_url('medium'); ?>"/>
 						<?php } else { ?>
-							<img class="media__img lazyload" data-src="<?php echo TEMPLATE_URL ?>/img/no-image.svg">
+							<img class="media__img lazyload cover" data-src="<?php echo TEMPLATE_URL ?>/img/no-image.svg">
 						<?php } ?>
 					</figure>
 
