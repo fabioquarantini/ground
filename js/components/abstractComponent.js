@@ -6,6 +6,7 @@ export default class AbstractComponent {
 	/**
 	 * Observe DOM Node Changes
 	 * @param {string} triggers - Selectors
+	 * @param {requestCallback} cb - The callback that handles the response.
 	 */
 	initObserver(triggers, callback) {
 		// @see https://stackoverflow.com/questions/56608748/how-to-use-queryselectorall-on-the-added-nodes-in-a-mutationobserver
@@ -37,10 +38,6 @@ export default class AbstractComponent {
 			const result = filterSelector(triggers, mutationsList);
 			result.forEach(element => {
 				callback(element);
-				/*(() => {
-					callback(element);
-					console.log('suca');
-				})();*/
 			});
 		};
 
