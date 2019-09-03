@@ -12,29 +12,12 @@
 		opacity: 0;
 	}
 
-	// .is-cursor-navigation & {
-	// 	background-color: $color-black;
-	// 	border: 0;
-	// }
-
-	// .is-cursor-zoom & {
-	// 	background-color: $color-black;
-	// 	border: 0;
-	// }
-
-	// .is-cursor-loading & {
-	// 	background-color: $color-primary;
-	// 	border-color: $color-primary;
-	// }
-
-
 	&.is-cursor-clicked {
 		.cursor__circle--outer {
 			transform: scale(3) !important;
 			opacity: 0 !important;
 		}
 	}
-
 
 	&.is-cursor-dragged {
 		.cursor__circle--outer {
@@ -87,8 +70,6 @@
 			@include icon(plus);
 		}
 	}
-
-
 }
 
 .cursor__circle {
@@ -99,27 +80,26 @@
 	@extend .centered;
 	width: 8px;
 	height: 8px;
-	//background: $color-primary;
-	//transform-origin: center;
-
-	.is-cursor-navigation & {
-		//background-color: transparent;
-	}
-
 	.is-cursor-hover & {
 		height: 16px;
 		width: 16px;
 	}
-
 }
 
 .cursor__circle--outer {
+	background-color: transparent;
 	width: 30px;
 	height: 30px;
-	border: 2px solid $color-black;
-	background-color: transparent;
 	opacity: 1;
 	transition: all $speed $easing;
+	.is-cursor-always-visible & {
+		border: 2px solid $color-black;
+	}
+
+	.is-loading & {
+		background-color: $color-primary;
+		border: 2px solid $color-primary;
+	}
 }
 
 .cursor__icon {
@@ -129,7 +109,6 @@
 	display: inline-block;
 	transition: all $speed $easing;
 }
-
 
 .cursor__loader {
 	display: none;
@@ -141,15 +120,9 @@
 	left: -32px;
 	border: 4px solid transparent;
 	border-top: 4px solid $color-primary;
-	animation: rotating 1.2s infinite linear;
+	animation: rotate 1.2s infinite linear;
 
-	.is-cursor-loading & {
+	.is-loading & {
 		display: block;
-	}
-}
-
-@keyframes rotating {
-	100% {
-		transform: rotate(360deg);
 	}
 }
