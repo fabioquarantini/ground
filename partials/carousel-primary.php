@@ -1,5 +1,5 @@
-<div class="carousel carousel--primary swiper-container js-carousel overflow-visible js-cursor-drag">
-	<div class="swiper-wrapper">		
+<div class="carousel carousel--primary swiper-container js-carousel overflow-visible">
+	<div class="swiper-wrapper js-cursor-drag">
 		<div class="carousel__item swiper-slide">
 			<div class="carousel__media">
 				<img class="carousel__img cover" src="<?php echo TEMPLATE_URL ?>/img/sample-2.jpg">
@@ -13,7 +13,7 @@
 		<div class="carousel__item swiper-slide">
 			<div class="carousel__media">
 				<img class="carousel__img cover" src="<?php echo TEMPLATE_URL ?>/img/sample-3.jpg">
-			</div>				
+			</div>
 			<div class="carousel__body centered text-center">
 				<h3 class="carousel__title">Title ipsum 2</h3>
 				<p class="carousel__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
@@ -53,7 +53,7 @@
 		<div class="carousel__item swiper-slide">
 			<div class="carousel__media">
 				<img class="carousel__img cover" src="<?php echo TEMPLATE_URL ?>/img/sample-3.jpg">
-			</div>			
+			</div>
 			<div class="carousel__body centered text-center">
 				<h3 class="carousel__title">Title ipsum 2</h3>
 				<p class="carousel__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
@@ -63,7 +63,7 @@
 		<div class="carousel__item swiper-slide">
 			<div class="carousel__media">
 				<img class="carousel__img cover" src="<?php echo TEMPLATE_URL ?>/img/sample-1.jpg">
-			</div>		
+			</div>
 			<div class="carousel__body centered text-center">
 				<h3 class="carousel__title">Title ipsum 3</h3>
 				<p class="carousel__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
@@ -81,7 +81,7 @@
 			</div>
 		</div>
 	</div> <!-- End .swiper-wrapper -->
-	
+
 	<div class="row position-relative row-align-middle margin-top-2@md margin-top-1 test">
 
 		<div class="gr-1 display-none display-inline-block@md">
