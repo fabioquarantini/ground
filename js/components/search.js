@@ -1,11 +1,10 @@
 /**
  * Search module
- * @todo Add debounce
- * @todo Fix variables
- * @todo Add no product found
  */
 
+import 'whatwg-fetch';
 import Utilities from '../utilities/utilities';
+import { DEBUG_MODE } from '../utilities/environment';
 
 export default class Search {
 	/**
@@ -13,64 +12,61 @@ export default class Search {
 	 */
 	constructor(element) {
 		this.element = element || 'js-ajax-search';
-		this.$element = document.getElementById(this.element);
-		//this.searchInput = '.js-ajax-search';
-		this.searchResult = 'js-ajax-search-result';
-		this.$searchResult = document.getElementById(this.searchResult);
-		//this.searchSpinner = '.js-ajax-search';
+		this.DOM = { element: document.getElementById(this.element)};
+		this.DOM.searchResult = document.getElementById('js-ajax-search-result');
+		this.DOM.searchInput = document.getElementById('js-ajax-search-input');
 		this.adminAjaxUrl = Utilities.getSiteUrl() + '/wp-admin/admin-ajax.php';
+		this.searchLoadingClass = 'is-search-loading';
 
 		window.addEventListener('DOMContentLoaded', () => {
-			this.init();
-		});
-
-		window.addEventListener('NAVIGATE_IN', () => {
-			this.init();
-		});
-
-		window.addEventListener('infiniteScrollAppended', () => {
 			this.init();
 		});
 	}
 
 	init() {
-		if (this.$element.length == 0) {
+		if (this.DOM.element.length == 0) {
 			return;
 		}
-		var el = document.getElementById('js-ajax-search-input');
-		el.addEventListener('keyup', () => this.search());
+
+		let debounce = Utilities.debounce(() => {
+			this.search();
+		}, 250);
+
+		this.DOM.searchInput.addEventListener('input', debounce);
 	}
 
 	search() {
-		if (document.getElementById('js-ajax-search-input').value == '') {
-			$('#js-ajax-search-result').empty();
+		let searchValue = this.DOM.searchInput.value;
+		if (searchValue == '') {
+			this.DOM.searchResult.innerHTML = null;
 			return;
 		}
-
 		this.beforeSend();
-		fetch(this.adminAjaxUrl, {
+
+		window.fetch(this.adminAjaxUrl, {
 			method: 'post',
 			headers: {
-				'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8'
+				'content-type': 'application/x-www-form-urlencoded; charset=UTF-8'
 			},
-			body: 'action=data_fetch&keyword=' + document.getElementById('js-ajax-search-input').value
-
-		}).then(function(res) {
+			body: 'action=data_fetch&keyword=' + searchValue
+		}).then(res => {
 			return res.text();
 		}).then(
 			html => this.success(html)
-		).catch(function(error) {
-			console.log('Request failed', error);
+		).catch(error => {
+			if (DEBUG_MODE) {
+				console.error('Error:', error);
+			}
 		});
 	}
 
 	beforeSend() {
-		this.$element.classList.add('is-search-loading');
-		this.$searchResult.innerHTML = null;
+		this.DOM.element.classList.add(this.searchLoadingClass);
+		this.DOM.searchResult.innerHTML = null;
 	}
 
 	success(html) {
-		this.$element.classList.remove('is-search-loading');
-		this.$searchResult.innerHTML = html;
+		this.DOM.element.classList.remove(this.searchLoadingClass);
+		this.DOM.searchResult.innerHTML = html;
 	}
 }
