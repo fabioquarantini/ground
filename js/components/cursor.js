@@ -22,7 +22,7 @@ export default class Cursor extends AbstractComponent {
 			cursorVisible: false,
 			interpolationAmount: {
 				inner: 0.15,
-				outer: 0.02
+				outer: 0.15
 			}
 		};
 		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
