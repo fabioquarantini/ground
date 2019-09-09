@@ -8,12 +8,9 @@
 	</header>
 
 	<a class="item__link" href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>">
+		<?php $image = get_field('image'); ?>
 		<figure class="item__media media margin-bottom-1">
-			<?php if ( has_post_thumbnail() ) {
-				the_post_thumbnail( 'medium', array( 'class' => 'media__img' ) );
-			} else { ?>
-				<img class="media__img" src="<?php echo TEMPLATE_URL ?>/img/no-image.svg">
-			<?php }?>
+			<?php echo ground_print_image($image); ?>
 		</figure>
 	</a>
 
