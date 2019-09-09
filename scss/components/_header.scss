@@ -17,8 +17,8 @@
 		height: auto;
 		width: 100%;
 		text-align: right;
-		margin-bottom: ritmo(1);
 		transition: transform $speed $easing;
+		will-change: transform;
 
 		[data-direction="down"] & {
 			transform: translateY(ritmo(-3));

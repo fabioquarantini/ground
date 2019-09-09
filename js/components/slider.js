@@ -45,32 +45,32 @@ export default class Slider {
 			slidesPerView: 1,
 			spaceBetween: 0,
 			breakpointsInverse: true,
-			breakpoints: {
-				// when window width is >= xs
-				480: {
-					slidesPerView: 1,
-					//slidesPerView: 'auto',
-					//freeMode: true,
-					//spaceBetween: 48
-				},
-				// when window width is >= sm
-				768: {
-					slidesPerView: 1
-					//freeMode: false,
-				},
-				// when window width is >= md
-				992: {
-					slidesPerView: 1
-				},
-				// when window width is >= lg
-				1200: {
-					slidesPerView: 1
-				},
-				// when window width is >= xl
-				1440: {
-					slidesPerView: 1
-				}
-			}
+			// breakpoints: {
+			// 	// when window width is >= xs
+			// 	480: {
+			// 		slidesPerView: 1,
+			// 		//slidesPerView: 'auto',
+			// 		//freeMode: true,
+			// 		//spaceBetween: 48
+			// 	},
+			// 	// when window width is >= sm
+			// 	768: {
+			// 		slidesPerView: 1
+			// 		//freeMode: false,
+			// 	},
+			// 	// when window width is >= md
+			// 	992: {
+			// 		slidesPerView: 1
+			// 	},
+			// 	// when window width is >= lg
+			// 	1200: {
+			// 		slidesPerView: 1
+			// 	},
+			// 	// when window width is >= xl
+			// 	1440: {
+			// 		slidesPerView: 1
+			// 	}
+			// }
 		};
 		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
 

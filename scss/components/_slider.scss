@@ -16,6 +16,22 @@
 	}
 }
 
+.slider--gallery {
+
+	.slider__navigation {
+		&:before {
+			display: none;
+		}
+	}
+	
+	.slider__img {
+		height: 320px;
+		@include media('>=md') {
+			height: 600px;
+		}
+	}
+}
+
 .slider__item {
 	overflow: hidden;
 }

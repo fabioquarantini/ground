@@ -4,18 +4,33 @@
  */
 import * as deepmerge from 'deepmerge';
 import Utilities from '../utilities/utilities';
+import AbstractComponent from '../components/abstractComponent';
+
 const isMobile = require('ismobilejs');
 
-export default class Cursor {
-	constructor(el) {
-		this.element = document.getElementById('js-cursor');
-		this.outerCursor = document.getElementById('js-cursor-outer');
-		this.icon = document.getElementById('js-cursor-icon');
-		this.bounds = this.element.getBoundingClientRect();
-		this.amount = {
-			inner: 0.15,
-			outer: 0.15
+export default class Cursor extends AbstractComponent {
+	/**
+	 * @param {string} element - Selector
+	 * @param {Object} options - User options
+	 */
+	constructor(element, options) {
+		super(element, options);
+		this.element = element || 'js-cursor';
+		this.defaults = {
+			triggers: 'a, .js-cursor-drag, .js-cursor-hover, .js-cursor-right, .js-cursor-left, .js-cursor-zoom, .js-cursor-close',
+			alwaysVisible: true,
+			cursorVisible: false,
+			interpolationAmount: {
+				inner: 0.15,
+				outer: 0.15
+			}
 		};
+		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
+		this.updateEvents = this.updateEvents.bind(this);
+		this.getMousePosition = this.getMousePosition.bind(this);
+		this.click = this.click.bind(this);
+		this.toggle = this.toggle.bind(this);
+		this.render = this.render.bind(this);
 		this.scale = 1;
 		this.opacity = 1;
 		this.mousePos = {
@@ -31,187 +46,159 @@ export default class Cursor {
 
 		window.addEventListener('DOMContentLoaded', () => {
 			this.init();
-		});
-
-		window.addEventListener('NAVIGATE_IN', () => {
-			console.log('in');
-		});
-
-
-		window.addEventListener('NAVIGATE_END', () => {
-			console.log('end');
-			this.init();
-		});
-
-		window.addEventListener('fancyboxOnActivate', () => {
-			this.init();
-		});
-
-		window.addEventListener('infiniteScrollAppended', () => {
-			// Alla seconda chiamata vengono doppiati gli eventi
-			this.init();
-		});
-
-		window.addEventListener('NAVIGATE_OUT', () => {
-			this.destroyEvents();
-			console.log('out');
+			this.initEvents(this.options.triggers);
+			super.initObserver(this.options.triggers, this.updateEvents);
 		});
 	}
 
+	/**
+	 * Initialize
+	 */
 	init() {
-		if (isMobile.any && document.querySelectorAll(this.element).length == 0) {
+		this.DOM = {
+			element: document.getElementById(this.element)
+		};
+
+		if (!isMobile.any && this.DOM.element === null) {
 			return;
 		}
 
-		this.initEvents();
-		//TODO: togliere il request animation frame alla chiusura  window.cancelAnimationFrame(this.requestId);
-		requestAnimationFrame(() => this.render());
-
-
-		/*let root = document;
-		var that = this;
-		function bindedUpdateNode(mutationsList, observer) {
-			for(var mutation of mutationsList) {
-				if (mutation.type == 'childList') {
-					if (mutation.addedNodes) {
-						root = mutation.addedNodes;
-						that.initEvents(root);
-					}
-				}
-				else if (mutation.type == 'attributes') {
-					console.log('The ' + mutation.attributeName + ' attribute was modified.', mutation);
-				}
-			}
-		}*/
-
-		function bindedUpdateNode(mutationsList, observer) {
-			for(var mutation of mutationsList) {
-				if (mutation.type == 'childList') {
-					if (mutation.addedNodes.length > 0) {
-						console.log('A child node has been added.');
-						//console.log(mutation);
-						console.log(mutation.addedNodes);
-					}
-				}
-				else if (mutation.type == 'attributes') {
-					console.log('The ' + mutation.attributeName + ' attribute was modified.');
-				}
-			}
+		if (this.options.alwaysVisible) {
+			this.DOM.element.classList.add('is-cursor-always-visible');
 		}
+		this.DOM.body = document.body;
 
-		this.domObserver = new window.MutationObserver(bindedUpdateNode);
-		this.domObserver.observe(document.body, {
-			childList: true,
-			attributes: false,
-			characterData: false,
-			subtree: true
+		if (!this.options.cursorVisible) {
+			this.DOM.body.style.cursor = 'none';
+		}
+		this.DOM.outerCursor = document.getElementById('js-cursor-outer');
+		this.DOM.innerCursor = document.getElementById('js-cursor-inner');
+		this.DOM.icon = document.getElementById('js-cursor-icon');
+		this.bounds = this.DOM.element.getBoundingClientRect();
+
+		this.renderID = window.requestAnimationFrame(this.render);
+	}
+
+	/**
+	 * Initialize events
+	 * @param {string} triggers - Selectors
+	 */
+	initEvents(triggers) {
+		window.addEventListener('mousemove', this.getMousePosition);
+		document.addEventListener('click', this.click);
+		[...document.querySelectorAll(triggers)].forEach(link => {
+			link.addEventListener('mouseenter', this.toggle);
+			link.addEventListener('mouseleave', this.toggle);
 		});
 	}
 
-	initEvents() {
-		window.addEventListener('mousemove', event => this.mousePosition(event));
-
-		// TODO: non aggiorna i nuovi selettori ajax
-		[
-			...document.querySelectorAll('a, .slider__navigation, .button, [data-fancybox="gallery"], .fancybox-button')
-		].forEach(link => {
-			//console.log("links", link);
-			link.addEventListener('mouseenter', event => this.enter(event));
-			link.addEventListener('mouseleave', event => this.leave(event));
-			link.addEventListener('click', event => this.click(event));
-		});
+	/**
+	 * Update events
+	 * @param {Object} target - New selector
+	 */
+	updateEvents(target) {
+		this.init();
+		target.addEventListener('mouseenter', this.toggle);
+		target.addEventListener('mouseleave', this.toggle);
 	}
 
+	/**
+	 * Render cursor animation
+	 */
 	render() {
+		if (!isMobile.any && this.DOM.element === null) {
+			return;
+		}
 		this.lastMousePos.x = Utilities.lerp(
 			this.lastMousePos.x,
 			this.mousePos.x - this.bounds.width / 2,
-			this.amount.outer
+			this.options.interpolationAmount.outer
 		);
 		this.lastMousePos.y = Utilities.lerp(
 			this.lastMousePos.y,
 			this.mousePos.y - this.bounds.height / 2,
-			this.amount.outer
+			this.options.interpolationAmount.outer
 		);
 		this.lastScale = Utilities.lerp(this.lastScale, this.scale, 0.15);
 		this.lastOpacity = Utilities.lerp(this.lastOpacity, this.opacity, 0.1);
-		this.element.style.transform = `translateX(${this.lastMousePos.x}px) translateY(${this.lastMousePos.y}px)`;
-		this.outerCursor.style.transform = `scale(${this.lastScale})`;
-		this.outerCursor.style.opacity = this.lastOpacity;
-		requestAnimationFrame(() => this.render());
+		this.DOM.element.style.transform = `translateX(${this.lastMousePos.x}px) translateY(${this.lastMousePos.y}px)`;
+		// this.DOM.outerCursor.style.transform = `scale(${this.lastScale})`;
+		this.DOM.outerCursor.style.opacity = this.lastOpacity;
+		this.renderID = window.requestAnimationFrame(() => this.render());
 	}
 
-	mousePosition(event) {
+	/**
+	 * On click
+	 * @param {Object} event
+	 */
+	click(event) {
+		if (!isMobile.any && this.DOM.element === null) {
+			return;
+		}
+		if (!event.target.classList.contains('js-cursor-drag')) {
+			this.DOM.element.classList.add('is-cursor-clicked');
+			setTimeout(() => {
+				this.DOM.element.classList.remove('is-cursor-clicked');
+			}, 100);
+		}
+	}
+
+	getMousePosition(event) {
 		this.mousePos = Utilities.getMousePosition(event);
 	}
 
-	enter(event) {
-		this.scale = 2;
-		this.toggle(event);
-	}
-
-	leave(event) {
-		this.scale = 1;
-		this.toggle(event);
-	}
-
+	/**
+	 * Toggle classes
+	 * @param {Object} event
+	 */
 	toggle(event) {
-		this.element.classList.toggle('is-cursor-hover');
-
-		if (
-			event.target.classList.contains('slider__navigation') ||
-			event.target.classList.contains('fancybox-button')
-		) {
-			this.element.classList.toggle('is-cursor-navigation');
+		if (!isMobile.any && this.DOM.element === null) {
+			return;
 		}
 
-		if (
-			event.target.classList.contains('slider__navigation--next') ||
-			event.target.classList.contains('fancybox-button--arrow_right')
-		) {
-			this.icon.classList.toggle('icon-arrow-right');
+		if (!event.target.classList.contains('js-cursor-drag')) {
+			this.DOM.element.classList.toggle('is-cursor-hover');
 		}
 
-		if (
-			event.target.classList.contains('slider__navigation--prev') ||
-			event.target.classList.contains('fancybox-button--arrow_left')
-		) {
-			this.icon.classList.toggle('icon-arrow-left');
+		if (event.target.classList.contains('js-cursor-drag')) {
+			this.DOM.element.classList.toggle('is-cursor-dragged');
 		}
 
-		if (event.target.classList.contains('fancybox-button--close')) {
-			this.icon.classList.toggle('icon-close');
+		if (event.target.classList.contains('js-cursor-zoom')) {
+			this.DOM.element.classList.toggle('is-cursor-zoom');
 		}
 
-		if (event.target.hasAttribute('data-fancybox')) {
-			this.element.classList.toggle('is-cursor-zoom');
-			this.icon.classList.toggle('icon-plus');
+		if (event.target.classList.contains('js-cursor-right')) {
+			this.DOM.element.classList.toggle('is-cursor-right');
+		}
+
+		if (event.target.classList.contains('js-cursor-left')) {
+			this.DOM.element.classList.toggle('is-cursor-left');
+		}
+
+		if (event.target.classList.contains('js-cursor-close')) {
+			this.DOM.element.classList.toggle('is-cursor-close');
 		}
 
 		if (event.target.classList.contains('js-cursor-hide')) {
-			this.element.classList.toggle('is-cursor-hide');
+			this.DOM.element.classList.toggle('is-cursor-hide');
 		}
 	}
 
-	click(event) {
-		this.lastScale = 1;
-		this.lastOpacity = 0;
-	}
-
-	destroy() {}
-
-	destroyEvents() {
-		//this.domObserver.disconnect();
-
-		// TODO detroy events
-		window.removeEventListener('mousemove', event => this.mousePosition(event));
-
-		[
-			...document.querySelectorAll('a, .slider__navigation, .button, [data-fancybox="gallery"], .fancybox-button')
-		].forEach(link => {
-			link.removeEventListener('mouseenter', event => this.enter(event));
-			link.removeEventListener('mouseleave', event => this.leave(event));
-			link.removeEventListener('click', event => this.click(event));
+	destroy() {
+		if (!this.options.cursorVisible) {
+			this.DOM.body.style.cursor = '';
+		}
+		this.mousePos = {
+			x: -100,
+			y: -100
+		};
+		window.cancelAnimationFrame(this.renderID);
+		window.removeEventListener('mousemove', this.getMousePosition);
+		document.removeEventListener('click', this.click);
+		[...document.querySelectorAll(this.options.triggers)].forEach(link => {
+			link.removeEventListener('mouseenter', this.toggle);
+			link.removeEventListener('mouseleave', this.toggle);
 		});
 	}
 }

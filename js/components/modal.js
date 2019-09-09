@@ -92,7 +92,7 @@ export default class Modal {
 		});
 
 		$(document).on('onActivate.fb', (e, instance, slide) => {
-			Dispatcher.trigger('fancyboxOnActivate');
+			//Dispatcher.trigger('fancyboxOnActivate');
 		});
 
 		$(document).on('beforeClose.fb', (e, instance, slide) => {

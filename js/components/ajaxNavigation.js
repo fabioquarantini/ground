@@ -6,14 +6,12 @@
 import Highway from '@dogstudio/highway';
 import Reveal from '../transitions/reveal.js';
 import Dispatcher from '../utilities/dispatcher.js';
+import AbstractComponent from '../components/abstractComponent';
 
-export default class AjaxNavigation {
+export default class AjaxNavigation extends AbstractComponent {
 	constructor() {
+		super();
 		window.addEventListener('DOMContentLoaded', () => {
-			this.init();
-		});
-
-		window.addEventListener('infiniteScrollAppended', () => {
 			this.init();
 		});
 	}

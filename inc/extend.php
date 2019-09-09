@@ -438,7 +438,7 @@ function ground_yoast_breadcrumb(){
 	$dom = new DOMDocument();
 
 	if ( yoast_breadcrumb('', '', false) ) {
-		$dom->loadHTML(yoast_breadcrumb('', '', false));
+		$dom->loadHTML('<?xml encoding="' . get_bloginfo('charset') . '" ?>' . yoast_breadcrumb('', '', false));
 	}
 
 	$items = $dom->getElementsByTagName('a');
@@ -461,11 +461,11 @@ function ground_yoast_breadcrumb(){
 		$html .= '<ol class="breadcrumb__list">';
 			foreach($crumb as $k => $v){
 				$html .= '<li class="breadcrumb__item">';
-				if($k == $items) // If it's the last item then output the text only
+				if($k == $items) { // If it's the last item then output the text only
 					$html .= $v['text'];
-				else // Preceding items with URLs
+				} else { // Preceding items with URLs
 					$html .= sprintf('<a class="breadcrumb__link" href="%s">%s</a>', $v['href'], $v['text']);
-
+				}
 				$html .= '</li>';
 			}
 		$html .= '</ol>';

@@ -185,7 +185,7 @@ add_action( 'woocommerce_after_shop_loop', 'ground_woocommerce_pagination', 10);
 	==========================================================================  */
 
 function ground_woocommerce_disable_yoast_schema_data($data){
-	if (is_woocommerce() && $data["@type"] === 'BreadcrumbList') {
+	if (is_woocommerce() && isset($data["@type"]) && $data["@type"] === 'BreadcrumbList') {
 		$data = array();
 	}
 	return $data;

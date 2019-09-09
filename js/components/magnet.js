@@ -1,77 +1,75 @@
 import imagesLoaded from 'imagesLoaded';
 import TweenMax from 'gsap/TweenMax';
+import AbstractComponent from '../components/abstractComponent';
 
-export default class Magnet {
+export default class Magnet extends AbstractComponent {
 	/**
 	 * @param {Object} options - User options
 	 */
-	constructor(options) {
+	constructor(element, options) {
+		super(element, options);
+		this.element = element || '.js-magnet';
+		this.triggers = this.element;
+		this.DOM = {
+			element: document.querySelectorAll(this.element)
+		};
+		this.DOM.body = document.body;
+		this.updateEvents = this.updateEvents.bind(this);
 
-        this.DOM = document.querySelectorAll('.js-magnet');
-
-		new imagesLoaded(document.body, { background: true }, this.init());
-
-		window.addEventListener('DOMContentLoaded', () => {
-			this.init();
-		});
-
-		window.addEventListener('NAVIGATE_IN', () => {
-			this.init();
-		});
-
-		window.addEventListener('infiniteScrollAppended', () => {
-			this.init();
-		});
+		new imagesLoaded(this.DOM.body, { background: true }, this.init());
 	}
 
 	init() {
-
-        if (this.DOM.length == 0) {
+		if (this.DOM.element.length == 0) {
 			return;
 		}
+		super.initObserver(this.triggers, this.updateEvents);
+		this.initEvents(this.triggers);
+	}
 
-        this.DOM.forEach(function(elem){
-            $(document).on('mousemove touch', function(e){
-                magnetize(elem, e);
-            });
-        })
+	/**
+	 * Initialize events
+	 * @param {string} triggers - Selectors
+	 */
+	initEvents(triggers) {
+		this.DOM.element.forEach((magnet) => {
+			magnet.addEventListener('mousemove', event => this.moveMagnet(event));
+			magnet.addEventListener('mouseout', event => this.removeMagnet(event));
+		});
+	}
 
-        // $(document).on('mousemove touch', function(e){
-        //   magnetize('.el', e);
-        // });
+	/**
+	 * Update events
+	 * @param {Object} target - Selector
+	 */
+	updateEvents(target) {
+		target.addEventListener('mousemove', event => this.moveMagnet(event));
+		target.addEventListener('mouseout', event => this.removeMagnet(event));
+	}
 
-        function magnetize(el, e){
-            let mX = e.pageX,
-                mY = e.pageY;
-            const item = $(el);
-            
-            const customDist = item.data('dist') * 20 || 120;
-            const centerX = item.offset().left + (item.width()/2);
-            const centerY = item.offset().top + (item.height()/2);
-            
-            let deltaX = Math.floor((centerX - mX)) * -0.45;
-            let deltaY = Math.floor((centerY - mY)) * -0.45;
-            
-            let distance = calculateDistance(item, mX, mY);
-                
-            if(distance < customDist){
-                TweenMax.to(item, 0.5, { y: deltaY, x: deltaX, scale: 1.2 });
-                item.addClass('is-magnet');
-            }
-            else {
-                TweenMax.to(item, 0.6, { y: 0, x: 0, scale: 1, });
-                item.removeClass('is-magnet');
-            }
-        }
+	/**
+	 * moveMagnet
+	*/
+	moveMagnet(event) {
+		let magnetButton = event.currentTarget;
+		let bounding = magnetButton.getBoundingClientRect();
+		this.toggle(magnetButton);
+		TweenMax.to(magnetButton, 1, {
+			x: (((event.clientX - bounding.left)/magnetButton.offsetWidth) - 0.5) * 70,
+			y: (((event.clientY - bounding.top)/magnetButton.offsetHeight) - 0.5) * 70,
+			ease: Power4.easeOut
+		});
 
-        function calculateDistance(elem, mouseX, mouseY) {
-            return Math.floor(Math.sqrt(Math.pow(mouseX - (elem.offset().left+(elem.width()/2)), 2) + Math.pow(mouseY - (elem.offset().top+(elem.height()/2)), 2)));
-        }
+		// magnetButton.style.transform = 'translate(' + (((( event.clientX - bounding.left)/(magnetButton.offsetWidth))) - 0.5) * strength + 'px,'+ (((( event.clientY - bounding.top)/(magnetButton.offsetHeight))) - 0.5) * strength + 'px)';
+	}
 
-        /*- MOUSE STICKY -*/
-        function lerp(a, b, n) {
-            return (1 - n) * a + n * b
-        }
+	removeMagnet(event) {
+		let magnetButton = event.currentTarget;
+		this.toggle(magnetButton);
+		TweenMax.to(magnetButton, 0.4, {x: 0, y: 0, ease: Back.easeOut});
+	}
 
+	toggle(target) {
+		target.classList.toggle('is-magnet');
 	}
 }

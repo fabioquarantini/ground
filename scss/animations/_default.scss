@@ -5,6 +5,8 @@ body.has-scroll-animation {
         opacity: 0;
         transform: translateY($offset-animation);
         transition: opacity 0.6s $easing, transform 0.6s $easing;
+		will-change: transform;
+
         &.is-inview {
             transform: none;
             opacity: 1;    
@@ -16,6 +18,8 @@ body.has-scroll-animation {
         opacity: 0;
         transform: translateY(-$offset-animation);
         transition: opacity 0.6s $easing, transform 0.6s $easing;
+		will-change: transform;
+
         &.is-inview {
             transform: none;
             opacity: 1;    
@@ -27,6 +31,8 @@ body.has-scroll-animation {
         opacity: 0;
         transform: translateX($offset-animation);
         transition: opacity 0.6s $easing, transform 0.6s $easing;
+		will-change: transform;
+
         &.is-inview {
             transform: none;
             opacity: 1;    
@@ -38,6 +44,8 @@ body.has-scroll-animation {
         opacity: 0;
         transform: translateX(-$offset-animation);
         transition: opacity 0.6s $easing, transform 0.6s $easing;
+		will-change: transform;
+
         &.is-inview {
             transform: none;
             opacity: 1;    
@@ -49,6 +57,8 @@ body.has-scroll-animation {
         opacity: 0;
         transform: scale(2);
         transition: opacity 0.6s $easing, transform 2s $easing;
+		will-change: transform;
+
         &.is-inview {
             transform: none;
             opacity: 1;    
@@ -60,6 +70,8 @@ body.has-scroll-animation {
         opacity: 0;
         transform: translateY($offset-animation);
         transition: opacity 0.6s $easing, transform 0.6s $easing;
+		will-change: transform;
+
         &.is-inview {
             transform: none;
             opacity: 1;    
@@ -77,6 +89,8 @@ body.has-scroll-animation {
         opacity: 0;
         transform: translateY(-$offset-animation);
         transition: opacity 0.6s $easing, transform 0.6s $easing;
+		will-change: transform;
+
         &.is-inview {
             transform: none;
             opacity: 1;    
@@ -94,6 +108,8 @@ body.has-scroll-animation {
         opacity: 0;
         transform: translateX($offset-animation);
         transition: opacity 0.6s $easing, transform 0.6s $easing;
+		will-change: transform;
+
         &.is-inview {
             transform: none;
             opacity: 1;    
@@ -111,6 +127,8 @@ body.has-scroll-animation {
         opacity: 0;
         transform: translateX(-$offset-animation);
         transition: opacity 0.6s $easing, transform 0.6s $easing;
+		will-change: transform;
+
         &.is-inview {
             transform: none;
             opacity: 1;    
@@ -130,6 +148,7 @@ body.has-scroll-animation {
             opacity: 0;
             transform: scale(1.4);
             transition: opacity 0.6s $easing, transform 0.6s $easing;
+    		will-change: transform;
         }
 
         &.is-inview {
