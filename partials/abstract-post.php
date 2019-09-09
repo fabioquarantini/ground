@@ -13,7 +13,6 @@
 			<?php echo ground_print_image($image); ?>
 		</figure>
 	</a>
-
 	<p class="item__body"><?php ground_excerpt( 100 ); ?></p>
 
 </article> <!-- End .item -->

@@ -257,6 +257,7 @@ add_filter( 'image_send_to_editor', 'ground_remove_img_size', 10 );
 	13 - Gets the featured image of a specifific post
 	==========================================================================  */
 
+
 function ground_get_image($size = 'thumbnail' ,$id = null , $url = true){
 	$image = wp_get_attachment_image_src(get_post_thumbnail_id($id), $size);
 	$image = ($url) ? $image[0] : $image ;
