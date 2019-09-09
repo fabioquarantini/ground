@@ -2,20 +2,23 @@
  * Infinite Scroll module
  * Automatically add next page
  * @see https://infinite-scroll.com
+ * TODO: Fix Smoothscroll
+ * TODO: Fix highway on new link
  */
 import * as deepmerge from 'deepmerge';
 import { DEBUG_MODE } from '../utilities/environment';
-import Dispatcher from '../utilities/dispatcher';
+import AbstractComponent from '../components/abstractComponent';
+
 var infScroll = require('infinite-scroll');
 
-export default class InfiniteScroll {
+export default class InfiniteScroll extends AbstractComponent {
 	/**
 	 * @param {string} element - Container element
 	 * @param {Object} options - User options
 	 */
 	constructor(element, options) {
+		super(element, options);
 		this.element = element || '.js-infinite-container';
-		this.DOM = {element: document.querySelector(this.element)};
 		this.defaults = {
 			path: '.js-infinite-next-page',
 			append: '.js-infinite-post',
@@ -26,13 +29,14 @@ export default class InfiniteScroll {
 			debug: DEBUG_MODE ? true : false
 		};
 		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
+		this.updateEvents = this.updateEvents.bind(this);
 
 		window.addEventListener('DOMContentLoaded', () => {
 			this.init();
+			super.initObserver(this.element, this.updateEvents);
 		});
-		window.addEventListener('NAVIGATE_END', () => {
-			this.init();
-		});
+
+		// TODO: Destroy with observer
 		window.addEventListener('NAVIGATE_OUT', () => {
 			this.destroy();
 		});
@@ -42,15 +46,21 @@ export default class InfiniteScroll {
 	 * Initialize plugin
 	 */
 	init() {
+		this.DOM = {element: document.querySelector(this.element)};
+
 		if (!this.DOM.element) {
 			return;
 		}
 
 		this.infScroll = new infScroll(this.element, this.options);
+	}
 
-		this.infScroll.on('append', () => {
-			this.onAppend();
-		});
+	/**
+	 * Update events
+	 * @param {Object} target - New selector
+	 */
+	updateEvents(target) {
+		this.init();
 	}
 
 	/**
@@ -61,15 +71,5 @@ export default class InfiniteScroll {
 			return;
 		}
 		this.infScroll.destroy();
-	}
-
-	/**
-	 * Triggered after item elements have been appended to the container
-	 */
-	onAppend() {
-		if (this.infScroll === undefined) {
-			return;
-		}
-		Dispatcher.trigger('infiniteScrollAppended');
 	}
 }
