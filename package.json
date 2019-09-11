@@ -6,37 +6,46 @@
 	"scripts": {
 		"start": "gulp",
 		"server": "gulp --server",
-		"development": "gulp --development"
+		"development": "gulp --development",
+		"development-server": "gulp --development --server"
 	},
 	"homepage": "https://github.com/fabioquarantini/ground",
 	"author": {
 		"name": "Fabio Quarantini",
 		"url": "http://www.fabioquarantini.com"
 	},
+	"browserslist": [
+		"last 2 versions",
+		"> 25%",
+		"ie >= 10"
+	],
 	"devDependencies": {
-		"@babel/core": "7.5.4",
-		"@babel/preset-env": "7.5.4",
+		"@babel/core": "^7.6.0",
+		"@babel/preset-env": "^7.6.0",
+		"babel-loader": "^8.0.6",
 		"browser-sync": "2.26.7",
 		"gulp": "3.9.1",
-		"gulp-autoprefixer": "6.1.0",
+		"gulp-autoprefixer": "7.0.0",
 		"gulp-babel": "8.0.0",
 		"gulp-cli": "2.2.0",
-		"gulp-cssnano": "2.1.3",
 		"gulp-consolidate": "0.2.0",
+		"gulp-cssnano": "2.1.3",
 		"gulp-iconfont": "10.0.3",
 		"gulp-notify": "3.2.0",
 		"gulp-plumber": "1.2.1",
 		"gulp-rename": "1.4.0",
 		"gulp-sass": "4.0.2",
 		"gulp-sourcemaps": "2.6.5",
-		"webpack": "4.39.1",
+		"webpack": "4.39.3",
 		"webpack-stream": "5.2.1",
-		"yargs": "13.3.0"
+		"yargs": "14.0.0"
 	},
 	"dependencies": {
+		"@babel/polyfill": "^7.6.0",
 		"@dogstudio/highway": "2.1.3",
 		"@fancyapps/fancybox": "3.5.7",
 		"coffeekraken-gridle": "3.0.3",
+		"core-js": "^3.2.1",
 		"deepmerge": "4.0.0",
 		"gsap": "2.1.3",
 		"imagesloaded": "4.1.4",
@@ -44,7 +53,7 @@
 		"infinite-scroll": "3.0.6",
 		"ismobilejs": "1.0.2",
 		"lazysizes": "5.1.1",
-		"locomotive-scroll": "3.1.4",
+		"locomotive-scroll": "3.1.5",
 		"normalize.css": "8.0.1",
 		"photoswipe": "^4.1.3",
 		"rellax": "1.10.0",

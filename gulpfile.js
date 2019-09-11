@@ -6,7 +6,6 @@ var gulp = require('gulp'),
 	autoprefixer = require('gulp-autoprefixer'),
 	browserSync = require('browser-sync').create(),
 	cssnano = require('gulp-cssnano'),
-	babel = require('gulp-babel'),
 	consolidate = require('gulp-consolidate'),
 	notify = require('gulp-notify'),
 	iconFont = require('gulp-iconfont'),
@@ -15,8 +14,8 @@ var gulp = require('gulp'),
 	sourcemaps = require('gulp-sourcemaps'),
 	reload = browserSync.reload,
 	plumber = require('gulp-plumber'),
-	compiler = require('webpack'),
-	webpack = require('webpack-stream');
+	webpack = require('webpack'),
+	webpackStream = require('webpack-stream');
 
 // Project variables
 var cssFolder = 'css',
@@ -38,25 +37,6 @@ var cssFolder = 'css',
 	server = yargs.argv.server === undefined ? false : true,
 	enviroments = yargs.argv.development === undefined ? 'production' : 'development';
 
-// Browser Sync
-gulp.task('browser-sync', function() {
-	if (server) {
-		browserSync.init({
-			proxy: host,
-			// server: { baseDir: staticServerPath }, // Static HTML/JS/CSS server
-			ghostMode: {
-				clicks: true,
-				forms: true,
-				scroll: true
-			},
-			open: true,
-			notify: true,
-			scrollProportionally: true,
-			injectChanges: true,
-			port: 3000
-		});
-	}
-});
 
 // Style
 gulp.task('styles', function() {
@@ -84,7 +64,6 @@ gulp.task('styles', function() {
 		)
 		.pipe(
 			autoprefixer({
-				browsers: ['last 2 versions', 'ie >= 9', '> 1%'],
 				cascade: false,
 				remove: true
 			})
@@ -106,9 +85,16 @@ gulp.task('styles', function() {
 			notify({
 				title: 'Styles',
 				message: '👍 Task complete!',
-				icon: icon
+				icon: icon,
+				onLast: true
 			})
 		);
+});
+
+// create a task that ensures the `scripts` task is complete before reloading browsers
+gulp.task('scripts-watch', ['scripts'], function(done) {
+	browserSync.reload();
+	done();
 });
 
 // Scripts
@@ -127,25 +113,38 @@ gulp.task('scripts', function() {
 			})
 		)
 		.pipe(
-			babel({
-				presets: ['@babel/env']
-			})
-		)
-		.pipe(
-			webpack(
-				{
-					mode: enviroments,
-					devtool: 'source-map',
-					output: {
-						path: __dirname + 'dist',
-						filename: jsMainMinFile
-					},
-					performance: {
-						hints: false
-					}
+			webpackStream({
+				mode: enviroments,
+				output: {
+					filename: jsMainMinFile
 				},
-				compiler
-			)
+				performance: {
+					hints: false,
+				},
+				devtool: 'source-map',
+				module: {
+					rules: [
+						{
+							test: /\.m?js$/,
+							exclude: /(node_modules|bower_components)/,
+							use: {
+								loader: 'babel-loader',
+								options: {
+									'presets': [
+										[
+											'@babel/preset-env',
+											{
+												'useBuiltIns': 'entry',
+												'corejs': '3'
+											}
+										]
+									]
+								}
+							}
+						}
+					]
+				}
+			}, webpack)
 		)
 		.pipe(gulp.dest(jsFolder))
 		.pipe(
@@ -200,20 +199,38 @@ gulp.task('iconFont', function() {
 			notify({
 				title: 'Icon font',
 				message: '👍 Task complete!',
-				icon: icon
+				icon: icon,
+				onLast: true
 			})
 		);
 });
 
 // Watch
-gulp.task('watch', function() {
+gulp.task('watch', ['styles'], function() {
+	if (server) {
+		browserSync.init({
+			proxy: host,
+			// server: { baseDir: staticServerPath }, // Static HTML/JS/CSS server
+			ghostMode: {
+				clicks: true,
+				forms: true,
+				scroll: true
+			},
+			open: true,
+			notify: true,
+			scrollProportionally: true,
+			injectChanges: true,
+			port: 3000
+		});
+	}
+
 	gulp.watch(scssFolder + '/**/*.scss', ['styles']);
-	gulp.watch([jsFolder + '/**/*.js', '!js/**/*.min.js', '!js/**/*.map'], ['scripts']).on('change', reload);
-	gulp.watch(iconFolder + '/**/*.svg', ['iconFont']);
 	gulp.watch('**/*.{php,html}').on('change', reload);
+	gulp.watch(iconFolder + '/**/*.svg', ['iconFont']);
+	gulp.watch([jsFolder + '/**/*.js', '!js/**/*.min.js', '!js/**/*.map'], ['scripts-watch']);
 });
 
 // Default
-gulp.task('default', ['iconFont', 'browser-sync'], function() {
-	gulp.start('styles', 'scripts', 'watch');
+gulp.task('default', ['iconFont'], function() {
+	gulp.start('watch');
 });
