@@ -1,47 +1,66 @@
-'use strict';
+const { watch, series, src, dest } = require('gulp');
+const sass = require('gulp-sass');
+const autoprefixer = require('gulp-autoprefixer');
+const browserSync = require('browser-sync').create();
+const cssnano = require('gulp-cssnano');
+const consolidate = require('gulp-consolidate');
+const notify = require('gulp-notify');
+const iconFont = require('gulp-iconfont');
+const yargs = require('yargs');
+const rename = require('gulp-rename');
+const plumber = require('gulp-plumber');
+const webpack = require('webpack');
+const webpackStream = require('webpack-stream');
 
-// Dependency variables
-var gulp = require('gulp'),
-	sass = require('gulp-sass'),
-	autoprefixer = require('gulp-autoprefixer'),
-	browserSync = require('browser-sync').create(),
-	cssnano = require('gulp-cssnano'),
-	consolidate = require('gulp-consolidate'),
-	notify = require('gulp-notify'),
-	iconFont = require('gulp-iconfont'),
-	yargs = require('yargs'),
-	rename = require('gulp-rename'),
-	sourcemaps = require('gulp-sourcemaps'),
-	reload = browserSync.reload,
-	plumber = require('gulp-plumber'),
-	webpack = require('webpack'),
-	webpackStream = require('webpack-stream');
+// Project
+const cssFolder = 'css';
+const scssFolder = 'scss';
+const scssFile = 'main.scss';
+const scssFilePath = scssFolder + '/' + scssFile;
+const jsFolder = 'js';
+const jsMainFile = 'app.js';
+const jsMainMinFile = 'scripts.min.js';
+const jsMainFilePath = jsFolder + '/' + jsMainFile;
+const imgFolder = 'img';
+const iconFolder = imgFolder + '/icons';
+const icon = imgFolder + '/' + 'icon.png';
+const fontFolder = 'fonts';
+const fontIconsName = 'icons';
+const runTimestamp = Math.round(Date.now() / 1000);
+const staticServerPath = './';
+const host = 'ground.develop';
+const servermode = yargs.argv.server === undefined ? false : true;
+const enviroments = yargs.argv.development === undefined ? 'production' : 'development';
 
-// Project variables
-var cssFolder = 'css',
-	scssFolder = 'scss',
-	scssFile = 'main.scss',
-	scssFilePath = scssFolder + '/' + scssFile,
-	jsFolder = 'js',
-	jsMainFile = 'app.js',
-	jsMainMinFile = 'scripts.min.js',
-	jsMainFilePath = jsFolder + '/' + jsMainFile,
-	imgFolder = 'img',
-	iconFolder = imgFolder + '/icons',
-	icon = imgFolder + '/' + 'icon.png',
-	fontFolder = 'fonts',
-	fontIconsName = 'icons',
-	runTimestamp = Math.round(Date.now() / 1000),
-	staticServerPath = './',
-	host = 'ground.develop',
-	server = yargs.argv.server === undefined ? false : true,
-	enviroments = yargs.argv.development === undefined ? 'production' : 'development';
+function server(cb) {
+	if (servermode) {
+		browserSync.init({
+			proxy: host,
+			// server: { baseDir: staticServerPath }, // Static HTML/JS/CSS server
+			ghostMode: {
+				clicks: true,
+				forms: true,
+				scroll: true
+			},
+			open: true,
+			notify: true,
+			scrollProportionally: true,
+			injectChanges: true,
+			port: 3000
+		});
+	}
+	cb();
+}
 
+function serverReload(cb) {
+	if (servermode) {
+		browserSync.reload();
+	}
+	cb();
+}
 
-// Style
-gulp.task('styles', function() {
-	gulp
-		.src(scssFilePath)
+function styles(cb) {
+	return src(scssFilePath, { sourcemaps: true })
 		.pipe(
 			plumber({
 				errorHandler: function(err) {
@@ -53,7 +72,6 @@ gulp.task('styles', function() {
 				}
 			})
 		)
-		.pipe(sourcemaps.init())
 		.pipe(
 			sass({
 				outputStyle: 'nested',
@@ -73,14 +91,10 @@ gulp.task('styles', function() {
 				discardComments: { removeAll: true }
 			})
 		)
+		.pipe(dest(cssFolder, { sourcemaps: '.' }))
 		.pipe(
-			sourcemaps.write('.', {
-				includeContent: false,
-				sourceRoot: '../scss'
-			})
+			browserSync.stream({ match: '**/*.css' })
 		)
-		.pipe(gulp.dest(cssFolder))
-		.pipe(browserSync.stream({ match: '**/*.css' }))
 		.pipe(
 			notify({
 				title: 'Styles',
@@ -89,18 +103,57 @@ gulp.task('styles', function() {
 				onLast: true
 			})
 		);
-});
+}
 
-// create a task that ensures the `scripts` task is complete before reloading browsers
-gulp.task('scripts-watch', ['scripts'], function(done) {
-	browserSync.reload();
-	done();
-});
+function svgToFont(cb) {
+	return src([iconFolder + '/*.svg'])
+		.pipe(
+			plumber({
+				errorHandler: function(err) {
+					notify.onError({
+						title: 'Icon error',
+						message: '⛔ ' + err.plugin + ': ' + err.toString(),
+						icon: icon
+					})(err);
+				}
+			})
+		)
+		.pipe(
+			iconFont({
+				fontName: fontIconsName,
+				fontHeight: 1001,
+				normalize: true,
+				formats: ['ttf', 'eot', 'woff'], // default, 'woff2' and 'svg' are available
+				timestamp: runTimestamp // recommended to get consistent builds when watching files
+			})
+		)
+		.on('glyphs', function(glyphs, options) {
+			src('data/icons/iconfont-template.lodash')
+				.pipe(
+					consolidate('lodash', {
+						glyphs: glyphs,
+						fontName: fontIconsName,
+						fontPath: '../' + fontFolder + '/',
+						className: 'icon',
+						cssClass: 'icon'
+					})
+				)
+				.pipe(rename('_icons-generated.scss'))
+				.pipe(dest(scssFolder + '/components'));
+		})
+		.pipe(dest(fontFolder))
+		.pipe(
+			notify({
+				title: 'Icon font',
+				message: '👍 Task complete!',
+				icon: icon,
+				onLast: true
+			})
+		);
+}
 
-// Scripts
-gulp.task('scripts', function() {
-	return gulp
-		.src(jsMainFilePath)
+function scripts(cb) {
+	return src(jsMainFilePath)
 		.pipe(
 			plumber({
 				errorHandler: function(err) {
@@ -146,7 +199,7 @@ gulp.task('scripts', function() {
 				}
 			}, webpack)
 		)
-		.pipe(gulp.dest(jsFolder))
+		.pipe(dest(jsFolder))
 		.pipe(
 			notify({
 				title: 'Scripts',
@@ -154,83 +207,13 @@ gulp.task('scripts', function() {
 				icon: icon
 			})
 		);
-});
+}
 
-gulp.task('iconFont', function() {
-	return gulp
-		.src([iconFolder + '/*.svg'])
-		.pipe(
-			plumber({
-				errorHandler: function(err) {
-					notify.onError({
-						title: 'Icon error',
-						message: '⛔ ' + err.plugin + ': ' + err.toString(),
-						icon: icon
-					})(err);
-				}
-			})
-		)
-		.pipe(
-			iconFont({
-				fontName: fontIconsName,
-				fontHeight: 1001,
-				normalize: true,
-				formats: ['ttf', 'eot', 'woff'], // default, 'woff2' and 'svg' are available
-				timestamp: runTimestamp // recommended to get consistent builds when watching files
-			})
-		)
-		.on('glyphs', function(glyphs, options) {
-			gulp
-				.src('data/icons/iconfont-template.lodash')
-				.pipe(
-					consolidate('lodash', {
-						glyphs: glyphs,
-						fontName: fontIconsName,
-						fontPath: '../' + fontFolder + '/',
-						className: 'icon',
-						cssClass: 'icon'
-					})
-				)
-				.pipe(rename('_icons-generated.scss'))
-				.pipe(gulp.dest(scssFolder + '/components'));
-		})
-		.pipe(gulp.dest(fontFolder))
-		.pipe(
-			notify({
-				title: 'Icon font',
-				message: '👍 Task complete!',
-				icon: icon,
-				onLast: true
-			})
-		);
-});
+function watchFiles() {
+	watch(scssFolder + '/**/*.scss', styles);
+	watch('**/*.{php,html}', serverReload);
+	watch(iconFolder + '/**/*.svg', series(svgToFont, serverReload));
+	watch([jsFolder + '/**/*.js', '!js/**/*.min.js', '!js/**/*.map'], series(scripts, serverReload));
+}
 
-// Watch
-gulp.task('watch', ['styles'], function() {
-	if (server) {
-		browserSync.init({
-			proxy: host,
-			// server: { baseDir: staticServerPath }, // Static HTML/JS/CSS server
-			ghostMode: {
-				clicks: true,
-				forms: true,
-				scroll: true
-			},
-			open: true,
-			notify: true,
-			scrollProportionally: true,
-			injectChanges: true,
-			port: 3000
-		});
-	}
-
-	gulp.watch(scssFolder + '/**/*.scss', ['styles']);
-	gulp.watch('**/*.{php,html}').on('change', reload);
-	gulp.watch(iconFolder + '/**/*.svg', ['iconFont']);
-	gulp.watch([jsFolder + '/**/*.js', '!js/**/*.min.js', '!js/**/*.map'], ['scripts-watch']);
-});
-
-// Default
-gulp.task('default', ['iconFont'], function() {
-	gulp.start('watch');
-});
+exports.default = series(svgToFont, styles, scripts, server, watchFiles);

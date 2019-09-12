@@ -24,7 +24,7 @@
 		"@babel/preset-env": "^7.6.0",
 		"babel-loader": "^8.0.6",
 		"browser-sync": "2.26.7",
-		"gulp": "3.9.1",
+		"gulp": "4.0.2",
 		"gulp-autoprefixer": "7.0.0",
 		"gulp-babel": "8.0.0",
 		"gulp-cli": "2.2.0",
@@ -35,7 +35,6 @@
 		"gulp-plumber": "1.2.1",
 		"gulp-rename": "1.4.0",
 		"gulp-sass": "4.0.2",
-		"gulp-sourcemaps": "2.6.5",
 		"webpack": "4.39.3",
 		"webpack-stream": "5.2.1",
 		"yargs": "14.0.0"
