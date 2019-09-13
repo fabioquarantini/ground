@@ -2,69 +2,95 @@
  * Toggle module
  */
 import * as deepmerge from 'deepmerge';
+import AbstractComponent from '../components/abstractComponent';
 
-export default class Toggle {
+export default class Toggle extends AbstractComponent {
 	/**
+	 * @param {string} element - Selector
 	 * @param {Object} options - User options
 	 */
-	constructor(options) {
+	constructor(element, options) {
+		super(element, options);
+		this.element = element || '.js-toggle';
 		this.defaults = {
-			element: '.js-toggle',
+			triggers: this.element,
 			toggleClassName: 'is-active'
 		};
 		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
-		this.element = document.querySelectorAll(this.options.element);
+		this.updateEvents = this.updateEvents.bind(this);
+		this.toggle = this.toggle.bind(this);
 
 		window.addEventListener('DOMContentLoaded', () => {
 			this.init();
-		});
-
-		window.addEventListener('NAVIGATE_END', () => {
-			this.init();
-		});
-
-		window.addEventListener('infiniteScrollAppended', () => {
-			this.init();
+			this.initEvents(this.options.triggers);
+			super.initObserver(this.options.triggers, this.updateEvents);
 		});
 	}
 
 	init() {
-		if (this.element.length == 0) {
+		this.DOM = {
+			element: document.querySelectorAll(this.element)
+		};
+
+		if (this.DOM.element.length == 0) {
+			return;
+		}
+	}
+
+	/**
+	 * Initialize events
+	 * @param {string} triggers - Selectors
+	 */
+	initEvents(triggers) {
+		var elements =document.querySelectorAll(triggers);
+		for (var i = 0; i < elements.length; i++) {
+			elements[i].addEventListener('click', this.toggle);
+		}
+	}
+
+	/**
+	 * Update events
+	 * @param {Object} target - New selector
+	 */
+	updateEvents(target) {
+		this.init();
+		target.addEventListener('click', this.toggle);
+	}
+
+	/**
+	 * Toggle classes
+	 * @param {Object} event
+	 */
+	toggle(event) {
+		this.DOM.element = document.querySelectorAll(this.element);
+
+		if (this.DOM.element.length == 0) {
 			return;
 		}
 
-		//this.element.forEach(el => {
-		//el.addEventListener('click', (event) => {
-		document.addEventListener(
-			'click',
-			event => {
-				console.log(event.target.closest);
+		let curent = event.currentTarget;
+		if (curent) {
+			event.preventDefault();
 
-				if (event.target.closest(this.options.element)) {
-					event.preventDefault();
+			// Add data-toggle-class-name="customclass" to change the default class name
+			if (curent.hasAttribute('data-toggle-class-name')) {
+				this.options.toggleClassName = curent.dataset.toggleClassName;
+			}
 
-					// Add data-toggle-class-name="customclass" to change the default class name
-					if (event.target.hasAttribute('data-toggle-class-name')) {
-						this.options.toggleClassName = event.target.dataset.toggleClassName;
-					}
+			// Add data-toggle-target=".selector1 #selector2" to toggle different target
+			if (curent.hasAttribute('data-toggle-target')) {
+				let targetList = curent.dataset.toggleTarget.split(' ');
 
-					// Add data-toggle-target=".selector1 #selector2" to toggle different target
-					if (event.target.hasAttribute('data-toggle-target')) {
-						let targetList = event.target.dataset.toggleTarget.split(' ');
+				for (var i = 0; i < targetList.length; i++) {
+					let target = document.querySelectorAll(targetList[i]);
 
-						targetList.forEach(element => {
-							let target = document.querySelectorAll(element);
-							target.forEach(element => {
-								element.classList.toggle(this.options.toggleClassName);
-							}, this);
-						}, this);
-					} else {
-						event.target.classList.toggle(this.options.toggleClassName);
+					for (var ib = 0; ib < target.length; ib++) {
+						target[ib].classList.toggle(this.options.toggleClassName);
 					}
 				}
-			},
-			false
-		);
-		//}, this);
+			} else {
+				curent.classList.toggle(this.options.toggleClassName);
+			}
+		}
 	}
 }
