@@ -36,6 +36,10 @@ form {
 			color: #444;
 			outline: none;
 		}
+
+		&::-ms-clear {
+			display: none;
+		}
 	}
 
 	.form__button {
