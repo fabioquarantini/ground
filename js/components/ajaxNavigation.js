@@ -3,6 +3,8 @@
  * A Modern Javascript Transitions Manager
  * @see https://highway.js.org
  */
+import 'promise-polyfill/src/polyfill';
+import 'whatwg-fetch';
 import Highway from '@dogstudio/highway';
 import Reveal from '../transitions/reveal.js';
 import Dispatcher from '../utilities/dispatcher.js';

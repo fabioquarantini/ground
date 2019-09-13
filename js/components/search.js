@@ -2,6 +2,7 @@
  * Search module
  */
 
+import 'promise-polyfill/src/polyfill';
 import 'whatwg-fetch';
 import Utilities from '../utilities/utilities';
 import { DEBUG_MODE } from '../utilities/environment';
@@ -38,7 +39,7 @@ export default class Search {
 	search() {
 		let searchValue = this.DOM.searchInput.value;
 		if (searchValue == '') {
-			this.DOM.searchResult.innerHTML = null;
+			this.DOM.searchResult.innerHTML = '';
 			return;
 		}
 		this.beforeSend();
@@ -62,7 +63,7 @@ export default class Search {
 
 	beforeSend() {
 		this.DOM.element.classList.add(this.searchLoadingClass);
-		this.DOM.searchResult.innerHTML = null;
+		this.DOM.searchResult.innerHTML = '';
 	}
 
 	success(html) {
