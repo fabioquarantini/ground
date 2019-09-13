@@ -1,11 +1,14 @@
 import imagesLoaded from 'imagesLoaded';
+import AbstractComponent from '../components/abstractComponent';
 import TweenMax from 'gsap/TweenMax';
 const isMobile = require('ismobilejs');
 
 
-export default class Loader {
+export default class Loader extends AbstractComponent {
 	constructor() {
+		super();
 		this.DOM = { element: document.getElementById('js-loader')};
+		this.DOM.html = document.documentElement;
 		this.DOM.body = document.body;
 		this.DOM.background = document.getElementById('js-loader-bg');
 		this.DOM.content = document.getElementById('js-loader-content');
@@ -26,10 +29,11 @@ export default class Loader {
 		window.scrollTo(0, 0);
 
 		// Update body class
-		this.DOM.body.classList.replace('is-loading', 'is-loaded');
+		this.DOM.html.classList.remove('is-loading');
+		this.DOM.html.classList.add('is-loaded');
 
 		if (isMobile.any) {
-			document.body.classList.add('is-mobile');
+			this.DOM.html.classList.add('is-mobile');
 		}
 
 		// Animations
@@ -40,7 +44,7 @@ export default class Loader {
 			ease: Quart.easeInOut,
 			onComplete: () => {
 				// Update body class
-				document.body.classList.add('is-loader-complete');
+				this.DOM.html.classList.add('is-loader-complete');
 				// Hide loader
 				this.DOM.element.classList.add('display-none');
 			}

@@ -11,8 +11,8 @@ class Basic extends Highway.Transition {
 		from.remove();
 
 		// Update body class
-		document.body.classList.remove('is-loading');
-		document.body.classList.add('is-loaded');
+		document.documentElement.classList.remove('is-loading');
+		document.documentElement.classList.add('is-loaded');
 
 		// Animation
 		Tween.set(to, { opacity: 1 });
@@ -23,8 +23,8 @@ class Basic extends Highway.Transition {
 
 	out({ from, trigger, done }) {
 		// Update body class
-		document.body.classList.add('is-loading');
-		document.body.classList.remove('is-loaded');
+		document.documentElement.classList.add('is-loading');
+		document.documentElement.classList.remove('is-loaded');
 
 		// Animation
 		Tween.set(from, { opacity: 0 });

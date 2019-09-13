@@ -15,6 +15,7 @@ export default class Scroll {
 	 */
 	constructor(options) {
 		this.DOM = { element: document.getElementById('js-scroll')};
+		this.DOM.html = document.documentElement;
 		this.DOM.body = document.body;
 		this.DOM.scrollProgress = document.getElementById('js-scroll-progress');
 		this.defaults = {
@@ -27,12 +28,7 @@ export default class Scroll {
 		};
 		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
 
-
-		new imagesLoaded(document.body, { background: true }, this.init());
-
-		window.addEventListener('DOMContentLoaded', () => {
-			document.body.classList.add('has-scroll-animation');
-		});
+		new imagesLoaded(this.DOM.body, { background: true }, this.init());
 
 		window.addEventListener('NAVIGATE_END', () => {
 			this.update();

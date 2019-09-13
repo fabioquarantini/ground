@@ -26,7 +26,7 @@ class Reveal extends Highway.Transition {
 		from.remove();
 
 		// Update body class
-		document.body.classList.replace('is-loading', 'is-loaded');
+		document.documentElement.classList.replace('is-loading', 'is-loaded');
 
 		// Animations
 		tlLoaderBg.to(this.elementBg, 1, {
@@ -36,7 +36,7 @@ class Reveal extends Highway.Transition {
 			rotation: 0.01,
 			onComplete: () => {
 				// Update body class
-				document.body.classList.add('is-loader-complete');
+				document.documentElement.classList.add('is-loader-complete');
 				// Hide loader
 				this.element.classList.add('display-none');
 				// Done
@@ -58,8 +58,8 @@ class Reveal extends Highway.Transition {
 		});
 
 		// Update body class
-		document.body.classList.replace('is-loaded', 'is-loading');
-		document.body.classList.remove('is-loader-complete');
+		document.documentElement.classList.replace('is-loaded', 'is-loading');
+		document.documentElement.classList.remove('is-loader-complete');
 
 		// Show loader
 		this.element.classList.remove('display-none');

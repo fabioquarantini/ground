@@ -37,7 +37,7 @@ export default class AjaxNavigation extends AbstractComponent {
 			this.navigateEnd(data);
 		});
 
-		document.body.classList.add('is-ajax');
+		document.documentElement.classList.add('is-ajax');
 	}
 
 	/**
@@ -46,7 +46,7 @@ export default class AjaxNavigation extends AbstractComponent {
 	navigateIn(data) {
 		const links = document.querySelectorAll('.navigation__item');
 		// Clean class
-		document.body.className = data.to.page.body.className + ' is-ajax';
+		document.body.className = data.to.page.body.className;
 		Dispatcher.trigger('NAVIGATE_IN', data);
 
 		for (let i = 0; i < links.length; i++) {
