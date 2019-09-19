@@ -1,16 +1,20 @@
 const { watch, series, src, dest } = require('gulp');
-const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const browserSync = require('browser-sync').create();
 const cssnano = require('gulp-cssnano');
 const consolidate = require('gulp-consolidate');
-const notify = require('gulp-notify');
 const iconFont = require('gulp-iconfont');
-const yargs = require('yargs');
-const rename = require('gulp-rename');
+const imagemin = require('gulp-imagemin');
+const mozjpeg = require('imagemin-mozjpeg');
+const notify = require('gulp-notify');
 const plumber = require('gulp-plumber');
+const pngquant = require('imagemin-pngquant');
+const rename = require('gulp-rename');
+const sass = require('gulp-sass');
+const svgo = require('imagemin-svgo');
 const webpack = require('webpack');
 const webpackStream = require('webpack-stream');
+const yargs = require('yargs');
 
 // Project
 const cssFolder = 'css';
@@ -98,6 +102,29 @@ function styles(cb) {
 		.pipe(
 			notify({
 				title: 'Styles',
+				message: '👍 Task complete!',
+				icon: icon,
+				onLast: true
+			})
+		);
+}
+
+function images(cb) {
+	return src('img/*')
+		.pipe(imagemin([
+			pngquant({quality: [0.5, 0.5]}),
+			mozjpeg({quality: 50}),
+			svgo({
+				plugins: [
+					{removeViewBox: true},
+					{cleanupIDs: false}
+				]
+			})
+		]))
+		.pipe(dest('img/'))
+		.pipe(
+			notify({
+				title: 'Image',
 				message: '👍 Task complete!',
 				icon: icon,
 				onLast: true
@@ -216,4 +243,8 @@ function watchFiles() {
 	watch([jsFolder + '/**/*.js', '!js/**/*.min.js', '!js/**/*.map'], series(scripts, serverReload));
 }
 
+exports.styles = styles;
+exports.svgToFont = svgToFont;
+exports.scripts = scripts;
+exports.images = images;
 exports.default = series(svgToFont, styles, scripts, server, watchFiles);
