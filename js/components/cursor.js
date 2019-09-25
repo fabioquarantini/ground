@@ -180,6 +180,10 @@ export default class Cursor extends AbstractComponent {
 			this.DOM.element.classList.toggle('is-cursor-close');
 		}
 
+		if (event.target.classList.contains('js-cursor-plus')) {
+			this.DOM.element.classList.toggle('is-cursor-plus');
+		}
+
 		if (event.target.classList.contains('js-cursor-hide')) {
 			this.DOM.element.classList.toggle('is-cursor-hide');
 		}

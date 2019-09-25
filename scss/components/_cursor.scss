@@ -6,7 +6,6 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	//mix-blend-mode: difference;
 
 	&.is-cursor-hide {
 		opacity: 0;
@@ -23,7 +22,7 @@
 		.cursor__circle--outer {
 			background-color: rgba($color-grey, 0.5);
 			transform: scale(2.5);
-			border: 2px solid transparent;
+			border: 2px solid transparent !important;
 		}
 
 		.cursor__icon {
@@ -34,7 +33,7 @@
 	&.is-cursor-hover {
 		.cursor__circle--outer {
 			background-color: rgba($color-grey, 0.5);
-			border: 2px solid transparent;
+			border: 2px solid transparent !important;
 			transform: scale(2.5);
 		}
 
@@ -67,9 +66,21 @@
 	&.is-cursor-zoom {
 		.cursor__icon {
 			opacity: 1;
+			@include icon(magnifying-glass-plus);
+		}
+	}
+
+	&.is-cursor-plus {
+		.cursor__icon {
+			opacity: 1;
 			@include icon(plus);
 		}
 	}
+
+	.is-modal-open & {
+		mix-blend-mode: difference;
+	}
+
 }
 
 .cursor__circle {
@@ -94,6 +105,10 @@
 	transition: all $speed $easing;
 	.is-cursor-always-visible & {
 		border: 2px solid $color-black;
+
+		.is-modal-open & {
+			border-color: $color-white;
+		}
 	}
 
 	.is-loading & {
