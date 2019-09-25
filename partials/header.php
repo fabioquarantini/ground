@@ -1,5 +1,5 @@
 <!doctype html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> class="is-loading">
 	<head>
 		<meta charset="<?php bloginfo('charset'); ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,7 +11,7 @@
 		<?php wp_head(); ?>
 	</head>
 
-	<body <?php body_class('is-loading'); ?> data-template-url="<?php echo TEMPLATE_URL ?>">
+	<body <?php body_class(); ?> data-template-url="<?php echo TEMPLATE_URL ?>">
 
 		<div class="scroll" id="js-scroll">
 

@@ -11,53 +11,39 @@ body {
 
 html {
 
-    // &:not(.has-scroll-init) {
-    //     cursor: wait;
-    //     overflow: hidden;
-    // }
-
-    &.has-scroll-smooth {
-        overflow: hidden;
-    }
-
-    &.has-scroll-dragging {
-        user-select: none;
-    }
-
-}
-
-
-body {
-	// padding-top: ritmo(4);
-
-	@include media('>=md') {
-		padding-top: 0;
-	}
-
-	// &.body--home {
-	// 	padding-top: ritmo(3);
-
-	// 	@include media('>=md') {
-	// 		padding-top: 0;
-	// 	}
-	// }
-
 	&.is-loading {
 		overflow-y: hidden;
-        cursor: wait;
+		cursor: wait;
+	}
+
+	&.has-scroll-smooth {
+		overflow: hidden;
+	}
+
+	&.has-scroll-dragging {
+		user-select: none;
 	}
 
 	&.is-loader-complete {
-		overflow-y: visible;
 	}
-
-	.has-scroll-smooth & {
-        overflow: hidden;
-    }
 
 }
 
+body {
 
+	.is-loading & {
+		overflow-y: hidden;
+	}
+
+	.has-scroll-smooth & {
+		overflow: hidden;
+	}
+
+	.is-loader-complete & {
+		overflow-y: visible;
+	}
+
+}
 
 *,
 :before,
