@@ -1,17 +1,18 @@
 				</main>
-					
+
 			</div> <!-- End [data-router-wrapper] -->
-			
-			<?php get_template_part( 'partials/content', 'footer' ); ?>	
-			
+
+			<?php get_template_part( 'partials/content', 'footer' ); ?>
+
 		</div><!-- End SmoothScroll Global -->
-						
+
 	</div> <!-- End .scroll -->
 
 	<?php get_template_part( 'partials/search', 'form' ); ?>
+	<?php get_template_part( 'partials/scroll', 'progress' ); ?>
 	<?php get_template_part( 'partials/cursor' ); ?>
-	<?php get_template_part( 'partials/scroll', 'progress' ); ?>	
-	
+	<?php get_template_part( 'partials/modal' ); ?>
+
 	<?php wp_footer();
 
 	// Google Analytics: change UA-XXXXX-Y to be your site's ID.  ?>

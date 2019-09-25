@@ -296,7 +296,7 @@ function  ground_print_image($acf=false , $id=null) {
 
 function ground_gallery_modal( $link ) {
 
-	return str_replace( '<a href', '<a data-fancybox="gallery" data-router-disabled href', $link );
+	return str_replace( '<a href', '<a data-modal="gallery" data-router-disabled href', $link );
 
 }
 

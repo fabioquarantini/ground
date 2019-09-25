@@ -13,7 +13,6 @@
 
 // Vendors
 '../node_modules/ritmo/ritmo',
-'../node_modules/@fancyapps/fancybox/dist/jquery.fancybox',
 '../node_modules/coffeekraken-gridle/_index',
 '../node_modules/normalize.css/normalize',
 '../node_modules/include-media/dist/_include-media',
@@ -34,7 +33,6 @@
 // Layouts
 'layouts/container',
 'layouts/scroll',
-
 
 // Components
 'components/icons',
@@ -68,8 +66,6 @@
 'components/scrollbar',
 'components/masked-full-height',
 'components/scroll-progress',
-
-
 
 // WooCommerce
 'components/woocommerce/cart',
