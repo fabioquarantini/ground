@@ -4,10 +4,11 @@
 	"description": "WordPress starter theme for front-end developers",
 	"license": "MIT",
 	"scripts": {
-		"start": "gulp",
-		"server": "gulp --server",
+		"start": "npm run build",
+		"build": "gulp",
+		"build:server": "gulp --server",
 		"development": "gulp --development",
-		"development-server": "gulp --development --server",
+		"development:server": "gulp --development --server",
 		"image-optimization": "gulp images"
 	},
 	"homepage": "https://github.com/fabioquarantini/ground",
