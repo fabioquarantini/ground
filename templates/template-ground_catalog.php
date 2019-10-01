@@ -26,9 +26,13 @@ get_template_part( 'partials/header' ); ?>
 
 						<div class="page__body">
 
-							<?php if ( has_post_thumbnail() ) { ?>
+							<?php if (has_post_thumbnail()) { ?>
 								<figure class="media">
-									<?php the_post_thumbnail( 'medium', array( 'class' => 'media__img' ) ); ?>
+									<img class="media__img full-width"
+										srcset="<?php ground_image('large') ?> 1200w,
+											<?php ground_image('medium_large') ?> 768w,
+											<?php ground_image('medium') ?> 480w"
+										src="<?php ground_image('small') ?>">
 								</figure>
 							<?php } ?>
 

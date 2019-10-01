@@ -15,17 +15,16 @@
 	11 - Remove the maximum image width in a ‘srcset’ attribute.
 	12 - Remove width and height attributes from inserted images
 	13 - Gets the featured image of a specifific post
-	14 - Print image of a specifific post or acf
-	15 - Add gallery modal
-	16 - Highlight archive and wp_nav_menu parents
-	17 - BEM body class
-	18 - ACF local JSON
-	19 - Oembed responsive
-	20 - Rename attachment slug
-	21 - Echoes the highway view name tag
-	22 - Custom Breadcrumb using Yoast SEO Plugin
-	23 - Ajax search result
-	24 - WMPL - Switch Language
+	14 - Add gallery modal
+	15 - Highlight archive and wp_nav_menu parents
+	16 - BEM body class
+	17 - ACF local JSON
+	18 - Oembed responsive
+	19 - Rename attachment slug
+	20 - Echoes the highway view name tag
+	21 - Custom Breadcrumb using Yoast SEO Plugin
+	22 - Ajax search result
+	23 - WMPL - Switch Language
 	==========================================================================  */
 
 
@@ -257,41 +256,19 @@ add_filter( 'image_send_to_editor', 'ground_remove_img_size', 10 );
 	13 - Gets the featured image of a specifific post
 	==========================================================================  */
 
-
-function ground_get_image($size = 'thumbnail' ,$id = null , $url = true){
+function ground_image($size = 'thumbnail', $id = null, $url = true, $echo = true){
 	$image = wp_get_attachment_image_src(get_post_thumbnail_id($id), $size);
 	$image = ($url) ? $image[0] : $image ;
-	return $image;
-}
-
-/*  ==========================================================================
-	14 - Print image of a specifific post or acf
-	==========================================================================  */
-
-function  ground_print_image($acf=false , $id=null) {
-	if ( !$acf ) {
-		$size1 = ground_get_image('large', $id);
-		$size2 = ground_get_image('medium_large', $id);
-		$size3 = ground_get_image('medium', $id);
-		$size4 = ground_get_image('small', $id);
+	if ( $echo ) {
+		echo $image;
 	} else {
-		$size1 = $acf["sizes"]["large"];
-		$size2 = $acf["sizes"]["medium_large"];
-		$size3 = $acf["sizes"]["medium"];
-		$size4 = $acf["sizes"]["small"];
+		return $image;
 	}
-
-	$ret = '<img srcset="'. $size1 .' 1280w, '
-						  . $size2 .' 768w, '
-						  . $size3 . ' 480w"
-				    src="'. $size4 .'" class="media__img">';
-
-	return $ret;
 }
 
 
 /*  ==========================================================================
-	15 - Add gallery modal
+	14 - Add gallery modal
 	==========================================================================  */
 
 function ground_gallery_modal( $link ) {
@@ -304,7 +281,7 @@ add_filter('wp_get_attachment_link', 'ground_gallery_modal');
 
 
 /*  ==========================================================================
-	16 - Highlight archive and wp_nav_menu parents
+	15 - Highlight archive and wp_nav_menu parents
 	==========================================================================  */
 
 function ground_custom_parent_menu_item_classes( $classes = array(), $menu_item = false) {
@@ -324,7 +301,7 @@ add_filter( 'nav_menu_css_class', 'ground_custom_parent_menu_item_classes', 10, 
 
 
 /*  ==========================================================================
-	17 - BEM body class
+	16 - BEM body class
 	==========================================================================  */
 
 function ground_body_class_bem( $classes ) {
@@ -347,7 +324,7 @@ add_filter('body_class', 'ground_body_class_bem');
 
 
 /*  ==========================================================================
-	18 - ACF local JSON
+	17 - ACF local JSON
 	==========================================================================  */
 
 function ground_acf_json_save_point( $path ) {
@@ -372,7 +349,7 @@ add_filter('acf/settings/load_json', 'ground_acf_json_load_point');
 
 
 /*  ==========================================================================
-	19 - Oembed responsive
+	18 - Oembed responsive
 	==========================================================================  */
 
 function ground_oembed_responsive( $html, $url, $attr, $post_id ) {
@@ -388,7 +365,7 @@ add_filter('embed_oembed_html', 'ground_oembed_responsive', 99, 4);
 
 
 /*  ==========================================================================
-	20 - Rename attachment slug
+	19 - Rename attachment slug
 	==========================================================================  */
 
 function ground_rename_attachment_slug( $post_ID ) {
@@ -402,9 +379,8 @@ function ground_rename_attachment_slug( $post_ID ) {
 add_action( 'add_attachment', 'ground_rename_attachment_slug' );
 
 
-
 /*  ==========================================================================
-	21 - Echoes the highway view name tag
+	20 - Echoes the highway view name tag
 	==========================================================================  */
 
 function ground_view_name() {
@@ -431,7 +407,7 @@ function ground_view_name() {
 
 
 /*  ==========================================================================
-	22 - Custom Breadcrumb using Yoast SEO Plugin https://fellowtuts.com/wordpress/custom-breadcrumb-navigation-yoast-seo/
+	21 - Custom Breadcrumb using Yoast SEO Plugin https://fellowtuts.com/wordpress/custom-breadcrumb-navigation-yoast-seo/
 	==========================================================================  */
 
 function ground_yoast_breadcrumb(){
@@ -477,7 +453,7 @@ function ground_yoast_breadcrumb(){
 
 
 /*  ==========================================================================
-	23 - Ajax search result
+	22 - Ajax search result
 	==========================================================================  */
 
 add_action('wp_ajax_data_fetch' , 'ground_ajax_search_data_fetch');
@@ -491,11 +467,10 @@ function ground_ajax_search_data_fetch(){
 
 
 /*  ==========================================================================
-	24 - WMPL - Switch Language
+	23 - WMPL - Switch Language
 	==========================================================================  */
 function ground_language_switch(){
 	ob_start();
 	get_template_part('partials/switch-language');
 	return ob_get_clean();
 }
-
