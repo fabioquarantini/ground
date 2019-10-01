@@ -67,8 +67,8 @@ export default class Toggle extends AbstractComponent {
 
 		const curent = event.currentTarget;
 		if (curent) {
-			//Add data-toggle-prevent-default="false" to restore default behaviour
-			if ( !curent.hasAttribute('data-toggle-prevent-default')) {
+			// Add data-toggle-prevent-default="false" to restore default behaviour
+			if (!curent.hasAttribute('data-toggle-prevent-default')) {
 				event.preventDefault();
 			}
 
