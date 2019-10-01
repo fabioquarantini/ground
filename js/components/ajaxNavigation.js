@@ -6,9 +6,9 @@
 import 'promise-polyfill/src/polyfill';
 import 'whatwg-fetch';
 import Highway from '@dogstudio/highway';
-import Reveal from '../transitions/reveal.js';
-import Dispatcher from '../utilities/dispatcher.js';
-import AbstractComponent from '../components/abstractComponent';
+import Reveal from '../transitions/reveal';
+import Dispatcher from '../utilities/dispatcher';
+import AbstractComponent from './abstractComponent';
 
 export default class AjaxNavigation extends AbstractComponent {
 	constructor() {
@@ -21,8 +21,8 @@ export default class AjaxNavigation extends AbstractComponent {
 	init() {
 		this.H = new Highway.Core({
 			transitions: {
-				default: Reveal
-			}
+				default: Reveal,
+			},
 		});
 
 		this.H.on('NAVIGATE_IN', (data) => {

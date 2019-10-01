@@ -14,10 +14,12 @@ class Reveal extends Highway.Transition {
 		this.elementContent = document.getElementById('js-loader-content');
 	}
 
-	in({ from, to, trigger, done }) {
+	in({
+		from, to, trigger, done,
+	}) {
 		const tlLoaderBg = new TimelineLite();
 		const tlLoaderContent = new TimelineLite({
-			delay: 0.2
+			delay: 0.2,
 		});
 		// Reset Scroll
 		window.scrollTo(0, 0);
@@ -41,20 +43,20 @@ class Reveal extends Highway.Transition {
 				this.element.classList.add('display-none');
 				// Done
 				done();
-			}
+			},
 		}, 0.1);
 
 		tlLoaderContent.to(this.elementContent, 0.8, {
 			ease: Power3.easeOut,
 			y: -65,
-			opacity: 0
+			opacity: 0,
 		});
 	}
 
 	out({ from, trigger, done }) {
 		const tlLoaderBg = new TimelineLite();
 		const tlLoaderContent = new TimelineLite({
-			delay: 0.6
+			delay: 0.6,
 		});
 
 		// Update body class
@@ -66,7 +68,7 @@ class Reveal extends Highway.Transition {
 
 		// Animations
 		tlLoaderBg.fromTo(this.elementBg, 1.5, {
-			yPercent: 100
+			yPercent: 100,
 		}, {
 			yPercent: 0,
 			ease: Quart.easeOut,
@@ -75,16 +77,16 @@ class Reveal extends Highway.Transition {
 			onComplete: () => {
 				// Done
 				done();
-			}
+			},
 		}, 0);
 
 		tlLoaderContent.fromTo(this.elementContent, 0.8, {
 			y: 65,
-			opacity: 0
+			opacity: 0,
 		}, {
 			ease: Power3.easeOut,
 			y: 0,
-			opacity: 1
+			opacity: 1,
 		});
 	}
 }

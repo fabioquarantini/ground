@@ -1,8 +1,9 @@
 /**
  * Toggle module
  */
-import * as deepmerge from 'deepmerge';
-import AbstractComponent from '../components/abstractComponent';
+import AbstractComponent from './abstractComponent';
+
+const Deepmerge = require('deepmerge');
 
 export default class Toggle extends AbstractComponent {
 	/**
@@ -14,9 +15,9 @@ export default class Toggle extends AbstractComponent {
 		this.element = element || '.js-toggle';
 		this.defaults = {
 			triggers: this.element,
-			toggleClassName: 'is-active'
+			toggleClassName: 'is-active',
 		};
-		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
+		this.options = options ? Deepmerge(this.defaults, options) : this.defaults;
 		this.updateEvents = this.updateEvents.bind(this);
 		this.toggle = this.toggle.bind(this);
 
@@ -29,12 +30,8 @@ export default class Toggle extends AbstractComponent {
 
 	init() {
 		this.DOM = {
-			element: document.querySelectorAll(this.element)
+			element: document.querySelectorAll(this.element),
 		};
-
-		if (this.DOM.element.length == 0) {
-			return;
-		}
 	}
 
 	/**
@@ -42,8 +39,8 @@ export default class Toggle extends AbstractComponent {
 	 * @param {string} triggers - Selectors
 	 */
 	initEvents(triggers) {
-		var elements =document.querySelectorAll(triggers);
-		for (var i = 0; i < elements.length; i++) {
+		const elements = document.querySelectorAll(triggers);
+		for (let i = 0; i < elements.length; i++) {
 			elements[i].addEventListener('click', this.toggle);
 		}
 	}
@@ -64,11 +61,11 @@ export default class Toggle extends AbstractComponent {
 	toggle(event) {
 		this.DOM.element = document.querySelectorAll(this.element);
 
-		if (this.DOM.element.length == 0) {
+		if (this.DOM.element.length === 0) {
 			return;
 		}
 
-		let curent = event.currentTarget;
+		const curent = event.currentTarget;
 		if (curent) {
 			event.preventDefault();
 
@@ -79,12 +76,12 @@ export default class Toggle extends AbstractComponent {
 
 			// Add data-toggle-target=".selector1 #selector2" to toggle different target
 			if (curent.hasAttribute('data-toggle-target')) {
-				let targetList = curent.dataset.toggleTarget.split(' ');
+				const targetList = curent.dataset.toggleTarget.split(' ');
 
-				for (var i = 0; i < targetList.length; i++) {
-					let target = document.querySelectorAll(targetList[i]);
+				for (let i = 0; i < targetList.length; i++) {
+					const target = document.querySelectorAll(targetList[i]);
 
-					for (var ib = 0; ib < target.length; ib++) {
+					for (let ib = 0; ib < target.length; ib++) {
 						target[ib].classList.toggle(this.options.toggleClassName);
 					}
 				}

@@ -1,23 +1,25 @@
+/* eslint-disable no-unused-vars */
+
 import 'lazysizes';
-import InfiniteScroll from './components/infiniteScroll.js';
-import Modal from './components/modal.js';
-//import AjaxNavigation from './components/ajaxNavigation.js';
-import Slider from './components/slider.js';
-import Parallax from './components/parallax.js';
-import Loader from './components/loader.js';
-import Split from './components/split.js';
-import Toggle from './components/toggle.js';
-// import ScrollOld from './components/scrollOld.js';
-import Scroll from './components/scroll.js';
-import Cursor from './components/cursor.js';
-import Search from './components/search.js';
-import Magnet from './components/magnet.js';
+import InfiniteScroll from './components/infiniteScroll';
+import Modal from './components/modal';
+import AjaxNavigation from './components/ajaxNavigation';
+import Slider from './components/slider';
+import Parallax from './components/parallax';
+import Loader from './components/loader';
+import Split from './components/split';
+import Toggle from './components/toggle';
+// import ScrollOld from './components/scrollOld';
+import Scroll from './components/scroll';
+import Cursor from './components/cursor';
+import Search from './components/search';
+import Magnet from './components/magnet';
 
 
-const infiniteScroll = new InfiniteScroll;
-const loader = new Loader;
+const infiniteScroll = new InfiniteScroll();
+const loader = new Loader();
 const modal = new Modal();
-//const ajaxNavigation = new AjaxNavigation;
+const ajaxNavigation = new AjaxNavigation();
 const sliderPrimary = new Slider('.js-slider-primary');
 const split = new Split();
 const toggle = new Toggle();
@@ -28,66 +30,53 @@ const cursor = new Cursor();
 const search = new Search();
 const magnet = new Magnet();
 
-
-const sliderGallery = new Slider('.js-slider-gallery',{
-    direction: 'horizontal',
-    loop: false,
-    effect: 'slide',
-    speed: 600,
-    autoHeight: false,
-    parallax: true,
-    autoplay: false,
-    slidesPerView: 1,
-    spaceBetween: 40,
-    breakpoints: {
-        // when window width is >= xl
-        1440: {
-            speed: 1400,
-            spaceBetween: 80,
-        }
-    }
+const sliderGallery = new Slider('.js-slider-gallery', {
+	direction: 'horizontal',
+	loop: false,
+	effect: 'slide',
+	speed: 600,
+	autoHeight: false,
+	parallax: true,
+	autoplay: false,
+	slidesPerView: 1,
+	spaceBetween: 40,
+	breakpoints: {
+		// when window width is >= xl
+		1440: {
+			speed: 1400,
+			spaceBetween: 80,
+		},
+	},
 });
 
-
-const carousel = new Slider('.js-carousel',{
-    loop: false,
-    autoHeight: false,
-    effect: 'slide',
-    slidesPerView: 'auto',
-    spaceBetween: 30,
-    parallax: false,
-    autoplay: false,
-    freeMode: true,
-    touchEventsTarget: '.swiper-wrapper',
-    pagination: {
-        el: '.swiper-pagination',
-        type: 'progressbar',
-    },
-    on: {
-
-        touchStart: function() {
-
-            var swiper = this;
-            for (var i = 0; i < swiper.slides.length; i++) {
-
-                TweenMax.to(swiper.slides[i], 0.6, { ease: Circ.easeOut, scale: 0.9})
-                TweenMax.to(swiper.slides[i].querySelector(".carousel__media"), 2, { ease: Circ.easeOut, scale: 1.2})
-
-            }
-            
-        },
-    
-        touchEnd: function() {
-
-            var swiper = this;
-            for (var i = 0; i < swiper.slides.length; i++) {
-
-                TweenMax.to(swiper.slides[i], 0.2, { ease: Circ.easeOut, scale: 1})
-                TweenMax.to(swiper.slides[i].querySelector(".carousel__media"), 0.2, { ease: Circ.easeOut, scale: 1})
-
-            }
-            
-        },
-
-    }
+const carousel = new Slider('.js-carousel', {
+	loop: false,
+	autoHeight: false,
+	effect: 'slide',
+	slidesPerView: 'auto',
+	spaceBetween: 30,
+	parallax: false,
+	autoplay: false,
+	freeMode: true,
+	touchEventsTarget: '.swiper-wrapper',
+	pagination: {
+		el: '.swiper-pagination',
+		type: 'progressbar',
+	},
+	on: {
+		touchStart() {
+			const swiper = this;
+			for (let i = 0; i < swiper.slides.length; i++) {
+				TweenMax.to(swiper.slides[i], 0.6, { ease: Circ.easeOut, scale: 0.9 });
+				TweenMax.to(swiper.slides[i].querySelector('.carousel__media'), 2, { ease: Circ.easeOut, scale: 1.2 });
+			}
+		},
+		touchEnd() {
+			const swiper = this;
+			for (let i = 0; i < swiper.slides.length; i++) {
+				TweenMax.to(swiper.slides[i], 0.2, { ease: Circ.easeOut, scale: 1 });
+				TweenMax.to(swiper.slides[i].querySelector('.carousel__media'), 0.2, { ease: Circ.easeOut, scale: 1 });
+			}
+		},
+	},
 });

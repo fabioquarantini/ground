@@ -1,7 +1,7 @@
 /**
  * Event dispatcher
  */
-import { DEBUG_MODE } from '../utilities/environment';
+import { DEBUG_MODE } from './environment';
 
 export default class Dispatcher {
 	/**
@@ -13,6 +13,7 @@ export default class Dispatcher {
 		const event = new window.CustomEvent(eventName, { detail });
 		window.dispatchEvent(event);
 		if (DEBUG_MODE) {
+			// eslint-disable-next-line no-console
 			console.log('🚀 Triggered:', eventName);
 		}
 	}

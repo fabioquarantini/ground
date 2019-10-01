@@ -1,10 +1,11 @@
 /**
- * 
- * 
+ *
+ *
  * @see https://scroll-out.github.io
  */
 import ScrollOut from 'scroll-out';
-import * as deepmerge from 'deepmerge';
+
+const Deepmerge = require('deepmerge');
 
 export default class ScrollOld {
 	/**
@@ -13,9 +14,9 @@ export default class ScrollOld {
 	constructor(options) {
 		this.defaults = {
 			once: false,
-			targets: '[data-scroll]'
+			targets: '[data-scroll]',
 		};
-		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
+		this.options = options ? Deepmerge(this.defaults, options) : this.defaults;
 
 		window.addEventListener('DOMContentLoaded', () => {
 			this.init();
@@ -34,10 +35,8 @@ export default class ScrollOld {
 	 * Initialize plugin
 	 */
 	init() {
-
 		document.body.classList.add('has-scroll-animation');
 		this.scroll = ScrollOut(this.options);
-		
 	}
 
 	/**

@@ -24,7 +24,7 @@ export default class Utilities {
 	 * @returns {string}
 	 */
 	static getSiteUrl() {
-		return window.location.protocol + '//' + window.location.host;
+		return `${window.location.protocol}//${window.location.host}`;
 	}
 
 	/**
@@ -32,10 +32,7 @@ export default class Utilities {
 	 * @returns {string}
 	 */
 	static getCurrentUrl() {
-		return window.location.protocol + '//' +
-			window.location.host +
-			window.location.pathname +
-			window.location.search;
+		return `${window.location.protocol}//${window.location.host}${window.location.pathname}${window.location.search}`;
 	}
 
 	/**
@@ -50,7 +47,7 @@ export default class Utilities {
 
 		if (typeof decimal !== 'undefined') {
 			return Number(result.toFixed(decimal));
-		} else return result;
+		} return result;
 	}
 
 	/**
@@ -69,8 +66,8 @@ export default class Utilities {
 	static trackGoogleAnalytics() {
 		if (typeof window.ga !== 'undefined') {
 			window.ga('send', 'pageview', {
-				'page': window.location.pathname,
-				'title': document.title
+				page: window.location.pathname,
+				title: document.title,
 			});
 		}
 	}
@@ -88,8 +85,8 @@ export default class Utilities {
 			e = document.documentElement || document.body;
 		}
 		return {
-			width: e[a + 'Width'],
-			height: e[a + 'Height']
+			width: e[`${a}Width`],
+			height: e[`${a}Height`],
 		};
 	}
 
@@ -99,7 +96,8 @@ export default class Utilities {
 	 * @returns {boolean}
 	 */
 	static isTouch() {
-		return true === ('ontouchstart' in window || (window.DocumentTouch && document instanceof DocumentTouch));
+		// eslint-disable-next-line no-undef
+		return ('ontouchstart' in window || (window.DocumentTouch && document instanceof DocumentTouch)) === true;
 	}
 
 	/**
@@ -107,7 +105,7 @@ export default class Utilities {
 	 * @returns {string}
 	 */
 	static getDeviceOrientation() {
-		let mql = window.matchMedia('(orientation: portrait)');
+		const mql = window.matchMedia('(orientation: portrait)');
 		return (mql.matches) ? 'portrait' : 'landscape';
 	}
 
@@ -121,19 +119,20 @@ export default class Utilities {
 	 * @param {boolean} immediate - Whether to execute at the beginning (`false`)
 	 */
 	static debounce(func, wait, immediate) {
-		var timeout;
+		let timeout;
 
 		// This is the function that is actually executed when
 		// the DOM event is triggered.
 		return function executedFunction() {
 			// Store the context of this and any
 			// parameters passed to executedFunction
-			var context = this;
-			var args = arguments;
+			const context = this;
+			// eslint-disable-next-line prefer-rest-params
+			const args = arguments;
 
 			// The function to be called after
 			// the debounce time has elapsed
-			var later = function() {
+			const later = () => {
 				// null timeout to indicate the debounce ended
 				timeout = null;
 
@@ -143,7 +142,7 @@ export default class Utilities {
 
 			// Determine if you should call the function
 			// on the leading or trail end
-			var callNow = immediate && !timeout;
+			const callNow = immediate && !timeout;
 
 			// This will reset the waiting every function execution.
 			// This is the step that prevents the function from
@@ -168,17 +167,17 @@ export default class Utilities {
 	 * @param {number} days - Expiry date in days (`7`)
 	 */
 	static setCookie(name, value, days) {
-		var expires;
+		let expires;
 
 		if (days) {
-			var date = new Date();
+			const date = new Date();
 			date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-			expires = '; expires=' + date.toGMTString();
+			expires = `; expires=${date.toGMTString()}`;
 		} else {
 			expires = '';
 		}
 
-		document.cookie = name + '=' + value + expires + '; path=/';
+		document.cookie = `${name}=${value}${expires}; path=/`;
 	}
 
 	/**
@@ -186,12 +185,12 @@ export default class Utilities {
 	 * @param {string} name - Cookie name
 	 */
 	static getCookie(name) {
-		var nameEQ = name + '=';
-		var ca = document.cookie.split(';');
-		for (var i = 0; i < ca.length; i++) {
-			var c = ca[i];
-			while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-			if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+		const nameEQ = `${name}=`;
+		const ca = document.cookie.split(';');
+		for (let i = 0; i < ca.length; i++) {
+			let c = ca[i];
+			while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+			if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
 		}
 		return null;
 	}
@@ -201,7 +200,7 @@ export default class Utilities {
 	 * @param {string} name - Cookie name
 	 */
 	static deleteCookie(name) {
-		createCookie(name, '', -1);
+		this.setCookie(name, '', -1);
 	}
 
 	/**
@@ -215,11 +214,11 @@ export default class Utilities {
 	 * @see https://github.com/yakudoo/TheAviator/blob/d19b8744e745f74fb70b4f255d700394aa6b3200/js/game.js#L965
 	 */
 	static normalize(value, actualMinRange, actualMaxRange, newMinRange, newMaxRange) {
-		var sanitizedValue = Math.max(Math.min(value, actualMaxRange), actualMinRange);
-		var actualRangeDelta = actualMaxRange - actualMinRange;
-		var coefficent = (sanitizedValue - actualMinRange) / actualRangeDelta;
-		var newRangeDelta = newMaxRange - newMinRange;
-		var newValue = newMinRange + coefficent * newRangeDelta;
+		const sanitizedValue = Math.max(Math.min(value, actualMaxRange), actualMinRange);
+		const actualRangeDelta = actualMaxRange - actualMinRange;
+		const coefficent = (sanitizedValue - actualMinRange) / actualRangeDelta;
+		const newRangeDelta = newMaxRange - newMinRange;
+		const newValue = newMinRange + coefficent * newRangeDelta;
 		return newValue;
 	}
 
@@ -232,6 +231,7 @@ export default class Utilities {
 	static getMousePosition(event) {
 		let posx = 0;
 		let posy = 0;
+		// eslint-disable-next-line no-param-reassign
 		if (!event) event = window.event;
 		if (event.pageX || event.pageY) {
 			posx = event.pageX;
@@ -242,7 +242,7 @@ export default class Utilities {
 		}
 		return {
 			x: posx,
-			y: posy
+			y: posy,
 		};
 	}
 

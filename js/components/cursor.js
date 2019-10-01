@@ -2,10 +2,10 @@
  * Cursor module
  * Mouse interactions
  */
-import * as deepmerge from 'deepmerge';
 import Utilities from '../utilities/utilities';
-import AbstractComponent from '../components/abstractComponent';
+import AbstractComponent from './abstractComponent';
 
+const Deepmerge = require('deepmerge');
 const isMobile = require('ismobilejs');
 
 export default class Cursor extends AbstractComponent {
@@ -22,10 +22,10 @@ export default class Cursor extends AbstractComponent {
 			cursorVisible: false,
 			interpolationAmount: {
 				inner: 0.15,
-				outer: 0.15
-			}
+				outer: 0.15,
+			},
 		};
-		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
+		this.options = options ? Deepmerge(this.defaults, options) : this.defaults;
 		this.updateEvents = this.updateEvents.bind(this);
 		this.getMousePosition = this.getMousePosition.bind(this);
 		this.click = this.click.bind(this);
@@ -35,11 +35,11 @@ export default class Cursor extends AbstractComponent {
 		this.opacity = 1;
 		this.mousePos = {
 			x: -100,
-			y: -100
+			y: -100,
 		};
 		this.lastMousePos = {
 			x: 0,
-			y: 0
+			y: 0,
 		};
 		this.lastScale = 1;
 		this.lastOpacity = 1;
@@ -56,7 +56,7 @@ export default class Cursor extends AbstractComponent {
 	 */
 	init() {
 		this.DOM = {
-			element: document.getElementById(this.element)
+			element: document.getElementById(this.element),
 		};
 
 		if (!isMobile.any && this.DOM.element === null) {
@@ -86,7 +86,7 @@ export default class Cursor extends AbstractComponent {
 	initEvents(triggers) {
 		window.addEventListener('mousemove', this.getMousePosition);
 		document.addEventListener('click', this.click);
-		[...document.querySelectorAll(triggers)].forEach(link => {
+		[...document.querySelectorAll(triggers)].forEach((link) => {
 			link.addEventListener('mouseenter', this.toggle);
 			link.addEventListener('mouseleave', this.toggle);
 		});
@@ -112,12 +112,12 @@ export default class Cursor extends AbstractComponent {
 		this.lastMousePos.x = Utilities.lerp(
 			this.lastMousePos.x,
 			this.mousePos.x - this.bounds.width / 2,
-			this.options.interpolationAmount.outer
+			this.options.interpolationAmount.outer,
 		);
 		this.lastMousePos.y = Utilities.lerp(
 			this.lastMousePos.y,
 			this.mousePos.y - this.bounds.height / 2,
-			this.options.interpolationAmount.outer
+			this.options.interpolationAmount.outer,
 		);
 		this.lastScale = Utilities.lerp(this.lastScale, this.scale, 0.15);
 		this.lastOpacity = Utilities.lerp(this.lastOpacity, this.opacity, 0.1);
@@ -195,12 +195,12 @@ export default class Cursor extends AbstractComponent {
 		}
 		this.mousePos = {
 			x: -100,
-			y: -100
+			y: -100,
 		};
 		window.cancelAnimationFrame(this.renderID);
 		window.removeEventListener('mousemove', this.getMousePosition);
 		document.removeEventListener('click', this.click);
-		[...document.querySelectorAll(this.options.triggers)].forEach(link => {
+		[...document.querySelectorAll(this.options.triggers)].forEach((link) => {
 			link.removeEventListener('mouseenter', this.toggle);
 			link.removeEventListener('mouseleave', this.toggle);
 		});

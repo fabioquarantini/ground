@@ -4,7 +4,8 @@
  * @see http://idangero.us/swiper
  */
 import Swiper from 'swiper';
-import * as deepmerge from 'deepmerge';
+
+const Deepmerge = require('deepmerge');
 
 export default class Slider {
 	/**
@@ -31,48 +32,48 @@ export default class Slider {
 				loadOnTransitionStart: true,
 			},
 			autoplay: {
-				delay: 5000
+				delay: 5000,
 			},
 			pagination: {
 				el: '.js-slider-primary-pagination',
 				clickable: true,
-				type: 'bullets'
+				type: 'bullets',
 			},
 			navigation: {
 				prevEl: '.js-slider-primary-navigation-prev',
-				nextEl: '.js-slider-primary-navigation-next'
+				nextEl: '.js-slider-primary-navigation-next',
 			},
 			slidesPerView: 1,
 			spaceBetween: 0,
 			breakpointsInverse: true,
-			// breakpoints: {
-			// 	// when window width is >= xs
-			// 	480: {
-			// 		slidesPerView: 1,
-			// 		//slidesPerView: 'auto',
-			// 		//freeMode: true,
-			// 		//spaceBetween: 48
-			// 	},
-			// 	// when window width is >= sm
-			// 	768: {
-			// 		slidesPerView: 1
-			// 		//freeMode: false,
-			// 	},
-			// 	// when window width is >= md
-			// 	992: {
-			// 		slidesPerView: 1
-			// 	},
-			// 	// when window width is >= lg
-			// 	1200: {
-			// 		slidesPerView: 1
-			// 	},
-			// 	// when window width is >= xl
-			// 	1440: {
-			// 		slidesPerView: 1
-			// 	}
-			// }
+			/* breakpoints: {
+				// when window width is >= xs
+				480: {
+					slidesPerView: 1,
+					// slidesPerView: 'auto',
+					// freeMode: true,
+					// spaceBetween: 48
+				},
+				// when window width is >= sm
+				768: {
+					slidesPerView: 1,
+					// freeMode: false,
+				},
+				// when window width is >= md
+				992: {
+					slidesPerView: 1,
+				},
+				// when window width is >= lg
+				1200: {
+					slidesPerView: 1,
+				},
+				// when window width is >= xl
+				1440: {
+					slidesPerView: 1,
+				},
+			}, */
 		};
-		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
+		this.options = options ? Deepmerge(this.defaults, options) : this.defaults;
 
 		window.addEventListener('DOMContentLoaded', () => {
 			this.init();
@@ -91,7 +92,7 @@ export default class Slider {
 	 * Initialize plugin
 	 */
 	init() {
-		if (document.querySelectorAll(this.element).length == 0) {
+		if (document.querySelectorAll(this.element).length === 0) {
 			return;
 		}
 

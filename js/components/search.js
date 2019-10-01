@@ -13,10 +13,10 @@ export default class Search {
 	 */
 	constructor(element) {
 		this.element = element || 'js-ajax-search';
-		this.DOM = { element: document.getElementById(this.element)};
+		this.DOM = { element: document.getElementById(this.element) };
 		this.DOM.searchResult = document.getElementById('js-ajax-search-result');
 		this.DOM.searchInput = document.getElementById('js-ajax-search-input');
-		this.adminAjaxUrl = Utilities.getSiteUrl() + '/wp-admin/admin-ajax.php';
+		this.adminAjaxUrl = `${Utilities.getSiteUrl()}/wp-admin/admin-ajax.php`;
 		this.searchLoadingClass = 'is-search-loading';
 
 		window.addEventListener('DOMContentLoaded', () => {
@@ -25,11 +25,11 @@ export default class Search {
 	}
 
 	init() {
-		if (this.DOM.element.length == 0) {
+		if (this.DOM.element.length === 0) {
 			return;
 		}
 
-		let debounce = Utilities.debounce(() => {
+		const debounce = Utilities.debounce(() => {
 			this.search();
 		}, 250);
 
@@ -37,8 +37,8 @@ export default class Search {
 	}
 
 	search() {
-		let searchValue = this.DOM.searchInput.value;
-		if (searchValue == '') {
+		const searchValue = this.DOM.searchInput.value;
+		if (searchValue === '') {
 			this.DOM.searchResult.innerHTML = '';
 			return;
 		}
@@ -47,15 +47,14 @@ export default class Search {
 		window.fetch(this.adminAjaxUrl, {
 			method: 'post',
 			headers: {
-				'content-type': 'application/x-www-form-urlencoded; charset=UTF-8'
+				'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
 			},
-			body: 'action=data_fetch&keyword=' + searchValue
-		}).then(res => {
-			return res.text();
-		}).then(
-			html => this.success(html)
-		).catch(error => {
+			body: `action=data_fetch&keyword=${searchValue}`,
+		}).then((res) => res.text()).then(
+			(html) => this.success(html),
+		).catch((error) => {
 			if (DEBUG_MODE) {
+				// eslint-disable-next-line no-console
 				console.error('Error:', error);
 			}
 		});

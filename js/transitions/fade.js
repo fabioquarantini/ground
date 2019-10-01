@@ -2,7 +2,9 @@ import Highway from '@dogstudio/highway';
 import Tween from 'gsap';
 
 class Fade extends Highway.Transition {
-	in({ from, to, trigger, done }) {
+	in({
+		from, to, trigger, done,
+	}) {
 		// Reset Scroll
 		window.scrollTo(0, 0);
 
@@ -14,9 +16,8 @@ class Fade extends Highway.Transition {
 			{ opacity: 0 },
 			{
 				opacity: 1,
-				onComplete: done
-			}
-		);
+				onComplete: done,
+			});
 	}
 
 	out({ from, trigger, done }) {
@@ -25,9 +26,8 @@ class Fade extends Highway.Transition {
 			{ opacity: 1 },
 			{
 				opacity: 0,
-				onComplete: done
-			}
-		);
+				onComplete: done,
+			});
 	}
 }
 

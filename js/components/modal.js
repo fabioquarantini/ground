@@ -3,10 +3,11 @@
  * Lightbox library for presenting various types of media
  */
 
-import * as deepmerge from 'deepmerge';
 import * as PhotoSwipe from 'photoswipe';
-import AbstractComponent from '../components/abstractComponent';
-import * as PhotoSwipeUI_Default from 'photoswipe/dist/photoswipe-ui-default';
+import * as PhotoSwipeUIDefault from 'photoswipe/dist/photoswipe-ui-default';
+import AbstractComponent from './abstractComponent';
+
+const Deepmerge = require('deepmerge');
 
 export default class Modal extends AbstractComponent {
 	/**
@@ -17,9 +18,9 @@ export default class Modal extends AbstractComponent {
 		super(element, options);
 		this.element = element || '[data-modal]';
 		this.defaults = {
-			triggers: this.element // '[href$=".jpg"], [href$=".png"], [href$=".gif"], [href$=".jpeg"], [href$=".webp"]'
+			triggers: this.element, // '[href$=".jpg"], [href$=".png"], [href$=".gif"], [href$=".jpeg"], [href$=".webp"]'
 		};
-		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
+		this.options = options ? Deepmerge(this.defaults, options) : this.defaults;
 		this.updateEvents = this.updateEvents.bind(this);
 		this.openPhotoSwipe = this.openPhotoSwipe.bind(this);
 		this.clickedItem = this.clickedItem.bind(this);
@@ -35,12 +36,8 @@ export default class Modal extends AbstractComponent {
 		this.DOM = {
 			element: document.querySelectorAll(this.element),
 			pswpElement: document.querySelectorAll('.pswp')[0],
-			html: document.documentElement
+			html: document.documentElement,
 		};
-
-		if (this.DOM.element.length == 0 && this.DOM.pswpElement.length == 0) {
-			return;
-		}
 	}
 
 	/**
@@ -48,8 +45,8 @@ export default class Modal extends AbstractComponent {
 	 * @param {string} triggers - Selectors
 	 */
 	initEvents(triggers) {
-		var elements =document.querySelectorAll(triggers);
-		for (var i = 0; i < elements.length; i++) {
+		const elements = document.querySelectorAll(triggers);
+		for (let i = 0; i < elements.length; i++) {
 			elements[i].addEventListener('click', this.clickedItem);
 		}
 	}
@@ -66,18 +63,18 @@ export default class Modal extends AbstractComponent {
 		this.items = [];
 		let item;
 		let size;
-		let sel = document.querySelectorAll('[data-modal="' + event.currentTarget.dataset.modal + '"]');
+		const sel = document.querySelectorAll(`[data-modal="${event.currentTarget.dataset.modal}"]`);
 
-		if (event.currentTarget.dataset.modal == '') {
-			let element = event.currentTarget;
+		if (event.currentTarget.dataset.modal === '') {
+			const element = event.currentTarget;
 			size = element.getAttribute('data-modal-size').split('x');
 			item = {
 				src: element.getAttribute('href'),
 				w: parseInt(size[0], 10),
 				h: parseInt(size[1], 10),
-				el: element
+				el: element,
 			};
-			if(element.getElementsByTagName('img')[0] !== undefined) {
+			if (element.getElementsByTagName('img')[0] !== undefined) {
 				item.msrc = element.getElementsByTagName('img')[0].getAttribute('src');
 			}
 			if (element.getAttribute('data-modal-caption')) {
@@ -86,17 +83,17 @@ export default class Modal extends AbstractComponent {
 			this.items.push(item);
 		} else {
 			for (let index = 0; index < sel.length; index++) {
-				let element = sel[index];
+				const element = sel[index];
 				size = element.getAttribute('data-modal-size').split('x');
 				item = {
 					src: element.getAttribute('href'),
 					w: parseInt(size[0], 10),
 					h: parseInt(size[1], 10),
 					firstSlide: currentTarget.isEqualNode(element),
-					el: element
+					el: element,
 				};
 
-				if(element.getElementsByTagName('img')[0] !== undefined) {
+				if (element.getElementsByTagName('img')[0] !== undefined) {
 					item.msrc = element.getElementsByTagName('img')[0].getAttribute('src');
 				}
 				if (element.getAttribute('data-modal-caption')) {
@@ -114,13 +111,12 @@ export default class Modal extends AbstractComponent {
 	}
 
 	openPhotoSwipe(event) {
-		event = event || window.event;
-		event.preventDefault ? event.preventDefault() : event.returnValue = false;
+		event.preventDefault();
 
 		let index;
-		let items = this.getItems(event.currentTarget);
+		const items = this.getItems(event.currentTarget);
 
-		if(items.length > 0) {
+		if (items.length > 0) {
 			for (let i = 0; i < items.length; i++) {
 				const element = items[i];
 
@@ -131,22 +127,22 @@ export default class Modal extends AbstractComponent {
 		}
 
 		this.swiperOptions = {
-			index: index,
+			index,
 			history: false,
 			shareEl: false,
-			getThumbBoundsFn: function(index) {
-				let thumbnail = items[index].el.getElementsByTagName('img')[0];
-				let pageYScroll = window.pageYOffset || document.documentElement.scrollTop;
-				let rect = thumbnail.getBoundingClientRect();
+			getThumbBoundsFn(index) {
+				const thumbnail = items[index].el.getElementsByTagName('img')[0];
+				const pageYScroll = window.pageYOffset || document.documentElement.scrollTop;
+				const rect = thumbnail.getBoundingClientRect();
 				return {
 					x: rect.left,
 					y: rect.top + pageYScroll,
-					w: rect.width
+					w: rect.width,
 				};
-			}
+			},
 		};
 
-		this.gallery = new PhotoSwipe(this.DOM.pswpElement, PhotoSwipeUI_Default, items, this.swiperOptions);
+		this.gallery = new PhotoSwipe(this.DOM.pswpElement, PhotoSwipeUIDefault, items, this.swiperOptions);
 		this.gallery.init();
 		this.onOpen();
 		this.gallery.listen('close', () => {

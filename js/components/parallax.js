@@ -18,7 +18,7 @@ export default class Split {
 			wrapper: null,
 			round: true,
 			vertical: true,
-			horizontal: false
+			horizontal: false,
 		};
 		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
 
@@ -39,7 +39,7 @@ export default class Split {
 	 * Initialize plugin
 	 */
 	init() {
-		if (document.querySelectorAll(this.element).length == 0) {
+		if (document.querySelectorAll(this.element).length === 0) {
 			return;
 		}
 

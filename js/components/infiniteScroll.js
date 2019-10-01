@@ -5,11 +5,11 @@
  * TODO: Fix Smoothscroll
  * TODO: Fix highway on new link
  */
-import * as deepmerge from 'deepmerge';
 import { DEBUG_MODE } from '../utilities/environment';
-import AbstractComponent from '../components/abstractComponent';
+import AbstractComponent from './abstractComponent';
 
-var infScroll = require('infinite-scroll');
+const Deepmerge = require('deepmerge');
+const InfScroll = require('infinite-scroll');
 
 export default class InfiniteScroll extends AbstractComponent {
 	/**
@@ -26,9 +26,9 @@ export default class InfiniteScroll extends AbstractComponent {
 			scrollThreshold: 400,
 			hideNav: '.js-pagination',
 			status: '.js-infinite-status',
-			debug: DEBUG_MODE ? true : false
+			debug: !!DEBUG_MODE,
 		};
-		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
+		this.options = options ? Deepmerge(this.defaults, options) : this.defaults;
 		this.updateEvents = this.updateEvents.bind(this);
 
 		window.addEventListener('DOMContentLoaded', () => {
@@ -46,20 +46,20 @@ export default class InfiniteScroll extends AbstractComponent {
 	 * Initialize plugin
 	 */
 	init() {
-		this.DOM = {element: document.querySelector(this.element)};
+		this.DOM = { element: document.querySelector(this.element) };
 
 		if (!this.DOM.element) {
 			return;
 		}
 
-		this.infScroll = new infScroll(this.element, this.options);
+		this.infScroll = new InfScroll(this.element, this.options);
 	}
 
 	/**
 	 * Update events
 	 * @param {Object} target - New selector
 	 */
-	updateEvents(target) {
+	updateEvents() {
 		this.init();
 	}
 

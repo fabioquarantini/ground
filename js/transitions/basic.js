@@ -3,7 +3,9 @@ import Tween from 'gsap';
 
 // Basic
 class Basic extends Highway.Transition {
-	in({ from, to, trigger, done }) {
+	in({
+		from, to, trigger, done,
+	}) {
 		// Reset Scroll
 		window.scrollTo(0, 0);
 
@@ -35,4 +37,3 @@ class Basic extends Highway.Transition {
 }
 
 export default Basic;
-

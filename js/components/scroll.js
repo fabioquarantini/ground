@@ -3,18 +3,19 @@
  * Detection of elements in viewport & smooth scrolling with parallax.
  * @see https://github.com/locomotivemtl/locomotive-scroll
  */
-import imagesLoaded from 'imagesLoaded';
-import locomotiveScroll from 'locomotive-scroll';
-import * as deepmerge from 'deepmerge';
+import LocomotiveScroll from 'locomotive-scroll';
 import { DEBUG_MODE } from '../utilities/environment';
 
+const Deepmerge = require('deepmerge');
+
+const imagesLoaded = require('imagesloaded');
 
 export default class Scroll {
 	/**
 	 * @param {Object} options - User options
 	 */
 	constructor(options) {
-		this.DOM = { element: document.getElementById('js-scroll')};
+		this.DOM = { element: document.getElementById('js-scroll') };
 		this.DOM.html = document.documentElement;
 		this.DOM.body = document.body;
 		this.DOM.scrollProgress = document.getElementById('js-scroll-progress');
@@ -24,28 +25,28 @@ export default class Scroll {
 			getSpeed: true,
 			getDirection: true,
 			smoothMobile: false,
-			scrollbarClass: 'scrollbar'
+			scrollbarClass: 'scrollbar',
 		};
-		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
+		this.options = options ? Deepmerge(this.defaults, options) : this.defaults;
 
-		new imagesLoaded(this.DOM.body, { background: true }, this.init());
+		imagesLoaded(this.DOM.body, { background: true }, this.init());
 
 		window.addEventListener('NAVIGATE_END', () => {
 			this.update();
 		});
 
 		window.addEventListener('infiniteScrollAppended', () => {
-			//this.init();
+			// this.init();
 		});
 	}
 
 	init() {
-		if (this.DOM.element.length == 0) {
+		if (this.DOM.element.length === 0) {
 			return;
 		}
 
 		setTimeout(() => {
-			this.scroll = new locomotiveScroll(this.options);
+			this.scroll = new LocomotiveScroll(this.options);
 			this.onScroll();
 		}, 1000);
 	}
@@ -59,17 +60,19 @@ export default class Scroll {
 		 */
 
 		this.scroll.on('scroll', (instance) => {
-			if (DEBUG_MODE) {
-				console.log('Istance:' + instance);
-				console.log('scrollY:' + instance.scroll.y);
-				console.log('Limit:' + instance.limit);
-				console.log('Scroll Progress:' + progress_rounded + '%');
-			}
-
-			let progress = (instance.scroll.y / (this.DOM.element.offsetHeight - window.innerHeight)) * 100;
-			let progress_rounded = Math.round(progress);
-			this.DOM.scrollProgress.style.height = progress_rounded + '%';
+			const progress = (instance.scroll.y / (this.DOM.element.offsetHeight - window.innerHeight)) * 100;
+			const progressRounded = Math.round(progress);
+			this.DOM.scrollProgress.style.height = `${progressRounded}%`;
 			document.documentElement.setAttribute('data-direction', instance.direction);
+
+			if (DEBUG_MODE) {
+				/* eslint-disable no-console */
+				console.log(`Istance:${instance}`);
+				console.log(`scrollY:${instance.scroll.y}`);
+				console.log(`Limit:${instance.limit}`);
+				console.log(`Scroll Progress:${progressRounded}%`);
+				/* eslint-enable no-console */
+			}
 		});
 	}
 

@@ -1,27 +1,27 @@
-import imagesLoaded from 'imagesLoaded';
-import AbstractComponent from '../components/abstractComponent';
 import TweenMax from 'gsap/TweenMax';
-const isMobile = require('ismobilejs');
+import AbstractComponent from './abstractComponent';
 
+const imagesLoaded = require('imagesloaded');
+const isMobile = require('ismobilejs');
 
 export default class Loader extends AbstractComponent {
 	constructor() {
 		super();
-		this.DOM = { element: document.getElementById('js-loader')};
+		this.DOM = { element: document.getElementById('js-loader') };
 		this.DOM.html = document.documentElement;
 		this.DOM.body = document.body;
 		this.DOM.background = document.getElementById('js-loader-bg');
 		this.DOM.content = document.getElementById('js-loader-content');
 		this.tlLoader = new TimelineLite();
 		this.tlLoaderContent = new TimelineLite({
-			delay: 0.2
+			delay: 0.2,
 		});
 
-		new imagesLoaded(this.DOM.body, { background: true }, this.init());
+		imagesLoaded(this.DOM.body, { background: true }, this.init());
 	}
 
 	init() {
-		if (this.DOM.element.length == 0) {
+		if (this.DOM.element.length === 0) {
 			return;
 		}
 
@@ -47,13 +47,13 @@ export default class Loader extends AbstractComponent {
 				this.DOM.html.classList.add('is-loader-complete');
 				// Hide loader
 				this.DOM.element.classList.add('display-none');
-			}
+			},
 		});
 
 		this.tlLoaderContent.to(this.DOM.content, 0.8, {
 			ease: Power3.easeOut,
 			y: 65,
-			opacity: 0
+			opacity: 0,
 		});
 	}
 }

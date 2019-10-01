@@ -10,12 +10,12 @@ export default class AbstractComponent {
 	 */
 	initObserver(triggers, callback) {
 		// @see https://stackoverflow.com/questions/56608748/how-to-use-queryselectorall-on-the-added-nodes-in-a-mutationobserver
-		let filterSelector = (selector, mutationsList) => {
+		const filterSelector = (selector, mutationsList) => {
 			// We can't create a NodeList; let's use a Set
 			const result = new Set();
 			// Loop through the mutationsList...
 			for (const {
-				addedNodes
+				addedNodes,
 			} of mutationsList) {
 				for (const node of addedNodes) {
 					// If it's an element...
@@ -31,12 +31,22 @@ export default class AbstractComponent {
 					}
 				}
 			}
+
+			/* mutationsList.map((e) => e.addedNodes).forEach((n) => {
+				if (n.nodeType === 1) {
+					if (n.matches(selector)) {
+						result.add(n);
+					}
+					// Add any children
+					n.querySelectorAll(selector).forEach((c) => result.add(c));
+				}
+			}); */
 			return [...result]; // Result is an array, or just return the set
 		};
 
-		let observerCallback = (mutationsList) => {
+		const observerCallback = (mutationsList) => {
 			const result = filterSelector(triggers, mutationsList);
-			result.forEach(element => {
+			result.forEach((element) => {
 				callback(element);
 			});
 		};
@@ -46,7 +56,7 @@ export default class AbstractComponent {
 			childList: true,
 			attributes: false,
 			characterData: false,
-			subtree: true
+			subtree: true,
 		});
 	}
 
