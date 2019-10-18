@@ -17,7 +17,7 @@ export default class Cursor extends AbstractComponent {
 		super(element, options);
 		this.element = element || 'js-cursor';
 		this.defaults = {
-			triggers: 'a, .js-cursor-drag, .js-cursor-hover, .js-cursor-right, .js-cursor-left, .js-cursor-zoom, .js-cursor-close',
+			triggers: 'a, [type="submit"], .js-cursor-drag, .js-cursor-hover, .js-cursor-right, .js-cursor-left, .js-cursor-zoom, .js-cursor-close',
 			alwaysVisible: true,
 			cursorVisible: false,
 			interpolationAmount: {

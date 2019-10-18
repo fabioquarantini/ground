@@ -46,9 +46,14 @@ export default class InfiniteScroll extends AbstractComponent {
 	 * Initialize plugin
 	 */
 	init() {
-		this.DOM = { element: document.querySelector(this.element) };
+		this.DOM = {
+			element: document.querySelector(this.element),
+			path: document.querySelector(this.options.path),
+		};
 
-		if (!this.DOM.element) {
+		if ((this.DOM.path === null && this.DOM.element === null)
+			|| (this.DOM.path !== null && this.DOM.element === null)
+			|| (this.DOM.path === null && this.DOM.element !== null)) {
 			return;
 		}
 
