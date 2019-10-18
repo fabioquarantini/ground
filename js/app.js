@@ -30,7 +30,7 @@ const parallax = new Parallax();
 const cursor = new Cursor();
 const search = new Search();
 const magnet = new Magnet();
-const example = new Example();
+// const example = new Example();
 
 
 const sliderGallery = new Slider('.js-slider-gallery', {
