@@ -117,7 +117,7 @@ export default class Scroll extends AbstractComponent {
 		 * @param {Object} istance (delta, direction, limit, scroll, speed)
 		 */
 
-		document.documentElement.setAttribute('data-direction', 'up');
+		document.documentElement.setAttribute('data-direction', 'default');
 
 		this.on('scroll', (instance) => {
 			document.documentElement.setAttribute('data-direction', instance.direction);
