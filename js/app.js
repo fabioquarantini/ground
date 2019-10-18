@@ -37,7 +37,7 @@ const sliderGallery = new Slider('.js-slider-gallery', {
 	direction: 'horizontal',
 	loop: false,
 	effect: 'slide',
-	speed: 600,
+	speed: 1000,
 	autoHeight: false,
 	parallax: true,
 	autoplay: false,
