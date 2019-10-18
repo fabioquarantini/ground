@@ -5,6 +5,7 @@ Template Name: Example
 
 get_template_part('partials/header'); ?>
 
+
 <div class="container margin-top-5 margin-bottom-5">
 	<div class="row">
 		<div class="gr-12">
