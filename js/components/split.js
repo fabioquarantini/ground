@@ -60,7 +60,7 @@ export default class Split extends AbstractComponent {
 	/**
      * my Animation
     */
-	splitText(event) {
+	splitText() {
 		Splitting(this.options);
 	}
 }
