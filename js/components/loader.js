@@ -12,15 +12,15 @@ export default class Loader extends AbstractComponent {
 		this.DOM.body = document.body;
 		this.DOM.background = document.getElementById('js-loader-bg');
 		this.DOM.content = document.getElementById('js-loader-content');
-		this.tlLoader = new TimelineLite();
-		this.tlLoaderContent = new TimelineLite({
-			delay: 0.2,
-		});
+		this.animation = true;
 
 		imagesLoaded(this.DOM.body, { background: true }, this.init());
 	}
 
 	init() {
+		this.DOM.html.classList.remove('has-no-js');
+		this.DOM.html.classList.add('has-js', 'is-loaded');
+
 		if (this.DOM.element.length === 0) {
 			return;
 		}
@@ -28,13 +28,26 @@ export default class Loader extends AbstractComponent {
 		// Reset Scroll
 		window.scrollTo(0, 0);
 
-		// Update body class
+		// Update html class
 		this.DOM.html.classList.remove('is-loading');
 		this.DOM.html.classList.add('is-loaded');
 
 		if (isMobile.any) {
 			this.DOM.html.classList.add('is-mobile');
 		}
+
+		if (this.animation) {
+			this.reveal();
+		} else {
+			this.DOM.html.classList.add('is-loader-complete');
+		}
+	}
+
+	reveal() {
+		this.tlLoader = new TimelineLite();
+		this.tlLoaderContent = new TimelineLite({
+			delay: 0.2,
+		});
 
 		// Animations
 		this.tlLoader.to(this.DOM.background, 1.5, {
@@ -43,7 +56,7 @@ export default class Loader extends AbstractComponent {
 			rotation: 0.01,
 			ease: Quart.easeInOut,
 			onComplete: () => {
-				// Update body class
+				// Update html class
 				this.DOM.html.classList.add('is-loader-complete');
 				// Hide loader
 				this.DOM.element.classList.add('display-none');
