@@ -18,12 +18,14 @@
 			<?php get_template_part( 'partials/content', 'header' ); ?>
 			<?php get_template_part( 'partials/loader' ); ?>
 
-			<div data-scroll-section>
+			<div data-router-wrapper>
 
-				<div data-router-wrapper>
+				<div <?php ground_view_name(); ?>>
 
-					<main role="main" <?php ground_view_name(); ?>>
+					<div data-scroll-section>
 
-						<?php if ( is_front_page() ) {
-							get_template_part( 'partials/slider', 'secondary' );
-						} ?>
+						<main role="main">
+
+							<?php if ( is_front_page() ) {
+								get_template_part( 'partials/slider', 'secondary' );
+							} ?>

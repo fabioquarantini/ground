@@ -1,10 +1,12 @@
-				</main>
+						</main>
+					
+					<?php get_template_part( 'partials/content', 'footer' ); ?>
 
-			</div> <!-- End [data-router-wrapper] -->
+				</div> <!-- End [data-scroll-section] --> 
 
-			<?php get_template_part( 'partials/content', 'footer' ); ?>
+			</div><!-- End [data-router-view]  -->
 
-		</div><!-- End SmoothScroll Global -->
+		</div><!-- End [data-router-wrapper] -->
 
 	</div> <!-- End .scroll -->
 
