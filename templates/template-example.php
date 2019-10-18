@@ -67,14 +67,14 @@ get_template_part('partials/header'); ?>
 		<div class="gr-12">
 
 			<div data-scroll data-scroll-animation="fade-in-down" data-scroll-repeat>
-				<a href="#fade-in-up" data-scroll-to>
+				<div href="#fade-in-up" data-scroll-to>
 					<h2>data-scroll-to FADE IN UP</h2>
-				</a>
+				</div>
 			</div>
 			<div data-scroll data-scroll-animation="fade-in-down" data-scroll-repeat>
-				<a href="#fade-in-right" data-scroll-to>
+				<div href="#fade-in-right" data-scroll-to>
 					<h2>data-scroll-to FADE IN RIGHT</h2>
-				</a>
+				</div>
 			</div>
 
 			<div data-scroll data-scroll-animation="fade-in-down" data-scroll-repeat>
