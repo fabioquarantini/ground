@@ -1,8 +1,8 @@
 import TweenMax from 'gsap/TweenMax';
+import isMobile from 'ismobilejs';
 import AbstractComponent from './abstractComponent';
 
 const imagesLoaded = require('imagesloaded');
-const isMobile = require('ismobilejs');
 
 export default class Loader extends AbstractComponent {
 	constructor() {
@@ -32,7 +32,7 @@ export default class Loader extends AbstractComponent {
 		this.DOM.html.classList.remove('is-loading');
 		this.DOM.html.classList.add('is-loaded');
 
-		if (isMobile.any) {
+		if (isMobile().any) {
 			this.DOM.html.classList.add('is-mobile');
 		}
 
