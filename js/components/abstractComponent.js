@@ -18,6 +18,8 @@ export default class AbstractComponent {
 				addedNodes,
 			} of mutationsList) {
 				for (const node of addedNodes) {
+					// console.log(node);
+
 					// If it's an element...
 					if (node.nodeType === 1) {
 						// Add it if it's a match
@@ -41,6 +43,7 @@ export default class AbstractComponent {
 					n.querySelectorAll(selector).forEach((c) => result.add(c));
 				}
 			}); */
+
 			return [...result]; // Result is an array, or just return the set
 		};
 
@@ -51,13 +54,18 @@ export default class AbstractComponent {
 			});
 		};
 
-		this.observer = new window.MutationObserver(observerCallback);
-		this.observer.observe(document.body, {
+		const DOM = {
+			html: document.documentElement,
+			body: document.body,
+		};
+		this.config = {
 			childList: true,
 			attributes: false,
 			characterData: false,
 			subtree: true,
-		});
+		};
+		this.observer = new MutationObserver(observerCallback);
+		this.observer.observe(DOM.html, this.config);
 	}
 
 	destroyObserver() {
