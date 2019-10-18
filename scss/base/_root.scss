@@ -16,6 +16,10 @@ html {
 		cursor: wait;
 	}
 
+	&.has-scroll-init {
+        overflow: hidden;
+	}
+
 	&.has-scroll-smooth {
 		overflow: hidden;
 	}
