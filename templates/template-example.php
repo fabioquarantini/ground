@@ -5,6 +5,7 @@ Template Name: Example
 
 get_template_part('partials/header'); ?>
 
+
 <div class="container margin-top-5 margin-bottom-5">
 	<div class="row">
 		<div class="gr-12">
@@ -67,14 +68,14 @@ get_template_part('partials/header'); ?>
 		<div class="gr-12">
 
 			<div data-scroll data-scroll-animation="fade-in-down" data-scroll-repeat>
-				<a href="#fade-in-up" data-scroll-to>
+				<div href="#fade-in-up" data-scroll-to>
 					<h2>data-scroll-to FADE IN UP</h2>
-				</a>
+				</div>
 			</div>
 			<div data-scroll data-scroll-animation="fade-in-down" data-scroll-repeat>
-				<a href="#fade-in-right" data-scroll-to>
+				<div href="#fade-in-right" data-scroll-to>
 					<h2>data-scroll-to FADE IN RIGHT</h2>
-				</a>
+				</div>
 			</div>
 
 			<div data-scroll data-scroll-animation="fade-in-down" data-scroll-repeat>
@@ -130,43 +131,6 @@ get_template_part('partials/header'); ?>
 		<div class="gr-10@md gr-8 gr-centered">
 			<?php get_template_part('partials/slider', 'gallery'); ?>
 		</div>
-	</div>
-</div>
-
-
-<div class="container position-relative margin-top-5 margin-bottom-5">
-	<div class="row">
-
-		<div class="gr-4">
-
-			<div class="position-relative" data-scroll data-scroll-speed="1">
-				<a href="<?php echo TEMPLATE_URL ?>/img/sample-6.jpg" class="js-cursor-plus position-relative overflow-hidden" data-scroll data-scroll-repeat data-modal="gallery" data-modal-caption="Lorem ipsum" data-modal-size="934x1401" data-router-disabled>
-					<img data-scroll data-scroll-speed="-1.5" class="media__img--masked full-width" src="<?php echo TEMPLATE_URL ?>/img/sample-6.jpg" alt="text">
-				</a>
-			</div>
-
-		</div>
-
-		<div class="gr-4 margin-top-4">
-
-			<div class="position-relative" data-scroll data-scroll-speed="2">
-				<a href="<?php echo TEMPLATE_URL ?>/img/sample-7.jpg" class="js-cursor-plus position-relative overflow-hidden" data-scroll data-scroll-repeat data-modal="gallery" data-modal-caption="Lorem ipsum" data-modal-size="934x1400" data-router-disabled>
-					<img data-scroll data-scroll-speed="-1.5" class="media__img--masked full-width" src="<?php echo TEMPLATE_URL ?>/img/sample-7.jpg" alt="text">
-				</a>
-			</div>
-
-		</div>
-
-		<div class="gr-4 margin-top-4">
-
-			<div class="position-relative" data-scroll data-scroll-speed="6">
-				<a href="<?php echo TEMPLATE_URL ?>/img/sample-8.jpg" class="js-cursor-plus position-relative overflow-hidden" data-scroll data-scroll-repeat data-modal="gallery" data-modal-caption="Lorem ipsum" data-modal-size="934x1401" data-router-disabled>
-					<img data-scroll data-scroll-speed="-4" class="media__img--masked full-width" src="<?php echo TEMPLATE_URL ?>/img/sample-8.jpg" alt="text">
-				</a>
-			</div>
-
-		</div>
-
 	</div>
 </div>
 

@@ -7,6 +7,7 @@ import 'promise-polyfill/src/polyfill';
 import 'whatwg-fetch';
 import Highway from '@dogstudio/highway';
 import Reveal from '../transitions/reveal';
+import Fade from '../transitions/fade';
 import Dispatcher from '../utilities/dispatcher';
 import AbstractComponent from './abstractComponent';
 
@@ -22,6 +23,9 @@ export default class AjaxNavigation extends AbstractComponent {
 		this.H = new Highway.Core({
 			transitions: {
 				default: Reveal,
+				contextual: {
+					fade: Fade,
+				},
 			},
 		});
 

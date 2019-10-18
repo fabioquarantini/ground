@@ -34,6 +34,9 @@
 		background: rgba(0,0,0,0.15);
 
 		.swiper-pagination-progressbar-fill {
+			display: block;
+			transform-origin: left;
+			height: 1px;
 			background: $color-black;
 			transition-duration: 2s !important;
 		}

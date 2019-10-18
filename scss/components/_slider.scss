@@ -19,9 +19,26 @@
 .slider--gallery {
 
 	.slider__navigation {
-		&:before {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 2;
+		outline: none;
+
+		&.swiper-button-disabled {
 			display: none;
 		}
+		
+		&--next {
+			right: 0;
+			left: auto;
+		}
+
+		&--prev {
+			right: auto;
+			left: 0;
+		}
+
 	}
 	
 	.slider__img {

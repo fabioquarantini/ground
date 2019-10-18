@@ -21,8 +21,8 @@
 	&.is-cursor-dragged {
 		.cursor__circle--outer {
 			background-color: rgba($color-grey, 0.5);
-			transform: scale(2.5);
-			border: 2px solid transparent !important;
+			transform: scale(1.8);
+			border: 1px solid transparent !important;
 		}
 
 		.cursor__icon {
@@ -33,8 +33,8 @@
 	&.is-cursor-hover {
 		.cursor__circle--outer {
 			background-color: rgba($color-grey, 0.5);
-			border: 2px solid transparent !important;
-			transform: scale(2.5);
+			border: 1px solid transparent !important;
+			transform: scale(1.8);
 		}
 
 		.cursor__icon {
@@ -99,12 +99,12 @@
 
 .cursor__circle--outer {
 	background-color: transparent;
-	width: 30px;
-	height: 30px;
+	width: 38px;
+	height: 38px;
 	opacity: 1;
 	transition: all $speed $easing;
 	.is-cursor-always-visible & {
-		border: 2px solid $color-black;
+		border: 1px solid $color-black;
 
 		.is-modal-open & {
 			border-color: $color-white;
@@ -112,8 +112,8 @@
 	}
 
 	.is-loading & {
-		background-color: $color-primary;
-		border: 2px solid $color-primary;
+		border: none;
+		opacity: 0;
 	}
 }
 
@@ -133,8 +133,8 @@
 	position: absolute;
 	top: -32px;
 	left: -32px;
-	border: 4px solid transparent;
-	border-top: 4px solid $color-primary;
+	border: 1px solid rgba($color-grey, 0.4);
+	border-top: 1px solid $color-primary;
 	animation: rotate 1.2s infinite linear;
 
 	.is-loading & {
