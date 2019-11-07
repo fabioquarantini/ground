@@ -10,6 +10,10 @@ import Reveal from '../transitions/reveal';
 import Fade from '../transitions/fade';
 import Dispatcher from '../utilities/dispatcher';
 import AbstractComponent from './abstractComponent';
+import ContactForm from './contactForm';
+
+// eslint-disable-next-line no-unused-vars
+const contactForm = new ContactForm();
 
 export default class AjaxNavigation extends AbstractComponent {
 	constructor() {
