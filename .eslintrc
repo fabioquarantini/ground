@@ -55,6 +55,7 @@
 		"VelocityTracker" : false,
 		"CSSPlugin" : false,
 		"ThrowPropsPlugin" : false,
-		"BezierPlugin" : false
+		"BezierPlugin" : false,
+		"wpcf7": false
 	}
 }
