@@ -1,8 +1,8 @@
 # Force URL to www
 <IfModule mod_rewrite.c>
 RewriteEngine on
-RewriteCond %{HTTP_HOST} ^internionline.it [NC]
-RewriteRule ^(.*)$ https://www.internionline.it/$1 [L,R=301,NC]
+RewriteCond %{HTTP_HOST} ^domainexample.com [NC]
+RewriteRule ^(.*)$ https://www.domainexample.com/$1 [L,R=301,NC]
 </IfModule>
 
 # Force HTTPs
