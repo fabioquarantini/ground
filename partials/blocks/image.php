@@ -7,14 +7,13 @@
     */
 
     $image = get_field('image');
-    $size = 'large'; 
     
     // Default Value
     if( !$image ) { $image['url'] = TEMPLATE_URL.'/img/sample-1.jpg'; }     
     
 ?>
 
-<div class="container block block--image">
+<div class="container container--fluid padding-0 block block--image">
     <div class="row">
         <div class="gr-12">
 

@@ -1,4 +1,10 @@
 .block {
-    border: 2px dashed $color-grey;
-    padding: ritmo(5);
+
+    // Documentation Template
+    .body--page-template-template-ground-docs & {
+        border: 4px dashed $color-black;
+        margin-bottom: ritmo(4);
+    }
+
+
 }

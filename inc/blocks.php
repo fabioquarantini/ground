@@ -26,6 +26,16 @@ function ground_acf_init() {
             'icon'				=> 'admin-comments',
 			'keywords'			=> array( 'image' ),
         ));
+
+        acf_register_block(array(
+			'name'				=> 'slider-gallery',
+			'title'				=> __('ground: SLIDER GALLERY'),
+			'description'		=> __('SLIDER GALLERY block.'),
+			'render_callback'	=> 'ground_block_render',
+			'category'			=> 'formatting',
+            'icon'				=> 'admin-comments',
+			'keywords'			=> array( 'slider-gallery' ),
+        ));
         			
 	}
 }
