@@ -299,41 +299,6 @@ get_template_part('partials/header'); ?>
 </div>
 
 
-<div class="container position-relative margin-top-5 margin-bottom-5">
-	<div class="row">
-
-		<div class="gr-4">
-
-			<div class="position-relative" data-scroll data-scroll-speed="1">
-				<a href="<?php echo TEMPLATE_URL ?>/img/sample-6.jpg" class="js-cursor-plus position-relative overflow-hidden" data-scroll data-scroll-repeat data-modal="gallery" data-modal-caption="Lorem ipsum" data-modal-size="934x1401" data-router-disabled>
-					<img data-scroll data-scroll-speed="-1.5" class="media__img--masked full-width" src="<?php echo TEMPLATE_URL ?>/img/sample-6.jpg" alt="text">
-				</a>
-			</div>
-
-		</div>
-
-		<div class="gr-4 margin-top-4">
-
-			<div class="position-relative" data-scroll data-scroll-speed="2">
-				<a href="<?php echo TEMPLATE_URL ?>/img/sample-7.jpg" class="js-cursor-plus position-relative overflow-hidden" data-scroll data-scroll-repeat data-modal="gallery" data-modal-caption="Lorem ipsum" data-modal-size="934x1400" data-router-disabled>
-					<img data-scroll data-scroll-speed="-1.5" class="media__img--masked full-width" src="<?php echo TEMPLATE_URL ?>/img/sample-7.jpg" alt="text">
-				</a>
-			</div>
-
-		</div>
-
-		<div class="gr-4 margin-top-4">
-
-			<div class="position-relative" data-scroll data-scroll-speed="6">
-				<a href="<?php echo TEMPLATE_URL ?>/img/sample-8.jpg" class="js-cursor-plus position-relative overflow-hidden" data-scroll data-scroll-repeat data-modal="gallery" data-modal-caption="Lorem ipsum" data-modal-size="934x1401" data-router-disabled>
-					<img data-scroll data-scroll-speed="-4" class="media__img--masked full-width" src="<?php echo TEMPLATE_URL ?>/img/sample-8.jpg" alt="text">
-				</a>
-			</div>
-
-		</div>
-
-	</div>
-</div>
 
 
 <div class="container margin-top-5 margin-bottom-5">
