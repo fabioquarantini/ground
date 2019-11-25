@@ -25,6 +25,8 @@
 	21 - Custom Breadcrumb using Yoast SEO Plugin
 	22 - Ajax search result
 	23 - WMPL - Switch Language
+	24 - Gutemberg Blocks
+
 	==========================================================================  */
 
 
@@ -473,4 +475,19 @@ function ground_language_switch(){
 	ob_start();
 	get_template_part('partials/switch-language');
 	return ob_get_clean();
+}
+
+
+/*  ==========================================================================
+	24 - Gutemberg Blocks
+	==========================================================================  */
+function ground_block_render( $block ) {
+
+	// convert name ("acf/testimonial") into path friendly slug ("testimonial")
+	$slug = str_replace('acf/', '', $block['name']);
+	
+	// include a template part from within the "template-parts/block" folder
+	if( file_exists( get_theme_file_path("/partials/blocks/{$slug}.php") ) ) {
+		include( get_theme_file_path("/partials/blocks/{$slug}.php") );
+	}
 }

@@ -272,33 +272,37 @@ get_template_part('partials/header'); ?>
 	<div class="row">
 
 		<div class="gr-4" data-scroll data-scroll-animation="zoom-in-staggered">
-			<div class="ratio-1-1 overflow-hidden">
+			<div class="overflow-hidden">
 				<figure>
-					<img class="cover" src="<?php echo TEMPLATE_URL ?>/img/sample-6.jpg">
-				</figure>
-			</div>
-		</div>
-
-		<div class="gr-4" data-scroll data-scroll-animation="zoom-in-staggered" data-scroll-repeat>
-			<div class="ratio-1-1 overflow-hidden">
-				<figure>
-					<img class="cover" src="<?php echo TEMPLATE_URL ?>/img/sample-6.jpg">
+					<a href="<?php echo TEMPLATE_URL ?>/img/sample-6.jpg" class="js-cursor-plus" data-modal="gallery" data-modal-caption="Lorem ipsum" data-modal-size="934x1401" data-router-disabled>
+						<img class="cover" src="<?php echo TEMPLATE_URL ?>/img/sample-6.jpg">
+					</a>
 				</figure>
 			</div>
 		</div>
 
 		<div class="gr-4" data-scroll data-scroll-animation="zoom-in-staggered">
-			<div class="ratio-1-1 overflow-hidden">
+			<div class="overflow-hidden">
 				<figure>
-					<img class="cover" src="<?php echo TEMPLATE_URL ?>/img/sample-6.jpg">
+					<a href="<?php echo TEMPLATE_URL ?>/img/sample-6.jpg" class="js-cursor-plus" data-modal="gallery" data-modal-caption="Lorem ipsum" data-modal-size="934x1401" data-router-disabled>
+						<img class="cover" src="<?php echo TEMPLATE_URL ?>/img/sample-6.jpg">
+					</a>
+				</figure>
+			</div>
+		</div>
+
+		<div class="gr-4" data-scroll data-scroll-animation="zoom-in-staggered">
+			<div class="overflow-hidden">
+				<figure>
+					<a href="<?php echo TEMPLATE_URL ?>/img/sample-6.jpg" class="js-cursor-plus" data-modal="gallery" data-modal-caption="Lorem ipsum" data-modal-size="934x1401" data-router-disabled>
+						<img class="cover" src="<?php echo TEMPLATE_URL ?>/img/sample-6.jpg">
+					</a>
 				</figure>
 			</div>
 		</div>
 
 	</div>
 </div>
-
-
 
 
 <div class="container margin-top-5 margin-bottom-5">
