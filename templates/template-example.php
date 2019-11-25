@@ -336,36 +336,6 @@ get_template_part('partials/header'); ?>
 </div>
 
 
-<div class="position-relative overflow-hidden full-viewport-height">
-
-	<div id="sticky-element">
-
-		<div class="full-viewport-height">
-
-			<div class="direction-block background-secondary" id="direction">
-
-				<div class="direction-block__item direction-block__item--one">
-					<span data-scroll data-scroll-direction="horizontal" data-scroll-speed="6" data-scroll-target="#direction">
-						I'm moving in this direction
-					</span>
-				</div>
-				<div class="direction-block__item direction-block__item--two">
-					<span data-scroll data-scroll-direction="horizontal" data-scroll-speed="-8" data-scroll-target="#direction">
-						And in this direction
-					</span>
-				</div>
-
-			</div>
-
-			<div data-scroll data-scroll-sticky data-scroll-target="#sticky-element">
-				<h2 class="text-center color-white background-black">STICKY ELEMENT</h2>
-			</div>
-
-		</div>
-	</div>
-</div>
-
-
 <div class="container margin-top-5 margin-bottom-5">
 	<div class="row">
 
