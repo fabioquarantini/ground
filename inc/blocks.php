@@ -25,7 +25,17 @@ function ground_acf_init() {
 			'category'			=> 'formatting',
             'icon'				=> 'admin-comments',
 			'keywords'			=> array( 'image' ),
-        ));
+		));
+		
+		acf_register_block(array(
+			'name'				=> 'text-image',
+			'title'				=> __('ground: TEXT IMAGE'),
+			'description'		=> __('TEXT IMAGE block.'),
+			'render_callback'	=> 'ground_block_render',
+			'category'			=> 'formatting',
+            'icon'				=> 'admin-comments',
+			'keywords'			=> array( 'text-image' ),
+		));	
 
         acf_register_block(array(
 			'name'				=> 'slider-gallery',
@@ -35,7 +45,27 @@ function ground_acf_init() {
 			'category'			=> 'formatting',
             'icon'				=> 'admin-comments',
 			'keywords'			=> array( 'slider-gallery' ),
-        ));
+		));	
+
+		acf_register_block(array(
+			'name'				=> 'slider-primary',
+			'title'				=> __('ground: SLIDER PRIMARY'),
+			'description'		=> __('SLIDER PRIMARY block.'),
+			'render_callback'	=> 'ground_block_render',
+			'category'			=> 'formatting',
+            'icon'				=> 'admin-comments',
+			'keywords'			=> array( 'slider-primary' ),
+		));	
+
+		acf_register_block(array(
+			'name'				=> 'carousel',
+			'title'				=> __('ground: CAROUSEL'),
+			'description'		=> __('CAROUSEL block.'),
+			'render_callback'	=> 'ground_block_render',
+			'category'			=> 'formatting',
+            'icon'				=> 'admin-comments',
+			'keywords'			=> array( 'carousel' ),
+		));	
         			
 	}
 }

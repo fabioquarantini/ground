@@ -26,6 +26,7 @@
 	22 - Ajax search result
 	23 - WMPL - Switch Language
 	24 - Gutemberg Blocks
+	25 - ACF Add Options Page
 
 	==========================================================================  */
 
@@ -490,4 +491,14 @@ function ground_block_render( $block ) {
 	if( file_exists( get_theme_file_path("/partials/blocks/{$slug}.php") ) ) {
 		include( get_theme_file_path("/partials/blocks/{$slug}.php") );
 	}
+}
+
+
+/*  ==========================================================================
+	25 - ACF Add Options Page
+	==========================================================================  */
+if( function_exists('acf_add_options_page') ) {
+	
+	acf_add_options_page();
+	
 }

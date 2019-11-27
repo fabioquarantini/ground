@@ -6,20 +6,19 @@
     * BLOCK: Name: IMAGE
     */
 
-    $image = get_field('image');
-    
-    // Default Value
-    if( !$image ) { $image['url'] = TEMPLATE_URL.'/img/sample-1.jpg'; }     
+    // Vars
+    if( get_field('image') ) { $image = get_field('image'); }
+    $size = 'full'; // (thumbnail, medium, large, full or custom size)
     
 ?>
 
-<div class="container container--fluid padding-0 block block--image">
+<div class="container container--fluid block block--image">
     <div class="row">
         <div class="gr-12">
 
-            <?php if ($image): ?>        
-                <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
-            <?php endif; ?>
+            <?php if ($image): ?>
+                <?php echo wp_get_attachment_image( $image, $size, "", ["class" => "full-width"] ); ?>
+            <?php endif; ?>        
             
         </div>        
     </div>

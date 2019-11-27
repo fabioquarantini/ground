@@ -1,13 +1,30 @@
 {
-    "key": "group_5ddbd48c5a150",
-    "title": "Block: Slider Gallery",
+    "key": "group_5ddd2889d05df",
+    "title": "Options Page",
     "fields": [
         {
-            "key": "field_5ddcee9b177d0",
+            "key": "field_5ddd2894ca15c",
+            "label": "Ground Documentation",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_5ddd28db02b59",
             "label": "Gallery",
             "name": "gallery",
             "type": "gallery",
-            "instructions": "",
+            "instructions": "Upload the default images to create the documentation page",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -20,7 +37,7 @@
             "insert": "append",
             "library": "all",
             "min": "",
-            "max": "",
+            "max": 10,
             "min_width": "",
             "min_height": "",
             "min_size": "",
@@ -33,9 +50,9 @@
     "location": [
         [
             {
-                "param": "block",
+                "param": "options_page",
                 "operator": "==",
-                "value": "acf\/slider-gallery"
+                "value": "acf-options"
             }
         ]
     ],
@@ -47,5 +64,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1574760105
+    "modified": 1574842914
 }
