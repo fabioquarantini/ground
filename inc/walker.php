@@ -392,7 +392,7 @@ class Ground_Wp_List_Pages_Bem extends Walker_Page {
 
 
 
-	function walk( $elements, $max_depth ) {
+	function walk( $elements, $max_depth, ...$args ) {
 
 		$args = array_slice( func_get_args(), 2 );
 
