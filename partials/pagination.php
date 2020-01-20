@@ -12,7 +12,7 @@ if ( $total_pages > 1 ) {
 	preg_match($url_params_regex, get_pagenum_link(), $url_params);
 	$base = !empty($url_params[0]) ? preg_replace($url_params_regex, '', get_pagenum_link()).'%_%/'.$url_params[0] : get_pagenum_link().'%_%';
 
-	echo '<ol class="pagination js-paginationssss">';
+	echo '<ol class="pagination js-pagination">';
 
 	$current_page = max( 1, get_query_var('paged') );
 	$args = array(
