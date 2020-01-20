@@ -1,18 +1,22 @@
 <?php $format = '?paged=%#%';
 
 if ( get_option('permalink_structure') ) {
-	$format = 'page/%#%/';
+	$format = 'page/%#%';
 }
 
 $total_pages = $wp_query->max_num_pages;
 
 if ( $total_pages > 1 ) {
 
-	echo '<ol class="pagination js-pagination">';
+	$url_params_regex = '/\?.*?$/';
+	preg_match($url_params_regex, get_pagenum_link(), $url_params);
+	$base = !empty($url_params[0]) ? preg_replace($url_params_regex, '', get_pagenum_link()).'%_%/'.$url_params[0] : get_pagenum_link().'%_%';
+
+	echo '<ol class="pagination js-paginationssss">';
 
 	$current_page = max( 1, get_query_var('paged') );
 	$args = array(
-		'base'			=> get_pagenum_link(1) . '%_%',
+		'base'			=> $base,
 		'format'		=> $format,
 		'current'		=> $current_page,
 		'total'			=> $total_pages,
