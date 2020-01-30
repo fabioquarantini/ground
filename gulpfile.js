@@ -1,4 +1,6 @@
-const { watch, series, src, dest } = require('gulp');
+const {
+	watch, series, src, dest,
+} = require('gulp');
 const autoprefixer = require('gulp-autoprefixer');
 const browserSync = require('browser-sync').create();
 const cssnano = require('gulp-cssnano');
@@ -20,20 +22,20 @@ const yargs = require('yargs');
 const cssFolder = 'css';
 const scssFolder = 'scss';
 const scssFile = 'main.scss';
-const scssFilePath = scssFolder + '/' + scssFile;
+const scssFilePath = `${scssFolder}/${scssFile}`;
 const jsFolder = 'js';
 const jsMainFile = 'app.js';
 const jsMainMinFile = 'scripts.min.js';
-const jsMainFilePath = jsFolder + '/' + jsMainFile;
+const jsMainFilePath = `${jsFolder}/${jsMainFile}`;
 const imgFolder = 'img';
-const iconFolder = imgFolder + '/icons';
-const icon = imgFolder + '/' + 'icon.png';
+const iconFolder = `${imgFolder}/icons`;
+const icon = `${imgFolder}/` + 'icon.png';
 const fontFolder = 'fonts';
 const fontIconsName = 'icons';
 const runTimestamp = Math.round(Date.now() / 1000);
 const staticServerPath = './';
 const host = 'ground.develop';
-const servermode = yargs.argv.server === undefined ? false : true;
+const servermode = yargs.argv.server !== undefined;
 const enviroments = yargs.argv.development === undefined ? 'production' : 'development';
 
 function server(cb) {
@@ -44,13 +46,13 @@ function server(cb) {
 			ghostMode: {
 				clicks: true,
 				forms: true,
-				scroll: true
+				scroll: true,
 			},
 			open: true,
 			notify: true,
 			scrollProportionally: true,
 			injectChanges: true,
-			port: 3000
+			port: 3000,
 		});
 	}
 	cb();
@@ -67,83 +69,83 @@ function styles(cb) {
 	return src(scssFilePath, { sourcemaps: true })
 		.pipe(
 			plumber({
-				errorHandler: function(err) {
+				errorHandler(err) {
 					notify.onError({
 						title: 'Styles error',
-						message: '⛔ ' + err.plugin + ': ' + err.toString(),
-						icon: icon
+						message: `⛔ ${err.plugin}: ${err.toString()}`,
+						icon,
 					})(err);
-				}
-			})
+				},
+			}),
 		)
 		.pipe(
 			sass({
 				outputStyle: 'nested',
 				precision: 10,
 				sourceMap: true,
-				errLogToConsole: false
-			})
+				errLogToConsole: false,
+			}),
 		)
 		.pipe(
 			autoprefixer({
 				cascade: false,
-				remove: true
-			})
+				remove: true,
+			}),
 		)
 		.pipe(
 			cssnano({
-				discardComments: { removeAll: true }
-			})
+				discardComments: { removeAll: true },
+			}),
 		)
 		.pipe(dest(cssFolder, { sourcemaps: '.' }))
 		.pipe(
-			browserSync.stream({ match: '**/*.css' })
+			browserSync.stream({ match: '**/*.css' }),
 		)
 		.pipe(
 			notify({
 				title: 'Styles',
 				message: '👍 Task complete!',
-				icon: icon,
-				onLast: true
-			})
+				icon,
+				onLast: true,
+			}),
 		);
 }
 
 function images(cb) {
 	return src('img/*')
 		.pipe(imagemin([
-			pngquant({quality: [0.5, 0.5]}),
-			mozjpeg({quality: 50}),
+			pngquant({ quality: [0.5, 0.5] }),
+			mozjpeg({ quality: 50 }),
 			svgo({
 				plugins: [
-					{removeViewBox: true},
-					{cleanupIDs: false}
-				]
-			})
+					{ removeViewBox: true },
+					{ cleanupIDs: false },
+				],
+			}),
 		]))
 		.pipe(dest('img/'))
 		.pipe(
 			notify({
 				title: 'Image',
 				message: '👍 Task complete!',
-				icon: icon,
-				onLast: true
-			})
+				icon,
+				onLast: true,
+			}),
 		);
 }
 
 function svgToFont(cb) {
-	return src([iconFolder + '/*.svg'])
+	return src([`${iconFolder}/*.svg`])
 		.pipe(
 			plumber({
-				errorHandler: function(err) {
+				errorHandler(err) {
 					notify.onError({
 						title: 'Icon error',
-						message: '⛔ ' + err.plugin + ': ' + err.toString(),
-						icon: icon
+						message: `⛔ ${err.plugin}: ${err.toString()}`,
+						icon,
 					})(err);
-				}
-			})
+				},
+			}),
 		)
 		.pipe(
 			iconFont({
@@ -151,31 +153,31 @@ function svgToFont(cb) {
 				fontHeight: 1001,
 				normalize: true,
 				formats: ['ttf', 'eot', 'woff'], // default, 'woff2' and 'svg' are available
-				timestamp: runTimestamp // recommended to get consistent builds when watching files
-			})
+				timestamp: runTimestamp, // recommended to get consistent builds when watching files
+			}),
 		)
-		.on('glyphs', function(glyphs, options) {
+		.on('glyphs', (glyphs, options) => {
 			src('data/icons/iconfont-template.lodash')
 				.pipe(
 					consolidate('lodash', {
-						glyphs: glyphs,
+						glyphs,
 						fontName: fontIconsName,
-						fontPath: '../' + fontFolder + '/',
+						fontPath: `../${fontFolder}/`,
 						className: 'icon',
-						cssClass: 'icon'
-					})
+						cssClass: 'icon',
+					}),
 				)
 				.pipe(rename('_icons-generated.scss'))
-				.pipe(dest(scssFolder + '/components'));
+				.pipe(dest(`${scssFolder}/components`));
 		})
 		.pipe(dest(fontFolder))
 		.pipe(
 			notify({
 				title: 'Icon font',
 				message: '👍 Task complete!',
-				icon: icon,
-				onLast: true
-			})
+				icon,
+				onLast: true,
+			}),
 		);
 }
 
@@ -183,20 +185,20 @@ function scripts(cb) {
 	return src(jsMainFilePath)
 		.pipe(
 			plumber({
-				errorHandler: function(err) {
+				errorHandler(err) {
 					notify.onError({
 						title: 'Scripts error',
-						message: '⛔ ' + err.plugin + ': ' + err.toString(),
-						icon: icon
+						message: `⛔ ${err.plugin}: ${err.toString()}`,
+						icon,
 					})(err);
-				}
-			})
+				},
+			}),
 		)
 		.pipe(
 			webpackStream({
 				mode: enviroments,
 				output: {
-					filename: jsMainMinFile
+					filename: jsMainMinFile,
 				},
 				performance: {
 					hints: false,
@@ -210,37 +212,37 @@ function scripts(cb) {
 							use: {
 								loader: 'babel-loader',
 								options: {
-									'presets': [
+									presets: [
 										[
 											'@babel/preset-env',
 											{
-												'useBuiltIns': 'entry',
-												'corejs': '3'
-											}
-										]
-									]
-								}
-							}
-						}
-					]
-				}
-			}, webpack)
+												useBuiltIns: 'entry',
+												corejs: '3',
+											},
+										],
+									],
+								},
+							},
+						},
+					],
+				},
+			}, webpack),
 		)
 		.pipe(dest(jsFolder))
 		.pipe(
 			notify({
 				title: 'Scripts',
 				message: '👍 Task complete!',
-				icon: icon
-			})
+				icon,
+			}),
 		);
 }
 
 function watchFiles() {
-	watch(scssFolder + '/**/*.scss', styles);
+	watch(`${scssFolder}/**/*.scss`, styles);
 	watch('**/*.{php,html}', serverReload);
-	watch(iconFolder + '/**/*.svg', series(svgToFont, serverReload));
-	watch([jsFolder + '/**/*.js', '!js/**/*.min.js', '!js/**/*.map'], series(scripts, serverReload));
+	watch(`${iconFolder}/**/*.svg`, series(svgToFont, serverReload));
+	watch([`${jsFolder}/**/*.js`, '!js/**/*.min.js', '!js/**/*.map'], series(scripts, serverReload));
 }
 
 exports.styles = styles;
