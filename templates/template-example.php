@@ -186,7 +186,7 @@ get_template_part('partials/header'); ?>
 		<div class="gr-6">
 			<div class="masked-full-height" data-scroll data-scroll-repeat>
 				<div class="masked-full-height__target" id="fixed-target"></div>
-				<div class="masked-full-height__bg" data-scroll data-scroll-sticky data-scroll-target="#fixed-target" style="background-image:url('<?php echo TEMPLATE_URL ?>/img/sample-6.jpg')"></div>
+				<div class="masked-full-height__bg" data-scroll data-scroll-sticky data-scroll-target="#fixed-target" style="background-image:url('<?php echo TEMPLATE_URL ?>/img/sample-1.jpg')"></div>
 			</div>
 		</div>
 
@@ -272,96 +272,35 @@ get_template_part('partials/header'); ?>
 	<div class="row">
 
 		<div class="gr-4" data-scroll data-scroll-animation="zoom-in-staggered">
-			<div class="ratio-1-1 overflow-hidden">
+			<div class="overflow-hidden">
 				<figure>
-					<img class="cover" src="<?php echo TEMPLATE_URL ?>/img/sample-6.jpg">
-				</figure>
-			</div>
-		</div>
-
-		<div class="gr-4" data-scroll data-scroll-animation="zoom-in-staggered" data-scroll-repeat>
-			<div class="ratio-1-1 overflow-hidden">
-				<figure>
-					<img class="cover" src="<?php echo TEMPLATE_URL ?>/img/sample-6.jpg">
+					<a href="<?php echo TEMPLATE_URL ?>/img/sample-1.jpg" class="js-cursor-plus" data-modal="gallery" data-modal-caption="Lorem ipsum" data-modal-size="934x1401" data-router-disabled>
+						<img class="cover" src="<?php echo TEMPLATE_URL ?>/img/sample-1.jpg">
+					</a>
 				</figure>
 			</div>
 		</div>
 
 		<div class="gr-4" data-scroll data-scroll-animation="zoom-in-staggered">
-			<div class="ratio-1-1 overflow-hidden">
+			<div class="overflow-hidden">
 				<figure>
-					<img class="cover" src="<?php echo TEMPLATE_URL ?>/img/sample-6.jpg">
+					<a href="<?php echo TEMPLATE_URL ?>/img/sample-2.jpg" class="js-cursor-plus" data-modal="gallery" data-modal-caption="Lorem ipsum" data-modal-size="934x1401" data-router-disabled>
+						<img class="cover" src="<?php echo TEMPLATE_URL ?>/img/sample-2.jpg">
+					</a>
 				</figure>
 			</div>
 		</div>
 
-	</div>
-</div>
-
-
-<div class="container position-relative margin-top-5 margin-bottom-5">
-	<div class="row">
-
-		<div class="gr-4">
-
-			<div class="position-relative" data-scroll data-scroll-speed="1">
-				<a href="<?php echo TEMPLATE_URL ?>/img/sample-6.jpg" class="js-cursor-plus position-relative overflow-hidden" data-scroll data-scroll-repeat data-modal="gallery" data-modal-caption="Lorem ipsum" data-modal-size="934x1401" data-router-disabled>
-					<img data-scroll data-scroll-speed="-1.5" class="media__img--masked full-width" src="<?php echo TEMPLATE_URL ?>/img/sample-6.jpg" alt="text">
-				</a>
+		<div class="gr-4" data-scroll data-scroll-animation="zoom-in-staggered">
+			<div class="overflow-hidden">
+				<figure>
+					<a href="<?php echo TEMPLATE_URL ?>/img/sample-3.jpg" class="js-cursor-plus" data-modal="gallery" data-modal-caption="Lorem ipsum" data-modal-size="934x1401" data-router-disabled>
+						<img class="cover" src="<?php echo TEMPLATE_URL ?>/img/sample-3.jpg">
+					</a>
+				</figure>
 			</div>
-
 		</div>
 
-		<div class="gr-4 margin-top-4">
-
-			<div class="position-relative" data-scroll data-scroll-speed="2">
-				<a href="<?php echo TEMPLATE_URL ?>/img/sample-7.jpg" class="js-cursor-plus position-relative overflow-hidden" data-scroll data-scroll-repeat data-modal="gallery" data-modal-caption="Lorem ipsum" data-modal-size="934x1400" data-router-disabled>
-					<img data-scroll data-scroll-speed="-1.5" class="media__img--masked full-width" src="<?php echo TEMPLATE_URL ?>/img/sample-7.jpg" alt="text">
-				</a>
-			</div>
-
-		</div>
-
-		<div class="gr-4 margin-top-4">
-
-			<div class="position-relative" data-scroll data-scroll-speed="6">
-				<a href="<?php echo TEMPLATE_URL ?>/img/sample-8.jpg" class="js-cursor-plus position-relative overflow-hidden" data-scroll data-scroll-repeat data-modal="gallery" data-modal-caption="Lorem ipsum" data-modal-size="934x1401" data-router-disabled>
-					<img data-scroll data-scroll-speed="-4" class="media__img--masked full-width" src="<?php echo TEMPLATE_URL ?>/img/sample-8.jpg" alt="text">
-				</a>
-			</div>
-
-		</div>
-
-	</div>
-</div>
-
-
-<div class="position-relative overflow-hidden full-viewport-height">
-
-	<div id="sticky-element">
-
-		<div class="full-viewport-height">
-
-			<div class="direction-block background-secondary" id="direction">
-
-				<div class="direction-block__item direction-block__item--one">
-					<span data-scroll data-scroll-direction="horizontal" data-scroll-speed="6" data-scroll-target="#direction">
-						I'm moving in this direction
-					</span>
-				</div>
-				<div class="direction-block__item direction-block__item--two">
-					<span data-scroll data-scroll-direction="horizontal" data-scroll-speed="-8" data-scroll-target="#direction">
-						And in this direction
-					</span>
-				</div>
-
-			</div>
-
-			<div data-scroll data-scroll-sticky data-scroll-target="#sticky-element">
-				<h2 class="text-center color-white background-black">STICKY ELEMENT</h2>
-			</div>
-
-		</div>
 	</div>
 </div>
 
@@ -432,7 +371,7 @@ get_template_part('partials/header'); ?>
 
 			<div class="position-relative" data-scroll data-scroll-delay="0.1" data-scroll-speed="6">
 				<div class="position-relative overflow-hidden" data-scroll data-scroll-repeat>
-					<img data-scroll data-scroll-delay="0.1" data-scroll-speed="-1.5" class="media__img--masked full-width" src="https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80" alt="text">
+					<img data-scroll data-scroll-delay="0.1" data-scroll-speed="-1.5" class="media__img--masked full-width" src="<?php echo TEMPLATE_URL ?>/img/sample-1-vertical.jpg" alt="text">
 				</div>
 			</div>
 
@@ -442,7 +381,7 @@ get_template_part('partials/header'); ?>
 
 			<div class="position-relative" data-scroll data-scroll-delay="0.3" data-scroll-speed="6">
 				<div class="position-relative overflow-hidden" data-scroll data-scroll-repeat>
-					<img data-scroll data-scroll-delay="0.3" data-scroll-speed="-1.5" class="media__img--masked full-width" src="https://images.unsplash.com/photo-1508898578281-774ac4893c0c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80" alt="text">
+					<img data-scroll data-scroll-delay="0.3" data-scroll-speed="-1.5" class="media__img--masked full-width" src="<?php echo TEMPLATE_URL ?>/img/sample-1-vertical.jpg" alt="text">
 				</div>
 			</div>
 
@@ -452,7 +391,7 @@ get_template_part('partials/header'); ?>
 
 			<div class="position-relative" data-scroll data-scroll-delay="0.5" data-scroll-speed="6">
 				<div class="position-relative overflow-hidden" data-scroll data-scroll-repeat>
-					<img data-scroll data-scroll-delay="0.5" data-scroll-speed="-4" class="media__img--masked full-width" src="https://images.unsplash.com/photo-1485163819542-13adeb5e0068?ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80" alt="text">
+					<img data-scroll data-scroll-delay="0.5" data-scroll-speed="-4" class="media__img--masked full-width" src="<?php echo TEMPLATE_URL ?>/img/sample-1-vertical.jpg" alt="text">
 				</div>
 			</div>
 
