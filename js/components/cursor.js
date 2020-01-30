@@ -19,7 +19,7 @@ export default class Cursor extends AbstractComponent {
 		this.defaults = {
 			triggers: 'a, [type="submit"], .js-cursor-drag, .js-cursor-hover, .js-cursor-right, .js-cursor-left, .js-cursor-zoom, .js-cursor-close',
 			alwaysVisible: true,
-			cursorVisible: false,
+			cursorVisible: true,
 			interpolationAmount: {
 				inner: 0.15,
 				outer: 0.15,
@@ -47,7 +47,7 @@ export default class Cursor extends AbstractComponent {
 		window.addEventListener('DOMContentLoaded', () => {
 			this.init();
 			this.initEvents(this.options.triggers);
-			super.initObserver(this.options.triggers, this.updateEvents);
+			// super.initObserver(this.options.triggers, this.updateEvents);
 		});
 	}
 
