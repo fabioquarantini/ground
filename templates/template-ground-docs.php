@@ -12,7 +12,7 @@ get_template_part( 'partials/header' ); ?>
             <div class="row">
                 <div class="gr-12 color-white">
                     <h1>Documentation</h1>
-                    <h6>Gutemberg Blocks</h6>
+                    <h6><?php bloginfo( 'name' ); ?></h6>
                 </div>
             </div>
         </div>

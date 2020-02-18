@@ -12,6 +12,7 @@ export default class Loader extends AbstractComponent {
 		this.DOM.body = document.body;
 		this.DOM.background = document.getElementById('js-loader-bg');
 		this.DOM.content = document.getElementById('js-loader-content');
+		// If false disable loader animation: Remove HTML partials/loader.php
 		this.animation = true;
 
 		imagesLoaded(this.DOM.body, { background: true }, this.init());
