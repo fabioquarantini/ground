@@ -14,6 +14,7 @@ import Scroll from './components/scroll';
 import Cursor from './components/cursor';
 import Search from './components/search';
 import Magnet from './components/magnet';
+import Billing from './components/billing';
 import Example from './components/example';
 
 
@@ -24,6 +25,7 @@ const ajaxNavigation = new AjaxNavigation();
 const sliderPrimary = new Slider('.js-slider-primary');
 const split = new Split();
 const toggle = new Toggle();
+const billing = new Billing();
 // const scrollOld = new ScrollOld();
 const scroll = new Scroll();
 const parallax = new Parallax();
