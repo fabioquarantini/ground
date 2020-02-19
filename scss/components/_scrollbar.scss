@@ -29,7 +29,6 @@
 
 
 
-/* Default styles 
 .scrollbar {
     position: absolute;
     right: 0;
@@ -39,6 +38,7 @@
     transform-origin: center right;
     transition: transform 0.3s, opacity 0.3s;
     opacity: 0;
+    z-index: 99999;
 
     &:hover {
         transform: scaleX(1.45);
@@ -63,9 +63,4 @@
     .has-scroll-dragging & {
         cursor: grabbing;
     }
-}
-*/
-
-body::-webkit-scrollbar {
-    display: none;
 }

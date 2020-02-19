@@ -86,6 +86,14 @@
 			word-wrap: break-word;
 		};
 
+		.text-primary#{$breakpoint} {
+			font-family: $font-primary;
+		}
+		
+		.text-secondary#{$breakpoint} {
+			font-family: $font-secondary;
+		}
+
 	}
 }
 
