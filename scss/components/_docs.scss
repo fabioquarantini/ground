@@ -1,5 +1,10 @@
 body.body--page-template-template-ground-docs {
 
+    header.header,
+    footer.footer {
+        display: none;
+    }
+
     .docs {
         position: relative;
 
