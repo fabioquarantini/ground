@@ -92,7 +92,11 @@ body.body--page-template-template-ground-docs {
                 &:nth-child(#{$i}){
                     
                     label.docs__label {
-                        margin-left: $i*100px;					
+                        margin-left: $i*50px;	
+        				@include media('>=md') {
+                            margin-left: $i*100px;	
+                        }
+
                     }
 
                     .docs__header {
@@ -112,7 +116,7 @@ body.body--page-template-template-ground-docs {
                 position: absolute;
                 cursor: pointer;
                 display: inline-block;
-                width: 100px;
+                width: 50px;
                 line-height: 0;
                 z-index: 2;
                 margin-bottom: 0 !important;
@@ -121,8 +125,17 @@ body.body--page-template-template-ground-docs {
                 top: 0;
                 color: $color-black;
                 background: $color-grey;
-                @include type('small');
-                transform: translateX(-76px);
+            	@include ritmo-font-size(8px);
+                transform: translateX(-50px);
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+				@include media('>=md') {
+                	@include ritmo-font-size(12px);
+                    width: 100px;
+                    transform: translateX(-76px);
+                }
+
             }
 
             // TAB BLOCKS

@@ -9,7 +9,7 @@
 
 <div class="container position-relative margin-bottom-3">
     <div class="row">
-        <div class="gr-6">
+        <div class="gr-6@md gr-12">
             <form>
 
                 <div class="row">
