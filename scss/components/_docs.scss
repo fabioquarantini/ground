@@ -81,21 +81,27 @@ body.body--page-template-template-ground-docs {
             display: inline-block;
             width: 100%;
     
-            input[type="radio"] {
+            > input[type="radio"] {
                 position: absolute;
                 top: -9999px;
                 left: -9999px;
             }
     
-            @for $i from 1 through 10 {
+            @for $i from 1 through 20 {
                 &:nth-child(#{$i}){
-                    label {
+                    
+                    label.docs__label {
                         margin-left: $i*100px;					
                     }
+
+                    .docs__header {
+                        margin-top: $i*ritmo(-1);	
+                    }
+                
                 }
             }
     
-            label {
+            label.docs__label {
                 position: absolute;
                 cursor: pointer;
                 display: inline-block;

@@ -1,4 +1,4 @@
-<div class="container margin-top-1 margin-bottom-5">
+<div class="container margin-top-5 margin-bottom-3">
     <div class="row">
         <div class="gr-12">
             <div class="docs__header">

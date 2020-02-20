@@ -5,7 +5,7 @@
         
                 <div class="docs__tab docs__tab--blocks">
                     <input class="js-scroll-update" type="radio" name="tabs" checked="checked" id="docs__tab1" />
-                    <label class="js-cursor-hover" for="docs__tab1">Blocks</label>
+                    <label class="docs__label js-cursor-hover" for="docs__tab1">Blocks</label>
                     <div id="docs__tab-content1" class="docs__content">
                         <?php get_template_part( 'partials/docs/blocks' ); ?>
                     </div>
@@ -13,7 +13,7 @@
                 
                 <div class="docs__tab docs__tab--typography">
                     <input class="js-scroll-update" type="radio" name="tabs" id="docs__tab2" />
-                    <label class="js-cursor-hover" for="docs__tab2">Typo</label>   
+                    <label class="docs__label js-cursor-hover" for="docs__tab2">Typo</label>   
                     <div id="docs__tab-content2" class="docs__content">
                         <?php get_template_part( 'partials/docs/typography' ); ?>
                     </div>
@@ -21,7 +21,7 @@
 
                 <div class="docs__tab docs__tab--icons">
                     <input class="js-scroll-update" type="radio" name="tabs" id="docs__tab3" />                
-                    <label class="js-cursor-hover" for="docs__tab3">Icons</label>   
+                    <label class="docs__label js-cursor-hover" for="docs__tab3">Icons</label>   
                     <div id="docs__tab-content3" class="docs__content">
                         <?php get_template_part( 'partials/docs/icons' ); ?>
                     </div>
@@ -30,7 +30,7 @@
 
                 <div class="docs__tab docs__tab--colors">
                     <input class="js-scroll-update" type="radio" name="tabs" id="docs__tab4" />                
-                    <label class="js-cursor-hover" for="docs__tab4">Colors</label>   
+                    <label class="docs__label js-cursor-hover" for="docs__tab4">Colors</label>   
                     <div id="docs__tab-content4" class="docs__content">
                         <?php get_template_part( 'partials/docs/colors' ); ?>
                     </div>
@@ -38,7 +38,7 @@
 
                 <div class="docs__tab docs__tab--brand">
                     <input class="js-scroll-update" type="radio" name="tabs" id="docs__tab5" />                
-                    <label class="js-cursor-hover" for="docs__tab5">Brand</label>   
+                    <label class="docs__label js-cursor-hover" for="docs__tab5">Brand</label>   
                     <div id="docs__tab-content5" class="docs__content">
                         <?php get_template_part( 'partials/docs/brand' ); ?>
                     </div>
@@ -46,9 +46,17 @@
 
                 <div class="docs__tab docs__tab--buttons">
                     <input class="js-scroll-update" type="radio" name="tabs" id="docs__tab6" />                
-                    <label class="js-cursor-hover" for="docs__tab6">Buttons</label>   
+                    <label class="docs__label js-cursor-hover" for="docs__tab6">Buttons</label>   
                     <div id="docs__tab-content6" class="docs__content">
                         <?php get_template_part( 'partials/docs/buttons' ); ?>
+                    </div>
+                </div>  
+
+                <div class="docs__tab docs__tab--form">
+                    <input class="js-scroll-update" type="radio" name="tabs" id="docs__tab7" />                
+                    <label class="docs__label js-cursor-hover" for="docs__tab7">Form</label>   
+                    <div id="docs__tab-content7" class="docs__content">
+                        <?php get_template_part( 'partials/docs/form' ); ?>
                     </div>
                 </div>            
 
