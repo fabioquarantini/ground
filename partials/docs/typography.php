@@ -105,6 +105,10 @@
                 <pre class="margin-top-0">&lt;p&gt;Paragraphs&lt;/p&gt;</pre>
                 <small class="margin-bottom-0">Sample Text</small>
                 <pre class="margin-top-0">&lt;small&gt;small&lt;/small&gt;</pre>
+                <blockquote class="margin-top-2">Sample Text Blockquote</blockquote>
+                <pre class="margin-top-0">&lt;blockquote&gt;blockquote&lt;/blockquote&gt;</pre>
+                <cite>Sample Text Cite</cite>
+                <pre class="margin-top-0">&lt;cite&gt;cite&lt;/cite&gt;</pre>
             </div>
         </div>
         <div class="gr-5@md prefix-2@md gr-12">
@@ -129,6 +133,10 @@
                 <pre class="margin-top-0">&lt;p&gt;Paragraphs&lt;/p&gt;</pre>
                 <small class="margin-bottom-0">Sample Text</small>
                 <pre class="margin-top-0">&lt;small&gt;small&lt;/small&gt;</pre>
+                <blockquote class="margin-top-2">Sample Text Blockquote</blockquote>
+                <pre class="margin-top-0">&lt;blockquote&gt;blockquote&lt;/blockquote&gt;</pre>
+                <cite>Sample Text Cite</cite>
+                <pre class="margin-top-0">&lt;cite&gt;cite&lt;/cite&gt;</pre>
             </div>
         </div>
     </div>
