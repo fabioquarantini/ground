@@ -11,7 +11,8 @@
     <div class="row">
         <div class="gr-12"> 
             <pre class="get-var-base-font-size">Base-font-size:</pre> 
-            <pre class="get-var-base-line-unit">Base-line-unit:</pre>                            
+            <pre class="get-var-base-line-unit">Base-line-unit:</pre>   
+            <pre class="get-var-breakpoints">Breakpoints:</pre>     
             <div class="docs__typography">
                 <h1>h1 - abcdefghijklmnopqrstuvwxyz</h1>
                 <h2>h2 - abcdefghijklmnopqrstuvwxyz</h2>
