@@ -1,7 +1,7 @@
 <div class="container docs__header margin-bottom-3">
     <div class="row">
         <div class="gr-12">
-            <div class="docs__chapter">07</div>
+            <div class="docs__chapter"></div>
             <div class="docs__title">Form</div>
         </div>
     </div>

@@ -1,7 +1,7 @@
 <div class="container docs__header">
     <div class="row">
         <div class="gr-12">
-            <div class="docs__chapter">01</div>
+            <div class="docs__chapter"></div>
             <div class="docs__title">Gutemberg Blocks</div>
         </div>
     </div>

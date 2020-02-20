@@ -98,6 +98,12 @@ body.body--page-template-template-ground-docs {
                     .docs__header {
                         margin-top: $i*ritmo(-1);	
                     }
+
+                    .docs__chapter {
+                        &:after {
+                            content: '0' + $i;
+                        }
+                    }
                 
                 }
             }

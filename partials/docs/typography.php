@@ -1,7 +1,7 @@
 <div class="container docs__header margin-bottom-2">
     <div class="row">
         <div class="gr-12">
-            <div class="docs__chapter">02</div>
+            <div class="docs__chapter"></div>
             <div class="docs__title">Typography</div>
         </div>
     </div>
@@ -194,7 +194,7 @@
     </div>
 </div>
 
-<div class="container margin-top-4 margin-bottom-4">
+<div class="container margin-top-4">
     <div class="row">
         <div class="gr-5@md gr-12">
             <div class="text-primary">

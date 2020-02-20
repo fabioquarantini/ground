@@ -1,7 +1,7 @@
 <div class="container docs__header">
     <div class="row">
         <div class="gr-12">
-            <div class="docs__chapter">05</div>
+            <div class="docs__chapter"></div>
             <div class="docs__title">Brand identity</div>
         </div>
     </div>
