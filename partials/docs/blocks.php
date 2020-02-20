@@ -1,15 +1,13 @@
-<div class="container margin-top-5 margin-bottom-3">
+<div class="container docs__header">
     <div class="row">
         <div class="gr-12">
-            <div class="docs__header">
-                <div class="docs__chapter">01</div>
-                <div class="docs__title">Gutemberg Blocks</div>
-            </div>                
+            <div class="docs__chapter">01</div>
+            <div class="docs__title">Gutemberg Blocks</div>
         </div>
     </div>
 </div>
 
-<div class="container">
+<div class="container margin-top-3">
 
     <?php
 

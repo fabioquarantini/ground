@@ -1,15 +1,13 @@
-<div class="container margin-top-5 margin-bottom-1">
+<div class="container docs__header">
     <div class="row">
         <div class="gr-12">
-            <div class="docs__header">
-                <div class="docs__chapter">06</div>
-                <div class="docs__title">Buttons</div>
-            </div>                
+            <div class="docs__chapter">06</div>
+            <div class="docs__title">Buttons</div>
         </div>
     </div>
 </div>
 
-<div class="container">
+<div class="container margin-top-3">
     <div class="row row-align-top">
 
         <div class="gr-4@lg gr-6@md gr-12 margin-bottom-4">

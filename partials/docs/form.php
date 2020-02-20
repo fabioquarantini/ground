@@ -1,14 +1,11 @@
-<div class="container margin-top-5">
+<div class="container docs__header margin-bottom-3">
     <div class="row">
         <div class="gr-12">
-            <div class="docs__header">
-                <div class="docs__chapter">07</div>
-                <div class="docs__title">Form</div>
-            </div>                
+            <div class="docs__chapter">07</div>
+            <div class="docs__title">Form</div>
         </div>
     </div>
 </div>
-
 
 <div class="container position-relative margin-bottom-3">
     <div class="row">

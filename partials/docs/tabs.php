@@ -58,7 +58,15 @@
                     <div id="docs__tab-content7" class="docs__content">
                         <?php get_template_part( 'partials/docs/form' ); ?>
                     </div>
-                </div>            
+                </div>       
+                
+                <div class="docs__tab docs__tab--message">
+                    <input class="js-scroll-update" type="radio" name="tabs" id="docs__tab8" />                
+                    <label class="docs__label js-cursor-hover" for="docs__tab8">Message</label>   
+                    <div id="docs__tab-content8" class="docs__content">
+                        <?php get_template_part( 'partials/docs/message' ); ?>
+                    </div>
+                </div>   
 
             </div>
         </div>
