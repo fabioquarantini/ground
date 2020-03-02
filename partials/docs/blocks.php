@@ -20,10 +20,10 @@
         $image = $defaultImages[0];
         $gallery = $defaultImages;
         $repeater = array(
-            array( "image" => $defaultImages[0], "title" => $title, "content" => $content ),
-            array( "image" => $defaultImages[1], "title" => $title, "content" => $content ),
-            array( "image" => $defaultImages[2], "title" => $title, "content" => $content ),
-            array( "image" => $defaultImages[3], "title" => $title, "content" => $content ),
+            array( "image" => $defaultImages[0], "title" => $title, "content" => $content, "button" => array( 'url' => '#', 'title' => $title ) ),
+            array( "image" => $defaultImages[1], "title" => $title, "content" => $content, "button" => array( 'url' => '#', 'title' => $title ) ),
+            array( "image" => $defaultImages[2], "title" => $title, "content" => $content, "button" => array( 'url' => '#', 'title' => $title ) ),
+            array( "image" => $defaultImages[3], "title" => $title, "content" => $content, "button" => array( 'url' => '#', 'title' => $title ) ),
         );
 
         $dir = TEMPLATE_PATH . '/partials/blocks';
