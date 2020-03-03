@@ -589,7 +589,7 @@ function ground_woocommerce_cash_on_delivery_fee ( $cart ) {
 
 	if ( 'cod' === WC()->session->get('chosen_payment_method') ) {
 		$fee = 5;
-		$cart->add_fee( 'Cash on delivery charges', $fee, false );
+		$cart->add_fee( __('Cash on delivery charges', 'ground'), $fee, false );
 	}
 }
 
