@@ -41,6 +41,7 @@ body.body--page-template-template-ground-docs {
 
         &__header {
             position: relative;
+            padding-top: ritmo(5);
         }
 
         &__chapter{
@@ -81,25 +82,41 @@ body.body--page-template-template-ground-docs {
             display: inline-block;
             width: 100%;
     
-            input[type="radio"] {
+            > input[type="radio"] {
                 position: absolute;
                 top: -9999px;
                 left: -9999px;
             }
     
-            @for $i from 1 through 10 {
+            @for $i from 1 through 20 {
                 &:nth-child(#{$i}){
-                    label {
-                        margin-left: $i*100px;					
+                    
+                    label.docs__label {
+                        margin-left: $i*50px;	
+        				@include media('>=md') {
+                            margin-left: $i*100px;	
+                        }
+
                     }
+
+                    .docs__header {
+                        margin-top: $i*ritmo(-1);	
+                    }
+
+                    .docs__chapter {
+                        &:after {
+                            content: '0' + $i;
+                        }
+                    }
+                
                 }
             }
     
-            label {
+            label.docs__label {
                 position: absolute;
                 cursor: pointer;
                 display: inline-block;
-                width: 100px;
+                width: 50px;
                 line-height: 0;
                 z-index: 2;
                 margin-bottom: 0 !important;
@@ -108,8 +125,17 @@ body.body--page-template-template-ground-docs {
                 top: 0;
                 color: $color-black;
                 background: $color-grey;
-                @include type('small');
-                transform: translateX(-76px);
+            	@include ritmo-font-size(8px);
+                transform: translateX(-50px);
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+				@include media('>=md') {
+                	@include ritmo-font-size(12px);
+                    width: 100px;
+                    transform: translateX(-76px);
+                }
+
             }
 
             // TAB BLOCKS

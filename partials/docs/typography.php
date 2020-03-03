@@ -1,10 +1,8 @@
-<div class="container margin-top-4 margin-bottom-2">
+<div class="container docs__header margin-bottom-2">
     <div class="row">
         <div class="gr-12">
-            <div class="docs__header">
-                <div class="docs__chapter">02</div>
-                <div class="docs__title">Typography</div>
-            </div>                
+            <div class="docs__chapter"></div>
+            <div class="docs__title">Typography</div>
         </div>
     </div>
 </div>
@@ -13,7 +11,8 @@
     <div class="row">
         <div class="gr-12"> 
             <pre class="get-var-base-font-size">Base-font-size:</pre> 
-            <pre class="get-var-base-line-unit">Base-line-unit:</pre>                            
+            <pre class="get-var-base-line-unit">Base-line-unit:</pre>   
+            <pre class="get-var-breakpoints">Breakpoints:</pre>     
             <div class="docs__typography">
                 <h1>h1 - abcdefghijklmnopqrstuvwxyz</h1>
                 <h2>h2 - abcdefghijklmnopqrstuvwxyz</h2>
@@ -107,6 +106,10 @@
                 <pre class="margin-top-0">&lt;p&gt;Paragraphs&lt;/p&gt;</pre>
                 <small class="margin-bottom-0">Sample Text</small>
                 <pre class="margin-top-0">&lt;small&gt;small&lt;/small&gt;</pre>
+                <blockquote class="margin-top-2">Sample Text Blockquote</blockquote>
+                <pre class="margin-top-0">&lt;blockquote&gt;blockquote&lt;/blockquote&gt;</pre>
+                <cite>Sample Text Cite</cite>
+                <pre class="margin-top-0">&lt;cite&gt;cite&lt;/cite&gt;</pre>
             </div>
         </div>
         <div class="gr-5@md prefix-2@md gr-12">
@@ -131,6 +134,10 @@
                 <pre class="margin-top-0">&lt;p&gt;Paragraphs&lt;/p&gt;</pre>
                 <small class="margin-bottom-0">Sample Text</small>
                 <pre class="margin-top-0">&lt;small&gt;small&lt;/small&gt;</pre>
+                <blockquote class="margin-top-2">Sample Text Blockquote</blockquote>
+                <pre class="margin-top-0">&lt;blockquote&gt;blockquote&lt;/blockquote&gt;</pre>
+                <cite>Sample Text Cite</cite>
+                <pre class="margin-top-0">&lt;cite&gt;cite&lt;/cite&gt;</pre>
             </div>
         </div>
     </div>
@@ -196,7 +203,7 @@
     </div>
 </div>
 
-<div class="container margin-top-4 margin-bottom-4">
+<div class="container margin-top-4">
     <div class="row">
         <div class="gr-5@md gr-12">
             <div class="text-primary">

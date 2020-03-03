@@ -38,7 +38,7 @@
                 <?php endif; ?>
 
                 <?php if ($button): ?>                            
-                    <a class="button button--pill" href="<?php echo $button['url']; ?>"><?php echo $button['title']; ?></a>
+                    <a class="button button--pill margin-top-1" href="<?php echo $button['url']; ?>"><?php echo $button['title']; ?></a>
                 <?php endif; ?>
 
             </div>

@@ -1,10 +1,8 @@
-<div class="container margin-top-3 margin-bottom-3">
+<div class="container docs__header margin-bottom-2">
     <div class="row">
         <div class="gr-12">
-            <div class="docs__header">
-                <div class="docs__chapter">03</div>
-                <div class="docs__title">Icons</div>
-            </div>                
+            <div class="docs__chapter"></div>
+            <div class="docs__title">Icons</div>
         </div>
     </div>
 </div>

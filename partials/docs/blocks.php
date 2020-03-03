@@ -1,16 +1,13 @@
-<!-- Default Value GUTEMBERG BLOCKS -->
-<div class="container margin-top-5 margin-bottom-4">
+<div class="container docs__header">
     <div class="row">
         <div class="gr-12">
-            <div class="docs__header">
-                <div class="docs__chapter">01</div>
-                <div class="docs__title">Gutemberg Blocks</div>
-            </div>                
+            <div class="docs__chapter"></div>
+            <div class="docs__title">Gutemberg Blocks</div>
         </div>
     </div>
 </div>
 
-<div class="container">
+<div class="container margin-top-3">
 
     <?php
 
@@ -23,10 +20,10 @@
         $image = $defaultImages[0];
         $gallery = $defaultImages;
         $repeater = array(
-            array( "image" => $defaultImages[0], "title" => $title, "content" => $content ),
-            array( "image" => $defaultImages[1], "title" => $title, "content" => $content ),
-            array( "image" => $defaultImages[2], "title" => $title, "content" => $content ),
-            array( "image" => $defaultImages[3], "title" => $title, "content" => $content ),
+            array( "image" => $defaultImages[0], "title" => $title, "content" => $content, "button" => array( 'url' => '#', 'title' => $title ) ),
+            array( "image" => $defaultImages[1], "title" => $title, "content" => $content, "button" => array( 'url' => '#', 'title' => $title ) ),
+            array( "image" => $defaultImages[2], "title" => $title, "content" => $content, "button" => array( 'url' => '#', 'title' => $title ) ),
+            array( "image" => $defaultImages[3], "title" => $title, "content" => $content, "button" => array( 'url' => '#', 'title' => $title ) ),
         );
 
         $dir = TEMPLATE_PATH . '/partials/blocks';
