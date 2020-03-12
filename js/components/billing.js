@@ -19,12 +19,14 @@ export default class Billing extends AbstractComponent {
 			return;
 		}
 
-		if (billingCheckbox.checked == true) {
+		if (billingCheckbox.checked === true) {
 			this.toggleBillingField(this.DOM.billingMethod.value, true);
+		} else {
+			this.toggleBillingField('', false);
 		}
 
 		billingCheckbox.addEventListener('input', (event) => {
-			if (event.target.checked == true) {
+			if (event.target.checked === true) {
 				this.toggleBillingField(this.DOM.billingMethod.value, true);
 			} else {
 				this.toggleBillingField(this.DOM.billingMethod.value, false);
