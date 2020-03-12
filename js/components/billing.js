@@ -5,7 +5,7 @@ const imagesLoaded = require('imagesloaded');
 export default class Billing extends AbstractComponent {
 	constructor() {
 		super();
-		this.DOM = { element: document.querySelector('.woocommerce-cart')};
+		this.DOM = { element: document.querySelector('.woocommerce-cart') };
 		this.DOM.html = document.documentElement;
 		this.DOM.body = document.body;
 		this.DOM.billingMethod = document.querySelector('#billing_method');
@@ -13,8 +13,7 @@ export default class Billing extends AbstractComponent {
 	}
 
 	init() {
-
-		var billingCheckbox = document.getElementById('billing_check');
+		const billingCheckbox = document.getElementById('billing_check');
 
 		if (!billingCheckbox) {
 			return;
@@ -32,36 +31,31 @@ export default class Billing extends AbstractComponent {
 			}
 		});
 
-		this.DOM.billingMethod.addEventListener("change", () => {
+		this.DOM.billingMethod.addEventListener('change', () => {
 			this.toggleBillingField(this.DOM.billingMethod.value, true);
 		});
-
 	}
 
 	toggleBillingField(billingMethod, show) {
-
 		if (show) {
-			$('#billing_method_field').attr('style', 'display:block!important;');
-			$('#billing_company_field').attr('style', 'display:block!important;');
-			$('#billing_vat_field').attr('style', 'display:block!important;');
-			$('#billing_pec_field').attr('style', 'display:block!important;');
-			$('#billing_receiver_field').attr('style', 'display:block!important;');
+			document.querySelector('#billing_method_field').style.display = 'inherit';
+			document.querySelector('#billing_company_field').style.display = 'inherit';
+			document.querySelector('#billing_vat_field').style.display = 'inherit';
+			document.querySelector('#billing_pec_field').style.display = 'inherit';
+			document.querySelector('#billing_receiver_field').style.display = 'inherit';
 
-			if (billingMethod == 'privato') {
-				$('#billing_company_field').attr('style', 'display:none!important;');
-				//$('#billing_vat_field').attr('style', 'display:none!important;');
-				$('#billing_pec_field').attr('style', 'display:none!important;');
-				$('#billing_receiver_field').attr('style', 'display:none!important;');
+			if (billingMethod === 'privato') {
+				document.querySelector('#billing_company_field').style.display = 'none';
+				// document.querySelector('#billing_vat_field').style.display = 'none';
+				document.querySelector('#billing_pec_field').style.display = 'none';
+				document.querySelector('#billing_receiver_field').style.display = 'none';
 			}
 		} else {
-			$('#billing_method_field').attr('style', 'display:none!important;');
-			$('#billing_company_field').attr('style', 'display:none!important;');
-			$('#billing_vat_field').attr('style', 'display:none!important;');
-			$('#billing_pec_field').attr('style', 'display:none!important;');
-			$('#billing_receiver_field').attr('style', 'display:none!important;');
+			document.querySelector('#billing_method_field').style.display = 'none';
+			document.querySelector('#billing_company_field').style.display = 'none';
+			document.querySelector('#billing_vat_field').style.display = 'none';
+			document.querySelector('#billing_pec_field').style.display = 'none';
+			document.querySelector('#billing_receiver_field').style.display = 'none';
 		}
-
-
 	}
-
 }
