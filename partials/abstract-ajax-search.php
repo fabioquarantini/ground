@@ -2,6 +2,17 @@
 $args = array(
 	'post_type' => array( 'product' ),
 	'posts_per_page' => 30,
+	'post_status' => 'publish',
+	'meta_query' => array(
+		array(
+		    'key' => '_stock_status',
+		    'value' => 'instock'
+		),
+		array(
+		    'key' => '_backorders',
+		    'value' => 'no'
+		)
+	),
 	's' => esc_attr( $_POST['keyword'] )
 );
 
