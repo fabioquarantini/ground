@@ -3,6 +3,27 @@
 		$breakpoint: if($key == default, '', \@#{$key});
 
 		// Margin
+
+		.margin-05#{$breakpoint} {
+			margin: ritmo(0.5);
+		}
+
+		.margin-top-05#{$breakpoint} {
+			margin-top: ritmo(0.5);
+		}
+
+		.margin-bottom-05#{$breakpoint} {
+			margin-bottom: ritmo(0.5);
+		}
+
+		.margin-left-05#{$breakpoint} {
+			margin-left: ritmo(0.5);
+		}
+
+		.margin-right-05#{$breakpoint} {
+			margin-right: ritmo(0.5);
+		}
+
 		@for $i from 0 through 5 {
 
 			.margin-#{$i}#{$breakpoint} {
@@ -28,6 +49,27 @@
 		}
 
 		// Padding
+
+		.padding-05#{$breakpoint} {
+			padding: ritmo(0.5);
+		}
+
+		.padding-top-05#{$breakpoint} {
+			padding-top: ritmo(0.5);
+		}
+
+		.padding-bottom-05#{$breakpoint} {
+			padding-bottom: ritmo(0.5);
+		}
+
+		.padding-left-05#{$breakpoint} {
+			padding-left: ritmo(0.5);
+		}
+
+		.padding-right-05#{$breakpoint} {
+			padding-right: ritmo(0.5);
+		}
+
 		@for $i from 0 through 5 {
 
 			.padding-#{$i}#{$breakpoint} {
