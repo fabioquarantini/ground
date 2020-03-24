@@ -1,5 +1,5 @@
 import Highway from '@dogstudio/highway';
-import TweenMax from 'gsap/TweenMax';
+import { gsap } from 'gsap';
 
 class Reveal extends Highway.Transition {
 	/**
@@ -17,8 +17,8 @@ class Reveal extends Highway.Transition {
 	in({
 		from, to, trigger, done,
 	}) {
-		const tlLoaderBg = new TimelineLite();
-		const tlLoaderContent = new TimelineLite({
+		const tlLoaderBg = gsap.timeline();
+		const tlLoaderContent = gsap.timeline({
 			delay: 0.2,
 		});
 		// Reset Scroll
@@ -31,9 +31,10 @@ class Reveal extends Highway.Transition {
 		document.documentElement.classList.replace('is-loading', 'is-loaded');
 
 		// Animations
-		tlLoaderBg.to(this.elementBg, 1, {
+		tlLoaderBg.to(this.elementBg, {
+			duration: 1,
 			yPercent: -100,
-			ease: Quart.easeInOut,
+			ease: 'power3.inOut',
 			force3D: true,
 			rotation: 0.01,
 			onComplete: () => {
@@ -46,16 +47,17 @@ class Reveal extends Highway.Transition {
 			},
 		}, 0.1);
 
-		tlLoaderContent.to(this.elementContent, 0.8, {
-			ease: Power3.easeOut,
+		tlLoaderContent.to(this.elementContent, {
+			duration: 0.8,
+			ease: 'power3.out',
 			y: -65,
 			opacity: 0,
 		});
 	}
 
 	out({ from, trigger, done }) {
-		const tlLoaderBg = new TimelineLite();
-		const tlLoaderContent = new TimelineLite({
+		const tlLoaderBg = gsap.timeline();
+		const tlLoaderContent = gsap.timeline({
 			delay: 0.6,
 		});
 
@@ -67,24 +69,25 @@ class Reveal extends Highway.Transition {
 		this.element.classList.remove('display-none');
 
 		// Animations
-		tlLoaderBg.fromTo(this.elementBg, 1.5, {
+		tlLoaderBg.fromTo(this.elementBg, {
 			yPercent: 100,
 		}, {
+			duration: 1.5,
 			yPercent: 0,
-			ease: Quart.easeOut,
+			ease: 'power3.out',
 			force3D: true,
 			rotation: 0.01,
 			onComplete: () => {
-				// Done
 				done();
 			},
 		}, 0);
 
-		tlLoaderContent.fromTo(this.elementContent, 0.8, {
+		tlLoaderContent.fromTo(this.elementContent, {
 			y: 65,
 			opacity: 0,
 		}, {
-			ease: Power3.easeOut,
+			duration: 0.8,
+			ease: 'power3.out',
 			y: 0,
 			opacity: 1,
 		});

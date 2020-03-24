@@ -3,7 +3,7 @@
  * Mouse interactions
  */
 
-import TweenMax from 'gsap/TweenMax';
+import { gsap } from 'gsap';
 import AbstractComponent from './abstractComponent';
 
 const Deepmerge = require('deepmerge');
@@ -48,7 +48,12 @@ export default class Magnet extends AbstractComponent {
 					magnet.classList.remove('is-magnet');
 				}
 
-				TweenMax.to(event.currentTarget, 0.4, { x: 0, y: 0, ease: Back.easeOut });
+				gsap.to(event.currentTarget, {
+					duration: 0.4,
+					x: 0,
+					y: 0,
+					ease: 'back.out',
+				});
 			});
 		});
 	}
@@ -65,7 +70,12 @@ export default class Magnet extends AbstractComponent {
 				target.classList.remove('is-magnet');
 			}
 
-			TweenMax.to(event.currentTarget, 0.4, { x: 0, y: 0, ease: Back.easeOut });
+			gsap.to(event.currentTarget, {
+				duration: 0.4,
+				x: 0,
+				y: 0,
+				ease: 'back.out',
+			});
 		});
 	}
 
@@ -82,10 +92,11 @@ export default class Magnet extends AbstractComponent {
 		}
 		// console.log(magnetButton, bounding)
 
-		TweenMax.to(magnetButton, 1, {
+		gsap.to(magnetButton, {
+			duration: 1,
 			x: (((event.clientX - bounding.left) / magnetButton.offsetWidth) - 0.5) * 70,
 			y: (((event.clientY - bounding.top) / magnetButton.offsetHeight) - 0.5) * 70,
-			ease: Power4.easeOut,
+			ease: 'power4.out',
 		});
 
 		// magnetButton.style.transform = 'translate(' + (((( event.clientX - bounding.left)/(magnetButton.offsetWidth))) - 0.5) * strength + 'px,'+ (((( event.clientY - bounding.top)/(magnetButton.offsetHeight))) - 0.5) * strength + 'px)';

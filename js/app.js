@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 
 import 'lazysizes';
+import { gsap } from 'gsap';
 import InfiniteScroll from './components/infiniteScroll';
 import Modal from './components/modal';
 import AjaxNavigation from './components/ajaxNavigation';
@@ -74,15 +75,31 @@ const carousel = new Slider('.js-carousel', {
 		touchStart() {
 			const swiper = this;
 			for (let i = 0; i < swiper.slides.length; i++) {
-				TweenMax.to(swiper.slides[i], 0.6, { ease: Circ.easeOut, scale: 0.9 });
-				TweenMax.to(swiper.slides[i].querySelector('.carousel__media'), 2, { ease: Circ.easeOut, scale: 1.2 });
+				gsap.to(swiper.slides[i], {
+					duration: 0.6,
+					ease: 'circ.out',
+					scale: 0.9,
+				});
+				gsap.to(swiper.slides[i].querySelector('.carousel__media'), {
+					duration: 2,
+					ease: 'circ.out',
+					scale: 1.2,
+				});
 			}
 		},
 		touchEnd() {
 			const swiper = this;
 			for (let i = 0; i < swiper.slides.length; i++) {
-				TweenMax.to(swiper.slides[i], 0.2, { ease: Circ.easeOut, scale: 1 });
-				TweenMax.to(swiper.slides[i].querySelector('.carousel__media'), 0.2, { ease: Circ.easeOut, scale: 1 });
+				gsap.to(swiper.slides[i], {
+					duration: 0.2,
+					ease: 'circ.out',
+					scale: 1,
+				});
+				gsap.to(swiper.slides[i].querySelector('.carousel__media'), {
+					duration: 0.2,
+					ease: 'circ.out',
+					scale: 1,
+				});
 			}
 		},
 	},

@@ -1,4 +1,4 @@
-import TweenMax from 'gsap/TweenMax';
+import { gsap } from 'gsap';
 import isMobile from 'ismobilejs';
 import AbstractComponent from './abstractComponent';
 
@@ -45,17 +45,18 @@ export default class Loader extends AbstractComponent {
 	}
 
 	reveal() {
-		this.tlLoader = new TimelineLite();
-		this.tlLoaderContent = new TimelineLite({
+		this.tlLoader = gsap.timeline();
+		this.tlLoaderContent = gsap.timeline({
 			delay: 0.2,
 		});
 
 		// Animations
-		this.tlLoader.to(this.DOM.background, 1.5, {
+		this.tlLoader.to(this.DOM.background, {
+			duration: 1.5,
 			yPercent: 100,
 			force3D: true,
 			rotation: 0.01,
-			ease: Quart.easeInOut,
+			ease: 'power3.inOut',
 			onComplete: () => {
 				// Update html class
 				this.DOM.html.classList.add('is-loader-complete');
@@ -64,8 +65,9 @@ export default class Loader extends AbstractComponent {
 			},
 		});
 
-		this.tlLoaderContent.to(this.DOM.content, 0.8, {
-			ease: Power3.easeOut,
+		this.tlLoaderContent.to(this.DOM.content, {
+			duration: 0.8,
+			ease: 'power3.out',
 			y: 65,
 			opacity: 0,
 		});

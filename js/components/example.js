@@ -1,6 +1,6 @@
 
 import * as deepmerge from 'deepmerge';
-import TweenMax from 'gsap/TweenMax';
+import { gsap } from 'gsap';
 import AbstractComponent from './abstractComponent';
 
 export default class Example extends AbstractComponent {
@@ -56,16 +56,16 @@ export default class Example extends AbstractComponent {
 	}
 
 	/**
-     * my Animation
-    */
+	 * my Animation
+	*/
 	myAnimation() {
 		console.log(this.example);
 
 		// Animation
-		const timelineExample = new TimelineMax({ delay: 0 });
+		const timelineExample = gsap.timeline({ delay: 0 });
 
 		timelineExample
-			.fromTo(this.DOM.element, 0.5, { opacity: 1 }, { opacity: 0.2 })
-			.fromTo(this.DOM.child, 0.5, { scale: 1 }, { scale: 3 });
+			.fromTo(this.DOM.element, { opacity: 1 }, { duration: 0.5, opacity: 0.2 })
+			.fromTo(this.DOM.child, { scale: 1 }, { duration: 0.5, scale: 3 });
 	}
 }
