@@ -24,6 +24,26 @@
 			margin-right: ritmo(0.5);
 		}
 
+		.margin-negative-05#{$breakpoint} {
+			margin: - ritmo(0.5);
+		}
+
+		.margin-negative-top-05#{$breakpoint} {
+			margin-top: - ritmo(0.5);
+		}
+
+		.margin-negative-bottom-05#{$breakpoint} {
+			margin-bottom: - ritmo(0.5);
+		}
+
+		.margin-negative-left-05#{$breakpoint} {
+			margin-left: - ritmo(0.5);
+		}
+
+		.margin-negative-right-05#{$breakpoint} {
+			margin-right: - ritmo(0.5);
+		}
+
 		@for $i from 0 through 5 {
 
 			.margin-#{$i}#{$breakpoint} {
@@ -44,6 +64,26 @@
 
 			.margin-right-#{$i}#{$breakpoint} {
 				margin-right: ritmo($i);
+			}
+
+			.margin-negative-#{$i}#{$breakpoint} {
+				margin: - ritmo($i);
+			}
+
+			.margin-negative-top-#{$i}#{$breakpoint} {
+				margin-top: - ritmo($i);
+			}
+
+			.margin-negative-bottom-#{$i}#{$breakpoint} {
+				margin-bottom: - ritmo($i);
+			}
+
+			.margin-negative-left-#{$i}#{$breakpoint} {
+				margin-left: - ritmo($i);
+			}
+
+			.margin-negative-right-#{$i}#{$breakpoint} {
+				margin-right: - ritmo($i);
 			}
 
 		}
@@ -70,6 +110,26 @@
 			padding-right: ritmo(0.5);
 		}
 
+		.padding-negative-05#{$breakpoint} {
+			padding: - ritmo(0.5);
+		}
+
+		.padding-negative-top-05#{$breakpoint} {
+			padding-top: - ritmo(0.5);
+		}
+
+		.padding-negative-bottom-05#{$breakpoint} {
+			padding-bottom: - ritmo(0.5);
+		}
+
+		.padding-negative-left-05#{$breakpoint} {
+			padding-left: - ritmo(0.5);
+		}
+
+		.padding-negative-right-05#{$breakpoint} {
+			padding-right: - ritmo(0.5);
+		}
+
 		@for $i from 0 through 5 {
 
 			.padding-#{$i}#{$breakpoint} {
@@ -90,6 +150,26 @@
 
 			.padding-right-#{$i}#{$breakpoint} {
 				padding-right: ritmo($i);
+			}
+
+			.padding-negative-#{$i}#{$breakpoint} {
+				padding: - ritmo($i);
+			}
+
+			.padding-negative-top-#{$i}#{$breakpoint} {
+				padding-top: - ritmo($i);
+			}
+
+			.padding-negative-bottom-#{$i}#{$breakpoint} {
+				padding-bottom: - ritmo($i);
+			}
+
+			.padding-negative-left-#{$i}#{$breakpoint} {
+				padding-left: - ritmo($i);
+			}
+
+			.padding-negative-right-#{$i}#{$breakpoint} {
+				padding-right: - ritmo($i);
 			}
 
 		}
