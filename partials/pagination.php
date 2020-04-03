@@ -1,7 +1,16 @@
-<?php $format = '?paged=%#%';
+<?php 
+$format = '?paged=%#%';
+
+$path = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$last = substr($path, -1);;
+
 
 if ( get_option('permalink_structure') ) {
-	$format = 'page/%#%';
+	if ( $last == "/" || strpos($path,'/page/') ) {
+		$format = 'page/%#%';
+	} else {
+		$format = '/page/%#%';
+	}
 }
 
 $total_pages = $wp_query->max_num_pages;
