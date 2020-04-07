@@ -1,17 +1,8 @@
-<?php
+<?php // Slider primary (Register block here: "inc/gutenberg.php")
 
-	/**
-	* REGISTER: Register block here: "inc/blocks.php"
-	* RENDER: Render block here.
-	* BLOCK: Name: SLIDER PRIMARY
-	*/
-
-	// Vars
-	if( have_rows('repeater') ) {
-		$repeater = get_field('repeater');
-	}
-
-?>
+if (!is_page_template('templates/template-ground-docs.php')) {
+	$repeater = get_field('repeater');
+} ?>
 
 <?php if( $repeater ): ?>
 

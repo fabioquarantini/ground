@@ -1,28 +1,21 @@
-<?php
+<?php // Text image (Register block here: "inc/gutenberg.php")
 
-	/**
-	* REGISTER: Register block here: "inc/blocks.php"
-	* RENDER: Render block here.
-	* BLOCK: Name: TEXT IMAGE
-	*/
-
-	// Vars
-	if( get_field('title') ) { $title = get_field('title'); }
-	if( get_field('content') ) { $content = get_field('content'); }
-	if( get_field('button') ) { $button = get_field('button'); }
-	if( get_field('image') ) { $image = get_field('image'); }
-	$size = 'full'; // (thumbnail, medium, large, full or custom size)
-
-?>
+if (!is_page_template('templates/template-ground-docs.php')) {
+	$title = get_field('title');
+	$content = get_field('content');
+	$button = get_field('button');
+	$image = get_field('image');
+	$image_size = '16-9-small';
+} ?>
 
 <div class="container position-relative">
 	<div class="row">
 		<div class="gr-6@md gr-12">
-			<div class="ratio-1-1">
-				<?php if ($image): ?>
-					<?php echo wp_get_attachment_image( $image, $size, "", ["class" => "cover"] ); ?>
-				<?php endif; ?>
-			</div>
+			<?php if ($image): ?>
+				<div class="ratio-1-1">
+					<?php echo wp_get_attachment_image( $image, $image_size, "", ["class" => "cover"] ); ?>
+				</div>
+			<?php endif; ?>
 		</div>
 
 		<div class="gr-6@md gr-12">

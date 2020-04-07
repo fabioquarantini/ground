@@ -1,25 +1,16 @@
-<?php
+<?php // Image (Register block here: "inc/gutenberg.php")
 
-	/**
-	* REGISTER: Register this here: "inc/blocks.php"
-	* RENDER: Render block here.
-	* BLOCK: Name: IMAGE
-	*/
+if (!is_page_template('templates/template-ground-docs.php')) {
+	$image = get_field('image');
+	$image_size = '16-9-small';
+} ?>
 
-	// Vars
-	if( get_field('image') ) { $image = get_field('image'); }
-	$size = 'full'; // (thumbnail, medium, large, full or custom size)
-
-?>
-
-<div class="container container--fluid">
-	<div class="row">
-		<div class="gr-12">
-
-			<?php if ($image): ?>
-				<?php echo wp_get_attachment_image( $image, $size, "", ["class" => "full-width"] ); ?>
-			<?php endif; ?>
-
+<?php if ($image): ?>
+	<div class="container container--fluid">
+		<div class="row">
+			<div class="gr-12">
+				<?php echo wp_get_attachment_image( $image, $image_size, "", ["class" => "full-width"] ); ?>
+			</div>
 		</div>
 	</div>
-</div>
+<?php endif; ?>

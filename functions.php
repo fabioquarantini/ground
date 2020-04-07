@@ -19,7 +19,7 @@ require_once('inc/seo.php');
 require_once('inc/walker.php');
 require_once('inc/cpt-catalog.php');
 require_once('inc/shortcode.php');
-require_once('inc/blocks.php');
+require_once('inc/gutenberg.php');
 
 if (class_exists( 'WooCommerce' )) {
 	require_once('inc/woocommerce.php');

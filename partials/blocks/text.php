@@ -1,16 +1,9 @@
-<?php
+<?php // Text (Register block here: "inc/gutenberg.php")
 
-	/**
-	* REGISTER: Register block here: "inc/blocks.php"
-	* RENDER: Render block here.
-	* BLOCK: Name: TEXT
-	*/
-
-	// Vars
-	if( get_field('title') ) { $title = get_field('title'); }
-	if( get_field('content') ) { $content = get_field('content'); }
-
-?>
+if (!is_page_template('templates/template-ground-docs.php')) {
+	$title = get_field('title');
+	$content = get_field('content');
+} ?>
 
 <div class="container">
 	<div class="row margin-top-2 margin-bottom-2">
