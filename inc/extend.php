@@ -45,7 +45,24 @@ function ground_thumbnail_size() {
 	add_image_size( 'small', 480, 480, true );
 	add_image_size( 'medium', 768, 768, true );
 	add_image_size( 'medium_large', 1280, 720, true );
-	add_image_size( 'large', 1920, 1080, array( 'top', 'center' ) );
+	add_image_size( 'large', 1920, 1080, true );
+
+	// Custom ratio thumbnails
+	add_image_size( '1-1-small', 480, 480, array( 'center', 'center' ) );
+	add_image_size( '1-1-medium', 900, 900, array( 'center', 'center' ) );
+	add_image_size( '1-1-large', 1200, 1200, array( 'center', 'center' ) );
+
+	add_image_size( '3-4-small', 480, 640, array( 'center', 'center' ) );
+	add_image_size( '3-4-medium', 900, 1200, array( 'center', 'center' ) );
+	add_image_size( '3-4-large', 1200, 1600, array( 'center', 'center' ) );
+
+	add_image_size( '4-3-small', 640, 480, array( 'center', 'center' ) );
+	add_image_size( '4-3-medium', 960, 720, array( 'center', 'center' ) );
+	add_image_size( '4-3-large', 1600, 1200, array( 'center', 'center' ) );
+
+	add_image_size( '16-9-small', 960, 540, array( 'center', 'center' ) );
+	add_image_size( '16-9-medium', 1280, 720, array( 'center', 'center' ) );
+	add_image_size( '16-9-large', 1920, 1080, array( 'center', 'center' ) );
 
 }
 
@@ -486,7 +503,7 @@ function ground_block_render( $block ) {
 
 	// convert name ("acf/testimonial") into path friendly slug ("testimonial")
 	$slug = str_replace('acf/', '', $block['name']);
-	
+
 	// include a template part from within the "template-parts/block" folder
 	if( file_exists( get_theme_file_path("/partials/blocks/{$slug}.php") ) ) {
 		include( get_theme_file_path("/partials/blocks/{$slug}.php") );
@@ -498,7 +515,7 @@ function ground_block_render( $block ) {
 	25 - ACF Add Options Page
 	==========================================================================  */
 if( function_exists('acf_add_options_page') ) {
-	
+
 	acf_add_options_page();
-	
+
 }
