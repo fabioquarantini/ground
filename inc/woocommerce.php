@@ -378,15 +378,15 @@ function ground_woocommerce_custom_checkout_field_display_admin_order_meta($orde
 function ground_woocommerce_custom_checkout_field_email_order_meta( $order_obj, $sent_to_admin, $plain_text ){
 
 	// this order meta checks if order is marked as a invoice
-	$is_invoice = get_post_meta( $order_obj->get_order_number(), '_billing_check', true );
+	$is_invoice = get_post_meta( $order_obj->get_id(), '_billing_check', true );
 
 	if( empty( $is_invoice ) )
 		return;
 
-	$invoice_company = get_post_meta( $order_obj->get_order_number(), '_billing_company', true );
-	$invoice_vat = get_post_meta( $order_obj->get_order_number(), '_billing_vat', true );
-	$invoice_pec = get_post_meta( $order_obj->get_order_number(), '_billing_pec', true );
-	$invoice_receiver = get_post_meta( $order_obj->get_order_number(), '_billing_receiver', true );
+	$invoice_company = get_post_meta( $order_obj->get_id(), '_billing_company', true );
+	$invoice_vat = get_post_meta( $order_obj->get_id(), '_billing_vat', true );
+	$invoice_pec = get_post_meta( $order_obj->get_id(), '_billing_pec', true );
+	$invoice_receiver = get_post_meta( $order_obj->get_id(), '_billing_receiver', true );
 
 	if ( $plain_text === false ) {
 		echo '<h2>Dati fattura</h2>
@@ -416,17 +416,17 @@ function ground_woocommerce_custom_checkout_field_order_received_order_meta( $or
 	$order_obj = wc_get_order( $order_id );
 
 	// this order meta checks if order is marked as a invoice
-	$is_invoice = get_post_meta( $order_obj->get_order_number(), '_billing_check', true );
+	$is_invoice = get_post_meta( $order_obj->get_id(), '_billing_check', true );
 
 	// we won't display anything if it is not a invoice
 	if( empty( $is_invoice ) )
 		return;
 
 	// ok, if it is the gift order, get all the other fields
-	$invoice_company = get_post_meta( $order_obj->get_order_number(), '_billing_company', true );
-	$invoice_vat = get_post_meta( $order_obj->get_order_number(), '_billing_vat', true );
-	$invoice_pec = get_post_meta( $order_obj->get_order_number(), '_billing_pec', true );
-	$invoice_receiver = get_post_meta( $order_obj->get_order_number(), '_billing_receiver', true );
+	$invoice_company = get_post_meta( $order_obj->get_id(), '_billing_company', true );
+	$invoice_vat = get_post_meta( $order_obj->get_id(), '_billing_vat', true );
+	$invoice_pec = get_post_meta( $order_obj->get_id(), '_billing_pec', true );
+	$invoice_receiver = get_post_meta( $order_obj->get_id(), '_billing_receiver', true );
 
 	echo '<div class="woocommerce-column woocommerce-column--2 woocommerce-column--shipping-address col-2">
 		<h2 class="woocommerce-column__title"> ' .__('Fattura', 'ground'). '</h2>
