@@ -344,7 +344,7 @@ function ground_woocommerce_custom_override_checkout_fields( $fields ) {
 	$fields['billing']['billing_receiver'] = array(
 		'type' => 'text',
  		'class' => array('form__field form__field-receiver form__field--billing') ,
- 		'label' => __('Codice destinatario') ,
+ 		'label' => __('Codice destinatario SDI') ,
 		'placeholder' =>'' ,
 		'required' => false,
 		'clear'  => true,
@@ -618,21 +618,21 @@ function ground_woocommerce_cash_on_delivery_fee_js_update() {
 	26 - Show Product Image on Checkout
 	==========================================================================  */
 function ground_product_image_on_checkout( $name, $cart_item, $cart_item_key ) {
-		
+
 	/* Return if not checkout page */
 	if ( ! is_checkout() ) {
 		return $name;
 	}
-		
+
 	/* Get product object */
 	$_product = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
-	
+
 	/* Get product thumbnail */
 	$thumbnail = $_product->get_image();
-	
+
 	/* Add wrapper to image and add some css */
-	$image = '<div style="width: 52px; height: 45px; display: inline-block; padding-right: 7px; vertical-align: middle;">' . $thumbnail .'</div>'; 
-	
+	$image = '<div style="width: 52px; height: 45px; display: inline-block; padding-right: 7px; vertical-align: middle;">' . $thumbnail .'</div>';
+
 	/* Prepend image to name and return it */
 	return $image . $name;
 }
