@@ -9,7 +9,9 @@ export default class Billing extends AbstractComponent {
 		this.DOM.html = document.documentElement;
 		this.DOM.body = document.body;
 		this.DOM.billingMethod = document.querySelector('#billing_method');
-		imagesLoaded(this.DOM.body, { background: true }, this.init());
+		imagesLoaded(this.DOM.body, { background: true }, () => {
+			this.init();
+		});
 	}
 
 	init() {

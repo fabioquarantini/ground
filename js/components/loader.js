@@ -15,7 +15,9 @@ export default class Loader extends AbstractComponent {
 		// If false disable loader animation: Remove HTML partials/loader.php
 		this.animation = true;
 
-		imagesLoaded(this.DOM.body, { background: true }, this.init());
+		imagesLoaded(this.DOM.body, { background: true }, () => {
+			this.init();
+		});
 	}
 
 	init() {

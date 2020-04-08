@@ -9,7 +9,6 @@ import * as deepmerge from 'deepmerge';
 import { DEBUG_MODE } from '../utilities/environment';
 import AbstractComponent from './abstractComponent';
 
-
 const imagesLoaded = require('imagesloaded');
 
 
@@ -26,7 +25,7 @@ export default class Scroll extends AbstractComponent {
 		this.defaults = {
 			el: this.DOM.element,
 			triggers: '[data-scroll-to]',
-			smooth: true,
+			smooth: false,
 			getSpeed: true,
 			getDirection: true,
 			smoothMobile: false,
@@ -71,6 +70,9 @@ export default class Scroll extends AbstractComponent {
 		if (this.DOM.element.length === 0) {
 			return;
 		}
+
+		console.log('initlocomotive');
+
 
 		setTimeout(() => {
 			this.scroll = new LocomotiveScroll(this.options);
