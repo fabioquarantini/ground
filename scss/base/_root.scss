@@ -12,12 +12,8 @@ body {
 html {
 
 	&.is-loading {
-		overflow-y: hidden;
+		overflow: hidden;
 		cursor: wait;
-	}
-
-	&.has-scroll-init {
-        overflow: hidden;
 	}
 
 	&.has-scroll-smooth {

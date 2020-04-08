@@ -6,7 +6,6 @@
 
 import LocomotiveScroll from 'locomotive-scroll';
 import * as deepmerge from 'deepmerge';
-import { DEBUG_MODE } from '../utilities/environment';
 import AbstractComponent from './abstractComponent';
 
 const imagesLoaded = require('imagesloaded');
@@ -16,7 +15,6 @@ export default class Scroll extends AbstractComponent {
 	/**
 	 * @param {Object} options - User options
 	 */
-
 	constructor(element, options) {
 		super(options);
 		this.DOM = { element: document.getElementById('js-scroll') };
@@ -25,7 +23,7 @@ export default class Scroll extends AbstractComponent {
 		this.defaults = {
 			el: this.DOM.element,
 			triggers: '[data-scroll-to]',
-			smooth: false,
+			smooth: true,
 			getSpeed: true,
 			getDirection: true,
 			smoothMobile: false,
@@ -39,16 +37,13 @@ export default class Scroll extends AbstractComponent {
 			super.initObserver(this.options.triggers, this.updateEvents);
 		});
 
-
 		window.addEventListener('SCROLL_UPDATE', () => {
 			this.update();
 		});
 
-
 		window.addEventListener('NAVIGATE_OUT', () => {
 			this.stop();
 		});
-
 
 		window.addEventListener('NAVIGATE_IN', () => {
 			this.destroy();
@@ -65,14 +60,10 @@ export default class Scroll extends AbstractComponent {
 		});
 	}
 
-
 	init() {
 		if (this.DOM.element.length === 0) {
 			return;
 		}
-
-		console.log('initlocomotive');
-
 
 		setTimeout(() => {
 			this.scroll = new LocomotiveScroll(this.options);
@@ -81,11 +72,10 @@ export default class Scroll extends AbstractComponent {
 		}, 200);
 	}
 
-
 	/**
-     * Update events
-     * @param {string} target - New selector
-     */
+	 * Update events
+	 * @param {string} target - New selector
+	 */
 	updateEvents(target) {
 		// da riabilitare
 		target.addEventListener('click', (event) => {
@@ -95,7 +85,7 @@ export default class Scroll extends AbstractComponent {
 	}
 
 	/**
-	 * Scroll Progress Bar,
+	 * Scroll Progress Bar
 	 */
 	progressBar() {
 		/**
@@ -112,7 +102,7 @@ export default class Scroll extends AbstractComponent {
 	}
 
 	/**
-	 * Scroll direction,
+	 * Scroll direction
 	 */
 	direction() {
 		/**
@@ -126,21 +116,23 @@ export default class Scroll extends AbstractComponent {
 		});
 	}
 
-
 	/**
-	 * Restarts the scroll events.
+	 * Restarts the scroll events
 	 */
 	start() {
 		this.scroll.start();
 	}
 
 	/**
-	 * Stops the scroll events.
+	 * Stops the scroll events
 	 */
 	stop() {
 		this.scroll.stop();
 	}
 
+	/**
+	 * Reinitializes the scroll
+	 */
 	reinitialize() {
 		this.scroll.init();
 	}
@@ -152,7 +144,6 @@ export default class Scroll extends AbstractComponent {
 		this.scroll.update();
 	}
 
-
 	/**
 	 * Scroll to an element
 	 * @param {Object|string|'top'|'bottom'} target
@@ -163,14 +154,14 @@ export default class Scroll extends AbstractComponent {
 	}
 
 	/**
-	 * On instance,
+	 * On instance
 	 */
 	on(eventName, func) {
 		this.scroll.on(eventName, func);
 	}
 
 	/**
-	 * Destroy instance,
+	 * Destroy instance
 	 */
 	destroy() {
 		this.scroll.destroy();
