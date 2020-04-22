@@ -41,14 +41,14 @@ function ground_register_post_type_catalog() {
 
 }
 
-add_action( 'init', 'ground_register_post_type_catalog', 0 );
+add_action( 'init', 'ground_register_post_type_catalog', 2 );
 
 
 /*  ==========================================================================
 	2 - Register taxonomy
 	==========================================================================  */
 
-function ground_register_taxonomy_catalog()  {
+function ground_register_taxonomy_catalog() {
 
 	$rewrite = array(
 		'slug'					=> __( 'catalog-category', 'ground-admin' ),
@@ -67,4 +67,4 @@ function ground_register_taxonomy_catalog()  {
 
 }
 
-add_action( 'init', 'ground_register_taxonomy_catalog', 0 );
+add_action( 'init', 'ground_register_taxonomy_catalog', 1 );
