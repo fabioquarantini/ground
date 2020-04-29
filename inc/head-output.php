@@ -18,6 +18,7 @@
 function ground_enqueue_styles() {
 
 	wp_enqueue_style( 'main-style', TEMPLATE_URL . '/css/main.css', array(), '1.0', 'all' );
+	wp_enqueue_style( 'yacc-style', 'https://cdn.etcloud.it/yacc/1.3.0/yacc.css', array(), '1.3.0', 'all' );
 
 }
 
@@ -32,6 +33,7 @@ function ground_enqueue_scripts() {
 
 	//wp_deregister_script( 'jquery' );
 	//wp_enqueue_script( 'jquery', "https://code.jquery.com/jquery-3.3.1.min.js", array(), null, true );
+	wp_enqueue_script( 'yacc', 'https://cdn.etcloud.it/yacc/1.3.0/yacc.min.js', array(), '1.3.1', true );			
 	wp_enqueue_script( 'scripts', TEMPLATE_URL . '/js/scripts.min.js', array( 'jquery' ), '1.0', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
