@@ -6,10 +6,8 @@
 	"scripts": {
 		"start": "npm run build",
 		"build": "gulp",
-		"build:server": "gulp --server",
-		"development": "gulp --development",
-		"development:server": "gulp --development --server",
-		"image-optimization": "gulp images"
+		"dev": "gulp --development --server",
+		"imagemin": "gulp images"
 	},
 	"homepage": "https://github.com/fabioquarantini/ground",
 	"author": {
