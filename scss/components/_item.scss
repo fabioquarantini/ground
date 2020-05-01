@@ -25,7 +25,6 @@
 	}
 
 	.item__link {
-		display: block;
 		transition: all 0.4s;
 		&:hover {
 			background-color: $color-grey-light;
@@ -34,6 +33,7 @@
 }
 
 .item__link {
+	display: block;
 	text-decoration: none;
 }
 
