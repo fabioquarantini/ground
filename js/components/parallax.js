@@ -25,14 +25,6 @@ export default class Split {
 		window.addEventListener('DOMContentLoaded', () => {
 			this.init();
 		});
-
-		window.addEventListener('NAVIGATE_IN', () => {
-			this.init();
-		});
-
-		window.addEventListener('infiniteScrollAppended', () => {
-			this.init();
-		});
 	}
 
 	/**
