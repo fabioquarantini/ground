@@ -18,6 +18,7 @@ import Search from './components/search';
 import Magnet from './components/magnet';
 import Billing from './components/billing';
 import Example from './components/example';
+import GdprCompliance from './components/gdprCompliance';
 
 
 const infiniteScroll = new InfiniteScroll();
@@ -36,6 +37,7 @@ const cursor = new Cursor();
 const search = new Search();
 const magnet = new Magnet();
 // const example = new Example();
+const gdprCompliance = new GdprCompliance();
 
 
 const sliderGallery = new Slider('.js-slider-gallery', {

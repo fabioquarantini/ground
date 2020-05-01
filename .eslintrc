@@ -56,6 +56,7 @@
 		"CSSPlugin" : false,
 		"ThrowPropsPlugin" : false,
 		"BezierPlugin" : false,
-		"wpcf7": false
+		"wpcf7": false,
+		"Yacc": false
 	}
 }
