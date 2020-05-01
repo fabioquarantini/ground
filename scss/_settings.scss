@@ -51,7 +51,7 @@ $color-error-darker: darken($color-error, 30%);
 $color-error-darkest: darken($color-error, 40%);
 
 // Transitions
-$speed:  0.3s;
+$speed: 0.3s;
 $offset-animation: 100px;
 $bounce: cubic-bezier(0.17, 0.67, 0.3, 1.33);
 $power1-ease-out: cubic-bezier(0.250, 0.460, 0.450, 0.940);
