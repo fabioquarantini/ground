@@ -1,4 +1,12 @@
-<?php get_template_part( 'partials/header' ); ?>
+<?php
+/**
+ * Pages
+ *
+ * @package Ground
+ */
+
+get_template_part( 'partials/header' );
+?>
 
 	<div class="container">
 		<div class="row">
@@ -10,13 +18,17 @@
 			</div>
 
 			<div class="gr-12 gr-9@md">
-				<?php if ( have_posts() ) : while ( have_posts() ) : the_post();
+				<?php
+				while ( have_posts() ) :
+					the_post();
 
 					get_template_part( 'partials/content', 'page' );
 
-				endwhile; endif; ?>
+				endwhile;
+				?>
 			</div>
 		</div> <!-- End .row -->
 	</div> <!-- End .container -->
 
-<?php get_template_part( 'partials/footer' ); ?>
+<?php
+get_template_part( 'partials/footer' );

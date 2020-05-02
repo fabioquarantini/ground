@@ -1,6 +1,14 @@
-<?php get_template_part( 'partials/header' );
+<?php
+/**
+ * Single posts
+ *
+ * @package Ground
+ */
 
-	if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+get_template_part( 'partials/header' );
+
+while ( have_posts() ) :
+	the_post(); ?>
 
 		<div class="container">
 			<div class="row">
@@ -13,6 +21,7 @@
 			</div> <!-- End .row -->
 		</div> <!-- End .container -->
 
-	<?php endwhile; endif;
+	<?php
+endwhile;
 
-get_template_part( 'partials/footer' ); ?>
+get_template_part( 'partials/footer' );

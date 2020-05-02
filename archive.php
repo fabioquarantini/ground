@@ -1,4 +1,12 @@
-<?php get_template_part( 'partials/header' ); ?>
+<?php
+/**
+ * Archive pages
+ *
+ * @package Ground
+ */
+
+get_template_part( 'partials/header' );
+?>
 
 	<div class="container">
 		<div class="row">
@@ -15,15 +23,16 @@
 						</header>
 
 						<div class="page__body js-infinite-container">
-
 							<?php the_archive_description(); ?>
 
-							<?php while ( have_posts() ) : the_post();
+							<?php
+							while ( have_posts() ) :
+								the_post();
 
 								get_template_part( 'partials/abstract', 'post' );
 
-							endwhile; ?>
-
+							endwhile;
+							?>
 						</div> <!-- End .page__body -->
 
 						<?php get_template_part( 'partials/pagination' ); ?>
@@ -35,4 +44,5 @@
 		</div> <!-- End .row -->
 	</div> <!-- End .container -->
 
-<?php get_template_part( 'partials/footer' ); ?>
+<?php
+get_template_part( 'partials/footer' );

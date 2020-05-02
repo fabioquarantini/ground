@@ -1,4 +1,12 @@
-<?php get_template_part( 'partials/header' ); ?>
+<?php
+/**
+ * Taxonomy ground_catalog_taxonomy
+ *
+ * @package Ground
+ */
+
+get_template_part( 'partials/header' );
+?>
 
 	<div class="container">
 		<div class="row">
@@ -19,59 +27,64 @@
 
 					<div class="page__body">
 
-						<?php echo category_description();
+						<?php
+						the_archive_description();
 
 						$queried_object = get_queried_object();
-						$term_id = $queried_object->term_id;
-						$term_parent = $queried_object->parent;
-
-						if ( $term_parent == 0 ) {
-							$term_parent = $term_id;
-						}
+						$term_id        = $queried_object->term_id;
+						$term_parent    = ( 0 === $term_parent ) ? $term_id : $queried_object->parent;
 
 						$args = array(
-							'child_of'		=> $term_id,
-							'hide_empty'	=> 1,
-							'hierarchical'	=> 0,
-							'parent'		=> $term_id,
-							'taxonomy'		=> 'ground_catalog_taxonomy'
+							'child_of'     => $term_id,
+							'hide_empty'   => 1,
+							'hierarchical' => 0,
+							'parent'       => $term_id,
+							'taxonomy'     => 'ground_catalog_taxonomy',
 						);
 
-						$taxonomies = get_categories($args);
+						$catalog_taxonomies = get_categories( $args );
 
-						// Show categories
-						if ( !empty( $taxonomies ) && !is_wp_error( $taxonomies ) ) : ?>
+						// Categories.
+						if ( ! empty( $catalog_taxonomies ) && ! is_wp_error( $catalog_taxonomies ) ) :
+							?>
 
 							<div class="row">
-								<?php foreach ( $taxonomies as $taxonomy ) {
+								<?php
+								foreach ( $catalog_taxonomies as $catalog_taxonomy ) :
 
-									$taxonomy_slug = $taxonomy->slug;
-									$taxonomy_name = $taxonomy->name;
-									$taxonomy_description = $taxonomy->description; ?>
+									$taxonomy_slug        = $catalog_taxonomy->slug;
+									$taxonomy_name        = $catalog_taxonomy->name;
+									$taxonomy_description = $catalog_taxonomy->description;
+									?>
 
 									<div class="gr-12 gr-4@md">
-										<?php include( locate_template( 'partials/abstract-taxonomy-ground_catalog.php' ) ); ?>
+										<?php include locate_template( 'partials/abstract-taxonomy-ground_catalog.php' ); ?>
 									</div>
 
-								<?php } ?> <!-- End .row -->
+								<?php endforeach ?> <!-- End .row -->
 							</div>
 
-						<?php // Show products
-						else :
+							<?php
+						else : // Products.
 
-							if ( have_posts() ) { ?>
+							if ( have_posts() ) :
+								?>
 								<div class="row">
-									<?php while ( have_posts() ) {
-										the_post(); ?>
+									<?php
+									while ( have_posts() ) :
+										the_post();
+										?>
 										<div class="gr-12 gr-4@md">
 											<?php get_template_part( 'partials/abstract', 'ground_catalog' ); ?>
 										</div>
-									<?php } ?>
+									<?php endwhile; ?>
 								</div> <!-- End .row -->
-								<?php get_template_part( 'partials/pagination' );
-							}
+								<?php
+								get_template_part( 'partials/pagination' );
+							endif;
 
-						endif; ?>
+						endif;
+						?>
 
 					</div> <!-- End .page__body -->
 
@@ -82,4 +95,5 @@
 		</div> <!-- End .row -->
 	</div> <!-- End .container -->
 
-<?php get_template_part( 'partials/footer' ); ?>
+<?php
+get_template_part( 'partials/footer' );
