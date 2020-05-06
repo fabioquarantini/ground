@@ -1,53 +1,26 @@
 <?php
+/**
+ * Extend WordPress
+ *
+ * @package Ground
+ */
 
-/*  ==========================================================================
-
-	1 - Thumbnails size
-	2 - Register menu
-	3 - Content width
-	4 - Localization
-	5 - Add excerpt support for pages
-	6 - Excerpt custom lenght
-	7 - Trim title length
-	8 - Remove special characters from uploaded files
-	9 - Html5 markup
-	10 - Remove <p> around images
-	11 - Remove the maximum image width in a ‘srcset’ attribute.
-	12 - Remove width and height attributes from inserted images
-	13 - Gets the featured image of a specifific post
-	14 - Add gallery modal
-	15 - Highlight archive and wp_nav_menu parents
-	16 - BEM body class
-	17 - ACF local JSON
-	18 - Oembed responsive
-	19 - Rename attachment slug
-	20 - Echoes the highway view name tag
-	21 - Custom Breadcrumb using Yoast SEO Plugin
-	22 - Ajax search result
-	23 - WMPL - Switch Language
-	24 - Gutemberg Blocks
-	25 - ACF Add Options Page
-
-	==========================================================================  */
-
-
-/*  ==========================================================================
-	1 - Thumbnails size
-	==========================================================================  */
-
+/**
+ * Register new image sizes
+ */
 function ground_thumbnail_size() {
 
-	// Enables featured image
+	// Enables featured image.
 	add_theme_support( 'post-thumbnails' );
 
-	// WordPress default thumbnails
+	// WordPress default thumbnails.
 	add_image_size( 'thumbnail', 200, 200, true );
 	add_image_size( 'small', 480, 480, true );
 	add_image_size( 'medium', 768, 768, true );
 	add_image_size( 'medium_large', 1280, 720, true );
 	add_image_size( 'large', 1920, 1080, true );
 
-	// Custom ratio thumbnails
+	// Custom ratio thumbnails.
 	add_image_size( '1-1-small', 480, 480, array( 'center', 'center' ) );
 	add_image_size( '1-1-medium', 900, 900, array( 'center', 'center' ) );
 	add_image_size( '1-1-large', 1200, 1200, array( 'center', 'center' ) );
@@ -66,23 +39,21 @@ function ground_thumbnail_size() {
 
 }
 
-add_action( 'after_setup_theme','ground_thumbnail_size' );
+add_action( 'after_setup_theme', 'ground_thumbnail_size' );
 
-
-/*  ==========================================================================
-	2 - Register menu
-	==========================================================================  */
-
+/**
+ * Register menu
+ */
 function ground_register_menu() {
 
-	// This feature enables Menus support
+	// This feature enables menus support.
 	add_theme_support( 'menus' );
 
-	// Registers multiple custom navigation menus in the custom menu editor
+	// Registers multiple custom navigation menus in the custom menu editor.
 	$locations = array(
-		'navigation-primary'		=> __( 'Primary navigation', 'ground-admin' ),
-		'navigation-secondary'		=> __( 'Secondary navigation', 'ground-admin' ),
-		'navigation-tertiary'		=> __( 'Tertiary navigation', 'ground-admin' ),
+		'navigation-primary'   => __( 'Primary navigation', 'ground-admin' ),
+		'navigation-secondary' => __( 'Secondary navigation', 'ground-admin' ),
+		'navigation-tertiary'  => __( 'Tertiary navigation', 'ground-admin' ),
 	);
 
 	register_nav_menus( $locations );
@@ -91,262 +62,243 @@ function ground_register_menu() {
 
 add_action( 'init', 'ground_register_menu' );
 
-
-/*  ==========================================================================
-	3 - Content width
-	==========================================================================  */
-
-if ( !isset( $content_width ) ) {
-
-	// Set the maximum allowed width for any content, like oEmbeds and images added to posts.
+/**
+ * Content width
+ *
+ * It represents the maximum width of the content area excluding margin and padding
+ */
+if ( ! isset( $content_width ) ) {
 	$content_width = 1920;
-
 }
 
-
-/*  ==========================================================================
-	4 - Localization
-	==========================================================================  */
-
-// Loads the theme's translated strings.
+/**
+ * Localization
+ *
+ * Load the theme’s translated strings
+ */
 function ground_load_theme_textdomain() {
 
-	load_theme_textdomain( 'ground-admin', get_template_directory() . '/languages' );
-	load_theme_textdomain( 'ground', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'ground-admin', TEMPLATE_PATH . '/languages' );
+	load_theme_textdomain( 'ground', TEMPLATE_PATH . '/languages' );
 
 }
 
 add_action( 'after_setup_theme', 'ground_load_theme_textdomain' );
 
-
-/*  ==========================================================================
-	5 - Add excerpt support for pages
-	==========================================================================  */
-
+/**
+ * Add excerpt support for pages
+ */
 function ground_page_excerpt() {
-
 	add_post_type_support( 'page', 'excerpt' );
-
 }
 
 add_action( 'init', 'ground_page_excerpt' );
 
+/**
+ * Excerpt with custom lenght
+ *
+ * Summary or description of a post with custom lenght
+ *
+ * @param integer          $length Optional. Excerpt length. Default is 100.
+ * @param string           $after_text Optional. Characters to add at the end of the text. Default is "...".
+ * @param int|WP_Post|null $post Optional. Post ID or post object. Default is global $post.
+ */
+function ground_excerpt( $length = 100, $after_text = '...', $post = null ) {
 
-/*  ==========================================================================
-	6 - Excerpt custom lenght : ground_excerpt( 100, '...', 'id' );
-	==========================================================================  */
-
-// Summary or description of a post with custom lenght
-
-function ground_excerpt( $length = 100, $more = '...', $post_id = null ) {
-
-	$charset = get_bloginfo('charset');
-
-	if ( $post_id !== null ) {
-
-		$post = get_post($post_id);
-		if ( $post->post_excerpt !== '' ) {
-			$post_content = $post->post_excerpt;
+	if ( null !== $post ) {
+		$_post = get_post( $post );
+		if ( '' !== $_post->post_excerpt ) {
+			$post_content = $_post->post_excerpt;
 		} else {
-			$post_content = $post->post_content;
+			$post_content = $_post->post_content;
 		}
-		$content = strip_tags( $post_content );
-		$excerpt = mb_substr( $content, 0, $length, $charset );
-
+		$content = wp_strip_all_tags( $post_content );
+		$excerpt = mb_substr( $content, 0, $length, CHARSET );
 	} else {
-
 		$content = get_the_excerpt();
-		$excerpt = mb_substr( $content, 0, $length, $charset );
-
+		$excerpt = mb_substr( $content, 0, $length, CHARSET );
 	}
 
-	if ( strlen($content) > $length) {
-
-		$excerpt = $excerpt . $more;
-
+	if ( strlen( $content ) > $length ) {
+		$excerpt = $excerpt . $after_text;
 	}
 
-	echo $excerpt;
+	echo esc_html( $excerpt );
 
 }
 
+/**
+ * Trim title length
+ *
+ * Show the first N title chars
+ *
+ * @param integer     $length Optional. Title length. Default is 10.
+ * @param string      $after_text Optional. Characters to add at the end of the text. Default is "...".
+ * @param int|WP_Post $post Optional. Post ID or WP_Post object. Default is global $post.
+ */
+function ground_trim_title( $length = 10, $after_text = '...', $post = 0 ) {
 
-/*  ==========================================================================
-	7 - Trim title length : ground_trim_title( 5, '...' );
-	==========================================================================  */
-
-// Show the first N title chars
-function ground_trim_title( $length = 5, $after = '...' ) {
-
-	$title = get_the_title();
+	$title = get_the_title( $post );
 
 	if ( strlen( $title ) > $length ) {
-
-		$charset = get_bloginfo('charset');
-		$title = mb_substr( $title, 0, $length, $charset );
-		echo $title . $after;
-
+		$title = mb_substr( $title, 0, $length, CHARSET );
+		echo esc_html( $title . $after_text );
 	} else {
-
-		echo $title;
-
+		echo esc_html( $title );
 	}
 
 }
 
-
-/*  ==========================================================================
-	8 - Remove special characters from uploaded files
-	==========================================================================  */
-
-function ground_sanitize_uploads ( $filename ) {
-
+/**
+ * Remove special characters from uploaded files
+ *
+ * Converts all accent characters to ASCII characters.
+ *
+ * @param string $filename The filename to be sanitized.
+ * @return string The sanitized filename.
+ */
+function ground_sanitize_uploads( $filename ) {
 	return remove_accents( $filename );
-
 }
 
 add_filter( 'sanitize_file_name', 'ground_sanitize_uploads', 10 );
 
-
-/*  ==========================================================================
-	9 - Html5 markup
-	==========================================================================  */
-
+/**
+ * Html5 markup
+ *
+ * This feature allows the use of HTML5 markup for the comment forms, search forms, comment lists and gallery.
+ */
 function ground_markup() {
-
-	// This feature allows the use of HTML5 markup for the comment forms, search forms, comment lists and gallery.
 
 	$markup = array(
 		'search-form',
 		'comment-form',
 		'comment-list',
 		'gallery',
-		'caption'
+		'caption',
 	);
 
 	add_theme_support( 'html5', $markup );
 
 }
 
-add_action( 'after_setup_theme','ground_markup' );
+add_action( 'after_setup_theme', 'ground_markup' );
 
-
-/*  ==========================================================================
-	10 - Remove <p> around images
-	==========================================================================  */
-
-function ground_remove_p_around_img($content) {
-
+/**
+ * Remove Paragraph Tags From Around Images
+ *
+ * @param string $content The content to be cleaned.
+ * @return string The cleaned content.
+ */
+function ground_remove_p_around_img( $content ) {
 	return preg_replace( '/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content );
-
 }
 
-// add_filter( 'the_content', 'ground_remove_p_around_img' );
+add_filter( 'the_content', 'ground_remove_p_around_img' );
 
-
-/*  ==========================================================================
-	11 - Remove the maximum image width in a ‘srcset’ attribute.
-	==========================================================================  */
-
+/**
+ * Remove the maximum image width in a ‘srcset’ attribute.
+ *
+ * @param int $max_width The maximum image width to be included in the 'srcset'. Default '2048'.
+ */
 function ground_remove_max_srcset_image_width( $max_width ) {
-
 	return false;
-
 }
 
 add_filter( 'max_srcset_image_width', 'ground_remove_max_srcset_image_width' );
 
-
-/*  ==========================================================================
-	12 - Remove width and height attributes from inserted images
-	==========================================================================  */
-
+/**
+ * Remove width and height attributes from inserted images
+ *
+ * @param string $html The html to be cleaned.
+ * @return string The cleaned html
+ */
 function ground_remove_img_size( $html ) {
-
-	$html = preg_replace( '/(width|height)="\d*"\s/', "", $html );
+	$html = preg_replace( '/(width|height)="\d*"\s/', '', $html );
 	return $html;
-
 }
 
 add_filter( 'post_thumbnail_html', 'ground_remove_img_size', 10 );
 add_filter( 'image_send_to_editor', 'ground_remove_img_size', 10 );
 
-
-/*  ==========================================================================
-	13 - Gets the featured image of a specifific post
-	==========================================================================  */
-
-function ground_image($size = 'thumbnail', $id = null, $url = true, $echo = true){
-	$image = wp_get_attachment_image_src(get_post_thumbnail_id($id), $size);
-	$image = ($url) ? $image[0] : $image ;
+/**
+ * Gets the featured image of a specifific post
+ *
+ * @param string           $size Image size name.
+ * @param int|WP_Post|null $post Optional. Post ID or post object. Default is global $post.
+ * @param boolean          $url Optional. Return url or image array. Default return url.
+ * @param boolean          $echo Optional. Echo returned url. Default echo the url.
+ * @return array|string
+ */
+function ground_image( $size = 'thumbnail', $post = null, $url = true, $echo = true ) {
+	$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post ), $size );
+	$image = ( $url ) ? $image[0] : $image;
 	if ( $echo ) {
-		echo $image;
+		echo esc_html( $image );
 	} else {
 		return $image;
 	}
 }
 
-
-/*  ==========================================================================
-	14 - Add gallery modal
-	==========================================================================  */
-
+/**
+ * Add attachment gallery attributes
+ *
+ * @param string $link Attachment page link.
+ * @return string
+ */
 function ground_gallery_modal( $link ) {
-
 	return str_replace( '<a href', '<a data-modal="gallery" data-router-disabled href', $link );
-
 }
 
-add_filter('wp_get_attachment_link', 'ground_gallery_modal');
+add_filter( 'wp_get_attachment_link', 'ground_gallery_modal' );
 
-
-/*  ==========================================================================
-	15 - Highlight archive and wp_nav_menu parents
-	==========================================================================  */
-
-function ground_custom_parent_menu_item_classes( $classes = array(), $menu_item = false) {
-
+/**
+ * Highlight archive and wp_nav_menu parents
+ *
+ * @param array   $classes Array of the CSS classes that are applied to the menu item's <li> element.
+ * @param boolean $menu_item The current menu item.
+ * @return array
+ */
+function ground_custom_parent_menu_item_classes( $classes = array(), $menu_item = false ) {
 	global $post;
-
-	$id = ( isset( $post->ID ) ? get_the_ID() : NULL );
-
-	if (isset( $id )){
-		$classes[] = ($menu_item->url == get_post_type_archive_link($post->post_type)) ? 'navigation__item--ancestor' : '';
+	$id = ( isset( $post->ID ) ? get_the_ID() : null );
+	if ( isset( $id ) ) {
+		$classes[] = ( get_post_type_archive_link( $post->post_type ) === $menu_item->url ) ? 'navigation__item--ancestor' : '';
 	}
-
 	return $classes;
 }
 
 add_filter( 'nav_menu_css_class', 'ground_custom_parent_menu_item_classes', 10, 2 );
 
-
-/*  ==========================================================================
-	16 - BEM body class
-	==========================================================================  */
-
+/**
+ * BEM body classes
+ *
+ * @param string|string[] $classes Space-separated string or array of class names to add to the class list.
+ * @return string|string[]
+ */
 function ground_body_class_bem( $classes ) {
 
-	foreach ($classes as &$value) {
-		if (strpos($value, 'is-') !== false || strpos($value, 'woo') !== false) {
+	foreach ( $classes as &$value ) {
+		if ( strpos( $value, 'is-' ) !== false || strpos( $value, 'woo' ) !== false ) {
 			$value = $value;
 		} else {
 			$value = 'body--' . $value;
 		}
 	}
-
-	array_unshift($classes, 'body');
-
+	array_unshift( $classes, 'body' );
 	return $classes;
 
 }
 
-add_filter('body_class', 'ground_body_class_bem');
+add_filter( 'body_class', 'ground_body_class_bem' );
 
-
-/*  ==========================================================================
-	17 - ACF local JSON
-	==========================================================================  */
-
+/**
+ * Save ACF local JSON
+ *
+ * @link https://www.advancedcustomfields.com/resources/local-json/
+ * @param string $path ACF JSON path.
+ * @return string
+ */
 function ground_acf_json_save_point( $path ) {
 
 	$path = TEMPLATE_PATH . '/data/acf';
@@ -354,62 +306,71 @@ function ground_acf_json_save_point( $path ) {
 
 }
 
-add_filter('acf/settings/save_json', 'ground_acf_json_save_point');
+add_filter( 'acf/settings/save_json', 'ground_acf_json_save_point' );
 
-
+/**
+ * Load ACF local JSON
+ *
+ * @link https://www.advancedcustomfields.com/resources/local-json/
+ * @param string $paths ACF JSON path.
+ * @return string
+ */
 function ground_acf_json_load_point( $paths ) {
 
-	unset($paths[0]);
+	unset( $paths[0] );
 	$paths[] = TEMPLATE_PATH . '/data/acf';
 	return $paths;
 
 }
 
-add_filter('acf/settings/load_json', 'ground_acf_json_load_point');
+add_filter( 'acf/settings/load_json', 'ground_acf_json_load_point' );
 
+/**
+ * Oembed responsive
+ *
+ * @param string|false $cache The cached HTML result, stored in post meta.
+ * @param string       $url The attempted embed URL.
+ * @param array        $attr An array of shortcode attributes.
+ * @param int          $post_ID Post ID.
+ * @return string
+ */
+function ground_oembed_responsive( $cache, $url, $attr, $post_ID ) {
 
-/*  ==========================================================================
-	18 - Oembed responsive
-	==========================================================================  */
-
-function ground_oembed_responsive( $html, $url, $attr, $post_id ) {
-
-	if ( strpos( $url, 'vimeo.com' ) !== false || strpos( $url, 'youtube.com' ) !== false || strpos( $url, 'youtu.be' ) !== false  ) {
+	if ( strpos( $url, 'vimeo.com' ) !== false || strpos( $url, 'youtube.com' ) !== false || strpos( $url, 'youtu.be' ) !== false ) {
 		$class = 'ratio-16-9';
-		return '<div class="' . $class . '">' . $html . '</div>';
+		return '<div class="' . $class . '">' . $cache . '</div>';
 	}
 
 }
 
-add_filter('embed_oembed_html', 'ground_oembed_responsive', 99, 4);
+add_filter( 'embed_oembed_html', 'ground_oembed_responsive', 99, 4 );
 
-
-/*  ==========================================================================
-	19 - Rename attachment slug
-	==========================================================================  */
-
+/**
+ * Rename attachment slug
+ *
+ * @param int $post_ID Attachment ID.
+ */
 function ground_rename_attachment_slug( $post_ID ) {
-
-	wp_update_post(array(
-		'ID' => $post_ID,
-		'post_name' => uniqid( '-' )
-	));
+	wp_update_post(
+		array(
+			'ID'        => $post_ID,
+			'post_name' => uniqid( '-' ),
+		)
+	);
 }
 
 add_action( 'add_attachment', 'ground_rename_attachment_slug' );
 
-
-/*  ==========================================================================
-	20 - Echoes the highway view name tag
-	==========================================================================  */
-
+/**
+ * Echoes the highway ajax navigation view name tag
+ */
 function ground_view_name() {
 
 	global $wp_query;
 
 	if ( is_front_page() ) {
 		$view_name = 'home';
-	} elseif ( is_page_template('templates/template-ground_catalog.php') ) {
+	} elseif ( is_page_template( 'templates/template-ground_catalog.php' ) ) {
 		$view_name = 'catalog';
 	} elseif ( is_home() ) {
 		$view_name = 'blog';
@@ -421,101 +382,88 @@ function ground_view_name() {
 		$view_name = 'page';
 	}
 
-	echo 'data-router-view="' . $view_name . '"';
+	echo 'data-router-view="' . esc_html( $view_name ) . '"';
 
 }
 
-
-/*  ==========================================================================
-	21 - Custom Breadcrumb using Yoast SEO Plugin https://fellowtuts.com/wordpress/custom-breadcrumb-navigation-yoast-seo/
-	==========================================================================  */
-
-function ground_yoast_breadcrumb(){
+/**
+ * Custom Breadcrumb using Yoast SEO Plugin
+ *
+ * @link https://fellowtuts.com/wordpress/custom-breadcrumb-navigation-yoast-seo/
+ * @return void
+ */
+function ground_yoast_breadcrumb() {
 	$crumb = array();
-	$dom = new DOMDocument();
+	$dom   = new DOMDocument();
 
-	if ( yoast_breadcrumb('', '', false) ) {
-		$dom->loadHTML('<?xml encoding="' . get_bloginfo('charset') . '" ?>' . yoast_breadcrumb('', '', false));
+	if ( yoast_breadcrumb( '', '', false ) ) {
+		$dom->loadHTML( '<?xml encoding="' . get_bloginfo( 'charset' ) . '" ?>' . yoast_breadcrumb( '', '', false ) );
 	}
 
-	$items = $dom->getElementsByTagName('a');
+	$items = $dom->getElementsByTagName( 'a' );
 
-	foreach ($items as $tag)
-		$crumb[] = array('text' => $tag->nodeValue, 'href' => $tag->getAttribute('href'));
+	foreach ( $items as $tag ) {
+		$crumb[] = array(
+			'text' => $tag->nodeValue,
+			'href' => $tag->getAttribute( 'href' ),
+		);
+	}
 
-	// Get the current page text and href
-	$items = new DOMXpath($dom);
-	$dom = $items->query('//*[contains(@class, "breadcrumb_last")]');
+	// Get the current page text and href.
+	$items = new DOMXpath( $dom );
+	$dom   = $items->query( '//*[contains(@class, "breadcrumb_last")]' );
 
-	if ( $dom->item(0) && $dom->item(0)->nodeValue ) {
-		$crumb[] = array('text' => $dom->item(0)->nodeValue, 'href' => '');
+	if ( $dom->item( 0 ) && $dom->item( 0 )->nodeValue ) {
+		$crumb[] = array(
+			'text' => $dom->item( 0 )->nodeValue,
+			'href' => '',
+		);
 	}
 
 	$html = '';
-	if($crumb) {
-		$items = count($crumb) - 1;
-		$html = '<nav class="breadcrumb">';
+	if ( $crumb ) {
+		$items = count( $crumb ) - 1;
+		$html  = '<nav class="breadcrumb">';
 		$html .= '<ol class="breadcrumb__list">';
-			foreach($crumb as $k => $v){
-				$html .= '<li class="breadcrumb__item">';
-				if($k == $items) { // If it's the last item then output the text only
-					$html .= $v['text'];
-				} else { // Preceding items with URLs
-					$html .= sprintf('<a class="breadcrumb__link" href="%s">%s</a>', $v['href'], $v['text']);
-				}
-				$html .= '</li>';
+		foreach ( $crumb as $k => $v ) {
+			$html .= '<li class="breadcrumb__item">';
+			if ( $k === $items ) { // If it's the last item then output the text only.
+				$html .= $v['text'];
+			} else { // Preceding items with URLs.
+				$html .= sprintf( '<a class="breadcrumb__link" href="%s">%s</a>', $v['href'], $v['text'] );
 			}
+			$html .= '</li>';
+		}
 		$html .= '</ol>';
 		$html .= '</nav>';
 	}
-	echo $html;
+	echo wp_kses_post( $html );
 }
 
-
-/*  ==========================================================================
-	22 - Ajax search result
-	==========================================================================  */
-
-add_action('wp_ajax_data_fetch' , 'ground_ajax_search_data_fetch');
-add_action('wp_ajax_nopriv_data_fetch','ground_ajax_search_data_fetch');
-
-function ground_ajax_search_data_fetch(){
+/**
+ * Ajax search result
+ */
+function ground_ajax_search_data_fetch() {
 	ob_start();
-	get_template_part('partials/abstract-ajax-search');
+	get_template_part( 'partials/abstract-ajax-search' );
 	return ob_get_clean();
 }
 
+add_action( 'wp_ajax_data_fetch', 'ground_ajax_search_data_fetch' );
+add_action( 'wp_ajax_nopriv_data_fetch', 'ground_ajax_search_data_fetch' );
 
-/*  ==========================================================================
-	23 - WMPL - Switch Language
-	==========================================================================  */
-function ground_language_switch(){
+/**
+ * WMPL - Switch Language
+ */
+function ground_language_switch() {
 	ob_start();
-	get_template_part('partials/switch-language');
+	get_template_part( 'partials/switch-language' );
 	return ob_get_clean();
 }
 
-
-/*  ==========================================================================
-	24 - Gutemberg Blocks
-	==========================================================================  */
-function ground_block_render( $block ) {
-
-	// convert name ("acf/testimonial") into path friendly slug ("testimonial")
-	$slug = str_replace('acf/', '', $block['name']);
-
-	// include a template part from within the "template-parts/block" folder
-	if( file_exists( get_theme_file_path("/partials/blocks/{$slug}.php") ) ) {
-		include( get_theme_file_path("/partials/blocks/{$slug}.php") );
-	}
-}
-
-
-/*  ==========================================================================
-	25 - ACF Add Options Page
-	==========================================================================  */
-if( function_exists('acf_add_options_page') ) {
-
+/**
+ * ACF Add Options Page
+ */
+if ( function_exists( 'acf_add_options_page' ) ) {
 	acf_add_options_page();
-
 }
