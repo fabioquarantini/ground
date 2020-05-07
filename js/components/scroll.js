@@ -22,12 +22,25 @@ export default class Scroll extends AbstractComponent {
 		this.DOM.scrollProgress = document.getElementById('js-scroll-progress');
 		this.defaults = {
 			el: this.DOM.element,
-			triggers: '[data-scroll-to]',
+			elMobile: document,
+			name: 'scroll',
+			offset: [0, 0],
+			repeat: false,
 			smooth: true,
+			smoothMobile: false,
+			direction: 'vertical',
+			inertia: 1,
+			class: 'is-inview',
+			scrollbarClass: 'scrollbar',
+			scrollingClass: 'has-scroll-scrolling',
+			draggingClass: 'has-scroll-dragging',
+			smoothClass: 'has-scroll-smooth',
+			initClass: 'has-scroll-init',
 			getSpeed: true,
 			getDirection: true,
-			smoothMobile: false,
-			scrollbarClass: 'scrollbar',
+			firefoxMultiplier: 50,
+			touchMultiplier: 2,
+			triggers: '[data-scroll-to]',
 		};
 		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
 		this.updateEvents = this.updateEvents.bind(this);
