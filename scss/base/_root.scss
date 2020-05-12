@@ -10,11 +10,14 @@ body {
 }
 
 html {
-	overflow: hidden;
 
 	&.is-loading {
 		overflow: hidden;
 		cursor: wait;
+	}
+
+	&.is-loaded {
+		overflow: hidden;
 	}
 
 	&.has-scroll-smooth {
