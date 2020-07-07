@@ -51,29 +51,29 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 		});
 
 		// Animation PIN move into Function
-		const animationPin = gsap.from('.js-pin__element', {
-			scale: 0.6,
-			transformOrigin: 'center center',
-			ease: 'power2',
-		});
+		// const animationPin = gsap.from('.js-pin__element', {
+		// 	scale: 0.6,
+		// 	transformOrigin: 'center center',
+		// 	ease: 'power2',
+		// });
 
-		ScrollTrigger.create({
-			trigger: '.js-pin',
-			animation: animationPin,
-			start: 'center center',
-			end: '+=200%',
-			toggleClass: 'active',
-			pin: true,
-			scrub: 2,
-			onEnter: () => console.log('enter'),
-			onLeave: () => console.log('leave'),
-			onEnterBack: () => console.log('enter back'),
-			onLeaveBack: () => console.log('leave back'),
-			onUpdate: (self) => {
-				console.log('progress:', self.progress.toFixed(3), 'direction:', self.direction, 'velocity', self.getVelocity());
-			},
+		// ScrollTrigger.create({
+		// 	trigger: '.js-pin',
+		// 	animation: animationPin,
+		// 	start: 'center center',
+		// 	end: '+=200%',
+		// 	toggleClass: 'active',
+		// 	pin: true,
+		// 	scrub: 2,
+		// 	onEnter: () => console.log('enter'),
+		// 	onLeave: () => console.log('leave'),
+		// 	onEnterBack: () => console.log('enter back'),
+		// 	onLeaveBack: () => console.log('leave back'),
+		// 	onUpdate: (self) => {
+		// 		console.log('progress:', self.progress.toFixed(3), 'direction:', self.direction, 'velocity', self.getVelocity());
+		// 	},
 
-		});
+		// });
 
 		gsap.utils.toArray(triggers).forEach((element, i) => {
 			if (element.dataset.scrollAnimation === 'splittext-chars') {
@@ -93,6 +93,9 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 			}
 			if (element.dataset.scrollAnimation === 'draw-svg') {
 				this.drawSvgAnimation(element);
+			}
+			if (element.dataset.scrollAnimation === 'pin') {
+				this.pinAnimation(element);
 			}
 		});
 	}
@@ -123,6 +126,9 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 		}
 		if (target.dataset.scrollAnimation === 'draw-svg') {
 			this.drawSvgAnimation(target);
+		}
+		if (target.dataset.scrollAnimation === 'pin') {
+			this.pinAnimation(target);
 		}
 	}
 
@@ -256,6 +262,39 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 
 		tl.from(target, {
 			drawSVG: 0,
+		});
+	}
+
+
+	/**
+	 * pin Animation
+	*/
+	pinAnimation(item) {
+		const target = item.querySelectorAll('.js-pin__element');
+
+		// Animation PIN move into Function
+		const animationPin = gsap.from(target, {
+			scale: 0.6,
+			transformOrigin: 'center center',
+			ease: 'power2',
+		});
+
+		ScrollTrigger.create({
+			trigger: item,
+			animation: animationPin,
+			start: 'center center',
+			end: '+=200%',
+			toggleClass: 'active',
+			pin: true,
+			scrub: 2,
+			onEnter: () => console.log('enter'),
+			onLeave: () => console.log('leave'),
+			onEnterBack: () => console.log('enter back'),
+			onLeaveBack: () => console.log('leave back'),
+			onUpdate: (self) => {
+				console.log('progress:', self.progress.toFixed(3), 'direction:', self.direction, 'velocity', self.getVelocity());
+			},
+
 		});
 	}
 }
