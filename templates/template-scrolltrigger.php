@@ -10,26 +10,10 @@ get_template_part( 'partials/header' ); ?>
 	<div class="container margin-top-5 margin-bottom-5">
 		<div class="row">
 			<div class="gr-12">
-
-				<h1 style="font-size: 160px; line-height: 160px;" data-scroll data-scroll-animation="fade-in-down">
-					GSAP
-				</h1>
-
-				<h1 style="font-size: 160px; line-height: 160px;" data-scroll data-scroll-animation="fade-in-down">
-					SCROLL
-				</h1>
-
-				<h1 style="font-size: 160px; line-height: 160px;" data-scroll data-scroll-animation="fade-in-down">
-					TRIGGER
-				</h1>
-	
+				<h1 class="js-fade-in-down" style="font-size: 160px; line-height: 160px;" data-scroll data-scroll-animation="fade-in-down">GSAP</h1>
+				<h1 class="js-fade-in-down" style="font-size: 160px; line-height: 160px;" data-scroll data-scroll-animation="fade-in-down">SCROLL</h1>
+				<h1 class="js-fade-in-down" style="font-size: 160px; line-height: 160px;" data-scroll data-scroll-animation="fade-in-down">TRIGGER</h1>
 			</div>
-		</div>
-	</div>
-
-	<div class="container margin-top-5 margin-bottom-5">
-		<div class="row padding-top-5 padding-bottom-5">
-			<div class="gr-12"></div>
 		</div>
 	</div>
 
@@ -39,6 +23,17 @@ get_template_part( 'partials/header' ); ?>
                 <div class="example" data-scroll data-scroll-animation="rotation">Animation Rotation</div>
                 <div class="example" data-scroll data-scroll-animation="rotation">Animation Rotation</div>
                 <div class="example" data-scroll data-scroll-animation="rotation">Animation Rotation</div>	 
+			</div>
+		</div>
+	</div>
+
+	<div class="container margin-top-5 margin-bottom-5">
+		<div class="row">
+			<div class="gr-12">
+				<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="350" height="200" data-scroll data-scroll-animation="draw-svg">
+					<path id="word" style="stroke-linecap: round; stroke-linejoin: round;" fill="none" stroke="#000000" stroke-width="7"  d="M22.328,70.018c9.867-7.4,10.724,20.434,13.014,28.694c-0.08-9.105-1.308-31.463,11.936-31.886c11.313-0.361,17.046,19.368,16.367,28.098c-1.432-10.289,6.234-30.682,18.163-25.671c11.505,4.833,8.682,26.772,20.071,31.964c13.06,5.953,14.854-8.305,19.734-17.017c7.188-12.836,4.933-15.417,29.6-14.8c-8.954-3.842-37.42,1.728-28.539,20.1c5.823,12.045,34.911,12.583,30.018-8.873c-5.385,17.174,24.01,23.104,24.01,9.123c0-9.867,3.816-15.937,16.034-18.5c8.359-1.754,18.982,4.754,25.9,9.25c-10.361-4.461-51.941-13.776-37.749,12.357c9.435,17.372,50.559,2.289,33.477-6.063c-2.871,19.008,32.415,31.684,30.695,54.439c-2.602,34.423-66.934,24.873-79.302,2.134c-13.11-24.101,38.981-36.781,54.798-40.941c8.308-2.185,42.133-12.162,25.88-25.587c-2.779,17.058,19.275,28.688,29.963,12.911c6.862-10.131,6.783-25.284,30.833-19.117c-9.404-0.429-32.624-0.188-32.864,18.472c-0.231,17.912,21.001,21.405,40.882,11.951"/>
+					<path id="dot" style="stroke-linecap: round; stroke-linejoin: round;"fill="none" stroke="#000000" stroke-width="7" d="M247.003,38.567c-7.423,1.437-11.092,9.883-1.737,11.142c14.692,1.978,13.864-13.66,1.12-8.675"/>
+				</svg>
 			</div>
 		</div>
 	</div>
@@ -54,7 +49,7 @@ get_template_part( 'partials/header' ); ?>
 	</div>
 
 	<div class="container margin-top-5 margin-bottom-5">
-		<div class="row padding-top-5 padding-bottom-5">
+		<div class="row">
 			<div class="gr-12">
 				<div class="example" data-scroll data-scroll-animation="scale">Animation Scale</div> 
 			</div>
@@ -87,10 +82,10 @@ get_template_part( 'partials/header' ); ?>
     <div class="container margin-top-5 margin-bottom-5">
 		<div class="row">
 			<div class="gr-12">
-                <div class="example" data-scroll data-scroll-animation="fade-in-down">Fade in down</div>
-                <div class="example" data-scroll data-scroll-animation="fade-in-down">Fade in down</div>
-                <div class="example" data-scroll data-scroll-animation="fade-in-down">Fade in down</div>
-                <div class="example" data-scroll data-scroll-animation="fade-in-down">Fade in down</div>
+                <div class="example js-fade-in-down" data-scroll data-scroll-animation="fade-in-down">Fade in down</div>
+                <div class="example js-fade-in-down" data-scroll data-scroll-animation="fade-in-down">Fade in down</div>
+                <div class="example js-fade-in-down" data-scroll data-scroll-animation="fade-in-down">Fade in down</div>
+                <div class="example js-fade-in-down" data-scroll data-scroll-animation="fade-in-down">Fade in down</div>
 			</div>
 		</div>
 	</div>

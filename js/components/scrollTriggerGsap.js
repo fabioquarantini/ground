@@ -3,9 +3,11 @@ import * as deepmerge from 'deepmerge';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from 'gsap/SplitText';
+import { DrawSVGPlugin } from 'gsap/DrawSVGPlugin';
+
 import AbstractComponent from './abstractComponent';
 
-gsap.registerPlugin(ScrollTrigger, SplitText);
+gsap.registerPlugin(ScrollTrigger, SplitText, DrawSVGPlugin);
 
 export default class ScrollTriggerGsap extends AbstractComponent {
 	/**
@@ -60,6 +62,9 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 			if (element.dataset.scrollAnimation === 'scale') {
 				this.scaleAnimation(element);
 			}
+			if (element.dataset.scrollAnimation === 'draw-svg') {
+				this.drawSvgAnimation(element);
+			}
 		});
 	}
 
@@ -86,6 +91,9 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 		}
 		if (target.dataset.scrollAnimation === 'scale') {
 			this.scaleAnimation(target);
+		}
+		if (target.dataset.scrollAnimation === 'draw-svg') {
+			this.drawSvgAnimation(target);
 		}
 	}
 
@@ -177,6 +185,7 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 				start: 'top 90%',
 				end: 'bottom 60%',
 				toggleActions: 'play none none reset',
+				// pin: true,
 				// toggleClass: 'active',
 				// markers: true,
 			},
@@ -197,6 +206,27 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 				scrub: 2,
 				// markers: true,
 			},
+		});
+	}
+
+	/**
+	 * darwSvg Animation
+	*/
+	drawSvgAnimation(item) {
+		const target = item.querySelectorAll('path');
+		const tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: item,
+				scrub: 2,
+				start: 'top 70%',
+				end: 'bottom 70%',
+				toggleActions: 'play reset play reset',
+				// markers: true,
+			},
+		});
+
+		tl.from(target, {
+			drawSVG: 0,
 		});
 	}
 }
