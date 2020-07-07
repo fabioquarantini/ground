@@ -35,7 +35,7 @@ get_template_part( 'partials/header' ); ?>
 		</div>
 	</div>
 
-	<div class="container margin-bottom-5 js-pin">
+	<div class="container margin-bottom-5 js-pin" data-scroll data-scroll-animation="pin">
 		<div class="row">
 			<div class="gr-12 no-gutter full-viewport-height background-black">
 			    <img class="js-pin__element cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-3.jpg"/>
