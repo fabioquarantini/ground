@@ -46,6 +46,35 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 	initEvents(triggers) {
 		this.example = 'Example';
 
+		ScrollTrigger.defaults({
+			markers: false,
+		});
+
+		// Animation PIN move into Function
+		const animationPin = gsap.from('.js-pin__element', {
+			scale: 0.6,
+			transformOrigin: 'center center',
+			ease: 'power2',
+		});
+
+		ScrollTrigger.create({
+			trigger: '.js-pin',
+			animation: animationPin,
+			start: 'center center',
+			end: '+=200%',
+			toggleClass: 'active',
+			pin: true,
+			scrub: 2,
+			onEnter: () => console.log('enter'),
+			onLeave: () => console.log('leave'),
+			onEnterBack: () => console.log('enter back'),
+			onLeaveBack: () => console.log('leave back'),
+			onUpdate: (self) => {
+				console.log('progress:', self.progress.toFixed(3), 'direction:', self.direction, 'velocity', self.getVelocity());
+			},
+
+		});
+
 		gsap.utils.toArray(triggers).forEach((element, i) => {
 			if (element.dataset.scrollAnimation === 'splittext-chars') {
 				this.splitTextAnimationChars(element);

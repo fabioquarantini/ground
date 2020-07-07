@@ -27,6 +27,22 @@ get_template_part( 'partials/header' ); ?>
 		</div>
 	</div>
 
+	<div class="container margin-top-5">
+		<div class="row margin-top-5">
+			<div class="gr-12">
+				<h1 data-scroll data-scroll-animation="splittext-chars" style="font-size: 80px; line-height: 80px;">GSAP PIN</h1> 
+			</div>
+		</div>
+	</div>
+
+	<div class="container margin-bottom-5 js-pin">
+		<div class="row">
+			<div class="gr-12 no-gutter full-viewport-height background-black">
+			    <img class="js-pin__element cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-3.jpg"/>
+			</div>
+		</div>
+	</div>
+
 	<div class="container margin-top-5 margin-bottom-5">
 		<div class="row">
 			<div class="gr-12">
@@ -42,7 +58,7 @@ get_template_part( 'partials/header' ); ?>
 		<div class="row padding-top-5 padding-bottom-5">
 			<div class="gr-12">
 				<h1 style="font-size: 140px; line-height: 140px;" data-scroll data-scroll-animation="splittext-lines">
-					Lorem ipsum dolor sit amet, <span class="color-secondary">consectetur</span> adipiscing elit.<br>Nunc consectetur est sit amet est pharetra <span class="color-primary">viverra.</span>
+					Lorem ipsum dolor sit amet, <span class="color-secondary">consectetur</span> adipiscing elit.
 				</h1> 
 			</div>
 		</div>
@@ -69,11 +85,10 @@ get_template_part( 'partials/header' ); ?>
 	<div class="container margin-top-5 margin-bottom-5">
 		<div class="row">
 			<div class="gr-12">
-				<h1 data-scroll data-scroll-animation="splittext-chars">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
-					Sed molestie tellus at placerat ullamcorper.<br>
-					Interdum et malesuada fames ac ante ipsum primis in faucibus.<br>
-					Aliquam erat volutpat.<span class="color-secondary">YEAH!</span>
+				<h1 style="font-size: 100px; line-height: 100px;" data-scroll data-scroll-animation="splittext-chars">
+					Lorem ipsum dolor sit amet,<br>
+					Sed molestie tellus<br>
+					at placerat <span class="color-secondary">ullamcorper!</span>
 				</h1> 
 			</div>
 		</div>
@@ -86,19 +101,6 @@ get_template_part( 'partials/header' ); ?>
                 <div class="example js-fade-in-down" data-scroll data-scroll-animation="fade-in-down">Fade in down</div>
                 <div class="example js-fade-in-down" data-scroll data-scroll-animation="fade-in-down">Fade in down</div>
                 <div class="example js-fade-in-down" data-scroll data-scroll-animation="fade-in-down">Fade in down</div>
-			</div>
-		</div>
-	</div>
-
-    <div class="container margin-top-5 margin-bottom-5">
-		<div class="row">
-			<div class="gr-12">
-				<h1 data-scroll data-scroll-animation="splittext-chars">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
-					Sed molestie tellus at placerat ullamcorper.<br>
-					Interdum et malesuada fames ac ante ipsum primis in faucibus.<br>
-					Aliquam erat volutpat.<span class="color-secondary">YEAH!</span>
-				</h1> 
 			</div>
 		</div>
 	</div>
