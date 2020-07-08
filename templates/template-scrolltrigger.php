@@ -17,7 +17,6 @@ get_template_part( 'partials/header' ); ?>
 		</div>
 	</div>
 	
-
 	<div class="container margin-top-5 margin-bottom-5">
 		<div class="row">
 			<div class="gr-12" data-scroll data-scroll-animation="comparison">
@@ -32,20 +31,40 @@ get_template_part( 'partials/header' ); ?>
 			</div>
 		</div>
 	</div>
-
 	
 	<div class="container margin-top-5 margin-bottom-5">
-		<div class="row">
-			<div class="gr-12">
-                <div class="example" data-scroll data-scroll-animation="rotation">Animation Rotation</div>
-                <div class="example" data-scroll data-scroll-animation="rotation">Animation Rotation</div>
+		<div class="row margin-top-5 margin-bottom-5">
+			<div class="gr-2">
+                <div class="example" data-scroll data-scroll-animation="rotation">Animation Rotation</div>	 
+			</div>
+			<div class="gr-2">
                 <div class="example" data-scroll data-scroll-animation="rotation">Animation Rotation</div>	 
 			</div>
 		</div>
 	</div>
 
-
-	
+	<div class="container margin-top-5 margin-bottom-5">
+		<div class="row margin-top-5 margin-bottom-5">	
+			<div class="gr-2">
+				<div class="example" data-scroll data-scroll-animation="parallax" data-scroll-speed="1">Animation parallax</div>
+			</div>
+			<div class="gr-2">
+				<div class="example" data-scroll data-scroll-animation="parallax" data-scroll-speed="2">Animation parallax</div>
+			</div>
+			<div class="gr-2">
+				<div class="example" data-scroll data-scroll-animation="parallax" data-scroll-speed="-1">Parallax Negative</div>
+			</div>	
+			<div class="gr-2">
+				<div class="example" data-scroll data-scroll-animation="parallax" data-scroll-speed="3">Animation parallax</div>
+			</div>	
+			<div class="gr-2">
+				<div class="example" data-scroll data-scroll-animation="parallax" data-scroll-speed="1.4">Animation parallax</div>
+			</div>	
+			<div class="gr-2">
+				<div class="example" data-scroll data-scroll-animation="parallax" data-scroll-speed="4">Animation parallax</div>
+			</div>		
+		</div>
+	</div>
 
 	<div class="container margin-top-5">
 		<div class="row margin-top-5">
@@ -358,7 +377,7 @@ get_template_part( 'partials/header' ); ?>
 
 	<div class="container margin-top-5 margin-bottom-5">
 		<div class="row margin-top-5">
-			<div class="gr-12 margin-top-5">
+			<div class="gr-6 gr-centered margin-top-5">
 				<div class="example" data-scroll data-scroll-animation="scale">Animation Scale</div> 
 			</div>
 		</div>
@@ -366,29 +385,7 @@ get_template_part( 'partials/header' ); ?>
 
     <div class="container margin-top-5 margin-bottom-5">
 		<div class="row">
-			<div class="gr-12">
-                <div class="example" data-scroll data-scroll-animation="rotation">Animation Rotation</div>
-                <div class="example" data-scroll data-scroll-animation="rotation">Animation Rotation</div>
-                <div class="example" data-scroll data-scroll-animation="rotation">Animation Rotation</div>	 
-			</div>
-		</div>
-	</div>
-
-	<div class="container margin-top-5 margin-bottom-5">
-		<div class="row">
-			<div class="gr-12">
-				<h1 style="font-size: 100px; line-height: 100px;" data-scroll data-scroll-animation="splittext-chars">
-					Lorem ipsum dolor sit amet,<br>
-					Sed molestie tellus<br>
-					at placerat <span class="color-secondary">ullamcorper!</span>
-				</h1> 
-			</div>
-		</div>
-	</div>
-
-    <div class="container margin-top-5 margin-bottom-5">
-		<div class="row">
-			<div class="gr-12">
+			<div class="gr-6 gr-centered">
                 <div class="example" data-scroll data-scroll-animation="fade-in-down">Fade in down</div>
                 <div class="example" data-scroll data-scroll-animation="fade-in-down">Fade in down</div>
                 <div class="example" data-scroll data-scroll-animation="fade-in-down">Fade in down</div>

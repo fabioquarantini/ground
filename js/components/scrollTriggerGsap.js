@@ -77,6 +77,9 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 			if (element.dataset.scrollAnimation === 'comparison') {
 				this.comparisonAnimation(element);
 			}
+			if (element.dataset.scrollAnimation === 'parallax') {
+				this.parallaxAnimation(element);
+			}
 		});
 	}
 
@@ -115,6 +118,9 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 		}
 		if (target.dataset.scrollAnimation === 'comparison') {
 			this.comparisonAnimation(target);
+		}
+		if (target.dataset.scrollAnimation === 'parallax') {
+			this.parallaxAnimation(target);
 		}
 	}
 
@@ -212,7 +218,7 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 	}
 
 	/**
-	 * fadeInDown Animation
+	 * scale Animation
 	*/
 	scaleAnimation(item) {
 		gsap.to(item, {
@@ -229,6 +235,22 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 	}
 
 	/**
+	 * parallax Animation
+	*/
+	parallaxAnimation(item) {
+		gsap.to(item, {
+			y: -item.dataset.scrollSpeed * 100 || -200,
+			scrollTrigger: {
+				trigger: item,
+				toggleActions: 'play none none none',
+				scrub: 2,
+				ease: 'power4',
+				// markers: true,
+			},
+		});
+	}
+
+	/**
 	 * darwSvg Animation
 	*/
 	drawSvgAnimation(item) {
@@ -236,7 +258,7 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: item,
-				scrub: 1,
+				scrub: 0.5,
 				start: 'top 70%',
 				end: 'bottom 70%',
 				toggleActions: 'play reset play reset',
