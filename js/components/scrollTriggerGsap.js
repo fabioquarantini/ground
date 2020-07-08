@@ -239,7 +239,8 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 	*/
 	parallaxAnimation(item) {
 		gsap.to(item, {
-			y: -item.dataset.scrollSpeed * 100 || -200,
+			y: -item.dataset.scrollSpeed * 100 || 0,
+			x: -item.dataset.scrollSpeedHorizontal * 100 || 0,
 			scrollTrigger: {
 				trigger: item,
 				toggleActions: 'play none none none',
@@ -291,7 +292,7 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 			end: '+=200%',
 			toggleClass: 'active',
 			pin: true,
-			scrub: 2,
+			scrub: 1,
 			// onEnter: () => console.log('enter'),
 			// onLeave: () => console.log('leave'),
 			// onEnterBack: () => console.log('enter back'),

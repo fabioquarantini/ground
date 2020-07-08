@@ -10,9 +10,9 @@ get_template_part( 'partials/header' ); ?>
 	<div class="container margin-top-5 margin-bottom-5">
 		<div class="row">
 			<div class="gr-12">
-				<h1 style="font-size: 160px; line-height: 160px;" data-scroll data-scroll-animation="fade-in-down">GSAP</h1>
-				<h1 style="font-size: 160px; line-height: 160px;" data-scroll data-scroll-animation="fade-in-down">SCROLL</h1>
-				<h1 style="font-size: 160px; line-height: 160px;" data-scroll data-scroll-animation="fade-in-down">TRIGGER</h1>
+				<h1 style="font-size: 160px; line-height: 160px;">GSAP</h1>
+				<h1 style="font-size: 160px; line-height: 160px;">SCROLL</h1>
+				<h1 style="font-size: 160px; line-height: 160px;">TRIGGER</h1>
 			</div>
 		</div>
 	</div>
@@ -49,7 +49,7 @@ get_template_part( 'partials/header' ); ?>
 				<div class="example" data-scroll data-scroll-animation="parallax" data-scroll-speed="1">Animation parallax</div>
 			</div>
 			<div class="gr-2">
-				<div class="example" data-scroll data-scroll-animation="parallax" data-scroll-speed="2">Animation parallax</div>
+				<div class="example" data-scroll data-scroll-animation="parallax" data-scroll-speed="2" data-scroll-speed-horizontal="-2">Parallax Y & X</div>
 			</div>
 			<div class="gr-2">
 				<div class="example" data-scroll data-scroll-animation="parallax" data-scroll-speed="-1">Parallax Negative</div>
