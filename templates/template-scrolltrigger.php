@@ -95,14 +95,20 @@ get_template_part( 'partials/header' ); ?>
 
 	<div class="container margin-bottom-5" data-scroll data-scroll-animation="pin">
 		<div class="row">
-			<div class="gr-4 no-gutter background-black">
-			    <img class="js-pin__element" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-1.jpg"/>
+			<div class="gr-4">
+				<div class="background-black">
+					<img class="js-pin__element" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-1.jpg"/>
+				</div>
 			</div>
-			<div class="gr-5 no-gutter background-black">
-			    <img class="js-pin__element" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-2.jpg"/>
+			<div class="gr-5">
+				<div class="background-black">
+					<img class="js-pin__element" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-2.jpg"/>
+				</div>			
 			</div>
-			<div class="gr-3 no-gutter background-black">
-			    <img class="js-pin__element" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-3.jpg"/>
+			<div class="gr-3">
+			<div class="background-black">
+					<img class="js-pin__element" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-3.jpg"/>
+				</div>
 			</div>
 		</div>
 	</div>
