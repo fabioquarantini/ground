@@ -3,10 +3,11 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from 'gsap/SplitText';
 import { DrawSVGPlugin } from 'gsap/DrawSVGPlugin';
+import { MorphSVGPlugin } from 'gsap/MorphSVGPlugin';
 
 import AbstractComponent from './abstractComponent';
 
-gsap.registerPlugin(ScrollTrigger, SplitText, DrawSVGPlugin);
+gsap.registerPlugin(ScrollTrigger, SplitText, DrawSVGPlugin, MorphSVGPlugin);
 
 export default class ScrollTriggerGsap extends AbstractComponent {
 	/**
@@ -68,6 +69,9 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 			if (element.dataset.scrollAnimation === 'draw-svg') {
 				this.drawSvgAnimation(element);
 			}
+			if (element.dataset.scrollAnimation === 'background-color') {
+				this.backgroundColorAnimation(element);
+			}
 			if (element.dataset.scrollAnimation === 'pin') {
 				this.pinAnimation(element);
 			}
@@ -109,6 +113,9 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 		}
 		if (target.dataset.scrollAnimation === 'draw-svg') {
 			this.drawSvgAnimation(target);
+		}
+		if (target.dataset.scrollAnimation === 'background-color') {
+			this.backgroundColorAnimation(target);
 		}
 		if (target.dataset.scrollAnimation === 'pin') {
 			this.pinAnimation(target);
@@ -269,6 +276,25 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 
 		tl.from(target, {
 			drawSVG: 0,
+		});
+	}
+
+	/**
+	 * backgroundColor Animation
+	*/
+	backgroundColorAnimation(item) {
+		const target = document.body;
+		const tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: item,
+				scrub: 2,
+				toggleActions: 'play reset play reset',
+			},
+		});
+
+		tl.to(target, {
+			backgroundColor: item.dataset.backgroundColor,
+			ease: 'power1',
 		});
 	}
 
