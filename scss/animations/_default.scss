@@ -227,3 +227,39 @@
 	background: $color-black;
 	color: $color-white;
 }
+
+
+
+[data-scroll-animation="comparison"] {
+
+	.comparison__section {
+	  position: relative;
+	  padding-bottom: 56.25%; /* to maintain aspect ratio (responsive!) */
+	}
+
+	.comparison__media {
+		width: 100%;
+		height: 100%;
+	}
+
+	.comparison__img {
+		position: absolute;
+		top: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	.comparison__after-media {
+		position: absolute;
+		overflow: hidden;
+		top: 0;
+		transform: translate(100%, 0px);
+
+		.comparison__img {
+			transform: translate(-100%, 0px);
+		}
+	}
+
+
+}
+  
