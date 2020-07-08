@@ -20,7 +20,7 @@ get_template_part( 'partials/header' ); ?>
 	<div class="container margin-top-5 margin-bottom-5">
 		<div class="row">
 			<div class="gr-12" data-scroll data-scroll-animation="comparison">
-				<section class="comparison__section">
+				<section class="position-relative ratio-16-9">
 
 					<div class="comparison__media comparison__before-media js-comparison-before-media">
 						<img class="comparison__img" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/comparison/sample-before.jpg" alt="before">

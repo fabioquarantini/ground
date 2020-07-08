@@ -216,26 +216,8 @@
 
 }
 
-
-
-.example {
-	display: block;
-	height: 200px;
-	width: 200px;
-	line-height: 200px;
-	text-align: center;
-	background: $color-black;
-	color: $color-white;
-}
-
-
-
+// COMPARISON
 [data-scroll-animation="comparison"] {
-
-	.comparison__section {
-	  position: relative;
-	  padding-bottom: 56.25%; /* to maintain aspect ratio (responsive!) */
-	}
 
 	.comparison__media {
 		width: 100%;
@@ -260,6 +242,16 @@
 		}
 	}
 
+}  
 
+
+
+.example {
+	display: block;
+	height: 200px;
+	width: 200px;
+	line-height: 200px;
+	text-align: center;
+	background: $color-black;
+	color: $color-white;
 }
-  
