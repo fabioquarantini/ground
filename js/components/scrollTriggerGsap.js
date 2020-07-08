@@ -1,4 +1,3 @@
-
 import * as deepmerge from 'deepmerge';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -21,12 +20,12 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 			triggers: this.element,
 		};
 		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
-		this.updateEvents = this.updateEvents.bind(this);
+		// this.updateEvents = this.updateEvents.bind(this);
 
 		window.addEventListener('DOMContentLoaded', () => {
 			this.init();
 			this.initEvents(this.options.triggers);
-			super.initObserver(this.options.triggers, this.updateEvents);
+			// super.initObserver(this.options.triggers, this.updateEvents);
 		});
 	}
 
@@ -50,31 +49,6 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 			markers: false,
 		});
 
-		// Animation PIN move into Function
-		// const animationPin = gsap.from('.js-pin__element', {
-		// 	scale: 0.6,
-		// 	transformOrigin: 'center center',
-		// 	ease: 'power2',
-		// });
-
-		// ScrollTrigger.create({
-		// 	trigger: '.js-pin',
-		// 	animation: animationPin,
-		// 	start: 'center center',
-		// 	end: '+=200%',
-		// 	toggleClass: 'active',
-		// 	pin: true,
-		// 	scrub: 2,
-		// 	onEnter: () => console.log('enter'),
-		// 	onLeave: () => console.log('leave'),
-		// 	onEnterBack: () => console.log('enter back'),
-		// 	onLeaveBack: () => console.log('leave back'),
-		// 	onUpdate: (self) => {
-		// 		console.log('progress:', self.progress.toFixed(3), 'direction:', self.direction, 'velocity', self.getVelocity());
-		// 	},
-
-		// });
-
 		gsap.utils.toArray(triggers).forEach((element, i) => {
 			if (element.dataset.scrollAnimation === 'splittext-chars') {
 				this.splitTextAnimationChars(element);
@@ -97,6 +71,9 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 			if (element.dataset.scrollAnimation === 'pin') {
 				this.pinAnimation(element);
 			}
+			if (element.dataset.scrollAnimation === 'comparison') {
+				this.comparisonAnimation(element);
+			}
 		});
 	}
 
@@ -107,7 +84,7 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 	updateEvents(target) {
 		this.init();
 
-		console.log(target.dataset.scrollAnimation);
+		// console.log(target.dataset.scrollAnimation);
 
 		if (target.dataset.scrollAnimation === 'splittext-chars') {
 			this.splitTextAnimationChars(target);
@@ -129,6 +106,9 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 		}
 		if (target.dataset.scrollAnimation === 'pin') {
 			this.pinAnimation(target);
+		}
+		if (target.dataset.scrollAnimation === 'comparison') {
+			this.comparisonAnimation(target);
 		}
 	}
 
@@ -158,7 +138,6 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 			duration: 0.01,
 		});
 	}
-
 
 	/**
 	 * splitText Animation Lines
@@ -205,7 +184,6 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 			},
 		});
 	}
-
 
 	/**
 	 * fadeInDown Animation
@@ -265,7 +243,6 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 		});
 	}
 
-
 	/**
 	 * pin Animation
 	*/
@@ -296,5 +273,30 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 			},
 
 		});
+	}
+
+	/**
+	 * comparison Animation
+	*/
+	comparisonAnimation(item) {
+		const target = item.querySelectorAll('.js-comparison-after-media');
+		const targetImage = item.querySelectorAll('.js-comparison-after-media .comparison__img');
+
+		const tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: item,
+				start: 'center center',
+				// makes the height of the scrolling (while pinning) match the width, thus the speed remains constant (vertical/horizontal)
+				end: () => `+=${item.offsetWidth}`,
+				scrub: true,
+				pin: true,
+				anticipatePin: 1,
+			},
+			defaults: { ease: 'none' },
+		});
+			// animate the container one way...
+		tl.fromTo(target, { xPercent: 100, x: 0 }, { xPercent: 0 })
+			// ...and the image the opposite way (at the same time)
+			.fromTo(targetImage, { xPercent: -100, x: 0 }, { xPercent: 0 }, 0);
 	}
 }
