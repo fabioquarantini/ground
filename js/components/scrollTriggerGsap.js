@@ -71,6 +71,9 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 			if (element.dataset.scrollAnimation === 'pin') {
 				this.pinAnimation(element);
 			}
+			if (element.dataset.scrollAnimation === 'pin-horizontal') {
+				this.pinHorizontalAnimation(element);
+			}
 			if (element.dataset.scrollAnimation === 'comparison') {
 				this.comparisonAnimation(element);
 			}
@@ -106,6 +109,9 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 		}
 		if (target.dataset.scrollAnimation === 'pin') {
 			this.pinAnimation(target);
+		}
+		if (target.dataset.scrollAnimation === 'pin-horizontal') {
+			this.pinHorizontalAnimation(target);
 		}
 		if (target.dataset.scrollAnimation === 'comparison') {
 			this.comparisonAnimation(target);
@@ -230,7 +236,7 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: item,
-				scrub: 2,
+				scrub: 1,
 				start: 'top 70%',
 				end: 'bottom 70%',
 				toggleActions: 'play reset play reset',
@@ -264,15 +270,33 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 			toggleClass: 'active',
 			pin: true,
 			scrub: 2,
-			onEnter: () => console.log('enter'),
-			onLeave: () => console.log('leave'),
-			onEnterBack: () => console.log('enter back'),
-			onLeaveBack: () => console.log('leave back'),
-			onUpdate: (self) => {
-				console.log('progress:', self.progress.toFixed(3), 'direction:', self.direction, 'velocity', self.getVelocity());
-			},
+			// onEnter: () => console.log('enter'),
+			// onLeave: () => console.log('leave'),
+			// onEnterBack: () => console.log('enter back'),
+			// onLeaveBack: () => console.log('leave back'),
+			// onUpdate: (self) => {
+			// 	console.log('progress:', self.progress.toFixed(3), 'direction:', self.direction, 'velocity', self.getVelocity());
+			// },
 
 		});
+	}
+
+	/**
+	 * pin Horizontal Animation
+	*/
+	pinHorizontalAnimation(item) {
+		const target = item.querySelector('.js-pin-horizontal-container');
+		const tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: item,
+				start: 'center center',
+				end: () => `+=${target.offsetWidth}`,
+				scrub: 1,
+				pin: true,
+				anticipatePin: 1,
+			},
+		});
+		tl.fromTo(target, { x: 0 }, { x: -target.offsetWidth + item.offsetWidth });
 	}
 
 	/**
@@ -281,7 +305,6 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 	comparisonAnimation(item) {
 		const target = item.querySelectorAll('.js-comparison-after-media');
 		const targetImage = item.querySelectorAll('.js-comparison-after-media .comparison__img');
-
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: item,

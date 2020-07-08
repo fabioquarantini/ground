@@ -242,7 +242,23 @@
 		}
 	}
 
-}  
+} 
+
+
+// PIN HORIZONTAL
+[data-scroll-animation="pin-horizontal"] {
+	position: relative;
+	display: flex;
+	white-space: nowrap;
+
+	.pin-horizontal__item {
+		display: inline-block;
+		white-space: normal;
+		vertical-align: top;
+		width: 500px;
+	}
+
+} 
 
 
 
