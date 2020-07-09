@@ -250,7 +250,7 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 			x: -item.dataset.scrollSpeedHorizontal * 100 || 0,
 			scrollTrigger: {
 				trigger: item,
-				toggleActions: 'play none none none',
+				toggleActions: 'play pause none none',
 				scrub: 2,
 				ease: 'power4',
 				// markers: true,

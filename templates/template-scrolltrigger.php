@@ -17,6 +17,8 @@ get_template_part( 'partials/header' ); ?>
 		</div>
 	</div>
 
+	
+
 	<div class="container margin-top-5 margin-bottom-5">
 		<div class="row">
 			<div class="gr-12" data-scroll data-scroll-animation="comparison">
@@ -32,21 +34,26 @@ get_template_part( 'partials/header' ); ?>
 		</div>
 	</div>
 
-	<div class="container margin-top-5 margin-bottom-5" data-scroll data-scroll-animation="background-color" data-background-color="#d4c9c9">
+	<div class="container margin-top-5 margin-bottom-5" data-scroll data-scroll-animation="background-color" data-background-color="#000000">
 		<div class="row padding-top-5 padding-bottom-5">
 			<div class="gr-12">
 				<h1 style="font-size: 90px; line-height: 90px;" data-scroll data-scroll-animation="splittext-chars">
-					CHANGE BG COLOR <span class="color-secondary">#d4c9c9</span>
+					CHANGE BG COLOR #000000
 				</h1> 
 			</div>
 		</div>
 	</div>
-	
+
+	<div class="position-relative margin-bottom-5 pin-horizontal" data-scroll data-scroll-animation="pin-horizontal">
+		<div class="pin-horizontal__container js-pin-horizontal-container">
+			<h1 class="color-white" style="font-size: 220px; line-height: 220px; white-space: nowrap;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h1>
+		</div>
+	</div>
+
+	<div class="container" data-scroll data-scroll-animation="background-color" data-background-color="#ffffff"></div>
+
 	<div class="container margin-top-5 margin-bottom-5">
 		<div class="row margin-top-5 margin-bottom-5">
-			<div class="gr-2">
-                <div class="example" data-scroll data-scroll-animation="rotation">Animation Rotation</div>	 
-			</div>
 			<div class="gr-2">
                 <div class="example" data-scroll data-scroll-animation="rotation">Animation Rotation</div>	 
 			</div>
@@ -56,42 +63,16 @@ get_template_part( 'partials/header' ); ?>
 	<div class="container margin-top-5 margin-bottom-5">
 		<div class="row margin-top-5 margin-bottom-5">	
 			<div class="gr-2">
-				<div class="example" data-scroll data-scroll-animation="parallax" data-scroll-speed="1">Animation parallax</div>
+				<div class="example" data-scroll data-scroll-animation="parallax" data-scroll-speed="1">Parallax Y</div>
 			</div>
 			<div class="gr-2">
 				<div class="example" data-scroll data-scroll-animation="parallax" data-scroll-speed="2" data-scroll-speed-horizontal="-2">Parallax Y & X</div>
 			</div>
 			<div class="gr-2">
-				<div class="example" data-scroll data-scroll-animation="parallax" data-scroll-speed="-1">Parallax Negative</div>
+				<div class="example" data-scroll data-scroll-animation="parallax" data-scroll-speed="0" data-scroll-speed-horizontal="-2">Parallax X</div>
 			</div>	
-			<div class="gr-2">
-				<div class="example" data-scroll data-scroll-animation="parallax" data-scroll-speed="3">Animation parallax</div>
-			</div>	
-			<div class="gr-2">
-				<div class="example" data-scroll data-scroll-animation="parallax" data-scroll-speed="1.4">Animation parallax</div>
-			</div>	
-			<div class="gr-2">
-				<div class="example" data-scroll data-scroll-animation="parallax" data-scroll-speed="4">Animation parallax</div>
-			</div>		
 		</div>
 	</div>
-
-	<div class="container margin-top-5">
-		<div class="row margin-top-5">
-			<div class="gr-12">
-				<h1 data-scroll data-scroll-animation="splittext-chars" style="font-size: 80px; line-height: 80px;">GSAP PIN</h1> 
-			</div>
-		</div>
-	</div>
-
-	<div class="container margin-bottom-5" data-scroll data-scroll-animation="pin">
-		<div class="row">
-			<div class="gr-12 no-gutter ratio-16-9 background-black">
-			    <img class="js-pin__element cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-2.jpg"/>
-			</div>
-		</div>
-	</div>
-	
 
 	<div class="container margin-top-5 margin-bottom-5">
 		<div class="row">
@@ -124,11 +105,11 @@ get_template_part( 'partials/header' ); ?>
 		</div>
 	</div>
 
-	<div class="container margin-top-5 margin-bottom-5" data-scroll data-scroll-animation="background-color" data-background-color="#C9CFD4">
+	<div class="container margin-top-5 margin-bottom-5" data-scroll data-scroll-animation="background-color" data-background-color="#000000">
 		<div class="row padding-top-5 padding-bottom-5">
 			<div class="gr-12">
 				<h1 style="font-size: 90px; line-height: 90px;" data-scroll data-scroll-animation="splittext-chars">
-					CHANGE BG COLOR <span class="color-secondary">#C9CFD4</span>
+					CHANGE BG COLOR <span class="color-secondary">#000000</span>
 				</h1> 
 			</div>
 		</div>
@@ -257,123 +238,6 @@ get_template_part( 'partials/header' ); ?>
 				<h1 style="font-size: 90px; line-height: 90px;" data-scroll data-scroll-animation="splittext-chars">
 					CHANGE BG COLOR <span class="color-secondary">#ffffff</span>
 				</h1> 
-			</div>
-		</div>
-	</div>
-
-	<div class="position-relative margin-bottom-5 background-black pin-horizontal" data-scroll data-scroll-animation="pin-horizontal">
-		<div class="pin-horizontal__container js-pin-horizontal-container padding-1">
-			<div class="pin-horizontal__item">
-				<div class="padding-1">
-					<div class="ratio-1-1">
-						<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-1.jpg"/>
-					</div>
-				</div>
-			</div>
-			<div class="pin-horizontal__item">
-				<div class="padding-1">
-					<div class="ratio-1-1">
-						<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-2.jpg"/>
-					</div>
-				</div>
-			</div>
-			<div class="pin-horizontal__item">
-				<div class="padding-1">
-					<div class="ratio-1-1">
-						<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-3.jpg"/>
-					</div>
-				</div>
-			</div>
-			<div class="pin-horizontal__item">
-				<div class="padding-1">
-					<div class="ratio-1-1">
-						<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-4.jpg"/>
-					</div>
-				</div>
-			</div>
-			<div class="pin-horizontal__item">
-				<div class="padding-1">
-					<div class="ratio-1-1">
-						<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-5.jpg"/>
-					</div>
-				</div>
-			</div>
-			<div class="pin-horizontal__item">
-				<div class="padding-1">
-					<div class="ratio-1-1">
-						<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-6.jpg"/>
-					</div>
-				</div>
-			</div>
-			<div class="pin-horizontal__item">
-				<div class="padding-1">
-					<div class="ratio-1-1">
-						<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-7.jpg"/>
-					</div>
-				</div>
-			</div>
-			<div class="pin-horizontal__item">
-				<div class="padding-1">
-					<div class="ratio-1-1">
-						<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-8.jpg"/>
-					</div>
-				</div>
-			</div>
-			<div class="pin-horizontal__item">
-				<div class="padding-1">
-					<div class="ratio-1-1">
-						<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-1.jpg"/>
-					</div>
-				</div>
-			</div>
-			<div class="pin-horizontal__item">
-				<div class="padding-1">
-					<div class="ratio-1-1">
-						<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-2.jpg"/>
-					</div>
-				</div>
-			</div>
-			<div class="pin-horizontal__item">
-				<div class="padding-1">
-					<div class="ratio-1-1">
-						<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-3.jpg"/>
-					</div>
-				</div>
-			</div>
-			<div class="pin-horizontal__item">
-				<div class="padding-1">
-					<div class="ratio-1-1">
-						<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-4.jpg"/>
-					</div>
-				</div>
-			</div>
-			<div class="pin-horizontal__item">
-				<div class="padding-1">
-					<div class="ratio-1-1">
-						<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-5.jpg"/>
-					</div>
-				</div>
-			</div>
-			<div class="pin-horizontal__item">
-				<div class="padding-1">
-					<div class="ratio-1-1">
-						<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-6.jpg"/>
-					</div>
-				</div>
-			</div>
-			<div class="pin-horizontal__item">
-				<div class="padding-1">
-					<div class="ratio-1-1">
-						<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-7.jpg"/>
-					</div>
-				</div>
-			</div>
-			<div class="pin-horizontal__item">
-				<div class="padding-1">
-					<div class="ratio-1-1">
-						<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-8.jpg"/>
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>
