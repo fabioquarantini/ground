@@ -78,6 +78,9 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 			if (element.dataset.scrollAnimation === 'pin-horizontal') {
 				this.pinHorizontalAnimation(element);
 			}
+			if (element.dataset.scrollAnimation === 'pin-vertical') {
+				this.pinVerticalAnimation(element);
+			}
 			if (element.dataset.scrollAnimation === 'comparison') {
 				this.comparisonAnimation(element);
 			}
@@ -122,6 +125,9 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 		}
 		if (target.dataset.scrollAnimation === 'pin-horizontal') {
 			this.pinHorizontalAnimation(target);
+		}
+		if (target.dataset.scrollAnimation === 'pin-vertical') {
+			this.pinVerticalAnimation(target);
 		}
 		if (target.dataset.scrollAnimation === 'comparison') {
 			this.comparisonAnimation(target);
@@ -287,7 +293,7 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: item,
-				scrub: 2,
+				scrub: 1,
 				toggleActions: 'play reset play reset',
 			},
 		});
@@ -346,6 +352,29 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 			},
 		});
 		tl.fromTo(target, { x: 0 }, { x: -target.offsetWidth + item.offsetWidth });
+	}
+
+	/**
+	 * pin Vertical Animation
+	*/
+	pinVerticalAnimation(item) {
+		const target = item.querySelector('.js-pin-vertical-container-left');
+		const targetCenter = item.querySelector('.js-pin-vertical-container-center');
+		const targetRight = item.querySelector('.js-pin-vertical-container-right');
+
+		const tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: item,
+				start: 'center center',
+				end: () => `+=${target.offsetHeight}`,
+				scrub: 1,
+				pin: true,
+				anticipatePin: 1,
+			},
+		});
+		tl.fromTo(target, { y: 0 }, { y: -target.offsetHeight + item.offsetHeight }, 'step')
+			.fromTo(targetCenter, { y: 0 }, { y: targetCenter.offsetHeight - item.offsetHeight }, 'step')
+			.fromTo(targetRight, { y: 0 }, { y: -targetRight.offsetHeight + item.offsetHeight }, 'step');
 	}
 
 	/**

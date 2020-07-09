@@ -262,6 +262,38 @@
 
 
 
+// PIN VERTICAL
+[data-scroll-animation="pin-vertical"] {
+	position: relative;
+	overflow: hidden;
+
+	.pin-vertical__container {
+		position: absolute;
+		left: 0;
+		right: 0;
+	}
+
+	.pin-vertical__container--left {
+		top: 0;
+	}
+	.pin-vertical__container--center {
+		bottom: 0;
+	}
+	.pin-vertical__container--right {
+		top: 0;
+	}
+
+	.pin-vertical__item {
+		position: relative;
+		display: block;
+		padding: ritmo(2);
+		width: 100%;
+		overflow: hidden;
+	}
+
+} 
+
+
 .example {
 	display: block;
 	height: 200px;
