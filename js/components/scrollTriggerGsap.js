@@ -340,6 +340,9 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 	 * pin Horizontal Animation
 	*/
 	pinHorizontalAnimation(item) {
+		const audioplay = document.createElement('audio');
+		audioplay.setAttribute('src', 'http://wordpress-364601-1334787.cloudwaysapps.com/concept/music/audio.mp3');
+
 		const target = item.querySelector('.js-pin-horizontal-container');
 		const tl = gsap.timeline({
 			scrollTrigger: {
@@ -349,6 +352,16 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 				scrub: 1,
 				pin: true,
 				anticipatePin: 1,
+				onEnter: () => audioplay.play(),
+				onLeave: () => {
+					audioplay.pause();
+					audioplay.currentTime = 0;
+				},
+				onEnterBack: () => audioplay.play(),
+				onLeaveBack: () => {
+					audioplay.pause();
+					audioplay.currentTime = 0;
+				},
 			},
 		});
 		tl.fromTo(target, { x: 0 }, { x: -target.offsetWidth + item.offsetWidth });
