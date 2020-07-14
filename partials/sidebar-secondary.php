@@ -1,5 +1,3 @@
 <div class="sidebar sidebar--secondary">
-
-	<?php get_template_part( 'partials/navigation', 'ground_catalog_taxonomy' ); ?>
-
+	<?php get_template_part( 'partials/navigation', 'sub-taxonomies' ); ?>
 </div> <!-- End .sidebar -->
