@@ -255,7 +255,10 @@
 		display: inline-block;
 		white-space: normal;
 		vertical-align: top;
-		width: 500px;
+		width: 250px;
+		@include media('>=md') {
+			width: 500px;
+		}
 	}
 
 } 
@@ -286,20 +289,52 @@
 	.pin-vertical__item {
 		position: relative;
 		display: block;
-		padding: ritmo(2);
 		width: 100%;
+		padding: ritmo(0.2);
 		overflow: hidden;
+		@include media('>=md') {
+			padding: ritmo(2);
+		}
 	}
 
 } 
 
 
-.example {
-	display: block;
-	height: 200px;
-	width: 100%;
-	line-height: 200px;
-	text-align: center;
-	background: $color-black;
-	color: $color-white;
+
+// CSS EXAMPLE PAGE
+body.body--page-template-template-scrolltrigger {
+
+	h1 {
+		@include ritmo-font-size(120px, 2);
+
+		@include media('>=md') {
+			@include ritmo-font-size(220px, 6);
+		}
+
+	}
+
+	h2 {
+		@include ritmo-font-size(60px, 2);
+
+		@include media('>=md') {
+			@include ritmo-font-size(160px, 6);
+		}
+
+	}
+
+	header.header {
+		display: none;
+	}
+
+	.example {
+		display: block;
+		height: 200px;
+		width: 100%;
+		margin-bottom: ritmo(1);
+		line-height: 200px;
+		text-align: center;
+		background: $color-black;
+		color: $color-white;
+	}
+
 }

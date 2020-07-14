@@ -10,18 +10,79 @@ get_template_part( 'partials/header' ); ?>
 	<div class="container margin-top-5 margin-bottom-5">
 		<div class="row">
 			<div class="gr-12">
-				<h1 style="font-size: 160px; line-height: 160px;">GSAP</h1>
-				<h1 style="font-size: 160px; line-height: 160px;">SCROLL</h1>
-				<h1 style="font-size: 160px; line-height: 160px;">TRIGGER</h1>
+				<h2>GSAP</h2>
+				<h2>SCROLL</h2>
+				<h2>TRIGGER</h2>
 			</div>
 		</div>
 	</div>
 
+	<div class="container margin-top-5 margin-bottom-5">
+		<div class="row">
+			<div class="gr-6 gr-centered" data-scroll data-scroll-animation="batch">
+				<div class="row">
+					<div class="gr-4">
+						<div class="example js-batch-el">Batch</div>
+					</div>
+					<div class="gr-4">
+						<div class="example js-batch-el">Batch</div>
+					</div>
+					<div class="gr-4">
+						<div class="example js-batch-el">Batch</div>
+					</div>
+					<div class="gr-4">
+						<div class="example js-batch-el">Batch</div>
+					</div>
+					<div class="gr-4">
+						<div class="example js-batch-el">Batch</div>
+					</div>
+					<div class="gr-4">
+						<div class="example js-batch-el">Batch</div>
+					</div>
+					<div class="gr-4">
+						<div class="example js-batch-el">Batch</div>
+					</div>
+					<div class="gr-4">
+						<div class="example js-batch-el">Batch</div>
+					</div>
+					<div class="gr-4">
+						<div class="example js-batch-el">Batch</div>
+					</div>
+					<div class="gr-4">
+						<div class="example js-batch-el">Batch</div>
+					</div>
+					<div class="gr-4">
+						<div class="example js-batch-el">Batch</div>
+					</div>
+					<div class="gr-4">
+						<div class="example js-batch-el">Batch</div>
+					</div>
+					<div class="gr-4">
+						<div class="example js-batch-el">Batch</div>
+					</div>
+					<div class="gr-4">
+						<div class="example js-batch-el">Batch</div>
+					</div>
+					<div class="gr-4">
+						<div class="example js-batch-el">Batch</div>
+					</div>
+					<div class="gr-4">
+						<div class="example js-batch-el">Batch</div>
+					</div>
+					<div class="gr-4">
+						<div class="example js-batch-el">Batch</div>
+					</div>
+					<div class="gr-4">
+						<div class="example js-batch-el">Batch</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<div class="container container--fluid pin-vertical background-black" data-scroll data-scroll-animation="pin-vertical">
 		<div class="row">
 
-		
 			<div class="gr-4 overflow-hidden position-relative full-viewport-height">
 				<div class="pin-vertical__container pin-vertical__container--left js-pin-vertical-container-left">
 
@@ -165,16 +226,14 @@ get_template_part( 'partials/header' ); ?>
 	<div class="container margin-top-5 margin-bottom-5" data-scroll data-scroll-animation="background-color" data-background-color="#000000">
 		<div class="row padding-top-5 padding-bottom-5">
 			<div class="gr-12">
-				<h1 style="font-size: 90px; line-height: 90px;" data-scroll data-scroll-animation="splittext-chars">
-					CHANGE BG COLOR #000000
-				</h1> 
+				<h2 data-scroll data-scroll-animation="splittext-chars">CHANGE BG COLOR #000000</h2> 
 			</div>
 		</div>
 	</div>
 
 	<div class="position-relative margin-bottom-5 pin-horizontal" data-scroll data-scroll-animation="pin-horizontal">
 		<div class="pin-horizontal__container js-pin-horizontal-container">
-			<h1 class="color-white" style="font-size: 220px; line-height: 220px; white-space: nowrap;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h1>
+			<h1 class="color-white" style="white-space: nowrap;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h1>
 		</div>
 	</div>
 
@@ -182,7 +241,7 @@ get_template_part( 'partials/header' ); ?>
 
 	<div class="container margin-top-5 margin-bottom-5">
 		<div class="row margin-top-5 margin-bottom-5">
-			<div class="gr-2">
+			<div class="gr-2@md gr-4">
                 <div class="example" data-scroll data-scroll-animation="rotation">Animation Rotation</div>	 
 			</div>
 		</div>
@@ -190,13 +249,13 @@ get_template_part( 'partials/header' ); ?>
 	
 	<div class="container margin-top-5 margin-bottom-5">
 		<div class="row margin-top-5 margin-bottom-5">	
-			<div class="gr-2">
+			<div class="gr-2@md gr-4">
 				<div class="example" data-scroll data-scroll-animation="parallax" data-scroll-speed="1">Parallax Y</div>
 			</div>
-			<div class="gr-2">
+			<div class="gr-2@md gr-4">
 				<div class="example" data-scroll data-scroll-animation="parallax" data-scroll-speed="2" data-scroll-speed-horizontal="-2">Parallax Y & X</div>
 			</div>
-			<div class="gr-2">
+			<div class="gr-2@md gr-4">
 				<div class="example" data-scroll data-scroll-animation="parallax" data-scroll-speed="0" data-scroll-speed-horizontal="-2">Parallax X</div>
 			</div>	
 		</div>
@@ -215,19 +274,19 @@ get_template_part( 'partials/header' ); ?>
 
 	<div class="container margin-bottom-5" data-scroll data-scroll-animation="pin">
 		<div class="row">
-			<div class="gr-4">
+			<div class="gr-4@md gr-12">
 				<div class="background-black">
 					<img class="js-pin__element" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-1.jpg"/>
 				</div>
 			</div>
-			<div class="gr-5">
+			<div class="gr-5@md gr-6">
 				<div class="background-black">
 					<img class="js-pin__element" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-2.jpg"/>
 				</div>			
 			</div>
-			<div class="gr-3">
+			<div class="gr-3@md gr-6">
 			<div class="background-black">
-					<img class="js-pin__element" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-3.jpg"/>
+					<img class="js-pin__element" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-2.jpg"/>
 				</div>
 			</div>
 		</div>
@@ -236,14 +295,14 @@ get_template_part( 'partials/header' ); ?>
 	<div class="container margin-top-5 margin-bottom-5" data-scroll data-scroll-animation="background-color" data-background-color="#000000">
 		<div class="row padding-top-5 padding-bottom-5">
 			<div class="gr-12">
-				<h1 style="font-size: 90px; line-height: 90px;" data-scroll data-scroll-animation="splittext-chars">
+				<h2 data-scroll data-scroll-animation="splittext-chars">
 					CHANGE BG COLOR <span class="color-secondary">#000000</span>
-				</h1> 
+				</h2> 
 			</div>
 		</div>
 	</div>
 
-	<div class="position-relative margin-bottom-5 background-black pin-horizontal" data-scroll data-scroll-animation="pin-horizontal">
+	<div class="position-relative margin-bottom-5 pin-horizontal" data-scroll data-scroll-animation="pin-horizontal">
 		<div class="pin-horizontal__container js-pin-horizontal-container padding-1">
 			<div class="pin-horizontal__item">
 				<div class="padding-1">
@@ -363,9 +422,9 @@ get_template_part( 'partials/header' ); ?>
 	<div class="container margin-top-5 margin-bottom-5" data-scroll data-scroll-animation="background-color" data-background-color="#ffffff">
 		<div class="row padding-top-5 padding-bottom-5">
 			<div class="gr-12">
-				<h1 style="font-size: 90px; line-height: 90px;" data-scroll data-scroll-animation="splittext-chars">
+				<h2 data-scroll data-scroll-animation="splittext-chars">
 					CHANGE BG COLOR <span class="color-secondary">#ffffff</span>
-				</h1> 
+				</h2> 
 			</div>
 		</div>
 	</div>
@@ -373,9 +432,9 @@ get_template_part( 'partials/header' ); ?>
 	<div class="container margin-top-5 margin-bottom-5">
 		<div class="row padding-top-5 padding-bottom-5">
 			<div class="gr-12">
-				<h1 style="font-size: 140px; line-height: 140px;" data-scroll data-scroll-animation="splittext-lines">
+				<h2 data-scroll data-scroll-animation="splittext-lines">
 					Lorem ipsum dolor sit amet, <span class="color-secondary">consectetur</span> adipiscing elit.
-				</h1> 
+				</h2> 
 			</div>
 		</div>
 	</div>
@@ -391,7 +450,7 @@ get_template_part( 'partials/header' ); ?>
     <div class="container margin-top-5 margin-bottom-5">
 		<div class="row">
 			<div class="gr-6 gr-centered">
-                <div class="example" data-scroll data-scroll-animation="fade-in-down">Fade in down</div>
+                <div class="example xx" data-scroll data-scroll-animation="fade-in-down">Fade in down</div>
                 <div class="example" data-scroll data-scroll-animation="fade-in-down">Fade in down</div>
                 <div class="example" data-scroll data-scroll-animation="fade-in-down">Fade in down</div>
                 <div class="example" data-scroll data-scroll-animation="fade-in-down">Fade in down</div>
