@@ -32,7 +32,6 @@ get_template_part( 'partials/header' );
 
 						$queried_object = get_queried_object();
 						$term_id        = $queried_object->term_id;
-						$term_parent    = ( 0 === $term_parent ) ? $term_id : $queried_object->parent;
 
 						$args = array(
 							'child_of'     => $term_id,
