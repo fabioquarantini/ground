@@ -237,7 +237,7 @@ get_template_part( 'partials/header' ); ?>
 			<div class="gr-6 gr-centered">
 				<div class="position-relative pin-horizontal" data-scroll-animation-target>
 					<div class="pin-horizontal__container js-pin-horizontal-container">
-						<h1 class="color-white" style="white-space: nowrap;">gr 12 Lorem ipsum dolor sit amet, consectetur adipiscing elit. fine</h1>
+						<h1 class="color-white" style="white-space: nowrap;">Start - Lorem ipsum dolor sit amet, consectetur adipiscing elit - End</h1>
 					</div>
 				</div>
 			</div>
