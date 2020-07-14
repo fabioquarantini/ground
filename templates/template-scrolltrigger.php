@@ -80,145 +80,146 @@ get_template_part( 'partials/header' ); ?>
 		</div>
 	</div>
 
-	<div class="container container--fluid pin-vertical background-black" data-scroll data-scroll-animation="pin-vertical">
-		<div class="row">
+	<div class="container container--fluid position-relative" data-scroll data-scroll-animation="pin-vertical">
+		<div class="position-relative pin-vertical background-black" data-scroll-animation-target>
+			<div class="row">
+				<div class="gr-4 overflow-hidden position-relative full-viewport-height">
+					<div class="pin-vertical__container pin-vertical__container--left js-pin-vertical-container-left">
 
-			<div class="gr-4 overflow-hidden position-relative full-viewport-height">
-				<div class="pin-vertical__container pin-vertical__container--left js-pin-vertical-container-left">
+						<div class="pin-vertical__item">
+							<div class="ratio-1-1">
+								<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-1.jpg"/>
+							</div>
+						</div>
+						<div class="pin-vertical__item">
+							<div class="ratio-1-1">
+								<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-5.jpg"/>
+							</div>
+						</div>
+						<div class="pin-vertical__item">
+							<div class="ratio-1-1">
+								<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-6.jpg"/>
+							</div>
+						</div>
+						<div class="pin-vertical__item">
+							<div class="ratio-1-1">
+								<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-3.jpg"/>
+							</div>
+						</div>
+						<div class="pin-vertical__item">
+							<div class="ratio-1-1">
+								<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-6.jpg"/>
+							</div>
+						</div>
+						<div class="pin-vertical__item">
+							<div class="ratio-1-1">
+								<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-7.jpg"/>
+							</div>
+						</div>
+						<div class="pin-vertical__item">
+							<div class="ratio-1-1">
+								<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-8.jpg"/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="gr-4 overflow-hidden position-relative full-viewport-height">
+					<div class="pin-vertical__container pin-vertical__container--center js-pin-vertical-container-center">
 
-					<div class="pin-vertical__item">
-						<div class="ratio-1-1">
-							<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-1.jpg"/>
+						<div class="pin-vertical__item">
+							<div class="ratio-1-1">
+								<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-1.jpg"/>
+							</div>
+						</div>
+						<div class="pin-vertical__item">
+							<div class="ratio-1-1">
+								<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-5.jpg"/>
+							</div>
+						</div>
+						<div class="pin-vertical__item">
+							<div class="ratio-1-1">
+								<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-6.jpg"/>
+							</div>
+						</div>
+						<div class="pin-vertical__item">
+							<div class="ratio-1-1">
+								<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-3.jpg"/>
+							</div>
+						</div>
+						<div class="pin-vertical__item">
+							<div class="ratio-1-1">
+								<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-6.jpg"/>
+							</div>
+						</div>
+						<div class="pin-vertical__item">
+							<div class="ratio-1-1">
+								<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-7.jpg"/>
+							</div>
+						</div>
+						<div class="pin-vertical__item">
+							<div class="ratio-1-1">
+								<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-8.jpg"/>
+							</div>
 						</div>
 					</div>
-					<div class="pin-vertical__item">
-						<div class="ratio-1-1">
-							<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-5.jpg"/>
+				</div>
+				<div class="gr-4 overflow-hidden position-relative full-viewport-height">
+					<div class="pin-vertical__container pin-vertical__container--right js-pin-vertical-container-right">
+
+						<div class="pin-vertical__item">
+							<div class="ratio-1-1">
+								<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-1.jpg"/>
+							</div>
 						</div>
-					</div>
-					<div class="pin-vertical__item">
-						<div class="ratio-1-1">
-							<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-6.jpg"/>
+						<div class="pin-vertical__item">
+							<div class="ratio-1-1">
+								<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-5.jpg"/>
+							</div>
 						</div>
-					</div>
-					<div class="pin-vertical__item">
-						<div class="ratio-1-1">
-							<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-3.jpg"/>
+						<div class="pin-vertical__item">
+							<div class="ratio-1-1">
+								<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-6.jpg"/>
+							</div>
 						</div>
-					</div>
-					<div class="pin-vertical__item">
-						<div class="ratio-1-1">
-							<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-6.jpg"/>
+						<div class="pin-vertical__item">
+							<div class="ratio-1-1">
+								<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-3.jpg"/>
+							</div>
 						</div>
-					</div>
-					<div class="pin-vertical__item">
-						<div class="ratio-1-1">
-							<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-7.jpg"/>
+						<div class="pin-vertical__item">
+							<div class="ratio-1-1">
+								<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-6.jpg"/>
+							</div>
 						</div>
-					</div>
-					<div class="pin-vertical__item">
-						<div class="ratio-1-1">
-							<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-8.jpg"/>
+						<div class="pin-vertical__item">
+							<div class="ratio-1-1">
+								<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-7.jpg"/>
+							</div>
+						</div>
+						<div class="pin-vertical__item">
+							<div class="ratio-1-1">
+								<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-8.jpg"/>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="gr-4 overflow-hidden position-relative full-viewport-height">
-				<div class="pin-vertical__container pin-vertical__container--center js-pin-vertical-container-center">
-
-					<div class="pin-vertical__item">
-						<div class="ratio-1-1">
-							<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-1.jpg"/>
-						</div>
-					</div>
-					<div class="pin-vertical__item">
-						<div class="ratio-1-1">
-							<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-5.jpg"/>
-						</div>
-					</div>
-					<div class="pin-vertical__item">
-						<div class="ratio-1-1">
-							<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-6.jpg"/>
-						</div>
-					</div>
-					<div class="pin-vertical__item">
-						<div class="ratio-1-1">
-							<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-3.jpg"/>
-						</div>
-					</div>
-					<div class="pin-vertical__item">
-						<div class="ratio-1-1">
-							<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-6.jpg"/>
-						</div>
-					</div>
-					<div class="pin-vertical__item">
-						<div class="ratio-1-1">
-							<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-7.jpg"/>
-						</div>
-					</div>
-					<div class="pin-vertical__item">
-						<div class="ratio-1-1">
-							<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-8.jpg"/>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="gr-4 overflow-hidden position-relative full-viewport-height">
-				<div class="pin-vertical__container pin-vertical__container--right js-pin-vertical-container-right">
-
-					<div class="pin-vertical__item">
-						<div class="ratio-1-1">
-							<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-1.jpg"/>
-						</div>
-					</div>
-					<div class="pin-vertical__item">
-						<div class="ratio-1-1">
-							<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-5.jpg"/>
-						</div>
-					</div>
-					<div class="pin-vertical__item">
-						<div class="ratio-1-1">
-							<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-6.jpg"/>
-						</div>
-					</div>
-					<div class="pin-vertical__item">
-						<div class="ratio-1-1">
-							<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-3.jpg"/>
-						</div>
-					</div>
-					<div class="pin-vertical__item">
-						<div class="ratio-1-1">
-							<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-6.jpg"/>
-						</div>
-					</div>
-					<div class="pin-vertical__item">
-						<div class="ratio-1-1">
-							<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-7.jpg"/>
-						</div>
-					</div>
-					<div class="pin-vertical__item">
-						<div class="ratio-1-1">
-							<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-8.jpg"/>
-						</div>
-					</div>
-				</div>
-			</div>
-
 		</div>
-		
 	</div>
 
-	<div class="container margin-top-5 margin-bottom-5">
-		<div class="row">
-			<div class="gr-12" data-scroll data-scroll-animation="comparison">
-				<section class="position-relative ratio-16-9">
-					<div class="comparison__media comparison__before-media js-comparison-before-media">
-						<img class="comparison__img" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/comparison/sample-before.jpg" alt="before">
-					</div>
-					<div class="comparison__media comparison__after-media js-comparison-after-media">
-						<img class="comparison__img" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/comparison/sample-after.jpg" alt="after">
-					</div>
-				</section>
+	<div data-scroll data-scroll-animation="comparison">
+		<div class="container margin-top-5 margin-bottom-5" data-scroll-animation-target>
+			<div class="row">
+				<div class="gr-12">
+					<section class="position-relative ratio-16-9">
+						<div class="comparison__media comparison__before-media js-comparison-before-media">
+							<img class="comparison__img" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/comparison/sample-before.jpg" alt="before">
+						</div>
+						<div class="comparison__media comparison__after-media js-comparison-after-media">
+							<img class="comparison__img" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/comparison/sample-after.jpg" alt="after">
+						</div>
+					</section>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -231,9 +232,15 @@ get_template_part( 'partials/header' ); ?>
 		</div>
 	</div>
 
-	<div class="position-relative margin-bottom-5 pin-horizontal" data-scroll data-scroll-animation="pin-horizontal">
-		<div class="pin-horizontal__container js-pin-horizontal-container">
-			<h1 class="color-white" style="white-space: nowrap;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h1>
+	<div class="container position-relative" data-scroll data-scroll-animation="pin-horizontal">
+		<div class="row">
+			<div class="gr-6 gr-centered">
+				<div class="position-relative pin-horizontal" data-scroll-animation-target>
+					<div class="pin-horizontal__container js-pin-horizontal-container">
+						<h1 class="color-white" style="white-space: nowrap;">gr 12 Lorem ipsum dolor sit amet, consectetur adipiscing elit. fine</h1>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 
@@ -272,8 +279,8 @@ get_template_part( 'partials/header' ); ?>
 		</div>
 	</div>
 
-	<div class="container margin-bottom-5" data-scroll data-scroll-animation="pin">
-		<div class="row">
+	<div class="container position-relative margin-bottom-5" data-scroll data-scroll-animation="pin">
+		<div class="row" data-scroll-animation-target>
 			<div class="gr-4@md gr-12">
 				<div class="background-black">
 					<img class="js-pin__element" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-1.jpg"/>
@@ -302,119 +309,127 @@ get_template_part( 'partials/header' ); ?>
 		</div>
 	</div>
 
-	<div class="position-relative margin-bottom-5 pin-horizontal" data-scroll data-scroll-animation="pin-horizontal">
-		<div class="pin-horizontal__container js-pin-horizontal-container padding-1">
-			<div class="pin-horizontal__item">
-				<div class="padding-1">
-					<div class="ratio-1-1">
-						<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-1.jpg"/>
+	<div class="container position-relative" data-scroll data-scroll-animation="pin-horizontal">
+		<div class="row">
+			<div class="gr-12">
+
+				<div class="position-relative margin-bottom-5 pin-horizontal" data-scroll-animation-target>
+					<div class="pin-horizontal__container js-pin-horizontal-container padding-1">
+						<div class="pin-horizontal__item">
+							<div class="padding-1">
+								<div class="ratio-1-1">
+									<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-1.jpg"/>
+								</div>
+							</div>
+						</div>
+						<div class="pin-horizontal__item">
+							<div class="padding-1">
+								<div class="ratio-1-1">
+									<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-2.jpg"/>
+								</div>
+							</div>
+						</div>
+						<div class="pin-horizontal__item">
+							<div class="padding-1">
+								<div class="ratio-1-1">
+									<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-3.jpg"/>
+								</div>
+							</div>
+						</div>
+						<div class="pin-horizontal__item">
+							<div class="padding-1">
+								<div class="ratio-1-1">
+									<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-4.jpg"/>
+								</div>
+							</div>
+						</div>
+						<div class="pin-horizontal__item">
+							<div class="padding-1">
+								<div class="ratio-1-1">
+									<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-5.jpg"/>
+								</div>
+							</div>
+						</div>
+						<div class="pin-horizontal__item">
+							<div class="padding-1">
+								<div class="ratio-1-1">
+									<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-6.jpg"/>
+								</div>
+							</div>
+						</div>
+						<div class="pin-horizontal__item">
+							<div class="padding-1">
+								<div class="ratio-1-1">
+									<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-7.jpg"/>
+								</div>
+							</div>
+						</div>
+						<div class="pin-horizontal__item">
+							<div class="padding-1">
+								<div class="ratio-1-1">
+									<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-8.jpg"/>
+								</div>
+							</div>
+						</div>
+						<div class="pin-horizontal__item">
+							<div class="padding-1">
+								<div class="ratio-1-1">
+									<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-1.jpg"/>
+								</div>
+							</div>
+						</div>
+						<div class="pin-horizontal__item">
+							<div class="padding-1">
+								<div class="ratio-1-1">
+									<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-2.jpg"/>
+								</div>
+							</div>
+						</div>
+						<div class="pin-horizontal__item">
+							<div class="padding-1">
+								<div class="ratio-1-1">
+									<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-3.jpg"/>
+								</div>
+							</div>
+						</div>
+						<div class="pin-horizontal__item">
+							<div class="padding-1">
+								<div class="ratio-1-1">
+									<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-4.jpg"/>
+								</div>
+							</div>
+						</div>
+						<div class="pin-horizontal__item">
+							<div class="padding-1">
+								<div class="ratio-1-1">
+									<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-5.jpg"/>
+								</div>
+							</div>
+						</div>
+						<div class="pin-horizontal__item">
+							<div class="padding-1">
+								<div class="ratio-1-1">
+									<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-6.jpg"/>
+								</div>
+							</div>
+						</div>
+						<div class="pin-horizontal__item">
+							<div class="padding-1">
+								<div class="ratio-1-1">
+									<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-7.jpg"/>
+								</div>
+							</div>
+						</div>
+						<div class="pin-horizontal__item">
+							<div class="padding-1">
+								<div class="ratio-1-1">
+									<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-8.jpg"/>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="pin-horizontal__item">
-				<div class="padding-1">
-					<div class="ratio-1-1">
-						<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-2.jpg"/>
-					</div>
-				</div>
-			</div>
-			<div class="pin-horizontal__item">
-				<div class="padding-1">
-					<div class="ratio-1-1">
-						<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-3.jpg"/>
-					</div>
-				</div>
-			</div>
-			<div class="pin-horizontal__item">
-				<div class="padding-1">
-					<div class="ratio-1-1">
-						<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-4.jpg"/>
-					</div>
-				</div>
-			</div>
-			<div class="pin-horizontal__item">
-				<div class="padding-1">
-					<div class="ratio-1-1">
-						<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-5.jpg"/>
-					</div>
-				</div>
-			</div>
-			<div class="pin-horizontal__item">
-				<div class="padding-1">
-					<div class="ratio-1-1">
-						<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-6.jpg"/>
-					</div>
-				</div>
-			</div>
-			<div class="pin-horizontal__item">
-				<div class="padding-1">
-					<div class="ratio-1-1">
-						<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-7.jpg"/>
-					</div>
-				</div>
-			</div>
-			<div class="pin-horizontal__item">
-				<div class="padding-1">
-					<div class="ratio-1-1">
-						<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-8.jpg"/>
-					</div>
-				</div>
-			</div>
-			<div class="pin-horizontal__item">
-				<div class="padding-1">
-					<div class="ratio-1-1">
-						<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-1.jpg"/>
-					</div>
-				</div>
-			</div>
-			<div class="pin-horizontal__item">
-				<div class="padding-1">
-					<div class="ratio-1-1">
-						<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-2.jpg"/>
-					</div>
-				</div>
-			</div>
-			<div class="pin-horizontal__item">
-				<div class="padding-1">
-					<div class="ratio-1-1">
-						<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-3.jpg"/>
-					</div>
-				</div>
-			</div>
-			<div class="pin-horizontal__item">
-				<div class="padding-1">
-					<div class="ratio-1-1">
-						<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-4.jpg"/>
-					</div>
-				</div>
-			</div>
-			<div class="pin-horizontal__item">
-				<div class="padding-1">
-					<div class="ratio-1-1">
-						<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-5.jpg"/>
-					</div>
-				</div>
-			</div>
-			<div class="pin-horizontal__item">
-				<div class="padding-1">
-					<div class="ratio-1-1">
-						<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-6.jpg"/>
-					</div>
-				</div>
-			</div>
-			<div class="pin-horizontal__item">
-				<div class="padding-1">
-					<div class="ratio-1-1">
-						<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-7.jpg"/>
-					</div>
-				</div>
-			</div>
-			<div class="pin-horizontal__item">
-				<div class="padding-1">
-					<div class="ratio-1-1">
-						<img class="full-width cover" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-8.jpg"/>
-					</div>
-				</div>
+
 			</div>
 		</div>
 	</div>

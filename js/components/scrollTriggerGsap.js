@@ -21,28 +21,28 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 			triggers: this.element,
 		};
 		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
-		// this.updateEvents = this.updateEvents.bind(this);
+		this.updateEvents = this.updateEvents.bind(this);
 
 		window.addEventListener('DOMContentLoaded', () => {
 			this.init();
 			this.initEvents(this.options.triggers);
-			// super.initObserver(this.options.triggers, this.updateEvents);
+			super.initObserver(this.options.triggers, this.updateEvents);
 		});
 
-		ScrollTrigger.addEventListener('scrollStart', () => {
-			console.log('scrolling Started!');
-		});
+		ScrollTrigger.addEventListener('scrollStart', () => {});
 
-		ScrollTrigger.addEventListener('scrollEnd', () => {
-			console.log('scrolling ended!');
-		});
+		ScrollTrigger.addEventListener('scrollEnd', () => {});
 
-		ScrollTrigger.addEventListener('refreshInit', () => {
-			console.log('refreshInit!');
-		});
+		ScrollTrigger.addEventListener('refreshInit', () => {});
 
-		ScrollTrigger.addEventListener('refresh', () => {
-			console.log('refresh!');
+		ScrollTrigger.addEventListener('refresh', () => {});
+
+		window.addEventListener('NAVIGATE_OUT', () => {});
+
+		window.addEventListener('NAVIGATE_IN', () => {});
+
+		window.addEventListener('NAVIGATE_END', () => {
+			ScrollTrigger.refresh(true);
 		});
 	}
 
@@ -362,17 +362,18 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 	 * pin Animation
 	*/
 	pinAnimation(item) {
-		const target = item.querySelectorAll('.js-pin__element');
+		const target = item.querySelector('[data-scroll-animation-target]');
+		const targetElement = item.querySelectorAll('.js-pin__element');
 
 		// Animation PIN move into Function
-		const animationPin = gsap.from(target, {
+		const animationPin = gsap.from(targetElement, {
 			scale: 0.6,
 			transformOrigin: 'center center',
 			ease: 'power2',
 		});
 
 		ScrollTrigger.create({
-			trigger: item,
+			trigger: target,
 			animation: animationPin,
 			start: 'center center',
 			end: '+=200%',
@@ -396,15 +397,16 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 	pinHorizontalAnimation(item) {
 		const audioplay = document.createElement('audio');
 		audioplay.setAttribute('src', 'http://wordpress-364601-1334787.cloudwaysapps.com/concept/music/audio.mp3');
-
-		const target = item.querySelector('.js-pin-horizontal-container');
+		const target = item.querySelector('[data-scroll-animation-target]');
+		const targetContainer = item.querySelector('.js-pin-horizontal-container');
 		const tl = gsap.timeline({
 			scrollTrigger: {
-				trigger: item,
+				trigger: target,
 				start: 'center center',
-				end: () => `+=${target.offsetWidth}`,
+				end: () => `+=${targetContainer.offsetWidth}`,
 				scrub: 1,
 				pin: true,
+				// invalidateOnRefresh: true,
 				// anticipatePin: 1,
 				onEnter: () => audioplay.play(),
 				onLeave: () => {
@@ -418,28 +420,33 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 				},
 			},
 		});
-		tl.fromTo(target, { x: 0 }, { x: -target.offsetWidth + item.offsetWidth });
+
+		ScrollTrigger.addEventListener('refresh', () => {
+			ScrollTrigger.refresh(true);
+		});
+		tl.fromTo(targetContainer, { x: 0 }, { x: -targetContainer.getBoundingClientRect().width + target.getBoundingClientRect().width });
 	}
 
 	/**
 	 * pin Vertical Animation
 	*/
 	pinVerticalAnimation(item) {
-		const target = item.querySelector('.js-pin-vertical-container-left');
+		const target = item.querySelector('[data-scroll-animation-target]');
+		const targetLeft = item.querySelector('.js-pin-vertical-container-left');
 		const targetCenter = item.querySelector('.js-pin-vertical-container-center');
 		const targetRight = item.querySelector('.js-pin-vertical-container-right');
 
 		const tl = gsap.timeline({
 			scrollTrigger: {
-				trigger: item,
+				trigger: target,
 				start: 'center center',
-				end: () => `+=${target.offsetHeight}`,
+				end: () => `+=${targetLeft.offsetHeight}`,
 				scrub: 1,
 				pin: true,
 				// anticipatePin: 1,
 			},
 		});
-		tl.fromTo(target, { y: 0 }, { y: -target.offsetHeight + item.offsetHeight }, 'step')
+		tl.fromTo(targetLeft, { y: 0 }, { y: -targetLeft.offsetHeight + item.offsetHeight }, 'step')
 			.fromTo(targetCenter, { y: 0 }, { y: targetCenter.offsetHeight - item.offsetHeight }, 'step')
 			.fromTo(targetRight, { y: 0 }, { y: -targetRight.offsetHeight + item.offsetHeight }, 'step');
 	}
@@ -448,14 +455,15 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 	 * comparison Animation
 	*/
 	comparisonAnimation(item) {
-		const target = item.querySelectorAll('.js-comparison-after-media');
+		const target = item.querySelector('[data-scroll-animation-target]');
+		const targetMedia = item.querySelectorAll('.js-comparison-after-media');
 		const targetImage = item.querySelectorAll('.js-comparison-after-media .comparison__img');
 		const tl = gsap.timeline({
 			scrollTrigger: {
-				trigger: item,
+				trigger: target,
 				start: 'center center',
 				// makes the height of the scrolling (while pinning) match the width, thus the speed remains constant (vertical/horizontal)
-				end: () => `+=${item.offsetWidth}`,
+				end: () => `+=${target.offsetWidth}`,
 				scrub: true,
 				pin: true,
 				// anticipatePin: 1,
@@ -463,7 +471,7 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 			defaults: { ease: 'none' },
 		});
 			// animate the container one way...
-		tl.fromTo(target, { xPercent: 100, x: 0 }, { xPercent: 0 })
+		tl.fromTo(targetMedia, { xPercent: 100, x: 0 }, { xPercent: 0 })
 			// ...and the image the opposite way (at the same time)
 			.fromTo(targetImage, { xPercent: -100, x: 0 }, { xPercent: 0 }, 0);
 	}
