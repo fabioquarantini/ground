@@ -28,6 +28,22 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 			this.initEvents(this.options.triggers);
 			// super.initObserver(this.options.triggers, this.updateEvents);
 		});
+
+		ScrollTrigger.addEventListener('scrollStart', () => {
+			console.log('scrolling Started!');
+		});
+
+		ScrollTrigger.addEventListener('scrollEnd', () => {
+			console.log('scrolling ended!');
+		});
+
+		ScrollTrigger.addEventListener('refreshInit', () => {
+			console.log('refreshInit!');
+		});
+
+		ScrollTrigger.addEventListener('refresh', () => {
+			console.log('refresh!');
+		});
 	}
 
 	/**
@@ -232,7 +248,6 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 				start: 'top 90%',
 				end: 'bottom 60%',
 				toggleActions: 'play none none reset',
-				// pin: true,
 				// toggleClass: 'active',
 				// markers: true,
 			},
@@ -390,7 +405,7 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 				end: () => `+=${target.offsetWidth}`,
 				scrub: 1,
 				pin: true,
-				anticipatePin: 1,
+				// anticipatePin: 1,
 				onEnter: () => audioplay.play(),
 				onLeave: () => {
 					audioplay.pause();
@@ -421,7 +436,7 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 				end: () => `+=${target.offsetHeight}`,
 				scrub: 1,
 				pin: true,
-				anticipatePin: 1,
+				// anticipatePin: 1,
 			},
 		});
 		tl.fromTo(target, { y: 0 }, { y: -target.offsetHeight + item.offsetHeight }, 'step')
@@ -443,7 +458,7 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 				end: () => `+=${item.offsetWidth}`,
 				scrub: true,
 				pin: true,
-				anticipatePin: 1,
+				// anticipatePin: 1,
 			},
 			defaults: { ease: 'none' },
 		});
