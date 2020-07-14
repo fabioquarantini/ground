@@ -1,4 +1,5 @@
 import * as deepmerge from 'deepmerge';
+import LocomotiveScroll from 'locomotive-scroll';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from 'gsap/SplitText';
@@ -42,7 +43,7 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 		window.addEventListener('NAVIGATE_IN', () => {});
 
 		window.addEventListener('NAVIGATE_END', () => {
-			ScrollTrigger.refresh(true);
+			ScrollTrigger.refresh();
 		});
 	}
 
@@ -225,7 +226,7 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 				end: 'bottom 70%',
 				toggleActions: 'play reset play reset',
 				scrub: 2,
-				// markers: true,
+
 			},
 		});
 
@@ -239,18 +240,19 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 	 * fadeInDown Animation
 	*/
 	fadeInDownAnimation(item) {
-		gsap.to(item, {
-			opacity: 1,
-			y: 20,
-			duration: 1,
+		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: item,
 				start: 'top 90%',
 				end: 'bottom 60%',
 				toggleActions: 'play none none reset',
-				// toggleClass: 'active',
-				// markers: true,
 			},
+		});
+
+		tl.to(item, {
+			opacity: 1,
+			y: 20,
+			duration: 0.2,
 		});
 	}
 
@@ -379,6 +381,7 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 			end: '+=200%',
 			toggleClass: 'active',
 			pin: true,
+			pinReparent: true,
 			scrub: 1,
 			// onEnter: () => console.log('enter'),
 			// onLeave: () => console.log('leave'),
@@ -421,9 +424,6 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 			},
 		});
 
-		ScrollTrigger.addEventListener('refresh', () => {
-			ScrollTrigger.refresh(true);
-		});
 		tl.fromTo(targetContainer, { x: 0 }, { x: -targetContainer.getBoundingClientRect().width + target.getBoundingClientRect().width });
 	}
 
