@@ -202,10 +202,7 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 	 * rotation Animation
 	*/
 	rotationAnimation(item) {
-		gsap.from(item, {
-			x: 400,
-			rotation: 360,
-			// duration: 4,
+		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: item,
 				start: 'top 100%',
@@ -214,6 +211,11 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 				scrub: 2,
 				// markers: true,
 			},
+		});
+
+		tl.from(item, {
+			x: 400,
+			rotation: 360,
 		});
 	}
 
@@ -265,8 +267,7 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 	 * scale Animation
 	*/
 	scaleAnimation(item) {
-		gsap.to(item, {
-			scale: 2,
+		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: item,
 				start: 'top 100%',
@@ -276,15 +277,17 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 				// markers: true,
 			},
 		});
+
+		tl.to(item, {
+			scale: 2,
+		});
 	}
 
 	/**
 	 * parallax Animation
 	*/
 	parallaxAnimation(item) {
-		gsap.to(item, {
-			y: -item.dataset.scrollSpeed * 100 || 0,
-			x: -item.dataset.scrollSpeedHorizontal * 100 || 0,
+		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: item,
 				toggleActions: 'play pause none none',
@@ -292,6 +295,11 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 				ease: 'power4',
 				// markers: true,
 			},
+		});
+
+		tl.to(item, {
+			y: -item.dataset.scrollSpeed * 100 || 0,
+			x: -item.dataset.scrollSpeedHorizontal * 100 || 0,
 		});
 	}
 
