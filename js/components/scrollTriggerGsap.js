@@ -60,14 +60,12 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 	 * @param {string} triggers - Selectors
 	 */
 	initEvents(triggers) {
-		this.example = 'Example';
-
 		ScrollTrigger.defaults({
 			markers: false,
 			ease: 'power3',
 		});
 
-		gsap.utils.toArray(triggers).forEach((element, i) => {
+		gsap.utils.toArray(triggers).forEach((element) => {
 			if (element.dataset.scrollAnimation === 'splittext-chars') {
 				this.splitTextAnimationChars(element);
 			}
@@ -290,7 +288,6 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 				end: 'bottom 0%',
 				toggleActions: 'play none none reset',
 				scrub: 2,
-				// markers: true,
 			},
 		});
 
@@ -309,7 +306,6 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 				toggleActions: 'play pause none none',
 				scrub: 2,
 				ease: 'power4',
-				// markers: true,
 			},
 		});
 
@@ -331,7 +327,6 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 				start: 'top 70%',
 				end: 'bottom 70%',
 				toggleActions: 'play reset play reset',
-				// markers: true,
 			},
 		});
 
@@ -366,30 +361,22 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 		const target = item.querySelector('[data-scroll-animation-target]');
 		const targetElement = item.querySelectorAll('.js-pin__element');
 
-		// Animation PIN move into Function
-		const animationPin = gsap.from(targetElement, {
-			scale: 0.6,
-			transformOrigin: 'center center',
-			ease: 'power2',
+		const tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: target,
+				start: 'center center',
+				end: '+=200%',
+				toggleClass: 'active',
+				pin: true,
+				pinReparent: true,
+				scrub: 1,
+				// anticipatePin: 1,
+			},
 		});
 
-		ScrollTrigger.create({
-			trigger: target,
-			animation: animationPin,
-			start: 'center center',
-			end: '+=200%',
-			toggleClass: 'active',
-			pin: true,
-			pinReparent: true,
-			scrub: 1,
-			// onEnter: () => console.log('enter'),
-			// onLeave: () => console.log('leave'),
-			// onEnterBack: () => console.log('enter back'),
-			// onLeaveBack: () => console.log('leave back'),
-			// onUpdate: (self) => {
-			// 	console.log('progress:', self.progress.toFixed(3), 'direction:', self.direction, 'velocity', self.getVelocity());
-			// },
-
+		tl.from(targetElement, {
+			scale: 0.6,
+			transformOrigin: 'center center',
 		});
 	}
 
