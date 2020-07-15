@@ -1,3 +1,18 @@
+.navigation {
+
+}
+
+.navigation__link {
+	text-decoration: none;
+	color: $color-black;
+
+	&:hover,
+	&.is-active {
+		color: $color-primary;
+	}
+}
+
+
 .navigation--primary {
 	position: fixed;
 	transition-timing-function: ease-in;
@@ -53,8 +68,8 @@
 			}
 		}
 
-		&--ancestor,
-		&--parent {
+		&.is-ancestor,
+		&.is-parent {
 
 			> .navigation__link {
 				@include media('>=md') {

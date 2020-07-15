@@ -51,9 +51,9 @@ function ground_register_menu() {
 
 	// Registers multiple custom navigation menus in the custom menu editor.
 	$locations = array(
-		'navigation-primary'   => __( 'Primary navigation', 'ground-admin' ),
-		'navigation-secondary' => __( 'Secondary navigation', 'ground-admin' ),
-		'navigation-tertiary'  => __( 'Tertiary navigation', 'ground-admin' ),
+		'primary'   => __( 'Primary navigation', 'ground-admin' ),
+		'secondary' => __( 'Secondary navigation', 'ground-admin' ),
+		'tertiary'  => __( 'Tertiary navigation', 'ground-admin' ),
 	);
 
 	register_nav_menus( $locations );
