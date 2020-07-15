@@ -1,7 +1,5 @@
 /* eslint-disable no-unused-vars */
-
 import 'lazysizes';
-import { gsap } from 'gsap';
 import InfiniteScroll from './components/infiniteScroll';
 import Modal from './components/modal';
 import AjaxNavigation from './components/ajaxNavigation';
@@ -10,8 +8,8 @@ import Parallax from './components/parallax';
 import Loader from './components/loader';
 import Split from './components/split';
 import Toggle from './components/toggle';
-// import ScrollOld from './components/scrollOld';
-import Scroll from './components/scroll';
+// import Scroll from './components/scroll';
+import ScrollTriggerGsap from './components/scrollTriggerGsap';
 import ScrollUpdate from './components/scrollUpdate';
 import Cursor from './components/cursor';
 import Search from './components/search';
@@ -19,7 +17,6 @@ import Magnet from './components/magnet';
 import Billing from './components/billing';
 import Example from './components/example';
 import GdprCompliance from './components/gdprCompliance';
-
 
 const infiniteScroll = new InfiniteScroll();
 const loader = new Loader();
@@ -29,8 +26,8 @@ const sliderPrimary = new Slider('.js-slider-primary');
 const split = new Split();
 const toggle = new Toggle();
 const billing = new Billing();
-// const scrollOld = new ScrollOld();
-const scroll = new Scroll();
+// const scroll = new Scroll();
+const scrollTriggerGsap = new ScrollTriggerGsap();
 const scrollUpdate = new ScrollUpdate();
 const parallax = new Parallax();
 const cursor = new Cursor();
@@ -38,7 +35,6 @@ const search = new Search();
 const magnet = new Magnet();
 // const example = new Example();
 const gdprCompliance = new GdprCompliance();
-
 
 const sliderGallery = new Slider('.js-slider-gallery', {
 	direction: 'horizontal',
