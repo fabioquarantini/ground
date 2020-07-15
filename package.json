@@ -48,10 +48,9 @@
 		"yargs": "15.4.0"
 	},
 	"dependencies": {
-		"@babel/polyfill": "7.10.4",
 		"@dogstudio/highway": "2.2.1",
 		"coffeekraken-gridle": "3.0.3",
-		"core-js": "3.6.5",
+		"core-js": "^3.6.5",
 		"deepmerge": "4.2.2",
 		"gsap": "3.3.4",
 		"imagesloaded": "4.1.4",

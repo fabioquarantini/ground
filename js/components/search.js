@@ -2,8 +2,6 @@
  * Search module
  */
 
-import 'promise-polyfill/src/polyfill';
-import 'whatwg-fetch';
 import Utilities from '../utilities/utilities';
 import { DEBUG_MODE } from '../utilities/environment';
 
