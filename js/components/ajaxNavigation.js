@@ -3,13 +3,11 @@
  * A Modern Javascript Transitions Manager
  * @see https://highway.js.org
  */
-import 'promise-polyfill/src/polyfill';
-import 'whatwg-fetch';
 import Highway from '@dogstudio/highway';
+import AbstractComponent from './abstractComponent';
 import Reveal from '../transitions/reveal';
 import Fade from '../transitions/fade';
 import Dispatcher from '../utilities/dispatcher';
-import AbstractComponent from './abstractComponent';
 import ContactForm from './contactForm';
 
 // eslint-disable-next-line no-unused-vars
