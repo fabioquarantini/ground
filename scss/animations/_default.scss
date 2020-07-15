@@ -247,9 +247,17 @@
 
 // PIN HORIZONTAL
 [data-scroll-animation="pin-horizontal"] {
-	position: relative;
-	display: flex;
-	white-space: nowrap;
+	
+	[data-scroll-animation-target] {
+		position: relative;
+		display: flex;
+		white-space: nowrap;
+		border: 1px solid $color-white;
+	}
+
+	.pin-horizontal__container {
+		border: 1px dashed $color-white;
+	}
 
 	.pin-horizontal__item {
 		display: inline-block;
@@ -322,9 +330,9 @@ body.body--page-template-template-scrolltrigger {
 
 	}
 
-	header.header {
-		display: none;
-	}
+	// header.header {
+	// 	display: none;
+	// }
 
 	.example {
 		display: block;
