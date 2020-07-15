@@ -8,7 +8,7 @@
 	height: ritmo(3);
 	box-shadow: 0 0 25px rgba(0,0,0,0.08);
 	@extend .clear-fix;
-	
+
 	@include media('>=md') {
 		position: relative;
 		top: 0;
@@ -19,6 +19,8 @@
 		text-align: right;
 		transition: transform $speed $easing;
 		will-change: transform;
+		display: flex;
+		justify-content: space-between;
 
 		[data-direction="down"] & {
 			transform: translateY(ritmo(-3));

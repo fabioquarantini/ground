@@ -113,7 +113,7 @@
 		display: block;
 		text-decoration: none;
 		margin: 0;
-		font-weight: bold;
+		font-weight: 700;
 		cursor: pointer;
 		color: $color-black;
 		@include ritmo-side-border(bottom, 1px);
@@ -123,13 +123,11 @@
 
 		@include media('>=md') {
 			@include ritmo-font-size(12px);
-			letter-spacing: 2px;
 			text-transform: uppercase;
 			padding-left: 0;
 			border: 0;
 			padding-left: ritmo(0.75);
 			padding-right: ritmo(0.75);
-			font-weight: normal;
 		}
 
 		&:hover {
