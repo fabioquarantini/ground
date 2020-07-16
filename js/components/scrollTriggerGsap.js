@@ -283,11 +283,11 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 			onEnter: (batch) => gsap.to(batch, {
 				opacity: 1, y: 0, stagger: { each: 0.1, grid: [1, 3] }, overwrite: true,
 			}),
-			onLeave: (batch) => gsap.set(batch, { opacity: 0, y: -100, overwrite: true }),
-			onEnterBack: (batch) => gsap.to(batch, {
-				opacity: 1, y: 0, stagger: 0.1, overwrite: true,
-			}),
-			onLeaveBack: (batch) => gsap.set(batch, { opacity: 0, y: 100, overwrite: true }),
+			// onLeave: (batch) => gsap.set(batch, { opacity: 0, y: -100, overwrite: true }),
+			// onEnterBack: (batch) => gsap.to(batch, {
+			// 	opacity: 1, y: 0, stagger: 0.1, overwrite: true,
+			// }),
+			// onLeaveBack: (batch) => gsap.set(batch, { opacity: 0, y: 100, overwrite: true }),
 			// you can also define things like start, end, etc.
 
 		});
