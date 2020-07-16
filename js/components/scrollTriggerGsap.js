@@ -178,14 +178,15 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 			type: 'chars, words',
 		});
 		const target = splitText.chars;
+		const targetScrub = parseInt(item.dataset.scrollScrub, 10);
 
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: item,
-				scrub: false,
 				start: 'top 90%',
 				end: 'bottom 60%',
-				toggleActions: 'play none none none',
+				scrub: targetScrub || false,
+				toggleActions: 'play none play reset',
 			},
 		});
 
@@ -205,14 +206,15 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 			type: 'lines',
 		});
 		const target = splitText.lines;
+		const targetScrub = parseInt(item.dataset.scrollScrub, 10);
 
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: item,
-				scrub: 1,
 				start: 'top 90%',
 				end: 'bottom 60%',
-				toggleActions: 'play reset play reset',
+				scrub: targetScrub || false,
+				toggleActions: 'play none play reset',
 			},
 		});
 
@@ -228,14 +230,14 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 	 * rotation Animation
 	*/
 	rotationAnimation(item) {
+		const targetScrub = parseInt(item.dataset.scrollScrub, 10);
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: item,
-				start: 'top 100%',
-				end: 'bottom 70%',
-				toggleActions: 'play reset play reset',
-				scrub: 2,
-
+				start: 'top 90%',
+				end: 'bottom 80%',
+				scrub: targetScrub || false,
+				toggleActions: 'play none play reverse',
 			},
 		});
 
@@ -249,12 +251,15 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 	 * fadeInDown Animation
 	*/
 	fadeInDownAnimation(item) {
+		const targetScrub = parseInt(item.dataset.scrollScrub, 10);
+
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: item,
 				start: 'top 90%',
 				end: 'bottom 60%',
-				toggleActions: 'play none none reset',
+				scrub: targetScrub || false,
+				toggleActions: 'play none play reverse',
 			},
 		});
 
@@ -293,18 +298,20 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 	 * scale Animation
 	*/
 	scaleAnimation(item) {
+		const targetScrub = parseInt(item.dataset.scrollScrub, 10);
+
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: item,
 				start: 'top 100%',
 				end: 'bottom 0%',
-				toggleActions: 'play none none reset',
-				scrub: 2,
+				scrub: targetScrub || false,
+				toggleActions: 'play none play reverse',
 			},
 		});
 
 		tl.to(item, {
-			scale: 2,
+			scale: 1.5,
 		});
 	}
 
@@ -332,13 +339,15 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 	*/
 	drawSvgAnimation(item) {
 		const target = item.querySelectorAll('path');
+		const targetScrub = parseInt(item.dataset.scrollScrub, 10);
+
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: item,
-				scrub: 0.5,
+				scrub: targetScrub || false,
 				start: 'top 70%',
 				end: 'bottom 70%',
-				toggleActions: 'play reset play reset',
+				toggleActions: 'play none play reverse',
 			},
 		});
 
@@ -400,12 +409,14 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 		audioplay.setAttribute('src', 'http://wordpress-364601-1334787.cloudwaysapps.com/concept/music/audio.mp3');
 		const target = item.querySelector('[data-scroll-animation-target]');
 		const targetContainer = item.querySelector('.js-pin-horizontal-container');
+		const targetScrub = parseInt(item.dataset.scrollScrub, 10);
+
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: target,
 				start: 'center center',
 				end: () => `+=${targetContainer.offsetWidth}`,
-				scrub: 1,
+				scrub: targetScrub || false,
 				pin: true,
 				// invalidateOnRefresh: true,
 				// anticipatePin: 1,
@@ -433,13 +444,14 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 		const targetLeft = item.querySelector('.js-pin-vertical-container-left');
 		const targetCenter = item.querySelector('.js-pin-vertical-container-center');
 		const targetRight = item.querySelector('.js-pin-vertical-container-right');
+		const targetScrub = parseInt(item.dataset.scrollScrub, 10);
 
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: target,
 				start: 'center center',
 				end: () => `+=${targetLeft.offsetHeight}`,
-				scrub: 1,
+				scrub: targetScrub || false,
 				pin: true,
 				// anticipatePin: 1,
 			},
@@ -456,13 +468,15 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 		const target = item.querySelector('[data-scroll-animation-target]');
 		const targetMedia = item.querySelectorAll('.js-comparison-after-media');
 		const targetImage = item.querySelectorAll('.js-comparison-after-media .comparison__img');
+		const targetScrub = parseInt(item.dataset.scrollScrub, 10);
+
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: target,
 				start: 'center center',
 				// makes the height of the scrolling (while pinning) match the width, thus the speed remains constant (vertical/horizontal)
 				end: () => `+=${target.offsetWidth}`,
-				scrub: true,
+				scrub: targetScrub || false,
 				pin: true,
 				// anticipatePin: 1,
 			},
