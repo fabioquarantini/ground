@@ -52,7 +52,7 @@
 		"coffeekraken-gridle": "3.0.3",
 		"core-js": "^3.6.5",
 		"deepmerge": "4.2.2",
-		"gsap": "3.3.4",
+		"gsap": "file:gsap-bonus.tgz",
 		"imagesloaded": "4.1.4",
 		"include-media": "1.4.9",
 		"infinite-scroll": "3.0.6",
