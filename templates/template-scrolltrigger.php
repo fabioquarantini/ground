@@ -10,9 +10,7 @@ get_template_part( 'partials/header' ); ?>
 	<div class="container margin-top-5 margin-bottom-5">
 		<div class="row">
 			<div class="gr-12">
-				<h2>GSAP</h2>
-				<h2>SCROLL</h2>
-				<h2>TRIGGER</h2>
+				<h2 data-scroll data-scroll-animation="splittext-chars">GSAP Transition</h2>
 			</div>
 		</div>
 	</div>
@@ -79,6 +77,8 @@ get_template_part( 'partials/header' ); ?>
 			</div>
 		</div>
 	</div>
+
+
 
 	<div class="container container--fluid position-relative" data-scroll data-scroll-animation="pin-vertical">
 		<div class="position-relative pin-vertical background-black" data-scroll-animation-target>

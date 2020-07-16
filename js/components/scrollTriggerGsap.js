@@ -23,11 +23,10 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
 		this.updateEvents = this.updateEvents.bind(this);
 
-		window.addEventListener('DOMContentLoaded', () => {
-			this.init();
-			this.initEvents(this.options.triggers);
-			super.initObserver(this.options.triggers, this.updateEvents);
-		});
+		const dataContainer = document.querySelectorAll('[data-router-wrapper]');
+		gsap.set(dataContainer, { opacity: 0 });
+
+		window.addEventListener('DOMContentLoaded', () => {});
 
 		ScrollTrigger.addEventListener('scrollStart', () => {});
 
@@ -37,12 +36,24 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 
 		ScrollTrigger.addEventListener('refresh', () => {});
 
-		window.addEventListener('NAVIGATE_OUT', () => {});
+		window.addEventListener('NAVIGATE_OUT', () => {
+			// ScrollTrigger.update();
+			ScrollTrigger.refresh();
+		});
 
-		window.addEventListener('NAVIGATE_IN', () => {});
+		window.addEventListener('NAVIGATE_IN', () => {
+			gsap.set(dataContainer, { opacity: 0 });
+		});
 
 		window.addEventListener('NAVIGATE_END', () => {
-			ScrollTrigger.refresh();
+			gsap.set(dataContainer, { opacity: 1 });
+		});
+
+		window.addEventListener('LOADER_COMPLETE', () => {
+			gsap.set(dataContainer, { opacity: 1 });
+			this.init();
+			this.initEvents(this.options.triggers);
+			super.initObserver(this.options.triggers, this.updateEvents);
 		});
 	}
 
@@ -114,48 +125,49 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 	 */
 	updateEvents(target) {
 		this.init();
-
 		// console.log(target.dataset.scrollAnimation);
 
-		if (target.dataset.scrollAnimation === 'splittext-chars') {
-			this.splitTextAnimationChars(target);
-		}
-		if (target.dataset.scrollAnimation === 'splittext-lines') {
-			this.splitTextAnimationLines(target);
-		}
-		if (target.dataset.scrollAnimation === 'rotation') {
-			this.rotationAnimation(target);
-		}
-		if (target.dataset.scrollAnimation === 'fade-in-down') {
-			this.fadeInDownAnimation(target);
-		}
-		if (target.dataset.scrollAnimation === 'batch') {
-			this.batchAnimation(target);
-		}
-		if (target.dataset.scrollAnimation === 'scale') {
-			this.scaleAnimation(target);
-		}
-		if (target.dataset.scrollAnimation === 'draw-svg') {
-			this.drawSvgAnimation(target);
-		}
-		if (target.dataset.scrollAnimation === 'background-color') {
-			this.backgroundColorAnimation(target);
-		}
-		if (target.dataset.scrollAnimation === 'pin') {
-			this.pinAnimation(target);
-		}
-		if (target.dataset.scrollAnimation === 'pin-horizontal') {
-			this.pinHorizontalAnimation(target);
-		}
-		if (target.dataset.scrollAnimation === 'pin-vertical') {
-			this.pinVerticalAnimation(target);
-		}
-		if (target.dataset.scrollAnimation === 'comparison') {
-			this.comparisonAnimation(target);
-		}
-		if (target.dataset.scrollAnimation === 'parallax') {
-			this.parallaxAnimation(target);
-		}
+		setTimeout(() => {
+			if (target.dataset.scrollAnimation === 'splittext-chars') {
+				this.splitTextAnimationChars(target);
+			}
+			if (target.dataset.scrollAnimation === 'splittext-lines') {
+				this.splitTextAnimationLines(target);
+			}
+			if (target.dataset.scrollAnimation === 'rotation') {
+				this.rotationAnimation(target);
+			}
+			if (target.dataset.scrollAnimation === 'fade-in-down') {
+				this.fadeInDownAnimation(target);
+			}
+			if (target.dataset.scrollAnimation === 'batch') {
+				this.batchAnimation(target);
+			}
+			if (target.dataset.scrollAnimation === 'scale') {
+				this.scaleAnimation(target);
+			}
+			if (target.dataset.scrollAnimation === 'draw-svg') {
+				this.drawSvgAnimation(target);
+			}
+			if (target.dataset.scrollAnimation === 'background-color') {
+				this.backgroundColorAnimation(target);
+			}
+			if (target.dataset.scrollAnimation === 'pin') {
+				this.pinAnimation(target);
+			}
+			if (target.dataset.scrollAnimation === 'pin-horizontal') {
+				this.pinHorizontalAnimation(target);
+			}
+			if (target.dataset.scrollAnimation === 'pin-vertical') {
+				this.pinVerticalAnimation(target);
+			}
+			if (target.dataset.scrollAnimation === 'comparison') {
+				this.comparisonAnimation(target);
+			}
+			if (target.dataset.scrollAnimation === 'parallax') {
+				this.parallaxAnimation(target);
+			}
+		}, 1000);
 	}
 
 	/**
@@ -170,18 +182,18 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: item,
-				scrub: 1,
+				scrub: false,
 				start: 'top 90%',
 				end: 'bottom 60%',
-				toggleActions: 'play reset play reset',
+				toggleActions: 'play none none none',
 			},
 		});
 
 		tl.from(target, {
 			scale: 2,
 			opacity: 0,
-			stagger: 0.01,
-			duration: 0.01,
+			stagger: 0.1,
+			duration: 0.1,
 		});
 	}
 
