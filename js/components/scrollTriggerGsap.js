@@ -23,8 +23,7 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
 		this.updateEvents = this.updateEvents.bind(this);
 
-		const dataContainer = document.querySelectorAll('[data-router-wrapper]');
-		gsap.set(dataContainer, { opacity: 0 });
+		gsap.set(this.element, { opacity: 0 });
 
 		window.addEventListener('DOMContentLoaded', () => {});
 
@@ -42,15 +41,15 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 		});
 
 		window.addEventListener('NAVIGATE_IN', () => {
-			gsap.set(dataContainer, { opacity: 0 });
+			gsap.set(this.element, { opacity: 0 });
 		});
 
 		window.addEventListener('NAVIGATE_END', () => {
-			gsap.set(dataContainer, { opacity: 1 });
+			gsap.set(this.element, { opacity: 1 });
 		});
 
 		window.addEventListener('LOADER_COMPLETE', () => {
-			gsap.set(dataContainer, { opacity: 1 });
+			gsap.set(this.element, { opacity: 1 });
 			this.init();
 			this.initEvents(this.options.triggers);
 			super.initObserver(this.options.triggers, this.updateEvents);
