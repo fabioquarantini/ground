@@ -13,7 +13,7 @@ html {
 
 	&.is-loading {
 		overflow: hidden;
-		cursor: wait;
+		// cursor: wait;
 	}
 
 	&.is-loaded {
@@ -32,6 +32,9 @@ html {
 	
 		&:not(.has-scroll-smooth) {
 			overflow: auto;
+		}
+		&.is-minicart-open {
+			overflow-y: hidden;
 		}
 
 	}
