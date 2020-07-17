@@ -107,7 +107,7 @@ function ground_woocommerce_add_to_cart_fragment( $fragments ) {
 		$class = '';
 	} ?>
 
-	<a class="minicart__link <?php echo esc_attr( $class ); ?>" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php _e( 'View your shopping cart', 'ground' ); ?>">
+	<a class="minicart__link <?php echo esc_attr( $class ); ?>" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php _e( 'View your shopping cart', 'ground' ); ?>" data-router-disabled>
 		<i class="minicart__icon icon-cart"></i>
 		<?php if ( $count > 0 ) { ?>
 			<span class="minicart__count small"><?php echo esc_html( $count ); ?></span>

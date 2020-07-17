@@ -4,7 +4,7 @@
 		<div class="minicart__panel js-toggle" data-toggle-target="html" data-toggle-class-name="is-minicart-open"></div>
 		<div class="minicart__preview js-toggle" data-toggle-target="html" data-toggle-class-name="is-minicart-open">
 			<?php // When link markup is updated also update ground_woocommerce_add_to_cart_fragment() in woocommerce.php ?>
-			<a class="minicart__link" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php _e( 'View your shopping cart', 'ground' ); ?>">
+			<a class="minicart__link" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php _e( 'View your shopping cart', 'ground' ); ?>" data-router-disabled>
 				<i class="minicart__icon icon-cart"></i>
 				<?php if ( $count > 0 ) { ?>
 					<span class="minicart__count small"><?php echo esc_html( $count ); ?></span>
