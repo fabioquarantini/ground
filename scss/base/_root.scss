@@ -1,3 +1,5 @@
+@include ritmo-baseline;
+
 html,
 body {
 	font-family: $font-primary;
@@ -23,13 +25,13 @@ html {
 	&.has-scroll-smooth {
 		overflow: hidden;
 	}
-	   
+
 	&.has-scroll-dragging {
 		user-select: none;
 	}
 
 	&.is-loader-complete {
-	
+
 		&:not(.has-scroll-smooth) {
 			overflow: auto;
 		}

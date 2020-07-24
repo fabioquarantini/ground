@@ -96,8 +96,6 @@ $base-line-multi: 1;
 $rem-with-px-fallback: false;
 $ritmo-unit: 'rem';
 
-@include ritmo-baseline;
-
 $type-styles: (
 	default:
 		(
