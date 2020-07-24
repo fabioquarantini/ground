@@ -10,7 +10,6 @@ import AbstractComponent from './abstractComponent';
 
 const imagesLoaded = require('imagesloaded');
 
-
 export default class Scroll extends AbstractComponent {
 	/**
 	 * @param {Object} options - User options

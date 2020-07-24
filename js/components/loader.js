@@ -1,5 +1,6 @@
 import { gsap } from 'gsap';
 import isMobile from 'ismobilejs';
+import Dispatcher from '../utilities/dispatcher';
 import AbstractComponent from './abstractComponent';
 
 const imagesLoaded = require('imagesloaded');
@@ -64,6 +65,8 @@ export default class Loader extends AbstractComponent {
 				this.DOM.html.classList.add('is-loader-complete');
 				// Hide loader
 				this.DOM.element.classList.add('display-none');
+
+				Dispatcher.trigger('LOADER_COMPLETE');
 			},
 		});
 

@@ -23,11 +23,9 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
 		this.updateEvents = this.updateEvents.bind(this);
 
-		window.addEventListener('DOMContentLoaded', () => {
-			this.init();
-			this.initEvents(this.options.triggers);
-			super.initObserver(this.options.triggers, this.updateEvents);
-		});
+		gsap.set(this.element, { opacity: 0 });
+
+		window.addEventListener('DOMContentLoaded', () => {});
 
 		ScrollTrigger.addEventListener('scrollStart', () => {});
 
@@ -37,12 +35,24 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 
 		ScrollTrigger.addEventListener('refresh', () => {});
 
-		window.addEventListener('NAVIGATE_OUT', () => {});
+		window.addEventListener('NAVIGATE_OUT', () => {
+			// ScrollTrigger.update();
+			ScrollTrigger.refresh();
+		});
 
-		window.addEventListener('NAVIGATE_IN', () => {});
+		window.addEventListener('NAVIGATE_IN', () => {
+			gsap.set(this.element, { opacity: 0 });
+		});
 
 		window.addEventListener('NAVIGATE_END', () => {
-			ScrollTrigger.refresh();
+			gsap.set(this.element, { opacity: 1 });
+		});
+
+		window.addEventListener('LOADER_COMPLETE', () => {
+			gsap.set(this.element, { opacity: 1 });
+			this.init();
+			this.initEvents(this.options.triggers);
+			super.initObserver(this.options.triggers, this.updateEvents);
 		});
 	}
 
@@ -114,48 +124,49 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 	 */
 	updateEvents(target) {
 		this.init();
-
 		// console.log(target.dataset.scrollAnimation);
 
-		if (target.dataset.scrollAnimation === 'splittext-chars') {
-			this.splitTextAnimationChars(target);
-		}
-		if (target.dataset.scrollAnimation === 'splittext-lines') {
-			this.splitTextAnimationLines(target);
-		}
-		if (target.dataset.scrollAnimation === 'rotation') {
-			this.rotationAnimation(target);
-		}
-		if (target.dataset.scrollAnimation === 'fade-in-down') {
-			this.fadeInDownAnimation(target);
-		}
-		if (target.dataset.scrollAnimation === 'batch') {
-			this.batchAnimation(target);
-		}
-		if (target.dataset.scrollAnimation === 'scale') {
-			this.scaleAnimation(target);
-		}
-		if (target.dataset.scrollAnimation === 'draw-svg') {
-			this.drawSvgAnimation(target);
-		}
-		if (target.dataset.scrollAnimation === 'background-color') {
-			this.backgroundColorAnimation(target);
-		}
-		if (target.dataset.scrollAnimation === 'pin') {
-			this.pinAnimation(target);
-		}
-		if (target.dataset.scrollAnimation === 'pin-horizontal') {
-			this.pinHorizontalAnimation(target);
-		}
-		if (target.dataset.scrollAnimation === 'pin-vertical') {
-			this.pinVerticalAnimation(target);
-		}
-		if (target.dataset.scrollAnimation === 'comparison') {
-			this.comparisonAnimation(target);
-		}
-		if (target.dataset.scrollAnimation === 'parallax') {
-			this.parallaxAnimation(target);
-		}
+		setTimeout(() => {
+			if (target.dataset.scrollAnimation === 'splittext-chars') {
+				this.splitTextAnimationChars(target);
+			}
+			if (target.dataset.scrollAnimation === 'splittext-lines') {
+				this.splitTextAnimationLines(target);
+			}
+			if (target.dataset.scrollAnimation === 'rotation') {
+				this.rotationAnimation(target);
+			}
+			if (target.dataset.scrollAnimation === 'fade-in-down') {
+				this.fadeInDownAnimation(target);
+			}
+			if (target.dataset.scrollAnimation === 'batch') {
+				this.batchAnimation(target);
+			}
+			if (target.dataset.scrollAnimation === 'scale') {
+				this.scaleAnimation(target);
+			}
+			if (target.dataset.scrollAnimation === 'draw-svg') {
+				this.drawSvgAnimation(target);
+			}
+			if (target.dataset.scrollAnimation === 'background-color') {
+				this.backgroundColorAnimation(target);
+			}
+			if (target.dataset.scrollAnimation === 'pin') {
+				this.pinAnimation(target);
+			}
+			if (target.dataset.scrollAnimation === 'pin-horizontal') {
+				this.pinHorizontalAnimation(target);
+			}
+			if (target.dataset.scrollAnimation === 'pin-vertical') {
+				this.pinVerticalAnimation(target);
+			}
+			if (target.dataset.scrollAnimation === 'comparison') {
+				this.comparisonAnimation(target);
+			}
+			if (target.dataset.scrollAnimation === 'parallax') {
+				this.parallaxAnimation(target);
+			}
+		}, 1000);
 	}
 
 	/**
@@ -166,22 +177,23 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 			type: 'chars, words',
 		});
 		const target = splitText.chars;
+		const targetScrub = parseInt(item.dataset.scrollScrub, 10);
 
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: item,
-				scrub: 1,
 				start: 'top 90%',
 				end: 'bottom 60%',
-				toggleActions: 'play reset play reset',
+				scrub: targetScrub || false,
+				toggleActions: 'play none play reset',
 			},
 		});
 
 		tl.from(target, {
 			scale: 2,
 			opacity: 0,
-			stagger: 0.01,
-			duration: 0.01,
+			stagger: 0.1,
+			duration: 0.1,
 		});
 	}
 
@@ -193,14 +205,15 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 			type: 'lines',
 		});
 		const target = splitText.lines;
+		const targetScrub = parseInt(item.dataset.scrollScrub, 10);
 
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: item,
-				scrub: 1,
 				start: 'top 90%',
 				end: 'bottom 60%',
-				toggleActions: 'play reset play reset',
+				scrub: targetScrub || false,
+				toggleActions: 'play none play reset',
 			},
 		});
 
@@ -216,14 +229,14 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 	 * rotation Animation
 	*/
 	rotationAnimation(item) {
+		const targetScrub = parseInt(item.dataset.scrollScrub, 10);
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: item,
-				start: 'top 100%',
-				end: 'bottom 70%',
-				toggleActions: 'play reset play reset',
-				scrub: 2,
-
+				start: 'top 90%',
+				end: 'bottom 80%',
+				scrub: targetScrub || false,
+				toggleActions: 'play none play reverse',
 			},
 		});
 
@@ -237,12 +250,15 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 	 * fadeInDown Animation
 	*/
 	fadeInDownAnimation(item) {
+		const targetScrub = parseInt(item.dataset.scrollScrub, 10);
+
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: item,
 				start: 'top 90%',
 				end: 'bottom 60%',
-				toggleActions: 'play none none reset',
+				scrub: targetScrub || false,
+				toggleActions: 'play none play reverse',
 			},
 		});
 
@@ -266,11 +282,11 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 			onEnter: (batch) => gsap.to(batch, {
 				opacity: 1, y: 0, stagger: { each: 0.1, grid: [1, 3] }, overwrite: true,
 			}),
-			onLeave: (batch) => gsap.set(batch, { opacity: 0, y: -100, overwrite: true }),
-			onEnterBack: (batch) => gsap.to(batch, {
-				opacity: 1, y: 0, stagger: 0.1, overwrite: true,
-			}),
-			onLeaveBack: (batch) => gsap.set(batch, { opacity: 0, y: 100, overwrite: true }),
+			// onLeave: (batch) => gsap.set(batch, { opacity: 0, y: -100, overwrite: true }),
+			// onEnterBack: (batch) => gsap.to(batch, {
+			// 	opacity: 1, y: 0, stagger: 0.1, overwrite: true,
+			// }),
+			// onLeaveBack: (batch) => gsap.set(batch, { opacity: 0, y: 100, overwrite: true }),
 			// you can also define things like start, end, etc.
 
 		});
@@ -281,18 +297,20 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 	 * scale Animation
 	*/
 	scaleAnimation(item) {
+		const targetScrub = parseInt(item.dataset.scrollScrub, 10);
+
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: item,
 				start: 'top 100%',
 				end: 'bottom 0%',
-				toggleActions: 'play none none reset',
-				scrub: 2,
+				scrub: targetScrub || false,
+				toggleActions: 'play none play reverse',
 			},
 		});
 
 		tl.to(item, {
-			scale: 2,
+			scale: 1.5,
 		});
 	}
 
@@ -320,13 +338,15 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 	*/
 	drawSvgAnimation(item) {
 		const target = item.querySelectorAll('path');
+		const targetScrub = parseInt(item.dataset.scrollScrub, 10);
+
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: item,
-				scrub: 0.5,
+				scrub: targetScrub || false,
 				start: 'top 70%',
 				end: 'bottom 70%',
-				toggleActions: 'play reset play reset',
+				toggleActions: 'play none play reverse',
 			},
 		});
 
@@ -388,12 +408,14 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 		audioplay.setAttribute('src', 'http://wordpress-364601-1334787.cloudwaysapps.com/concept/music/audio.mp3');
 		const target = item.querySelector('[data-scroll-animation-target]');
 		const targetContainer = item.querySelector('.js-pin-horizontal-container');
+		const targetScrub = parseInt(item.dataset.scrollScrub, 10);
+
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: target,
 				start: 'center center',
 				end: () => `+=${targetContainer.offsetWidth}`,
-				scrub: 1,
+				scrub: targetScrub || false,
 				pin: true,
 				// invalidateOnRefresh: true,
 				// anticipatePin: 1,
@@ -421,13 +443,14 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 		const targetLeft = item.querySelector('.js-pin-vertical-container-left');
 		const targetCenter = item.querySelector('.js-pin-vertical-container-center');
 		const targetRight = item.querySelector('.js-pin-vertical-container-right');
+		const targetScrub = parseInt(item.dataset.scrollScrub, 10);
 
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: target,
 				start: 'center center',
 				end: () => `+=${targetLeft.offsetHeight}`,
-				scrub: 1,
+				scrub: targetScrub || false,
 				pin: true,
 				// anticipatePin: 1,
 			},
@@ -444,13 +467,15 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 		const target = item.querySelector('[data-scroll-animation-target]');
 		const targetMedia = item.querySelectorAll('.js-comparison-after-media');
 		const targetImage = item.querySelectorAll('.js-comparison-after-media .comparison__img');
+		const targetScrub = parseInt(item.dataset.scrollScrub, 10);
+
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: target,
 				start: 'center center',
 				// makes the height of the scrolling (while pinning) match the width, thus the speed remains constant (vertical/horizontal)
 				end: () => `+=${target.offsetWidth}`,
-				scrub: true,
+				scrub: targetScrub || false,
 				pin: true,
 				// anticipatePin: 1,
 			},
