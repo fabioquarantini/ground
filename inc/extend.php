@@ -241,6 +241,27 @@ function ground_image( $size = 'thumbnail', $post = null, $url = true, $echo = t
 }
 
 /**
+ * Get icons
+ *
+ * @param string  $name Name of the icon.
+ * @param string  $additional_class Optional. Html class. Default is empty.
+ * @param boolean $url Optional. Return url. Default is false.
+ * @param string  $extension Optional. Default echo HTML.
+ */
+function ground_icon( $name = '', $additional_class = '', $url = false, $extension = 'svg' ) {
+	if ( '' === $name ) {
+		return;
+	}
+	if ( $url ) {
+		return TEMPLATE_URL . '/img/icons/' . $name . '.' . $extension;
+	} else {
+		echo '<div class="icon icon--' . $name . ' ' . $additional_class . '">';
+		echo file_get_contents( TEMPLATE_PATH . '/img/icons/' . $name . '.' . $extension );
+		echo '</div>';
+	}
+}
+
+/**
  * Add attachment gallery attributes
  *
  * @param string $link Attachment page link.

@@ -59,9 +59,8 @@ form {
 
 	.form__icon {
 		color: $color-black;
-		@include ritmo-font-size(28px, 1);
 		@include media('>=md') {
-			@include ritmo-font-size(42px, 2);
+			height: 42px;
 		}
 	}
 }

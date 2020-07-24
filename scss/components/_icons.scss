@@ -1,7 +1,14 @@
-// Import file generated with gulp-icon (vendors/iconfont/)
-@import 'icons-generated';
+.icon {
+	display: inline-block;
+	vertical-align: top;
+	height: ritmo(1);
 
-[class^="icon"] {
-	@include ritmo-font-size(24px, 1);
-	color: $color-primary;
+	svg	{
+		vertical-align: top;
+		height: 100%;
+	}
+
+	path {
+		fill: currentColor;
+	}
 }

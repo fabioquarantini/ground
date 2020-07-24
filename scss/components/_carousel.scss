@@ -14,7 +14,7 @@
 			.carousel__title,
 			.carousel__button {
 				opacity: 1;
-				transform: none;			
+				transform: none;
 			}
 
 			.carousel__img {
@@ -23,11 +23,11 @@
 			}
 		}
 	}
-	
+
 	&__media {
 		height: 100%;
 	}
-    
+
     &__pagination {
 		position: relative;
 		height: 1px;
@@ -41,13 +41,13 @@
 			transition-duration: 2s !important;
 		}
     }
-    
+
     &__navigation-container {
 		position: relative;
 		background: $color-white;
 		display: inline-block;
 		z-index: 11;
-        width: 100%;        
+        width: 100%;
 
 		.carousel__navigation {
 			position: relative;
@@ -62,15 +62,15 @@
             color: $color-black;
 			background-image: none;
 			outline: 0;
-			
+
 			&--prev {
                 float: left;
-	            @include icon(arrow-left);
+	            //@include icon(arrow-left);
             }
-            
+
 			&--next {
                 float: right;
-	            @include icon(arrow-right);            
+	            //@include icon(arrow-right);
 			}
 		}
 	}

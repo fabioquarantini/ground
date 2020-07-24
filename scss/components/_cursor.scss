@@ -26,7 +26,7 @@
 		}
 
 		.cursor__icon {
-			@include icon(drag);
+			//@include icon(drag);
 		}
 	}
 
@@ -45,35 +45,35 @@
 	&.is-cursor-right {
 		.cursor__icon {
 			opacity: 1;
-			@include icon(arrow-right);
+			//@include icon(arrow-right);
 		}
 	}
 
 	&.is-cursor-left {
 		.cursor__icon {
 			opacity: 1;
-			@include icon(arrow-left);
+			//@include icon(arrow-left);
 		}
 	}
 
 	&.is-cursor-close {
 		.cursor__icon {
 			opacity: 1;
-			@include icon(close);
+			//@include icon(close);
 		}
 	}
 
 	&.is-cursor-zoom {
 		.cursor__icon {
 			opacity: 1;
-			@include icon(magnifying-glass-plus);
+			//@include icon(magnifying-glass-plus);
 		}
 	}
 
 	&.is-cursor-plus {
 		.cursor__icon {
 			opacity: 1;
-			@include icon(plus);
+			//@include icon(plus);
 		}
 	}
 
