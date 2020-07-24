@@ -3,10 +3,12 @@
  * Modern mobile touch slider with hardware accelerated transitions
  * @see http://idangero.us/swiper
  */
-import Swiper from 'swiper';
+//import Swiper from 'swiper/bundle';
+import { Swiper, Navigation, Pagination, Scrollbar, Autoplay, Lazy, EffectFade } from 'swiper';
 
 const Deepmerge = require('deepmerge');
 
+Swiper.use([Navigation, Pagination, Scrollbar, Autoplay, Lazy, EffectFade]);
 export default class Slider {
 	/**
 	 * @param {string} element - Selector

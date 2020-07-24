@@ -141,6 +141,9 @@ $type-styles: (
 
 @include g-classes();
 
+// Swiper
+$themeColor: $color-primary;
+
 // Paths
 $path-img: '../img/';
 $path-fonts: '../fonts/';

@@ -1,5 +1,5 @@
-<div class="slider slider--primary slider--full slider--cursor-navigation swiper-container js-slider-primary">
-	<div class="swiper-wrapper">
+<div class="slider slider--primary slider--full swiper-container js-slider-primary">
+	<div class="slider__wrapper swiper-wrapper">
 		<div class="slider__item swiper-slide">
 			<img class="slider__img cover" src="<?php echo TEMPLATE_URL; ?>/img/sample-16.jpg">
 			<div class="slider__body centered text-center">
