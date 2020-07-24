@@ -16,6 +16,7 @@
 			</a>
 		</div>
 		<div class="minicart__content">
+			<div class="minicart__close js-toggle" data-toggle-target="html" data-toggle-class-name="is-minicart-open"><?php _e('Close', 'ground'); ?> <i class="icon-close"></i></div>
 			<div class="widget_shopping_cart_content"><?php woocommerce_mini_cart();?></div>
 		</div>
 	</div>
