@@ -4,11 +4,11 @@
  * @see http://idangero.us/swiper
  */
 //import Swiper from 'swiper/bundle';
-import { Swiper, Navigation, Pagination, Scrollbar, Autoplay, Lazy, EffectFade } from 'swiper';
+import { Swiper, Navigation, Pagination, Autoplay, Lazy, EffectFade } from 'swiper';
 
 const Deepmerge = require('deepmerge');
 
-Swiper.use([Navigation, Pagination, Scrollbar, Autoplay, Lazy, EffectFade]);
+Swiper.use([Navigation, Pagination, Autoplay, Lazy, EffectFade]);
 export default class Slider {
 	/**
 	 * @param {string} element - Selector
@@ -20,7 +20,7 @@ export default class Slider {
 			init: true,
 			initialSlide: 0,
 			direction: 'horizontal',
-			speed: 300,
+			speed: 1600,
 			loop: true,
 			effect: 'slide',
 			autoHeight: false,
