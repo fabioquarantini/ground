@@ -8,7 +8,7 @@
 	<?php get_template_part('partials/navigation', 'primary'); ?>
 
 	<button class="header__search js-toggle js-magnet js-cursor-hover" data-toggle-target=".search" data-toggle-class-name="is-search-open">
-		<?php ground_icon( 'magnifying-glass'); ?>
+		<?php ground_icon( 'search'); ?>
 	</button> <!-- End .navicon -->
 
 	<?php get_template_part('partials/woocommerce/minicart'); ?>

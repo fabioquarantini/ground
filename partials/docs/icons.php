@@ -10,7 +10,7 @@
 <div class="container margin-bottom-3">
 	<div class="row">
 		<div class="gr-12">
-			<pre>How to use: &#x3C;?php ground_icon(&#x27;magnifying-glass&#x27;); ?&#x3E;</pre>
+			<pre>How to use: &#x3C;?php ground_icon(&#x27;shopping-cart&#x27;); ?&#x3E;</pre>
 		</div>
 		<div class="gr-12 margin-top-2 docs__icons">
 			<?php

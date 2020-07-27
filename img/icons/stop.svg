@@ -1,5 +1,0 @@
-<svg viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <g class="stop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <path d="M0.75,24 L23.25,24 C23.66475,24 24,23.66475 24,23.25 L24,0.75 C24,0.336 23.66475,0 23.25,0 L0.75,0 C0.33525,0 0,0.336 0,0.75 L0,23.25 C2.66453526e-15,23.664 0.33525,24 0.75,24 Z M1.5,1.5 L22.5,1.5 L22.5,22.5 L1.5,22.5 L1.5,1.5 Z" fill="#231F20" fill-rule="nonzero"></path>
-    </g>
-</svg>
