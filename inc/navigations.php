@@ -112,7 +112,7 @@ add_filter( 'nav_menu_submenu_css_class', 'ground_nav_menu_submenu_css_class', 1
  */
 function ground_subpages_css_class( $output, $parsed_args, $pages ) {
 
-	if ( $parsed_args['bem_modifier'] ) {
+	if ( isset( $parsed_args['bem_modifier'] ) ) {
 		$search_classes  = array( 'children', 'page-item-' );
 		$replace_classes = array( 'navigation__sub-menu navigation__sub-menu--' . $parsed_args['bem_modifier'], 'navigation__item--' );
 		$output          = str_replace( $search_classes, $replace_classes, $output );
@@ -197,7 +197,7 @@ add_filter( 'page_menu_link_attributes', 'ground_subpages_menu_link_attributes',
  */
 function ground_subtaxonomies_menu_css_class( $output, $args ) {
 
-	if ( $args['bem_modifier'] ) {
+	if ( isset( $args['bem_modifier'] ) ) {
 		$search_classes  = array( 'children', 'cat-item-', 'cat-item', 'a href', 'a aria-current="page" href', 'current-cat-parent', 'current-cat-ancestor', 'current-cat' );
 		$replace_classes = array( 'navigation__sub-menu navigation__sub-menu--' . $args['bem_modifier'], 'navigation__item--', 'navigation__item navigation__item--' . $args['bem_modifier'], 'a class="navigation__link navigation__link--' . $args['bem_modifier'] . '" href', 'a class="navigation__link is-active" aria-current="page" href', 'is-parent', 'is-ancestor', 'is-active' );
 		$output          = str_replace( $search_classes, $replace_classes, $output );
