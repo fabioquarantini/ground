@@ -9,7 +9,7 @@
 			</div>
 		</div>
 		<div class="slider__item swiper-slide">
-			<img class="slider__img cover swiper-lazy" data-src="<?php echo TEMPLATE_URL; ?>/img/sample-11.jpg">
+			<img class="slider__img cover swiper-lazy" data-src="<?php echo TEMPLATE_URL; ?>/img/sample-4.jpg">
 			<div class="swiper-lazy-preloader"></div>
 			<div class="slider__body centered text-center">
 				<h3 class="slider__title">Title ipsum 3</h3>
@@ -18,7 +18,7 @@
 			</div>
 		</div>
 		<div class="slider__item swiper-slide">
-			<img class="slider__img cover swiper-lazy" data-src="<?php echo TEMPLATE_URL; ?>/img/sample-12.jpg">
+			<img class="slider__img cover swiper-lazy" data-src="<?php echo TEMPLATE_URL; ?>/img/sample-3.jpg">
 			<div class="swiper-lazy-preloader"></div>
 			<div class="slider__body centered text-center">
 				<h3 class="slider__title">Title ipsum 4</h3>

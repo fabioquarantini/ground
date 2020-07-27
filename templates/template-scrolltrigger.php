@@ -85,12 +85,12 @@ get_template_part( 'partials/header' ); ?>
 			</div>
 			<div class="gr-2@md gr-3">
                 <div class="example" data-scroll data-scroll-animation="rotation" data-scroll-scrub="1">SCRUB 1</div>
-			</div>		
-			<div class="gr-2@md gr-3">
-                <div class="example" data-scroll data-scroll-animation="rotation" data-scroll-scrub="2">SCRUB 2</div>	 
 			</div>
 			<div class="gr-2@md gr-3">
-                <div class="example" data-scroll data-scroll-animation="rotation" data-scroll-scrub="3">SCRUB 3</div>	 
+                <div class="example" data-scroll data-scroll-animation="rotation" data-scroll-scrub="2">SCRUB 2</div>
+			</div>
+			<div class="gr-2@md gr-3">
+                <div class="example" data-scroll data-scroll-animation="rotation" data-scroll-scrub="3">SCRUB 3</div>
 			</div>
 		</div>
 	</div>
@@ -236,10 +236,10 @@ get_template_part( 'partials/header' ); ?>
 				<div class="gr-12">
 					<section class="position-relative ratio-16-9">
 						<div class="comparison__media comparison__before-media js-comparison-before-media">
-							<img class="comparison__img" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/comparison/sample-before.jpg" alt="before">
+							<img class="comparison__img" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-before.jpg" alt="before">
 						</div>
 						<div class="comparison__media comparison__after-media js-comparison-after-media">
-							<img class="comparison__img" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/comparison/sample-after.jpg" alt="after">
+							<img class="comparison__img" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-after.jpg" alt="after">
 						</div>
 					</section>
 				</div>
@@ -250,7 +250,7 @@ get_template_part( 'partials/header' ); ?>
 	<div class="container margin-top-5 margin-bottom-5" data-scroll data-scroll-animation="background-color" data-background-color="#000000">
 		<div class="row padding-top-5 padding-bottom-5">
 			<div class="gr-12">
-				<h2 data-scroll data-scroll-animation="splittext-chars" data-scroll-scrub="2">CHANGE BG COLOR #000000</h2> 
+				<h2 data-scroll data-scroll-animation="splittext-chars" data-scroll-scrub="2">CHANGE BG COLOR #000000</h2>
 			</div>
 		</div>
 	</div>
@@ -268,9 +268,9 @@ get_template_part( 'partials/header' ); ?>
 	</div>
 
 	<div class="container" data-scroll data-scroll-animation="background-color" data-background-color="#ffffff"></div>
-	
+
 	<div class="container margin-top-5 margin-bottom-5">
-		<div class="row margin-top-5 margin-bottom-5">	
+		<div class="row margin-top-5 margin-bottom-5">
 			<div class="gr-2@md gr-4">
 				<div class="example" data-scroll data-scroll-animation="parallax" data-scroll-speed="1">Parallax Y</div>
 			</div>
@@ -279,7 +279,7 @@ get_template_part( 'partials/header' ); ?>
 			</div>
 			<div class="gr-2@md gr-4">
 				<div class="example" data-scroll data-scroll-animation="parallax" data-scroll-speed="0" data-scroll-speed-horizontal="-2">Parallax X</div>
-			</div>	
+			</div>
 		</div>
 	</div>
 
@@ -299,7 +299,7 @@ get_template_part( 'partials/header' ); ?>
 			<div class="gr-6@md gr-centered@md gr-12">
 				<div class="background-black">
 					<img class="js-pin__element" src="<?php echo esc_url( TEMPLATE_URL ); ?>/img/sample-2.jpg"/>
-				</div>			
+				</div>
 			</div>
 		</div>
 	</div>
@@ -309,7 +309,7 @@ get_template_part( 'partials/header' ); ?>
 			<div class="gr-12">
 				<h2 data-scroll data-scroll-animation="splittext-chars" data-scroll-scrub="2">
 					CHANGE BG COLOR <span class="color-secondary">#000000</span>
-				</h2> 
+				</h2>
 			</div>
 		</div>
 	</div>
@@ -444,7 +444,7 @@ get_template_part( 'partials/header' ); ?>
 			<div class="gr-12">
 				<h2 data-scroll data-scroll-animation="splittext-chars" data-scroll-scrub="2">
 					CHANGE BG COLOR <span class="color-secondary">#ffffff</span>
-				</h2> 
+				</h2>
 			</div>
 		</div>
 	</div>
@@ -454,7 +454,7 @@ get_template_part( 'partials/header' ); ?>
 			<div class="gr-12">
 				<h2 data-scroll data-scroll-animation="splittext-lines" data-scroll-scrub="2">
 					Lorem ipsum dolor sit amet, <span class="color-secondary">consectetur</span> adipiscing elit.
-				</h2> 
+				</h2>
 			</div>
 		</div>
 	</div>
@@ -462,9 +462,9 @@ get_template_part( 'partials/header' ); ?>
 	<div class="container margin-top-5 margin-bottom-5">
 		<div class="row margin-top-5">
 			<div class="gr-6 gr-centered margin-top-5">
-				<div class="example" data-scroll data-scroll-animation="fade-in-down">Animation FadeInDown</div> 
-				<div class="example" data-scroll data-scroll-animation="fade-in-down">Animation FadeInDown</div> 
-				<div class="example" data-scroll data-scroll-animation="fade-in-down">Animation FadeInDown</div> 
+				<div class="example" data-scroll data-scroll-animation="fade-in-down">Animation FadeInDown</div>
+				<div class="example" data-scroll data-scroll-animation="fade-in-down">Animation FadeInDown</div>
+				<div class="example" data-scroll data-scroll-animation="fade-in-down">Animation FadeInDown</div>
 			</div>
 		</div>
 	</div>
@@ -472,12 +472,12 @@ get_template_part( 'partials/header' ); ?>
 	<div class="container margin-top-5 margin-bottom-5">
 		<div class="row margin-top-5">
 			<div class="gr-6 gr-centered margin-top-5">
-				<div class="example" data-scroll data-scroll-animation="scale">Animation Scale</div> 
+				<div class="example" data-scroll data-scroll-animation="scale">Animation Scale</div>
 			</div>
 		</div>
 	</div>
 
-    
+
 
 <?php
 get_template_part( 'partials/footer' );
