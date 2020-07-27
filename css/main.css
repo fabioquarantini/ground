@@ -5119,7 +5119,6 @@ body {
 .card, .woocommerce-loop-product {
   position: relative;
   overflow: hidden;
-  border: 1px solid #cbcbcb;
   margin-bottom: 1.5rem; }
 
 .card--rounded {
