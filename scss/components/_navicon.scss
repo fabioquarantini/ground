@@ -1,10 +1,3 @@
-$navicon-width: 28px;
-$navicon-height: 1px;
-$navicon-gutter: 7px;
-$navicon-color: $color-black;
-$navicon-border-radius: 0;
-$navicon-transition-duration: .3s;
-
 .navicon {
 	position: absolute;
 	top: ritmo(0.70);
@@ -20,7 +13,6 @@ $navicon-transition-duration: .3s;
 	@include media(">=md") {
 		display: none;
 	}
-
 }
 
 .navicon__icon {
@@ -38,7 +30,7 @@ $navicon-transition-duration: .3s;
 		height: $navicon-height;
 		background-color: $navicon-color;
 		transition-property: background-color, transform;
-		transition-duration: $navicon-transition-duration;
+		transition-duration: .3s;
 		@if $navicon-border-radius != 0 {
 			border-radius: $navicon-border-radius;
 		}
