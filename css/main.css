@@ -1681,7 +1681,11 @@ html.is-loader-complete:not(.has-scroll-smooth) {
 html.is-loader-complete.is-minicart-open {
   overflow-y: hidden; }
 
-.is-loading body {
+html.is-loader-complete.is-search-open {
+  overflow: hidden; }
+
+.is-loading body,
+.is-search-open body {
   overflow-y: hidden; }
 
 .has-scroll-smooth body {
@@ -7489,30 +7493,38 @@ a.pswp__share--download:hover {
       color: #cbcbcb; }
 
 .search {
-  display: none;
-  visibility: hidden; }
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  visibility: hidden;
+  z-index: 11;
+  -webkit-transition: visibility 0s 0.6s;
+  transition: visibility 0s 0.6s; }
   .search.is-search-open {
-    display: block;
     visibility: visible;
-    z-index: 10;
+    -webkit-transition: visibility 0s 0s;
+    transition: visibility 0s 0s;
     overflow-y: auto; }
 
 .search__content {
   background-color: #ffffff;
   padding: 5% 1.5rem;
-  position: relative;
-  -webkit-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
-  -webkit-transform: translateY(-100%);
-          transform: translateY(-100%); }
+  position: relative; }
   @media (min-width: 992px) {
     .search__content {
       padding: 5% 15%;
-      height: auto; } }
+      width: 100%;
+      -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.86, 0, 0.07, 1);
+      transition: -webkit-transform 0.3s cubic-bezier(0.86, 0, 0.07, 1);
+      transition: transform 0.3s cubic-bezier(0.86, 0, 0.07, 1);
+      transition: transform 0.3s cubic-bezier(0.86, 0, 0.07, 1), -webkit-transform 0.3s cubic-bezier(0.86, 0, 0.07, 1);
+      -webkit-transform: translateY(-100%);
+              transform: translateY(-100%); } }
   .is-search-open .search__content {
-    opacity: 1;
-    -webkit-transform: translate(0, 0);
-            transform: translate(0, 0); }
+    -webkit-transform: none;
+            transform: none; }
 
 .search__bg {
   position: absolute;
@@ -7520,7 +7532,7 @@ a.pswp__share--download:hover {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.8);
   -webkit-transition: opacity 0.5s ease;
   transition: opacity 0.5s ease;
   opacity: 0; }
@@ -10722,7 +10734,7 @@ th {
     height: 100%; }
   .full-viewport-height {
     height: 100vh; }
-  .full-screen, .loader, .loader__bg, .search.is-search-open {
+  .full-screen, .loader, .loader__bg {
     position: fixed;
     -webkit-backface-visibility: hidden;
             backface-visibility: hidden;

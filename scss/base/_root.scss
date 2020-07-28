@@ -35,8 +35,13 @@ html {
 		&:not(.has-scroll-smooth) {
 			overflow: auto;
 		}
+
 		&.is-minicart-open {
 			overflow-y: hidden;
+		}
+
+		&.is-search-open {
+			overflow: hidden;
 		}
 
 	}
@@ -45,7 +50,8 @@ html {
 
 body {
 
-	.is-loading & {
+	.is-loading &,
+	.is-search-open & {
 		overflow-y: hidden;
 	}
 
