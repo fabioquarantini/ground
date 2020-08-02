@@ -82,6 +82,7 @@ module.exports = {
 						loader: 'postcss-loader',
 						options: {
 							plugins: () => [
+								require('postcss-100vh-fix'),
 								require('autoprefixer')
 							],
 							sourceMap: true
