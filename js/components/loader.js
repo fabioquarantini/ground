@@ -1,12 +1,21 @@
+/**
+ * Loader module
+ * Initial site loader
+ */
+
 import { gsap } from 'gsap';
 import isMobile from 'ismobilejs';
 import Dispatcher from '../utilities/dispatcher';
 
-
 const imagesLoaded = require('imagesloaded');
+const Deepmerge = require('deepmerge');
 
 export default class Loader {
-	constructor() {
+	constructor(options) {
+		this.defaults = {
+			animation: true
+		};
+
 		this.DOM = {
 			html: document.documentElement,
 			body: document.body,
@@ -14,16 +23,12 @@ export default class Loader {
 			background: document.getElementById('js-loader-bg'),
 			content: document.getElementById('js-loader-content'),
 		};
-		// If false disable loader animation: Remove HTML partials/loader.php
-		this.animation = true;
+
+		this.options = options ? Deepmerge(this.defaults, options) : this.defaults;
 
 		imagesLoaded(this.DOM.body, { background: true }, () => {
 			this.init();
 		});
-	}
-
-	imagesLoaded() {
-		console.log('inned image loaded');
 	}
 
 	init() {
@@ -45,10 +50,10 @@ export default class Loader {
 			this.DOM.html.classList.add('is-mobile');
 		}
 
-		if (this.animation) {
+		if (this.options.animation) {
 			this.reveal();
 		} else {
-			this.DOM.html.classList.add('is-loader-complete');
+			this.onLoaderComplete();
 		}
 	}
 
@@ -58,7 +63,6 @@ export default class Loader {
 			delay: 0.2,
 		});
 
-		// Animations
 		this.tlLoader.to(this.DOM.background, {
 			duration: 1.5,
 			yPercent: 100,
@@ -66,12 +70,7 @@ export default class Loader {
 			rotation: 0.01,
 			ease: 'power3.inOut',
 			onComplete: () => {
-				// Update html class
-				this.DOM.html.classList.add('is-loader-complete');
-				// Hide loader
-				this.DOM.element.classList.add('display-none');
-
-				Dispatcher.trigger('LOADER_COMPLETE');
+				this.onLoaderComplete();
 			},
 		});
 
@@ -81,5 +80,13 @@ export default class Loader {
 			y: 65,
 			opacity: 0,
 		});
+	}
+
+	onLoaderComplete() {
+		this.DOM.html.classList.add('is-loader-complete');
+		if ( this.DOM.scrollProgress !== null ) {
+			this.DOM.element.classList.add('display-none');
+		}
+		Dispatcher.trigger('LOADER_COMPLETE');
 	}
 }
