@@ -3,22 +3,25 @@
  * Lightbox library for presenting various types of media
  */
 
+import Utilities from '../utilities/utilities';
 import * as PhotoSwipe from 'photoswipe';
 import * as PhotoSwipeUIDefault from 'photoswipe/dist/photoswipe-ui-default';
-import AbstractComponent from './abstractComponent';
 
 const Deepmerge = require('deepmerge');
 
-export default class Modal extends AbstractComponent {
+export default class Modal {
 	/**
 	 * @param {string} element - Selector
 	 * @param {Object} options - User options
 	 */
 	constructor(element, options) {
-		super(element, options);
 		this.element = element || '[data-modal]';
 		this.defaults = {
 			triggers: this.element, // '[href$=".jpg"], [href$=".png"], [href$=".gif"], [href$=".jpeg"], [href$=".webp"]'
+		};
+		this.DOM = {
+			html: document.documentElement,
+			body: document.body,
 		};
 		this.options = options ? Deepmerge(this.defaults, options) : this.defaults;
 		this.updateEvents = this.updateEvents.bind(this);
@@ -28,16 +31,13 @@ export default class Modal extends AbstractComponent {
 		window.addEventListener('DOMContentLoaded', () => {
 			this.init();
 			this.initEvents(this.options.triggers);
-			super.initObserver(this.options.triggers, this.updateEvents);
+			Utilities.initObserver(this.options.triggers, this.updateEvents);
 		});
 	}
 
 	init() {
-		this.DOM = {
-			element: document.querySelectorAll(this.element),
-			pswpElement: document.querySelectorAll('.pswp')[0],
-			html: document.documentElement,
-		};
+		this.DOM.element = document.querySelectorAll(this.element);
+		this.DOM.pswpElement = document.querySelectorAll('.pswp')[0];
 	}
 
 	/**

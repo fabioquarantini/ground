@@ -1,14 +1,15 @@
-import AbstractComponent from './abstractComponent';
+
 
 const imagesLoaded = require('imagesloaded');
 
-export default class Billing extends AbstractComponent {
+export default class Billing {
 	constructor() {
-		super();
-		this.DOM = { element: document.querySelector('.woocommerce-cart') };
-		this.DOM.html = document.documentElement;
-		this.DOM.body = document.body;
-		this.DOM.billingMethod = document.querySelector('#billing_method');
+		this.DOM = {
+			html: document.documentElement,
+			body: document.body,
+			element: document.querySelector('.woocommerce-cart'),
+			billingMethod: document.querySelector('#billing_method'),
+		};
 		imagesLoaded(this.DOM.body, { background: true }, () => {
 			this.init();
 		});

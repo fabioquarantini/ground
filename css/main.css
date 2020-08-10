@@ -1978,6 +1978,10 @@ dd {
 .has-scroll-smooth [data-scroll-section] {
   min-height: 100vh; }
 
+@supports (-webkit-touch-callout: none){
+  .has-scroll-smooth [data-scroll-section]{
+    min-height: -webkit-fill-available; } }
+
 /**
 	 * @name 	default State
 	 * Here's the settings for the **default** state.
@@ -7662,7 +7666,10 @@ a.pswp__share--download:hover {
   height: calc(100vh - 4.5rem); }
   @media (min-width: 768px) {
     .slider--full {
-      height: 100vh; } }
+      height: 100vh; }
+    @supports (-webkit-touch-callout: none){
+    .slider--full{
+      height: -webkit-fill-available; } } }
 
 .slider--gallery .slider__navigation {
   position: absolute;
@@ -8134,6 +8141,10 @@ th {
   transition: transform 0.3s, opacity 0.3s, -webkit-transform 0.3s;
   opacity: 0;
   z-index: 99999; }
+
+@supports (-webkit-touch-callout: none){
+  .scrollbar{
+    height: -webkit-fill-available; } }
   .scrollbar:hover {
     -webkit-transform: scaleX(1.45);
             transform: scaleX(1.45); }
@@ -8161,6 +8172,10 @@ th {
   position: relative;
   overflow: hidden;
   height: 100vh; }
+
+@supports (-webkit-touch-callout: none){
+  .masked-full-height{
+    height: -webkit-fill-available; } }
   .masked-full-height__target {
     position: absolute;
     top: -100vh;
@@ -8177,6 +8192,9 @@ th {
     background-position: center center;
     opacity: 0.75;
     mix-blend-mode: multiply; }
+  @supports (-webkit-touch-callout: none){
+  .masked-full-height__bg{
+    height: -webkit-fill-available; } }
     html:not(.has-scroll-smooth) .masked-full-height__bg {
       top: 0; }
 
@@ -8369,6 +8387,9 @@ th {
     position: relative;
     overflow: hidden;
     height: 100vh; }
+  @supports (-webkit-touch-callout: none){
+  .minicart__content .widget_shopping_cart_content{
+    height: -webkit-fill-available; } }
   .minicart__content .woocommerce-mini-cart {
     margin: 0; }
     .minicart__content .woocommerce-mini-cart__title {
@@ -10734,6 +10755,9 @@ th {
     height: 100%; }
   .full-viewport-height {
     height: 100vh; }
+  @supports (-webkit-touch-callout: none){
+    .full-viewport-height{
+      height: -webkit-fill-available; } }
   .full-screen, .loader, .loader__bg {
     position: fixed;
     -webkit-backface-visibility: hidden;
@@ -10814,6 +10838,9 @@ th {
     height: 100%; }
   .full-viewport-height\@xs {
     height: 100vh; }
+  @supports (-webkit-touch-callout: none){
+    .full-viewport-height\@xs{
+      height: -webkit-fill-available; } }
   .full-screen\@xs {
     position: fixed;
     -webkit-backface-visibility: hidden;
@@ -10894,6 +10921,9 @@ th {
     height: 100%; }
   .full-viewport-height\@sm {
     height: 100vh; }
+  @supports (-webkit-touch-callout: none){
+    .full-viewport-height\@sm{
+      height: -webkit-fill-available; } }
   .full-screen\@sm {
     position: fixed;
     -webkit-backface-visibility: hidden;
@@ -10974,6 +11004,9 @@ th {
     height: 100%; }
   .full-viewport-height\@md {
     height: 100vh; }
+  @supports (-webkit-touch-callout: none){
+    .full-viewport-height\@md{
+      height: -webkit-fill-available; } }
   .full-screen\@md {
     position: fixed;
     -webkit-backface-visibility: hidden;
@@ -11054,6 +11087,9 @@ th {
     height: 100%; }
   .full-viewport-height\@lg {
     height: 100vh; }
+  @supports (-webkit-touch-callout: none){
+    .full-viewport-height\@lg{
+      height: -webkit-fill-available; } }
   .full-screen\@lg {
     position: fixed;
     -webkit-backface-visibility: hidden;
@@ -11134,6 +11170,9 @@ th {
     height: 100%; }
   .full-viewport-height\@xl {
     height: 100vh; }
+  @supports (-webkit-touch-callout: none){
+    .full-viewport-height\@xl{
+      height: -webkit-fill-available; } }
   .full-screen\@xl {
     position: fixed;
     -webkit-backface-visibility: hidden;

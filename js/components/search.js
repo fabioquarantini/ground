@@ -4,16 +4,19 @@
 
 import Utilities from '../utilities/utilities';
 import { DEBUG_MODE } from '../utilities/environment';
-
 export default class Search {
 	/**
 	 * @param {string} element - Selector
 	 */
 	constructor(element) {
 		this.element = element || 'js-ajax-search';
-		this.DOM = { element: document.getElementById(this.element) };
-		this.DOM.searchResult = document.getElementById('js-ajax-search-result');
-		this.DOM.searchInput = document.getElementById('js-ajax-search-input');
+		this.DOM = {
+			html: document.documentElement,
+			body: document.body,
+			element: document.getElementById(this.element),
+			searchResult: document.getElementById('js-ajax-search-result'),
+			searchInput: document.getElementById('js-ajax-search-input'),
+		};
 		this.adminAjaxUrl = `${Utilities.getSiteUrl()}/wp-admin/admin-ajax.php`;
 		this.searchLoadingClass = 'is-search-loading';
 
@@ -53,7 +56,7 @@ export default class Search {
 		).catch((error) => {
 			if (DEBUG_MODE) {
 				// eslint-disable-next-line no-console
-				console.error('Error:', error);
+				console.error('🔥Error:', error);
 			}
 		});
 	}

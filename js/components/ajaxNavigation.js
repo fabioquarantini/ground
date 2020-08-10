@@ -4,7 +4,6 @@
  * @see https://highway.js.org
  */
 import Highway from '@dogstudio/highway';
-import AbstractComponent from './abstractComponent';
 import Reveal from '../transitions/reveal';
 import Fade from '../transitions/fade';
 import Dispatcher from '../utilities/dispatcher';
@@ -13,9 +12,14 @@ import ContactForm from './contactForm';
 // eslint-disable-next-line no-unused-vars
 const contactForm = new ContactForm();
 
-export default class AjaxNavigation extends AbstractComponent {
+export default class AjaxNavigation {
 	constructor() {
-		super();
+
+		this.DOM = {
+			html: document.documentElement,
+			body: document.body,
+		};
+
 		window.addEventListener('DOMContentLoaded', () => {
 			this.init();
 		});
@@ -43,7 +47,7 @@ export default class AjaxNavigation extends AbstractComponent {
 			this.navigateEnd(data);
 		});
 
-		document.documentElement.classList.add('is-ajax');
+		this.DOM.html.classList.add('is-ajax');
 	}
 
 	/**
@@ -52,7 +56,7 @@ export default class AjaxNavigation extends AbstractComponent {
 	navigateIn(data) {
 		const links = document.querySelectorAll('.navigation__item');
 		// Clean class
-		document.body.className = data.to.page.body.className;
+		this.DOM.body.className = data.to.page.body.className;
 		Dispatcher.trigger('NAVIGATE_IN', data);
 
 		for (let i = 0; i < links.length; i++) {

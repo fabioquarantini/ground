@@ -1,15 +1,13 @@
-
+import Utilities from '../utilities/utilities';
 import * as deepmerge from 'deepmerge';
 import { gsap } from 'gsap';
-import AbstractComponent from './abstractComponent';
 
-export default class Example extends AbstractComponent {
+export default class Example {
 	/**
 	 * @param {string} element - Selector
 	 * @param {Object} options - User options
 	 */
 	constructor(element, options) {
-		super(options);
 		this.element = element || '.js-example';
 		this.defaults = {
 			triggers: this.element,
@@ -20,7 +18,7 @@ export default class Example extends AbstractComponent {
 		window.addEventListener('DOMContentLoaded', () => {
 			this.init();
 			this.initEvents(this.options.triggers);
-			super.initObserver(this.options.triggers, this.updateEvents);
+			Utilities.initObserver(this.options.triggers, this.updateEvents);
 		});
 	}
 

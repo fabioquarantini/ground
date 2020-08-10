@@ -1,23 +1,26 @@
+import Utilities from '../utilities/utilities';
 import * as deepmerge from 'deepmerge';
-import AbstractComponent from './abstractComponent';
 
-export default class ContactForm extends AbstractComponent {
+export default class ContactForm {
 	/**
 	 * @param {string} element - Selector
 	 * @param {Object} options - User options
 	 */
 	constructor(element, options) {
-		super(options);
 		this.element = element || '.wpcf7-form';
 		this.defaults = {
 			triggers: this.element,
+		};
+		this.DOM = {
+			html: document.documentElement,
+			body: document.body,
 		};
 		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
 		this.updateEvents = this.updateEvents.bind(this);
 
 		window.addEventListener('DOMContentLoaded', () => {
 			this.init();
-			super.initObserver(this.options.triggers, this.updateEvents);
+			Utilities.initObserver(this.options.triggers, this.updateEvents);
 		});
 	}
 
@@ -25,9 +28,7 @@ export default class ContactForm extends AbstractComponent {
 	 * Init
 	 */
 	init() {
-		this.DOM = {
-			element: document.querySelectorAll(this.element),
-		};
+		this.DOM.element = document.querySelectorAll(this.element);
 	}
 
 	/**

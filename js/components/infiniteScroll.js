@@ -5,19 +5,18 @@
  * TODO: Fix Smoothscroll
  * TODO: Fix highway on new link
  */
+import Utilities from '../utilities/utilities';
 import { DEBUG_MODE } from '../utilities/environment';
-import AbstractComponent from './abstractComponent';
 
 const Deepmerge = require('deepmerge');
 const InfScroll = require('infinite-scroll');
 
-export default class InfiniteScroll extends AbstractComponent {
+export default class InfiniteScroll {
 	/**
 	 * @param {string} element - Container element
 	 * @param {Object} options - User options
 	 */
 	constructor(element, options) {
-		super(element, options);
 		this.element = element || '.js-infinite-container';
 		this.defaults = {
 			path: '.js-infinite-next-page',
@@ -28,12 +27,16 @@ export default class InfiniteScroll extends AbstractComponent {
 			status: '.js-infinite-status',
 			debug: !!DEBUG_MODE,
 		};
+		this.DOM = {
+			html: document.documentElement,
+			body: document.body,
+		};
 		this.options = options ? Deepmerge(this.defaults, options) : this.defaults;
 		this.updateEvents = this.updateEvents.bind(this);
 
 		window.addEventListener('DOMContentLoaded', () => {
 			this.init();
-			super.initObserver(this.element, this.updateEvents);
+			Utilities.initObserver(this.element, this.updateEvents);
 		});
 
 		// TODO: Destroy with observer
@@ -46,10 +49,8 @@ export default class InfiniteScroll extends AbstractComponent {
 	 * Initialize plugin
 	 */
 	init() {
-		this.DOM = {
-			element: document.querySelector(this.element),
-			path: document.querySelector(this.options.path),
-		};
+		this.DOM.element = document.querySelector(this.element);
+		this.DOM.path = document.querySelector(this.options.path);
 
 		if ((this.DOM.path === null && this.DOM.element === null)
 			|| (this.DOM.path !== null && this.DOM.element === null)

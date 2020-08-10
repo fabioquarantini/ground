@@ -1,24 +1,29 @@
 import { gsap } from 'gsap';
 import isMobile from 'ismobilejs';
 import Dispatcher from '../utilities/dispatcher';
-import AbstractComponent from './abstractComponent';
+
 
 const imagesLoaded = require('imagesloaded');
 
-export default class Loader extends AbstractComponent {
+export default class Loader {
 	constructor() {
-		super();
-		this.DOM = { element: document.getElementById('js-loader') };
-		this.DOM.html = document.documentElement;
-		this.DOM.body = document.body;
-		this.DOM.background = document.getElementById('js-loader-bg');
-		this.DOM.content = document.getElementById('js-loader-content');
+		this.DOM = {
+			html: document.documentElement,
+			body: document.body,
+			element: document.getElementById('js-loader'),
+			background: document.getElementById('js-loader-bg'),
+			content: document.getElementById('js-loader-content'),
+		};
 		// If false disable loader animation: Remove HTML partials/loader.php
 		this.animation = true;
 
 		imagesLoaded(this.DOM.body, { background: true }, () => {
 			this.init();
 		});
+	}
+
+	imagesLoaded() {
+		console.log('inned image loaded');
 	}
 
 	init() {

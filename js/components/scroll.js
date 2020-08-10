@@ -4,21 +4,23 @@
  * @see https://github.com/locomotivemtl/locomotive-scroll
  */
 
+import Utilities from '../utilities/utilities';
 import LocomotiveScroll from 'locomotive-scroll';
 import * as deepmerge from 'deepmerge';
-import AbstractComponent from './abstractComponent';
 
 const imagesLoaded = require('imagesloaded');
 
-export default class Scroll extends AbstractComponent {
+export default class Scroll {
 	/**
 	 * @param {Object} options - User options
 	 */
 	constructor(element, options) {
-		super(options);
-		this.DOM = { element: document.getElementById('js-scroll') };
-		this.DOM.body = document.body;
-		this.DOM.scrollProgress = document.getElementById('js-scroll-progress');
+		this.DOM = {
+			html: document.documentElement,
+			body: document.body,
+			element: document.getElementById('js-scroll'),
+			scrollProgress: document.getElementById('js-scroll-progress'),
+		};
 		this.defaults = {
 			el: this.DOM.element,
 			elMobile: document,
@@ -40,17 +42,18 @@ export default class Scroll extends AbstractComponent {
 			firefoxMultiplier: 50,
 			touchMultiplier: 2,
 			triggers: '[data-scroll-to]',
+			updaterClass: 'js-scroll-update',
 		};
 		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
+
 		this.updateEvents = this.updateEvents.bind(this);
 
 		imagesLoaded(this.DOM.body, { background: true }, () => {
 			this.init();
-			super.initObserver(this.options.triggers, this.updateEvents);
-		});
-
-		window.addEventListener('SCROLL_UPDATE', () => {
-			this.update();
+			this.initEvents(this.options.updater);
+			// TODO: Only 1 observer
+			Utilities.initObserver(this.options.triggers, this.updateEvents);
+			Utilities.initObserver('.' + this.options.updaterClass, this.updateEvents);
 		});
 
 		window.addEventListener('NAVIGATE_OUT', () => {
@@ -82,6 +85,27 @@ export default class Scroll extends AbstractComponent {
 			this.progressBar();
 			this.direction();
 		}, 200);
+
+	}
+
+	/**
+	 * Initialize events
+	 * @param {string} triggers - Selectors
+	 */
+	initEvents(triggers) {
+		const elements = document.querySelectorAll(triggers);
+		for (let i = 0; i < elements.length; i++) {
+			elements[i].addEventListener('click', () => {
+				this.update()
+			});
+		}
+
+		const updaters = document.querySelectorAll('.' + this.options.updaterClass);
+		for (let i = 0; i < updaters.length; i++) {
+			updaters[i].addEventListener('click', () => {
+				this.update()
+			});
+		}
 	}
 
 	/**
@@ -89,11 +113,16 @@ export default class Scroll extends AbstractComponent {
 	 * @param {string} target - New selector
 	 */
 	updateEvents(target) {
-		// da riabilitare
-		target.addEventListener('click', (event) => {
-			const href = target.getAttribute('href');
-			this.scrollTo(href);
-		});
+		if ( target.classList.contains(this.options.updaterClass) ) {
+			target.addEventListener('click', () => {
+				this.update();
+			});
+		} else {
+			target.addEventListener('click', (event) => {
+				const href = target.getAttribute('href');
+				this.scrollTo(href);
+			});
+		}
 	}
 
 	/**
@@ -103,6 +132,10 @@ export default class Scroll extends AbstractComponent {
 		/**
 		 * @param {Object} istance (delta, direction, limit, scroll, speed)
 		 */
+
+		if ( this.DOM.scrollProgress === null ) {
+			return;
+		}
 
 		this.DOM.scrollProgress.style.height = 0;
 

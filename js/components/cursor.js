@@ -3,18 +3,16 @@
  * Mouse interactions
  */
 import Utilities from '../utilities/utilities';
-import AbstractComponent from './abstractComponent';
 
 const Deepmerge = require('deepmerge');
 const isMobile = require('ismobilejs');
 
-export default class Cursor extends AbstractComponent {
+export default class Cursor {
 	/**
 	 * @param {string} element - Selector
 	 * @param {Object} options - User options
 	 */
 	constructor(element, options) {
-		super(element, options);
 		this.element = element || 'js-cursor';
 		this.defaults = {
 			triggers: 'a, [type="submit"], .js-cursor-drag, .js-cursor-hover, .js-cursor-right, .js-cursor-left, .js-cursor-zoom, .js-cursor-close',
@@ -47,7 +45,7 @@ export default class Cursor extends AbstractComponent {
 		window.addEventListener('DOMContentLoaded', () => {
 			this.init();
 			this.initEvents(this.options.triggers);
-			// super.initObserver(this.options.triggers, this.updateEvents);
+			// Utilities.initObserver(this.options.triggers, this.updateEvents);
 		});
 	}
 

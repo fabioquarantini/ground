@@ -1,3 +1,4 @@
+import Utilities from '../utilities/utilities';
 import * as deepmerge from 'deepmerge';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -5,20 +6,21 @@ import { SplitText } from 'gsap/SplitText';
 import { DrawSVGPlugin } from 'gsap/DrawSVGPlugin';
 import { MorphSVGPlugin } from 'gsap/MorphSVGPlugin';
 
-import AbstractComponent from './abstractComponent';
-
 gsap.registerPlugin(ScrollTrigger, SplitText, DrawSVGPlugin, MorphSVGPlugin);
 
-export default class ScrollTriggerGsap extends AbstractComponent {
+export default class ScrollTriggerGsap {
 	/**
 	 * @param {string} element - Selector
 	 * @param {Object} options - User options
 	 */
 	constructor(element, options) {
-		super(options);
 		this.element = element || '[data-scroll]';
 		this.defaults = {
 			triggers: this.element,
+		};
+		this.DOM = {
+			html: document.documentElement,
+			body: document.body,
 		};
 		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
 		this.updateEvents = this.updateEvents.bind(this);
@@ -52,7 +54,7 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 			gsap.set(this.element, { opacity: 1 });
 			this.init();
 			this.initEvents(this.options.triggers);
-			super.initObserver(this.options.triggers, this.updateEvents);
+			Utilities.initObserver(this.options.triggers, this.updateEvents);
 		});
 	}
 
@@ -60,9 +62,7 @@ export default class ScrollTriggerGsap extends AbstractComponent {
 	 * Init
 	 */
 	init() {
-		this.DOM = {
-			element: document.querySelectorAll(this.element),
-		};
+		this.DOM.element = document.querySelectorAll(this.element);
 	}
 
 	/**

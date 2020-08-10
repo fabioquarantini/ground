@@ -1,21 +1,23 @@
 /**
  * Toggle module
  */
-import AbstractComponent from './abstractComponent';
-
+import Utilities from '../utilities/utilities';
 const Deepmerge = require('deepmerge');
 
-export default class Toggle extends AbstractComponent {
+export default class Toggle {
 	/**
 	 * @param {string} element - Selector
 	 * @param {Object} options - User options
 	 */
 	constructor(element, options) {
-		super(element, options);
 		this.element = element || '.js-toggle';
 		this.defaults = {
 			triggers: this.element,
 			toggleClassName: 'is-active',
+		};
+		this.DOM = {
+			html: document.documentElement,
+			body: document.body,
 		};
 		this.options = options ? Deepmerge(this.defaults, options) : this.defaults;
 		this.updateEvents = this.updateEvents.bind(this);
@@ -24,14 +26,12 @@ export default class Toggle extends AbstractComponent {
 		window.addEventListener('DOMContentLoaded', () => {
 			this.init();
 			this.initEvents(this.options.triggers);
-			super.initObserver(this.options.triggers, this.updateEvents);
+			Utilities.initObserver(this.options.triggers, this.updateEvents);
 		});
 	}
 
 	init() {
-		this.DOM = {
-			element: document.querySelectorAll(this.element),
-		};
+		this.DOM.element = document.querySelectorAll(this.element);
 	}
 
 	/**
@@ -50,6 +50,7 @@ export default class Toggle extends AbstractComponent {
 	 * @param {Object} target - New selector
 	 */
 	updateEvents(target) {
+		console.log('target', target);
 		this.init();
 		target.addEventListener('click', this.toggle);
 	}
