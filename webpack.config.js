@@ -83,6 +83,7 @@ module.exports = {
 						options: {
 							plugins: () => [
 								require('postcss-100vh-fix'),
+								require('postcss-flexbugs-fixes'),
 								require('autoprefixer')
 							],
 							sourceMap: true
