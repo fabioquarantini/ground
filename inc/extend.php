@@ -265,13 +265,15 @@ function ground_icon( $name = '', $additional_class = '', $url = false, $extensi
  * Add attachment gallery attributes
  *
  * @param string $link Attachment page link.
+ * @param int $id Post ID or post object.
  * @return string
  */
-function ground_gallery_modal( $link ) {
-	return str_replace( '<a href', '<a data-modal="gallery" data-router-disabled href', $link );
+function ground_gallery_modal( $link, $id ) {
+	$image_attributes = wp_get_attachment_image_src( $id, 'full' );
+	return str_replace( '<a href', '<a data-modal="gallery" data-modal-size="' . $image_attributes[1] . 'x' . $image_attributes[2] . '" data-router-disabled href', $link );
 }
 
-add_filter( 'wp_get_attachment_link', 'ground_gallery_modal' );
+add_filter( 'wp_get_attachment_link', 'ground_gallery_modal', 10, 6 );
 
 /**
  * Highlight archive and wp_nav_menu parents
