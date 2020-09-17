@@ -1,0 +1,43 @@
+.widget_layered_nav {
+
+    .woocommerce-widget-layered-nav-list {
+        margin: 0;
+        list-style: none;
+
+        &__item {
+
+            a {
+                &:before {
+					content: '';
+					position: relative;
+					display: inline-block;
+					text-align: center;
+					color: $color-white;
+					line-height: 16px;
+					height: 18px;
+					width: 18px;
+					margin-right: ritmo(0.4);
+					border-radius: 50%;
+					vertical-align: middle;
+					font-size: 10px;
+					border: 1px solid $color-grey-dark;
+					transition: all $speed $easing;
+				}
+            }
+
+            &--chosen {
+
+                a {
+                    &:before {
+						content: "✔";
+						border: 1px solid $color-primary;
+						background-color: $color-primary;
+					}   
+                }
+
+            }
+        
+        }
+
+    }
+}
