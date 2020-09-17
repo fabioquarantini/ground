@@ -1,6 +1,7 @@
 .widget {
 	border-bottom: 1px solid $color-grey;
 	margin-bottom: ritmo(1);
+	padding-bottom: ritmo(1);
 
 	&:last-child {
 		border-bottom: 0;

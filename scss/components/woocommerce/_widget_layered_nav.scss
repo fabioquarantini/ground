@@ -20,7 +20,7 @@
 					border-radius: 50%;
 					vertical-align: middle;
 					font-size: 10px;
-					border: 1px solid $color-grey-dark;
+					border: 1px solid $color-grey;
 					transition: all $speed $easing;
 				}
             }
@@ -40,4 +40,65 @@
         }
 
     }
+}
+
+
+.widget_layered_nav_filters {
+
+	ul {
+		margin: 0;
+		li {
+			position: relative;
+			display: inline-block;
+			overflow: hidden;
+			list-style-type: none;
+			margin-right: ritmo(0.4);
+			margin-bottom: ritmo(0.2);
+
+			a {
+                display: block;
+                border: 1px solid $color-grey;
+                border-radius: 4px;
+                color: $color-black;
+				padding: ritmo(0.3) ritmo(2) ritmo(0.3) ritmo(0.5);
+				transition: all $speed $easing;
+				&:before {
+					content: '';
+					position: absolute;
+					text-align: center;
+                    color: $color-error;
+                    right: ritmo(0.5);
+					line-height: 20px;
+					height: 24px;
+					width: 24px;
+					border-radius: 50%;
+					vertical-align: middle;
+					font-size: 12px;
+					transition: all $speed $easing;
+				}
+			}
+
+			&.chosen {
+				a {
+					&:before {
+						content: "x";
+						border: 1px solid $color-error;
+					}
+				}
+			}
+
+			&:hover {
+				a {
+					border: 1px solid $color-error;
+					background-color: $color-error;
+					color: $color-white;
+					&:before {
+						color: $color-white;
+						border: 1px solid $color-white;
+					}
+				}
+			}
+
+		}
+	}
 }
