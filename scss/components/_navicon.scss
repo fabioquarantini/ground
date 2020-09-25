@@ -57,11 +57,11 @@
 			background-color: transparent;
 		}
 
-		@if ($navicon-color != auto) {
+		@if ($navicon-color-active != auto) {
 
 			&:before,
 			&:after {
-				background-color: $navicon-color;
+				background-color: $navicon-color-active;
 			}
 
 		}
