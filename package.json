@@ -5,7 +5,8 @@
 	"license": "MIT",
 	"scripts": {
 		"start": "webpack --mode=production",
-		"build": "webpack --mode=development"
+		"build": "webpack --mode=development",
+		"server": "webpack-dev-server --open --mode=development"
 	},
 	"homepage": "https://github.com/fabioquarantini/ground",
 	"author": {
