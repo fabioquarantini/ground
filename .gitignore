@@ -6,19 +6,6 @@
 
 
 #########################################
-# WordPress
-#########################################
-
-/*
-#!wp-config.php
-!wp-content/
-wp-content/*
-!wp-content/themes/
-wp-content/themes/index.php
-wp-content/themes/twenty*/
-
-
-#########################################
 # Database
 #########################################
 
