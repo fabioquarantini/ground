@@ -6,6 +6,19 @@
 
 
 #########################################
+# WordPress
+#########################################
+
+/*
+#!wp-config.php
+!wp-content/
+wp-content/*
+!wp-content/themes/
+wp-content/themes/index.php
+wp-content/themes/twenty*/
+
+
+#########################################
 # Database
 #########################################
 
@@ -23,10 +36,27 @@
 
 
 #########################################
+# Env
+#########################################
+
+.env
+.env.test
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+
+#########################################
 # Logs
 #########################################
 
+logs
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
 log.txt
 
 
@@ -34,12 +64,11 @@ log.txt
 # Node
 #########################################
 
-npm-debug.log
 node_modules
 
 
 #########################################
-# OSX
+# MacOS
 #########################################
 
 .DS_Store
@@ -75,6 +104,7 @@ sftp-config-alt.json
 *.sublime-workspace
 .ftpconfig
 .remote-sync.json
+.ftpignore
 *.code-workspace
 .vscode
 
@@ -94,3 +124,17 @@ Thumbs.db
 ehthumbs.db
 Desktop.ini
 $RECYCLE.BIN/
+
+
+#########################################
+# Next.js
+#########################################
+
+.next
+out
+
+#########################################
+# Vercel
+#########################################
+
+.vercel
