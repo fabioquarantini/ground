@@ -1,3 +1,9 @@
+<?php
+if ( empty( $args ) ) {
+	return;
+}
+?>
+
 <article class="card">
 
 	<?php if ( array_key_exists( 'slug', $args ) ) { ?>

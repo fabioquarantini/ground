@@ -62,14 +62,17 @@ get_template_part( 'partials/header' ); ?>
 								<div class="row">
 									<?php
 									foreach ( $catalog_taxonomies as $catalog_taxonomy ) {
-
-										$taxonomy_slug        = $catalog_taxonomy->slug;
-										$taxonomy_name        = $catalog_taxonomy->name;
-										$taxonomy_description = $catalog_taxonomy->description;
 										?>
 
 										<div class="gr-12 gr-4@md">
-											<?php include locate_template( 'partials/abstract-taxonomy-ground_catalog.php' ); ?>
+											<?php
+											$args = array(
+												'slug'        => $catalog_taxonomy->slug,
+												'name'        => $catalog_taxonomy->name,
+												'description' => $catalog_taxonomy->description,
+											);
+											get_template_part( 'partials/abstract', 'taxonomy-ground_catalog', $args );
+											?>
 										</div>
 
 									<?php } ?>
