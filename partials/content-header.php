@@ -5,16 +5,18 @@
 		<?php echo file_get_contents(TEMPLATE_PATH . "/img/logo.svg"); ?>
 	</a> <!-- End .logo -->
 
-	<?php get_template_part('partials/navigation', 'primary'); ?>
+	<?php if ( !is_checkout() ) { ?>
+		<?php get_template_part('partials/navigation', 'primary'); ?>
 
-	<button class="header__search js-toggle js-magnet js-cursor-hover" data-toggle-target=".search html" data-toggle-class-name="is-search-open">
-		<?php ground_icon( 'search'); ?>
-	</button> <!-- End .navicon -->
+		<button class="header__search js-toggle js-magnet js-cursor-hover" data-toggle-target=".search html" data-toggle-class-name="is-search-open">
+			<?php ground_icon( 'search'); ?>
+		</button> <!-- End .navicon -->
 
-	<?php get_template_part('partials/woocommerce/minicart'); ?>
+		<?php get_template_part('partials/woocommerce/minicart'); ?>
 
-	<button class="navicon js-toggle" data-toggle-target="body" data-toggle-class-name="is-navigation-open">
-		<i class="navicon__icon"></i>
-	</button> <!-- End .navicon -->
+		<button class="navicon js-toggle" data-toggle-target="body" data-toggle-class-name="is-navigation-open">
+			<i class="navicon__icon"></i>
+		</button> <!-- End .navicon -->
+	<?php } ?>
 
 </header> <!-- End .header -->

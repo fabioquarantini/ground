@@ -8,16 +8,20 @@
 get_template_part( 'partials/header' );
 ?>
 
-	<div class="container">
+	<div class="container <?php if ( is_checkout() || is_cart() ) { echo "container--small"; } ?>">
 		<div class="row">
 
 			<?php get_template_part( 'partials/breadcrumbs' ); ?>
 
-			<div class="gr-12 gr-3@md">
-				<?php get_template_part( 'partials/sidebar', 'primary' ); ?>
-			</div>
+			<?php if ( is_checkout() || is_cart() ) { ?>
+				<div class="gr-12">
+			<?php } else { ?>
+				<div class="gr-12 gr-3@md">
+					<?php get_template_part( 'partials/sidebar', 'primary' ); ?>
+				</div>
 
-			<div class="gr-12 gr-9@md">
+				<div class="gr-12 gr-9@md">
+			<?php } ?>
 				<?php
 				while ( have_posts() ) :
 					the_post();
