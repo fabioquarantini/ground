@@ -255,9 +255,9 @@ function ground_icon( $name = '', $additional_class = '', $url = false, $extensi
 	if ( $url ) {
 		return TEMPLATE_URL . '/img/icons/' . $name . '.' . $extension;
 	} else {
-		echo '<div class="icon icon--' . $name . ' ' . $additional_class . '">';
+		echo '<span class="icon icon--' . $name . ' ' . $additional_class . '">';
 		echo file_get_contents( TEMPLATE_PATH . '/img/icons/' . $name . '.' . $extension );
-		echo '</div>';
+		echo '</span>';
 	}
 }
 
