@@ -10,7 +10,6 @@ function ground_woocommerce_prepare_shop_order( $response, $object, $request ) {
 	$order_data['billing']['fiscal_code']   = get_post_meta( $object->get_id(), '_billing_fiscal_code', true );
 	$order_data['billing']['pec']           = get_post_meta( $object->get_id(), '_billing_pec', true );
 	$order_data['billing']['sdi']           = get_post_meta( $object->get_id(), '_billing_sdi', true );
-	$order_data['uve2k_id']                 = get_post_meta( $object->get_id(), 'uve2k_id', true );
 
 	foreach ( $order_data['line_items'] as $key => $item ) {
 
