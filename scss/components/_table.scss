@@ -107,12 +107,19 @@ table {
 
 	}
 
+
 	td {
 
 		vertical-align: top;
+		background-color: $color-grey-lighter;
+
+		@include media('<=sm') {
+			border: 0;
+		}
 
 		@include media('>=sm') {
-			width: 1px;
+			background-color: transparent;
+			//width: 1px;
 			white-space:nowrap;
 		}
 
@@ -153,7 +160,8 @@ caption {
 
 .table__head,
 thead {
-
+	background-color: $color-primary;
+	color: $color-white;
 }
 
 .table__body,
@@ -175,7 +183,12 @@ tr {
 td {
 	@include ritmo-borders( 1px, 1 );
 	border-style: solid;
-	border-color: $color-grey;
+	border-color: transparent;
+	border-bottom-color: $color-grey;
+	vertical-align: middle;
+}
+
+.shop_table td {
 	vertical-align: middle;
 }
 

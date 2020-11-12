@@ -26,7 +26,9 @@ if ( class_exists( 'WooCommerce' ) ) {
 	require_once 'inc/woocommerce/price.php';
 	require_once 'inc/woocommerce/product-loop.php';
 	require_once 'inc/woocommerce/product-single.php';
-	require_once 'inc/woocommerce/rest.php';
+	require_once 'inc/woocommerce/rest-order.php';
+	require_once 'inc/woocommerce/rest-user.php';
+	require_once 'inc/woocommerce/rest-product.php';
 	require_once 'inc/woocommerce/sidebar.php';
 	require_once 'inc/woocommerce/support.php';
 	require_once 'inc/woocommerce/tabs.php';

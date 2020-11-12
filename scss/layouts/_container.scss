@@ -15,8 +15,12 @@
 	max-width: none;
 }
 
+.container--medium {
+	max-width: map-get($breakpoints, lg);
+}
+
 .container--small {
-	max-width: map-get($breakpoints, md);
+	max-width: map-get($breakpoints, sm);
 }
 
 .container--scroll {

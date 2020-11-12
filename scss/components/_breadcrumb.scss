@@ -1,6 +1,7 @@
 .breadcrumb {
 	height: ritmo(1); //fixed height to avoid scrollbar on mobile
 	overflow-y: hidden;
+	margin-top: ritmo(1);
 	margin-bottom: ritmo(1);
 	@include ritmo-font-size(14px);
 

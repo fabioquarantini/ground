@@ -5,6 +5,7 @@
 	1 - WooCommerce ensure cart contents update when products are added to the cart via AJAX
 	2 - Disable cart fragments
 	3 - Add cross-sells products in minicart
+	4 - Add variation in title
 
 =============================================================================  */
 
@@ -43,14 +44,14 @@
 	2 - Disable cart fragments
 	==========================================================================  */
 
-    function ground_woocommerce_disable_woocommerce_cart_fragments() {
-        wp_dequeue_script( 'wc-cart-fragments' );
-    }
-    // add_action( 'wp_enqueue_scripts', 'ground_woocommerce_disable_woocommerce_cart_fragments', 11 );
+	function ground_woocommerce_disable_woocommerce_cart_fragments() {
+		wp_dequeue_script( 'wc-cart-fragments' );
+	}
+	// add_action( 'wp_enqueue_scripts', 'ground_woocommerce_disable_woocommerce_cart_fragments', 11 );
 
 
 
-    /*  ==========================================================================
+	/*  ==========================================================================
 	3 - Add cross-sells products in minicart
 	==========================================================================  */
 
@@ -62,3 +63,19 @@
 	}
 
 	add_action( 'woocommerce_mini_cart_contents', 'ground_add_crosssells_minicart' );
+
+
+/*  ==========================================================================
+	4 - Add variation in title
+	==========================================================================  */
+
+function ground_woocommmerce_cart_variation_title( $title, $cart_item, $cart_item_key ) {
+	$item = $cart_item['data'];
+	if( ! empty( $item ) && $item->is_type( 'variation' ) ) {
+		return $item->get_name();
+	} else {
+		return $title;
+	}
+}
+
+add_filter( 'woocommerce_cart_item_name', 'ground_woocommmerce_cart_variation_title', 20, 3 );

@@ -461,3 +461,46 @@ textarea + .message {
 :-ms-input-placeholder {
 	color: grey;
 }
+
+// WooCommerce
+.form-row-wide,
+.form-row-first,
+.form-row-last {
+	clear: both;
+	float: none;
+	width: 100%;
+	margin-right: 0;
+}
+
+@include media('>=md') {
+	.form-row-first {
+		width: 47%;
+		float: left;
+		margin-right: 5.8%;
+		clear: both;
+	}
+	.form-row-last {
+		width: 47%;
+		float: right;
+		margin-right: 0;
+		clear: none;
+	}
+}
+
+.select2-selection__rendered {
+	line-height: 46px !important;
+}
+
+.select2-container .select2-selection--single {
+	height: 50px !important;
+	border-color: $color-grey !important;
+	.woocommerce-validated & {
+		border: 1px solid $color-success !important;
+	}
+	.woocommerce-invalid & {
+		border: 1px solid $color-error !important;
+	}
+}
+.select2-selection__arrow {
+	height: 49px !important;
+}

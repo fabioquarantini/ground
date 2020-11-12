@@ -8,7 +8,7 @@ export default class Billing {
 			html: document.documentElement,
 			body: document.body,
 			element: document.querySelector('.woocommerce-cart'),
-			billingMethod: document.querySelector('#billing_method'),
+			billingMethod: document.querySelector('#billing_customer_type'),
 		};
 		imagesLoaded(this.DOM.body, { background: true }, () => {
 			this.init();
@@ -16,7 +16,7 @@ export default class Billing {
 	}
 
 	init() {
-		const billingCheckbox = document.getElementById('billing_check');
+		const billingCheckbox = document.getElementById('billing_invoice');
 
 		if (!billingCheckbox) {
 			return;
@@ -43,24 +43,27 @@ export default class Billing {
 
 	toggleBillingField(billingMethod, show) {
 		if (show) {
-			document.querySelector('#billing_method_field').style.display = 'inherit';
+			document.querySelector('#billing_customer_type_field').style.display = 'inherit';
 			document.querySelector('#billing_company_field').style.display = 'inherit';
 			document.querySelector('#billing_vat_field').style.display = 'inherit';
+			document.querySelector('#billing_fiscal_code_field').style.display = 'inherit';
 			document.querySelector('#billing_pec_field').style.display = 'inherit';
-			document.querySelector('#billing_receiver_field').style.display = 'inherit';
+			document.querySelector('#billing_sdi_field').style.display = 'inherit';
 
 			if (billingMethod === 'privato') {
 				document.querySelector('#billing_company_field').style.display = 'none';
-				// document.querySelector('#billing_vat_field').style.display = 'none';
+				document.querySelector('#billing_vat_field').style.display = 'none';
+				// document.querySelector('#billing_fiscal_code_field').style.display = 'none';
 				document.querySelector('#billing_pec_field').style.display = 'none';
-				document.querySelector('#billing_receiver_field').style.display = 'none';
+				document.querySelector('#billing_sdi_field').style.display = 'none';
 			}
 		} else {
-			document.querySelector('#billing_method_field').style.display = 'none';
+			document.querySelector('#billing_customer_type_field').style.display = 'none';
 			document.querySelector('#billing_company_field').style.display = 'none';
 			document.querySelector('#billing_vat_field').style.display = 'none';
+			document.querySelector('#billing_fiscal_code_field').style.display = 'none';
 			document.querySelector('#billing_pec_field').style.display = 'none';
-			document.querySelector('#billing_receiver_field').style.display = 'none';
+			document.querySelector('#billing_sdi_field').style.display = 'none';
 		}
 	}
 }
