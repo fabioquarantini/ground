@@ -1,6 +1,18 @@
 <?php
+/**
+ * REST - Order fields
+ *
+ * @package Ground
+ */
 
-function ground_woocommerce_prepare_shop_order( $response, $object, $request ) {
+/**
+ * Filter the data for a response.
+ *
+ * @param WP_REST_Response $response  The response object.
+ * @param WC_Data          $object    Object data.
+ * @param WP_REST_Request  $request   Request object.
+ */
+function ground_woocommerce_rest_prepare_shop_order( $response, $object, $request ) {
 
 	$order_data                             = $response->get_data();
 	$order_data['billing']['vat']           = get_post_meta( $object->get_id(), '_billing_vat', true );
@@ -22,4 +34,4 @@ function ground_woocommerce_prepare_shop_order( $response, $object, $request ) {
 	return $response;
 }
 
-add_filter( 'woocommerce_rest_prepare_shop_order_object', 'ground_woocommerce_prepare_shop_order', 10, 3 );
+add_filter( 'woocommerce_rest_prepare_shop_order_object', 'ground_woocommerce_rest_prepare_shop_order', 10, 3 );
