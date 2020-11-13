@@ -159,7 +159,7 @@ function ground_woocommerce_custom_checkout_field_display_admin_order_meta( $ord
 
 	echo '<h3 style="margin-bottom:6px;margin-top:28px;">' . __( 'Dati Fatturazione', 'ground' ) . '</h3>';
 
-	if ( ! empty( $is_invoice ) ) {
+	if ( empty( $is_invoice ) ) {
 		echo '<p style="margin-bottom:6px;margin-top:6px;">' . __( 'Fattura non richiesta', 'ground' ) . '</p>';
 		return;
 	}
