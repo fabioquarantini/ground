@@ -1,81 +1,56 @@
 <?php
+/**
+ * Cart
+ *
+ * @package Ground
+ */
 
-/*  == CART =================================================================
+/**
+ * Update cart contents when products are added to the cart via AJAX
+ *
+ * @param array $fragments Cart fragment.
+ * @return array
+ */
+function ground_woocommerce_add_to_cart_fragment( $fragments ) {
+	ob_start();
+	$count = WC()->cart->cart_contents_count;
 
-	1 - WooCommerce ensure cart contents update when products are added to the cart via AJAX
-	2 - Disable cart fragments
-	3 - Add cross-sells products in minicart
-	4 - Add variation in title
-
-=============================================================================  */
-
-
-/*  ==========================================================================
-	1 - WooCommerce ensure cart contents update when products are added to the cart via AJAX
-	==========================================================================  */
-
-	function ground_woocommerce_add_to_cart_fragment( $fragments ) {
-		ob_start();
-		$count = WC()->cart->cart_contents_count;
-
-		if ($count >= 1) {
-			$class = "is-minicart-full";
-		} else {
-			$class = '';
-		} ?>
-
-		<a class="minicart__link <?php echo esc_attr( $class ); ?>" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php _e( 'View your shopping cart', 'ground' ); ?>">
-			<?php ground_icon( 'shopping-cart', 'minicart__icon' ); ?>
-			<?php if ( $count > 0 ) { ?>
-				<span class="minicart__count small"><?php echo esc_html( $count ); ?></span>
-			<?php } ?>
-		</a>
-
-		<?php $fragments['.minicart__link'] = ob_get_clean();
-
-		return $fragments;
-	}
-
-	add_filter( 'woocommerce_add_to_cart_fragments', 'ground_woocommerce_add_to_cart_fragment' );
-
-
-
-/*  ==========================================================================
-	2 - Disable cart fragments
-	==========================================================================  */
-
-	function ground_woocommerce_disable_woocommerce_cart_fragments() {
-		wp_dequeue_script( 'wc-cart-fragments' );
-	}
-	// add_action( 'wp_enqueue_scripts', 'ground_woocommerce_disable_woocommerce_cart_fragments', 11 );
-
-
-
-	/*  ==========================================================================
-	3 - Add cross-sells products in minicart
-	==========================================================================  */
-
-	// https://github.com/woocommerce/woocommerce/blob/master/templates/cart/mini-cart.php
-	// https://hotexamples.com/examples/-/-/woocommerce_cross_sell_display/php-woocommerce_cross_sell_display-function-examples.html
-	function ground_add_crosssells_minicart() {
-		wp_reset_query();
-		woocommerce_cross_sell_display(4, 2);
-	}
-
-	add_action( 'woocommerce_mini_cart_contents', 'ground_add_crosssells_minicart' );
-
-
-/*  ==========================================================================
-	4 - Add variation in title
-	==========================================================================  */
-
-function ground_woocommmerce_cart_variation_title( $title, $cart_item, $cart_item_key ) {
-	$item = $cart_item['data'];
-	if( ! empty( $item ) && $item->is_type( 'variation' ) ) {
-		return $item->get_name();
+	if ( $count >= 1 ) {
+		$class = 'is-minicart-full';
 	} else {
-		return $title;
-	}
+		$class = '';
+	} ?>
+
+	<a class="minicart__link <?php echo esc_attr( $class ); ?>" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php _e( 'View your shopping cart', 'ground' ); ?>">
+		<?php ground_icon( 'shopping-cart', 'minicart__icon' ); ?>
+		<?php if ( $count > 0 ) { ?>
+			<span class="minicart__count small"><?php echo esc_html( $count ); ?></span>
+		<?php } ?>
+	</a>
+
+	<?php
+	$fragments['.minicart__link'] = ob_get_clean();
+
+	return $fragments;
 }
 
-add_filter( 'woocommerce_cart_item_name', 'ground_woocommmerce_cart_variation_title', 20, 3 );
+add_filter( 'woocommerce_add_to_cart_fragments', 'ground_woocommerce_add_to_cart_fragment', 10, 1 );
+
+/**
+ * Add cross-sells products in minicart
+ *
+ * @link https://github.com/woocommerce/woocommerce/blob/master/templates/cart/mini-cart.php
+ * @link https://hotexamples.com/examples/-/-/woocommerce_cross_sell_display/php-woocommerce_cross_sell_display-function-examples.html
+ */
+function ground_add_crosssells_minicart() {
+	wp_reset_query();
+	woocommerce_cross_sell_display( 4, 2 );
+}
+
+add_action( 'woocommerce_mini_cart_contents', 'ground_add_crosssells_minicart' );
+
+/**
+ * Remove attributes in product title
+ */
+add_filter( 'woocommerce_product_variation_title_include_attributes', '__return_false' );
+add_filter( 'woocommerce_is_attribute_in_product_name', '__return_false' );
