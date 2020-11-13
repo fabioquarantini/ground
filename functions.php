@@ -30,5 +30,4 @@ if ( class_exists( 'WooCommerce' ) ) {
 	require_once 'inc/woocommerce/rest-user.php';
 	require_once 'inc/woocommerce/sidebar.php';
 	require_once 'inc/woocommerce/support.php';
-	require_once 'inc/woocommerce/tabs.php';
 }
