@@ -83,30 +83,6 @@ do_action( 'woocommerce_before_cart' ); ?>
 									echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', sprintf( '<a href="%s">%s</a>', esc_url( $product_permalink ), $_product->get_title() ), $cart_item, $cart_item_key ) );
 								}
 
-								//if ( taxonomy_exists('pa_color') ) {
-
-									//$currentAttributes = $_product->get_attributes();
-
-									if ($_product->is_type( 'variable' )) {
-
-										// $_product = wc_get_product($product_id);
-										// $variations = $_product->get_available_variations();
-										// $variations_id = wp_list_pluck( $variations, 'variation_id' );
-
-										// echo '<pre>' . var_export($variations_id, true) . '</pre>';
-
-										//$_product = new WC_Product_Variation( $product_id );
-										$variation_data = $_product->get_variation_attributes();
-										//$variation_detail = wc_get_formatted_variation( $variation_data, false );  // this will give all variation detail in one line
-										// $variation_detail = woocommerce_get_formatted_variation( $variation_data, false);  // this will give all variation detail one by one
-										//return $variation_detail; // $variation_detail will return string containing variation detail which can be used to print on website
-										echo '<pre>' . var_export($variation_data, true) . '</pre>';
-
-									}
-
-
-								//}
-
 								do_action( 'woocommerce_after_cart_item_name', $cart_item, $cart_item_key );
 
 								// Meta data.
