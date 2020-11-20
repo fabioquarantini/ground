@@ -54,3 +54,9 @@ add_action( 'woocommerce_mini_cart_contents', 'ground_add_crosssells_minicart' )
  */
 add_filter( 'woocommerce_product_variation_title_include_attributes', '__return_false' );
 add_filter( 'woocommerce_is_attribute_in_product_name', '__return_false' );
+
+/**
+ * Move cross sells under cart table
+ */
+remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display' );
+add_action( 'woocommerce_after_cart', 'woocommerce_cross_sell_display' );
