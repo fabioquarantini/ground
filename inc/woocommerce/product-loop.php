@@ -66,7 +66,12 @@ function ground_woocommerce_customize_product_sorting( $options ) {
 // add_filter('woocommerce_catalog_orderby', 'ground_woocommerce_customize_product_sorting');
 
 /**
- * Remove Product Sorting Dropdown
+ * Remove product sorting dropdown
  */
 // remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
 // remove_action( 'woocommerce_after_shop_loop', 'woocommerce_catalog_ordering', 10 );
+
+/**
+ * Remove result count
+ */
+// remove_action( 'woocommerce_before_shop_loop' , 'woocommerce_result_count', 20 );

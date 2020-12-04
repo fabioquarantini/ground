@@ -35,17 +35,6 @@ function ground_dequeue_woocommerce_styles( $enqueue_styles ) {
 
 add_filter( 'woocommerce_enqueue_styles', 'ground_dequeue_woocommerce_styles' );
 
-
-/*  ==========================================================================
-	3 - WooCommerce remove default functions
-	==========================================================================  */
-
-// Remove the result count from WooCommerce
-remove_action( 'woocommerce_before_shop_loop' , 'woocommerce_result_count', 20 );
-
-// Remove the sorting dropdown from WooCommerce
-//remove_action( 'woocommerce_before_shop_loop' , 'woocommerce_catalog_ordering', 30 );
-
 /*  ==========================================================================
 	4 - WooCommerce body class
 	==========================================================================  */
