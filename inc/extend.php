@@ -185,6 +185,15 @@ function ground_markup() {
 add_action( 'after_setup_theme', 'ground_markup' );
 
 /**
+ * Add WooCommerce support
+ */
+function ground_add_woocommerce_support() {
+	add_theme_support( 'woocommerce' );
+}
+
+add_action( 'after_setup_theme', 'ground_add_woocommerce_support' );
+
+/**
  * Remove Paragraph Tags From Around Images
  *
  * @param string $content The content to be cleaned.

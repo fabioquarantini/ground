@@ -6,16 +6,6 @@
  */
 
 /*  ==========================================================================
-	1 - Add WooCommerce support
-	==========================================================================  */
-
-function ground_add_woocommerce_support() {
-	add_theme_support( 'woocommerce' );
-}
-
-add_action( 'after_setup_theme', 'ground_add_woocommerce_support' );
-
-/*  ==========================================================================
 	2 - Remove WooCommerce styles
 	==========================================================================  */
 
