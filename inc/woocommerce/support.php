@@ -56,15 +56,3 @@ function ground_woocommerce_active_body_class( $classes ) {
 }
 
 add_filter( 'body_class', 'ground_woocommerce_active_body_class' );
-
-/*  ==========================================================================
-	5 - Change single gallery thumbnail size
-	==========================================================================  */
-
-add_filter( 'woocommerce_gallery_thumbnail_size', function( $size ) {
-	return 'thumbnail';
-});
-
-add_filter( 'woocommerce_gallery_image_size', function( $size ) {
-	return 'medium_large';
-});
