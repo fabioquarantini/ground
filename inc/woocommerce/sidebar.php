@@ -28,7 +28,7 @@ function ground_woocommerce_widgets_init() {
 			'id'            => 'sidebar-woocommerce',
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
-			'before_title'  => '<h6 class="widgettitle">',
+			'before_title'  => '<h6 class="woocommerce-widget-layered-nav__title">',
 			'after_title'   => '</h6>',
 		)
 	);
