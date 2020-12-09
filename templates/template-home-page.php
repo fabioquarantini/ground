@@ -17,7 +17,7 @@ get_template_part( 'partials/header' ); ?>
 
 					get_template_part( 'partials/content', 'page' );
 					get_template_part( 'partials/woocommerce/product-categories' );
-					get_template_part( 'partials/woocommerce/recent-products' );
+					get_template_part( 'partials/woocommerce/featured-products' );
 					get_template_part( 'partials/recent', 'posts' );
 
 				endwhile;

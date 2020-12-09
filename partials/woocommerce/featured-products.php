@@ -7,7 +7,8 @@
 		'posts_per_page' => 4,
 		// 'product_cat' => 'your cat here',
 		'orderby' => 'date',
-		'order' => 'DESC'
+		'order' => 'DESC',
+		'post__in' => wc_get_featured_product_ids(),
 	);
 
 	$loop = new WP_Query( $args );
