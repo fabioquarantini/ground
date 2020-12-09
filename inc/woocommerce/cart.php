@@ -5,36 +5,6 @@
  * @package Ground
  */
 
-/**
- * Update cart contents when products are added to the cart via AJAX
- *
- * @param array $fragments Cart fragment.
- * @return array
- */
-function ground_woocommerce_add_to_cart_fragment( $fragments ) {
-	ob_start();
-	$count = WC()->cart->cart_contents_count;
-
-	if ( $count >= 1 ) {
-		$class = 'is-minicart-full';
-	} else {
-		$class = '';
-	} ?>
-
-	<a class="minicart__link <?php echo esc_attr( $class ); ?>" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php _e( 'View your shopping cart', 'ground' ); ?>">
-		<?php ground_icon( 'shopping-cart', 'minicart__icon' ); ?>
-		<?php if ( $count > 0 ) { ?>
-			<span class="minicart__count small"><?php echo esc_html( $count ); ?></span>
-		<?php } ?>
-	</a>
-
-	<?php
-	$fragments['.minicart__link'] = ob_get_clean();
-
-	return $fragments;
-}
-
-add_filter( 'woocommerce_add_to_cart_fragments', 'ground_woocommerce_add_to_cart_fragment', 10, 1 );
 
 /**
  * Add cross-sells products in minicart
@@ -60,3 +30,50 @@ add_filter( 'woocommerce_is_attribute_in_product_name', '__return_false' );
  */
 remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display' );
 add_action( 'woocommerce_after_cart', 'woocommerce_cross_sell_display' );
+
+
+
+/**
+ * Cart fragment
+ *
+ * @see ground_woocommerce_cart_link_fragment()
+ */
+if ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '2.3', '>=' ) ) {
+	add_filter( 'woocommerce_add_to_cart_fragments', 'ground_woocommerce_cart_link_fragment' );
+} else {
+	add_filter( 'add_to_cart_fragments', 'ground_woocommerce_cart_link_fragment' );
+}
+
+
+if ( ! function_exists( 'ground_woocommerce_cart_link_fragment' ) ) {
+	/**
+	 * Cart Fragments
+	 * Ensure cart contents update when products are added to the cart via AJAX
+	 *
+	 * @param  array $fragments Fragments to refresh via AJAX.
+	 * @return array            Fragments to refresh via AJAX
+	 */
+	function ground_woocommerce_cart_link_fragment( $fragments ) {
+		global $woocommerce;
+
+		ob_start();
+		ground_woocommerce_cart_link();
+		$fragments['a.minicart__contents'] = ob_get_clean();
+
+		return $fragments;
+	}
+}
+
+
+if ( ! function_exists( 'ground_woocommerce_cart_link' ) ) {
+	/**
+	 * Cart Link
+	 * Displayed a link to the cart including the number of items present and the cart total
+	 *
+	 * @return void
+	 * @since  1.0.0
+	 */
+	function ground_woocommerce_cart_link() {
+		get_template_part( 'partials/woocommerce/minicart','contents' );
+	}
+}
