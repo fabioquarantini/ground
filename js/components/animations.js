@@ -47,11 +47,9 @@ export default class Animations {
 		});
 
 		window.addEventListener('NAVIGATE_END', () => {
-			gsap.set(this.element, { opacity: 1 });
 		});
 
 		window.addEventListener('LOADER_COMPLETE', () => {
-			gsap.set(this.element, { opacity: 1 });
 			this.init();
 			this.initEvents(this.options.triggers);
 			Utilities.initObserver(this.options.triggers, this.updateEvents);
@@ -173,6 +171,9 @@ export default class Animations {
 	 * splitText Animation Chars
 	*/
 	splitTextAnimationChars(item) {
+		
+		gsap.set(item, { autoAlpha: 1 });
+
 		const splitText = new SplitText(item, {
 			type: 'chars, words',
 		});
@@ -201,6 +202,9 @@ export default class Animations {
 	 * splitText Animation Lines
 	*/
 	splitTextAnimationLines(item) {
+
+		gsap.set(item, { autoAlpha: 1 });
+
 		const splitText = new SplitText(item, {
 			type: 'lines',
 		});
@@ -229,6 +233,9 @@ export default class Animations {
 	 * rotation Animation
 	*/
 	rotationAnimation(item) {
+
+		gsap.set(item, { autoAlpha: 1 });
+
 		const targetScrub = parseInt(item.dataset.scrollScrub, 10);
 		const tl = gsap.timeline({
 			scrollTrigger: {
@@ -250,6 +257,9 @@ export default class Animations {
 	 * fadeInDown Animation
 	*/
 	fadeInDownAnimation(item) {
+
+		gsap.set(item, { autoAlpha: 1 });
+
 		const targetScrub = parseInt(item.dataset.scrollScrub, 10);
 
 		const tl = gsap.timeline({
@@ -273,6 +283,9 @@ export default class Animations {
 	 * batch Animation
 	*/
 	batchAnimation(item) {
+
+		gsap.set(item, { autoAlpha: 1 });
+
 		const target = item.querySelectorAll('.js-batch-el');
 		gsap.set(target, { y: 100, opacity: 0 });
 
@@ -297,6 +310,9 @@ export default class Animations {
 	 * scale Animation
 	*/
 	scaleAnimation(item) {
+
+		gsap.set(item, { autoAlpha: 1 });
+
 		const targetScrub = parseInt(item.dataset.scrollScrub, 10);
 
 		const tl = gsap.timeline({
@@ -318,6 +334,9 @@ export default class Animations {
 	 * parallax Animation
 	*/
 	parallaxAnimation(item) {
+
+		gsap.set(item, { autoAlpha: 1 });
+
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: item,
@@ -337,6 +356,9 @@ export default class Animations {
 	 * darwSvg Animation
 	*/
 	drawSvgAnimation(item) {
+
+		gsap.set(item, { autoAlpha: 1 });
+
 		const target = item.querySelectorAll('path');
 		const targetScrub = parseInt(item.dataset.scrollScrub, 10);
 
@@ -359,6 +381,9 @@ export default class Animations {
 	 * backgroundColor Animation
 	*/
 	backgroundColorAnimation(item) {
+
+		gsap.set(item, { autoAlpha: 1 });
+
 		const target = document.body;
 		const tl = gsap.timeline({
 			scrollTrigger: {
@@ -378,6 +403,9 @@ export default class Animations {
 	 * pin Animation
 	*/
 	pinAnimation(item) {
+
+		gsap.set(item, { autoAlpha: 1 });
+
 		const target = item.querySelector('[data-scroll-animation-target]');
 		const targetElement = item.querySelectorAll('.js-pin__element');
 
@@ -404,6 +432,9 @@ export default class Animations {
 	 * pin Horizontal Animation
 	*/
 	pinHorizontalAnimation(item) {
+
+		gsap.set(item, { autoAlpha: 1 });
+
 		const audioplay = document.createElement('audio');
 		audioplay.setAttribute('src', 'http://wordpress-364601-1334787.cloudwaysapps.com/concept/music/audio.mp3');
 		const target = item.querySelector('[data-scroll-animation-target]');
@@ -439,6 +470,9 @@ export default class Animations {
 	 * pin Vertical Animation
 	*/
 	pinVerticalAnimation(item) {
+
+		gsap.set(item, { autoAlpha: 1 });
+
 		const target = item.querySelector('[data-scroll-animation-target]');
 		const targetLeft = item.querySelector('.js-pin-vertical-container-left');
 		const targetCenter = item.querySelector('.js-pin-vertical-container-center');
@@ -464,6 +498,9 @@ export default class Animations {
 	 * comparison Animation
 	*/
 	comparisonAnimation(item) {
+
+		gsap.set(item, { autoAlpha: 1 });
+
 		const target = item.querySelector('[data-scroll-animation-target]');
 		const targetMedia = item.querySelectorAll('.js-comparison-after-media');
 		const targetImage = item.querySelectorAll('.js-comparison-after-media .comparison__img');
