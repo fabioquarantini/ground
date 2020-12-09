@@ -10,7 +10,7 @@ import * as deepmerge from 'deepmerge';
 
 const imagesLoaded = require('imagesloaded');
 
-export default class Scroll {
+export default class SmoothScroll {
 	/**
 	 * @param {Object} options - User options
 	 */

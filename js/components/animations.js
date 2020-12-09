@@ -8,7 +8,7 @@ import { MorphSVGPlugin } from 'gsap/MorphSVGPlugin';
 
 gsap.registerPlugin(ScrollTrigger, SplitText, DrawSVGPlugin, MorphSVGPlugin);
 
-export default class ScrollTriggerGsap {
+export default class Animations {
 	/**
 	 * @param {string} element - Selector
 	 * @param {Object} options - User options

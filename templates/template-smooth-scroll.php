@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Example
+ * Template Name: Smooth Scroll
  *
  * @package Ground
  */
