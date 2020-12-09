@@ -146,4 +146,29 @@
 		}
 
 	}
+
+	.variation {
+
+		@extend .clear-fix;
+		color: grey;
+		font-style: italic;
+
+		dt {
+			float: left;
+			clear: left;
+			margin-bottom: 0;
+		}
+
+		dd {
+			float: left;
+			margin-left: 0;
+			margin-bottom: 0;
+		}
+
+		p {
+			margin-bottom: 0;
+		}
+
+	}
+
 }
