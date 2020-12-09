@@ -47,11 +47,11 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
                         <a class="woocommerce-mini-cart-item__link" href="<?php echo esc_url( $product_permalink ); ?>">
 
                             <div class="row">
-                                <div class="gr-4@md gr-6">
+                                <div class="gr-4@md gr-4">
                                     <?php echo $thumbnail // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>                            
                                 </div>
-                                <div class="gr-7@md gr-6">
-                                    <h6 class="text-secondary text-left color-black margin-bottom-0"><?php echo   $product_name; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h6>                                        
+                                <div class="gr-8@md gr-8">
+                                    <h6 class="text-left color-black margin-bottom-0"><?php echo   $product_name; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h6>                                        
                                     <?php echo wc_get_formatted_cart_item_data( $cart_item ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                                     <?php echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity">' . sprintf( '%s &times; %s', $cart_item['quantity'], $product_price ) . '</span>', $cart_item, $cart_item_key ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                                     <?php
