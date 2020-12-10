@@ -81,13 +81,14 @@ module.exports = {
 					{
 						loader: 'postcss-loader',
 						options: {
-							plugins: () => [
-								require('postcss-100vh-fix'),
-								require('postcss-flexbugs-fixes'),
-								require('autoprefixer')
-							],
+							postcssOptions: {
+								plugins: [
+									require('postcss-flexbugs-fixes'),
+									require('autoprefixer')
+								],
+							},
 							sourceMap: true
-						}
+						},
 					},
 					{
 						loader: 'sass-loader',
