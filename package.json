@@ -52,6 +52,7 @@
 		"rellax": "1.12.1",
 		"ritmo": "0.5.0",
 		"splitting": "1.0.6",
-		"swiper": "6.3.2"
+		"swiper": "6.3.2",
+		"tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.1"
 	}
 }
