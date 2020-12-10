@@ -1,6 +1,0 @@
-// Convert pixel to rem
-@function rem($pixels) {
-
-	@return #{$pixels/16px}rem;
-
-}

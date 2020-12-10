@@ -2,16 +2,9 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-body {
-    /* Footer will be hidden on iOS Safari because of bottom panel */
-    height: 100vh;
-}
-
-/*
 @import
 
 // Functions
-'functions/rem',
 'functions/map-deep-get',
 
 // Mixins
@@ -128,4 +121,4 @@ body {
 // Debug
 'debug/debug-breakpoints',
 'debug/debug-rhythm',
-'debug/debug-css';*/
+'debug/debug-css';
