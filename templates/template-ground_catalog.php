@@ -1,95 +1,126 @@
 <?php
-/*
-Template Name: Catalog
-*/
+/**
+ * Template Name: Catalog
+ *
+ * @package Ground
+ */
 
 get_template_part( 'partials/header' ); ?>
 
-	<div class="gr-12 gr-9@md push-3@md">
+	<div class="container">
+		<div class="row">
 
-		<section class="page page--catalog">
+			<?php get_template_part( 'partials/breadcrumbs' ); ?>
 
-			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+			<div class="gr-12 gr-3@md">
+				<?php get_template_part( 'partials/sidebar', 'secondary' ); ?>
+			</div>
 
-				<header class="page__header">
-					<h1 class="page__title"><?php the_title(); ?></h1>
-				</header>
+			<div class="gr-12 gr-9@md">
 
-				<div class="page__body">
+				<section class="page page--catalog">
 
-					<?php if ( has_post_thumbnail() ) { ?>
-						<figure class="media">
-							<?php the_post_thumbnail( 'medium', array( 'class' => 'media__img' ) ); ?>
-						</figure>
-					<?php } ?>
+					<?php
+					while ( have_posts() ) :
+							the_post();
+						?>
 
-					<?php the_content(); ?>
+						<header class="page__header">
+							<h1 class="page__title" data-splitting data-scroll><?php the_title(); ?></h1>
+						</header>
 
-					<?php $taxonomies_args = array(
-						'orderby'		=> 'name',
-						'order'			=> 'ASC',
-						'hide_empty'	=> true,
-						'parent'		=> 0,
-						'hierarchical'	=> true,
-						'child_of'		=> 0
-					);
+						<div class="page__body">
 
-					$taxonomies = get_terms( 'ground_catalog_taxonomy', $taxonomies_args );
+							<?php if ( has_post_thumbnail() ) : ?>
+								<figure class="media">
+									<img class="media__img full-width"
+										srcset="<?php ground_image( 'large' ); ?> 1200w,
+											<?php ground_image( 'medium_large' ); ?> 768w,
+											<?php ground_image( 'medium' ); ?> 480w"
+										src="<?php ground_image( 'small' ); ?>">
+								</figure>
+							<?php endif ?>
 
-					// Categories
-					if ( !empty( $taxonomies ) && !is_wp_error( $taxonomies ) ) :
+							<?php the_content(); ?>
 
-						foreach ( $taxonomies as $taxonomy ) {
+							<?php
+							$taxonomies_args = array(
+								'orderby'      => 'name',
+								'order'        => 'ASC',
+								'hide_empty'   => true,
+								'parent'       => 0,
+								'hierarchical' => true,
+								'child_of'     => 0,
+							);
 
-							$taxonomy_slug = $taxonomy->slug;
-							$taxonomy_name = $taxonomy->name;
-							$taxonomy_description = $taxonomy->description; ?>
+							$catalog_taxonomies = get_terms( 'ground_catalog_taxonomy', $taxonomies_args );
 
-							<div class="gr-12 gr-4@md">
-								<?php include( locate_template( 'partials/abstract-taxonomy-ground_catalog.php' ) ); ?>
-							</div>
+							// Categories.
+							if ( ! empty( $catalog_taxonomies ) && ! is_wp_error( $catalog_taxonomies ) ) :
+								?>
 
-						<?php }
+								<div class="row">
+									<?php
+									foreach ( $catalog_taxonomies as $catalog_taxonomy ) {
+										?>
 
-					// Products
-					else :
+										<div class="gr-12 gr-4@md">
+											<?php
+											$args = array(
+												'slug'        => $catalog_taxonomy->slug,
+												'name'        => $catalog_taxonomy->name,
+												'description' => $catalog_taxonomy->description,
+											);
+											get_template_part( 'partials/abstract', 'taxonomy-ground_catalog', $args );
+											?>
+										</div>
 
-						$catalog_args = array(
-							'post_type' 		=> 'ground_catalog',
-							'order'				=> 'ASC',
-							'orderby'			=> 'menu_order',
-							'paged'				=> $paged,
-							'posts_per_page'	=> 10
-						);
+									<?php } ?>
+								</div> <!-- End .row -->
 
-						$wp_query = new WP_Query();
-						$wp_query->query($catalog_args);
+								<?php
+							else : // Products.
 
-						if ( $wp_query->have_posts()) : while($wp_query->have_posts()) : $wp_query->the_post();
+								$catalog_args = array(
+									'post_type'      => 'ground_catalog',
+									'order'          => 'ASC',
+									'orderby'        => 'menu_order',
+									'paged'          => $paged,
+									'posts_per_page' => 10,
+								);
 
-							get_template_part( 'partials/abstract', 'ground_catalog' );
+								$query = new WP_Query( $catalog_args );
+								if ( $query->have_posts() ) :
+									?>
+									<div class="row">
+										<?php
+										while ( $query->have_posts() ) :
+											$query->the_post();
+											?>
+											<div class="gr-12 gr-4@md">
+												<?php get_template_part( 'partials/abstract', 'ground_catalog' ); ?>
+											</div>
+										<?php endwhile; ?>
+									</div> <!-- End .row -->
+									<?php
+									get_template_part( 'partials/pagination' );
+									wp_reset_postdata();
+								endif;
 
-						endwhile;
+							endif;
+							?>
 
-							get_template_part( 'partials/pagination' );
-							wp_reset_query();
+						</div> <!-- End .page__body -->
 
-						endif;
+						<?php
+					endwhile;
+					?>
 
-					endif; ?>
+				</section> <!-- End .page -->
 
-				</div> <!-- End .page__body -->
+			</div>
+		</div> <!-- End .row -->
+	</div> <!-- End .container -->
 
-			<?php endwhile; endif; ?>
-
-		</section> <!-- End .page -->
-
-	</div>
-
-	<div class="gr-12 gr-3@md pull-9@md">
-
-		<?php get_template_part( 'partials/sidebar', 'secondary' ); ?>
-
-	</div>
-
-<?php get_template_part( 'partials/footer' ); ?>
+<?php
+get_template_part( 'partials/footer' );

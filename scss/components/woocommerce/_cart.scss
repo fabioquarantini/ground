@@ -1,0 +1,174 @@
+.cart {
+	.quantity {
+		display: inline-block;
+		vertical-align: bottom;
+		margin-right: ritmo(1);
+	}
+
+	.qty {
+		max-width: ritmo(3);
+		margin-bottom: 0;
+	}
+
+	.single_add_to_cart_button {
+		display: inline-block;
+		vertical-align: bottom;
+	}
+
+	.screen-reader-text {
+		@extend .display-none-visually;
+	}
+
+	.product-thumbnail {
+
+		float: left;
+		width: 23%;
+		padding-right: 10px;
+
+		@include media('>=md') {
+			width: 80px;
+			float: none;
+			margin-right: 0;
+		}
+
+	}
+
+	.product-subtotal {
+		font-weight: bold;
+	}
+
+	.product-name {
+
+		a {
+			text-decoration: none;
+			color: $color-black;
+
+			// Solo mobile
+			@include media('<=md') {
+				@include ritmo-font-size(14px, 0.5);
+				display: inline-block;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				max-width: 100%;
+			}
+
+			&:hover {
+				color: $color-primary;
+			}
+		}
+	}
+
+	.actions {
+		border: 0;
+		padding-left: 0;
+		padding-right: 0;
+		background: transparent;
+
+		@include media(">=md") {
+			margin-top: ritmo(2);
+		}
+
+		.coupon {
+			padding-bottom: 0;
+			margin-bottom: 0;
+			border-bottom: none;
+
+			@include media("<=md") {
+				border: 1px solid $color-grey;
+				display: block;
+				padding-left: ritmo(1);
+				padding-right: ritmo(1);
+			}
+
+			@include media(">=md") {
+				display: inline-block;
+				float: left;
+				//margin-top: ritmo(2);
+			}
+
+			.button {
+				margin-bottom: 0;
+
+				@include media("<=md") {
+					font-size: 12px;
+					display: block;
+					padding: 0;
+					margin-bottom: ritmo(2);
+				}
+			}
+		}
+
+		.coupon__content {
+			display: none;
+			&.is-coupon-open {
+				display: block;
+			}
+		}
+
+		.coupon__link {
+			text-decoration: underline;
+			cursor: pointer;
+
+			&:hover {
+				color: $color-primary;
+			}
+
+			i {
+				color: $color-black;
+				margin-right: ritmo(0.5);
+			}
+		}
+
+		input {
+			display: inline-block;
+			vertical-align: top;
+			width: auto;
+			margin: 0;
+		}
+
+		> .button {
+			background: transparent;
+			color: $color-black;
+			border-color: transparent;
+
+			padding: 0;
+			line-height: normal;
+
+			@include media(">=md") {
+				margin-bottom: 0;
+				float: right;
+			}
+
+			i {
+				margin-right: ritmo(0.5);
+			}
+		}
+
+	}
+
+	.variation {
+
+		@extend .clear-fix;
+		color: grey;
+		font-style: italic;
+
+		dt {
+			float: left;
+			clear: left;
+			margin-bottom: 0;
+		}
+
+		dd {
+			float: left;
+			margin-left: 0;
+			margin-bottom: 0;
+		}
+
+		p {
+			margin-bottom: 0;
+		}
+
+	}
+
+}

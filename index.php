@@ -1,33 +1,54 @@
-<?php get_template_part( 'partials/header' ); ?>
+<?php
+/**
+ * The main template file
+ *
+ * @package Ground
+ */
 
-	<section class="page">
+get_template_part( 'partials/header' );
+?>
 
-		<?php if (single_post_title('', false)) : ?>
-			<header class="page__header">
-				<h1 class="page__title"><?php single_post_title(); ?></h1>
-			</header>
-		<?php endif; ?>
+	<div class="container">
+		<div class="row">
 
-		<?php if ( have_posts() ) { ?>
+			<?php get_template_part( 'partials/breadcrumbs' ); ?>
 
-			<div class="page__body js-infinite-container">
+			<div class="gr-12">
+				<section class="page page--blog">
 
-				<?php while ( have_posts() ) {
+					<?php
+					if ( have_posts() ) :
 
-					the_post();
-					get_template_part( 'partials/abstract', 'post' );
+						if ( single_post_title( '', false ) ) :
+							?>
+							<header class="page__header">
+								<h1 class="page__title"><?php single_post_title(); ?></h1>
+							</header>
+						<?php endif; ?>
 
-				} ?>
+						<div class="page__body js-infinite-container">
 
-			</div> <!-- End .page__body -->
+							<?php
+							while ( have_posts() ) :
+								the_post();
 
-			<?php
-			get_template_part( 'partials/pagination' );
-			get_template_part( 'partials/loader', 'infinite' );
-			?>
+								get_template_part( 'partials/abstract', 'post' );
 
-		<?php } ?>
+							endwhile;
+							?>
 
-	</section> <!-- End .page -->
+						</div> <!-- End .page__body -->
 
-<?php get_template_part( 'partials/footer' ); ?>
+						<?php get_template_part( 'partials/pagination' ); ?>
+
+						<?php
+					endif;
+					?>
+
+				</section> <!-- End .page -->
+			</div>
+		</div> <!-- End .row -->
+	</div> <!-- End .container -->
+
+<?php
+get_template_part( 'partials/footer' );

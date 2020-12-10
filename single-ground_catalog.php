@@ -1,17 +1,37 @@
-<?php get_template_part( 'partials/header' ); ?>
+<?php
+/**
+ * Single ground_catalog
+ *
+ * @package Ground
+ */
 
-	<div class="gr-12 gr-9@md push-3@md">
+get_template_part( 'partials/header' );
+?>
 
-		<?php if ( have_posts() ) : while ( have_posts() ) : the_post();
+<div class="container">
+	<div class="row">
 
-			get_template_part( 'partials/content', 'single-ground_catalog' );
+		<?php get_template_part( 'partials/breadcrumbs' ); ?>
 
-		endwhile; endif; ?>
+		<div class="gr-12 gr-3@md">
+			<?php get_template_part( 'partials/sidebar', 'secondary' ); ?>
+		</div>
 
-	</div>
+		<div class="gr-12 gr-9@md">
 
-	<div class="gr-12 gr-3@md pull-9@md">
-		<?php get_template_part( 'partials/sidebar', 'secondary' ); ?>
-	</div>
+			<?php
+			while ( have_posts() ) :
+				the_post();
 
-<?php get_template_part( 'partials/footer' ); ?>
+				get_template_part( 'partials/content', 'single-ground_catalog' );
+
+			endwhile;
+			?>
+
+		</div>
+
+	</div> <!-- End .row -->
+</div> <!-- End .container -->
+
+<?php
+get_template_part( 'partials/footer' );

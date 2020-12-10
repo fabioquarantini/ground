@@ -1,15 +1,18 @@
 .logo {
 	height: ritmo(1);
-	margin-left: ritmo(0.5);
+	margin-left: ritmo(1);
 	margin-top: ritmo(1);
 	margin-bottom: ritmo(1);
-	display: inline-block;
 
-	@include media('>=md') {
-		margin-left: 0;
+	svg, g {
+		@extend .logo__img;
 	}
 }
 
 .logo__img {
+	fill: $color-black;
 
+	&:hover {
+		fill: $color-primary;
+	}
 }

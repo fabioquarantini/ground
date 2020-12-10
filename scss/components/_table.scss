@@ -3,7 +3,7 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 	margin: 0 0 ritmo(1, $offset: -3px) 0;
-	table-layout: fixed;
+	table-layout: auto;
 	max-width: 100%;
 	width: 100%;
 	background-color: $color-white;
@@ -107,9 +107,22 @@ table {
 
 	}
 
+
 	td {
 
 		vertical-align: top;
+		background-color: $color-grey-lighter;
+
+		@include media('<=sm') {
+			border: 0;
+		}
+
+		@include media('>=sm') {
+			background-color: transparent;
+			//width: 1px;
+			white-space:nowrap;
+		}
+
 
 		&:before {
 
@@ -147,7 +160,8 @@ caption {
 
 .table__head,
 thead {
-
+	background-color: $color-primary;
+	color: $color-white;
 }
 
 .table__body,
@@ -167,9 +181,14 @@ tr {
 
 .table__cell,
 td {
-	@include ritmo-horizontal-borders( 1px, 1 );
+	@include ritmo-borders( 1px, 1 );
 	border-style: solid;
-	border-color: $color-grey;
+	border-color: transparent;
+	border-bottom-color: $color-grey;
+	vertical-align: middle;
+}
+
+.shop_table td {
 	vertical-align: middle;
 }
 

@@ -1,0 +1,16 @@
+@include g-setup((
+	context: $columns,
+	gutter-width: $gutter,
+	states-classes: false,
+	classes: true
+));
+
+@each $key, $value in $breakpoints {
+	@if $key != 'default' {
+		@include g-register-state(
+			$key, ( min-width: $value )
+		);
+	}
+}
+
+@include g-classes();

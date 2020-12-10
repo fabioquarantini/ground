@@ -1,0 +1,21 @@
+.woocommerce-message,
+.woocommerce-Message {
+	@extend .message;
+	@extend .message--big;
+	@extend .message--fill;
+	margin-bottom: ritmo(2);
+	background-color: $color-success;
+	color: $color-white;
+
+	.button {
+		right: ritmo(1);
+		@include centered(false, true);
+
+		@include media('>=md') {
+			//position: absolute;
+			//top: 0;
+			//right: 0;
+		}
+
+	}
+}

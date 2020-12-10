@@ -1,7 +1,9 @@
+
 @import
 
 // Functions
 'functions/rem',
+'functions/map-deep-get',
 
 // Mixins
 'mixins/ratio',
@@ -10,18 +12,23 @@
 'mixins/triangle',
 'mixins/make-styles',
 'mixins/type',
-'mixins/navicon-icon',
-
-// Vendors
-'vendors/ritmo/ritmo',
-'vendors/gridle/gridle',
-'vendors/normalize',
-'vendors/include-media',
-'vendors/fancybox',
-'vendors/swiper',
 
 // Settings
 '_settings',
+
+// Vendors
+'../node_modules/ritmo/ritmo',
+'../node_modules/coffeekraken-gridle/_index',
+'../node_modules/normalize.css/normalize',
+'../node_modules/include-media/dist/_include-media',
+'../node_modules/splitting/dist/splitting',
+'../node_modules/splitting/dist/splitting-cells',
+'../node_modules/swiper/swiper',
+'../node_modules/swiper/components/effect-fade/effect-fade',
+'../node_modules/swiper/components/lazy/lazy',
+'../node_modules/swiper/components/navigation/navigation',
+'../node_modules/swiper/components/pagination/pagination',
+'../node_modules/swiper/components/scrollbar/scrollbar',
 
 // Base
 'base/root',
@@ -32,29 +39,61 @@
 
 // Layouts
 'layouts/container',
+'layouts/grid',
+'layouts/scroll',
 
 // Components
+'components/icons',
+'components/breadcrumb',
 'components/button',
+'components/card',
+'components/carousel',
+'components/cursor',
 'components/divider',
+'components/docs',
+'components/footer',
 'components/form',
+'components/header',
+'components/item',
+'components/loader',
+'components/logo',
+'components/media',
 'components/message',
+'components/modal',
+'components/navicon',
+'components/navigation',
+'components/page',
+'components/pagination',
+'components/search',
+'components/social',
+'components/sidebar',
+'components/slider',
+'components/splitting',
+'components/spinner',
 'components/table',
 'components/tooltip',
-'components/icons',
-'components/pagination',
-'components/breadcrumb',
-'components/navicon',
-'components/header',
-'components/navigation',
-'components/footer',
-'components/slider',
-'components/card',
-'components/page',
-'components/media',
-'components/item',
-'components/logo',
-'components/loader',
-'components/modal',
+'components/widget',
+'components/scrollbar',
+'components/masked-full-height',
+'components/scroll-progress',
+
+// WooCommerce
+'components/woocommerce/cart',
+'components/woocommerce/minicart',
+'components/woocommerce/price',
+'components/woocommerce/product-remove',
+'components/woocommerce/woocommerce-product-details',
+'components/woocommerce/variations',
+'components/woocommerce/widget_price_filter',
+'components/woocommerce/widget_layered_nav',
+'components/woocommerce/woocommerce-order',
+'components/woocommerce/woocommerce-checkout',
+'components/woocommerce/woocommerce-checkout-payment',
+'components/woocommerce/woocommerce-message',
+'components/woocommerce/woocommerce-product-gallery',
+'components/woocommerce/woocommerce-tabs',
+'components/woocommerce/woocommerce-loop-product',
+'components/woocommerce/summary',
 
 // Utilities
 'utilities/text',
@@ -76,6 +115,7 @@
 'animations/scale',
 'animations/slide-in',
 'animations/slide-out',
+'animations/default',
 
 // Debug
 'debug/debug-breakpoints',

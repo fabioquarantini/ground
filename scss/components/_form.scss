@@ -3,6 +3,68 @@ form {
 	width: 100%;
 }
 
+.form--search {
+
+	position: relative;
+
+	&.is-search-loading {
+		.form__button {
+			opacity: 0;
+		}
+	}
+
+	.form__label {
+		color: $color-grey;
+	}
+
+	.form__input {
+		border: 0;
+		border-bottom: 1px solid $color-grey;
+		padding: ritmo(1) 0;
+		height: auto;
+		font-weight: bold;
+		@include ritmo-font-size(21px, 1);
+
+		@include media('>=md') {
+			@include ritmo-font-size(42px, 2);
+			padding: ritmo(1) 0;
+		}
+
+		&:focus,
+		&:active {
+			box-shadow: none;
+			color: #444;
+			outline: none;
+		}
+
+		&::-ms-clear {
+			display: none;
+		}
+	}
+
+	.form__button {
+		position: absolute;
+		bottom: ritmo(1);
+		right: 0;
+		margin: 0;
+		background-color: transparent;
+		border: 0;
+		padding: 0;
+		opacity: 1;
+		transition: opacity 0.4s;
+		@include media('>=md') {
+			bottom: ritmo(0.5);
+		}
+	}
+
+	.form__icon {
+		color: $color-black;
+		@include media('>=md') {
+			height: 42px;
+		}
+	}
+}
+
 .form__fieldset,
 fieldset {
 	@include ritmo-horizontal-borders( 1px, 1 );
@@ -52,7 +114,7 @@ select {
 	height: ritmo(2);
 	outline: none;
 	background: $color-white;
-	color: $color-grey;
+	color: $color-grey-darker;
 	width: 100%;
 	border-radius: 0;
 
@@ -398,4 +460,47 @@ textarea + .message {
 
 :-ms-input-placeholder {
 	color: grey;
+}
+
+// WooCommerce
+.form-row-wide,
+.form-row-first,
+.form-row-last {
+	clear: both;
+	float: none;
+	width: 100%;
+	margin-right: 0;
+}
+
+@include media('>=md') {
+	.form-row-first {
+		width: 47%;
+		float: left;
+		margin-right: 5.8%;
+		clear: both;
+	}
+	.form-row-last {
+		width: 47%;
+		float: right;
+		margin-right: 0;
+		clear: none;
+	}
+}
+
+.select2-selection__rendered {
+	line-height: 46px !important;
+}
+
+.select2-container .select2-selection--single {
+	height: 50px !important;
+	border-color: $color-grey !important;
+	.woocommerce-validated & {
+		border: 1px solid $color-success !important;
+	}
+	.woocommerce-invalid & {
+		border: 1px solid $color-error !important;
+	}
+}
+.select2-selection__arrow {
+	height: 49px !important;
 }

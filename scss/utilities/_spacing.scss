@@ -1,53 +1,105 @@
+$units: (
+	"0": 0,
+	"05": 0.5,
+	"1": 1,
+	"2": 2,
+	"3": 3,
+	"4": 4,
+	"5": 5
+);
+
 @each $key, $value in $breakpoints {
 	@include media('>=#{$key}') {
 		$breakpoint: if($key == default, '', \@#{$key});
 
 		// Margin
-		@for $i from 0 through 5 {
 
-			.margin-#{$i}#{$breakpoint} {
-				margin: ritmo($i);
+		@each $name, $value in $units {
+
+			.margin-#{$name}#{$breakpoint} {
+				margin: ritmo($value);
 			}
 
-			.margin-top-#{$i}#{$breakpoint} {
-				margin-top: ritmo($i);
+			.margin-top-#{$name}#{$breakpoint} {
+				margin-top: ritmo($value);
 			}
 
-			.margin-bottom-#{$i}#{$breakpoint} {
-				margin-bottom: ritmo($i);
+			.margin-bottom-#{$name}#{$breakpoint} {
+				margin-bottom: ritmo($value);
 			}
 
-			.margin-left-#{$i}#{$breakpoint} {
-				margin-left: ritmo($i);
+			.margin-left-#{$name}#{$breakpoint} {
+				margin-left: ritmo($value);
 			}
 
-			.margin-right-#{$i}#{$breakpoint} {
-				margin-right: ritmo($i);
+			.margin-right-#{$name}#{$breakpoint} {
+				margin-right: ritmo($value);
+			}
+
+			.margin-negative-#{$name}#{$breakpoint} {
+				margin: ritmo(-$value);
+			}
+
+			.margin-negative-top-#{$name}#{$breakpoint} {
+				margin-top: ritmo(-$value);
+			}
+
+			.margin-negative-bottom-#{$name}#{$breakpoint} {
+				margin-bottom: ritmo(-$value);
+			}
+
+			.margin-negative-left-#{$name}#{$breakpoint} {
+				margin-left: ritmo(-$value);
+			}
+
+			.margin-negative-right-#{$name}#{$breakpoint} {
+				margin-right: ritmo(-$value);
 			}
 
 		}
 
 		// Padding
-		@for $i from 0 through 5 {
 
-			.padding-#{$i}#{$breakpoint} {
-				padding: ritmo($i);
+		@each $name, $value in $units {
+
+			.padding-#{$name}#{$breakpoint} {
+				padding: ritmo($value);
 			}
 
-			.padding-top-#{$i}#{$breakpoint} {
-				padding-top: ritmo($i);
+			.padding-top-#{$name}#{$breakpoint} {
+				padding-top: ritmo($value);
 			}
 
-			.padding-bottom-#{$i}#{$breakpoint} {
-				padding-bottom: ritmo($i);
+			.padding-bottom-#{$name}#{$breakpoint} {
+				padding-bottom: ritmo($value);
 			}
 
-			.padding-left-#{$i}#{$breakpoint} {
-				padding-left: ritmo($i);
+			.padding-left-#{$name}#{$breakpoint} {
+				padding-left: ritmo($value);
 			}
 
-			.padding-right-#{$i}#{$breakpoint} {
-				padding-right: ritmo($i);
+			.padding-right-#{$name}#{$breakpoint} {
+				padding-right: ritmo($value);
+			}
+
+			.padding-negative-#{$name}#{$breakpoint} {
+				padding: ritmo(-$value);
+			}
+
+			.padding-negative-top-#{$name}#{$breakpoint} {
+				padding-top: ritmo(-$value);
+			}
+
+			.padding-negative-bottom-#{$name}#{$breakpoint} {
+				padding-bottom: ritmo(-$value);
+			}
+
+			.padding-negative-left-#{$name}#{$breakpoint} {
+				padding-left: ritmo(-$value);
+			}
+
+			.padding-negative-right-#{$name}#{$breakpoint} {
+				padding-right: ritmo(-$value);
 			}
 
 		}

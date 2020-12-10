@@ -1,7 +1,7 @@
 .navicon {
 	position: absolute;
-	top: ritmo(0.5);
-	right: 0;
+	top: ritmo(0.70);
+	right: ritmo(0.5);
 	padding: ritmo(0.5);
 	left: auto;
 	z-index: 1000;
@@ -13,9 +13,67 @@
 	@include media(">=md") {
 		display: none;
 	}
-
 }
 
 .navicon__icon {
-	@include navicon-icon( 35px, 1px, 11px );
+	position: relative;
+	margin-top: $navicon-height + $navicon-gutter;
+	margin-bottom: $navicon-height + $navicon-gutter;
+	user-select: none;
+	cursor: pointer;
+
+	&,
+	&:before,
+	&:after {
+		display: block;
+		width: $navicon-width;
+		height: $navicon-height;
+		background-color: $navicon-color;
+		transition-property: background-color, transform;
+		transition-duration: .3s;
+		@if $navicon-border-radius != 0 {
+			border-radius: $navicon-border-radius;
+		}
+	}
+
+	&:before,
+	&:after {
+		position: absolute;
+		content: '';
+	}
+
+	&:before {
+		top: -( $navicon-height + $navicon-gutter );
+		box-sizing: content-box;
+	}
+
+	&:after {
+		top: $navicon-height + $navicon-gutter;
+	}
+
+	.is-navigation-open & {
+
+		& {
+			background-color: transparent;
+		}
+
+		@if ($navicon-color-active != auto) {
+
+			&:before,
+			&:after {
+				background-color: $navicon-color-active;
+			}
+
+		}
+
+		&:before {
+			transform: translateY($navicon-gutter + $navicon-height) rotate(45deg);
+		}
+
+		&:after {
+			transform: translateY(-($navicon-gutter + $navicon-height )) rotate(-45deg);
+		}
+
+	}
+
 }

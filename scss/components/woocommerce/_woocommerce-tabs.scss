@@ -1,0 +1,70 @@
+.woocommerce-tabs {
+	@extend .clear-fix;
+	margin-bottom: ritmo(2);
+
+	.tabs {
+		margin: 0 5% 0 0;
+
+		@include media('>=md') {
+			border-top: 1px solid rgba(0,0,0,.05);
+			width: 25%;
+			float: left;
+		}
+
+		li {
+			display: block;
+			margin: 0;
+			border-bottom: 1px solid rgba(0,0,0,.05);
+			border-left: 3px solid $color-grey-light;
+			position: relative;
+			padding-left: ritmo(1);
+
+			@include media('<=md') {
+				display: none !important;
+			}
+
+			&.active {
+				border-left: 3px solid $color-grey-dark;
+				position: relative;
+
+				&:before {
+					content: "";
+					@include triangle( right, $color-black, 5px );
+					@extend .centered-vertical;
+					right: 0;
+				}
+			}
+		}
+
+		a {
+			padding: 1em 0;
+			display: block;
+			text-decoration: none;
+			color: $color-black;
+
+			&:hover {
+				color: $color-primary;
+			}
+		}
+	}
+
+	.panel {
+
+		margin-right: 0;
+		margin-top: 0;
+
+		@include media('<=md') {
+			display: block !important;
+			margin-bottom: ritmo(2);
+		}
+
+		@include media('>=md') {
+			width: 70%;
+			float: right;
+		}
+
+		p {
+			color: $color-grey-dark;
+		}
+	}
+}

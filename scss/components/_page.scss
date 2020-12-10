@@ -1,13 +1,13 @@
 .page {
-
+	margin-bottom: ritmo(1);
 }
 
 .page__header {
-
+	margin-bottom: ritmo(1);
 }
 
 .page__title {
-
+	margin-bottom: 0;
 }
 
 .page__subtitle {
@@ -16,4 +16,42 @@
 
 .page__body {
 
+}
+
+.page__footer {
+	margin-bottom: ritmo(1);
+}
+
+.page__data {
+	display: block;
+	color: $color-grey-dark;
+	@include ritmo-font-size(14px);
+}
+
+.page__data--date {
+	@include ritmo-font-size(12px);
+	font-weight: bold;
+}
+
+.page__data--tag {
+
+	display: block;
+	margin-top: ritmo(1);
+
+	a {
+		@include ritmo-font-size(12px, 1);
+		border: 1px solid $color-grey;
+		font-weight: bold;
+		padding: ritmo(0.20) ritmo(0.5);
+		text-decoration: none;
+		display: inline-block;
+		margin-right: ritmo(0.5);
+		border-radius: ritmo(0.25);
+		color: $color-black;
+		text-transform: uppercase;
+
+		&:hover {
+			color: $color-primary;
+		}
+	}
 }
