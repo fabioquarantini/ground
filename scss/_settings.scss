@@ -1,6 +1,6 @@
 // Colors
-$color-primary: #2260e7;
-$color-secondary: #445C72;
+$color-primary: #C5AB78;
+$color-secondary: #549b93;
 $color-black: #000000;
 $color-grey: #cbcbcb;
 $color-white: #ffffff;
@@ -50,6 +50,30 @@ $color-error-dark: darken($color-error, 20%);
 $color-error-darker: darken($color-error, 30%);
 $color-error-darkest: darken($color-error, 40%);
 
+// Transitions
+$speed: 0.3s;
+$offset-animation: 100px;
+$bounce: cubic-bezier(0.17, 0.67, 0.3, 1.33);
+$power1-ease-out: cubic-bezier(0.250, 0.460, 0.450, 0.940);
+$power2-ease-out: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+$power3-ease-out: cubic-bezier(0.165, 0.840, 0.440, 1.000);
+$power4-ease-out: cubic-bezier(0.230, 1.000, 0.320, 1.000);
+$power1-ease-in: cubic-bezier(0.550, 0.085, 0.680, 0.530) ;
+$power2-ease-in: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+$power3-ease-in: cubic-bezier(0.895, 0.030, 0.685, 0.220);
+$power4-ease-in: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+$expo-ease-out: cubic-bezier(0.190, 1.000, 0.220, 1.000);
+$expo-ease-in: cubic-bezier(0.950, 0.050, 0.795, 0.035);
+$expo-ease-in-out: cubic-bezier(1.000, 0.000, 0.000, 1.000);
+$sine-ease-out: cubic-bezier(0.390, 0.575, 0.565, 1.000);
+$sine-ease-in: cubic-bezier(0.470, 0.000, 0.745, 0.715);
+$power1-ease-in-out: cubic-bezier(0.455, 0.030, 0.515, 0.955);
+$power2-ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1.000);
+$power3-ease-in-out: cubic-bezier(0.770, 0.000, 0.175, 1.000);
+$power4-ease-in-out: cubic-bezier(0.860, 0.000, 0.070, 1.000);
+$slow-ease-out: cubic-bezier(.04,1.15,0.4,.99);
+$easing: $power2-ease-out;
+
 // Breakpoints
 $breakpoints: (
 	default: 0px,
@@ -72,50 +96,45 @@ $base-line-multi: 1;
 $rem-with-px-fallback: false;
 $ritmo-unit: 'rem';
 
-@include ritmo-baseline;
-
 $type-styles: (
 	default:
 		(
-			h1: ('font-size': 24px, 'line-height': 1, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
+			h1: ('font-size': 24px, 'line-height': 1.25, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
 			h2: ('font-size': 20px, 'line-height': 1, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
 			h3: ('font-size': 19px, 'line-height': 1, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
 			h4: ('font-size': 18px, 'line-height': 1, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
 			h5: ('font-size': 17px, 'line-height': 1, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
 			h6: ('font-size': 16px, 'line-height': 1, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
 			p: ('font-size': 16px, 'line-height': 1, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
-			small: ('font-size': 12px, 'line-height': 1, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal)
+			small: ('font-size': 12px, 'line-height': 0.75, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal)
 		),
 	md:
 		(
-			h1: ('font-size': 48px, 'line-height': 2, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
-			h2: ('font-size': 40px, 'line-height': 2, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
-			h3: ('font-size': 31px, 'line-height': 1, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
-			h4: ('font-size': 26px, 'line-height': 1, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
-			h5: ('font-size': 22px, 'line-height': 1, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
+			h1: ('font-size': 36px, 'line-height': 2, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
+			h2: ('font-size': 31px, 'line-height': 2, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
+			h3: ('font-size': 28px, 'line-height': 1.5, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
+			h4: ('font-size': 26px, 'line-height': 1.5, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
+			h5: ('font-size': 22px, 'line-height': 1.25, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
 			h6: ('font-size': 18px, 'line-height': 1, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
 			p: ('font-size': 16px, 'line-height': 1, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
-			small: ('font-size': 12px, 'line-height': 1, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal)
+			small: ('font-size': 12px, 'line-height': 0.75, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal)
 		)
 );
 
+// Swiper
+$themeColor: $color-primary;
+
 // Grid
-@include g-setup((
-	context: 12,
-	gutter-width: 24px,
-	states-classes: false,
-	classes: true
-));
+$columns: 12;
+$gutter: 24px;
 
-@each $key, $value in $breakpoints {
-	@if $key != 'default' {
-		@include g-register-state(
-			$key, ( min-width: $value )
-		);
-	}
-}
-
-@include g-classes();
+// Navicon
+$navicon-width: 28px;
+$navicon-height: 1px;
+$navicon-gutter: 7px;
+$navicon-color: $color-black;
+$navicon-color-active: $navicon-color;
+$navicon-border-radius: 0;
 
 // Paths
 $path-img: '../img/';
@@ -123,5 +142,5 @@ $path-fonts: '../fonts/';
 
 // Debug
 $debug-breakpoints: false;
-$debug-rhythm: true;
+$debug-rhythm: false;
 $debug-css: false;

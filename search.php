@@ -1,29 +1,56 @@
-<?php get_template_part( 'partials/header' ); ?>
+<?php
+/**
+ * Search results pages
+ *
+ * @package Ground
+ */
 
-	<section class="page page--search">
+get_template_part( 'partials/header' );
+?>
 
-		<header class="page__header">
-			<h1 class="page__title"><?php _e( 'Search results:', 'ground' ); ?></h1>
-		</header>
+	<div class="container">
+		<div class="row">
 
-		<div class="page__body">
+			<?php get_template_part( 'partials/breadcrumbs' ); ?>
 
-			<?php if ( have_posts() ) : while ( have_posts() ) : the_post();
+			<div class="gr-12">
+				<section class="page page--search">
 
-				get_template_part( 'partials/abstract', 'post' );
+					<header class="page__header">
+						<h1 class="page__title">
+							<?php
+							/* translators: %s: search query. */
+							printf( esc_html__( 'Search Results for: %s', 'ground' ), '<span>' . get_search_query() . '</span>' );
+							?>
+						</h1>
+					</header>
 
-			endwhile;
+					<div class="page__body">
 
-				get_template_part( 'partials/pagination' );
+						<?php
+						if ( have_posts() ) :
+							while ( have_posts() ) :
+								the_post();
 
-			else : ?>
+								get_template_part( 'partials/abstract', 'post' );
 
-				<p><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'ground' ); ?></p>
+						endwhile;
 
-			<?php endif; ?>
+							get_template_part( 'partials/pagination' );
 
-		</div> <!-- End .page__body -->
+						else :
+							?>
 
-	</section> <!-- End .page -->
+							<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'ground' ); ?></p>
 
-<?php get_template_part( 'partials/footer' ); ?>
+						<?php endif; ?>
+
+					</div> <!-- End .page__body -->
+
+				</section> <!-- End .page -->
+			</div>
+		</div> <!-- End .row -->
+	</div> <!-- End .container -->
+
+<?php
+get_template_part( 'partials/footer' );

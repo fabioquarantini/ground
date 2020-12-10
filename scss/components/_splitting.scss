@@ -1,0 +1,36 @@
+[data-splitting] {
+	opacity: 0;
+
+	&.splitting {
+		opacity: 1;
+		
+		&[data-splitting="masked"] {
+			overflow: hidden;
+			display: inline-block;
+		}
+
+		&[data-scroll] {
+			.char {
+				transition: transform .8s $easing, opacity .3s $easing;
+				transition-delay: calc(30ms * var(--char-index));
+				transform: translateY(100%);
+				opacity: 0;
+			}
+		}
+
+		.is-loader-complete & {
+
+			&[data-scroll="in"],
+			&.is-inview {
+				.char {
+
+					opacity: 1;
+					transform: none;
+				}
+
+			}
+		}
+
+	}
+
+}

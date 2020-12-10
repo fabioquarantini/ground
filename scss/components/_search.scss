@@ -1,0 +1,88 @@
+.search {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	visibility: hidden;
+	z-index: 11;
+	transition: visibility 0s 0.6s;
+
+	&.is-search-open {
+		visibility: visible;
+		transition: visibility 0s 0s;
+		overflow-y: auto;
+	}
+}
+
+.search__content {
+	background-color: $color-white;
+	padding: 5% ritmo(1);
+	position: relative;
+
+	@include media('>=md') {
+		padding: 5% 15%;
+		width: 100%;
+		transition: transform $speed $power4-ease-in-out;
+		transform: translateY(-100%);
+	}
+
+	.is-search-open & {
+		transform: none;
+	}
+}
+
+.search__bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba($color-black, 0.8);
+	transition: opacity 0.5s ease;
+	opacity: 0;
+
+	.is-search-open & {
+		opacity: 1;
+	}
+}
+
+.search__close {
+	position: absolute;
+	top: ritmo(1);
+	right: ritmo(1);
+	cursor: pointer;
+	color: $color-black;
+}
+
+.search__spinner {
+	position: absolute;
+	top: ritmo(1.75);
+	right: 0;
+	display: none;
+	height: ritmo(1.5) !important;
+	width: ritmo(1.5) !important;
+	opacity: 0;
+	transition: opacity 0.4s;
+	display: inline-block;
+
+	@include media('>=md') {
+		position: absolute;
+		right: auto;
+		top: ritmo(2);
+		left: 0;
+		top: ritmo(2);
+		left: - ritmo(3);
+		height: ritmo(2) !important;
+		width: ritmo(2) !important;
+	}
+
+	.is-search-loading & {
+		opacity: 1;
+	}
+
+}
+
+.search__result {
+	margin-top: ritmo(2);
+}

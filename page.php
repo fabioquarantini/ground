@@ -1,15 +1,47 @@
-<?php get_template_part( 'partials/header' ); ?>
+<?php
+/**
+ * Pages
+ *
+ * @package Ground
+ */
 
-	<div class="gr-12 gr-9@md push-3@md">
-		<?php if ( have_posts() ) : while ( have_posts() ) : the_post();
+get_template_part( 'partials/header' );
+?>
 
-			get_template_part( 'partials/content', 'page' );
+	<div class="container
+	<?php
+	if ( is_cart() || is_account_page() ) {
+		echo 'container--medium';
+	} if ( is_checkout() ) {
+		echo 'container--small'; }
+	?>
+	">
+		<div class="row">
 
-		endwhile; endif; ?>
-	</div>
 
-	<div class="gr-12 gr-3@md pull-9@md">
-		<?php get_template_part( 'partials/sidebar', 'primary' ); ?>
-	</div>
+			<?php if ( is_checkout() || is_cart() || is_account_page() ) { ?>
+				<div class="gr-12">
+			<?php } else { ?>
+				<?php get_template_part( 'partials/breadcrumbs' ); ?>
 
-<?php get_template_part( 'partials/footer' ); ?>
+				<div class="gr-12 gr-3@md">
+					<?php get_template_part( 'partials/sidebar', 'primary' ); ?>
+				</div>
+
+				<div class="gr-12 gr-9@md">
+			<?php } ?>
+
+				<?php
+				while ( have_posts() ) :
+					the_post();
+
+					get_template_part( 'partials/content', 'page' );
+
+				endwhile;
+				?>
+			</div>
+		</div> <!-- End .row -->
+	</div> <!-- End .container -->
+
+<?php
+get_template_part( 'partials/footer' );

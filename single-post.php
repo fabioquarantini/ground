@@ -1,9 +1,27 @@
-<?php get_template_part( 'partials/header' );
+<?php
+/**
+ * Single posts
+ *
+ * @package Ground
+ */
 
-	if ( have_posts() ) : while ( have_posts() ) : the_post();
+get_template_part( 'partials/header' );
 
-		get_template_part( 'partials/content', 'single-post' );
+while ( have_posts() ) :
+	the_post(); ?>
 
-	endwhile; endif;
+		<div class="container">
+			<div class="row">
 
-get_template_part( 'partials/footer' ); ?>
+				<?php get_template_part( 'partials/breadcrumbs' ); ?>
+
+				<div class="gr-12">
+					<?php get_template_part( 'partials/content', 'single-post' ); ?>
+				</div>
+			</div> <!-- End .row -->
+		</div> <!-- End .container -->
+
+	<?php
+endwhile;
+
+get_template_part( 'partials/footer' );

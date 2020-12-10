@@ -1,0 +1,33 @@
+.scroll-progress {
+    position: fixed;
+    display: none;
+    right: ritmo(2);
+    top: 50%;
+    width: 1px;
+    height: 150px;
+    z-index: 9;
+    transform: translateY(-50%);
+
+    html.has-scroll-smooth & {
+        display: block;
+    }
+
+    &__body {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba(0,0,0,0.15);
+    }
+
+    &__line {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 0;
+        width: 100%;
+        background: $color-black;
+		transition: all $speed $easing;
+    }
+}

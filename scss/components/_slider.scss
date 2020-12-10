@@ -1,7 +1,178 @@
 .slider {
-
+	// margin-bottom: ritmo(2);
 }
 
 .slider--primary {
+	background: $color-white;
 
+	.slider__item {
+		overflow: hidden;
+		transition: opacity 0.8s $easing 1s;
+
+		&.swiper-slide-active {
+
+			.slider__text,
+			.slider__title,
+			.slider__button {
+				opacity: 1;
+				transform: translateY(0);
+			}
+
+		}
+	}
+
+	.slider__img {
+		transition: transform 2s $easing;
+		transition-delay: 0.4s;
+		transform: scale(1.2);
+
+		.is-loaded & {
+			transform: scale(1);
+		}
+	}
+
+	.slider__text,
+	.slider__title,
+	.slider__button {
+		opacity: 0;
+		transform: translateY(30px);
+		transition: all .2s $easing;
+	}
+
+	.slider__title {
+		transition-delay: 1.5s;
+	}
+
+	.slider__text {
+		transition-delay: 1.9s;
+	}
+
+	.slider__button {
+		transition-delay: 2.2s;
+	}
+
+}
+
+.slider--secondary {
+
+}
+
+.slider--full {
+	height: calc(100vh - #{ritmo(3)});
+	@include media('>=sm') {
+		height: 100vh;
+	}
+}
+
+.slider--gallery {
+
+	.slider__navigation {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 2;
+		outline: none;
+
+		&.swiper-button-disabled {
+			display: none;
+		}
+
+		&--next {
+			right: 0;
+			left: auto;
+		}
+
+		&--prev {
+			right: auto;
+			left: 0;
+		}
+
+	}
+
+	.slider__img {
+		height: 320px;
+		@include media('>=md') {
+			height: 600px;
+		}
+	}
+}
+
+.slider__item {
+	overflow: hidden;
+}
+
+.slider__navigation {
+	display: none;
+	@include media('>=md') {
+		display: block;
+		background: none;
+	}
+}
+
+.slider__navigation--prev {
+	color: $color-black;
+}
+
+.slider__navigation--next {
+	color: $color-black;
+}
+
+.slider__pagination {
+	bottom: ritmo(1) !important;
+}
+
+.slider__pagination--flat {
+
+	.swiper-pagination-bullet {
+		border-radius: 0;
+		width: 22px;
+		height: 2px;
+		margin-left: ritmo(0.3) !important;
+		margin-right: ritmo(0.3) !important;
+
+		@include media('>=md') {
+			width: 44px;
+		}
+	}
+
+	.swiper-pagination-bullet-active {
+		background: $color-primary;
+	}
+
+}
+
+.slider--cursor-navigation {
+
+	.slider__navigation {
+		width: 50%;
+		height: 100%;
+		margin-top: 0;
+		top: 0;
+		background-image: none;
+
+		&:before {
+			display: none;
+		}
+
+		&:active {
+			outline: none;
+		}
+	}
+
+	.slider__navigation--prev {
+		left: 0;
+	}
+
+	.slider__navigation--next {
+		right: 0;
+	}
+}
+
+.slider--freemode {
+	.swiper-slide {
+		max-width: 65%;
+		@include media('>=sm') {
+			max-width: none;
+		}
+	}
 }

@@ -1,7 +1,7 @@
 .card {
 	position: relative;
 	overflow: hidden;
-	border: 1px solid $color-grey;
+	//border: 1px solid $color-grey;
 	margin-bottom: ritmo(1);
 }
 
@@ -30,4 +30,5 @@
 .card__link {
 	text-decoration: none;
 	color: inherit;
+	display: block;
 }

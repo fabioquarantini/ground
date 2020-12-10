@@ -1,75 +1,101 @@
-<?php get_template_part( 'partials/header' ); ?>
+<?php
+/**
+ * Taxonomy ground_catalog_taxonomy
+ *
+ * @package Ground
+ */
 
-	<div class="gr-12 gr-9@md push-3@md">
+get_template_part( 'partials/header' );
+?>
 
-		<section class="page page--catalog-archive">
+	<div class="container">
+		<div class="row">
 
-			<header class="page__header">
-				<h1 class="page__title"><?php single_cat_title(); ?></h1>
-			</header>
+			<?php get_template_part( 'partials/breadcrumbs' ); ?>
 
-			<div class="page__body">
+			<div class="gr-12 gr-3@md">
+				<?php get_template_part( 'partials/sidebar', 'secondary' ); ?>
+			</div>
 
-				<?php echo category_description();
+			<div class="gr-12 gr-9@md">
 
-				$queried_object = get_queried_object();
-				$term_id = $queried_object->term_id;
-				$term_parent = $queried_object->parent;
+				<section class="page page--catalog-archive">
 
-				if ( $term_parent == 0 ) {
-					$term_parent = $term_id;
-				}
+					<header class="page__header">
+						<h1 class="page__title"><?php single_cat_title(); ?></h1>
+					</header>
 
-				$args = array(
-					'child_of'		=> $term_id,
-					'hide_empty'	=> 1,
-					'hierarchical'	=> 0,
-					//'parent'		=> 0,
-					'taxonomy'		=> 'ground_catalog_taxonomy'
-				);
+					<div class="page__body">
 
-				$taxonomies = get_categories($args);
+						<?php
+						the_archive_description();
 
-				// Show categories
-				if ( !empty( $taxonomies ) && !is_wp_error( $taxonomies ) ) :
+						$queried_object = get_queried_object();
+						$term_id        = $queried_object->term_id;
 
-					foreach ( $taxonomies as $taxonomy ) {
+						$args = array(
+							'child_of'     => $term_id,
+							'hide_empty'   => 1,
+							'hierarchical' => 0,
+							'parent'       => $term_id,
+							'taxonomy'     => 'ground_catalog_taxonomy',
+						);
 
-						$taxonomy_slug = $taxonomy->slug;
-						$taxonomy_name = $taxonomy->name;
-						$taxonomy_description = $taxonomy->description; ?>
+						$catalog_taxonomies = get_categories( $args );
 
-						<div class="gr-12 gr-4@md">
-							<?php include( locate_template( 'partials/abstract-taxonomy-ground_catalog.php' ) ); ?>
-						</div>
+						// Categories.
+						if ( ! empty( $catalog_taxonomies ) && ! is_wp_error( $catalog_taxonomies ) ) :
+							?>
 
-					<?php }
+							<div class="row">
+								<?php
+								foreach ( $catalog_taxonomies as $catalog_taxonomy ) :
+									?>
 
-				// Show products
-				else :
+									<div class="gr-12 gr-4@md">
+										<?php
+										$args = array(
+											'slug'        => $catalog_taxonomy->slug,
+											'name'        => $catalog_taxonomy->name,
+											'description' => $catalog_taxonomy->description,
+										);
+										get_template_part( 'partials/abstract', 'taxonomy-ground_catalog', $args );
+										?>
+									</div>
 
-					if (have_posts()) : while (have_posts()) : the_post();
+								<?php endforeach ?> <!-- End .row -->
+							</div>
 
-						get_template_part( 'partials/abstract', 'ground_catalog' );
+							<?php
+						else : // Products.
 
-					endwhile;
+							if ( have_posts() ) :
+								?>
+								<div class="row">
+									<?php
+									while ( have_posts() ) :
+										the_post();
+										?>
+										<div class="gr-12 gr-4@md">
+											<?php get_template_part( 'partials/abstract', 'ground_catalog' ); ?>
+										</div>
+									<?php endwhile; ?>
+								</div> <!-- End .row -->
+								<?php
+								get_template_part( 'partials/pagination' );
+							endif;
 
-						get_template_part( 'partials/pagination' );
+						endif;
+						?>
 
-					endif;
+					</div> <!-- End .page__body -->
 
-				endif; ?>
+				</section> <!-- End .page -->
 
-			</div> <!-- End .page__body -->
+			</div>
 
-		</section> <!-- End .page -->
+		</div> <!-- End .row -->
+	</div> <!-- End .container -->
 
-	</div>
-
-	<div class="gr-12 gr-3@md pull-9@md">
-
-		<?php get_template_part( 'partials/sidebar', 'secondary' ); ?>
-
-	</div>
-
-<?php get_template_part( 'partials/footer' ); ?>
+<?php
+get_template_part( 'partials/footer' );

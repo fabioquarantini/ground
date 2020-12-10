@@ -1,3 +1,60 @@
 .item {
+	margin-bottom: ritmo(2);
+}
 
+.item--small {
+	margin-bottom: ritmo(1);
+
+	.item__media {
+		float: left;
+		margin-right: ritmo(1);
+		width: ritmo(4);
+	}
+
+	.item__title {
+		//@include ritmo-font-size(21px);
+		margin-top: ritmo(0.25);
+		margin-bottom: ritmo(0.25);
+		font-weight: bold;
+		color: $color-black;
+	}
+
+	.item__body {
+		margin-bottom: 0;
+		color: $color-grey;
+	}
+
+	.item__link {
+		transition: all 0.4s;
+		&:hover {
+			background-color: $color-grey-light;
+		}
+	}
+}
+
+.item__link {
+	display: block;
+	text-decoration: none;
+}
+
+.item__footer {
+
+}
+
+.item__title {
+	margin-bottom: 0;
+}
+
+.item__header {
+	margin-bottom: ritmo(1);
+}
+
+.item__data {
+	display: block;
+}
+
+.item__data--date {
+	@include ritmo-font-size(12px);
+	font-weight: bold;
+	color: $color-grey-dark;
 }

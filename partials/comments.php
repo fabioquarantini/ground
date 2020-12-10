@@ -1,5 +1,5 @@
-<!-- TODO: Update BEM class -->
-<?php if ( post_password_required() ) {
+<?php // TODO: Update BEM class
+if ( post_password_required() ) {
 	return;
 } ?>
 <div class="comments">
@@ -10,7 +10,6 @@
 
 			<li class="comments__item">
 
-				<!-- TODO: Update BEM class -->
 				<article class="comments__body comments__body--<?php comment_ID() ?> <?php empty( $args['has_children'] ) ? '' : 'comments__body--parent' ?>" id="comment-<?php comment_ID() ?>">
 
 					<?php if ( $args['avatar_size'] != 0 ) {

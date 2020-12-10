@@ -11,9 +11,7 @@ A flexible and powerful WordPress starter theme using a modern development workf
 * Generate JavaScript and CSS sourcemaps
 * Code linting through ESLint
 * Extend WordPress css classes to use BEM naming convention
-* Icons font generation from svg files
 * Notifications feedback on task complete
-* Apache Server Configs
 * Advanced wp-config.php base kit
 * Vertical Rhythm
 * Multilingual ready
@@ -23,19 +21,19 @@ Make sure you have the latest versions of these software.
 
 * [WordPress](https://wordpress.org)
 * [Node.js](https://nodejs.org) - check with `node -v`
-* [Yarn](https://yarnpkg.com) - check with `yarn -v` (you can also use npm)
+* [Npm](https://www.npmjs.com/get-npm) - check with `npm -v` (you can also use npm)
 
 ## Installation
 * Download the repository and install it as a theme in your Wordpress installation `wp-content/themes/`
 * Rename the theme folder with the name chosen by you
-* With your terminal go to your renamed theme folder and run `yarn` (or `npm install`)
+* With your terminal go to your renamed theme folder and run `npm install`
 
 ## Workflow
 Open the Ground folder using the terminal and type one of the following commands
 
-* `yarn start` - Concatenates, compile, minify and compress assets when changes are made
-* `yarn server` - Concatenates, compile, minify and compress assets when changes are made, start Browsersync
-* `yarn prettify` - Concatenates, compile assets when changes are made
+* `npm start` - Concatenates, compile, minify and compress assets when changes are made
+
+* `npm run build` - Concatenates, compile assets when changes are made
 
 ## Sass structure
 * **Animations** - Library of CSS animations

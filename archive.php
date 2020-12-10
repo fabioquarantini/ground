@@ -1,32 +1,48 @@
-<?php get_template_part( 'partials/header' ); ?>
+<?php
+/**
+ * Archive pages
+ *
+ * @package Ground
+ */
 
-	<section class="page page--archive">
+get_template_part( 'partials/header' );
+?>
 
-		<?php if ( have_posts() ) : ?>
+	<div class="container">
+		<div class="row">
 
-			<header class="page__header">
-				<?php the_archive_title( '<h1 class="page__title">', '</h1>' ); ?>
-			</header>
+			<?php get_template_part( 'partials/breadcrumbs' ); ?>
 
-			<div class="page__body js-infinite-container">
+			<div class="gr-12">
+				<section class="page page--archive">
 
-				<?php the_archive_description(); ?>
+					<?php if ( have_posts() ) : ?>
 
-				<?php while ( have_posts() ) : the_post();
+						<header class="page__header">
+							<?php the_archive_title( '<h1 class="page__title">', '</h1>' ); ?>
+						</header>
 
-					get_template_part( 'partials/abstract', 'post' );
+						<div class="page__body js-infinite-container">
+							<?php the_archive_description(); ?>
 
-				endwhile; ?>
+							<?php
+							while ( have_posts() ) :
+								the_post();
 
-			</div> <!-- End .page__body -->
+								get_template_part( 'partials/abstract', 'post' );
 
-			<?php
-			get_template_part( 'partials/pagination' );
-			get_template_part( 'partials/loader', 'infinite' );
-			?>
+							endwhile;
+							?>
+						</div> <!-- End .page__body -->
 
-		<?php endif; ?>
+						<?php get_template_part( 'partials/pagination' ); ?>
 
-	</section> <!-- End .page -->
+					<?php endif; ?>
 
-<?php get_template_part( 'partials/footer' ); ?>
+				</section> <!-- End .page -->
+			</div>
+		</div> <!-- End .row -->
+	</div> <!-- End .container -->
+
+<?php
+get_template_part( 'partials/footer' );

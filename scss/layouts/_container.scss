@@ -1,7 +1,9 @@
 .container {
+	padding-left: ritmo(1);
+	padding-right: ritmo(1);
+	max-width: map-get($breakpoints, xl);
 	margin-left: auto;
 	margin-right: auto;
-	max-width: map-get($breakpoints, xl);
 }
 
 .container--full-width {
@@ -11,4 +13,35 @@
 
 .container--fluid {
 	max-width: none;
+}
+
+.container--medium {
+	max-width: map-get($breakpoints, lg);
+}
+
+.container--small {
+	max-width: map-get($breakpoints, sm);
+}
+
+.container--scroll {
+	display: flex;
+	flex-wrap: nowrap;
+	overflow-x: auto;
+	padding-left: ritmo(1);
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+
+	> * {
+		flex: 0 0 auto;
+		width: 65%;
+		margin-right: ritmo(1);
+	}
+}
+
+[data-scroll-section] {
+	.has-scroll-smooth & {
+		min-height: 100vh;
+	}
 }

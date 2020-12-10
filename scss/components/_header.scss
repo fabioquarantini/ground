@@ -6,17 +6,63 @@
 	right: 0;
 	background-color: $color-white;
 	height: ritmo(3);
-	box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+	box-shadow: 0 0 25px rgba(0,0,0,0.08);
 	@extend .clear-fix;
 
 	@include media('>=md') {
-		position: static;
-		top: auto;
+		position: relative;
+		top: 0;
 		left: auto;
 		right: auto;
 		height: auto;
-		background-color: transparent;
-		box-shadow: none;
-		margin-bottom: ritmo(1);
+		width: 100%;
+		text-align: right;
+		transition: transform $speed $easing;
+		// will-change: transform;
+		display: flex;
+		justify-content: space-between;
+
+		[data-direction="down"] & {
+			transform: translateY(ritmo(-3));
+		}
+	}
+
+	.body--home & {
+
+		@include media('>=md') {
+			position: fixed;
+			z-index: 10;
+			top: 0;
+			left: 0;
+			right: 0;
+		}
+
+	}
+}
+
+.header__search {
+	background-color: transparent;
+	cursor: pointer;
+	outline: none;
+	border: 0;
+
+
+	position: absolute;
+	top: 0;
+	right: ritmo(4.5);
+	display: inline-block;
+	vertical-align: top;
+	height: ritmo(3);
+
+	@include media('>=md') {
+		width: ritmo(3);
+		position: relative;
+		top: auto;
+		right: auto;
+	}
+
+
+	i {
+		color: $color-black;
 	}
 }

@@ -1,3 +1,18 @@
+.navigation {
+
+}
+
+.navigation__link {
+	text-decoration: none;
+	color: $color-black;
+
+	&:hover,
+	&.is-active {
+		color: $color-primary;
+	}
+}
+
+
 .navigation--primary {
 	position: fixed;
 	transition-timing-function: ease-in;
@@ -5,7 +20,6 @@
 	top: 0;
 	left: -100%;
 	width: 100%;
-	background: $color-grey-lighter;
 	margin: 0;
 	overflow-y: auto;
 
@@ -17,10 +31,12 @@
 		width: auto;
 		background: transparent;
 		overflow-y: visible;
-		float: right;
+		display: inline-block;
+		vertical-align: top;
 	}
 
-	&.is-navigation-open {
+	.is-navigation-open & {
+		background: $color-grey-lighter;
 		transition: 0.25s;
 		transition-timing-function: ease-out;
 		left: 0;
@@ -52,8 +68,8 @@
 			}
 		}
 
-		&--ancestor,
-		&--parent {
+		&.is-ancestor,
+		&.is-parent {
 
 			> .navigation__link {
 				@include media('>=md') {
@@ -97,7 +113,7 @@
 		display: block;
 		text-decoration: none;
 		margin: 0;
-		font-weight: bold;
+		font-weight: 700;
 		cursor: pointer;
 		color: $color-black;
 		@include ritmo-side-border(bottom, 1px);
@@ -106,10 +122,12 @@
 		transition: background 0.3s ease-in-out, border 0.3s ease-in-out, color 0.3s ease-in-out;
 
 		@include media('>=md') {
-			@include ritmo-font-size(14px);
+			@include ritmo-font-size(12px);
+			text-transform: uppercase;
 			padding-left: 0;
 			border: 0;
-			font-weight: normal;
+			padding-left: ritmo(0.75);
+			padding-right: ritmo(0.75);
 		}
 
 		&:hover {
