@@ -11,9 +11,9 @@ get_template_part( 'partials/header' );
 	<div class="container
 	<?php
 	if ( is_cart() || is_account_page() ) {
-		echo 'container--medium';
+		echo 'max-w-screen-lg';
 	} if ( is_checkout() ) {
-		echo 'container--small'; }
+		echo 'max-w-screen-md'; }
 	?>
 	">
 		<div class="row">

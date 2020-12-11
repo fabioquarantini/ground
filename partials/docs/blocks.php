@@ -49,7 +49,7 @@
 
 	else: ?>
 
-		<div class="container container--fluid margin-bottom-4">
+		<div class="container  margin-bottom-4">
 			<div class="container padding-5@md padding-1">
 				<div class="row">
 					<div class="gr-12">

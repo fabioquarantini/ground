@@ -6,7 +6,7 @@ if (!is_page_template('templates/template-ground-docs.php')) {
 } ?>
 
 <?php if ($image): ?>
-	<div class="container container--fluid">
+	<div class="container">
 		<div class="row">
 			<div class="gr-12">
 				<?php echo wp_get_attachment_image( $image, $image_size, "", ["class" => "full-width"] ); ?>
