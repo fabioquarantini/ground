@@ -9,7 +9,7 @@ $units: (
 );
 
 @each $key, $value in $breakpoints {
-	@include media('>=#{$key}') {
+	@screen #{$key} {
 		$breakpoint: if($key == default, '', \@#{$key});
 
 		// Margin

@@ -25,7 +25,7 @@
 		width: 23%;
 		padding-right: 10px;
 
-		@include media('>=md') {
+		@screen md {
 			width: 80px;
 			float: none;
 			margin-right: 0;
@@ -65,7 +65,7 @@
 		padding-right: 0;
 		background: transparent;
 
-		@include media(">=md") {
+		@screen md {
 			margin-top: ritmo(2);
 		}
 
@@ -81,7 +81,7 @@
 				padding-right: ritmo(1);
 			}
 
-			@include media(">=md") {
+			@screen md {
 				display: inline-block;
 				float: left;
 				//margin-top: ritmo(2);
@@ -135,7 +135,7 @@
 			padding: 0;
 			line-height: normal;
 
-			@include media(">=md") {
+			@screen md {
 				margin-bottom: 0;
 				float: right;
 			}

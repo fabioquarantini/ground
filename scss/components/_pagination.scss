@@ -3,14 +3,14 @@
 	margin: ritmo(2) 0 ritmo(2) 0;
 	text-align: center;
 
-	@include media('>=md') {
+	@screen md {
 		display: table-row;
 	}
 
 	.is-active {
 		display: inline-block;
 		text-align: center;
-		@include media('>=md') {
+		@screen md {
 			text-align: left;
 			display: table-cell;
 		}
@@ -55,7 +55,7 @@
 	line-height: 1.25;
 	text-align: center;
 
-	@include media('>=md') {
+	@screen md {
 		display: table-cell;
 		margin-left: -1px;
 		width: auto;
@@ -74,7 +74,7 @@
 				background-color: $color-primary;
 			}
 
-			@include media('>=md') {
+			@screen md {
 				background: none;
 				color: $color-grey;
 				&:hover {

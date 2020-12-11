@@ -1,6 +1,6 @@
 .sidebar {
 	display: none;
-	@include media('>=md') {
+	@screen md {
 		display: block;
 	}
 
@@ -20,7 +20,7 @@
 .sidebar__body {
 	padding: ritmo(1) ritmo(1) ritmo(3) ritmo(1);
 
-	@include media('>=md') {
+	@screen md {
 		padding: 0;
 	}
 }
@@ -32,7 +32,7 @@
 	margin: 0;
 	width: 100%;
 
-	@include media('>=md') {
+	@screen md {
 		display: none;
 	}
 }

@@ -9,7 +9,7 @@
 	box-shadow: 0 0 25px rgba(0,0,0,0.08);
 	@extend .clear-fix;
 
-	@include media('>=md') {
+	@screen md {
 		position: relative;
 		top: 0;
 		left: auto;
@@ -29,7 +29,7 @@
 
 	.body--home & {
 
-		@include media('>=md') {
+		@screen md {
 			position: fixed;
 			z-index: 10;
 			top: 0;
@@ -54,7 +54,7 @@
 	vertical-align: top;
 	height: ritmo(3);
 
-	@include media('>=md') {
+	@screen md {
 		width: ritmo(3);
 		position: relative;
 		top: auto;

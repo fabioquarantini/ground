@@ -10,12 +10,5 @@
 	.button {
 		right: ritmo(1);
 		@include centered(false, true);
-
-		@include media('>=md') {
-			//position: absolute;
-			//top: 0;
-			//right: 0;
-		}
-
 	}
 }

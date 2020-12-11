@@ -10,7 +10,7 @@
 	cursor: pointer;
 	outline: none;
 
-	@include media(">=md") {
+	@screen md {
 		display: none;
 	}
 }

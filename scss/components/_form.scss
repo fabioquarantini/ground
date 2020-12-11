@@ -25,7 +25,7 @@ form {
 		font-weight: bold;
 		@include ritmo-font-size(21px, 1);
 
-		@include media('>=md') {
+		@screen md {
 			@include ritmo-font-size(42px, 2);
 			padding: ritmo(1) 0;
 		}
@@ -52,14 +52,14 @@ form {
 		padding: 0;
 		opacity: 1;
 		transition: opacity 0.4s;
-		@include media('>=md') {
+		@screen md {
 			bottom: ritmo(0.5);
 		}
 	}
 
 	.form__icon {
 		color: $color-black;
-		@include media('>=md') {
+		@screen md {
 			height: 42px;
 		}
 	}
@@ -212,7 +212,8 @@ textarea {
 		}
 
 		&:after {
-			@extend .animate;
+			animation-duration: 0.8s;
+			animation-fill-mode: both;
 		}
 	}
 
@@ -222,7 +223,7 @@ textarea {
 
 		&:after {
 			animation-duration: 0.3s;
-			@extend .animate-fade-in;
+			animation-name: fade-in;
 			background-color: $color-primary;
 			content: " ";
 			width: 8px;
@@ -269,7 +270,8 @@ textarea {
 		}
 
 		&:after {
-			@extend .animate;
+			animation-duration: 0.8s;
+			animation-fill-mode: both;
 		}
 	}
 
@@ -278,7 +280,7 @@ textarea {
 		position: relative;
 
 		&:after {
-			@extend .animate-fade-in;
+			animation-name: fade-in;
 			animation-duration: 0.3s;
 			color: $color-primary;
 			content: "\2713";
@@ -472,7 +474,7 @@ textarea + .message {
 	margin-right: 0;
 }
 
-@include media('>=md') {
+@screen md {
 	.form-row-first {
 		width: 47%;
 		float: left;

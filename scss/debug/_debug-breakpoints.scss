@@ -12,7 +12,7 @@
 
 		@each $key, $value in $breakpoints {
 
-			@include media('>=#{$key}') {
+			@screen #{$key} {
 				content: "#{$key}: #{$value}";
 			}
 

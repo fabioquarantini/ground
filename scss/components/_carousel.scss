@@ -4,7 +4,7 @@
 		overflow: hidden;
 		width: 280px;
 		height: 380px;
-		@include media('>=md') {
+		@screen md {
 			width: 500px;
 			height: 600px;
 		}

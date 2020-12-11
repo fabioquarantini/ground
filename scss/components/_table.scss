@@ -37,7 +37,7 @@ table {
 
 	display: block;
 
-	@include media('>=sm') {
+	@screen sm {
 		display: table;
 	}
 
@@ -52,7 +52,7 @@ table {
 
 	thead {
 
-		@include media('>=sm') {
+		@screen sm {
 			display: table-header-group;
 		}
 
@@ -62,7 +62,7 @@ table {
 			top: -9999px;
 			left: -9999px;
 
-			@include media('>=sm') {
+			@screen sm {
 				position: relative;
 				top: auto;
 				left: auto;
@@ -74,7 +74,7 @@ table {
 
 	tbody {
 
-		@include media('>=sm') {
+		@screen sm {
 			display: table-row-group;
 		}
 
@@ -82,7 +82,7 @@ table {
 
 	tfoot {
 
-		@include media('>=sm') {
+		@screen sm {
 			display: table-footer-group;
 		}
 
@@ -92,7 +92,7 @@ table {
 
 		margin-bottom: ritmo(1);
 
-		@include media('>=sm') {
+		@screen sm {
 			display:table-row;
 		}
 
@@ -101,7 +101,7 @@ table {
 	td,
 	th {
 
-		@include media('>=sm') {
+		@screen sm {
 			display:table-cell;
 		}
 
@@ -117,7 +117,7 @@ table {
 			border: 0;
 		}
 
-		@include media('>=sm') {
+		@screen sm {
 			background-color: transparent;
 			//width: 1px;
 			white-space:nowrap;
@@ -133,7 +133,7 @@ table {
 			display: block;
 			font-weight: bold;
 
-			@include media('>=sm') {
+			@screen sm {
 				display: none;
 			}
 

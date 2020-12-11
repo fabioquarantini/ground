@@ -59,7 +59,7 @@
 
 .slider--full {
 	height: calc(100vh - #{ritmo(3)});
-	@include media('>=sm') {
+	@screen sm {
 		height: 100vh;
 	}
 }
@@ -91,7 +91,7 @@
 
 	.slider__img {
 		height: 320px;
-		@include media('>=md') {
+		@screen md {
 			height: 600px;
 		}
 	}
@@ -103,7 +103,7 @@
 
 .slider__navigation {
 	display: none;
-	@include media('>=md') {
+	@screen md {
 		display: block;
 		background: none;
 	}
@@ -130,7 +130,7 @@
 		margin-left: ritmo(0.3) !important;
 		margin-right: ritmo(0.3) !important;
 
-		@include media('>=md') {
+		@screen md {
 			width: 44px;
 		}
 	}
@@ -171,7 +171,7 @@
 .slider--freemode {
 	.swiper-slide {
 		max-width: 65%;
-		@include media('>=sm') {
+		@screen sm {
 			max-width: none;
 		}
 	}

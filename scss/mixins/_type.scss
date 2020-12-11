@@ -17,7 +17,7 @@
 		} @else {
 
 			$font-map: map-get($value, $type-style);
-			@include media('>=#{$key}') {
+			@screen #{$key} {
 				@include make-styles(
 					$font-size: map-get($font-map, 'font-size'),
 					$line-height: map-get($font-map, 'line-height'),

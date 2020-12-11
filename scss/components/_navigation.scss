@@ -23,7 +23,7 @@
 	margin: 0;
 	overflow-y: auto;
 
-	@include media('>=md') {
+	@screen md {
 		position: relative;
 		z-index: 10;
 		top: auto;
@@ -42,7 +42,7 @@
 		left: 0;
 		bottom: 0;
 		width: 100%;
-		@extend .overflow-scrolling;
+		-webkit-overflow-scrolling: touch;
 		z-index: 1000;
 	}
 
@@ -54,7 +54,7 @@
 		vertical-align: middle;
 		display: block;
 
-		@include media('>=md') {
+		@screen md {
 			text-align: center;
 			display: block;
 			float: left;
@@ -72,7 +72,7 @@
 		&.is-parent {
 
 			> .navigation__link {
-				@include media('>=md') {
+				@screen md {
 					color: $color-primary;
 				}
 			}
@@ -96,7 +96,7 @@
 					left: 0;
 					bottom: 0;
 
-					@include media('>=md') {
+					@screen md {
 						display: none;
 					}
 				}
@@ -121,7 +121,7 @@
 		border-bottom-style: solid;
 		transition: background 0.3s ease-in-out, border 0.3s ease-in-out, color 0.3s ease-in-out;
 
-		@include media('>=md') {
+		@screen md {
 			@include ritmo-font-size(12px);
 			text-transform: uppercase;
 			padding-left: 0;
@@ -135,7 +135,7 @@
 			background-color: $color-grey-light;
 			color: $color-primary;
 
-			@include media('>=md') {
+			@screen md {
 				background-color: transparent;
 			}
 		}
@@ -145,7 +145,7 @@
 		list-style-type: none;
 		margin-left: 0;
 
-		@include media('>=md') {
+		@screen md {
 			display: none;
 			position: absolute;
 			top: 100%;
@@ -155,7 +155,7 @@
 		}
 
 		.navigation__item {
-			@include media('>=md') {
+			@screen md {
 				width: 200px;
 			}
 		}
@@ -164,7 +164,7 @@
 			padding-left: ritmo(2);
 			position: relative;
 
-			@include media('>=md') {
+			@screen md {
 				padding-left: ritmo(1);
 			}
 
@@ -180,7 +180,7 @@
 				left: ritmo(1);
 				border-radius: 100%;
 
-				@include media('>=md') {
+				@screen md {
 					display: none;
 				}
 			}
@@ -197,7 +197,7 @@
 				}
 			}
 
-			@include media('>=md') {
+			@screen md {
 				background: $color-grey;
 				top:0;
 				left:100%;

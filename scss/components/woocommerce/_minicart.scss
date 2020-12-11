@@ -22,7 +22,7 @@
 		transition: all $speed $power4-ease-in-out;
 		box-shadow: 0 0 10px 4px rgba(0,0,0,0.1);
 
-		@include media('>=lg') {
+		@screen lg {
 			width: 500px;
 		}
 
@@ -169,7 +169,7 @@
 }
 
 .minicart__subtotal {
-	@extend .display-none-visually;
+	@apply sr-only;
 }
 
 .minicart__count {
@@ -183,7 +183,7 @@
 	color: $color-white;
 	border-radius: 50%;
 	background-color: $color-error;
-	@include media('>=lg') {
+	@screen lg {
 		top: ritmo(1.5);
 	}
 
@@ -193,5 +193,5 @@
 }
 
 .minicart__count-label {
-	@extend .display-none-visually;
+	@apply sr-only;
 }

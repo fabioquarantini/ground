@@ -9,7 +9,7 @@
 
 .footer__column {
 	margin-bottom: ritmo(1);
-	@include media('>=md') {
+	@screen md {
 		margin:0;
 	}
 }

@@ -33,7 +33,7 @@
 
 		img {
 			margin-left: 10px;
-			@include media('>=md') {
+			@screen md {
 				margin-right: 10px;
 			}
 		}

@@ -1,11 +1,11 @@
 .woocommerce-tabs {
-	@extend .clear-fix;
+	@apply flow-root;
 	margin-bottom: ritmo(2);
 
 	.tabs {
 		margin: 0 5% 0 0;
 
-		@include media('>=md') {
+		@screen md {
 			border-top: 1px solid rgba(0,0,0,.05);
 			width: 25%;
 			float: left;
@@ -30,7 +30,6 @@
 				&:before {
 					content: "";
 					@include triangle( right, $color-black, 5px );
-					@extend .centered-vertical;
 					right: 0;
 				}
 			}
@@ -58,7 +57,7 @@
 			margin-bottom: ritmo(2);
 		}
 
-		@include media('>=md') {
+		@screen md {
 			width: 70%;
 			float: right;
 		}

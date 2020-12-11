@@ -11,7 +11,7 @@
 			transform: none;
 			opacity: 1;
 		}
-	
+
 	}
 }
 
@@ -28,7 +28,7 @@
 			transform: none;
 			opacity: 1;
 		}
-	
+
 	}
 
 }
@@ -46,7 +46,7 @@
 			transform: none;
 			opacity: 1;
 		}
-	
+
 	}
 
 }
@@ -64,7 +64,7 @@
 			transform: none;
 			opacity: 1;
 		}
-	
+
 	}
 
 }
@@ -165,7 +165,7 @@
 	transform: translateX(-$offset-animation);
 	transition: opacity 0.6s $easing, transform 0.6s $easing;
 	will-change: transform;
-	
+
 	.is-loader-complete & {
 
 		&.is-inview {
@@ -242,12 +242,12 @@
 		}
 	}
 
-} 
+}
 
 
 // PIN HORIZONTAL
 [data-scroll-animation="pin-horizontal"] {
-	
+
 	[data-scroll-animation-target] {
 		position: relative;
 		display: flex;
@@ -264,12 +264,12 @@
 		white-space: normal;
 		vertical-align: top;
 		width: 250px;
-		@include media('>=md') {
+		@screen md {
 			width: 500px;
 		}
 	}
 
-} 
+}
 
 
 
@@ -300,12 +300,12 @@
 		width: 100%;
 		padding: ritmo(0.2);
 		overflow: hidden;
-		@include media('>=md') {
+		@screen md {
 			padding: ritmo(2);
 		}
 	}
 
-} 
+}
 
 
 
@@ -315,7 +315,7 @@ body.body--page-template-template-scrolltrigger {
 	h1 {
 		@include ritmo-font-size(120px, 2);
 
-		@include media('>=md') {
+		@screen md {
 			@include ritmo-font-size(220px, 6);
 		}
 
@@ -324,7 +324,7 @@ body.body--page-template-template-scrolltrigger {
 	h2 {
 		@include ritmo-font-size(60px, 2);
 
-		@include media('>=md') {
+		@screen md {
 			@include ritmo-font-size(160px, 6);
 		}
 
