@@ -7,7 +7,7 @@
 
 get_template_part( 'partials/header' ); ?>
 
-	<div class="container container--fluid padding-left-0 padding-right-0 background-secondary">
+	<div class="container  padding-left-0 padding-right-0 background-secondary">
 		<div class="container padding-top-3@md padding-bottom-3@md padding-top-5 padding-bottom-2">
 			<div class="row">
 				<div class="gr-12 color-white">

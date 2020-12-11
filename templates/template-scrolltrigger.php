@@ -103,7 +103,7 @@ get_template_part( 'partials/header' ); ?>
 		</div>
 	</div>
 
-	<div class="container container--fluid position-relative" data-scroll data-scroll-animation="pin-vertical" data-scroll-scrub="1">
+	<div class="container  position-relative" data-scroll data-scroll-animation="pin-vertical" data-scroll-scrub="1">
 		<div class="position-relative pin-vertical background-black" data-scroll-animation-target>
 			<div class="row">
 				<div class="gr-4 overflow-hidden position-relative full-viewport-height">
