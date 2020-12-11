@@ -12,6 +12,10 @@ module.exports = {
       sans: ['sans-serif'],
       serif: ['serif'],
     },
+    container: {
+      center: true,
+      padding: '1.5rem',
+    },
     extend: {},
   },
   variants: {
