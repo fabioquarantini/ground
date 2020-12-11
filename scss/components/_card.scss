@@ -18,7 +18,7 @@
 }
 
 .card__body {
-	@extend .clear-fix;
+	@apply flow-root;
 	padding: ritmo(0.5);
 }
 

@@ -1,10 +1,22 @@
 .loader {
-	@extend .full-screen;
+	position: fixed;
+	backface-visibility: hidden;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	top: 0;
+	margin: auto;
 	z-index: 100000;
 }
 
 .loader__bg {
-	@extend .full-screen;
+	position: fixed;
+	backface-visibility: hidden;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	top: 0;
+	margin: auto;
 	background-color: $color-black;
 }
 

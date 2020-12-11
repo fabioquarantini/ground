@@ -5,7 +5,8 @@
 
 	&:after,
 	&:before {
-		@extend .animate;
+		animation-duration: 0.8s;
+		animation-fill-mode: both;
 		animation-duration: 0.4s;
 		opacity: 0;
 		position: absolute;
@@ -31,7 +32,7 @@
 	&:hover {
 		&:after,
 		&:before {
-			@extend .animate-fade-in;
+			animation-name: fade-in;
 		}
 	}
 

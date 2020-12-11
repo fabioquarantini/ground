@@ -16,7 +16,7 @@
 	}
 
 	.screen-reader-text {
-		@extend .display-none-visually;
+		@apply sr-only;
 	}
 
 	.product-thumbnail {
@@ -149,7 +149,7 @@
 
 	.variation {
 
-		@extend .clear-fix;
+		@apply flow-root;
 		color: grey;
 		font-style: italic;
 
