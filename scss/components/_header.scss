@@ -6,8 +6,7 @@
 	right: 0;
 	background-color: $color-white;
 	height: ritmo(3);
-	box-shadow: 0 0 25px rgba(0,0,0,0.08);
-	@extend .clear-fix;
+	@apply flow-root;
 
 	@screen md {
 		position: relative;

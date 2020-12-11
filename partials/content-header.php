@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header shadow-lg">
 
 	<a class="logo js-cursor-hide js-magnet" href="<?php echo esc_url(home_url('/')); ?>" title="<?php bloginfo('name'); ?>">
 		<?php /* <img class="logo__img" src="<?php echo TEMPLATE_URL ?>/img/logo.svg" alt="<?php bloginfo('name'); ?>" /> */ ?>
