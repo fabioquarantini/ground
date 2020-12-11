@@ -64,7 +64,7 @@
 				width: 20px;
 				margin: 0 ritmo(0.5);
 				background: $color-black;
-				@include media('>=md') {
+				@screen md {
 					width: 150px;
 					margin: 0 ritmo(1);
 				}
@@ -93,7 +93,7 @@
 
 					label.docs__label {
 						margin-left: $i*50px;
-						@include media('>=md') {
+						@screen md {
 							margin-left: $i*100px;
 						}
 
@@ -130,7 +130,7 @@
 				white-space: nowrap;
 				overflow: hidden;
 				text-overflow: ellipsis;
-				@include media('>=md') {
+				@screen md {
 					@include ritmo-font-size(12px);
 					width: 100px;
 					transform: translateX(-76px);
@@ -153,25 +153,25 @@
 
 				.docs__typography {
 
-					h1 { &:after { content: '' + map-deep-get($type-styles, "default", "h1", "font-size"); }}
-					h2 { &:after { content: '' + map-deep-get($type-styles, "default", "h2", "font-size"); }}
-					h3 { &:after { content: '' + map-deep-get($type-styles, "default", "h3", "font-size"); }}
-					h4 { &:after { content: '' + map-deep-get($type-styles, "default", "h4", "font-size"); }}
-					h5 { &:after { content: '' + map-deep-get($type-styles, "default", "h5", "font-size"); }}
-					h6 { &:after { content: '' + map-deep-get($type-styles, "default", "h6", "font-size"); }}
-					p { &:after { content: '' + map-deep-get($type-styles, "default", "p", "font-size"); }}
-					small { &:after { content: '' + map-deep-get($type-styles, "default", "small", "font-size"); }}
+					// h1 { &:after { content: '' + map-deep-get($type-styles, "default", "h1", "font-size"); }}
+					// h2 { &:after { content: '' + map-deep-get($type-styles, "default", "h2", "font-size"); }}
+					// h3 { &:after { content: '' + map-deep-get($type-styles, "default", "h3", "font-size"); }}
+					// h4 { &:after { content: '' + map-deep-get($type-styles, "default", "h4", "font-size"); }}
+					// h5 { &:after { content: '' + map-deep-get($type-styles, "default", "h5", "font-size"); }}
+					// h6 { &:after { content: '' + map-deep-get($type-styles, "default", "h6", "font-size"); }}
+					// p { &:after { content: '' + map-deep-get($type-styles, "default", "p", "font-size"); }}
+					// small { &:after { content: '' + map-deep-get($type-styles, "default", "small", "font-size"); }}
 
-					@include media('>=md') {
-						h1 { &:after { content: '' + map-deep-get($type-styles, "md", "h1", "font-size"); }}
-						h2 { &:after { content: '' + map-deep-get($type-styles, "md", "h2", "font-size"); }}
-						h3 { &:after { content: '' + map-deep-get($type-styles, "md", "h3", "font-size"); }}
-						h4 { &:after { content: '' + map-deep-get($type-styles, "md", "h4", "font-size"); }}
-						h5 { &:after { content: '' + map-deep-get($type-styles, "md", "h5", "font-size"); }}
-						h6 { &:after { content: '' + map-deep-get($type-styles, "md", "h6", "font-size"); }}
-						p { &:after { content: '' + map-deep-get($type-styles, "md", "p", "font-size"); }}
-						small { &:after { content: '' + map-deep-get($type-styles, "md", "small", "font-size"); }}
-					}
+					// @screen md {
+					// 	h1 { &:after { content: '' + map-deep-get($type-styles, "md", "h1", "font-size"); }}
+					// 	h2 { &:after { content: '' + map-deep-get($type-styles, "md", "h2", "font-size"); }}
+					// 	h3 { &:after { content: '' + map-deep-get($type-styles, "md", "h3", "font-size"); }}
+					// 	h4 { &:after { content: '' + map-deep-get($type-styles, "md", "h4", "font-size"); }}
+					// 	h5 { &:after { content: '' + map-deep-get($type-styles, "md", "h5", "font-size"); }}
+					// 	h6 { &:after { content: '' + map-deep-get($type-styles, "md", "h6", "font-size"); }}
+					// 	p { &:after { content: '' + map-deep-get($type-styles, "md", "p", "font-size"); }}
+					// 	small { &:after { content: '' + map-deep-get($type-styles, "md", "small", "font-size"); }}
+					// }
 
 					h1,h2,h3,h4,h5,h6,p,small {
 						position: relative;
@@ -179,7 +179,7 @@
 						padding: ritmo(2) ritmo(3) ritmo(2) 0;
 						margin-bottom: 0;
 						border-bottom: 1px solid rgba(0,0,0,0.18);
-						@include media('>=md') {
+						@screen md {
 							padding: ritmo(4) ritmo(10) ritmo(4) 0;
 						}
 
@@ -197,7 +197,7 @@
 						display: block;
 						border: 1px solid rgba(0,0,0,0.18);
 						line-height: 250px;
-						@include media('>=md') {
+						@screen md {
 							line-height: 400px;
 						}
 
@@ -209,7 +209,7 @@
 			&--icons {
 
 				.docs__icons {
-					@include media('>=md') {
+					@screen md {
 						column-count: 3;
 					}
 				}
