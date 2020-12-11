@@ -5,3 +5,9 @@
         position: relative;
     }
 }
+
+[data-scroll-section] {
+	.has-scroll-smooth & {
+		min-height: 100vh;
+	}
+}
