@@ -8,15 +8,16 @@
 get_template_part( 'partials/header' ); ?>
 
 	<div class="container">
-		<div class="row">
 
-			<?php get_template_part( 'partials/breadcrumbs' ); ?>
+		<?php get_template_part( 'partials/breadcrumbs' ); ?>
 
-			<div class="gr-12 gr-3@md">
+		<div class="lg:flex lg:flex-wrap">
+
+			<div class="lg:w-3/12 lg:pr-8">
 				<?php get_template_part( 'partials/sidebar', 'secondary' ); ?>
 			</div>
 
-			<div class="gr-12 gr-9@md">
+			<div class="lg:w-9/12">
 
 				<section class="page page--catalog">
 
@@ -59,21 +60,19 @@ get_template_part( 'partials/header' ); ?>
 							if ( ! empty( $catalog_taxonomies ) && ! is_wp_error( $catalog_taxonomies ) ) :
 								?>
 
-								<div class="row">
+								<div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
 									<?php
 									foreach ( $catalog_taxonomies as $catalog_taxonomy ) {
 										?>
 
-										<div class="gr-12 gr-4@md">
-											<?php
-											$args = array(
-												'slug'        => $catalog_taxonomy->slug,
-												'name'        => $catalog_taxonomy->name,
-												'description' => $catalog_taxonomy->description,
-											);
-											get_template_part( 'partials/abstract', 'taxonomy-ground_catalog', $args );
-											?>
-										</div>
+										<?php
+										$args = array(
+											'slug'        => $catalog_taxonomy->slug,
+											'name'        => $catalog_taxonomy->name,
+											'description' => $catalog_taxonomy->description,
+										);
+										get_template_part( 'partials/abstract', 'taxonomy-ground_catalog', $args );
+										?>
 
 									<?php } ?>
 								</div> <!-- End .row -->
@@ -92,14 +91,12 @@ get_template_part( 'partials/header' ); ?>
 								$query = new WP_Query( $catalog_args );
 								if ( $query->have_posts() ) :
 									?>
-									<div class="row">
+									<div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
 										<?php
 										while ( $query->have_posts() ) :
 											$query->the_post();
 											?>
-											<div class="gr-12 gr-4@md">
 												<?php get_template_part( 'partials/abstract', 'ground_catalog' ); ?>
-											</div>
 										<?php endwhile; ?>
 									</div> <!-- End .row -->
 									<?php

@@ -11,8 +11,8 @@
 function ground_woocommerce_breadcrumbs() {
 	return array(
 		'delimiter'   => '',
-		'wrap_before' => '<div class="gr-12"><nav class="breadcrumb"><ol class="breadcrumb__list">',
-		'wrap_after'  => '</ol></nav></div>',
+		'wrap_before' => '<nav class="breadcrumb"><ol class="breadcrumb__list">',
+		'wrap_after'  => '</ol></nav>',
 		'before'      => '<li class="breadcrumb__item">',
 		'after'       => '</li>',
 		'home'        => _x( 'Home', 'ground' ),

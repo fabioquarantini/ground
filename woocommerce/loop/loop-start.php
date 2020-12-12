@@ -20,4 +20,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<div class="products row row-align-top js-infinite-container">
+<div class="products grid grid-cols-1 lg:grid-cols-3 gap-4 js-infinite-container">

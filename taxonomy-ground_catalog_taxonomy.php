@@ -47,12 +47,10 @@ get_template_part( 'partials/header' );
 						if ( ! empty( $catalog_taxonomies ) && ! is_wp_error( $catalog_taxonomies ) ) :
 							?>
 
-							<div class="row">
+							<div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
 								<?php
 								foreach ( $catalog_taxonomies as $catalog_taxonomy ) :
 									?>
-
-									<div class="gr-12 gr-4@md">
 										<?php
 										$args = array(
 											'slug'        => $catalog_taxonomy->slug,
@@ -61,8 +59,6 @@ get_template_part( 'partials/header' );
 										);
 										get_template_part( 'partials/abstract', 'taxonomy-ground_catalog', $args );
 										?>
-									</div>
-
 								<?php endforeach ?> <!-- End .row -->
 							</div>
 
@@ -71,14 +67,12 @@ get_template_part( 'partials/header' );
 
 							if ( have_posts() ) :
 								?>
-								<div class="row">
+								<div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
 									<?php
 									while ( have_posts() ) :
 										the_post();
 										?>
-										<div class="gr-12 gr-4@md">
 											<?php get_template_part( 'partials/abstract', 'ground_catalog' ); ?>
-										</div>
 									<?php endwhile; ?>
 								</div> <!-- End .row -->
 								<?php

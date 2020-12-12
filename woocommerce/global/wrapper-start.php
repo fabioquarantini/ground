@@ -21,4 +21,3 @@ if ( ! defined( 'ABSPATH' ) ) {
 } ?>
 
 <div class="container">
-	<div class="row">

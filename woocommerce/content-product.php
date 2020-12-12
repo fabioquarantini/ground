@@ -24,7 +24,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
 ?>
-<article <?php wc_product_class('woocommerce-loop-product'); ?>>
+<article <?php wc_product_class('woocommerce-loop-product js-infinite-post'); ?>>
 	<?php
 	/**
 	 * Hook: woocommerce_before_shop_loop_item.

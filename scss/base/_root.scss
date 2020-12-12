@@ -1,16 +1,16 @@
-@include ritmo-baseline;
+//@include ritmo-baseline;
 
 html,
 body {
 	font-family: $font-primary;
 	color: $color-black;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	overflow-x: hidden;
+	//-webkit-font-smoothing: antialiased;
+	//-moz-osx-font-smoothing: grayscale;
+	//overflow-x: hidden;
 	//min-height: 100vh;
 	// height: 100vh;
 }
-
+/*
 html {
 
 	&.is-loading {
@@ -64,6 +64,7 @@ body {
 	}
 
 }
+*/
 
 audio,
 canvas,

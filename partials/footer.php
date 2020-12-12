@@ -1,8 +1,8 @@
 						</main>
-					
+
 					<?php get_template_part( 'partials/content', 'footer' ); ?>
 
-				</div> <!-- End [data-scroll-section] --> 
+				</div> <!-- End [data-scroll-section] -->
 
 			</div><!-- End [data-router-view]  -->
 
