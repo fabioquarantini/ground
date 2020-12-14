@@ -1,10 +1,10 @@
 .minicart {
-	position: relative;
+	/*position: relative;
 	vertical-align: middle;
 	line-height: ritmo(3);
 	height: ritmo(3);
 	list-style: none;
-	z-index: 99;
+	z-index: 99;*/
 
 	.woocommerce-cart & {
 		display: none;
@@ -162,7 +162,6 @@
 	vertical-align: middle;
 	height: ritmo(1);
 	line-height: ritmo(1);
-	padding-right: ritmo(1);
 	color: $color-black;
 	transition: all $speed $power4-ease-out;
 
