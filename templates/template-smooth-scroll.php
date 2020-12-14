@@ -127,7 +127,7 @@ get_template_part( 'partials/header' ); ?>
 	</div>
 
 
-	<div class="container  padding-0 margin-bottom-5">
+	<div class="container container--fluid padding-0 margin-bottom-5">
 		<div class="row">
 			<div class="gr-10@md gr-8 gr-centered">
 				<?php get_template_part( 'partials/slider', 'gallery' ); ?>

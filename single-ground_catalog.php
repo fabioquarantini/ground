@@ -9,15 +9,16 @@ get_template_part( 'partials/header' );
 ?>
 
 <div class="container">
-	<div class="row">
 
-		<?php get_template_part( 'partials/breadcrumbs' ); ?>
+	<?php get_template_part( 'partials/breadcrumbs' ); ?>
 
-		<div class="gr-12 gr-3@md">
+	<div class="lg:flex lg:flex-wrap">
+
+		<div class="lg:w-3/12 lg:pr-8">
 			<?php get_template_part( 'partials/sidebar', 'secondary' ); ?>
 		</div>
 
-		<div class="gr-12 gr-9@md">
+		<div class="lg:w-9/12">
 
 			<?php
 			while ( have_posts() ) :
