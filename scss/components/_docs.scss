@@ -19,7 +19,7 @@
 		.get-var-color-success { &:after { content: " #{$color-success}"; } }
 		.get-var-color-warning { &:after { content: " #{$color-warning}"; } }
 		.get-var-color-error { &:after { content: " #{$color-error}"; } }
-		.get-var-breakpoints { &:after { content: " #{$breakpoints}"; } }
+		//.get-var-breakpoints { &:after { content: " #{$breakpoints}"; } }
 		.get-var-base-font-size { &:after { content: " #{$base-font-size}"; } }
 		.get-var-base-line-unit { &:after { content: " #{$base-line-unit}"; } }
 
