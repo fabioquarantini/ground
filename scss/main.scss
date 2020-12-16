@@ -16,7 +16,6 @@
 
 // Vendors
 '../node_modules/ritmo/ritmo',
-//'../node_modules/coffeekraken-gridle/_index',
 '../node_modules/splitting/dist/splitting',
 '../node_modules/splitting/dist/splitting-cells',
 
@@ -31,7 +30,6 @@
 'base/print',
 
 // Layouts
-//'layouts/grid',
 //'layouts/scroll',
 
 // Components
@@ -110,7 +108,3 @@
 // Debug
 'debug/debug-breakpoints',
 'debug/debug-css';
-
-body {
-    background-color: blueviolet;
-}
