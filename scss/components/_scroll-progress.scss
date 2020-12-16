@@ -28,6 +28,6 @@
         height: 0;
         width: 100%;
         background: $color-black;
-		transition: all $speed $easing;
+		transition: all var(--ease-speed) var(--ease-default);
     }
 }

@@ -7,7 +7,7 @@
 
 	.slider__item {
 		overflow: hidden;
-		transition: opacity 0.8s $easing 1s;
+		transition: opacity 0.8s var(--ease-default) 1s;
 
 		&.swiper-slide-active {
 
@@ -22,7 +22,7 @@
 	}
 
 	.slider__img {
-		transition: transform 2s $easing;
+		transition: transform 2s var(--ease-default);
 		transition-delay: 0.4s;
 		transform: scale(1.2);
 
@@ -36,7 +36,7 @@
 	.slider__button {
 		opacity: 0;
 		transform: translateY(30px);
-		transition: all .2s $easing;
+		transition: all .2s var(--ease-default);
 	}
 
 	.slider__title {

@@ -3,7 +3,7 @@
 
 	&.splitting {
 		opacity: 1;
-		
+
 		&[data-splitting="masked"] {
 			overflow: hidden;
 			display: inline-block;
@@ -11,7 +11,7 @@
 
 		&[data-scroll] {
 			.char {
-				transition: transform .8s $easing, opacity .3s $easing;
+				transition: transform .8s var(--ease-default), opacity .3s var(--ease-default);
 				transition-delay: calc(30ms * var(--char-index));
 				transform: translateY(100%);
 				opacity: 0;

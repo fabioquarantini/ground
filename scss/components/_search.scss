@@ -23,7 +23,7 @@
 	@screen md {
 		padding: 5% 15%;
 		width: 100%;
-		transition: transform $speed $power4-ease-in-out;
+		transition: transform var(--ease-speed) var(--ease-in-out-quint);
 		transform: translateY(-100%);
 	}
 

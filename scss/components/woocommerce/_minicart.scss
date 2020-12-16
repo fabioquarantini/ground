@@ -19,7 +19,7 @@
 		background: $color-white;
 		z-index: 99;
 		transform: translateX(102%);
-		transition: all $speed $power4-ease-in-out;
+		transition: all var(--ease-speed) var(--ease-in-out-quint);
 		box-shadow: 0 0 10px 4px rgba(0,0,0,0.1);
 
 		@screen lg {
@@ -122,7 +122,7 @@
 	opacity: 0;
 	visibility: hidden;
 	transform: translateY(-50px);
-	transition: all $speed $power4-ease-in-out;
+	transition: all var(--ease-speed) var(--ease-in-out-quint);
 
 
 	.is-minicart-open & {
@@ -146,7 +146,7 @@
 	height: 100%;
 	width: 100%;
 	cursor: pointer;
-	transition: all $speed $power4-ease-in-out;
+	transition: all var(--ease-speed) var(--ease-in-out-quint);
 	background: rgba($color-black, 0.8);
 	z-index: 1;
 
@@ -163,7 +163,7 @@
 	height: ritmo(1);
 	line-height: ritmo(1);
 	color: $color-black;
-	transition: all $speed $power4-ease-out;
+	transition: all var(--ease-speed) var(--ease-out-quint);
 
 }
 

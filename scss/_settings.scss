@@ -1,3 +1,32 @@
+:root {
+
+	--ease-in-quad:       cubic-bezier(0.55, 0.085, 0.68, 0.53); // $power1
+	--ease-in-cubic:      cubic-bezier(0.55, 0.055, 0.675, 0.19); // $power2
+	--ease-in-quart:      cubic-bezier(0.895, 0.03, 0.685, 0.22); // $power3
+	--ease-in-quint:      cubic-bezier(0.755, 0.05, 0.855, 0.06); // $power4
+	--ease-in-expo:       cubic-bezier(0.95, 0.05, 0.795, 0.035);
+	--ease-in-circ:       cubic-bezier(0.6, 0.04, 0.98, 0.335);
+
+	--ease-out-quad:      cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	--ease-out-cubic:     cubic-bezier(0.215, 0.61, 0.355, 1);
+	--ease-out-quart:     cubic-bezier(0.165, 0.84, 0.44, 1);
+	--ease-out-quint:     cubic-bezier(0.23, 1, 0.32, 1);
+	--ease-out-expo:      cubic-bezier(0.19, 1, 0.22, 1);
+	--ease-out-circ:      cubic-bezier(0.075, 0.82, 0.165, 1);
+
+	--ease-in-out-quad:   cubic-bezier(0.455, 0.03, 0.515, 0.955);
+	--ease-in-out-cubic:  cubic-bezier(0.645, 0.045, 0.355, 1);
+	--ease-in-out-quart:  cubic-bezier(0.77, 0, 0.175, 1);
+	--ease-in-out-quint:  cubic-bezier(0.86, 0, 0.07, 1);
+	--ease-in-out-expo:   cubic-bezier(1, 0, 0, 1);
+	--ease-in-out-circ:   cubic-bezier(0.785, 0.135, 0.15, 0.86);
+
+	--ease-default:       var(--ease-out-cubic);
+	--ease-speed:         0.3s;
+
+	--animation-offset:   100px;
+}
+
 // Colors
 $color-primary: #C5AB78;
 $color-secondary: #549b93;
@@ -50,29 +79,7 @@ $color-error-dark: darken($color-error, 20%);
 $color-error-darker: darken($color-error, 30%);
 $color-error-darkest: darken($color-error, 40%);
 
-// Transitions
-$speed: 0.3s;
-$offset-animation: 100px;
-$bounce: cubic-bezier(0.17, 0.67, 0.3, 1.33);
-$power1-ease-out: cubic-bezier(0.250, 0.460, 0.450, 0.940);
-$power2-ease-out: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-$power3-ease-out: cubic-bezier(0.165, 0.840, 0.440, 1.000);
-$power4-ease-out: cubic-bezier(0.230, 1.000, 0.320, 1.000);
-$power1-ease-in: cubic-bezier(0.550, 0.085, 0.680, 0.530) ;
-$power2-ease-in: cubic-bezier(0.550, 0.055, 0.675, 0.190);
-$power3-ease-in: cubic-bezier(0.895, 0.030, 0.685, 0.220);
-$power4-ease-in: cubic-bezier(0.755, 0.050, 0.855, 0.060);
-$expo-ease-out: cubic-bezier(0.190, 1.000, 0.220, 1.000);
-$expo-ease-in: cubic-bezier(0.950, 0.050, 0.795, 0.035);
-$expo-ease-in-out: cubic-bezier(1.000, 0.000, 0.000, 1.000);
-$sine-ease-out: cubic-bezier(0.390, 0.575, 0.565, 1.000);
-$sine-ease-in: cubic-bezier(0.470, 0.000, 0.745, 0.715);
-$power1-ease-in-out: cubic-bezier(0.455, 0.030, 0.515, 0.955);
-$power2-ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1.000);
-$power3-ease-in-out: cubic-bezier(0.770, 0.000, 0.175, 1.000);
-$power4-ease-in-out: cubic-bezier(0.860, 0.000, 0.070, 1.000);
-$slow-ease-out: cubic-bezier(.04,1.15,0.4,.99);
-$easing: $power2-ease-out;
+
 
 // Breakpoints
 $breakpoints: (
