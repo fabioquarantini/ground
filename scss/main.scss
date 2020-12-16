@@ -19,12 +19,9 @@
 //'../node_modules/coffeekraken-gridle/_index',
 '../node_modules/splitting/dist/splitting',
 '../node_modules/splitting/dist/splitting-cells',
-'../node_modules/swiper/swiper',
-'../node_modules/swiper/components/effect-fade/effect-fade',
-'../node_modules/swiper/components/lazy/lazy',
-'../node_modules/swiper/components/navigation/navigation',
-'../node_modules/swiper/components/pagination/pagination',
-'../node_modules/swiper/components/scrollbar/scrollbar',
+
+// import Swiper styles
+'swiper/swiper-bundle.css',
 
 // Base
 'base/root',
