@@ -4786,7 +4786,7 @@ a.pswp__share--download:hover{
   cursor:default
 }
 
-@media(max-width: 992px){
+@media(max-width: 768px){
   .pagination .is-active .pagination__text{
     color:#000;
     border:none;
@@ -5347,7 +5347,7 @@ a.pswp__share--download:hover{
   background-color:#f1f1f1
 }
 
-@media(max-width: 768px){
+@media(max-width: 640px){
   .table--responsive td{
     border:0
   }
@@ -5828,7 +5828,7 @@ html.has-scroll-smooth .scroll-progress{
   color:#000
 }
 
-@media(max-width: 992px){
+@media(max-width: 768px){
   .cart .product-name a{
     font-size:.875rem;
     line-height:.75rem;
@@ -5863,7 +5863,7 @@ html.has-scroll-smooth .scroll-progress{
   border-bottom:none
 }
 
-@media(max-width: 992px){
+@media(max-width: 768px){
   .cart .actions .coupon{
     border:1px solid #cbcbcb;
     display:block;
@@ -5883,7 +5883,7 @@ html.has-scroll-smooth .scroll-progress{
   margin-bottom:0
 }
 
-@media(max-width: 992px){
+@media(max-width: 768px){
   .cart .actions .coupon .button,.cart .actions .coupon [type=button],.cart .actions .coupon [type=submit]{
     font-size:12px;
     display:block;
@@ -6219,7 +6219,7 @@ html.has-scroll-smooth .scroll-progress{
   border-radius:50%
 }
 
-@media(max-width: 992px){
+@media(max-width: 768px){
   .product-remove .remove{
     position:absolute;
     right:-14px;
@@ -6548,7 +6548,7 @@ html.has-scroll-smooth .scroll-progress{
   padding-left:1.5rem
 }
 
-@media(max-width: 992px){
+@media(max-width: 768px){
   .woocommerce-tabs .tabs li{
     display:none !important
   }
@@ -6585,7 +6585,7 @@ html.has-scroll-smooth .scroll-progress{
   margin-top:0
 }
 
-@media(max-width: 992px){
+@media(max-width: 768px){
   .woocommerce-tabs .panel{
     display:block !important;
     margin-bottom:3rem
@@ -8017,6 +8017,10 @@ body:after{
   body:after{
     content:"xl: 1440px"
   }
+}
+
+body{
+  background-color:#8a2be2
 }
 
 @media (min-width: 640px) {

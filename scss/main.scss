@@ -17,7 +17,6 @@
 // Vendors
 '../node_modules/ritmo/ritmo',
 //'../node_modules/coffeekraken-gridle/_index',
-'../node_modules/include-media/dist/_include-media',
 '../node_modules/splitting/dist/splitting',
 '../node_modules/splitting/dist/splitting-cells',
 '../node_modules/swiper/swiper',
@@ -114,3 +113,7 @@
 // Debug
 'debug/debug-breakpoints',
 'debug/debug-css';
+
+body {
+    background-color: blueviolet;
+}

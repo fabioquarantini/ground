@@ -16,7 +16,7 @@
 		border: 1px solid;
 		border-radius: 50%;
 
-		@include media('<=md') {
+		@media ( max-width: theme('screens.md') ) {
 			position: absolute;
 			right: -14px;
 			top: -30px;

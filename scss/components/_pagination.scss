@@ -19,7 +19,7 @@
 			background: $color-black;
 			color: $color-white;
 			cursor: default;
-			@include media('<=md') {
+			@media ( max-width: theme('screens.md') ) {
 				color: $color-black;
 				border: none;
 				background: none;

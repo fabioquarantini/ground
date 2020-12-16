@@ -113,7 +113,7 @@ table {
 		vertical-align: top;
 		background-color: $color-grey-lighter;
 
-		@include media('<=sm') {
+		@media ( max-width: theme('screens.sm') ) {
 			border: 0;
 		}
 

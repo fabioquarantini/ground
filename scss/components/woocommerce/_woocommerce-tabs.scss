@@ -19,7 +19,7 @@
 			position: relative;
 			padding-left: ritmo(1);
 
-			@include media('<=md') {
+			@media ( max-width: theme('screens.md') ) {
 				display: none !important;
 			}
 
@@ -52,7 +52,7 @@
 		margin-right: 0;
 		margin-top: 0;
 
-		@include media('<=md') {
+		@media ( max-width: theme('screens.md') ) {
 			display: block !important;
 			margin-bottom: ritmo(2);
 		}

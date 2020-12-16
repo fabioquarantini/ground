@@ -44,7 +44,7 @@
 			color: $color-black;
 
 			// Solo mobile
-			@include media('<=md') {
+			@media ( max-width: theme('screens.md') ) {
 				@include ritmo-font-size(14px, 0.5);
 				display: inline-block;
 				white-space: nowrap;
@@ -74,7 +74,7 @@
 			margin-bottom: 0;
 			border-bottom: none;
 
-			@include media("<=md") {
+			@media ( max-width: theme('screens.md') ) {
 				border: 1px solid $color-grey;
 				display: block;
 				padding-left: ritmo(1);
@@ -90,7 +90,7 @@
 			.button {
 				margin-bottom: 0;
 
-				@include media("<=md") {
+				@media ( max-width: theme('screens.md') ) {
 					font-size: 12px;
 					display: block;
 					padding: 0;
