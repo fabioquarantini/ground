@@ -11,7 +11,7 @@
 		<?php wp_head(); ?>
 	</head>
 
-	<body <?php body_class(); ?> data-template-url="<?php echo TEMPLATE_URL ?>">
+	<body <?php body_class('font-sans text-black'); ?> data-template-url="<?php echo TEMPLATE_URL ?>">
 
 		<div class="scroll" id="js-scroll">
 

@@ -1,15 +1,13 @@
-//@include ritmo-baseline;
+html {
+	//font-size: 1em;
+}
 
 html,
 body {
-	font-family: $font-primary;
-	color: $color-black;
-	//-webkit-font-smoothing: antialiased;
-	//-moz-osx-font-smoothing: grayscale;
-	//overflow-x: hidden;
 	//min-height: 100vh;
 	// height: 100vh;
 }
+
 /*
 html {
 
@@ -66,22 +64,22 @@ body {
 }
 */
 
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
-	vertical-align: middle;
-}
+// audio,
+// canvas,
+// iframe,
+// img,
+// svg,
+// video {
+// 	vertical-align: middle;
+// }
 
-img,
-video,
-object {
-	height: auto;
-	max-width: 100%;
-}
+// img,
+// video,
+// object {
+// 	height: auto;
+// 	max-width: 100%;
+// }
 
-figure {
-	margin: 0;
-}
+// figure {
+// 	margin: 0;
+// }

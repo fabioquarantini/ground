@@ -55,7 +55,7 @@
 }
 
 .woocommerce-loop-product__title {
-	@include type('h6');
+	@apply text-lg;
 	padding-top: ritmo(1);
 	margin-bottom: ritmo(0.5);
 }

@@ -1,49 +1,51 @@
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	font-family: $font-primary;
-	font-weight: bold;
-}
+@layer base {
 
-h1 {
-	@include type('h1');
-}
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply font-bold;
+	}
 
-h2 {
-	@include type('h2');
-}
+	h1 {
+		@apply text-5xl;
+	}
 
-h3 {
-	@include type('h3');
-}
+	h2 {
+		@apply text-4xl;
+	}
 
-h4 {
-	@include type('h4');
-}
+	h3 {
+		@apply text-3xl;
+	}
 
-h5 {
-	@include type('h5');
-}
+	h4 {
+		@apply text-2xl;
+	}
 
-h6 {
-	@include type('h6');
-}
+	h5 {
+		@apply text-xl;
+	}
 
-p {
-	@include type('p');
-}
+	h6 {
+		@apply text-lg;
+	}
 
-b,
-strong {
-	font-weight: bold;
-}
+	p {
+		@apply text-base;
+	}
 
-i,
-em {
-	font-style: italic;
+	small {
+		@apply text-xs;
+	}
+
+	::selection {
+		background: #b3d4fc;
+		text-shadow: none;
+	}
+
 }
 
 small,
@@ -56,10 +58,6 @@ code {
 
 pre {
 	margin: ritmo(1) 0;
-}
-
-small {
-	@include type('small');
 }
 
 blockquote {
@@ -75,7 +73,7 @@ blockquote {
 	}
 
 	cite {
-		@include type('small');
+		@apply text-xs;
 		display: block;
 	}
 
@@ -91,7 +89,3 @@ cite {
 
 }
 
-::selection {
-	background: #b3d4fc;
-	text-shadow: none;
-}
