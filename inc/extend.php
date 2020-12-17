@@ -322,7 +322,7 @@ function ground_body_class_bem( $classes ) {
 
 }
 
-add_filter( 'body_class', 'ground_body_class_bem' );
+//add_filter( 'body_class', 'ground_body_class_bem' );
 
 /**
  * Save ACF local JSON
