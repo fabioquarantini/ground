@@ -13,6 +13,10 @@
 
 	<body <?php body_class('font-sans text-black'); ?> data-template-url="<?php echo TEMPLATE_URL ?>">
 
+		<div class="aspect-w-16 aspect-h-9 bg-red-500">
+		RATIO
+		</div>
+
 		<div class="scroll" id="js-scroll">
 
 			<?php get_template_part( 'partials/content', 'header' ); ?>

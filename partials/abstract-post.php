@@ -24,7 +24,7 @@
 		alt=""
 		loading="lazy">
 
-		<!-- <figure class="item__media media ratio-1-1">
+		<!-- <figure class="item__media media aspect-w-1 aspect-h-1">
 			<img class="media__img cover"
 				<?php if (has_post_thumbnail()) { ?>
 					srcset="<?php ground_image('1-1-small') ?> 480w,

@@ -12,7 +12,7 @@ if (!is_page_template('templates/template-ground-docs.php')) {
 	<div class="row">
 		<div class="gr-6@md gr-12">
 			<?php if ($image): ?>
-				<div class="ratio-1-1">
+				<div class="aspect-w-1 aspect-h-1">
 					<?php echo wp_get_attachment_image( $image, $image_size, "", ["class" => "cover"] ); ?>
 				</div>
 			<?php endif; ?>
