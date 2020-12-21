@@ -1,10 +1,15 @@
 module.exports = {
   purge: {
-    enabled: true,
+    enabled: false,
     content: ['./**/*.php', './js/**/*.js'],
-    // options: {
-    //   safelist: ['bg-red-500', 'px-4'],
-    // }
+    options: {
+      safelist: [
+        'aspect-w-16',
+        'aspect-h-16',
+        'aspect-w-4',
+        'aspect-h-3'
+      ],
+    }
   },
   darkMode: false, // or 'media' or 'class'
   theme: {
