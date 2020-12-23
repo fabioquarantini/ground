@@ -3,41 +3,41 @@
 	position: relative;
 	padding-top: ritmo( 0.5 );
 	padding-bottom: ritmo( 0.5 );
-	color: $color-primary;
-	border-color: $color-primary;
+	@apply text-primary;
+	@apply border-primary;
 
 	&.has-error,
 	.has-error & {
-		border-color: $color-error;
-		color: $color-error;
+		@apply border-red-600;
+		@apply text-red-600;
 		.message__close {
-			color: $color-error;
+			@apply text-red-600;
 		}
 	}
 
 	&.has-success,
 	.has-success & {
-		border-color: $color-success;
-		color: $color-success;
+		@apply border-green-500;
+		@apply text-green-500;
 		.message__close {
-			color: $color-success;
+			@apply text-green-500;
 		}
 	}
 
 	&.has-warning,
 	.has-warning & {
-		border-color: $color-warning;
-		color: $color-warning;
+		@apply border-yellow-300;
+		@apply text-yellow-300;
 		.message__close {
-			color: $color-warning;
+			@apply text-yellow-300;
 		}
 	}
 
 	&--secondary {
-		color: $color-secondary;
-		border-color: $color-secondary;
+		@apply text-secondary;
+		@apply border-secondary;
 		.message__close {
-			color: $color-secondary;
+			@apply text-secondary;
 		}
 	}
 
@@ -61,35 +61,35 @@
 	&--fill {
 		padding-left: ritmo( 1 );
 		padding-right: ritmo( 1 );
-		background-color: $color-primary;
-		color: $color-white;
+		@apply bg-primary;
+		@apply text-white;
 
 		.has-error &,
 		&.has-error {
-			background-color: $color-error;
-			color: $color-white;
+			@apply bg-red-600;
+			@apply text-white;
 		}
 
 		.has-success &,
 		&.has-success {
-			background-color: $color-success;
-			color: $color-white;
+			@apply bg-green-500;
+			@apply text-white;
 		}
 
 		.has-warning &,
 		&.has-warning {
-			background-color: $color-warning;
-			color: $color-white;
+			@apply bg-yellow-300;
+			@apply text-white;
 		}
 
 		.message--secondary &,
 		&.message--secondary {
-			color: $color-white;
-			background-color: $color-secondary;
+			@apply text-white;
+			@apply bg-secondary;
 		}
 
 		.message__close {
-			color: $color-white;
+			@apply text-white;
 		}
 
 	}
@@ -118,5 +118,5 @@
 .message__close {
 	float: right;
 	text-decoration: none;
-	color: $color-primary;
+	@apply text-primary;
 }

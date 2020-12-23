@@ -7,16 +7,16 @@
 
 	.sku_wrapper {
 		display: block;
-		color: $color-grey-dark;
+		@apply text-gray-600;
 	}
 
 	.sku {
 		font-weight: bold;
-		color: $color-black;
+		@apply text-black;
 	}
 
 	.posted_in {
 		display: block;
-		color: $color-grey-dark;
+		@apply text-gray-600;
 	}
 }

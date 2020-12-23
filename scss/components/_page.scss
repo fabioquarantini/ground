@@ -24,7 +24,7 @@
 
 .page__data {
 	display: block;
-	color: $color-grey-dark;
+	@apply text-gray-600;
 	@include ritmo-font-size(14px);
 }
 
@@ -40,18 +40,19 @@
 
 	a {
 		@include ritmo-font-size(12px, 1);
-		border: 1px solid $color-grey;
+		@apply border;
+		@apply border-gray-500;
 		font-weight: bold;
 		padding: ritmo(0.20) ritmo(0.5);
 		text-decoration: none;
 		display: inline-block;
 		margin-right: ritmo(0.5);
 		border-radius: ritmo(0.25);
-		color: $color-black;
+		@apply text-black;
 		text-transform: uppercase;
 
 		&:hover {
-			color: $color-primary;
+			@apply text-primary;
 		}
 	}
 }

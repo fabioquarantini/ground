@@ -1,6 +1,7 @@
 .spinner {
 	animation: rotate 0.8s infinite linear;
-	border: 3px solid $color-primary;
+	border: 3px solid;
+	@apply border-primary;
 	border-radius: 50%;
 	border-right-color: transparent;
 	height: ritmo(2);

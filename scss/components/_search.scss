@@ -16,7 +16,7 @@
 }
 
 .search__content {
-	background-color: $color-white;
+	@apply bg-white;
 	padding: 5% ritmo(1);
 	position: relative;
 
@@ -38,7 +38,7 @@
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background-color: rgba($color-black, 0.8);
+	@apply bg-black;
 	transition: opacity 0.5s ease;
 	opacity: 0;
 
@@ -52,7 +52,7 @@
 	top: ritmo(1);
 	right: ritmo(1);
 	cursor: pointer;
-	color: $color-black;
+	@apply text-black;
 }
 
 .search__spinner {

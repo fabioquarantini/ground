@@ -4,15 +4,15 @@
 
 	.amount {
 		@include ritmo-font-size(20px);
-		color: $color-primary;
+		@apply text-primary;
 		font-weight: bold;
 	}
 
 	del {
-		color: $color-grey;
+		@apply text-gray-500;
 		.amount {
 			@include ritmo-font-size(16px);
-			color: $color-grey;
+			@apply text-gray-500;
 		}
 	}
 

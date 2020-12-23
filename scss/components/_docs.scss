@@ -9,19 +9,19 @@
 		position: relative;
 
 		// GET VARS
-		.get-var-text-primary { &:before { content: " #{$font-primary}"; } }
-		.get-var-text-secondary { &:before { content: " #{$font-secondary}"; } }
-		.get-var-color-primary { &:after { content: " #{$color-primary}"; } }
-		.get-var-color-secondary { &:after { content: " #{$color-secondary}"; } }
-		.get-var-color-black { &:after { content: " #{$color-black}"; } }
-		.get-var-color-grey { &:after { content: " #{$color-grey}"; } }
-		.get-var-color-white { &:after { content: " #{$color-white}"; } }
-		.get-var-color-success { &:after { content: " #{$color-success}"; } }
-		.get-var-color-warning { &:after { content: " #{$color-warning}"; } }
-		.get-var-color-error { &:after { content: " #{$color-error}"; } }
-		//.get-var-breakpoints { &:after { content: " #{$breakpoints}"; } }
-		.get-var-base-font-size { &:after { content: " #{$base-font-size}"; } }
-		.get-var-base-line-unit { &:after { content: " #{$base-line-unit}"; } }
+		// .get-var-text-primary { &:before { content: " #{$font-primary}"; } }
+		// .get-var-text-secondary { &:before { content: " #{$font-secondary}"; } }
+		// .get-var-color-primary { &:after { content: " #{$color-primary}"; } }
+		// .get-var-color-secondary { &:after { content: " #{$color-secondary}"; } }
+		// .get-var-color-black { &:after { content: " #{$color-black}"; } }
+		// .get-var-color-grey { &:after { content: " #{$color-grey}"; } }
+		// .get-var-color-white { &:after { content: " #{$color-white}"; } }
+		// .get-var-color-success { &:after { content: " #{$color-success}"; } }
+		// .get-var-color-warning { &:after { content: " #{$color-warning}"; } }
+		// .get-var-color-error { &:after { content: " #{$color-error}"; } }
+		// //.get-var-breakpoints { &:after { content: " #{$breakpoints}"; } }
+		// .get-var-base-font-size { &:after { content: " #{$base-font-size}"; } }
+		// .get-var-base-line-unit { &:after { content: " #{$base-line-unit}"; } }
 
 		&__tabs{
 			position: relative;
@@ -30,8 +30,8 @@
 
 			.docs__tab>[id^="docs__tab"]:checked + label {
 				top: 0;
-				color: $color-white;
-				background: $color-secondary;
+				@apply text-white;
+				@apply bg-secondary;
 			}
 
 			.docs__tab>[id^="docs__tab"]:checked ~ [id^="docs__tab-content"] {
@@ -48,7 +48,7 @@
 			display: inline-block;
 			font-weight: bold;
 			@include ritmo-font-size(60px);
-			color: $color-secondary;
+			@apply text-secondary;
 		}
 
 		&__title{
@@ -63,7 +63,7 @@
 				height: 1px;
 				width: 20px;
 				margin: 0 ritmo(0.5);
-				background: $color-black;
+				@apply bg-black;
 				@screen md {
 					width: 150px;
 					margin: 0 ritmo(1);
@@ -123,8 +123,8 @@
 				padding: ritmo(0.5) 0;
 				text-align: center;
 				top: 0;
-				color: $color-black;
-				background: $color-grey;
+				@apply text-black;
+				@apply bg-gray-500;
 				@include ritmo-font-size(8px);
 				transform: translateX(-50px);
 				white-space: nowrap;
@@ -248,66 +248,66 @@
 
 					}
 
-					&.background-primary {
-						.docs__color {
-							&:nth-child(1) { background: $color-primary-lightest; }
-							&:nth-child(2) { background: $color-primary-lighter; }
-							&:nth-child(3) { background: $color-primary-light; }
-							&:nth-child(4) { background: $color-primary-dark; }
-							&:nth-child(5) { background: $color-primary-darker; }
-							&:nth-child(6) { background: $color-primary-darkest; }
-						}
-					}
-					&.background-secondary {
-						.docs__color {
-							&:nth-child(1) { background: $color-secondary-lightest; }
-							&:nth-child(2) { background: $color-secondary-lighter; }
-							&:nth-child(3) { background: $color-secondary-light; }
-							&:nth-child(4) { background: $color-secondary-dark; }
-							&:nth-child(5) { background: $color-secondary-darker; }
-							&:nth-child(6) { background: $color-secondary-darkest; }
-						}
-					}
-					&.background-grey {
-						.docs__color {
-							&:nth-child(1) { background: $color-grey-lightest; }
-							&:nth-child(2) { background: $color-grey-lighter; }
-							&:nth-child(3) { background: $color-grey-light; }
-							&:nth-child(4) { background: $color-grey-dark; }
-							&:nth-child(5) { background: $color-grey-darker; }
-							&:nth-child(6) { background: $color-grey-darkest; }
-						}
-					}
-					&.background-success {
-						.docs__color {
-							&:nth-child(1) { background: $color-success-lightest; }
-							&:nth-child(2) { background: $color-success-lighter; }
-							&:nth-child(3) { background: $color-success-light; }
-							&:nth-child(4) { background: $color-success-dark; }
-							&:nth-child(5) { background: $color-success-darker; }
-							&:nth-child(6) { background: $color-success-darkest; }
-						}
-					}
-					&.background-warning {
-						.docs__color {
-							&:nth-child(1) { background: $color-warning-lightest; }
-							&:nth-child(2) { background: $color-warning-lighter; }
-							&:nth-child(3) { background: $color-warning-light; }
-							&:nth-child(4) { background: $color-warning-dark; }
-							&:nth-child(5) { background: $color-warning-darker; }
-							&:nth-child(6) { background: $color-warning-darkest; }
-						}
-					}
-					&.background-error {
-						.docs__color {
-							&:nth-child(1) { background: $color-error-lightest; }
-							&:nth-child(2) { background: $color-error-lighter; }
-							&:nth-child(3) { background: $color-error-light; }
-							&:nth-child(4) { background: $color-error-dark; }
-							&:nth-child(5) { background: $color-error-darker; }
-							&:nth-child(6) { background: $color-error-darkest; }
-						}
-					}
+					// &.background-primary {
+					// 	.docs__color {
+					// 		&:nth-child(1) { background: $color-primary-lightest; }
+					// 		&:nth-child(2) { background: $color-primary-lighter; }
+					// 		&:nth-child(3) { background: $color-primary-light; }
+					// 		&:nth-child(4) { background: $color-primary-dark; }
+					// 		&:nth-child(5) { background: $color-primary-darker; }
+					// 		&:nth-child(6) { background: $color-primary-darkest; }
+					// 	}
+					// }
+					// &.background-secondary {
+					// 	.docs__color {
+					// 		&:nth-child(1) { background: $color-secondary-lightest; }
+					// 		&:nth-child(2) { background: $color-secondary-lighter; }
+					// 		&:nth-child(3) { background: $color-secondary-light; }
+					// 		&:nth-child(4) { background: $color-secondary-dark; }
+					// 		&:nth-child(5) { background: $color-secondary-darker; }
+					// 		&:nth-child(6) { background: $color-secondary-darkest; }
+					// 	}
+					// }
+					// &.background-grey {
+					// 	.docs__color {
+					// 		&:nth-child(1) { background: $color-grey-lightest; }
+					// 		&:nth-child(2) { background: $color-grey-lighter; }
+					// 		&:nth-child(3) { background: $color-grey-light; }
+					// 		&:nth-child(4) { background: $color-grey-dark; }
+					// 		&:nth-child(5) { background: $color-grey-darker; }
+					// 		&:nth-child(6) { background: $color-grey-darkest; }
+					// 	}
+					// }
+					// &.background-success {
+					// 	.docs__color {
+					// 		&:nth-child(1) { background: $color-success-lightest; }
+					// 		&:nth-child(2) { background: $color-success-lighter; }
+					// 		&:nth-child(3) { background: $color-success-light; }
+					// 		&:nth-child(4) { background: $color-success-dark; }
+					// 		&:nth-child(5) { background: $color-success-darker; }
+					// 		&:nth-child(6) { background: $color-success-darkest; }
+					// 	}
+					// }
+					// &.background-warning {
+					// 	.docs__color {
+					// 		&:nth-child(1) { background: $color-warning-lightest; }
+					// 		&:nth-child(2) { background: $color-warning-lighter; }
+					// 		&:nth-child(3) { background: $color-warning-light; }
+					// 		&:nth-child(4) { background: $color-warning-dark; }
+					// 		&:nth-child(5) { background: $color-warning-darker; }
+					// 		&:nth-child(6) { background: $color-warning-darkest; }
+					// 	}
+					// }
+					// &.background-error {
+					// 	.docs__color {
+					// 		&:nth-child(1) { background: $color-error-lightest; }
+					// 		&:nth-child(2) { background: $color-error-lighter; }
+					// 		&:nth-child(3) { background: $color-error-light; }
+					// 		&:nth-child(4) { background: $color-error-dark; }
+					// 		&:nth-child(5) { background: $color-error-darker; }
+					// 		&:nth-child(6) { background: $color-error-darkest; }
+					// 	}
+					// }
 
 				}
 

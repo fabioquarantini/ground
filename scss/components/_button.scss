@@ -6,10 +6,10 @@
 	padding-left: ritmo(1);
 	padding-right: ritmo(1);
 	margin: 0 0 ritmo(1) 0;
-	border-color: $color-primary;
-	background-color: $color-primary;
+	@apply border-primary;
+	@apply bg-primary;
 	border-style: solid;
-	color: $color-white;
+	@apply text-white;
 	display: inline-block;
 	vertical-align: middle;
 	white-space: nowrap;
@@ -20,21 +20,21 @@
 
 	&:hover,
 	&--active {
-		background-color: $color-secondary;
-		color: $color-black;
-		border-color: $color-secondary;
+		@apply bg-secondary;
+		@apply text-black;
+		@apply border-secondary;
 	}
 
 	&--secondary {
-		background-color: $color-secondary;
-		color: $color-white;
-		border-color: $color-secondary;
+		@apply bg-secondary;
+		@apply text-white;
+		@apply border-secondary;
 
 		&:hover,
 		&--active {
-			background-color: $color-primary;
-			color: $color-black;
-			border-color: $color-primary;
+			@apply bg-primary;
+			@apply text-black;
+			@apply border-primary;
 		}
 
 	}

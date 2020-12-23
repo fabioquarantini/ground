@@ -16,18 +16,18 @@
 		margin-top: ritmo(0.25);
 		margin-bottom: ritmo(0.25);
 		font-weight: bold;
-		color: $color-black;
+		@apply text-black;
 	}
 
 	.item__body {
 		margin-bottom: 0;
-		color: $color-grey;
+		@apply text-gray-500;
 	}
 
 	.item__link {
 		transition: all 0.4s;
 		&:hover {
-			background-color: $color-grey-light;
+			@apply bg-gray-400;
 		}
 	}
 }
@@ -56,5 +56,5 @@
 .item__data--date {
 	@include ritmo-font-size(12px);
 	font-weight: bold;
-	color: $color-grey-dark;
+	@apply text-gray-600;
 }

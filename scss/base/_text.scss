@@ -11,6 +11,10 @@
 
 	h1 {
 		@apply text-5xl;
+
+		@media sm {
+			@apply text-4xl;
+		}
 	}
 
 	h2 {
@@ -61,8 +65,7 @@ pre {
 }
 
 blockquote {
-
-	border-left: 1px solid $color-grey;
+	@apply border-solid border border-gray-500;
 	margin: 0 0 ritmo(1) 0;
 	display: block;
 	padding: ritmo(1) 0 ritmo(1) ritmo(1);

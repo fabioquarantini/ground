@@ -16,11 +16,11 @@
 		}
 		.pagination__text {
 			text-decoration: none;
-			background: $color-black;
-			color: $color-white;
+			@apply bg-black;
+			@apply text-white;
 			cursor: default;
 			@media ( max-width: theme('screens.md') ) {
-				color: $color-black;
+				@apply text-black;
 				border: none;
 				background: none;
 				&:before {
@@ -35,7 +35,7 @@
 .pagination__text {
 	padding: ritmo(.75);
 	text-decoration: none;
-	color: $color-grey;
+	@apply text-gray-500;
 	cursor: pointer;
 	position: relative;
 	display: block;
@@ -43,15 +43,15 @@
 	margin-left: -1px;
 
 	&:hover {
-		background: $color-primary;
-		color: $color-white;
+		@apply bg-primary;
+		@apply text-white;
 	}
 
 }
 
 .pagination__item {
 	display: none;
-	color: $color-black;
+	@apply text-black;
 	line-height: 1.25;
 	text-align: center;
 
@@ -66,19 +66,19 @@
 	&--next {
 		display: inline-block !important;
 		.pagination__text {
-			background: $color-black;
-			color: $color-white;
+			@apply bg-black;
+			@apply text-white;
 			border: none;
 			cursor:pointer;
 			&:hover {
-				background-color: $color-primary;
+				@apply bg-primary;
 			}
 
 			@screen md {
 				background: none;
-				color: $color-grey;
+				@apply text-gray-500;
 				&:hover {
-					color:$color-black;
+					@apply text-black;
 					background-color: transparent;
 				}
 			}
@@ -109,7 +109,7 @@
 
 			&:hover {
 				background: none;
-				color: $color-grey;
+				@apply text-gray-500;
 			}
 		}
 	}

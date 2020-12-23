@@ -17,13 +17,14 @@
 	right: 0;
 	top: 0;
 	margin: auto;
-	background-color: $color-black;
+	@apply bg-black;
 }
 
 .loader__content {
 	@include centered();
 
 	g {
-		fill: $color-white;
+		//fill: $color-white;
+		@apply fill-current;
 	}
 }

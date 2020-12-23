@@ -1,11 +1,11 @@
 a {
-	color: $color-primary;
+	@apply text-primary;
 	transition: color .1s;
 
 	&:hover,
 	&:active,
 	&:focus {
-		color: $color-secondary;
+		@apply text-secondary;
 		text-decoration: none;
 	}
 }

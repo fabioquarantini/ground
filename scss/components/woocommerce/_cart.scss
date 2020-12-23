@@ -41,7 +41,7 @@
 
 		a {
 			text-decoration: none;
-			color: $color-black;
+			@apply text-black;
 
 			// Solo mobile
 			@media ( max-width: theme('screens.md') ) {
@@ -54,7 +54,7 @@
 			}
 
 			&:hover {
-				color: $color-primary;
+				@apply text-primary;
 			}
 		}
 	}
@@ -75,7 +75,8 @@
 			border-bottom: none;
 
 			@media ( max-width: theme('screens.md') ) {
-				border: 1px solid $color-grey;
+				@apply border;
+				@apply border-gray-500;
 				display: block;
 				padding-left: ritmo(1);
 				padding-right: ritmo(1);
@@ -111,11 +112,11 @@
 			cursor: pointer;
 
 			&:hover {
-				color: $color-primary;
+				@apply text-primary;
 			}
 
 			i {
-				color: $color-black;
+				@apply text-black;
 				margin-right: ritmo(0.5);
 			}
 		}
@@ -129,7 +130,7 @@
 
 		> .button {
 			background: transparent;
-			color: $color-black;
+			@apply text-black;
 			border-color: transparent;
 
 			padding: 0;

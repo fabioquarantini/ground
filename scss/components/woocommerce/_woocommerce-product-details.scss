@@ -8,9 +8,9 @@
 	.onsale {
 		position: absolute;
 		padding: 10px;
-		color: $color-white;
+		@apply text-white;
 		left: 0;
-		background-color: $color-success;
+		@apply bg-green-500;
 	}
 
 	.woocommerce-Price-amount {

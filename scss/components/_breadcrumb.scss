@@ -45,7 +45,7 @@
 
 	&:after {
 		content: '▸';
-		color: $color-grey-dark;
+		@apply text-gray-600;
 		@include ritmo-font-size(20px);
 		padding: 0 ritmo(0.5) 0 ritmo(0.5);
 	}
@@ -66,11 +66,11 @@
 }
 
 .breadcrumb__link {
-	color: $color-grey-dark;
+	@apply text-gray-600;
 	text-decoration: none;
 
 	&:hover {
 		text-decoration: underline;
-		color: $color-primary;
+		@apply text-primary;
 	}
 }

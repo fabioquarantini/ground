@@ -8,5 +8,5 @@
 }
 
 .social__icon {
-	color: $color-black;
+	@apply text-black;
 }

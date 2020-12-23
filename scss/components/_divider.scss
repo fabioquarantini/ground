@@ -3,7 +3,7 @@ hr {
 	display: block;
 	border: 0;
 	@include ritmo-top-border( 1px, 1 );
-	border-color: $color-grey;
+	@apply border-gray-500;
 	margin: ritmo(1) 0;
 	padding: 0;
 }

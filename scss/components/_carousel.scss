@@ -1,6 +1,6 @@
 .carousel {
 
-    &__item {
+	&__item {
 		overflow: hidden;
 		width: 280px;
 		height: 380px;
@@ -28,7 +28,7 @@
 		height: 100%;
 	}
 
-    &__pagination {
+	&__pagination {
 		position: relative;
 		height: 1px;
 		background: rgba(0,0,0,0.15);
@@ -37,40 +37,40 @@
 			display: block;
 			transform-origin: left;
 			height: 1px;
-			background: $color-black;
+			@apply bg-black;
 			transition-duration: 2s !important;
 		}
-    }
+	}
 
-    &__navigation-container {
+	&__navigation-container {
 		position: relative;
-		background: $color-white;
+		@apply bg-white;
 		display: inline-block;
 		z-index: 11;
-        width: 100%;
+		width: 100%;
 
 		.carousel__navigation {
 			position: relative;
 			top: 0;
 			margin-top: 0;
 			width: 40px;
-            height: 40px;
-            line-height: 40px;
+			height: 40px;
+			line-height: 40px;
 			left: auto;
 			right: auto;
-            text-align: center;
-            color: $color-black;
+			text-align: center;
+			@apply text-black;
 			background-image: none;
 			outline: 0;
 
 			&--prev {
-                float: left;
-	            //@include icon(arrow-left);
-            }
+				float: left;
+				//@include icon(arrow-left);
+			}
 
 			&--next {
-                float: right;
-	            //@include icon(arrow-right);
+				float: right;
+				//@include icon(arrow-right);
 			}
 		}
 	}

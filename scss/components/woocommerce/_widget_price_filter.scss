@@ -28,7 +28,7 @@
 	height: 1em;
 	border-radius: 50%;
 	cursor: pointer;
-	background: $color-primary;
+	@apply bg-primary;
 	outline: none;
 	top: -0.28em;
 	margin-left: -0.5em;
@@ -44,7 +44,7 @@
 	font-size:.7em;
 	display: block;
 	border: 0;
-	background: none repeat scroll 0 0 $color-primary;
+	background: none repeat scroll 0 0 theme('colors.primary');
 	border-radius: 1em;
 }
 
@@ -52,7 +52,7 @@
 	-webkit-border-radius: 1em;
 	-moz-border-radius: 1em;
 	border-radius: 1em;
-	background: $color-primary-lightest;
+	@apply bg-primary;
 }
 
 .ui-slider-horizontal {

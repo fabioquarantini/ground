@@ -3,7 +3,7 @@
 }
 
 .slider--primary {
-	background: $color-white;
+	@apply bg-white;
 
 	.slider__item {
 		overflow: hidden;
@@ -110,11 +110,11 @@
 }
 
 .slider__navigation--prev {
-	color: $color-black;
+	@apply text-black;
 }
 
 .slider__navigation--next {
-	color: $color-black;
+	@apply text-black;
 }
 
 .slider__pagination {
@@ -136,7 +136,7 @@
 	}
 
 	.swiper-pagination-bullet-active {
-		background: $color-primary;
+		@apply bg-primary;
 	}
 
 }

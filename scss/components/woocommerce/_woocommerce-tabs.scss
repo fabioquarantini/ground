@@ -15,7 +15,7 @@
 			display: block;
 			margin: 0;
 			border-bottom: 1px solid rgba(0,0,0,.05);
-			border-left: 3px solid $color-grey-light;
+			border-left: 3px solid theme('colors.gray.400');
 			position: relative;
 			padding-left: ritmo(1);
 
@@ -24,12 +24,12 @@
 			}
 
 			&.active {
-				border-left: 3px solid $color-grey-dark;
+				border-left: 3px solid theme('colors.gray.600');
 				position: relative;
 
 				&:before {
 					content: "";
-					@include triangle( right, $color-black, 5px );
+					@include triangle( right, theme('colors.black'), 5px );
 					right: 0;
 				}
 			}
@@ -39,10 +39,10 @@
 			padding: 1em 0;
 			display: block;
 			text-decoration: none;
-			color: $color-black;
+			@apply text-black;
 
 			&:hover {
-				color: $color-primary;
+				@apply text-primary;
 			}
 		}
 	}
@@ -63,7 +63,7 @@
 		}
 
 		p {
-			color: $color-grey-dark;
+			@apply text-gray-600;
 		}
 	}
 }

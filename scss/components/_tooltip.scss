@@ -19,8 +19,8 @@
 	&:after {
 		font-size: $base-font-size;
 		padding: em(12px);
-		background-color: $color-black;
-		color: $color-white;
+		@apply bg-black;
+		@apply text-white;
 		line-height: $base-line-unit;
 		text-align: left;
 		pointer-events: none;
@@ -47,7 +47,7 @@
 	&:before {
 		content: "";
 		bottom: 50%;
-		@include triangle( bottom, $color-black, 10px )
+		@include triangle( bottom, theme('colors.black'), 10px )
 	}
 
 	&:hover {
@@ -97,7 +97,7 @@
 		bottom: auto;
 		left: -6px;
 		top: 50%;
-		@include triangle( right, $color-black, 10px)
+		@include triangle( right, theme('colors.black'), 10px)
 	}
 }
 
@@ -111,7 +111,7 @@
 	&:before {
 		left: 50%;
 		bottom: -20px;
-		@include triangle( top, $color-black, 10px)
+		@include triangle( top, theme('colors.black'), 10px)
 	}
 }
 
@@ -155,7 +155,7 @@
 		bottom: auto;
 		left: 100%;
 		top: 10px;
-		@include triangle( left, $color-black, 10px)
+		@include triangle( left, theme('colors.black'), 10px)
 	}
 }
 
@@ -186,33 +186,33 @@
 [data-tooltip-type="success"],
 .tooltip--success {
 	&:after {
-		background-color: $color-success;
-		color: $color-white;
+		@apply bg-green-500;
+		@apply text-white;
 	}
 	&:before {
-		@include triangle( bottom, $color-success, 10px)
+		@include triangle( bottom, theme('colors.green.500'), 10px)
 	}
 }
 
 [data-tooltip-type="warning"],
 .tooltip--warning {
 	&:after {
-		background-color: $color-warning;
-		color: $color-white;
+		@apply bg-yellow-300;
+		@apply text-white;
 	}
 	&:before {
-		@include triangle( bottom, $color-warning, 10px)
+		@include triangle( bottom, theme('colors.yellow.300'), 10px)
 	}
 }
 
 [data-tooltip-type="error"],
 .tooltip--error {
 	&:after {
-		background-color: $color-error;
-		color: $color-white;
+		@apply bg-red-600;
+		@apply text-white;
 	}
 	&:before {
-		@include triangle( bottom, $color-error, 10px)
+		@include triangle( bottom, theme('colors.red.600'), 10px)
 	}
 }
 

@@ -4,11 +4,11 @@
 
 .navigation__link {
 	text-decoration: none;
-	color: $color-black;
+	@apply text-black;
 
 	&:hover,
 	&.is-active {
-		color: $color-primary;
+		@apply text-primary;
 	}
 }
 
@@ -36,7 +36,7 @@
 	}
 
 	.is-navigation-open & {
-		background: $color-grey-lighter;
+		@apply bg-gray-300;
 		transition: 0.25s;
 		transition-timing-function: ease-out;
 		left: 0;
@@ -73,7 +73,7 @@
 
 			> .navigation__link {
 				@screen md {
-					color: $color-primary;
+					@apply text-primary;
 				}
 			}
 
@@ -84,11 +84,11 @@
 			> .navigation__link {
 
 				position: relative;
-				color: $color-primary;
+				@apply text-primary;
 
 				&:after {
 					content: "";
-					background-color: $color-primary;
+					@apply bg-primary;
 					width: 6px;
 					display: block;
 					position: absolute;
@@ -115,9 +115,9 @@
 		margin: 0;
 		font-weight: 700;
 		cursor: pointer;
-		color: $color-black;
+		@apply text-black;
 		@include ritmo-side-border(bottom, 1px);
-		border-bottom-color: $color-grey;
+		@apply border-gray-500;
 		border-bottom-style: solid;
 		transition: background 0.3s ease-in-out, border 0.3s ease-in-out, color 0.3s ease-in-out;
 
@@ -132,8 +132,8 @@
 
 		&:hover {
 			transition: background 0.3s ease-in-out;
-			background-color: $color-grey-light;
-			color: $color-primary;
+			@apply bg-gray-400;
+			@apply text-primary;
 
 			@screen md {
 				background-color: transparent;
@@ -150,7 +150,7 @@
 			position: absolute;
 			top: 100%;
 			left: 0;
-			background: $color-grey-light;
+			@apply bg-gray-400;
 			padding: 0;
 		}
 
@@ -173,7 +173,7 @@
 				width: 6px;
 				height: 6px;
 				margin-top: -3px;
-				background-color: $color-grey-dark;
+				@apply bg-gray-600;
 				display: block;
 				position: absolute;
 				top: 50%;
@@ -198,7 +198,7 @@
 			}
 
 			@screen md {
-				background: $color-grey;
+				@apply bg-gray-500;
 				top:0;
 				left:100%;
 			}

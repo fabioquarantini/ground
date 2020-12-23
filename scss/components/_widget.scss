@@ -1,5 +1,6 @@
 .widget {
-	border-bottom: 1px solid $color-grey;
+	@apply border;
+	@apply border-gray-500;
 	margin-bottom: ritmo(1);
 	padding-bottom: ritmo(1);
 

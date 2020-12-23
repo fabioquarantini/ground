@@ -1,18 +1,18 @@
 .widget_layered_nav {
 
-    .woocommerce-widget-layered-nav-list {
-        margin: 0;
-        list-style: none;
+	.woocommerce-widget-layered-nav-list {
+		margin: 0;
+		list-style: none;
 
-        &__item {
+		&__item {
 
-            a {
-                &:before {
+			a {
+				&:before {
 					content: '';
 					position: relative;
 					display: inline-block;
 					text-align: center;
-					color: $color-white;
+					@apply text-white;
 					line-height: 16px;
 					height: 18px;
 					width: 18px;
@@ -20,26 +20,28 @@
 					border-radius: 50%;
 					vertical-align: middle;
 					font-size: 10px;
-					border: 1px solid $color-grey;
+					@apply border;
+					@apply border-gray-500;
 					transition: all var(--ease-speed) var(--ease-default);
 				}
-            }
+			}
 
-            &--chosen {
+			&--chosen {
 
-                a {
-                    &:before {
+				a {
+					&:before {
 						content: "✔";
-						border: 1px solid $color-primary;
-						background-color: $color-primary;
+						border: 1px solid;
+						@apply border-primary;
+						@apply bg-primary;
 					}
-                }
+				}
 
-            }
+			}
 
-        }
+		}
 
-    }
+	}
 }
 
 
@@ -58,17 +60,18 @@
 			a {
 				display: block;
 				text-decoration: none;
-                border: 1px solid $color-grey;
-                border-radius: 4px;
-                color: $color-black;
+				@apply border;
+				@apply border-gray-500;
+				border-radius: 4px;
+				@apply text-black;
 				padding: ritmo(0.3) ritmo(2) ritmo(0.3) ritmo(0.5);
 				transition: all var(--ease-speed) var(--ease-default);
 				&:before {
 					content: '';
 					position: absolute;
 					text-align: center;
-                    color: $color-error;
-                    right: ritmo(0.5);
+					@apply text-red-600;
+					right: ritmo(0.5);
 					line-height: 20px;
 					height: 24px;
 					width: 24px;
@@ -83,19 +86,20 @@
 				a {
 					&:before {
 						content: "x";
-						border: 1px solid $color-error;
+						border: 1px solid theme('colors.red.600');
 					}
 				}
 			}
 
 			&:hover {
 				a {
-					border: 1px solid $color-error;
-					background-color: $color-error;
-					color: $color-white;
+					border: 1px solid theme('colors.red.600');
+					@apply bg-red-600;
+					@apply text-white;
 					&:before {
-						color: $color-white;
-						border: 1px solid $color-white;
+						@apply text-white;
+						border: 1px solid;
+						@apply border-white;
 					}
 				}
 			}

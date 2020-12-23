@@ -27,7 +27,7 @@
         left: 0;
         height: 0;
         width: 100%;
-        background: $color-black;
+        @apply bg-black;
 		transition: all var(--ease-speed) var(--ease-default);
     }
 }

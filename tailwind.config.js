@@ -21,7 +21,12 @@ module.exports = {
       center: true,
       padding: '1.5rem',
     },
-    extend: {},
+    extend: {
+      colors: {
+        primary: '#C5AB78',
+        secondary: '#549b93',
+      }
+    },
   },
   variants: {
     extend: {},

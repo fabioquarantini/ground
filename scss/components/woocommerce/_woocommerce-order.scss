@@ -1,5 +1,5 @@
 .woocommerce-order {
-	background-color: $color-grey-lighter;
+	@apply bg-gray-300;
 	padding: ritmo(2);
 	border-radius: 4px;
 }

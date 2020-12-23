@@ -16,7 +16,7 @@
 		height: 100%;
 		right: 0;
 		width: 100%;
-		background: $color-white;
+		@apply bg-white;
 		z-index: 99;
 		transform: translateX(102%);
 		transition: all var(--ease-speed) var(--ease-in-out-quint);
@@ -60,11 +60,11 @@
 						height: 20px;
 						width: 20px;
 						line-height: 18px;
-						color: $color-white !important;
+						@apply text-white;
 						text-decoration: none;
 						text-align: center;
 						border-radius: 50%;
-						background-color: $color-error;
+						@apply bg-red-600;
 					}
 
 					.attachment-woocommerce_thumbnail {
@@ -147,7 +147,7 @@
 	width: 100%;
 	cursor: pointer;
 	transition: all var(--ease-speed) var(--ease-in-out-quint);
-	background: rgba($color-black, 0.8);
+	@apply bg-black;
 	z-index: 1;
 
 	.is-minicart-open & {
@@ -162,7 +162,7 @@
 	vertical-align: middle;
 	height: ritmo(1);
 	line-height: ritmo(1);
-	color: $color-black;
+	@apply text-black;
 	transition: all var(--ease-speed) var(--ease-out-quint);
 
 }
@@ -179,9 +179,9 @@
 	width: 24px;
 	line-height: 24px;
 	text-align: center;
-	color: $color-white;
+	@apply text-white;
 	border-radius: 50%;
-	background-color: $color-error;
+	@apply bg-red-600;
 	@screen lg {
 		top: ritmo(1.5);
 	}

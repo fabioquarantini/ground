@@ -6,13 +6,13 @@ table {
 	table-layout: auto;
 	max-width: 100%;
 	width: 100%;
-	background-color: $color-white;
+	@apply bg-white;
 }
 
 .table--striped {
 
 	tbody tr:nth-child(even) {
-		background-color: $color-grey;
+		@apply bg-gray-500;
 	}
 
 }
@@ -20,8 +20,8 @@ table {
 .table--hover {
 
 	tbody tr:hover {
-		background-color: $color-grey;
-		color: $color-white;
+		@apply bg-gray-500;
+		@apply text-white;
 	}
 
 }
@@ -111,7 +111,7 @@ table {
 	td {
 
 		vertical-align: top;
-		background-color: $color-grey-lighter;
+		@apply bg-gray-300;
 
 		@media ( max-width: theme('screens.sm') ) {
 			border: 0;
@@ -126,7 +126,7 @@ table {
 
 		&:before {
 
-			color: $color-black;
+			@apply text-black;
 			content: attr(data-title);
 			font-variant: small-caps;
 			text-transform: uppercase;
@@ -160,8 +160,8 @@ caption {
 
 .table__head,
 thead {
-	background-color: $color-primary;
-	color: $color-white;
+	@apply bg-primary;
+	@apply text-white;
 }
 
 .table__body,
@@ -184,7 +184,8 @@ td {
 	@include ritmo-borders( 1px, 1 );
 	border-style: solid;
 	border-color: transparent;
-	border-bottom-color: $color-grey;
+	//border-bottom-color: $color-grey;
+	@apply border-gray-500;
 	vertical-align: middle;
 }
 

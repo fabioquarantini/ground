@@ -2,7 +2,8 @@
 
 	.wc_payment_methods {
 		//border: 1px solid $color-grey-dark;
-		background-color: $color-white;
+		//background-color: $color-white;
+		@apply bg-white;
 		padding: ritmo(1);
 		list-style-type: none;
 		margin-bottom: ritmo(2);
@@ -14,7 +15,7 @@
 
 		p {
 			@include ritmo-font-size(16px, 1);
-			color: $color-grey-darkest;
+			@apply text-gray-700;
 			margin-top: 6px;
 			//margin-left: ritmo(1);
 			font-style: italic;
@@ -23,7 +24,8 @@
 		.wc_payment_method {
 			margin-bottom: 10px;
 			padding-bottom: ritmo(0.5);
-			border-bottom: 1px solid $color-grey;
+			@apply border;
+			@apply border-gray-500;
 
 			&:last-child {
 				border-bottom: 0;
