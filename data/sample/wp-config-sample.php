@@ -79,10 +79,11 @@ define('WPLANG', 'it_IT'); // Default en_EN
 	Debug
 	==========================================================================  */
 
-define('WP_DEBUG',			false);	// Turn debugging on
-define('WP_DEBUG_DISPLAY',	false);	// Display errors and warnings on your site
-define('WP_DEBUG_LOG',		false);	// Log errors and warnings (/wp-content/debug.log)
-define('SAVEQUERIES',		false);	// Save database queries in an array. ( Show with: "global $wpdb; print_r( $wpdb->queries );" )
+define('WP_DEBUG', false); // Turn debugging on
+define('WP_DEBUG_DISPLAY', false); // Display errors and warnings on your site
+define('WP_DEBUG_LOG', false); // Log errors and warnings (/wp-content/debug.log)
+define('SAVEQUERIES', false); // Save database queries in an array. ( Show with: "global $wpdb; print_r( $wpdb->queries );" )
+define('WP_DISABLE_FATAL_ERROR_HANDLER', false); // Disable Fatal Error Handler
 // @ini_set('display_errors',0);
 
 
