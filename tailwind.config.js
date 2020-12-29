@@ -41,6 +41,40 @@ module.exports = {
         ],
         secondary: ['ui-serif', 'Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
       },
+      keyframes: {
+        'fade-in': {
+          'from': { opacity: 0 },
+          'to': { opacity: 1 },
+        },
+        'fade-in-up': {
+          'from': { opacity: 0, transform: 'translate3d(0, 100%, 0)' },
+          'to': {opacity: 1, transform: 'none' },
+        },
+        'fade-in-down': {
+          'from': { opacity: 0, transform: 'translate3d(0, -100%, 0)' },
+          'to': { opacity: 1, transform: 'none' },
+        },
+        'fade-out': {
+          'from': { opacity: 1 },
+          'to': { opacity: 0 },
+        },
+        'fade-out-up': {
+          'from': { opacity: 1 },
+          'to': { opacity: 0, transform: 'translate3d(0, -100%, 0)' },
+        },
+        'fade-out-down': {
+          'from': { opacity: 1 },
+          'to': { opacity: 0, transform: 'translate3d(0, 100%, 0)' },
+        }
+      },
+       animation: {
+        'fade-in': 'fade-in 1s ease-in-out',
+        'fade-in-up': 'fade-in-up 1s ease-in-out',
+        'fade-in-down': 'fade-in-down 1s ease-in-out',
+        'fade-out': 'fade-out 1s ease-in-out',
+        'fade-out-up': 'fade-out-up 1s ease-in-out',
+        'fade-out-down': 'fade-out-down 1s ease-in-out',
+       }
     },
   },
   variants: {
