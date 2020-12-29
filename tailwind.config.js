@@ -13,10 +13,6 @@ module.exports = {
   },
   darkMode: false, // or 'media' or 'class'
   theme: {
-    fontFamily: {
-      sans: ['sans-serif'],
-      serif: ['serif'],
-    },
     container: {
       center: true,
       padding: '1.5rem',
@@ -25,7 +21,26 @@ module.exports = {
       colors: {
         primary: '#C5AB78',
         secondary: '#549b93',
-      }
+      },
+      fontFamily: {
+        primary: [
+          'ui-sans-serif',
+          'system-ui',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          '"Segoe UI"',
+          'Roboto',
+          '"Helvetica Neue"',
+          'Arial',
+          '"Noto Sans"',
+          'sans-serif',
+          '"Apple Color Emoji"',
+          '"Segoe UI Emoji"',
+          '"Segoe UI Symbol"',
+          '"Noto Color Emoji"',
+        ],
+        secondary: ['ui-serif', 'Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
+      },
     },
   },
   variants: {
