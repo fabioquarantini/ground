@@ -9,6 +9,6 @@
 
 	.button {
 		@apply right-6;
-		@include centered(false, true);
+		//@include centered(false, true);
 	}
 }
