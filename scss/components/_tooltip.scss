@@ -47,7 +47,7 @@
 	&:before {
 		content: "";
 		bottom: 50%;
-		@include triangle( bottom, theme('colors.black'), 10px )
+		//@include triangle( bottom, theme('colors.black'), 10px )
 	}
 
 	&:hover {
@@ -97,7 +97,7 @@
 		bottom: auto;
 		left: -6px;
 		top: 50%;
-		@include triangle( right, theme('colors.black'), 10px)
+		//@include triangle( right, theme('colors.black'), 10px)
 	}
 }
 
@@ -111,7 +111,7 @@
 	&:before {
 		left: 50%;
 		bottom: -20px;
-		@include triangle( top, theme('colors.black'), 10px)
+		//@include triangle( top, theme('colors.black'), 10px)
 	}
 }
 
@@ -155,7 +155,7 @@
 		bottom: auto;
 		left: 100%;
 		top: 10px;
-		@include triangle( left, theme('colors.black'), 10px)
+		//@include triangle( left, theme('colors.black'), 10px)
 	}
 }
 
@@ -190,7 +190,7 @@
 		@apply text-white;
 	}
 	&:before {
-		@include triangle( bottom, theme('colors.green.500'), 10px)
+		//@include triangle( bottom, theme('colors.green.500'), 10px)
 	}
 }
 
@@ -201,7 +201,7 @@
 		@apply text-white;
 	}
 	&:before {
-		@include triangle( bottom, theme('colors.yellow.300'), 10px)
+		//@include triangle( bottom, theme('colors.yellow.300'), 10px)
 	}
 }
 
@@ -212,7 +212,7 @@
 		@apply text-white;
 	}
 	&:before {
-		@include triangle( bottom, theme('colors.red.600'), 10px)
+		//@include triangle( bottom, theme('colors.red.600'), 10px)
 	}
 }
 

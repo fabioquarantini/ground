@@ -422,7 +422,7 @@ select[multiple] {
 		position: absolute;
 		top: 42%;
 		right: 10px;
-		@include triangle( bottom, theme('colors.gray.500'), 6px )
+		//@include triangle( bottom, theme('colors.gray.500'), 6px )
 	}
 
 	select {

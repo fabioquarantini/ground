@@ -29,7 +29,7 @@
 
 				&:before {
 					content: "";
-					@include triangle( right, theme('colors.black'), 5px );
+					//@include triangle( right, theme('colors.black'), 5px );
 					right: 0;
 				}
 			}
