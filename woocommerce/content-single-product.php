@@ -32,9 +32,9 @@ if ( post_password_required() ) {
 
 <div id="product-<?php the_ID(); ?>" <?php wc_product_class('woocommerce-product-details'); ?>>
 
-	<div class="row">
+	<div class="lg:flex lg:flex-wrap">
 
-		<div class="gr-12 gr-6@md">
+		<div class="lg:w-6/12">
 
 			<?php
 				/**
@@ -48,7 +48,7 @@ if ( post_password_required() ) {
 
 		</div>
 
-		<div class="gr-12 gr-6@md">
+		<div class="lg:w-6/12">
 
 			<div class="summary entry-summary">
 				<?php
