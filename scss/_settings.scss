@@ -12,38 +12,6 @@ $breakpoints: (
 	xl: 1440px
 );
 
-// Typography
-$base-font-size: 16px;
-$base-line-unit: 24px;
-$base-line-multi: 1;
-$rem-with-px-fallback: false;
-$ritmo-unit: 'rem';
-
-$type-styles: (
-	default:
-		(
-			h1: ('font-size': 24px, 'line-height': 1.25, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
-			h2: ('font-size': 20px, 'line-height': 1, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
-			h3: ('font-size': 19px, 'line-height': 1, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
-			h4: ('font-size': 18px, 'line-height': 1, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
-			h5: ('font-size': 17px, 'line-height': 1, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
-			h6: ('font-size': 16px, 'line-height': 1, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
-			p: ('font-size': 16px, 'line-height': 1, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
-			small: ('font-size': 12px, 'line-height': 0.75, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal)
-		),
-	md:
-		(
-			h1: ('font-size': 36px, 'line-height': 2, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
-			h2: ('font-size': 31px, 'line-height': 2, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
-			h3: ('font-size': 28px, 'line-height': 1.5, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
-			h4: ('font-size': 26px, 'line-height': 1.5, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
-			h5: ('font-size': 22px, 'line-height': 1.25, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
-			h6: ('font-size': 18px, 'line-height': 1, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
-			p: ('font-size': 16px, 'line-height': 1, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal),
-			small: ('font-size': 12px, 'line-height': 0.75, 'margin-bottom': 1, 'margin-top': 0, 'letter-spacing': normal)
-		)
-);
-
 // Navicon
 $navicon-width: 28px;
 $navicon-height: 1px;

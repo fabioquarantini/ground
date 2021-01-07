@@ -21,14 +21,13 @@ form {
 		border: 0;
 		@apply border;
 		@apply border-gray-500;
-		padding: ritmo(1) 0;
+		@apply py-6 px-0;
 		height: auto;
 		font-weight: bold;
-		@include ritmo-font-size(21px, 1);
+		@apply text-xl;
 
 		@screen md {
-			@include ritmo-font-size(42px, 2);
-			padding: ritmo(1) 0;
+			@apply text-4xl
 		}
 
 		&:focus,
@@ -45,7 +44,7 @@ form {
 
 	.form__button {
 		position: absolute;
-		bottom: ritmo(1);
+		@apply bottom-6;
 		right: 0;
 		margin: 0;
 		background-color: transparent;
@@ -54,7 +53,7 @@ form {
 		opacity: 1;
 		transition: opacity 0.4s;
 		@screen md {
-			bottom: ritmo(0.5);
+			@apply bottom-3;
 		}
 	}
 
@@ -70,14 +69,16 @@ form {
 fieldset {
 	@apply border;
 	@apply border-gray-500;
-	margin: 0 0 ritmo(1) 0;
+	@apply m-0;
+	@apply mb-6;
 }
 
 .form__legend,
 legend {
 	font-weight: bold;
-	padding: 0 ritmo(1);
-	height: ritmo(1);
+	@apply px-0;
+	@apply py-6;
+	@apply h-6;
 }
 
 .form__label,
@@ -108,11 +109,12 @@ textarea,
 .form__select,
 select {
 	display: block;
-	margin: 0 0 ritmo(1) 0;
+	@apply m-0;
+	@apply mb-6;
 	@apply border;
 	@apply border-gray-500;
-	padding: ritmo(.35);
-	height: ritmo(2);
+	@apply p-1.5;
+	@apply h-12;
 	outline: none;
 	@apply bg-white;
 	@apply text-gray-600;
@@ -168,7 +170,7 @@ textarea {
 	height: auto;
 	max-width: 100%;
 	resize: vertical;
-	min-height: ritmo(8);
+	min-height: 192px;
 }
 
 .form__input--checkbox,
@@ -182,7 +184,7 @@ textarea {
 	display: inline;
 	border: 0;
 	vertical-align: middle;
-	margin: 0 ritmo(0.25) 0 0;
+	margin: 0 4px 0 0;
 }
 
 // Radio and checkbox
@@ -386,11 +388,12 @@ textarea {
 select {
 
 	max-width: 100%;
-	padding: ritmo(.25);
-	height: ritmo(2);
+	@apply p-1.5;
+	@apply h-12;
 
 	option {
-		padding: 0 ritmo(1);
+		@apply px-0;
+@apply py-6;
 	}
 
 }
@@ -400,11 +403,11 @@ select[multiple] {
 	@apply border;
 	@apply border-gray-500;
 	padding: 0 !important;
-	height: ritmo(5);
+	height: 120px;
 
 	option {
-		height: ritmo(1.5);
-		padding-top: ritmo(0.5);
+		height: 36px;
+		@apply pt-3;
 	}
 
 }
@@ -435,7 +438,7 @@ input + .message,
 select + .message,
 .form__textarea + .message,
 textarea + .message {
-	margin-top: - ritmo(1);
+	margin-top: - 24px;
 }
 
 // Buttons

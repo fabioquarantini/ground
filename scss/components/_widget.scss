@@ -1,8 +1,6 @@
 .widget {
-	@apply border;
-	@apply border-gray-500;
-	margin-bottom: ritmo(1);
-	padding-bottom: ritmo(1);
+	@apply mb-6;
+	@apply pb-6;
 
 	&:last-child {
 		border-bottom: 0;
@@ -22,6 +20,6 @@
 	margin: 0;
 
 	li {
-		margin-bottom: ritmo(1);
+		@apply mb-6;
 	}
 }

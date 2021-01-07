@@ -17,7 +17,9 @@
 
 .search__content {
 	@apply bg-white;
-	padding: 5% ritmo(1);
+	padding-left: 5%;
+	padding-right: 5%;
+	@apply py-6;
 	position: relative;
 
 	@screen md {
@@ -49,19 +51,19 @@
 
 .search__close {
 	position: absolute;
-	top: ritmo(1);
-	right: ritmo(1);
+	@apply top-6;
+	@apply right-6;
 	cursor: pointer;
 	@apply text-black;
 }
 
 .search__spinner {
 	position: absolute;
-	top: ritmo(1.75);
+	@apply top-10;
 	right: 0;
 	display: none;
-	height: ritmo(1.5) !important;
-	width: ritmo(1.5) !important;
+	height: 36px !important;
+	width: 36px !important;
 	opacity: 0;
 	transition: opacity 0.4s;
 	display: inline-block;
@@ -69,12 +71,12 @@
 	@screen md {
 		position: absolute;
 		right: auto;
-		top: ritmo(2);
+		@apply top-12;
 		left: 0;
-		top: ritmo(2);
-		left: - ritmo(3);
-		height: ritmo(2) !important;
-		width: ritmo(2) !important;
+		@apply top-12;
+		@apply -left-16;
+		height: 48px !important;
+		width: 48px !important;
 	}
 
 	.is-search-loading & {
@@ -84,5 +86,5 @@
 }
 
 .search__result {
-	margin-top: ritmo(2);
+	@apply mt-12;
 }

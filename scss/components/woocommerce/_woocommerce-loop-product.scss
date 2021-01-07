@@ -6,7 +6,7 @@
 
 	.added_to_cart {
 		display: block;
-		margin-bottom: ritmo(1);
+		@apply mb-6;
 	}
 
 	.onsale {
@@ -57,6 +57,6 @@
 
 .woocommerce-loop-product__title {
 	@apply text-lg;
-	padding-top: ritmo(1);
-	margin-bottom: ritmo(0.5);
+	@apply pt-6;
+	@apply mb-3;
 }

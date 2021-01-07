@@ -2,14 +2,14 @@
 hr {
 	display: block;
 	border: 0;
-	@include ritmo-top-border( 1px, 1 );
+	border-width: 1px;
 	@apply border-gray-500;
-	margin: ritmo(1) 0;
+	@apply my-6;
 	padding: 0;
 }
 
 .divider--dotted {
-	@include ritmo-top-border( 1px, 1 );
+	border-width: 1px;
 	border-style: dotted;
 }
 

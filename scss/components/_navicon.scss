@@ -1,8 +1,8 @@
 .navicon {
 	position: absolute;
-	top: ritmo(0.70);
-	right: ritmo(0.5);
-	padding: ritmo(0.5);
+	@apply top-5;
+	@apply right-3;
+	@apply p-3;
 	left: auto;
 	z-index: 1000;
 	border: 0;

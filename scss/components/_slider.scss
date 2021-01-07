@@ -1,5 +1,5 @@
 .slider {
-	// margin-bottom: ritmo(2);
+	// @apply mb-12;
 }
 
 .slider--primary {
@@ -58,7 +58,7 @@
 }
 
 .slider--full {
-	height: calc(100vh - #{ritmo(3)});
+	height: calc(100vh - 36px);
 	@screen sm {
 		height: 100vh;
 	}
@@ -118,7 +118,7 @@
 }
 
 .slider__pagination {
-	bottom: ritmo(1) !important;
+	bottom: 24px !important;
 }
 
 .slider__pagination--flat {
@@ -127,8 +127,8 @@
 		border-radius: 0;
 		width: 22px;
 		height: 2px;
-		margin-left: ritmo(0.3) !important;
-		margin-right: ritmo(0.3) !important;
+		margin-left: 4px !important;
+		margin-right: 4px !important;
 
 		@screen md {
 			width: 44px;

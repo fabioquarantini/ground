@@ -17,11 +17,11 @@
 	}
 
 	&:after {
-		font-size: $base-font-size;
+		font-size: 16px;
 		padding: em(12px);
 		@apply bg-black;
 		@apply text-white;
-		line-height: $base-line-unit;
+		line-height: 24px;
 		text-align: left;
 		pointer-events: none;
 		bottom: 100%;

@@ -1,6 +1,6 @@
 .woocommerce-tabs {
 	@apply flow-root;
-	margin-bottom: ritmo(2);
+	@apply mb-12;
 
 	.tabs {
 		margin: 0 5% 0 0;
@@ -17,7 +17,7 @@
 			border-bottom: 1px solid rgba(0,0,0,.05);
 			border-left: 3px solid theme('colors.gray.400');
 			position: relative;
-			padding-left: ritmo(1);
+			@apply pl-6;
 
 			@media ( max-width: theme('screens.md') ) {
 				display: none !important;
@@ -54,7 +54,7 @@
 
 		@media ( max-width: theme('screens.md') ) {
 			display: block !important;
-			margin-bottom: ritmo(2);
+			@apply mb-12;
 		}
 
 		@screen md {

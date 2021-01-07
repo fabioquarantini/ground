@@ -20,8 +20,8 @@
 		// .get-var-color-warning { &:after { content: " #{$color-warning}"; } }
 		// .get-var-color-error { &:after { content: " #{$color-error}"; } }
 		// //.get-var-breakpoints { &:after { content: " #{$breakpoints}"; } }
-		// .get-var-base-font-size { &:after { content: " #{$base-font-size}"; } }
-		// .get-var-base-line-unit { &:after { content: " #{$base-line-unit}"; } }
+		// .get-var-base-font-size { &:after { content: " #{16px}"; } }
+		// .get-var-base-line-unit { &:after { content: " #{24px}"; } }
 
 		&__tabs{
 			position: relative;
@@ -41,13 +41,13 @@
 
 		&__header {
 			position: relative;
-			padding-top: ritmo(5);
+			@apply pt-32;
 		}
 
 		&__chapter{
 			display: inline-block;
 			font-weight: bold;
-			@include ritmo-font-size(60px);
+			@apply text-5xl;
 			@apply text-secondary;
 		}
 
@@ -62,11 +62,12 @@
 				display: inline-block;
 				height: 1px;
 				width: 20px;
-				margin: 0 ritmo(0.5);
+				@apply my-3;
 				@apply bg-black;
+
 				@screen md {
 					width: 150px;
-					margin: 0 ritmo(1);
+					@apply my-6;
 				}
 
 			}
@@ -100,7 +101,7 @@
 					}
 
 					.docs__header {
-						margin-top: $i*ritmo(-1);
+						//margin-top: $i*ritmo(-1);
 					}
 
 					.docs__chapter {
@@ -120,18 +121,18 @@
 				line-height: 0;
 				z-index: 2;
 				margin-bottom: 0 !important;
-				padding: ritmo(0.5) 0;
+				@apply py-3;
 				text-align: center;
 				top: 0;
 				@apply text-black;
 				@apply bg-gray-500;
-				@include ritmo-font-size(8px);
+				font-size: 8px;
 				transform: translateX(-50px);
 				white-space: nowrap;
 				overflow: hidden;
 				text-overflow: ellipsis;
 				@screen md {
-					@include ritmo-font-size(12px);
+					@apply text-xs;;
 					width: 100px;
 					transform: translateX(-76px);
 				}
@@ -141,9 +142,8 @@
 			// TAB BLOCKS
 			&--blocks {
 				.block {
-					margin-bottom: ritmo(4);
-					padding-top: ritmo(1);
-					padding-bottom: ritmo(1);
+					@apply py-6;
+					@apply mb-24;
 					box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.12);
 				}
 			}
@@ -176,11 +176,13 @@
 					h1,h2,h3,h4,h5,h6,p,small {
 						position: relative;
 						display: block;
-						padding: ritmo(2) ritmo(3) ritmo(2) 0;
+						@apply py-12;
+						@apply pr-9;
 						margin-bottom: 0;
 						border-bottom: 1px solid rgba(0,0,0,0.18);
 						@screen md {
-							padding: ritmo(4) ritmo(10) ritmo(4) 0;
+							@apply py-24;
+							@apply pr-60;
 						}
 
 						&:after {
@@ -216,10 +218,10 @@
 
 				.docs__icon {
 					display: block;
-					margin-bottom: ritmo(1);
+					@apply mb-6;
 
 					span {
-						padding-left: ritmo(0.5);
+						@apply pl-3;
 					}
 
 				}

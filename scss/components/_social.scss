@@ -3,7 +3,7 @@
 }
 
 .social__link {
-	margin-right: ritmo(0.5);
+	@apply mr-3;
 	text-decoration: none;
 }
 

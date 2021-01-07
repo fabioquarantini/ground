@@ -4,7 +4,7 @@
 	@apply border-primary;
 	border-radius: 50%;
 	border-right-color: transparent;
-	height: ritmo(2);
-	width: ritmo(2);
+	@apply h-12;
+	@apply w-12;
 	margin: 1lh auto;
 }

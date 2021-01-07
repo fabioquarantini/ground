@@ -2,7 +2,7 @@
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
-	margin: 0 0 ritmo(1, $offset: -3px) 0;
+	@apply mb-6;
 	table-layout: auto;
 	max-width: 100%;
 	width: 100%;
@@ -90,7 +90,7 @@ table {
 
 	tr {
 
-		margin-bottom: ritmo(1);
+		@apply mb-6;
 
 		@screen sm {
 			display:table-row;
@@ -147,7 +147,8 @@ table {
 
 	td,
 	th {
-		@include ritmo-horizontal-borders( 1px, 0.5 );
+		border-width: 1px;
+		@apply px-3;
 		border-style: solid;
 	}
 
@@ -181,9 +182,10 @@ tr {
 
 .table__cell,
 td {
-	@include ritmo-borders( 1px, 1 );
+	border-width: 1px;
 	border-style: solid;
 	border-color: transparent;
+	@apply p-1;
 	//border-bottom-color: $color-grey;
 	@apply border-gray-500;
 	vertical-align: middle;

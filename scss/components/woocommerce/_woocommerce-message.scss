@@ -3,12 +3,12 @@
 	@extend .message;
 	@extend .message--big;
 	@extend .message--fill;
-	margin-bottom: ritmo(2);
+	@apply mb-12;
 	@apply bg-green-500;
 	@apply text-white;
 
 	.button {
-		right: ritmo(1);
+		@apply right-6;
 		@include centered(false, true);
 	}
 }

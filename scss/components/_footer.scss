@@ -1,14 +1,14 @@
 .footer {
-	padding: ritmo(2);
+	@apply p-12;
 	@apply bg-gray-300;
 }
 
 .footer__bottom {
-	margin-top: ritmo(1);
+	@apply mt-6;
 }
 
 .footer__column {
-	margin-bottom: ritmo(1);
+	@apply mb-6;
 	@screen md {
 		margin:0;
 	}
@@ -16,6 +16,6 @@
 
 .footer__content,
 .footer__item {
-	@include ritmo-font-size(16px);
+	@apply text-base;
 	@apply text-gray-600;
 }

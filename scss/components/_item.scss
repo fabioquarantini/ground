@@ -1,20 +1,20 @@
 .item {
-	margin-bottom: ritmo(2);
+	@apply mb-12;
 }
 
 .item--small {
-	margin-bottom: ritmo(1);
+	@apply mb-6;
 
 	.item__media {
 		float: left;
-		margin-right: ritmo(1);
-		width: ritmo(4);
+		@apply mr-6;
+		@apply w-48;
 	}
 
 	.item__title {
-		//@include ritmo-font-size(21px);
-		margin-top: ritmo(0.25);
-		margin-bottom: ritmo(0.25);
+		//@apply text-xl;;
+		@apply mt-1;
+		@apply mb-1.5;
 		font-weight: bold;
 		@apply text-black;
 	}
@@ -46,7 +46,7 @@
 }
 
 .item__header {
-	margin-bottom: ritmo(1);
+	@apply mb-6;
 }
 
 .item__data {
@@ -54,7 +54,7 @@
 }
 
 .item__data--date {
-	@include ritmo-font-size(12px);
+	@apply text-xs;;
 	font-weight: bold;
 	@apply text-gray-600;
 }

@@ -1,10 +1,4 @@
 .minicart {
-	/*position: relative;
-	vertical-align: middle;
-	line-height: ritmo(3);
-	height: ritmo(3);
-	list-style: none;
-	z-index: 99;*/
 
 	.woocommerce-cart & {
 		display: none;
@@ -31,14 +25,15 @@
 		}
 
 		.widgettitle {
-			padding: ritmo(1) ritmo(1) 0 ritmo(1);
+			@apply px-6;
+			@apply pr-6;
 		}
 
 		.widget_shopping_cart_content {
 			position: relative;
 
 			.woocommerce-mini-cart__empty-message {
-				padding: 0 ritmo(1);
+				@apply px-6;
 			}
 
 			.cart_list {
@@ -48,15 +43,15 @@
 					position: relative;
 					overflow: hidden;
 					display: block;
-					line-height: ritmo(1);
-					padding-left: ritmo(2.5);
-					padding-right: ritmo(1);
-					margin-top: ritmo(1);
+					line-height: 24px;
+					@apply pl-14;
+					@apply pr-6;
+					@apply mt-6;
 
 					.remove {
 						position: absolute;
 						top: 0;
-						left: ritmo(1);
+						left: 24px;
 						height: 20px;
 						width: 20px;
 						line-height: 18px;
@@ -69,7 +64,7 @@
 
 					.attachment-woocommerce_thumbnail {
 						max-width: 200px;
-						margin-left: ritmo(1);
+						@apply ml-6;
 						height: auto;
 						float: right;
 						display: block;
@@ -77,7 +72,6 @@
 
 					.quantity {
 						display: block;
-
 					}
 
 				}
@@ -85,13 +79,13 @@
 			}
 
 			.woocommerce-mini-cart__total {
-				padding-left: ritmo(1);
-				padding-right: ritmo(1);
+				@apply pl-6;
+				@apply pr-6;
 			}
 
 			.woocommerce-mini-cart__buttons {
-				padding-left: ritmo(1);
-				padding-right: ritmo(1);
+				@apply pl-6;
+				@apply pr-6;
 				margin-bottom: 0;
 
 				a {
@@ -111,11 +105,11 @@
 
 .minicart__close {
 	position: fixed;
-	top: ritmo(0.2);
-	right: ritmo(0.4);
-	height: ritmo(2);
-	width: ritmo(2);
-	line-height: ritmo(2);
+	top: 3px;
+	right: 4px;
+	height: 48px;
+	width: 48px;
+	line-height: 48px;
 	z-index: 999;
 	cursor: pointer;
 	text-align: center;
@@ -133,7 +127,7 @@
 
 	.icon {
 		display: block;
-		line-height: ritmo(2);
+		line-height: 48px;
 	}
 }
 
@@ -160,8 +154,8 @@
 	position: relative;
 	display: inline-block;
 	vertical-align: middle;
-	height: ritmo(1);
-	line-height: ritmo(1);
+	@apply h-6;
+	line-height: 24px;
 	@apply text-black;
 	transition: all var(--ease-speed) var(--ease-out-quint);
 
@@ -173,7 +167,7 @@
 
 .minicart__count {
 	position: absolute;
-	top: ritmo(0.5);
+	top: 12px;
 	right: 0;
 	height: 24px;
 	width: 24px;
@@ -183,7 +177,7 @@
 	border-radius: 50%;
 	@apply bg-red-600;
 	@screen lg {
-		top: ritmo(1.5);
+		top: 36px;
 	}
 
 	.is-empty & {

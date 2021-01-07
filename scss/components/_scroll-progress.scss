@@ -1,7 +1,7 @@
 .scroll-progress {
     position: fixed;
     display: none;
-    right: ritmo(2);
+    @apply right-12;
     top: 50%;
     width: 1px;
     height: 150px;

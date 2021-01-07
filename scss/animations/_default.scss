@@ -300,10 +300,10 @@
 		position: relative;
 		display: block;
 		width: 100%;
-		padding: ritmo(0.2);
+		@apply p-1;
 		overflow: hidden;
 		@screen md {
-			padding: ritmo(2);
+			@apply p-12;
 		}
 	}
 
@@ -315,19 +315,20 @@
 .page-template-template-scrolltrigger {
 
 	h1 {
-		@include ritmo-font-size(120px, 2);
+
+		font-size: 120px;
 
 		@screen md {
-			@include ritmo-font-size(220px, 6);
+			font-size: 220px;
 		}
 
 	}
 
 	h2 {
-		@include ritmo-font-size(60px, 2);
+		font-size: 60px;
 
 		@screen md {
-			@include ritmo-font-size(160px, 6);
+			font-size: 160px;
 		}
 
 	}
@@ -340,7 +341,7 @@
 		display: block;
 		height: 200px;
 		width: 100%;
-		margin-bottom: ritmo(1);
+		@apply mb-6;
 		line-height: 200px;
 		text-align: center;
 		@apply bg-black;

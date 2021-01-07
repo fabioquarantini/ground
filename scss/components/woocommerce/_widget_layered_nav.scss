@@ -16,7 +16,7 @@
 					line-height: 16px;
 					height: 18px;
 					width: 18px;
-					margin-right: ritmo(0.4);
+					@apply mr-3;
 					border-radius: 50%;
 					vertical-align: middle;
 					font-size: 10px;
@@ -54,8 +54,8 @@
 			display: inline-block;
 			overflow: hidden;
 			list-style-type: none;
-			margin-right: ritmo(0.4);
-			margin-bottom: ritmo(0.2);
+			@apply mr-3;
+			margin-bottom: 4px;
 
 			a {
 				display: block;
@@ -64,14 +64,16 @@
 				@apply border-gray-500;
 				border-radius: 4px;
 				@apply text-black;
-				padding: ritmo(0.3) ritmo(2) ritmo(0.3) ritmo(0.5);
+				@apply pr-2;
+				@apply pl-1;
+				@apply py-1;
 				transition: all var(--ease-speed) var(--ease-default);
 				&:before {
 					content: '';
 					position: absolute;
 					text-align: center;
 					@apply text-red-600;
-					right: ritmo(0.5);
+					@apply right-3;
 					line-height: 20px;
 					height: 24px;
 					width: 24px;

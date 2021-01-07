@@ -1,5 +1,5 @@
 .woocommerce-product-gallery {
-	margin-bottom: ritmo(2);
+	@apply mb-12;
 }
 
 .woocommerce-product-gallery__wrapper {
@@ -8,8 +8,8 @@
 
 .woocommerce-product-gallery__image {
 	display: inline-block;
-	margin-right: ritmo(1);
-	margin-bottom: ritmo(1);
+	@apply mr-6;
+	@apply mb-6;
 
 	&:first-child {
 		display: block;

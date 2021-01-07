@@ -2,11 +2,11 @@
 	position: relative;
 	overflow: hidden;
 	//border: 1px solid $color-grey;
-	margin-bottom: ritmo(1);
+	@apply mb-6;
 }
 
 .card--rounded {
-	border-radius: ritmo(0.4);
+	@apply rounded-md;
 }
 
 .card--shadow {
@@ -14,17 +14,17 @@
 }
 
 .card__header {
-	padding: ritmo(0.5);
+	@apply p-3;
 }
 
 .card__body {
 	@apply flow-root;
-	padding: ritmo(0.5);
+	@apply p-3;
 }
 
 .card__footer {
 	border-top: 1px solid theme('colors.black');
-	padding: ritmo(0.5);
+	@apply p-3;
 }
 
 .card__link {

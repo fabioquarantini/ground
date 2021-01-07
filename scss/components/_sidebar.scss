@@ -18,7 +18,9 @@
 }
 
 .sidebar__body {
-	padding: ritmo(1) ritmo(1) ritmo(3) ritmo(1);
+	@apply px-6;
+	@apply pt-6;
+	@apply pb-20;
 
 	@screen md {
 		padding: 0;

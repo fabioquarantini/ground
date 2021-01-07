@@ -1,9 +1,9 @@
 .breadcrumb {
-	height: ritmo(1); //fixed height to avoid scrollbar on mobile
+	@apply h-6;
 	overflow-y: hidden;
-	margin-top: ritmo(1);
-	margin-bottom: ritmo(1);
-	@include ritmo-font-size(14px);
+	@apply mt-6;
+	@apply mb-6;
+	@apply text-sm;
 
 	&:after {
 		content: '';
@@ -13,8 +13,8 @@
 			rgba(255, 255, 255, 0.99) 79%,
 			rgba(255, 255, 255, 1) 100%
 		);
-		width: ritmo(4);
-		height: ritmo(6);
+		width: 48px;
+		height: 72px;
 		position: absolute;
 		right: 0;
 		top: 0;
@@ -29,8 +29,8 @@
 }
 
 .breadcrumb__list {
-	padding-bottom: ritmo(1);
-	padding-right: ritmo(3);
+	@apply pb-6;
+	@apply pr-20;
 	margin-bottom: 0;
 	overflow-x: auto;
 	overflow-y: hidden;
@@ -46,8 +46,8 @@
 	&:after {
 		content: '▸';
 		@apply text-gray-600;
-		@include ritmo-font-size(20px);
-		padding: 0 ritmo(0.5) 0 ritmo(0.5);
+		@apply text-xl;
+		@apply px-3;
 	}
 
 	&:last-child {

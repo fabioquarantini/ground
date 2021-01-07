@@ -106,28 +106,27 @@
 	}
 
 	.navigation__link {
-		@include ritmo-font-size(16px);
-		padding-top: ritmo(1);
-		padding-left: ritmo(1);
-		padding-right: ritmo(1);
+		@apply text-base;
+		@apply pl-6;
+		@apply pr-6;
 		display: block;
 		text-decoration: none;
 		margin: 0;
 		font-weight: 700;
 		cursor: pointer;
 		@apply text-black;
-		@include ritmo-side-border(bottom, 1px);
+		border-width: 1px;
 		@apply border-gray-500;
 		border-bottom-style: solid;
 		transition: background 0.3s ease-in-out, border 0.3s ease-in-out, color 0.3s ease-in-out;
 
 		@screen md {
-			@include ritmo-font-size(12px);
+			@apply text-xs;;
 			text-transform: uppercase;
 			padding-left: 0;
 			border: 0;
-			padding-left: ritmo(0.75);
-			padding-right: ritmo(0.75);
+			@apply pl-1.5;
+			@apply pr-1.5;
 		}
 
 		&:hover {
@@ -161,11 +160,11 @@
 		}
 
 		.navigation__link {
-			padding-left: ritmo(2);
+			@apply pl-12;
 			position: relative;
 
 			@screen md {
-				padding-left: ritmo(1);
+				@apply pl-6;
 			}
 
 			&:before {
@@ -177,7 +176,7 @@
 				display: block;
 				position: absolute;
 				top: 50%;
-				left: ritmo(1);
+				@apply left-6;
 				border-radius: 100%;
 
 				@screen md {
@@ -190,10 +189,10 @@
 		.navigation__sub-menu {
 
 			.navigation__link {
-				padding-left: ritmo(3);
+				@apply pl-16;
 
 				&:before {
-					left: ritmo(2);
+					@apply left-12;
 				}
 			}
 

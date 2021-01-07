@@ -4,9 +4,9 @@
 		//border: 1px solid $color-grey-dark;
 		//background-color: $color-white;
 		@apply bg-white;
-		padding: ritmo(1);
+		@apply p-6;
 		list-style-type: none;
-		margin-bottom: ritmo(2);
+		@apply mb-12;
 		margin-left: 0;
 
 		label {
@@ -14,16 +14,16 @@
 		}
 
 		p {
-			@include ritmo-font-size(16px, 1);
+			@apply text-base;
 			@apply text-gray-700;
 			margin-top: 6px;
-			//margin-left: ritmo(1);
+			//@apply ml-6;
 			font-style: italic;
 		}
 
 		.wc_payment_method {
 			margin-bottom: 10px;
-			padding-bottom: ritmo(0.5);
+			@apply pb-3;
 			@apply border;
 			@apply border-gray-500;
 

@@ -1,6 +1,6 @@
 .pagination {
 	list-style: none;
-	margin: ritmo(2) 0 ritmo(2) 0;
+	@apply my-12 mx-0;
 	text-align: center;
 
 	@screen md {
@@ -33,7 +33,7 @@
 }
 
 .pagination__text {
-	padding: ritmo(.75);
+	@apply p-5;
 	text-decoration: none;
 	@apply text-gray-500;
 	cursor: pointer;

@@ -2,11 +2,11 @@
 	.quantity {
 		display: inline-block;
 		vertical-align: bottom;
-		margin-right: ritmo(1);
+		@apply mr-6;
 	}
 
 	.qty {
-		max-width: ritmo(3);
+		max-width: 36px;
 		margin-bottom: 0;
 	}
 
@@ -45,7 +45,7 @@
 
 			// Solo mobile
 			@media ( max-width: theme('screens.md') ) {
-				@include ritmo-font-size(14px, 0.5);
+				@apply text-sm;
 				display: inline-block;
 				white-space: nowrap;
 				overflow: hidden;
@@ -66,7 +66,7 @@
 		background: transparent;
 
 		@screen md {
-			margin-top: ritmo(2);
+			@apply mt-12;
 		}
 
 		.coupon {
@@ -78,14 +78,13 @@
 				@apply border;
 				@apply border-gray-500;
 				display: block;
-				padding-left: ritmo(1);
-				padding-right: ritmo(1);
+				@apply pl-6;
+				@apply pr-6;
 			}
 
 			@screen md {
 				display: inline-block;
 				float: left;
-				//margin-top: ritmo(2);
 			}
 
 			.button {
@@ -95,7 +94,7 @@
 					font-size: 12px;
 					display: block;
 					padding: 0;
-					margin-bottom: ritmo(2);
+					@apply mb-12;
 				}
 			}
 		}
@@ -117,7 +116,7 @@
 
 			i {
 				@apply text-black;
-				margin-right: ritmo(0.5);
+				@apply mr-3;
 			}
 		}
 
@@ -142,7 +141,7 @@
 			}
 
 			i {
-				margin-right: ritmo(0.5);
+				@apply mr-3;
 			}
 		}
 

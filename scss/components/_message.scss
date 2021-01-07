@@ -1,8 +1,8 @@
 .message {
 	display: block;
 	position: relative;
-	padding-top: ritmo( 0.5 );
-	padding-bottom: ritmo( 0.5 );
+	@apply pt-3;
+	@apply pb-3;
 	@apply text-primary;
 	@apply border-primary;
 
@@ -43,24 +43,24 @@
 
 	&--bordered {
 
-		@include ritmo-horizontal-borders( 1px, 0.5 );
-		@include ritmo-side-border(left, 1px, 1);
-		@include ritmo-side-border(right, 1px, 1);
+		@apply py-3;
+		@apply px-6;
+		border-width: 1px;
 		border-style: solid;
 
 		&.message--small {
-			height: $base-line-unit;
+			height: 24px;
 		}
 
 		&.message--big {
-			@include ritmo-horizontal-borders( 1px, 1 );
+
 		}
 
 	}
 
 	&--fill {
-		padding-left: ritmo( 1 );
-		padding-right: ritmo( 1 );
+		@apply pl-6;
+		@apply pr-6;
 		@apply bg-primary;
 		@apply text-white;
 
@@ -100,8 +100,8 @@
 	}
 
 	&--big {
-		padding-top: ritmo(1);
-		padding-bottom: ritmo(1);
+		@apply pt-6;
+		@apply pb-6;
 	}
 
 	&--rounded {
