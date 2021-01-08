@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import '../css/main.css';
 
-/*
 import 'lazysizes';
 import { gsap } from 'gsap';
 import InfiniteScroll from './components/infiniteScroll';
@@ -102,4 +101,3 @@ const carousel = new Slider('.js-carousel', {
 		},
 	},
 });
-*/
