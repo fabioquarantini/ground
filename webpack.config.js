@@ -30,7 +30,7 @@ module.exports = {
 		// This plugin extracts CSS into separate files.
 		// It creates a CSS file per JS file which contains CSS.
 		new MiniCssExtractPlugin({
-			filename: '../css/main.css',
+			filename: '../css/styles.min.css',
 		}),
 		// Display OS-level notifications for Webpack build errors and warnings.
 		new WebpackBuildNotifierPlugin({
@@ -66,7 +66,7 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /\.s[ac]ss$/i,
+				test: /\.css$/i,
 				use: [
 					{
 						loader: MiniCssExtractPlugin.loader
@@ -84,15 +84,15 @@ module.exports = {
 							sourceMap: true
 						},
 					},
-					{
-						loader: 'sass-loader',
-						options: {
-							sourceMap: true,
-							sassOptions: {
-								precision: 10
-							},
-						},
-					},
+					// {
+					// 	loader: 'sass-loader',
+					// 	options: {
+					// 		sourceMap: true,
+					// 		sassOptions: {
+					// 			precision: 10
+					// 		},
+					// 	},
+					// },
 				],
 			},
 			{

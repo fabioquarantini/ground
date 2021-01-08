@@ -1,0 +1,11 @@
+a {
+	@apply text-primary;
+	transition: color .1s;
+
+	&:hover,
+	&:active,
+	&:focus {
+		@apply text-secondary;
+		text-decoration: none;
+	}
+}

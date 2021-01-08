@@ -1,0 +1,3 @@
+$pswp__assets-path: '../../node_modules/photoswipe/src/css/default-skin/';
+@import '../../node_modules/photoswipe/src/css/main.scss';
+@import '../../node_modules/photoswipe/src/css/default-skin/default-skin';

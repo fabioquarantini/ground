@@ -1,0 +1,82 @@
+.button {
+	@apply text-base;
+	border-width: 1px;
+	@apply px-6;
+	@apply py-3;
+	@apply mb-6;
+	@apply border-primary;
+	@apply bg-primary;
+	border-style: solid;
+	@apply text-white;
+	display: inline-block;
+	vertical-align: middle;
+	white-space: nowrap;
+	cursor: pointer;
+	transition: all .15s;
+	text-decoration: none;
+	text-align: center;
+
+	&:hover,
+	&--active {
+		@apply bg-secondary;
+		@apply text-black;
+		@apply border-secondary;
+	}
+
+	&--secondary {
+		@apply bg-secondary;
+		@apply text-white;
+		@apply border-secondary;
+
+		&:hover,
+		&--active {
+			@apply bg-primary;
+			@apply text-black;
+			@apply border-primary;
+		}
+
+	}
+
+	&--small {
+		//@include ritmo-horizontal-borders(1px, 0.25);
+		@apply pl-6;
+		@apply pr-6;
+		@apply mt-1;
+		@apply mb-7;
+	}
+
+	&--large {
+		//@include ritmo-horizontal-borders(1px, 1);
+	}
+
+	&--rounded {
+		@apply rounded;
+	}
+
+	&--full-width {
+		width: 100%;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	&--centered {
+		display: table;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	&--pill {
+		border-radius: 1000px;
+	}
+
+	&[disabled],
+	&.is-disabled {
+		opacity: 0.4;
+		cursor: not-allowed;
+	}
+
+	&:active {
+		outline: none;
+	}
+
+}

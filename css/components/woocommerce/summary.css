@@ -1,0 +1,22 @@
+.summary {
+	@apply mb-12;
+
+	.product_meta {
+
+	}
+
+	.sku_wrapper {
+		display: block;
+		@apply text-gray-600;
+	}
+
+	.sku {
+		font-weight: bold;
+		@apply text-black;
+	}
+
+	.posted_in {
+		display: block;
+		@apply text-gray-600;
+	}
+}

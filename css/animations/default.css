@@ -1,0 +1,351 @@
+// FADE IN DOWN
+[data-scroll-animation="fade-in-down"] {
+	opacity: 0;
+	transform: translateY(var(--animation-offset));
+	transition: opacity 0.6s var(--ease-default), transform 0.6s var(--ease-default);
+	will-change: transform;
+
+	.is-loader-complete & {
+
+		&.is-inview {
+			transform: none;
+			opacity: 1;
+		}
+
+	}
+}
+
+// FADE IN UP
+[data-scroll-animation="fade-in-up"] {
+	opacity: 0;
+	transform: translateY(-var(--animation-offset));
+	transition: opacity 0.6s var(--ease-default), transform 0.6s var(--ease-default);
+	will-change: transform;
+
+	.is-loader-complete & {
+
+		&.is-inview {
+			transform: none;
+			opacity: 1;
+		}
+
+	}
+
+}
+
+// FADE IN RIGHT
+[data-scroll-animation="fade-in-right"] {
+	opacity: 0;
+	transform: translateX(var(--animation-offset));
+	transition: opacity 0.6s var(--ease-default), transform 0.6s var(--ease-default);
+	will-change: transform;
+
+	.is-loader-complete & {
+
+		&.is-inview {
+			transform: none;
+			opacity: 1;
+		}
+
+	}
+
+}
+
+// FADE IN LEFT
+[data-scroll-animation="fade-in-left"] {
+	opacity: 0;
+	transform: translateX(-var(--animation-offset));
+	transition: opacity 0.6s var(--ease-default), transform 0.6s var(--ease-default);
+	will-change: transform;
+
+	.is-loader-complete & {
+
+		&.is-inview {
+			transform: none;
+			opacity: 1;
+		}
+
+	}
+
+}
+
+// ZOOM IN
+[data-scroll-animation="zoom-in"] {
+	opacity: 0;
+	transform: scale(2);
+	transition: opacity 0.6s var(--ease-default), transform 2s var(--ease-default);
+	will-change: transform;
+
+	.is-loader-complete & {
+
+		&.is-inview {
+			transform: none;
+			opacity: 1;
+		}
+
+	}
+
+}
+
+// FADE IN DOWN STAGGERED
+[data-scroll-animation="fade-in-down-staggered"] {
+	opacity: 0;
+	transform: translateY(var(--animation-offset));
+	transition: opacity 0.6s var(--ease-default), transform 0.6s var(--ease-default);
+	will-change: transform;
+
+	.is-loader-complete & {
+
+		&.is-inview {
+			transform: none;
+			opacity: 1;
+
+			@for $i from 1 to 20 {
+				&:nth-child($i){
+					transition-delay: $i*0.15s;
+				}
+			}
+		}
+
+	}
+
+}
+
+// FADE IN UP STAGGERED
+[data-scroll-animation="fade-in-up-staggered"] {
+	opacity: 0;
+	transform: translateY(-var(--animation-offset));
+	transition: opacity 0.6s var(--ease-default), transform 0.6s var(--ease-default);
+	will-change: transform;
+
+	.is-loader-complete & {
+
+		&.is-inview {
+			transform: none;
+			opacity: 1;
+
+			@for $i from 1 to 20 {
+				&:nth-child($i){
+					transition-delay: $i*0.15s;
+				}
+			}
+		}
+
+	}
+
+}
+
+// FADE IN RIGHT STAGGERED
+[data-scroll-animation="fade-in-right-staggered"] {
+	opacity: 0;
+	transform: translateX(var(--animation-offset));
+	transition: opacity 0.6s var(--ease-default), transform 0.6s var(--ease-default);
+	will-change: transform;
+
+	.is-loader-complete & {
+
+		&.is-inview {
+			transform: none;
+			opacity: 1;
+
+			@for $i from 1 to 20 {
+				&:nth-child($i){
+					transition-delay: $i*0.15s;
+				}
+			}
+		}
+
+	}
+
+}
+
+// FADE IN LEFT STAGGERED
+[data-scroll-animation="fade-in-left-staggered"] {
+	opacity: 0;
+	transform: translateX(-var(--animation-offset));
+	transition: opacity 0.6s var(--ease-default), transform 0.6s var(--ease-default);
+	will-change: transform;
+
+	.is-loader-complete & {
+
+		&.is-inview {
+			transform: none;
+			opacity: 1;
+
+			@for $i from 1 to 20 {
+				&:nth-child($i){
+					transition-delay: $i*0.15s;
+				}
+			}
+		}
+
+	}
+
+}
+
+// ZOOM IN
+[data-scroll-animation="zoom-in-staggered"] {
+
+	figure {
+		opacity: 0;
+		transform: scale(1.4);
+		transition: opacity 0.6s var(--ease-default), transform 0.6s var(--ease-default);
+		will-change: transform;
+	}
+
+	.is-loader-complete & {
+
+		&.is-inview {
+
+			figure {
+				transform: none;
+				opacity: 1;
+			}
+
+			@for $i from 1 to 20 {
+				&:nth-child($i){
+					figure {
+						transition-delay: $i*0.2s;
+					}
+				}
+			}
+
+		}
+
+	}
+
+}
+
+// COMPARISON
+[data-scroll-animation="comparison"] {
+
+	.comparison__media {
+		width: 100%;
+		height: 100%;
+	}
+
+	.comparison__img {
+		position: absolute;
+		top: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	.comparison__after-media {
+		position: absolute;
+		overflow: hidden;
+		top: 0;
+		transform: translate(100%, 0px);
+
+		.comparison__img {
+			transform: translate(-100%, 0px);
+		}
+	}
+
+}
+
+
+// PIN HORIZONTAL
+[data-scroll-animation="pin-horizontal"] {
+
+	[data-scroll-animation-target] {
+		position: relative;
+		display: flex;
+		white-space: nowrap;
+		border: 1px solid;
+		@apply border-white;
+	}
+
+	.pin-horizontal__container {
+		border: 1px dashed;
+		@apply border-white;
+	}
+
+	.pin-horizontal__item {
+		display: inline-block;
+		white-space: normal;
+		vertical-align: top;
+		width: 250px;
+		@screen md {
+			width: 500px;
+		}
+	}
+
+}
+
+
+
+// PIN VERTICAL
+[data-scroll-animation="pin-vertical"] {
+	position: relative;
+	overflow: hidden;
+
+	.pin-vertical__container {
+		position: absolute;
+		left: 0;
+		right: 0;
+	}
+
+	.pin-vertical__container--left {
+		top: 0;
+	}
+	.pin-vertical__container--center {
+		bottom: 0;
+	}
+	.pin-vertical__container--right {
+		top: 0;
+	}
+
+	.pin-vertical__item {
+		position: relative;
+		display: block;
+		width: 100%;
+		@apply p-1;
+		overflow: hidden;
+		@screen md {
+			@apply p-12;
+		}
+	}
+
+}
+
+
+
+// CSS EXAMPLE PAGE
+.page-template-template-scrolltrigger {
+
+	h1 {
+
+		font-size: 120px;
+
+		@screen md {
+			font-size: 220px;
+		}
+
+	}
+
+	h2 {
+		font-size: 60px;
+
+		@screen md {
+			font-size: 160px;
+		}
+
+	}
+
+	// header.header {
+	// 	display: none;
+	// }
+
+	.example {
+		display: block;
+		height: 200px;
+		width: 100%;
+		@apply mb-6;
+		line-height: 200px;
+		text-align: center;
+		@apply bg-black;
+		@apply text-white;
+	}
+
+}

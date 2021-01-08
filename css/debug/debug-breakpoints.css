@@ -1,0 +1,23 @@
+// Debug breakpoints
+@if $debug-breakpoints {
+
+	body:after {
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		z-index: 999;
+		padding: 2px 5px;
+		@apply bg-black;
+		@apply text-white;
+
+		@each $key, $value in $breakpoints {
+
+			@screen #{$key} {
+				content: "#{$key}: #{$value}";
+			}
+
+		}
+
+	}
+
+}

@@ -1,0 +1,14 @@
+.woocommerce-message,
+.woocommerce-Message {
+	@extend .message;
+	@extend .message--big;
+	@extend .message--fill;
+	@apply mb-12;
+	@apply bg-green-500;
+	@apply text-white;
+
+	.button {
+		@apply right-6;
+		//@include centered(false, true);
+	}
+}

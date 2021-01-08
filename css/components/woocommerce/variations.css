@@ -1,0 +1,27 @@
+.variations {
+
+	td, th {
+		border: 0;
+	}
+
+	.label,
+	.value {
+		display: block;
+	}
+
+	.label {
+		padding: 0;
+		font-weight: bold;
+	}
+
+	.value {
+		padding: 6px 0 0 0;
+
+	}
+
+}
+
+.woocommerce-variation-price {
+	@apply text-3xl;
+	@apply mb-6;
+}

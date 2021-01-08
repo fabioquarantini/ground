@@ -1,0 +1,29 @@
+:root {
+	--animation-offset:   100px;
+}
+
+/* Breakpoints */
+$breakpoints: (
+	//default: 0px,
+	//xs: 480px,
+	sm: 768px,
+	md: 992px,
+	lg: 1200px,
+	xl: 1440px
+);
+
+/* Navicon */
+$navicon-width: 28px;
+$navicon-height: 1px;
+$navicon-gutter: 7px;
+$navicon-color: theme('colors.black');
+$navicon-color-active: $navicon-color;
+$navicon-border-radius: 0;
+
+/* Paths */
+$path-img: '../img/';
+$path-fonts: '../fonts/';
+
+/* Debug */
+$debug-breakpoints: true;
+$debug-css: false;

@@ -1,0 +1,174 @@
+.cart {
+	.quantity {
+		display: inline-block;
+		vertical-align: bottom;
+		@apply mr-6;
+	}
+
+	.qty {
+		max-width: 36px;
+		margin-bottom: 0;
+	}
+
+	.single_add_to_cart_button {
+		display: inline-block;
+		vertical-align: bottom;
+	}
+
+	.screen-reader-text {
+		@apply sr-only;
+	}
+
+	.product-thumbnail {
+
+		float: left;
+		width: 23%;
+		padding-right: 10px;
+
+		@screen md {
+			width: 80px;
+			float: none;
+			margin-right: 0;
+		}
+
+	}
+
+	.product-subtotal {
+		font-weight: bold;
+	}
+
+	.product-name {
+
+		a {
+			text-decoration: none;
+			@apply text-black;
+
+			// Solo mobile
+			@media ( max-width: theme('screens.md') ) {
+				@apply text-sm;
+				display: inline-block;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				max-width: 100%;
+			}
+
+			&:hover {
+				@apply text-primary;
+			}
+		}
+	}
+
+	.actions {
+		border: 0;
+		padding-left: 0;
+		padding-right: 0;
+		background: transparent;
+
+		@screen md {
+			@apply mt-12;
+		}
+
+		.coupon {
+			padding-bottom: 0;
+			margin-bottom: 0;
+			border-bottom: none;
+
+			@media ( max-width: theme('screens.md') ) {
+				@apply border;
+				@apply border-gray-500;
+				display: block;
+				@apply pl-6;
+				@apply pr-6;
+			}
+
+			@screen md {
+				display: inline-block;
+				float: left;
+			}
+
+			.button {
+				margin-bottom: 0;
+
+				@media ( max-width: theme('screens.md') ) {
+					font-size: 12px;
+					display: block;
+					padding: 0;
+					@apply mb-12;
+				}
+			}
+		}
+
+		.coupon__content {
+			display: none;
+			&.is-coupon-open {
+				display: block;
+			}
+		}
+
+		.coupon__link {
+			text-decoration: underline;
+			cursor: pointer;
+
+			&:hover {
+				@apply text-primary;
+			}
+
+			i {
+				@apply text-black;
+				@apply mr-3;
+			}
+		}
+
+		input {
+			display: inline-block;
+			vertical-align: top;
+			width: auto;
+			margin: 0;
+		}
+
+		> .button {
+			background: transparent;
+			@apply text-black;
+			border-color: transparent;
+
+			padding: 0;
+			line-height: normal;
+
+			@screen md {
+				margin-bottom: 0;
+				float: right;
+			}
+
+			i {
+				@apply mr-3;
+			}
+		}
+
+	}
+
+	.variation {
+
+		@apply flow-root;
+		color: grey;
+		font-style: italic;
+
+		dt {
+			float: left;
+			clear: left;
+			margin-bottom: 0;
+		}
+
+		dd {
+			float: left;
+			margin-left: 0;
+			margin-bottom: 0;
+		}
+
+		p {
+			margin-bottom: 0;
+		}
+
+	}
+
+}

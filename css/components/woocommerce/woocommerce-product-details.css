@@ -1,0 +1,32 @@
+.woocommerce-product-details {
+	position: relative;
+
+	.product_title {
+
+	}
+
+	.onsale {
+		position: absolute;
+		padding: 10px;
+		@apply text-white;
+		left: 0;
+		@apply bg-green-500;
+	}
+
+	.woocommerce-Price-amount {
+
+	}
+
+	.woocommerce-Price-currencySymbol {
+
+	}
+
+	.woocommerce-price-suffix {
+
+	}
+
+}
+
+.woocommerce-product-details__short-description {
+
+}

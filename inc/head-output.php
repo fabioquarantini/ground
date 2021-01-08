@@ -9,7 +9,7 @@
  * Register and enqueue CSS
  */
 function ground_enqueue_styles() {
-	wp_enqueue_style( 'main-style', TEMPLATE_URL . '/css/main.css', array(), '1.0', 'all' );
+	wp_enqueue_style( 'main-style', TEMPLATE_URL . '/css/styles.min.css', array(), '1.0', 'all' );
 	wp_enqueue_style( 'yacc-style', 'https://cdn.etcloud.it/yacc/1.3.0/yacc.css', array(), '1.3.0', 'all' );
 }
 

@@ -1,0 +1,22 @@
+.woocommerce-product-gallery {
+	@apply mb-12;
+}
+
+.woocommerce-product-gallery__wrapper {
+
+}
+
+.woocommerce-product-gallery__image {
+	display: inline-block;
+	@apply mr-6;
+	@apply mb-6;
+
+	&:first-child {
+		display: block;
+		margin-right: 0;
+	}
+
+	&:last-child {
+		margin-right: 0;
+	}
+}

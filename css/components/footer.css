@@ -1,0 +1,21 @@
+.footer {
+	@apply p-12;
+	@apply bg-gray-300;
+}
+
+.footer__bottom {
+	@apply mt-6;
+}
+
+.footer__column {
+	@apply mb-6;
+	@screen md {
+		margin:0;
+	}
+}
+
+.footer__content,
+.footer__item {
+	@apply text-base;
+	@apply text-gray-600;
+}

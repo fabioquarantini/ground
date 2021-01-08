@@ -1,0 +1,34 @@
+.card {
+	position: relative;
+	overflow: hidden;
+	//border: 1px solid $color-grey;
+	@apply mb-6;
+}
+
+.card--rounded {
+	@apply rounded-md;
+}
+
+.card--shadow {
+	@apply shadow-xl;
+}
+
+.card__header {
+	@apply p-3;
+}
+
+.card__body {
+	@apply flow-root;
+	@apply p-3;
+}
+
+.card__footer {
+	border-top: 1px solid theme('colors.black');
+	@apply p-3;
+}
+
+.card__link {
+	text-decoration: none;
+	color: inherit;
+	display: block;
+}

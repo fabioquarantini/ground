@@ -1,0 +1,53 @@
+.woocommerce-checkout-payment {
+
+	.wc_payment_methods {
+		//border: 1px solid $color-grey-dark;
+		//background-color: $color-white;
+		@apply bg-white;
+		@apply p-6;
+		list-style-type: none;
+		@apply mb-12;
+		margin-left: 0;
+
+		label {
+			width: 85%;
+		}
+
+		p {
+			@apply text-base;
+			@apply text-gray-700;
+			margin-top: 6px;
+			//@apply ml-6;
+			font-style: italic;
+		}
+
+		.wc_payment_method {
+			margin-bottom: 10px;
+			@apply pb-3;
+			@apply border;
+			@apply border-gray-500;
+
+			&:last-child {
+				border-bottom: 0;
+				padding-bottom: 0;
+			}
+		}
+
+		img {
+			margin-left: 10px;
+			@screen md {
+				margin-right: 10px;
+			}
+		}
+
+		.about_paypal {
+			display: none;
+		}
+
+	}
+
+	.button {
+		width: 100%;
+	}
+
+}

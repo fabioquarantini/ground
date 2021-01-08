@@ -1,0 +1,12 @@
+.social {
+
+}
+
+.social__link {
+	@apply mr-3;
+	text-decoration: none;
+}
+
+.social__icon {
+	@apply text-black;
+}
