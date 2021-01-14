@@ -6,7 +6,7 @@
 	"scripts": {
 		"start": "concurrently 'postcss css/main.css -o css/styles.min.css --watch --verbose --map' 'npm:sync' 'webpack --mode=development'",
 		"build": "concurrently 'postcss css/main.css -o css/styles.min.css --verbose --map --env \"production\"' 'webpack --mode=production'",
-		"sync": "browser-sync start -p 'https://ground.develop' -f 'css/styles.min.css' '**/*.php' 'js/scripts.min.js' 'img/**/*.*' -w"
+		"sync": "browser-sync start -p 'https://ground.develop' -f 'css/styles.min.css' '**/*.php' 'js/scripts.min.js' -w"
 	},
 	"homepage": "https://github.com/fabioquarantini/ground",
 	"author": {
