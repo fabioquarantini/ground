@@ -1,7 +1,5 @@
 const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackBuildNotifierPlugin = require('webpack-build-notifier');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 module.exports = {
 
@@ -27,11 +25,6 @@ module.exports = {
 	},
 
 	plugins: [
-		// This plugin extracts CSS into separate files.
-		// It creates a CSS file per JS file which contains CSS.
-		new MiniCssExtractPlugin({
-			filename: '../css/styles.min.css',
-		}),
 		// Display OS-level notifications for Webpack build errors and warnings.
 		new WebpackBuildNotifierPlugin({
 			//title: 'Ground',
@@ -41,60 +34,10 @@ module.exports = {
 			logo: path.join(__dirname, 'img/icon.png'),
 			contentImage: path.join(__dirname, 'img/icon.png')
 		}),
-		// BrowserSync
-		new BrowserSyncPlugin({
-			proxy: 'https://ground.develop',
-			// server: { baseDir: [path.join(__dirname, '.')] }
-			// host: 'localhost',
-			files: ["**/*.{php,html}"],
-			ghostMode: {
-				clicks: true,
-				forms: true,
-				scroll: true,
-			},
-			open: true,
-			notify: true,
-			scrollProportionally: true,
-			injectChanges: true,
-			port: 3000,
-		},{
-			reload: true,
-			injectCss: true
-		}),
 	],
 
 	module: {
 		rules: [
-			{
-				test: /\.css$/i,
-				use: [
-					{
-						loader: MiniCssExtractPlugin.loader
-					},
-					{
-						loader: 'css-loader',
-						options: {
-							sourceMap: true,
-							url: false,
-						},
-					},
-					{
-						loader: 'postcss-loader',
-						options: {
-							sourceMap: true
-						},
-					},
-					// {
-					// 	loader: 'sass-loader',
-					// 	options: {
-					// 		sourceMap: true,
-					// 		sassOptions: {
-					// 			precision: 10
-					// 		},
-					// 	},
-					// },
-				],
-			},
 			{
 				test: /\.m?js$/,
 				exclude: /(node_modules|bower_components)/,

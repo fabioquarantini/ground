@@ -1,7 +1,7 @@
 module.exports = {
   purge: {
-    enabled: false,
-    content: ['./**/*.php', './js/**/*.js'],
+    enabled: ((process.env.NODE_ENV === 'production') ? true : false),
+    content: ['./**/*.{html,php,js}'],
     options: {
       safelist: [
         'aspect-w-16',

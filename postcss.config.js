@@ -1,12 +1,14 @@
-module.exports = {
+module.exports = (ctx) => ({
+	map: ctx.options.map,
 	syntax: 'postcss-scss',
-	plugins: [
-		require('postcss-import'),
-		require('tailwindcss'),
-		require('postcss-for'),
-		require('postcss-simple-vars'),
-		require('postcss-nested'),
-		// require('postcss-100vh-fix'), // requires PostCSS 8
-		require('autoprefixer'),
-	]
-}
+	plugins: {
+		'postcss-import': {},
+		'tailwindcss': {},
+		'postcss-for': {},
+		'postcss-simple-vars': {},
+		'postcss-nested': {},
+		'postcss-100vh-fix': ctx.env === 'production' ? {} : false,
+		'autoprefixer': ctx.env === 'production' ? {} : false,
+		'cssnano': ctx.env === 'production' ? {} : false,
+	},
+});
