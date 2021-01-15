@@ -6,7 +6,7 @@
 @import "settings.css";
 
 // import Swiper styles
-//@import "swiper/swiper-bundle.css";
+@import "swiper/swiper-bundle.css";
 
 /* Base */
 @import "base/root.css";
