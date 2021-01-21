@@ -20,7 +20,7 @@ Make sure you have the latest versions of these software.
 
 * [WordPress](https://wordpress.org)
 * [Node.js](https://nodejs.org) - check with `node -v`
-* [Npm](https://www.npmjs.com/get-npm) - check with `npm -v` (you can also use npm)
+* [Npm](https://www.npmjs.com/get-npm) - check with `npm -v`
 * [GSAP bonus plugins](https://greensock.com/docs/v3/Installation#private)
 
 ## Installation
