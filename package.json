@@ -4,8 +4,8 @@
 	"description": "WordPress starter theme for front-end developers",
 	"license": "MIT",
 	"scripts": {
-		"start": "npm-run-all -p styles 'scripts -- --mode=development' sync",
-		"build": "npm-run-all -p 'styles -- --output-style compressed' scripts",
+		"start": "npm-run-all -p styles \"scripts -- --mode=development\" sync",
+		"build": "npm-run-all -p \"styles -- --output-style compressed\" scripts",
 		"styles": "node-sass -w -o --source-map true --error-bell scss/main.scss css/main.css",
 		"scripts": "webpack",
 		"sync": "browser-sync start -p 'https://ground.develop' -f 'css/main.css' '**/*.php' 'js/scripts.min.js' -w"
