@@ -4,11 +4,12 @@
 	"description": "WordPress starter theme for front-end developers",
 	"license": "MIT",
 	"scripts": {
-		"start": "npm-run-all -p styles \"scripts -- --mode=development\" sync",
-		"build": "npm-run-all -p \"styles -- --output-style compressed\" scripts",
-		"styles": "node-sass -w -o --source-map true --error-bell scss/main.scss css/main.css",
-		"scripts": "webpack",
-		"sync": "browser-sync start -p 'https://ground.develop' -f 'css/main.css' '**/*.php' 'js/scripts.min.js' -w"
+		"start": "npm-run-all -p styles \"styles -- -w\" \"js -- --mode=development\" sync",
+		"build": "npm-run-all \"styles -- --output-style compressed\" \"js -- --mode=production\" postcss",
+		"styles": "node-sass -o --source-map true scss/main.scss css/main.css",
+		"postcss": "npx postcss css/main.css --m file --u autoprefixer cssnano -d css/",
+		"sync": "browser-sync start -p 'https://ground.develop' -f 'css/main.css' '**/*.php' 'js/scripts.min.js' -w",
+		"js": "webpack"
 	},
 	"homepage": "https://github.com/fabioquarantini/ground",
 	"author": {
@@ -28,11 +29,10 @@
 		"browser-sync": "^2.26.13",
 		"core-js": "^3.8.2",
 		"cssnano": "^4.1.10",
-		"node-sass": "^4.14.1",
+		"node-sass": "^5.0.0",
 		"npm-run-all": "^4.1.5",
 		"postcss": "^8.2.4",
 		"postcss-cli": "^8.3.1",
-		"postcss-simple-vars": "^6.0.2",
 		"webpack": "^5.14.0",
 		"webpack-build-notifier": "^2.1.1",
 		"webpack-cli": "^4.3.1"
@@ -53,6 +53,6 @@
 		"rellax": "1.12.1",
 		"ritmo": "0.5.0",
 		"splitting": "1.0.6",
-		"swiper": "6.3.2"
+		"swiper": "6.4.7"
 	}
 }

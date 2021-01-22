@@ -1,5 +1,6 @@
 const path = require('path');
 const WebpackBuildNotifierPlugin = require('webpack-build-notifier');
+const mode = process.env.WEBPACK_MODE;
 
 module.exports = {
 
@@ -18,7 +19,7 @@ module.exports = {
 
 	// Turn on watch mode.
 	// This means that after the initial build, webpack will continue to watch for changes in any of the resolved files.
-	watch: true,
+	watch: mode === 'production' ? false : true,
 
 	watchOptions: {
 		ignored: ['node_modules/**']
