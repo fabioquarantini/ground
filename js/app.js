@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-vars */
-import '../scss/main.scss';
 import 'lazysizes';
 import { gsap } from 'gsap';
 import InfiniteScroll from './components/infiniteScroll';

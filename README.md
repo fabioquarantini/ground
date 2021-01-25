@@ -21,19 +21,21 @@ Make sure you have the latest versions of these software.
 
 * [WordPress](https://wordpress.org)
 * [Node.js](https://nodejs.org) - check with `node -v`
-* [Npm](https://www.npmjs.com/get-npm) - check with `npm -v` (you can also use npm)
+* [Npm](https://www.npmjs.com/get-npm) - check with `npm -v`
+* [GSAP bonus plugins](https://greensock.com/docs/v3/Installation#private)
 
 ## Installation
 * Download the repository and install it as a theme in your Wordpress installation `wp-content/themes/`
 * Rename the theme folder with the name chosen by you
+* Install [GSAP bonus plugins](https://greensock.com/docs/v3/Installation#private).
 * With your terminal go to your renamed theme folder and run `npm install`
 
 ## Workflow
 Open the Ground folder using the terminal and type one of the following commands
 
-* `npm start` - Concatenates, compile, minify and compress assets when changes are made
+* `npm start` - Runs the app in development mode. The page will automatically reload if you make changes to the code.
 
-* `npm run build` - Concatenates, compile assets when changes are made
+* `npm run build` - Builds the app for production and optimizes the build for the best performance.
 
 ## Sass structure
 * **Animations** - Library of CSS animations
