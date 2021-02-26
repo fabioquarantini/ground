@@ -89,8 +89,6 @@ module.exports = {
         'fade-out-up': 'fade-out-up 0.5s ease-in-out forwards',
         'fade-out-down': 'fade-out-down 0.5s ease-in-out forwards',
         'scale-in': 'scale-in 0.5s ease-in-out forwards',
-
-
        }
     },
   },

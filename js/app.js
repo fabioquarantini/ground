@@ -6,7 +6,6 @@ import Modal from './components/modal';
 // import AjaxNavigation from './components/ajaxNavigation';
 import Slider from './components/slider';
 import Loader from './components/loader';
-import Split from './components/split';
 import Toggle from './components/toggle';
 // import SmoothScroll from './components/smoothScroll';
 import Animations from './components/animations';
@@ -15,14 +14,12 @@ import Search from './components/search';
 import Magnet from './components/magnet';
 import Billing from './components/billing';
 import GdprCompliance from './components/gdprCompliance';
-//import Parallax from './components/parallax';
 
 const infiniteScroll = new InfiniteScroll();
 const loader = new Loader();
 const modal = new Modal();
 // const ajaxNavigation = new AjaxNavigation();
 const sliderPrimary = new Slider('.js-slider-primary');
-const split = new Split();
 const toggle = new Toggle();
 const billing = new Billing();
 // const smoothScroll = new SmoothScroll();
@@ -31,7 +28,6 @@ const cursor = new Cursor();
 const search = new Search();
 const magnet = new Magnet();
 const gdprCompliance = new GdprCompliance();
-//const parallax = new Parallax();
 
 const sliderGallery = new Slider('.js-slider-gallery', {
 	direction: 'horizontal',

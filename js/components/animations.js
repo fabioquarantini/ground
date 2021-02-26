@@ -338,8 +338,8 @@ export default class Animations {
 		});
 
 		tl.to(item, {
-			y: -item.dataset.scrollSpeed * 100 || 0,
-			x: -item.dataset.scrollSpeedHorizontal * 100 || 0,
+			y: -item.dataset.scrollSpeedY * 100 || 0,
+			x: -item.dataset.scrollSpeedX * 100 || 0,
 		});
 	}
 

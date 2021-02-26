@@ -113,18 +113,18 @@ get_template_part('partials/header'); ?>
 
     <div class="my-44">
         <h2 class="mt-28 mb-12 text-gray-300">Parallax <strong class="text-gray-500">Y -Y</strong></h2>
-        <div class="py-9 my-12 bg-green-300 rounded-lg inline-block w-1/5" data-scroll="js-parallax" data-scroll-speed="0.5"></div>
-        <div class="py-9 my-12 bg-green-300 rounded-lg inline-block w-1/5" data-scroll="js-parallax" data-scroll-speed="-0.8"></div>
-        <div class="py-9 my-12 bg-green-300 rounded-lg inline-block w-1/5" data-scroll="js-parallax" data-scroll-speed="0.9"></div>
-        <div class="py-9 my-12 bg-green-300 rounded-lg inline-block w-1/5" data-scroll="js-parallax" data-scroll-speed="-0.4"></div>
+        <div class="py-9 my-12 bg-green-300 rounded-lg inline-block w-1/5" data-scroll="js-parallax" data-scroll-speed-y="0.5"></div>
+        <div class="py-9 my-12 bg-green-300 rounded-lg inline-block w-1/5" data-scroll="js-parallax" data-scroll-speed-y="-0.8"></div>
+        <div class="py-9 my-12 bg-green-300 rounded-lg inline-block w-1/5" data-scroll="js-parallax" data-scroll-speed-y="0.9"></div>
+        <div class="py-9 my-12 bg-green-300 rounded-lg inline-block w-1/5" data-scroll="js-parallax" data-scroll-speed-y="-0.4"></div>
     </div>
 
     <div class="my-44">
         <h2 class="mt-28 mb-12 text-gray-300">Parallax <strong class="text-gray-500">X/Y -X/-Y</strong></h2>
-        <div class="py-9 my-12 bg-green-300 rounded-lg inline-block w-1/5" data-scroll="js-parallax" data-scroll-speed="0" data-scroll-speed-horizontal="2"></div>
-        <div class="py-9 my-12 bg-green-300 rounded-lg inline-block w-1/5" data-scroll="js-parallax" data-scroll-speed="-1" data-scroll-speed-horizontal="1"></div>
-        <div class="py-9 my-12 bg-green-300 rounded-lg inline-block w-1/5" data-scroll="js-parallax" data-scroll-speed="1" data-scroll-speed-horizontal="-1"></div>
-        <div class="py-9 my-12 bg-green-300 rounded-lg inline-block w-1/5" data-scroll="js-parallax" data-scroll-speed="0" data-scroll-speed-horizontal="-2"></div>
+        <div class="py-9 my-12 bg-green-300 rounded-lg inline-block w-1/5" data-scroll="js-parallax" data-scroll-speed-y="0" data-scroll-speed-x="2"></div>
+        <div class="py-9 my-12 bg-green-300 rounded-lg inline-block w-1/5" data-scroll="js-parallax" data-scroll-speed-y="-1" data-scroll-speed-x="1"></div>
+        <div class="py-9 my-12 bg-green-300 rounded-lg inline-block w-1/5" data-scroll="js-parallax" data-scroll-speed-y="1" data-scroll-speed-x="-1"></div>
+        <div class="py-9 my-12 bg-green-300 rounded-lg inline-block w-1/5" data-scroll="js-parallax" data-scroll-speed-y="0" data-scroll-speed-x="-2"></div>
     </div>
 
     <div class="my-44 text-center">
