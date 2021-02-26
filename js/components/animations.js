@@ -373,8 +373,6 @@ export default class Animations {
 	*/
 	backgroundColorAnimation(item) {
 
-		gsap.set(item, { autoAlpha: 1 });
-
 		const target = document.body;
 		const tl = gsap.timeline({
 			scrollTrigger: {
@@ -395,8 +393,9 @@ export default class Animations {
 	*/
 	pinAnimation(item) {
 
-		const target = item.querySelector('[data-scroll-animation-target]');
-		const targetElement = item.querySelectorAll('.js-pin__element');
+		const target = item.querySelector('[data-scroll-target]');
+		const targetElement = item.querySelectorAll('[data-scroll-target-animate]');
+		const targetScrub = parseInt(item.dataset.scrollScrub, 10);
 
 		const tl = gsap.timeline({
 			scrollTrigger: {
@@ -406,7 +405,7 @@ export default class Animations {
 				toggleClass: 'active',
 				pin: true,
 				pinReparent: true,
-				scrub: 1,
+				scrub: targetScrub || false,
 				// anticipatePin: 1,
 			},
 		});
@@ -450,9 +449,9 @@ export default class Animations {
 	*/
 	pinVerticalAnimation(item) {
 
-		gsap.set(item, { autoAlpha: 1 });
+		console.log('ooooo');
 
-		const target = item.querySelector('[data-scroll-animation-target]');
+		const target = item.querySelector('[data-scroll-target]');
 		const targetLeft = item.querySelector('.js-pin-vertical-container-left');
 		const targetCenter = item.querySelector('.js-pin-vertical-container-center');
 		const targetRight = item.querySelector('.js-pin-vertical-container-right');
