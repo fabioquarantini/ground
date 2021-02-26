@@ -25,8 +25,6 @@ export default class Animations {
 		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
 		this.updateEvents = this.updateEvents.bind(this);
 
-		gsap.set(this.element, { opacity: 0 });
-
 		window.addEventListener('DOMContentLoaded', () => {});
 
 		ScrollTrigger.addEventListener('scrollStart', () => {});
@@ -43,7 +41,6 @@ export default class Animations {
 		});
 
 		window.addEventListener('NAVIGATE_IN', () => {
-			gsap.set(this.element, { opacity: 0 });
 		});
 
 		window.addEventListener('NAVIGATE_END', () => {
@@ -74,44 +71,43 @@ export default class Animations {
 		});
 
 		gsap.utils.toArray(triggers).forEach((element) => {
-			if (element.dataset.scrollAnimation === 'splittext-chars') {
+			if (element.dataset.scroll === 'js-splittext-chars') {
 				this.splitTextAnimationChars(element);
 			}
-			if (element.dataset.scrollAnimation === 'splittext-lines') {
+			else if (element.dataset.scroll === 'js-splittext-lines') {
 				this.splitTextAnimationLines(element);
 			}
-			if (element.dataset.scrollAnimation === 'rotation') {
+			else if (element.dataset.scroll === 'js-rotation') {
 				this.rotationAnimation(element);
 			}
-			if (element.dataset.scrollAnimation === 'fade-in-down') {
-				this.fadeInDownAnimation(element);
-			}
-			if (element.dataset.scrollAnimation === 'batch') {
+			else if (element.dataset.scroll === 'js-batch') {
 				this.batchAnimation(element);
 			}
-			if (element.dataset.scrollAnimation === 'scale') {
+			else if (element.dataset.scroll === 'js-scale') {
 				this.scaleAnimation(element);
 			}
-			if (element.dataset.scrollAnimation === 'draw-svg') {
+			else if (element.dataset.scroll === 'js-draw-svg') {
 				this.drawSvgAnimation(element);
 			}
-			if (element.dataset.scrollAnimation === 'background-color') {
+			else if (element.dataset.scroll === 'js-background-color') {
 				this.backgroundColorAnimation(element);
 			}
-			if (element.dataset.scrollAnimation === 'pin') {
+			else if (element.dataset.scroll === 'js-pin') {
 				this.pinAnimation(element);
 			}
-			if (element.dataset.scrollAnimation === 'pin-horizontal') {
+			else if (element.dataset.scroll === 'js-pin-horizontal') {
 				this.pinHorizontalAnimation(element);
 			}
-			if (element.dataset.scrollAnimation === 'pin-vertical') {
+			else if (element.dataset.scroll === 'js-pin-vertical') {
 				this.pinVerticalAnimation(element);
 			}
-			if (element.dataset.scrollAnimation === 'comparison') {
+			else if (element.dataset.scroll === 'js-comparison') {
 				this.comparisonAnimation(element);
 			}
-			if (element.dataset.scrollAnimation === 'parallax') {
+			else if (element.dataset.scroll === 'js-parallax') {
 				this.parallaxAnimation(element);
+			} else {
+				this.defaultAnimation(element);
 			}
 		});
 	}
@@ -122,49 +118,68 @@ export default class Animations {
 	 */
 	updateEvents(target) {
 		this.init();
-		// console.log(target.dataset.scrollAnimation);
+		// console.log(target.dataset.scroll);
 
 		setTimeout(() => {
-			if (target.dataset.scrollAnimation === 'splittext-chars') {
+			if (target.dataset.scroll === 'js-splittext-chars') {
 				this.splitTextAnimationChars(target);
 			}
-			if (target.dataset.scrollAnimation === 'splittext-lines') {
+			else if (target.dataset.scroll === 'js-splittext-lines') {
 				this.splitTextAnimationLines(target);
 			}
-			if (target.dataset.scrollAnimation === 'rotation') {
+			else if (target.dataset.scroll === 'js-rotation') {
 				this.rotationAnimation(target);
 			}
-			if (target.dataset.scrollAnimation === 'fade-in-down') {
-				this.fadeInDownAnimation(target);
-			}
-			if (target.dataset.scrollAnimation === 'batch') {
+			else if (target.dataset.scroll === 'js-batch') {
 				this.batchAnimation(target);
 			}
-			if (target.dataset.scrollAnimation === 'scale') {
+			else if (target.dataset.scroll === 'js-scale') {
 				this.scaleAnimation(target);
 			}
-			if (target.dataset.scrollAnimation === 'draw-svg') {
+			else if (target.dataset.scroll === 'js-draw-svg') {
 				this.drawSvgAnimation(target);
 			}
-			if (target.dataset.scrollAnimation === 'background-color') {
+			else if (target.dataset.scroll === 'js-background-color') {
 				this.backgroundColorAnimation(target);
 			}
-			if (target.dataset.scrollAnimation === 'pin') {
+			else if (target.dataset.scroll === 'js-pin') {
 				this.pinAnimation(target);
 			}
-			if (target.dataset.scrollAnimation === 'pin-horizontal') {
+			else if (target.dataset.scroll === 'js-pin-horizontal') {
 				this.pinHorizontalAnimation(target);
 			}
-			if (target.dataset.scrollAnimation === 'pin-vertical') {
+			else if (target.dataset.scroll === 'js-pin-vertical') {
 				this.pinVerticalAnimation(target);
 			}
-			if (target.dataset.scrollAnimation === 'comparison') {
+			else if (target.dataset.scroll === 'js-comparison') {
 				this.comparisonAnimation(target);
 			}
-			if (target.dataset.scrollAnimation === 'parallax') {
+			else if (target.dataset.scroll === 'js-parallax') {
 				this.parallaxAnimation(target);
+			} else {
+				this.defaultAnimation(element);
 			}
 		}, 1000);
+	}
+
+	/**
+	 * default Animation
+	*/
+	defaultAnimation(item) {
+
+		// gsap.set(item, { autoAlpha: 0 });
+
+		const targetClass = item.dataset.scroll;
+
+		ScrollTrigger.create({
+			trigger: item,
+			start: 'top 100%',
+			toggleClass: targetClass,
+			toggleActions: 'play none none none',
+			// markers: true,
+			// once: true,
+		});
+
 	}
 
 	/**
@@ -191,7 +206,7 @@ export default class Animations {
 		});
 
 		tl.from(target, {
-			scale: 2,
+			scale: 1.5,
 			opacity: 0,
 			stagger: 0.1,
 			duration: 0.1,
@@ -253,31 +268,6 @@ export default class Animations {
 		});
 	}
 
-	/**
-	 * fadeInDown Animation
-	*/
-	fadeInDownAnimation(item) {
-
-		gsap.set(item, { autoAlpha: 1 });
-
-		const targetScrub = parseInt(item.dataset.scrollScrub, 10);
-
-		const tl = gsap.timeline({
-			scrollTrigger: {
-				trigger: item,
-				start: 'top 90%',
-				end: 'bottom 60%',
-				scrub: targetScrub || false,
-				toggleActions: 'play none play reverse',
-			},
-		});
-
-		tl.to(item, {
-			opacity: 1,
-			y: 20,
-			duration: 0.2,
-		});
-	}
 
 	/**
 	 * batch Animation
@@ -286,7 +276,8 @@ export default class Animations {
 
 		gsap.set(item, { autoAlpha: 1 });
 
-		const target = item.querySelectorAll('.js-batch-el');
+		const target = item.querySelectorAll('[data-scroll-target]');
+
 		gsap.set(target, { y: 100, opacity: 0 });
 
 		ScrollTrigger.batch(target, {
@@ -499,11 +490,9 @@ export default class Animations {
 	*/
 	comparisonAnimation(item) {
 
-		gsap.set(item, { autoAlpha: 1 });
-
-		const target = item.querySelector('[data-scroll-animation-target]');
+		const target = item.querySelector('[data-scroll-target]');
 		const targetMedia = item.querySelectorAll('.js-comparison-after-media');
-		const targetImage = item.querySelectorAll('.js-comparison-after-media .comparison__img');
+		const targetImage = item.querySelectorAll('.js-comparison-after-media img');
 		const targetScrub = parseInt(item.dataset.scrollScrub, 10);
 
 		const tl = gsap.timeline({
