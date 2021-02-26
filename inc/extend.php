@@ -499,3 +499,19 @@ function ground_language_switch() {
 if ( function_exists( 'acf_add_options_page' ) ) {
 	acf_add_options_page();
 }
+
+/**
+ * Write log in /wp-content/debug.log
+ * Enable WP_DEBUG and WP_DEBUG_LOG
+ *
+ * @param mixed $log Logging data.
+ */
+function ground_log( $log ) {
+	if ( true === WP_DEBUG && true === WP_DEBUG_LOG ) {
+		if ( is_array( $log ) || is_object( $log ) ) {
+			error_log( print_r( $log, true ) );
+		} else {
+			error_log( $log );
+		}
+	}
+}
