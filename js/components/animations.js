@@ -95,6 +95,9 @@ export default class Animations {
 			else if (element.dataset.scroll === 'js-pin') {
 				this.pinAnimation(element);
 			}
+			else if (element.dataset.scroll === 'js-pin-image-sequence') {
+				this.pinImageSequence(element);
+			}
 			else if (element.dataset.scroll === 'js-pin-horizontal') {
 				this.pinHorizontalAnimation(element);
 			}
@@ -110,6 +113,7 @@ export default class Animations {
 			else if (element.dataset.scroll === 'js-video') {
 				this.videoAnimation(element);
 			}
+			
 			else {
 				this.defaultAnimation(element);
 			}
@@ -148,6 +152,9 @@ export default class Animations {
 			}
 			else if (target.dataset.scroll === 'js-pin') {
 				this.pinAnimation(target);
+			}
+			else if (target.dataset.scroll === 'js-pin-image-sequence') {
+				this.pinImageSequence(target);
 			}
 			else if (target.dataset.scroll === 'js-pin-horizontal') {
 				this.pinHorizontalAnimation(target);
@@ -449,6 +456,64 @@ export default class Animations {
 			transformOrigin: 'center center',
 		});
 	}
+
+
+	/**
+	 * pin Image Sequence https://codepen.io/GreenSock/pen/yLOVJxd
+	*/
+	pinImageSequence(item) {
+
+		const target = item.querySelector("[data-scroll-target]");
+		const canvas = item.querySelector("[data-scroll-canvas]");
+		const targetContainer = item.querySelector("[data-scroll-target-animate]");	
+
+		const context = canvas.getContext("2d");
+		const frameCount = parseInt(item.dataset.scrollFrames, 10);
+		const framePath = item.dataset.scrollPath;
+
+		canvas.width = 1158;
+		canvas.height = 770;
+
+		const currentFrame = index => (
+			`${framePath}/${(index + 1).toString().padStart(4, '0')}.jpg`
+  			// `https://www.apple.com/105/media/us/airpods-pro/2019/1299e2f5_9206_4470_b28e_08307a42f19b/anim/sequence/large/01-hero-lightpass/${(index + 1).toString().padStart(4, '0')}.jpg`
+		);
+
+		const images = []
+		const frames = {
+  			frame: 0
+		};
+		
+		for (let i = 0; i < frameCount; i++) {
+			const img = new Image();
+			img.src = currentFrame(i);
+			images.push(img);
+		}
+
+		const tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: target,
+				start: 'center center',
+				end: '+=400%',
+				scrub: 0.5,
+				pin: true,
+				// anticipatePin: 1,
+			},
+		});
+
+		tl	
+			.to(frames, { frame: frameCount - 1, snap: "frame", onUpdate: render, duration: 20},'together')
+			.fromTo(targetContainer, { scale:0.95 },{ scale:1, duration: 20},'together');
+
+		images[0].onload = render;
+
+		function render() {
+			context.clearRect(0, 0, canvas.width, canvas.height);
+			context.drawImage(images[frames.frame], 0, 0); 
+		}
+		
+	}
+
 
 	/**
 	 * pin Horizontal Animation

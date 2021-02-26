@@ -8,6 +8,9 @@
 
 get_template_part('partials/header'); ?>
 
+
+
+
 <div class="relative overflow-hidden">
 
     <div class="container max-w-2xl mt-40 text-center">
@@ -157,7 +160,7 @@ get_template_part('partials/header'); ?>
             <div class="py-9 bg-green-300 rounded-lg inline-block w-1/5 text-black" data-scroll-target></div>
             <div class="py-9 bg-green-300 rounded-lg inline-block w-1/5 text-black" data-scroll-target></div>
         </div>
-
+        <!-- 
         <div class="my-44">
             <h2 class="mt-28 mb-9 text-gray-300">Video <strong class="text-gray-500">Play if Inview</strong></h2>
             <div class="rounded-lg overflow-hidden border border-white aspect-w-16 aspect-h-9" data-scroll="js-video">
@@ -165,7 +168,7 @@ get_template_part('partials/header'); ?>
                     <source src="https://res.cloudinary.com/dhcuygjf8/video/upload/v1609172097/Evoluzione/Video/video-404_ohherb.mp4" type="video/mp4">
                 </video>
             </div>
-        </div>
+        </div> -->
 
         <div class="my-44">
             <h2 class="mb-6 text-gray-300">Draw <strong class="text-gray-500">SVG</strong></h2>
@@ -222,6 +225,15 @@ get_template_part('partials/header'); ?>
                 </div>
             </div>
         </div>
+
+        <!-- <div class="relative" data-scroll="js-pin-image-sequence" data-scroll-frames="147" data-scroll-path="https://www.apple.com/105/media/us/airpods-pro/2019/1299e2f5_9206_4470_b28e_08307a42f19b/anim/sequence/large/01-hero-lightpass">
+            <div class="relative" data-scroll-target>
+                <h2 class="mb-9 text-gray-300">Pin <strong class="text-gray-500">Image Sequence</strong></h2>
+                <div class="relative w-full m-auto" data-scroll-target-animate>
+                    <canvas data-scroll-canvas class="relative w-full" />
+                </div>
+            </div>
+        </div> -->
 
         <div data-scroll="js-comparison" data-scroll-scrub="1">
             <div data-scroll-target>
