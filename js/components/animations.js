@@ -471,8 +471,8 @@ export default class Animations {
 		const frameCount = parseInt(item.dataset.scrollFrames, 10);
 		const framePath = item.dataset.scrollPath;
 
-		canvas.width = 1158;
-		canvas.height = 770;
+		canvas.width = 900;
+		canvas.height = 859;
 
 		const currentFrame = index => (
 			`${framePath}/${(index + 1).toString().padStart(4, '0')}.jpg`

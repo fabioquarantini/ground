@@ -226,10 +226,10 @@ get_template_part('partials/header'); ?>
             </div>
         </div>
 
-        <!-- <div class="relative" data-scroll="js-pin-image-sequence" data-scroll-frames="147" data-scroll-path="https://www.apple.com/105/media/us/airpods-pro/2019/1299e2f5_9206_4470_b28e_08307a42f19b/anim/sequence/large/01-hero-lightpass">
+        <!-- <div class="relative my-44" data-scroll="js-pin-image-sequence" data-scroll-frames="120" data-scroll-path="https://res.cloudinary.com/dhcuygjf8/image/upload/v1605626657/Coltri/Landing%20Product/Smart">
             <div class="relative" data-scroll-target>
-                <h2 class="mb-9 text-gray-300">Pin <strong class="text-gray-500">Image Sequence</strong></h2>
-                <div class="relative w-full m-auto" data-scroll-target-animate>
+                <h2 class="text-gray-300">Pin <strong class="text-gray-500">Image Sequence</strong></h2>
+                <div class="relative w-9/12 m-auto" data-scroll-target-animate>
                     <canvas data-scroll-canvas class="relative w-full" />
                 </div>
             </div>
