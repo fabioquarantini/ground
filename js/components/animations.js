@@ -37,7 +37,7 @@ export default class Animations {
 
 		window.addEventListener('NAVIGATE_OUT', () => {
 			// ScrollTrigger.update();
-			ScrollTrigger.refresh();
+			// ScrollTrigger.refresh();
 		});
 
 		window.addEventListener('NAVIGATE_IN', () => {
@@ -173,8 +173,6 @@ export default class Animations {
 	 * default Animation
 	*/
 	defaultAnimation(item) {
-
-		// gsap.set(item, { autoAlpha: 0 });
 
 		const targetClass = item.dataset.scroll;
 

@@ -161,7 +161,7 @@ get_template_part('partials/header'); ?>
         <div class="my-44">
             <h2 class="mt-28 mb-9 text-gray-300">Video <strong class="text-gray-500">Play if Inview</strong></h2>
             <div class="rounded-lg overflow-hidden border border-white" data-scroll="js-video">
-                <video poster="#" data-scroll-target preload="auto" playsinline muted loop>
+                <video poster="" data-scroll-target preload="auto" playsinline muted loop>
                     <source src="https://res.cloudinary.com/dhcuygjf8/video/upload/v1609172097/Evoluzione/Video/video-404_ohherb.mp4" type="video/mp4">
                 </video>
             </div>
