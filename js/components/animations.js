@@ -106,7 +106,11 @@ export default class Animations {
 			}
 			else if (element.dataset.scroll === 'js-parallax') {
 				this.parallaxAnimation(element);
-			} else {
+			}
+			else if (element.dataset.scroll === 'js-video') {
+				this.videoAnimation(element);
+			}
+			else {
 				this.defaultAnimation(element);
 			}
 		});
@@ -156,6 +160,9 @@ export default class Animations {
 			}
 			else if (target.dataset.scroll === 'js-parallax') {
 				this.parallaxAnimation(target);
+			}
+			else if (target.dataset.scroll === 'js-video') {
+				this.videoAnimation(element);
 			} else {
 				this.defaultAnimation(element);
 			}
@@ -341,6 +348,35 @@ export default class Animations {
 			y: -item.dataset.scrollSpeedY * 100 || 0,
 			x: -item.dataset.scrollSpeedX * 100 || 0,
 		});
+	}
+
+
+	/**
+	 * video Animation
+	*/
+	videoAnimation(item) {
+
+		const targetVideo = item.querySelector('[data-scroll-target]');
+
+		gsap.timeline({
+			scrollTrigger: {
+				trigger: item,
+				start: 'top bottom',
+				end: 'bottom top',
+				markers: false,
+				onEnter: () => targetVideo.play(),
+				onLeave: () => {
+					targetVideo.pause();
+					targetVideo.currentTime = 0;
+				},
+				onEnterBack: () => targetVideo.play(),
+				onLeaveBack: () => {
+					targetVideo.pause();
+					targetVideo.currentTime = 0;
+				},
+			},
+		});
+
 	}
 
 	/**
