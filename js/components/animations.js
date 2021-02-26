@@ -395,8 +395,6 @@ export default class Animations {
 	*/
 	pinAnimation(item) {
 
-		gsap.set(item, { autoAlpha: 1 });
-
 		const target = item.querySelector('[data-scroll-animation-target]');
 		const targetElement = item.querySelectorAll('.js-pin__element');
 
@@ -424,12 +422,8 @@ export default class Animations {
 	*/
 	pinHorizontalAnimation(item) {
 
-		gsap.set(item, { autoAlpha: 1 });
-
-		const audioplay = document.createElement('audio');
-		audioplay.setAttribute('src', 'http://wordpress-364601-1334787.cloudwaysapps.com/concept/music/audio.mp3');
-		const target = item.querySelector('[data-scroll-animation-target]');
-		const targetContainer = item.querySelector('.js-pin-horizontal-container');
+		const target = item.querySelector('[data-scroll-target]');
+		const targetContainer = item.querySelector('[data-scroll-target-animate]');
 		const targetScrub = parseInt(item.dataset.scrollScrub, 10);
 
 		const tl = gsap.timeline({
@@ -441,16 +435,10 @@ export default class Animations {
 				pin: true,
 				// invalidateOnRefresh: true,
 				// anticipatePin: 1,
-				onEnter: () => audioplay.play(),
-				onLeave: () => {
-					audioplay.pause();
-					audioplay.currentTime = 0;
-				},
-				onEnterBack: () => audioplay.play(),
-				onLeaveBack: () => {
-					audioplay.pause();
-					audioplay.currentTime = 0;
-				},
+				// onEnter: () => {},
+				// onLeave: () => {},
+				// onEnterBack: () => {},
+				// onLeaveBack: () => {},
 			},
 		});
 

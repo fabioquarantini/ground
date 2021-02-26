@@ -156,6 +156,15 @@ get_template_part('partials/header'); ?>
         <div class="py-9 bg-green-300 rounded-lg inline-block w-1/5 text-black" data-scroll-target></div>
     </div>
 
+
+    <div class="my-44" data-scroll="js-pin-horizontal" data-scroll-scrub="1">
+        <div class="relative flex whitespace-nowrap bg-white rounded-lg pb-4" data-scroll-target>
+            <div class="mix-blend-mode-difference" data-scroll-target-animate>
+                <h1 class="text-9xl ">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h1>
+            </div>
+        </div>
+    </div>
+
     <div data-scroll="js-comparison" data-scroll-scrub="1">
         <div data-scroll-target>
             <h2 class="mb-6 text-gray-300">Comparison <strong class="text-gray-500">Scrub</strong></h2>
