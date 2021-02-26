@@ -8,12 +8,16 @@
 // import Swiper styles
 @import "swiper/swiper-bundle.css";
 
+
 /* Base */
 @import "base/root.css";
 @import "base/text.css";
 @import "base/link.css";
 @import "base/list.css";
 @import "base/print.css";
+
+
+
 
 
 // Components
@@ -40,7 +44,6 @@
 @import "components/social.css";
 @import "components/sidebar.css";
 @import "components/slider.css";
-@import "components/splitting.css";
 @import "components/spinner.css";
 @import "components/table.css";
 @import "components/tooltip.css";
