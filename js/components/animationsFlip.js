@@ -1,10 +1,11 @@
 import Utilities from '../utilities/utilities';
 import * as deepmerge from 'deepmerge';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Flip } from 'gsap/Flip';
 import { Draggable } from 'gsap/Draggable';
 
-gsap.registerPlugin(Flip, Draggable);
+gsap.registerPlugin(ScrollTrigger, Flip, Draggable);
 
 export default class AnimationsFlip {
 	/**
@@ -42,7 +43,7 @@ export default class AnimationsFlip {
 	 * Init
 	 */
 	init() {
-		this.DOM.element = document.querySelectorAll(this.element);
+		this.DOM.element = document.querySelectorAll(this.element);		
 	}
 
 	/**

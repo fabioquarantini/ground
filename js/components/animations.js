@@ -112,8 +112,7 @@ export default class Animations {
 			}
 			else if (element.dataset.scroll === 'js-video') {
 				this.videoAnimation(element);
-			}
-			
+			}			
 			else {
 				this.defaultAnimation(element);
 			}
@@ -170,7 +169,8 @@ export default class Animations {
 			}
 			else if (target.dataset.scroll === 'js-video') {
 				this.videoAnimation(element);
-			} else {
+			} 
+			else {
 				this.defaultAnimation(element);
 			}
 		}, 1000);
@@ -290,21 +290,15 @@ export default class Animations {
 
 		const target = item.querySelectorAll('[data-scroll-target]');
 
-		gsap.set(target, { y: 100, opacity: 0 });
+		// gsap.set(target, { y: 100, opacity: 0 });
 
 		ScrollTrigger.batch(target, {
-			// interval: 0.1, // time window (in seconds) for batching to occur.
-			// batchMax: 3, // maximum batch size (targets)
-			onEnter: (batch) => gsap.to(batch, {
-				opacity: 1, y: 0, stagger: { each: 0.1, grid: [1, 3] }, overwrite: true,
-			}),
-			// onLeave: (batch) => gsap.set(batch, { opacity: 0, y: -100, overwrite: true }),
-			// onEnterBack: (batch) => gsap.to(batch, {
-			// 	opacity: 1, y: 0, stagger: 0.1, overwrite: true,
-			// }),
-			// onLeaveBack: (batch) => gsap.set(batch, { opacity: 0, y: 100, overwrite: true }),
-			// you can also define things like start, end, etc.
-
+			interval: 0.1, // time window (in seconds) for batching to occur.
+			batchMax: 3,   // maximum batch size (targets)
+			onEnter: batch => gsap.to(batch, {autoAlpha: 1, stagger: 0.1, overwrite: true}),
+			onLeave: batch => gsap.set(batch, {autoAlpha: 0, overwrite: true}),
+			onEnterBack: batch => gsap.to(batch, {autoAlpha: 1, stagger: 0.1, overwrite: true}),
+			onLeaveBack: batch => gsap.set(batch, {autoAlpha: 0, overwrite: true})			
 		});
 		ScrollTrigger.addEventListener('refreshInit', () => gsap.set(target, { y: 0 }));
 	}

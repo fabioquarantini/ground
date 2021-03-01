@@ -268,5 +268,7 @@ get_template_part('partials/header'); ?>
 
 </div>
 
+
+
 <?php
 get_template_part('partials/footer');
