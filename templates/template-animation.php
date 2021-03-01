@@ -8,6 +8,7 @@
 
 get_template_part('partials/header'); ?>
 
+
 <div class="relative overflow-hidden">
 
     <div class="container text-center">
@@ -131,6 +132,38 @@ get_template_part('partials/header'); ?>
             </h1>
         </div>
 
+    </div>
+
+    <div class="relative overflow-hidden my-44" data-scroll="js-pin-horizontal-section" data-scroll-scrub="1">
+        <div data-scroll-target>
+            <h2 class="mb-9 text-gray-300 text-center">Pin <strong class="text-gray-500">Horizontal Section</strong></h2>
+            <div class="relative overflow-hidden flex flex-nowrap">
+
+                <section data-scroll-section class="flex-shrink-0 w-screen bg-white bg-opacity-10 py-44">
+                    <h1 class="text-9xl text-center text-white">Part One</h1>
+                </section>
+                <section data-scroll-section class="flex-shrink-0 bg-white py-44">
+                    <h1 class="text-9xl text-center px-20 text-black">Part Two</h1>
+                </section>
+                <section data-scroll-section class="flex-shrink-0 bg-white bg-opacity-10 py-44">
+                    <h1 class="text-9xl text-center text-white px-20">Part Three</h1>
+                </section>
+                <section data-scroll-section class="flex-shrink-0 w-screen bg-white py-44">
+                    <h1 class="text-9xl text-center text-black">Part Four</h1>
+                </section>
+                <section data-scroll-section class="flex-shrink-0 bg-white bg-opacity-10 py-44">
+                    <h1 class="text-9xl text-center text-white px-20">Part Five</h1>
+                </section>
+                <section data-scroll-section class="flex-shrink-0 w-screen bg-white py-44">
+                    <h1 class="text-9xl text-center text-black">Part Six</h1>
+                </section>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container max-w-4xl text-center my-44 text-white">
+
         <div class="my-44">
             <h2 class="mt-28 mb-12 text-gray-300">Parallax <strong class="text-gray-500">Y -Y</strong></h2>
             <div class="py-9 my-12 bg-green-300 rounded-lg inline-block w-1/5" data-scroll="js-parallax" data-scroll-speed-y="0.5"></div>
@@ -206,6 +239,12 @@ get_template_part('partials/header'); ?>
             </div>
         </div>
 
+
+
+
+
+
+
         <div class="my-44" data-scroll="js-pin-horizontal" data-scroll-scrub="1">
             <div data-scroll-target>
                 <h2 class="mb-9 text-gray-300">Pin <strong class="text-gray-500">Horizontal</strong></h2>
@@ -267,6 +306,7 @@ get_template_part('partials/header'); ?>
     </div>
 
 </div>
+
 
 
 
