@@ -1,4 +1,4 @@
-<header class="flex justify-between items-center shadow-lg bg-white fixed top-0 w-full z-10 lg:px-8">
+<header class="flex justify-between items-center shadow-lg bg-white fixed top-0 w-full z-10 px-8 py-6">
 
 	<a class="js-cursor-hide" href="<?php echo esc_url(home_url('/')); ?>" title="<?php bloginfo('name'); ?>">
 		<?php /* <img class="logo__img" src="<?php echo TEMPLATE_URL ?>/img/logo.svg" alt="<?php bloginfo('name'); ?>" /> */ ?>
