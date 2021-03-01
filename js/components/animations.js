@@ -581,7 +581,7 @@ export default class Animations {
 		// ADD SKEW
 		let proxy = { skew: 0 },
 		skewSetter = gsap.quickSetter(section, "skewX", "deg"), // fast
-		clamp = gsap.utils.clamp(-20, 20); // don't let the skew go beyond [X] degrees. 
+		clamp = gsap.utils.clamp(-10, 10); // don't let the skew go beyond [X] degrees. 
 		// END SKEW
 
 		sections.forEach((sct, i) => {
@@ -596,7 +596,7 @@ export default class Animations {
 					// only do something if the skew is MORE severe. Remember, we're always tweening back to 0, so if the user slows their scrolling quickly, it's more natural to just let the tween handle that smoothly rather than jumping to the smaller skew.
 					if (Math.abs(skew) > Math.abs(proxy.skew)) {
 					  proxy.skew = skew;
-					  gsap.to(proxy, {skew: 0, duration: 0.6, ease: "circ", overwrite: true, onUpdate: () => skewSetter(proxy.skew)});
+					  gsap.to(proxy, {skew: 0, duration: 0.5, ease: "circ", overwrite: true, onUpdate: () => skewSetter(proxy.skew)});
 					}
 				}
 				// END SKEW
