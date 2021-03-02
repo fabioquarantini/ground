@@ -73,7 +73,8 @@
 
 
 // Animations
-@import "animations/default.css";
+@import "animations/staggered.css";
+@import "animations/delay.css";
 
 // Debug
 //@import "debug/debug-breakpoints.css";
