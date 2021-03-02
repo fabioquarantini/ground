@@ -8,12 +8,14 @@
 
 get_template_part('partials/header'); ?>
 
-
 <div class="relative overflow-hidden">
 
     <div class="container text-center">
-        <h2 class="mt-40 text-gray-800 text-center"><span class="text-8xl animate-pulse">Ground Animation</span> <span class="text-gray-300">V1.0.2</span></h2>
-        <div class="animate-bounce inline-block mt-20">
+        <div class="my-12">
+            <h1 class="mt-32 inline-block overflow-hidden opacity-0 text-9xl border-b border-gray-800 text-gray-800" data-scroll="js-splittext-chars" data-scroll-scrub="0">Animation</h1>
+            <p class="animate-pulse text-2xl">Ground</p>
+        </div>
+        <div class="animate-bounce inline-block mt-9">
             <?php ground_icon('arrow-long-down'); ?>
         </div>
     </div>
@@ -122,8 +124,8 @@ get_template_part('partials/header'); ?>
 
     <div class="container max-w-4xl text-center my-44 text-white">
 
-        <div class="my-12">
-            <h1 class="opacity-0 text-9xl" data-scroll="js-splittext-chars" data-scroll-scrub="2">Animation JS</h1>
+        <div class="my-12 overflow-hidden">
+            <h1 class="opacity-0 text-9xl border-b border-white" data-scroll="js-splittext-chars" data-scroll-scrub="2">Animation JS</h1>
         </div>
 
         <div class="my-12">
@@ -209,14 +211,14 @@ get_template_part('partials/header'); ?>
             <div class="py-9 bg-green-300 rounded-lg inline-block w-1/5 text-black" data-scroll-target></div>
         </div>
 
-        <!-- <div class="my-44">
+        <div class="my-44">
             <h2 class="mt-28 mb-9 text-gray-300">Video <strong class="text-gray-500">Play if Inview</strong></h2>
             <div class="rounded-lg overflow-hidden border border-white aspect-w-16 aspect-h-9" data-scroll="js-video">
                 <video data-scroll-target preload="none" playsinline muted loop>
                     <source src="https://res.cloudinary.com/dhcuygjf8/video/upload/v1609172097/Evoluzione/Video/video-404_ohherb.mp4" type="video/mp4">
                 </video>
             </div>
-        </div> -->
+        </div>
 
         <div class="my-44">
             <h2 class="mb-6 text-gray-300">Draw <strong class="text-gray-500">SVG</strong></h2>
@@ -238,12 +240,6 @@ get_template_part('partials/header'); ?>
                 </div>
             </div>
         </div>
-
-
-
-
-
-
 
         <div class="my-44" data-scroll="js-pin-horizontal" data-scroll-scrub="1">
             <div data-scroll-target>
@@ -280,14 +276,14 @@ get_template_part('partials/header'); ?>
             </div>
         </div>
 
-        <!-- <div class="relative my-44" data-scroll="js-pin-image-sequence" data-scroll-frames="120" data-scroll-path="https://res.cloudinary.com/dhcuygjf8/image/upload/v1605626657/Coltri/Landing%20Product/Smart">
+        <div class="relative my-44" data-scroll="js-pin-image-sequence" data-scroll-frames="120" data-scroll-path="https://res.cloudinary.com/dhcuygjf8/image/upload/v1605626657/Coltri/Landing%20Product/Smart">
             <div class="relative" data-scroll-target>
                 <h2 class="text-gray-300">Pin <strong class="text-gray-500">Image Sequence</strong></h2>
                 <div class="relative w-9/12 m-auto" data-scroll-target-animate>
                     <canvas data-scroll-canvas class="relative w-full" />
                 </div>
             </div>
-        </div> -->
+        </div>
 
         <div data-scroll="js-comparison" data-scroll-scrub="1">
             <div data-scroll-target>

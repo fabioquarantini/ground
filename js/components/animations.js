@@ -224,10 +224,11 @@ export default class Animations {
 		});
 
 		tl.from(target, {
-			scale: 1.5,
+			yPercent: 100,
 			opacity: 0,
-			stagger: 0.1,
-			duration: 0.1,
+			stagger: 0.05,
+			duration: 0.5,
+			ease: 'back.inOut',
 		});
 	}
 
@@ -345,7 +346,6 @@ export default class Animations {
 				trigger: item,
 				toggleActions: 'play pause none none',
 				scrub: 2,
-				ease: 'power4',
 			},
 		});
 
