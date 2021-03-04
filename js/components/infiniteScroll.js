@@ -5,11 +5,11 @@
  * TODO: Fix Smoothscroll
  * TODO: Fix highway on new link
  */
-import Utilities from '../utilities/utilities';
-import { DEBUG_MODE } from '../utilities/environment';
+import Utilities from '../utilities/utilities'
+import { DEBUG_MODE } from '../utilities/environment'
 
-const Deepmerge = require('deepmerge');
-const InfScroll = require('infinite-scroll');
+const Deepmerge = require('deepmerge')
+const InfScroll = require('infinite-scroll')
 
 export default class InfiniteScroll {
 	/**
@@ -17,7 +17,7 @@ export default class InfiniteScroll {
 	 * @param {Object} options - User options
 	 */
 	constructor(element, options) {
-		this.element = element || '.js-infinite-container';
+		this.element = element || '.js-infinite-container'
 		this.defaults = {
 			path: '.js-infinite-next-page',
 			append: '.js-infinite-post',
@@ -26,39 +26,43 @@ export default class InfiniteScroll {
 			hideNav: '.js-pagination',
 			status: '.js-infinite-status',
 			debug: !!DEBUG_MODE,
-		};
+		}
 		this.DOM = {
 			html: document.documentElement,
 			body: document.body,
-		};
-		this.options = options ? Deepmerge(this.defaults, options) : this.defaults;
-		this.updateEvents = this.updateEvents.bind(this);
+		}
+		this.options = options
+			? Deepmerge(this.defaults, options)
+			: this.defaults
+		this.updateEvents = this.updateEvents.bind(this)
 
 		window.addEventListener('DOMContentLoaded', () => {
-			this.init();
-			Utilities.initObserver(this.element, this.updateEvents);
-		});
+			this.init()
+			Utilities.initObserver(this.element, this.updateEvents)
+		})
 
 		// TODO: Destroy with observer
 		window.addEventListener('NAVIGATE_OUT', () => {
-			this.destroy();
-		});
+			this.destroy()
+		})
 	}
 
 	/**
 	 * Initialize plugin
 	 */
 	init() {
-		this.DOM.element = document.querySelector(this.element);
-		this.DOM.path = document.querySelector(this.options.path);
+		this.DOM.element = document.querySelector(this.element)
+		this.DOM.path = document.querySelector(this.options.path)
 
-		if ((this.DOM.path === null && this.DOM.element === null)
-			|| (this.DOM.path !== null && this.DOM.element === null)
-			|| (this.DOM.path === null && this.DOM.element !== null)) {
-			return;
+		if (
+			(this.DOM.path === null && this.DOM.element === null) ||
+			(this.DOM.path !== null && this.DOM.element === null) ||
+			(this.DOM.path === null && this.DOM.element !== null)
+		) {
+			return
 		}
 
-		this.infScroll = new InfScroll(this.element, this.options);
+		this.infScroll = new InfScroll(this.element, this.options)
 	}
 
 	/**
@@ -66,7 +70,7 @@ export default class InfiniteScroll {
 	 * @param {Object} target - New selector
 	 */
 	updateEvents() {
-		this.init();
+		this.init()
 	}
 
 	/**
@@ -74,8 +78,8 @@ export default class InfiniteScroll {
 	 */
 	destroy() {
 		if (this.infScroll === undefined) {
-			return;
+			return
 		}
-		this.infScroll.destroy();
+		this.infScroll.destroy()
 	}
 }

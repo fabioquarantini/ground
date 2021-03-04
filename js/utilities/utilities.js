@@ -8,7 +8,7 @@ export default class Utilities {
 	 * @returns {string}
 	 */
 	static getCurrentLanguage() {
-		return document.documentElement.getAttribute('lang');
+		return document.documentElement.getAttribute('lang')
 	}
 
 	/**
@@ -16,7 +16,7 @@ export default class Utilities {
 	 * @returns {string}
 	 */
 	static getTemplateUrl() {
-		return document.body.dataset.templateUrl;
+		return document.body.dataset.templateUrl
 	}
 
 	/**
@@ -24,7 +24,7 @@ export default class Utilities {
 	 * @returns {string}
 	 */
 	static getSiteUrl() {
-		return `${window.location.protocol}//${window.location.host}`;
+		return `${window.location.protocol}//${window.location.host}`
 	}
 
 	/**
@@ -32,7 +32,7 @@ export default class Utilities {
 	 * @returns {string}
 	 */
 	static getCurrentUrl() {
-		return `${window.location.protocol}//${window.location.host}${window.location.pathname}${window.location.search}`;
+		return `${window.location.protocol}//${window.location.host}${window.location.pathname}${window.location.search}`
 	}
 
 	/**
@@ -43,11 +43,12 @@ export default class Utilities {
 	 * @returns {Number}
 	 */
 	static getRandomNumber(min, max, decimal) {
-		const result = Math.random() * (max - min) + min;
+		const result = Math.random() * (max - min) + min
 
 		if (typeof decimal !== 'undefined') {
-			return Number(result.toFixed(decimal));
-		} return result;
+			return Number(result.toFixed(decimal))
+		}
+		return result
 	}
 
 	/**
@@ -57,7 +58,7 @@ export default class Utilities {
 	 * @returns {Number}
 	 */
 	static getRandomInt(min, max) {
-		return Math.floor(Math.random() * (max - min + 1)) + min;
+		return Math.floor(Math.random() * (max - min + 1)) + min
 	}
 
 	/**
@@ -68,7 +69,7 @@ export default class Utilities {
 			window.ga('send', 'pageview', {
 				page: window.location.pathname,
 				title: document.title,
-			});
+			})
 		}
 	}
 
@@ -78,16 +79,16 @@ export default class Utilities {
 	 * @returns {Object}
 	 */
 	static getViewportSize() {
-		let e = window;
-		let a = 'inner';
+		let e = window
+		let a = 'inner'
 		if (!('innerWidth' in window)) {
-			a = 'client';
-			e = document.documentElement || document.body;
+			a = 'client'
+			e = document.documentElement || document.body
 		}
 		return {
 			width: e[`${a}Width`],
 			height: e[`${a}Height`],
-		};
+		}
 	}
 
 	/**
@@ -97,7 +98,11 @@ export default class Utilities {
 	 */
 	static isTouch() {
 		// eslint-disable-next-line no-undef
-		return ('ontouchstart' in window || (window.DocumentTouch && document instanceof DocumentTouch)) === true;
+		return (
+			('ontouchstart' in window ||
+				(window.DocumentTouch && document instanceof DocumentTouch)) ===
+			true
+		)
 	}
 
 	/**
@@ -105,8 +110,8 @@ export default class Utilities {
 	 * @returns {string}
 	 */
 	static getDeviceOrientation() {
-		const mql = window.matchMedia('(orientation: portrait)');
-		return (mql.matches) ? 'portrait' : 'landscape';
+		const mql = window.matchMedia('(orientation: portrait)')
+		return mql.matches ? 'portrait' : 'landscape'
 	}
 
 	/**
@@ -119,45 +124,45 @@ export default class Utilities {
 	 * @param {boolean} immediate - Whether to execute at the beginning (`false`)
 	 */
 	static debounce(func, wait, immediate) {
-		let timeout;
+		let timeout
 
 		// This is the function that is actually executed when
 		// the DOM event is triggered.
 		return function executedFunction() {
 			// Store the context of this and any
 			// parameters passed to executedFunction
-			const context = this;
+			const context = this
 			// eslint-disable-next-line prefer-rest-params
-			const args = arguments;
+			const args = arguments
 
 			// The function to be called after
 			// the debounce time has elapsed
 			const later = () => {
 				// null timeout to indicate the debounce ended
-				timeout = null;
+				timeout = null
 
 				// Call function now if you did not on the leading end
-				if (!immediate) func.apply(context, args);
-			};
+				if (!immediate) func.apply(context, args)
+			}
 
 			// Determine if you should call the function
 			// on the leading or trail end
-			const callNow = immediate && !timeout;
+			const callNow = immediate && !timeout
 
 			// This will reset the waiting every function execution.
 			// This is the step that prevents the function from
 			// being executed because it will never reach the
 			// inside of the previous setTimeout
-			clearTimeout(timeout);
+			clearTimeout(timeout)
 
 			// Restart the debounce waiting period.
 			// setTimeout returns a truthy value (it differs in web vs node)
-			timeout = setTimeout(later, wait);
+			timeout = setTimeout(later, wait)
 
 			// Call immediately if you're dong a leading
 			// end execution
-			if (callNow) func.apply(context, args);
-		};
+			if (callNow) func.apply(context, args)
+		}
 	}
 
 	/**
@@ -167,17 +172,17 @@ export default class Utilities {
 	 * @param {number} days - Expiry date in days (`7`)
 	 */
 	static setCookie(name, value, days) {
-		let expires;
+		let expires
 
 		if (days) {
-			const date = new Date();
-			date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-			expires = `; expires=${date.toGMTString()}`;
+			const date = new Date()
+			date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000)
+			expires = `; expires=${date.toGMTString()}`
 		} else {
-			expires = '';
+			expires = ''
 		}
 
-		document.cookie = `${name}=${value}${expires}; path=/`;
+		document.cookie = `${name}=${value}${expires}; path=/`
 	}
 
 	/**
@@ -185,14 +190,15 @@ export default class Utilities {
 	 * @param {string} name - Cookie name
 	 */
 	static getCookie(name) {
-		const nameEQ = `${name}=`;
-		const ca = document.cookie.split(';');
+		const nameEQ = `${name}=`
+		const ca = document.cookie.split(';')
 		for (let i = 0; i < ca.length; i++) {
-			let c = ca[i];
-			while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-			if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+			let c = ca[i]
+			while (c.charAt(0) === ' ') c = c.substring(1, c.length)
+			if (c.indexOf(nameEQ) === 0)
+				return c.substring(nameEQ.length, c.length)
 		}
-		return null;
+		return null
 	}
 
 	/**
@@ -200,7 +206,7 @@ export default class Utilities {
 	 * @param {string} name - Cookie name
 	 */
 	static deleteCookie(name) {
-		this.setCookie(name, '', -1);
+		this.setCookie(name, '', -1)
 	}
 
 	/**
@@ -213,13 +219,22 @@ export default class Utilities {
 	 * @returns {number} The value inside the new range's values
 	 * @see https://github.com/yakudoo/TheAviator/blob/d19b8744e745f74fb70b4f255d700394aa6b3200/js/game.js#L965
 	 */
-	static normalize(value, actualMinRange, actualMaxRange, newMinRange, newMaxRange) {
-		const sanitizedValue = Math.max(Math.min(value, actualMaxRange), actualMinRange);
-		const actualRangeDelta = actualMaxRange - actualMinRange;
-		const coefficent = (sanitizedValue - actualMinRange) / actualRangeDelta;
-		const newRangeDelta = newMaxRange - newMinRange;
-		const newValue = newMinRange + coefficent * newRangeDelta;
-		return newValue;
+	static normalize(
+		value,
+		actualMinRange,
+		actualMaxRange,
+		newMinRange,
+		newMaxRange
+	) {
+		const sanitizedValue = Math.max(
+			Math.min(value, actualMaxRange),
+			actualMinRange
+		)
+		const actualRangeDelta = actualMaxRange - actualMinRange
+		const coefficent = (sanitizedValue - actualMinRange) / actualRangeDelta
+		const newRangeDelta = newMaxRange - newMinRange
+		const newValue = newMinRange + coefficent * newRangeDelta
+		return newValue
 	}
 
 	/**
@@ -229,21 +244,27 @@ export default class Utilities {
 	 * @see http://www.quirksmode.org/js/events_properties.html#position
 	 */
 	static getMousePosition(event) {
-		let posx = 0;
-		let posy = 0;
+		let posx = 0
+		let posy = 0
 		// eslint-disable-next-line no-param-reassign
-		if (!event) event = window.event;
+		if (!event) event = window.event
 		if (event.pageX || event.pageY) {
-			posx = event.pageX;
-			posy = event.pageY;
+			posx = event.pageX
+			posy = event.pageY
 		} else if (event.clientX || event.clientY) {
-			posx = event.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
-			posy = event.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+			posx =
+				event.clientX +
+				document.body.scrollLeft +
+				document.documentElement.scrollLeft
+			posy =
+				event.clientY +
+				document.body.scrollTop +
+				document.documentElement.scrollTop
 		}
 		return {
 			x: posx,
 			y: posy,
-		};
+		}
 	}
 
 	/**
@@ -253,7 +274,7 @@ export default class Utilities {
 	 * @param {float} amount - The amount to interpolate between the two values where 0.0 equal to the first point, 0.1 is very near the first point, 0.5 is half-way in between, etc.
 	 */
 	static lerp(start, end, amount) {
-		return (1 - amount) * start + amount * end;
+		return (1 - amount) * start + amount * end
 	}
 
 	/**
@@ -264,14 +285,11 @@ export default class Utilities {
 	 * @see https://stackoverflow.com/questions/56608748/how-to-use-queryselectorall-on-the-added-nodes-in-a-mutationobserver
 	 */
 	static initObserver(triggers, callback) {
-
 		const filterSelector = (selector, mutationsList) => {
 			// We can't create a NodeList; let's use a Set
-			const result = new Set();
+			const result = new Set()
 			// Loop through the mutationsList...
-			for (const {
-				addedNodes,
-			} of mutationsList) {
+			for (const { addedNodes } of mutationsList) {
 				for (const node of addedNodes) {
 					// console.log(node);
 
@@ -279,11 +297,11 @@ export default class Utilities {
 					if (node.nodeType === 1) {
 						// Add it if it's a match
 						if (node.matches(selector)) {
-							result.add(node);
+							result.add(node)
 						}
 						// Add any children
 						for (const entry of node.querySelectorAll(selector)) {
-							result.add(entry);
+							result.add(entry)
 						}
 					}
 				}
@@ -299,24 +317,24 @@ export default class Utilities {
 				}
 			}); */
 
-			return [...result]; // Result is an array, or just return the set
-		};
+			return [...result] // Result is an array, or just return the set
+		}
 
 		const observerCallback = (mutationsList) => {
-			const result = filterSelector(triggers, mutationsList);
+			const result = filterSelector(triggers, mutationsList)
 			result.forEach((element) => {
-				callback(element);
-			});
-		};
+				callback(element)
+			})
+		}
 
 		const config = {
 			childList: true,
 			attributes: false,
 			characterData: false,
 			subtree: true,
-		};
-		const observer = new MutationObserver(observerCallback);
-		observer.observe(document.documentElement, config);
+		}
+		const observer = new MutationObserver(observerCallback)
+		observer.observe(document.documentElement, config)
 		//observer.disconnect();
 	}
 }
