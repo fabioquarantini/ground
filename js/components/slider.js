@@ -4,18 +4,25 @@
  * @see http://idangero.us/swiper
  */
 //import Swiper from 'swiper/bundle';
-import { Swiper, Navigation, Pagination, Autoplay, Lazy, EffectFade } from 'swiper';
+import {
+	Swiper,
+	Navigation,
+	Pagination,
+	Autoplay,
+	Lazy,
+	EffectFade,
+} from 'swiper'
 
-const Deepmerge = require('deepmerge');
+const Deepmerge = require('deepmerge')
 
-Swiper.use([Navigation, Pagination, Autoplay, Lazy, EffectFade]);
+Swiper.use([Navigation, Pagination, Autoplay, Lazy, EffectFade])
 export default class Slider {
 	/**
 	 * @param {string} element - Selector
 	 * @param {Object} options - User options
 	 */
 	constructor(element, options) {
-		this.element = element || '.js-slider';
+		this.element = element || '.js-slider'
 		this.defaults = {
 			init: true,
 			initialSlide: 0,
@@ -74,20 +81,22 @@ export default class Slider {
 					slidesPerView: 1,
 				},
 			}, */
-		};
-		this.options = options ? Deepmerge(this.defaults, options) : this.defaults;
+		}
+		this.options = options
+			? Deepmerge(this.defaults, options)
+			: this.defaults
 
 		window.addEventListener('DOMContentLoaded', () => {
-			this.init();
-		});
+			this.init()
+		})
 
 		window.addEventListener('NAVIGATE_END', () => {
-			this.init();
-		});
+			this.init()
+		})
 
 		window.addEventListener('infiniteScrollAppended', () => {
-			this.init();
-		});
+			this.init()
+		})
 	}
 
 	/**
@@ -95,10 +104,10 @@ export default class Slider {
 	 */
 	init() {
 		if (document.querySelectorAll(this.element).length === 0) {
-			return;
+			return
 		}
 
-		this.slider = new Swiper(this.element, this.options);
+		this.slider = new Swiper(this.element, this.options)
 	}
 
 	/**
@@ -106,9 +115,9 @@ export default class Slider {
 	 */
 	autoplayStart() {
 		if (this.slider === undefined) {
-			return;
+			return
 		}
-		this.slider.autoplay.start();
+		this.slider.autoplay.start()
 	}
 
 	/**
@@ -116,9 +125,9 @@ export default class Slider {
 	 */
 	autoplayStop() {
 		if (this.slider === undefined) {
-			return;
+			return
 		}
-		this.slider.autoplay.stop();
+		this.slider.autoplay.stop()
 	}
 
 	/**
@@ -128,9 +137,9 @@ export default class Slider {
 	 */
 	destroy(deleteInstance, cleanStyles) {
 		if (this.slider === undefined) {
-			return;
+			return
 		}
-		this.slider.destroy(deleteInstance, cleanStyles);
+		this.slider.destroy(deleteInstance, cleanStyles)
 	}
 
 	/**
@@ -140,9 +149,9 @@ export default class Slider {
 	 */
 	slidePrev(speed, runCallbacks) {
 		if (this.slider === undefined) {
-			return;
+			return
 		}
-		this.slider.slidePrev(speed, runCallbacks);
+		this.slider.slidePrev(speed, runCallbacks)
 	}
 
 	/**
@@ -152,9 +161,9 @@ export default class Slider {
 	 */
 	slideNext(speed, runCallbacks) {
 		if (this.slider === undefined) {
-			return;
+			return
 		}
-		this.slider.slideNext(speed, runCallbacks);
+		this.slider.slideNext(speed, runCallbacks)
 	}
 
 	/**
@@ -165,8 +174,8 @@ export default class Slider {
 	 */
 	slideTo(index, speed, runCallbacks) {
 		if (this.slider === undefined) {
-			return;
+			return
 		}
-		this.slider.slideTo(index, speed, runCallbacks);
+		this.slider.slideTo(index, speed, runCallbacks)
 	}
 }

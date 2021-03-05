@@ -1,39 +1,37 @@
-import Highway from '@dogstudio/highway';
-import Tween from 'gsap';
+import Highway from '@dogstudio/highway'
+import Tween from 'gsap'
 
 // Basic
 class Basic extends Highway.Transition {
-	in({
-		from, to, trigger, done,
-	}) {
+	in({ from, to, trigger, done }) {
 		// Reset Scroll
-		window.scrollTo(0, 0);
+		window.scrollTo(0, 0)
 
 		// Remove Old View
-		from.remove();
+		from.remove()
 
 		// Update body class
-		document.documentElement.classList.remove('is-loading');
-		document.documentElement.classList.add('is-loaded');
+		document.documentElement.classList.remove('is-loading')
+		document.documentElement.classList.add('is-loaded')
 
 		// Animation
-		Tween.set(to, { opacity: 1 });
+		Tween.set(to, { opacity: 1 })
 
 		// Done
-		done();
+		done()
 	}
 
 	out({ from, trigger, done }) {
 		// Update body class
-		document.documentElement.classList.add('is-loading');
-		document.documentElement.classList.remove('is-loaded');
+		document.documentElement.classList.add('is-loading')
+		document.documentElement.classList.remove('is-loaded')
 
 		// Animation
-		Tween.set(from, { opacity: 0 });
+		Tween.set(from, { opacity: 0 })
 
 		// Done
-		done();
+		done()
 	}
 }
 
-export default Basic;
+export default Basic

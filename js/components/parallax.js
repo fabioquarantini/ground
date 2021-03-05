@@ -2,8 +2,8 @@
  * Parallax module
  * @see https://dixonandmoe.com/rellax/
  */
-import Rellax from 'rellax';
-import * as deepmerge from 'deepmerge';
+import Rellax from 'rellax'
+import * as deepmerge from 'deepmerge'
 
 export default class Split {
 	/**
@@ -11,7 +11,7 @@ export default class Split {
 	 * @param {Object} options - User options
 	 */
 	constructor(element, options) {
-		this.element = element || '.js-parallax';
+		this.element = element || '.js-parallax'
 		this.defaults = {
 			speed: -2,
 			center: false,
@@ -19,12 +19,14 @@ export default class Split {
 			round: true,
 			vertical: true,
 			horizontal: false,
-		};
-		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
+		}
+		this.options = options
+			? deepmerge(this.defaults, options)
+			: this.defaults
 
 		window.addEventListener('DOMContentLoaded', () => {
-			this.init();
-		});
+			this.init()
+		})
 	}
 
 	/**
@@ -32,10 +34,10 @@ export default class Split {
 	 */
 	init() {
 		if (document.querySelectorAll(this.element).length === 0) {
-			return;
+			return
 		}
 
-		this.parallax = new Rellax(this.element, this.options);
+		this.parallax = new Rellax(this.element, this.options)
 	}
 
 	/**
@@ -44,9 +46,9 @@ export default class Split {
 	 */
 	refresh() {
 		if (this.parallax === undefined) {
-			return;
+			return
 		}
-		this.parallax.refresh();
+		this.parallax.refresh()
 	}
 
 	/**
@@ -55,8 +57,8 @@ export default class Split {
 	 */
 	destroy() {
 		if (this.parallax === undefined) {
-			return;
+			return
 		}
-		this.parallax.destroy();
+		this.parallax.destroy()
 	}
 }
