@@ -7,7 +7,7 @@ import Slider from './components/slider'
 import Loader from './components/loader'
 import Toggle from './components/toggle'
 // import SmoothScroll from './components/smoothScroll';
-<<<<<<< HEAD
+
 import Animations from './components/animations';
 import AnimationsFlip from './components/animationsFlip';
 import Cursor from './components/cursorV2';
@@ -15,15 +15,7 @@ import Search from './components/search';
 import Magnet from './components/magnetV2';
 import Billing from './components/billing';
 import GdprCompliance from './components/gdprCompliance';
-=======
-import Animations from './components/animations'
-import AnimationsFlip from './components/animationsFlip'
-import Cursor from './components/cursor'
-import Search from './components/search'
-import Magnet from './components/magnet'
-import Billing from './components/billing'
-import GdprCompliance from './components/gdprCompliance'
->>>>>>> e29900efd0d965b82a9240cdf701ff06cc7f242b
+
 
 const infiniteScroll = new InfiniteScroll()
 const loader = new Loader()
