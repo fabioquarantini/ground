@@ -9,9 +9,9 @@ import Toggle from './components/toggle';
 // import SmoothScroll from './components/smoothScroll';
 import Animations from './components/animations';
 import AnimationsFlip from './components/animationsFlip';
-import Cursor from './components/cursor';
+import Cursor from './components/cursorV2';
 import Search from './components/search';
-import Magnet from './components/magnet';
+import Magnet from './components/magnetV2';
 import Billing from './components/billing';
 import GdprCompliance from './components/gdprCompliance';
 

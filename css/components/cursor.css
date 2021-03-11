@@ -1,144 +1,79 @@
-.cursor {
-	opacity: 1;
-	transition: opacity 0.5s ease;
-	z-index: 200000;
-	pointer-events: none;
-	position: absolute;
-	top: 0;
+#cursor {
+	position: fixed;
+	z-index: 99;
 	left: 0;
-
-	&.is-cursor-hide {
-		opacity: 0;
-	}
-
-	&.is-cursor-clicked {
-		.cursor__circle--outer {
-			transform: scale(3) !important;
-			opacity: 0 !important;
-		}
-	}
-
-	&.is-cursor-dragged {
-		.cursor__circle--outer {
-			@apply bg-gray-200;
-			transform: scale(1.8);
-			border: 1px solid transparent !important;
-		}
-
-		.cursor__icon {
-			//@include icon(drag);
-		}
-	}
-
-	&.is-cursor-hover {
-		.cursor__circle--outer {
-			@apply bg-gray-200;
-			border: 1px solid transparent !important;
-			transform: scale(1.8);
-		}
-
-		.cursor__icon {
-			opacity: 0;
-		}
-	}
-
-	&.is-cursor-right {
-		.cursor__icon {
-			opacity: 1;
-			//@include icon(arrow-right);
-		}
-	}
-
-	&.is-cursor-left {
-		.cursor__icon {
-			opacity: 1;
-			//@include icon(arrow-left);
-		}
-	}
-
-	&.is-cursor-close {
-		.cursor__icon {
-			opacity: 1;
-			//@include icon(close);
-		}
-	}
-
-	&.is-cursor-zoom {
-		.cursor__icon {
-			opacity: 1;
-			//@include icon(magnifying-glass-plus);
-		}
-	}
-
-	&.is-cursor-plus {
-		.cursor__icon {
-			opacity: 1;
-			//@include icon(plus);
-		}
-	}
-
-	.is-modal-open & {
-		mix-blend-mode: difference;
-	}
-
+	top: 0;
+	pointer-events: none;
+	will-change: transform;
+	/* mix-blend-mode: difference; */
 }
-
-.cursor__circle {
-	border-radius: 50%;
-}
-
-.cursor__circle--inner {
-	@apply object-center;
-	width: 8px;
-	height: 8px;
-	.is-cursor-hover & {
-		height: 16px;
-		width: 16px;
+  
+@media (hover: hover) and (pointer: fine) {
+	.cursor__circle {
+		width: 80px;
+	  	height: 80px;
+	  	margin-top: -50%;
+	  	margin-left: -50%;
+	  	border-radius: 50%;
+	  	border: solid 1px rgba(0, 0, 0, 0.5);
+	  	transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+		background-color 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+		border-color 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+		width 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+		height 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 	}
-}
-
-.cursor__circle--outer {
-	background-color: transparent;
-	width: 38px;
-	height: 38px;
-	opacity: 1;
-	transition: all var(--ease-speed) var(--ease-default);
-	.is-cursor-always-visible & {
-		border: 1px solid theme('colors.black');
-
-		.is-modal-open & {
-			@apply border-white;
-		}
+	
+	#cursor.arrow .cursor__circle{
+	  width: 128px;
+	  height: 128px;
+	  background-color: #073099;
+	  border-color: #073099;
+	}
+	
+	#cursor.arrow::after{
+	  content: '';
+	  position: absolute;
+	  left: -50%;
+	  top: -50%;
+	  width: 100%;
+	  height: 100%;
+	  background-image: url('https://svgshare.com/i/MzQ.svg');
+	  background-repeat: no-repeat;
+	  background-position: center;
+	}
+	
+	#cursor.hover .cursor__circle{
+		width: 60px;
+		height: 60px;
+		background-color: rgba(0, 0, 0, 0.08);
+		border-color: transparent;
 	}
 
-	.is-loading & {
-		border: none;
-		opacity: 0;
+	#cursor.null .cursor__circle{
+		width: 60px;
+		height: 60px;
+		background-color: rgba(0, 0, 0, 0.08);
+		border-color: transparent;
 	}
-}
 
-.cursor__icon {
-	@apply object-center;
-	font-size: 14px;
-	@apply text-black;
-	display: inline-block;
-	transition: all var(--ease-speed) var(--ease-default);
-}
-
-.cursor__loader {
-	display: none;
-	border-radius: 50%;
-	width: 64px;
-	height: 64px;
-	position: absolute;
-	top: -32px;
-	left: -32px;
-	@apply border border-gray-200;
-	border-top: 1px solid;
-	@apply border-primary;
-	animation: rotate 1.2s infinite linear;
-
-	.is-loading & {
-		display: block;
+	#cursor.giant .cursor__circle{
+		width: 300px;
+		height: 300px;
+		background-color: rgba(0, 0, 0, 0.5);
+		border-color: transparent;
+		opacity: 0.2;
 	}
+
+	#cursor.giant::after{
+		content: '';
+		position: absolute;
+		left: -50%;
+		top: -50%;
+		width: 100%;
+		height: 100%;
+		background-image: url('https://svgshare.com/i/MzQ.svg');
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+
 }

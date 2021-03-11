@@ -11,6 +11,11 @@ get_template_part('partials/header'); ?>
 <div class="relative overflow-hidden">
 
     <div class="container text-center">
+
+        <div class="mt-44">
+            <p class="inline-block p-3 bg-green-300 rounded-lg js-magnet js-cursor-hover">HOVER MAGNETIC</p>
+        </div>
+
         <div class="my-12">
             <h1 class="mt-32 inline-block overflow-hidden opacity-0 text-9xl border-b border-gray-800 text-gray-800" data-scroll="js-splittext-chars" data-scroll-scrub="0">Animation</h1>
             <p class="animate-pulse text-2xl">Ground</p>
