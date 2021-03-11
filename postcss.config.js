@@ -3,12 +3,12 @@ module.exports = (ctx) => ({
 	syntax: 'postcss-scss',
 	plugins: {
 		'postcss-import': {},
-		'tailwindcss': {},
+		tailwindcss: {},
 		'postcss-for': {},
 		'postcss-simple-vars': {},
 		'postcss-nested': {},
 		'postcss-100vh-fix': ctx.env === 'production' ? {} : false,
-		'autoprefixer': ctx.env === 'production' ? {} : false,
-		'cssnano': ctx.env === 'production' ? {} : false,
+		autoprefixer: ctx.env === 'production' ? {} : false,
+		cssnano: ctx.env === 'production' ? {} : false,
 	},
-});
+})

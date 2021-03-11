@@ -1,9 +1,8 @@
-const path = require('path');
-const WebpackBuildNotifierPlugin = require('webpack-build-notifier');
-const mode = process.env.WEBPACK_MODE;
+const path = require('path')
+const WebpackBuildNotifierPlugin = require('webpack-build-notifier')
+const mode = process.env.WEBPACK_MODE
 
 module.exports = {
-
 	// The point or points where to start the application bundling process.
 	entry: './js/app.js',
 
@@ -22,7 +21,7 @@ module.exports = {
 	watch: mode === 'production' ? false : true,
 
 	watchOptions: {
-		ignored: ['node_modules/**']
+		ignored: ['node_modules/**'],
 	},
 
 	plugins: [
@@ -33,7 +32,7 @@ module.exports = {
 			sound: false,
 			failureSound: 'Bottle',
 			logo: path.join(__dirname, 'img/icon.png'),
-			contentImage: path.join(__dirname, 'img/icon.png')
+			contentImage: path.join(__dirname, 'img/icon.png'),
 		}),
 	],
 
@@ -44,19 +43,8 @@ module.exports = {
 				exclude: /(node_modules|bower_components)/,
 				use: {
 					loader: 'babel-loader',
-					options: {
-						presets: [
-							[
-								"@babel/preset-env",
-								{
-									useBuiltIns: "entry",
-									corejs: '3'
-								}
-							]
-						]
-					}
-				}
-			}
+				},
+			},
 		],
 	},
-};
+}
