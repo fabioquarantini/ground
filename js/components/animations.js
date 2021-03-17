@@ -42,6 +42,11 @@ export default class Animations {
 			// ScrollTrigger.refresh();
 		})
 
+		window.addEventListener('resize', () => {
+			// ScrollTrigger.update();
+			// ScrollTrigger.refresh();
+		})
+
 		window.addEventListener('NAVIGATE_IN', () => {})
 
 		window.addEventListener('NAVIGATE_END', () => {})
@@ -492,36 +497,37 @@ export default class Animations {
 	 */
 	pinHorizontalAnimation(item) {
 		const target = item.querySelector('[data-scroll-target]')
-		const targetContainer = item.querySelector(
-			'[data-scroll-target-animate]'
-		)
+		const targetContainer = item.querySelector('[data-scroll-target-animate]')
 		const targetScrub = parseInt(item.dataset.scrollScrub, 10)
 
-		const tl = gsap.timeline({
+		gsap.to(targetContainer, {
+			x: () => -targetContainer.getBoundingClientRect().width + target.getBoundingClientRect().width,
+			ease: "none",
 			scrollTrigger: {
 				trigger: target,
+				invalidateOnRefresh: true,
 				start: 'center center',
-				end: () => `+=${targetContainer.offsetWidth}`,
-				scrub: targetScrub || false,
+				end: () => "+=" + targetContainer.offsetWidth,
 				pin: true,
-				// invalidateOnRefresh: true,
-				// anticipatePin: 1,
-				// onEnter: () => {},
-				// onLeave: () => {},
-				// onEnterBack: () => {},
-				// onLeaveBack: () => {},
-			},
+				scrub: targetScrub || false,
+			}
 		})
 
-		tl.fromTo(
-			targetContainer,
-			{ x: 0 },
-			{
-				x:
-					-targetContainer.getBoundingClientRect().width +
-					target.getBoundingClientRect().width,
-			}
-		)
+		// FIRST VERSION
+		// const tl = gsap.timeline({
+		// 	scrollTrigger: {
+		// 		trigger: target,
+		// 		start: 'center center',
+		// 		end: () => `+=${targetContainer.offsetWidth}`,
+		// 		scrub: targetScrub || false,
+		// 		pin: true,
+		// 		invalidateOnRefresh: true,
+		// 	},
+		// })
+		// tl.to(
+		// 	targetContainer, { x: -targetContainer.getBoundingClientRect().width + target.getBoundingClientRect().width }
+		// )
+
 	}
 
 	/**
@@ -559,9 +565,9 @@ export default class Animations {
 		})
 
 		// ADD SKEW
-		let proxy = { skew: 0 },
-			skewSetter = gsap.quickSetter(section, 'skewX', 'deg'), // fast
-			clamp = gsap.utils.clamp(-10, 10) // don't let the skew go beyond [X] degrees.
+		// let proxy = { skew: 0 },
+		// 	skewSetter = gsap.quickSetter(section, 'skewX', 'deg'), // fast
+		// 	clamp = gsap.utils.clamp(-10, 10) // don't let the skew go beyond [X] degrees.
 		// END SKEW
 
 		sections.forEach((sct, i) => {
@@ -577,26 +583,26 @@ export default class Animations {
 						(maxWidth / (maxWidth - window.innerWidth)),
 				toggleClass: { targets: sct, className: 'active' },
 				// ADD SKEW
-				onUpdate: (self) => {
-					let skew = clamp(self.getVelocity() / -500)
-					// only do something if the skew is MORE severe. Remember, we're always tweening back to 0, so if the user slows their scrolling quickly, it's more natural to just let the tween handle that smoothly rather than jumping to the smaller skew.
-					if (Math.abs(skew) > Math.abs(proxy.skew)) {
-						proxy.skew = skew
-						gsap.to(proxy, {
-							skew: 0,
-							duration: 0.5,
-							ease: 'circ',
-							overwrite: true,
-							onUpdate: () => skewSetter(proxy.skew),
-						})
-					}
-				},
+				// onUpdate: (self) => {
+				// 	let skew = clamp(self.getVelocity() / -500)
+				// 	// only do something if the skew is MORE severe. Remember, we're always tweening back to 0, so if the user slows their scrolling quickly, it's more natural to just let the tween handle that smoothly rather than jumping to the smaller skew.
+				// 	if (Math.abs(skew) > Math.abs(proxy.skew)) {
+				// 		proxy.skew = skew
+				// 		gsap.to(proxy, {
+				// 			skew: 0,
+				// 			duration: 0.5,
+				// 			ease: 'circ',
+				// 			overwrite: true,
+				// 			onUpdate: () => skewSetter(proxy.skew),
+				// 		})
+				// 	}
+				// },
 				// END SKEW
 			})
 		})
 
 		// SKEW: make the right edge "stick" to the scroll bar. force3D: true improves performance
-		gsap.set(section, { transformOrigin: 'center center', force3D: true })
+		// gsap.set(section, { transformOrigin: 'center center', force3D: true })
 		// END SKEW
 	}
 
