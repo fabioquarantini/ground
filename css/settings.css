@@ -9,7 +9,3 @@ $navicon-gutter: 7px;
 $navicon-color: theme('colors.black');
 $navicon-color-active: $navicon-color;
 $navicon-border-radius: 0;
-
-/* Paths */
-$path-img: '../img/';
-$path-fonts: '../fonts/';
