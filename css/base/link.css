@@ -1,11 +1,13 @@
-a {
-	@apply text-primary;
-	transition: color .1s;
+@layer base {
+	a {
+		@apply text-primary;
+		transition: color 0.1s;
 
-	&:hover,
-	&:active,
-	&:focus {
-		@apply text-secondary;
-		text-decoration: none;
+		&:hover,
+		&:active,
+		&:focus {
+			@apply text-secondary;
+			text-decoration: none;
+		}
 	}
 }

@@ -1,5 +1,4 @@
 @layer base {
-
 	h1,
 	h2,
 	h3,
@@ -49,7 +48,6 @@
 		background: #b3d4fc;
 		text-shadow: none;
 	}
-
 }
 
 small,
@@ -78,16 +76,12 @@ blockquote {
 		@apply text-xs;
 		display: block;
 	}
-
 }
 
 cite {
-
 	font-style: italic;
 
 	&:before {
 		content: '\2014 \00A0';
 	}
-
 }
-
