@@ -1,3 +1,10 @@
+$navicon-width: 28px;
+$navicon-height: 1px;
+$navicon-gutter: 7px;
+$navicon-color: theme('colors.black');
+$navicon-color-active: $navicon-color;
+$navicon-border-radius: 0;
+
 .navicon {
 	position: absolute;
 	@apply top-5;
@@ -30,7 +37,7 @@
 		height: $navicon-height;
 		background-color: $navicon-color;
 		transition-property: background-color, transform;
-		transition-duration: .3s;
+		transition-duration: 0.3s;
 		@if $navicon-border-radius != 0 {
 			border-radius: $navicon-border-radius;
 		}
@@ -43,7 +50,7 @@
 	}
 
 	&:before {
-		top: -( $navicon-height + $navicon-gutter );
+		top: -($navicon-height + $navicon-gutter);
 		box-sizing: content-box;
 	}
 
@@ -52,28 +59,25 @@
 	}
 
 	.is-navigation-open & {
-
 		& {
 			background-color: transparent;
 		}
 
 		@if ($navicon-color-active != auto) {
-
 			&:before,
 			&:after {
 				background-color: $navicon-color-active;
 			}
-
 		}
 
 		&:before {
-			transform: translateY($navicon-gutter + $navicon-height) rotate(45deg);
+			transform: translateY($navicon-gutter + $navicon-height)
+				rotate(45deg);
 		}
 
 		&:after {
-			transform: translateY(-($navicon-gutter + $navicon-height )) rotate(-45deg);
+			transform: translateY(-($navicon-gutter + $navicon-height))
+				rotate(-45deg);
 		}
-
 	}
-
 }
