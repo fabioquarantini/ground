@@ -1,12 +1,11 @@
 @layer utilities {
-
 	.animate-fade-in-staggered {
 		animation-name: fade-in;
 		animation-fill-mode: forwards;
 		animation-duration: 0.5s;
 		@for $i from 1 to 20 {
-			&:nth-child($i){
-				animation-delay: calc($i*0.1s);
+			&:nth-child($i) {
+				animation-delay: calc($i * 0.1s);
 			}
 		}
 	}
@@ -16,8 +15,8 @@
 		animation-fill-mode: forwards;
 		animation-duration: 0.5s;
 		@for $i from 1 to 20 {
-			&:nth-child($i){
-				animation-delay: calc($i*0.1s);
+			&:nth-child($i) {
+				animation-delay: calc($i * 0.1s);
 			}
 		}
 	}
@@ -27,8 +26,8 @@
 		animation-fill-mode: forwards;
 		animation-duration: 0.5s;
 		@for $i from 1 to 20 {
-			&:nth-child($i){
-				animation-delay: calc($i*0.1s);
+			&:nth-child($i) {
+				animation-delay: calc($i * 0.1s);
 			}
 		}
 	}
@@ -38,8 +37,8 @@
 		animation-fill-mode: forwards;
 		animation-duration: 0.5s;
 		@for $i from 1 to 20 {
-			&:nth-child($i){
-				animation-delay: calc($i*0.1s);
+			&:nth-child($i) {
+				animation-delay: calc($i * 0.1s);
 			}
 		}
 	}
@@ -49,10 +48,9 @@
 		animation-fill-mode: forwards;
 		animation-duration: 0.5s;
 		@for $i from 1 to 20 {
-			&:nth-child($i){
-				animation-delay: calc($i*0.1s);
+			&:nth-child($i) {
+				animation-delay: calc($i * 0.1s);
 			}
 		}
 	}
-
 }
