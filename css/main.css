@@ -2,8 +2,8 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-/* Settings */
-@import 'settings.css';
+/* Variables */
+@import 'variables.css';
 
 // import Swiper styles
 @import 'swiper/swiper-bundle.css';
