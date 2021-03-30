@@ -13,7 +13,6 @@
 @import 'base/text.css';
 @import 'base/link.css';
 @import 'base/list.css';
-@import 'base/mix-blend-mode.css';
 @import 'base/print.css';
 
 // Components
@@ -65,6 +64,9 @@
 @import 'components/woocommerce/woocommerce-tabs.css';
 @import 'components/woocommerce/woocommerce-loop-product.css';
 @import 'components/woocommerce/summary.css';
+
+// Utilities
+@import 'utilities/blend.css';
 
 // Animations
 @import 'animations/staggered.css';
