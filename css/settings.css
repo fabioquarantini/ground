@@ -13,6 +13,3 @@ $navicon-border-radius: 0;
 /* Paths */
 $path-img: '../img/';
 $path-fonts: '../fonts/';
-
-/* Debug */
-$debug-css: false;
