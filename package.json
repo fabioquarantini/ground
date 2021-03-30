@@ -7,7 +7,7 @@
 		"start": "npm-run-all -p \"styles -- --watch\" \"js -- --mode=development\" sync",
 		"build": "npm-run-all \"styles -- --env production\" \"js -- --mode=production\"",
 		"styles": "postcss css/main.css -o css/styles.min.css --verbose",
-		"sync": "browser-sync start -p 'http://ground.develop' -f 'css/styles.min.css' '**/*.php' 'js/scripts.min.js' -w",
+		"sync": "browser-sync start -p 'https://ground.develop' -f 'css/styles.min.css' '**/*.php' 'js/scripts.min.js' -w",
 		"js": "webpack"
 	},
 	"homepage": "https://github.com/fabioquarantini/ground",
@@ -49,6 +49,7 @@
 		"postcss-simple-vars": "^6.0.3",
 		"prettier": "2.2.1",
 		"tailwindcss": "^2.0.4",
+		"tailwindcss-debug-screens": "^2.0.0",
 		"webpack": "^5.24.3",
 		"webpack-build-notifier": "^2.1.1",
 		"webpack-cli": "^4.5.0"
