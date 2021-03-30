@@ -1,80 +1,71 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 /* Settings */
-@import "settings.css";
+@import 'settings.css';
 
 // import Swiper styles
-@import "swiper/swiper-bundle.css";
-
+@import 'swiper/swiper-bundle.css';
 
 /* Base */
-@import "base/root.css";
-@import "base/text.css";
-@import "base/link.css";
-@import "base/list.css";
-@import "base/mix-blend-mode.css";
-@import "base/print.css";
-
-
-
-
+@import 'base/root.css';
+@import 'base/text.css';
+@import 'base/link.css';
+@import 'base/list.css';
+@import 'base/mix-blend-mode.css';
+@import 'base/print.css';
 
 // Components
-@import "components/icons.css";
-@import "components/breadcrumb.css";
-@import "components/button.css";
-@import "components/card.css";
-@import "components/carousel.css";
-@import "components/cursor.css";
-@import "components/divider.css";
+@import 'components/icons.css';
+@import 'components/breadcrumb.css';
+@import 'components/button.css';
+@import 'components/card.css';
+@import 'components/carousel.css';
+@import 'components/cursor.css';
+@import 'components/divider.css';
 //@import "components/docs.css";
-@import "components/footer.css";
-@import "components/form.css";
-@import "components/item.css";
-@import "components/loader.css";
-@import "components/media.css";
-@import "components/message.css";
+@import 'components/footer.css';
+@import 'components/form.css';
+@import 'components/item.css';
+@import 'components/loader.css';
+@import 'components/media.css';
+@import 'components/message.css';
 //@import "components/modal.css";
-@import "components/navicon.css";
-@import "components/navigation.css";
-@import "components/page.css";
-@import "components/pagination.css";
-@import "components/search.css";
-@import "components/social.css";
-@import "components/sidebar.css";
-@import "components/slider.css";
-@import "components/spinner.css";
-@import "components/table.css";
-@import "components/tooltip.css";
-@import "components/widget.css";
-@import "components/scrollbar.css";
-@import "components/masked-full-height.css";
-@import "components/scroll-progress.css";
+@import 'components/navicon.css';
+@import 'components/navigation.css';
+@import 'components/page.css';
+@import 'components/pagination.css';
+@import 'components/search.css';
+@import 'components/social.css';
+@import 'components/sidebar.css';
+@import 'components/slider.css';
+@import 'components/spinner.css';
+@import 'components/table.css';
+@import 'components/tooltip.css';
+@import 'components/widget.css';
+@import 'components/scrollbar.css';
+@import 'components/masked-full-height.css';
+@import 'components/scroll-progress.css';
 
 // WooCommerce
-@import "components/woocommerce/cart.css";
-@import "components/woocommerce/minicart.css";
-@import "components/woocommerce/price.css";
-@import "components/woocommerce/product-remove.css";
-@import "components/woocommerce/woocommerce-product-details.css";
-@import "components/woocommerce/variations.css";
-@import "components/woocommerce/widgetpricefilter.css";
-@import "components/woocommerce/widgetlayerednav.css";
-@import "components/woocommerce/woocommerce-order.css";
-@import "components/woocommerce/woocommerce-checkout.css";
-@import "components/woocommerce/woocommerce-checkout-payment.css";
-@import "components/woocommerce/woocommerce-message.css";
-@import "components/woocommerce/woocommerce-product-gallery.css";
-@import "components/woocommerce/woocommerce-tabs.css";
-@import "components/woocommerce/woocommerce-loop-product.css";
-@import "components/woocommerce/summary.css";
-
+@import 'components/woocommerce/cart.css';
+@import 'components/woocommerce/minicart.css';
+@import 'components/woocommerce/price.css';
+@import 'components/woocommerce/product-remove.css';
+@import 'components/woocommerce/woocommerce-product-details.css';
+@import 'components/woocommerce/variations.css';
+@import 'components/woocommerce/widgetpricefilter.css';
+@import 'components/woocommerce/widgetlayerednav.css';
+@import 'components/woocommerce/woocommerce-order.css';
+@import 'components/woocommerce/woocommerce-checkout.css';
+@import 'components/woocommerce/woocommerce-checkout-payment.css';
+@import 'components/woocommerce/woocommerce-message.css';
+@import 'components/woocommerce/woocommerce-product-gallery.css';
+@import 'components/woocommerce/woocommerce-tabs.css';
+@import 'components/woocommerce/woocommerce-loop-product.css';
+@import 'components/woocommerce/summary.css';
 
 // Animations
-@import "animations/staggered.css";
-@import "animations/delay.css";
-
-// Debug
-//@import "debug/debug-breakpoints.css";
+@import 'animations/staggered.css';
+@import 'animations/delay.css';
