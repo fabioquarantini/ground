@@ -1,4 +1,4 @@
-.price_slider{
+.price_slider {
 	margin-bottom: 1em;
 }
 
@@ -9,7 +9,7 @@
 }
 
 .price_slider_amount .button {
-	font-size:1.15em;
+	font-size: 1.15em;
 }
 
 .price_slider_amount .button {
@@ -41,10 +41,10 @@
 .ui-slider .ui-slider-range {
 	position: absolute;
 	z-index: 1;
-	font-size:.7em;
+	font-size: 0.7em;
 	display: block;
 	border: 0;
-	background: none repeat scroll 0 0 theme('colors.primary');
+	background: none repeat scroll 0 0 theme('colors.primary.DEFAULT');
 	border-radius: 1em;
 }
 
@@ -56,7 +56,7 @@
 }
 
 .ui-slider-horizontal {
-	height:.5em;
+	height: 0.5em;
 }
 
 .ui-slider-horizontal .ui-slider-range {

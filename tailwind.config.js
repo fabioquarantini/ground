@@ -14,8 +14,19 @@ module.exports = {
 		},
 		extend: {
 			colors: {
-				primary: '#C5AB78',
-				secondary: '#549b93',
+				primary: {
+					50: 'var(--color-primary)',
+					100: 'var(--color-primary)',
+					200: 'var(--color-primary)',
+					300: 'var(--color-primary)',
+					400: 'var(--color-primary)',
+					DEFAULT: 'var(--color-primary)',
+					600: 'var(--color-primary)',
+					700: 'var(--color-primary)',
+					800: 'var(--color-primary)',
+					900: 'var(--color-primary)',
+				},
+				secondary: 'var(--color-secondary)',
 			},
 			fontFamily: {
 				primary: [
