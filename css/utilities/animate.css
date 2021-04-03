@@ -1,0 +1,84 @@
+@layer utilities {
+	.animate-fade-in-staggered {
+		animation-name: fade-in;
+		animation-fill-mode: forwards;
+		animation-duration: 0.5s;
+		@for $i from 1 to 20 {
+			&:nth-child($i) {
+				animation-delay: calc($i * 0.1s);
+			}
+		}
+	}
+
+	.animate-fade-in-down-staggered {
+		animation-name: fade-in-down;
+		animation-fill-mode: forwards;
+		animation-duration: 0.5s;
+		@for $i from 1 to 20 {
+			&:nth-child($i) {
+				animation-delay: calc($i * 0.1s);
+			}
+		}
+	}
+
+	.animate-fade-in-up-staggered {
+		animation-name: fade-in-up;
+		animation-fill-mode: forwards;
+		animation-duration: 0.5s;
+		@for $i from 1 to 20 {
+			&:nth-child($i) {
+				animation-delay: calc($i * 0.1s);
+			}
+		}
+	}
+
+	.animate-fade-in-left-staggered {
+		animation-name: fade-in-left;
+		animation-fill-mode: forwards;
+		animation-duration: 0.5s;
+		@for $i from 1 to 20 {
+			&:nth-child($i) {
+				animation-delay: calc($i * 0.1s);
+			}
+		}
+	}
+
+	.animate-fade-in-right-staggered {
+		animation-name: fade-in-right;
+		animation-fill-mode: forwards;
+		animation-duration: 0.5s;
+		@for $i from 1 to 20 {
+			&:nth-child($i) {
+				animation-delay: calc($i * 0.1s);
+			}
+		}
+	}
+
+	.animate-delay-75 {
+		animation-delay: 75ms;
+	}
+
+	.animate-delay-100 {
+		animation-delay: 100ms;
+	}
+
+	.animate-delay-150 {
+		animation-delay: 150ms;
+	}
+
+	.animate-delay-200 {
+		animation-delay: 200ms;
+	}
+
+	.animate-delay-300 {
+		animation-delay: 300ms;
+	}
+
+	.animate-delay-500 {
+		animation-delay: 500ms;
+	}
+
+	.animate-delay-1000 {
+		animation-delay: 1000ms;
+	}
+}
