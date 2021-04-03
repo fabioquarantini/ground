@@ -63,7 +63,4 @@
 
 // Utilities
 @import 'utilities/blend.css';
-
-// Animations
-@import 'animations/staggered.css';
-@import 'animations/delay.css';
+@import 'utilities/animate.css';
