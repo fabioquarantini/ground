@@ -36,18 +36,6 @@ export default class Utilities {
 	}
 
 	/**
-	 * Send a GA page view event when context is AJAX.
-	 */
-	static trackGoogleAnalytics() {
-		if (typeof window.ga !== 'undefined') {
-			window.ga('send', 'pageview', {
-				page: window.location.pathname,
-				title: document.title,
-			})
-		}
-	}
-
-	/**
 	 * Match CSS media queries and JavaScript window width
 	 * @see http://stackoverflow.com/a/11310353
 	 * @returns {Object}
