@@ -12,30 +12,6 @@ export default class Utilities {
 	}
 
 	/**
-	 * Get template url
-	 * @returns {string}
-	 */
-	static getTemplateUrl() {
-		return document.body.dataset.templateUrl
-	}
-
-	/**
-	 * Get site url
-	 * @returns {string}
-	 */
-	static getSiteUrl() {
-		return `${window.location.protocol}//${window.location.host}`
-	}
-
-	/**
-	 * Get current url
-	 * @returns {string}
-	 */
-	static getCurrentUrl() {
-		return `${window.location.protocol}//${window.location.host}${window.location.pathname}${window.location.search}`
-	}
-
-	/**
 	 * Returns a function, that, as long as it continues to be invoked, will not be triggered.
 	 * The function will be called after it stops being called for N milliseconds.
 	 * If 'immediate' is passed, trigger the function on the leading edge, instead of the trailing.
