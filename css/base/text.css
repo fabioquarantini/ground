@@ -48,40 +48,40 @@
 		background: #b3d4fc;
 		text-shadow: none;
 	}
-}
 
-small,
-kbd,
-abbr,
-code {
-	display: inline-block;
-	vertical-align: top;
-}
+	small,
+	kbd,
+	abbr,
+	code {
+		display: inline-block;
+		vertical-align: top;
+	}
 
-pre {
-	@apply my-6;
-}
+	pre {
+		@apply my-6;
+	}
 
-blockquote {
-	@apply border-solid border border-gray-500 py-6 pl-6;
-	margin: 0 0 24px 0;
-	display: block;
-	font-style: italic;
+	blockquote {
+		@apply border-solid border border-gray-500 py-6 pl-6;
+		margin: 0 0 24px 0;
+		display: block;
+		font-style: italic;
 
-	p {
-		display: inline;
+		p {
+			display: inline;
+		}
+
+		cite {
+			@apply text-xs;
+			display: block;
+		}
 	}
 
 	cite {
-		@apply text-xs;
-		display: block;
-	}
-}
+		font-style: italic;
 
-cite {
-	font-style: italic;
-
-	&:before {
-		content: '\2014 \00A0';
+		&:before {
+			content: '\2014 \00A0';
+		}
 	}
 }
