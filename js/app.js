@@ -8,14 +8,13 @@ import Loader from './components/loader'
 import Toggle from './components/toggle'
 // import SmoothScroll from './components/smoothScroll';
 
-import Animations from './components/animations';
-import AnimationsFlip from './components/animationsFlip';
-import Cursor from './components/cursorV2';
-import Search from './components/search';
-import Magnet from './components/magnetV2';
-import Billing from './components/billing';
-import GdprCompliance from './components/gdprCompliance';
-
+import Animations from './components/animations'
+import AnimationsFlip from './components/animationsFlip'
+import Cursor from './components/cursorV2'
+import Search from './components/search'
+import Magnet from './components/magnetV2'
+import Billing from './components/billing'
+import GdprCompliance from './components/gdprCompliance'
 
 const infiniteScroll = new InfiniteScroll()
 const loader = new Loader()
