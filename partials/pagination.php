@@ -64,7 +64,7 @@ if ( $total_pages > 1 ) {
 		$pagination_new = str_replace( 'dots', '', $pagination_new );
 		$pagination_new = str_replace( $old_class, $new_class, $pagination_new );
 
-		echo '<li class="pagination__item' . sanitize_html_class( $is_active_pagination_item ) . '">' . wp_kses_data( $pagination_new ) . '</li>';
+		echo '<li class="pagination__item' . $is_active_pagination_item . '">' . $pagination_new . '</li>';
 
 	}
 
@@ -73,8 +73,8 @@ if ( $total_pages > 1 ) {
 
 wp_reset_postdata(); ?>
 
-<div class="js-infinite-status display-none">
-	<div class="infinite-scroll-request">
-		<div class="spinner centered-horizontal margin-top-1 margin-bottom-1"></div>
+<div class="js-infinite-status">
+	<div class="infinite-scroll-request overflow-hidden">
+		<?php ground_icon( 'spinner', 'animate-spin text-primary text-center inline-block flex justify-center h-12' ); ?>
 	</div>
 </div>
