@@ -1,18 +1,10 @@
 @layer base {
-	html {
-		//font-size: 1em;
-	}
-
 	html,
 	body {
-		//min-height: 100vh;
-		// height: 100vh;
 		scroll-behavior: smooth;
 	}
 
-	/*
 	html {
-
 		&.is-loading {
 			overflow: hidden;
 			// cursor: wait;
@@ -31,7 +23,6 @@
 		}
 
 		&.is-loader-complete {
-
 			&:not(.has-scroll-smooth) {
 				overflow: auto;
 			}
@@ -43,13 +34,10 @@
 			&.is-search-open {
 				overflow: hidden;
 			}
-
 		}
-
 	}
 
 	body {
-
 		.is-loading &,
 		.is-search-open & {
 			overflow-y: hidden;
@@ -62,18 +50,7 @@
 		.is-loader-complete & {
 			overflow-y: auto;
 		}
-
 	}
-	*/
-
-	// audio,
-	// canvas,
-	// iframe,
-	// img,
-	// svg,
-	// video {
-	// 	vertical-align: middle;
-	// }
 
 	// img,
 	// video,
