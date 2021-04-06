@@ -31,11 +31,11 @@ export default class Search {
 			return
 		}
 
-		const debounce = debounce(() => {
+		const debounceInput = debounce(() => {
 			this.search()
 		}, 250)
 
-		this.DOM.searchInput.addEventListener('input', debounce)
+		this.DOM.searchInput.addEventListener('input', debounceInput)
 	}
 
 	search() {
