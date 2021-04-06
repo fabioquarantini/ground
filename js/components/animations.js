@@ -1,4 +1,4 @@
-import Utilities from '../utilities/utilities'
+import { initObserver } from '../utilities/observer'
 import * as deepmerge from 'deepmerge'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -54,7 +54,7 @@ export default class Animations {
 		window.addEventListener('LOADER_COMPLETE', () => {
 			this.init()
 			this.initEvents(this.options.triggers)
-			Utilities.initObserver(this.options.triggers, this.updateEvents)
+			initObserver(this.options.triggers, this.updateEvents)
 		})
 	}
 
@@ -497,20 +497,24 @@ export default class Animations {
 	 */
 	pinHorizontalAnimation(item) {
 		const target = item.querySelector('[data-scroll-target]')
-		const targetContainer = item.querySelector('[data-scroll-target-animate]')
+		const targetContainer = item.querySelector(
+			'[data-scroll-target-animate]'
+		)
 		const targetScrub = parseInt(item.dataset.scrollScrub, 10)
 
 		gsap.to(targetContainer, {
-			x: () => -targetContainer.getBoundingClientRect().width + target.getBoundingClientRect().width,
-			ease: "none",
+			x: () =>
+				-targetContainer.getBoundingClientRect().width +
+				target.getBoundingClientRect().width,
+			ease: 'none',
 			scrollTrigger: {
 				trigger: target,
 				invalidateOnRefresh: true,
 				start: 'center center',
-				end: () => "+=" + targetContainer.offsetWidth,
+				end: () => '+=' + targetContainer.offsetWidth,
 				pin: true,
 				scrub: targetScrub || false,
-			}
+			},
 		})
 
 		// FIRST VERSION
@@ -527,7 +531,6 @@ export default class Animations {
 		// tl.to(
 		// 	targetContainer, { x: -targetContainer.getBoundingClientRect().width + target.getBoundingClientRect().width }
 		// )
-
 	}
 
 	/**

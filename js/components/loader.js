@@ -4,7 +4,7 @@
  */
 import { gsap } from 'gsap'
 import isMobile from 'ismobilejs'
-import Dispatcher from '../utilities/dispatcher'
+import { trigger } from '../utilities/trigger'
 
 const imagesLoaded = require('imagesloaded')
 const Deepmerge = require('deepmerge')
@@ -48,6 +48,6 @@ export default class Loader {
 
 	onLoaderComplete() {
 		this.DOM.html.classList.add('is-loader-complete')
-		Dispatcher.trigger('LOADER_COMPLETE')
+		trigger('LOADER_COMPLETE')
 	}
 }

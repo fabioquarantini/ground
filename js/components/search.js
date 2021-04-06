@@ -2,7 +2,8 @@
  * Search module
  */
 
-import Utilities from '../utilities/utilities'
+import { getSiteUrl } from '../utilities/paths'
+import { debounce } from '../utilities/debounce'
 import { DEBUG_MODE } from '../utilities/environment'
 export default class Search {
 	/**
@@ -17,7 +18,7 @@ export default class Search {
 			searchResult: document.getElementById('js-ajax-search-result'),
 			searchInput: document.getElementById('js-ajax-search-input'),
 		}
-		this.adminAjaxUrl = `${Utilities.getSiteUrl()}/wp-admin/admin-ajax.php`
+		this.adminAjaxUrl = `${getSiteUrl()}/wp-admin/admin-ajax.php`
 		this.searchLoadingClass = 'is-search-loading'
 
 		window.addEventListener('DOMContentLoaded', () => {
@@ -30,7 +31,7 @@ export default class Search {
 			return
 		}
 
-		const debounce = Utilities.debounce(() => {
+		const debounce = debounce(() => {
 			this.search()
 		}, 250)
 

@@ -1,4 +1,4 @@
-import Utilities from '../utilities/utilities'
+import { initObserver } from '../utilities/observer'
 import * as deepmerge from 'deepmerge'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -37,7 +37,7 @@ export default class AnimationsFlip {
 		window.addEventListener('LOADER_COMPLETE', () => {
 			this.init()
 			this.initEvents(this.options.triggers)
-			Utilities.initObserver(this.options.triggers, this.updateEvents)
+			initObserver(this.options.triggers, this.updateEvents)
 		})
 	}
 

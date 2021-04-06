@@ -3,7 +3,7 @@
  * Mouse interactions
  */
 
-import Utilities from '../utilities/utilities'
+import { initObserver } from '../utilities/observer'
 import { gsap } from 'gsap'
 
 const Deepmerge = require('deepmerge')
@@ -30,7 +30,7 @@ export default class Magnet {
 		window.addEventListener('DOMContentLoaded', () => {
 			this.init()
 			this.initEvents(this.options.triggers)
-			Utilities.initObserver(this.options.triggers, this.updateEvents)
+			initObserver(this.options.triggers, this.updateEvents)
 		})
 	}
 

@@ -1,4 +1,4 @@
-import Utilities from '../utilities/utilities'
+import { initObserver } from '../utilities/observer'
 import * as deepmerge from 'deepmerge'
 
 export default class ContactForm {
@@ -22,7 +22,7 @@ export default class ContactForm {
 
 		window.addEventListener('DOMContentLoaded', () => {
 			this.init()
-			Utilities.initObserver(this.options.triggers, this.updateEvents)
+			initObserver(this.options.triggers, this.updateEvents)
 		})
 	}
 

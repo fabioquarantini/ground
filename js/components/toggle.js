@@ -1,7 +1,7 @@
 /**
  * Toggle module
  */
-import Utilities from '../utilities/utilities'
+import { initObserver } from '../utilities/observer'
 const Deepmerge = require('deepmerge')
 
 export default class Toggle {
@@ -28,7 +28,7 @@ export default class Toggle {
 		window.addEventListener('DOMContentLoaded', () => {
 			this.init()
 			this.initEvents(this.options.triggers)
-			Utilities.initObserver(this.options.triggers, this.updateEvents)
+			initObserver(this.options.triggers, this.updateEvents)
 		})
 	}
 

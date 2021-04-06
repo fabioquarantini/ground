@@ -3,7 +3,7 @@
  * Lightbox library for presenting various types of media
  */
 
-import Utilities from '../utilities/utilities'
+import { initObserver } from '../utilities/observer'
 import * as PhotoSwipe from 'photoswipe'
 import * as PhotoSwipeUIDefault from 'photoswipe/dist/photoswipe-ui-default'
 
@@ -33,7 +33,7 @@ export default class Modal {
 		window.addEventListener('DOMContentLoaded', () => {
 			this.init()
 			this.initEvents(this.options.triggers)
-			Utilities.initObserver(this.options.triggers, this.updateEvents)
+			initObserver(this.options.triggers, this.updateEvents)
 		})
 	}
 

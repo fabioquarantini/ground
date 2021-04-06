@@ -6,7 +6,7 @@
 import Highway from '@dogstudio/highway'
 import Reveal from '../transitions/reveal'
 import Fade from '../transitions/fade'
-import Dispatcher from '../utilities/dispatcher'
+import { trigger } from '../utilities/trigger'
 import ContactForm from './contactForm'
 
 // eslint-disable-next-line no-unused-vars
@@ -56,7 +56,7 @@ export default class AjaxNavigation {
 		const links = document.querySelectorAll('.navigation__item')
 		// Clean class
 		this.DOM.body.className = data.to.page.body.className
-		Dispatcher.trigger('NAVIGATE_IN', data)
+		trigger('NAVIGATE_IN', data)
 
 		for (let i = 0; i < links.length; i++) {
 			const item = links[i]
@@ -76,13 +76,13 @@ export default class AjaxNavigation {
 	 * This event is sent everytime the out() method of a transition is run to hide a data-router-view
 	 */
 	navigateOut(data) {
-		Dispatcher.trigger('NAVIGATE_OUT', data)
+		trigger('NAVIGATE_OUT', data)
 	}
 
 	/**
 	 * This event is sent everytime the done() method is called in the in() method of a transition
 	 */
 	navigateEnd(data) {
-		Dispatcher.trigger('NAVIGATE_END', data)
+		trigger('NAVIGATE_END', data)
 	}
 }

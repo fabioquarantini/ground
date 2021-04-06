@@ -5,7 +5,7 @@
  * TODO: Fix Smoothscroll
  * TODO: Fix highway on new link
  */
-import Utilities from '../utilities/utilities'
+import { initObserver } from '../utilities/observer'
 import { DEBUG_MODE } from '../utilities/environment'
 
 const Deepmerge = require('deepmerge')
@@ -38,7 +38,7 @@ export default class InfiniteScroll {
 
 		window.addEventListener('DOMContentLoaded', () => {
 			this.init()
-			Utilities.initObserver(this.element, this.updateEvents)
+			initObserver(this.element, this.updateEvents)
 		})
 
 		// TODO: Destroy with observer

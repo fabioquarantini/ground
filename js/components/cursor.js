@@ -2,7 +2,9 @@
  * Cursor module
  * Mouse interactions
  */
-import Utilities from '../utilities/utilities'
+//import { initObserver } from '../utilities/observer'
+import { lerp } from '../utilities/math'
+import { getMousePosition } from '../utilities/device'
 
 const Deepmerge = require('deepmerge')
 const isMobile = require('ismobilejs')
@@ -48,7 +50,7 @@ export default class Cursor {
 		window.addEventListener('DOMContentLoaded', () => {
 			this.init()
 			this.initEvents(this.options.triggers)
-			// Utilities.initObserver(this.options.triggers, this.updateEvents);
+			// initObserver(this.options.triggers, this.updateEvents);
 		})
 	}
 
@@ -110,18 +112,18 @@ export default class Cursor {
 		if (!isMobile.any && this.DOM.element === null) {
 			return
 		}
-		this.lastMousePos.x = Utilities.lerp(
+		this.lastMousePos.x = lerp(
 			this.lastMousePos.x,
 			this.mousePos.x - this.bounds.width / 2,
 			this.options.interpolationAmount.outer
 		)
-		this.lastMousePos.y = Utilities.lerp(
+		this.lastMousePos.y = lerp(
 			this.lastMousePos.y,
 			this.mousePos.y - this.bounds.height / 2,
 			this.options.interpolationAmount.outer
 		)
-		this.lastScale = Utilities.lerp(this.lastScale, this.scale, 0.15)
-		this.lastOpacity = Utilities.lerp(this.lastOpacity, this.opacity, 0.1)
+		this.lastScale = lerp(this.lastScale, this.scale, 0.15)
+		this.lastOpacity = lerp(this.lastOpacity, this.opacity, 0.1)
 		this.DOM.element.style.transform = `translateX(${this.lastMousePos.x}px) translateY(${this.lastMousePos.y}px)`
 		// this.DOM.outerCursor.style.transform = `scale(${this.lastScale})`;
 		this.DOM.outerCursor.style.opacity = this.lastOpacity
@@ -145,7 +147,7 @@ export default class Cursor {
 	}
 
 	getMousePosition(event) {
-		this.mousePos = Utilities.getMousePosition(event)
+		this.mousePos = getMousePosition(event)
 	}
 
 	/**

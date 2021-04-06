@@ -4,7 +4,7 @@
  * @see https://github.com/locomotivemtl/locomotive-scroll
  */
 
-import Utilities from '../utilities/utilities'
+import { initObserver } from '../utilities/observer'
 import LocomotiveScroll from 'locomotive-scroll'
 import * as deepmerge from 'deepmerge'
 
@@ -54,11 +54,8 @@ export default class SmoothScroll {
 			this.init()
 			this.initEvents(this.options.updater)
 			// TODO: Only 1 observer
-			Utilities.initObserver(this.options.triggers, this.updateEvents)
-			Utilities.initObserver(
-				'.' + this.options.updaterClass,
-				this.updateEvents
-			)
+			initObserver(this.options.triggers, this.updateEvents)
+			initObserver('.' + this.options.updaterClass, this.updateEvents)
 		})
 
 		window.addEventListener('NAVIGATE_OUT', () => {

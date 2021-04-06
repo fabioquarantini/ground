@@ -1,4 +1,4 @@
-import Utilities from '../utilities/utilities'
+import { initObserver } from '../utilities/observer'
 import * as deepmerge from 'deepmerge'
 import { gsap } from 'gsap'
 
@@ -20,7 +20,7 @@ export default class Example {
 		window.addEventListener('DOMContentLoaded', () => {
 			this.init()
 			this.initEvents(this.options.triggers)
-			Utilities.initObserver(this.options.triggers, this.updateEvents)
+			initObserver(this.options.triggers, this.updateEvents)
 		})
 	}
 
