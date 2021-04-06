@@ -11,7 +11,7 @@
 function ground_enqueue_styles() {
 	wp_enqueue_style( 'main-style', TEMPLATE_URL . '/css/styles.min.css', array(), '1.0', 'all' );
 	wp_enqueue_style( 'yacc-style', 'https://cdn.etcloud.it/yacc/1.3.0/yacc.css', array(), '1.3.0', 'all' );
-	wp_enqueue_style( 'swiper-style', 'https://unpkg.com/swiper@6.5.3/swiper-bundle.min.css', array(), '6.5.3', 'all' );
+	wp_enqueue_style( 'swiper-style', 'https://unpkg.com/swiper@6.5.4/swiper-bundle.min.css', array(), '6.5.3', 'all' );
 }
 
 add_action( 'wp_enqueue_scripts', 'ground_enqueue_styles', 9 );
