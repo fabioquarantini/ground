@@ -74,6 +74,23 @@ if ( ! function_exists( 'ground_woocommerce_cart_link' ) ) {
 	 * @since  1.0.0
 	 */
 	function ground_woocommerce_cart_link() {
-		get_template_part( 'partials/woocommerce/minicart','contents' );
+		get_template_part( 'partials/woocommerce/minicart', 'contents' );
 	}
 }
+
+/**
+ * Automatically Update Cart on Quantity Change
+ */
+function ground_cart_refresh_update_qty() {
+	if ( is_cart() ) {
+		?>
+	<script type="text/javascript">
+		jQuery('div.woocommerce').on('click', 'input.qty', function(){
+			jQuery("[name='update_cart']").trigger("click");
+		});
+	</script>
+		<?php
+	}
+}
+
+add_action( 'wp_footer', 'ground_cart_refresh_update_qty' );
