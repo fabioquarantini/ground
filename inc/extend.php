@@ -176,6 +176,8 @@ function ground_markup() {
 		'comment-list',
 		'gallery',
 		'caption',
+		'script',
+		'style',
 	);
 
 	add_theme_support( 'html5', $markup );
