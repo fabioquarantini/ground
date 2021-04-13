@@ -256,17 +256,18 @@ function ground_image( $size = 'thumbnail', $post = null, $url = true, $echo = t
  * @param string  $additional_class Optional. Html class. Default is empty.
  * @param boolean $url Optional. Return url. Default is false.
  * @param string  $extension Optional. Default echo HTML.
+ * @param string  $tag Optional. HTML tag wrapper.
  */
-function ground_icon( $name = '', $additional_class = '', $url = false, $extension = 'svg' ) {
+function ground_icon( $name = '', $additional_class = '', $url = false, $extension = 'svg', $tag = 'span' ) {
 	if ( '' === $name ) {
 		return;
 	}
 	if ( $url ) {
 		return TEMPLATE_URL . '/img/icons/' . $name . '.' . $extension;
 	} else {
-		echo '<span class="icon icon--' . $name . ' ' . $additional_class . '">';
+		echo '<' . $tag . ' class="icon icon--' . $name . ' ' . $additional_class . '">';
 		echo file_get_contents( TEMPLATE_PATH . '/img/icons/' . $name . '.' . $extension );
-		echo '</span>';
+		echo '</' . $tag . '>';
 	}
 }
 
@@ -274,7 +275,7 @@ function ground_icon( $name = '', $additional_class = '', $url = false, $extensi
  * Add attachment gallery attributes
  *
  * @param string $link Attachment page link.
- * @param int $id Post ID or post object.
+ * @param int    $id Post ID or post object.
  * @return string
  */
 function ground_gallery_modal( $link, $id ) {
@@ -322,7 +323,7 @@ function ground_body_class_bem( $classes ) {
 
 }
 
-//add_filter( 'body_class', 'ground_body_class_bem' );
+// add_filter( 'body_class', 'ground_body_class_bem' );
 
 /**
  * Save ACF local JSON
