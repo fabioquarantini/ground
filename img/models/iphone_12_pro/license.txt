@@ -1,0 +1,11 @@
+Model Information:
+* title:	iPhone 12 Pro
+* source:	https://sketchfab.com/3d-models/iphone-12-pro-3a77a46585a7401488fd9be26fd912cd
+* author:	TAIGA-ZOE (https://sketchfab.com/TAIGA-ZOE)
+
+Model License:
+* license type:	CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
+* requirements:	Author must be credited. No commercial use.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "iPhone 12 Pro" (https://sketchfab.com/3d-models/iphone-12-pro-3a77a46585a7401488fd9be26fd912cd) by TAIGA-ZOE (https://sketchfab.com/TAIGA-ZOE) licensed under CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)

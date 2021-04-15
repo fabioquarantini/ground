@@ -8,6 +8,9 @@
 
 get_template_part('partials/header'); ?>
 
+
+
+
 <div class="relative overflow-hidden">
 
     <div class="container text-center">
@@ -24,6 +27,17 @@ get_template_part('partials/header'); ?>
         </div>
     </div>
 
+
+    <div class="mt-40 text-center relative border-4 border-red-800">
+        <div class="relative" data-scroll="js-three" data-scroll-scrub="1">
+            <div class="relative" data-scroll-target>
+                <div class="relative">
+                    <canvas data-scroll-canvas />
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container mt-12 text-center" data-flip>
         <h2 class="mb-9 text-gray-300">Drag the squares <strong class="text-gray-800">Flip</strong></h2>
         <button data-flip-trigger>CLICK HERE TO FLIP</button>
@@ -34,6 +48,8 @@ get_template_part('partials/header'); ?>
             <div class="inline-block h-12 w-12 m-12 border border-green-500 transform rotate-45" data-flip-to></div>
         </div>
     </div>
+
+
 
     <div class="container max-w-2xl mt-40 text-center">
 

@@ -7,7 +7,7 @@
 		"start": "npm-run-all -p \"styles -- --watch\" \"js -- --mode=development\" sync",
 		"build": "npm-run-all \"styles -- --env production\" \"js -- --mode=production\"",
 		"styles": "postcss css/main.css -o css/styles.min.css --verbose --map",
-		"sync": "browser-sync start -p 'https://ground.develop' -f 'css/styles.min.css' '**/*.php' 'js/scripts.min.js' -w",
+		"sync": "browser-sync start -p 'http://ground.develop' -f 'css/styles.min.css' '**/*.php' 'js/scripts.min.js' -w",
 		"js": "webpack"
 	},
 	"homepage": "https://github.com/fabioquarantini/ground",
@@ -64,6 +64,8 @@
 		"ismobilejs": "1.1.1",
 		"locomotive-scroll": "4.1.1",
 		"photoswipe": "4.1.3",
-		"swiper": "6.5.4"
+		"swiper": "6.5.4",
+		"three": "^0.126.0",
+		"dat.gui": "^0.7.7"
 	}
 }
