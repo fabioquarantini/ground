@@ -633,6 +633,7 @@ export default class AnimationsThree {
 			}
 		)
 
+
 		/**
 		 * Lights
 		 */
@@ -650,6 +651,8 @@ export default class AnimationsThree {
 		gui.add(directionalLight.position, 'x').min(- 5).max(5).step(0.001).name('lightX')
 		gui.add(directionalLight.position, 'y').min(- 5).max(5).step(0.001).name('lightY')
 		gui.add(directionalLight.position, 'z').min(- 5).max(5).step(0.001).name('lightZ')
+
+		
 
 		/**
 		 * Objects
@@ -690,7 +693,6 @@ export default class AnimationsThree {
 		controls.enablePan = false
 		controls.autoRotate = false
 		controls.enabled = true
-
 
 		/**
 		 * Renderer
@@ -756,6 +758,10 @@ export default class AnimationsThree {
 
 		tick()
 
+		console.log(scene.children)
+
+		console.log(scene.children.PerspectiveCamera)
+
 		// const scrollAnimate = (model) => {
 
 		const tl = gsap.timeline({
@@ -772,9 +778,7 @@ export default class AnimationsThree {
 
 		tl
 			.from(cube.rotation, { z: 4 })
-			// .from(model.rotation, { z: 1 })
-
-
+			.from(camera.position, { y: 4, x: 4 })
 		// }
 
 	}
@@ -969,3 +973,20 @@ export default class AnimationsThree {
 			.fromTo(targetImage, { xPercent: -100, x: 0 }, { xPercent: 0 }, 0)
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
