@@ -160,7 +160,7 @@ get_template_part('partials/header'); ?>
         <div data-scroll-target>
             <h2 class="mb-9 text-gray-300">Pin Horizontal Full Width<strong class="text-gray-500"> Resize Compatible</strong></h2>
             <div class="relative flex whitespace-nowrap bg-white rounded-lg pb-4">
-                <div class="mix-blend-mode-difference" data-scroll-target-animate>
+                <div class="mix-blend-difference" data-scroll-target-animate>
                     <h1 class="text-9xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h1>
                 </div>
             </div>
@@ -171,7 +171,7 @@ get_template_part('partials/header'); ?>
         <div data-scroll-target>
             <h2 class="mb-9 text-gray-300">Pin Horizontal<strong class="text-gray-500"> Resize Compatible</strong></h2>
             <div class="relative flex whitespace-nowrap bg-white rounded-lg pb-4">
-                <div class="mix-blend-mode-difference" data-scroll-target-animate>
+                <div class="mix-blend-difference" data-scroll-target-animate>
                     <h1 class="text-9xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h1>
                 </div>
             </div>
@@ -182,7 +182,7 @@ get_template_part('partials/header'); ?>
         <div data-scroll-target>
             <h2 class="mb-9 text-gray-300">Pin Horizontal<strong class="text-gray-500"> Resize Compatible</strong></h2>
             <div class="relative flex whitespace-nowrap bg-white rounded-lg pb-4">
-                <div class="mix-blend-mode-difference" data-scroll-target-animate>
+                <div class="mix-blend-difference" data-scroll-target-animate>
                     <h1 class="text-9xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h1>
                 </div>
             </div>
@@ -193,7 +193,7 @@ get_template_part('partials/header'); ?>
         <div data-scroll-target>
             <h2 class="mb-9 text-gray-300">Pin Horizontal Items<strong class="text-gray-500"> Resize Compatible</strong></h2>
             <div class="relative flex whitespace-nowrap bg-white rounded-lg py-9">
-                <div class="mix-blend-mode-difference" data-scroll-target-animate>
+                <div class="mix-blend-difference" data-scroll-target-animate>
                     <div class="flex space-x-12 text-center">
                         <div class="py-9 w-60 bg-white rounded-lg">FIRST</div>
                         <div class="py-9 w-60 bg-white rounded-lg"></div>
