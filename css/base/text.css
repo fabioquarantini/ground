@@ -10,10 +10,6 @@
 
 	h1 {
 		@apply text-5xl;
-
-		@media sm {
-			@apply text-4xl;
-		}
 	}
 
 	h2 {
