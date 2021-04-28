@@ -65,8 +65,8 @@ export default class animationComparison {
 				end: () => `+=${target.offsetWidth}`,
 				scrub: targetScrub || false,
 				pin: true,
-				
-				// anticipatePin: 1,
+				pinReparent: true,
+				anticipatePin: 1,
 			},
 			defaults: { ease: 'none' },
 		})

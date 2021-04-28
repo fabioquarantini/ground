@@ -154,6 +154,57 @@ get_template_part('partials/header'); ?>
 
     </div>
 
+    <div class="my-44 relative container max-w-4xl text-center" data-scroll="js-batch" data-scroll-scrub="1">
+        <h2 class="mt-28 mb-9 text-gray-300">Batch <strong class="text-gray-500"></strong></h2>
+        <div class="py-9 bg-green-300 rounded-lg inline-block w-1/5 text-black" data-scroll-target></div>
+        <div class="py-9 bg-green-300 rounded-lg inline-block w-1/5 text-black" data-scroll-target></div>
+        <div class="py-9 bg-green-300 rounded-lg inline-block w-1/5 text-black" data-scroll-target></div>
+        <div class="py-9 bg-green-300 rounded-lg inline-block w-1/5 text-black" data-scroll-target></div>
+        <div class="py-9 bg-green-300 rounded-lg inline-block w-1/5 text-black" data-scroll-target></div>
+        <div class="py-9 bg-green-300 rounded-lg inline-block w-1/5 text-black" data-scroll-target></div>
+        <div class="py-9 bg-green-300 rounded-lg inline-block w-1/5 text-black" data-scroll-target></div>
+        <div class="py-9 bg-green-300 rounded-lg inline-block w-1/5 text-black" data-scroll-target></div>
+        <div class="py-9 bg-green-300 rounded-lg inline-block w-1/5 text-black" data-scroll-target></div>
+        <div class="py-9 bg-green-300 rounded-lg inline-block w-1/5 text-black" data-scroll-target></div>
+        <div class="py-9 bg-green-300 rounded-lg inline-block w-1/5 text-black" data-scroll-target></div>
+        <div class="py-9 bg-green-300 rounded-lg inline-block w-1/5 text-black" data-scroll-target></div>
+    </div>
+
+    <div class="my-44 relative container max-w-4xl">
+        <h2 class="mb-6 text-gray-300">Draw <strong class="text-gray-500">SVG</strong></h2>
+        <div class="bg-white bg-opacity-10 rounded-lg text-center pt-4">
+            <div class="inline-block">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="350" height="200" data-scroll="js-draw" data-scroll-scrub="1">
+                    <path id="word" style="stroke-linecap: round; stroke-linejoin: round;" fill="none" stroke="#ffffff" stroke-width="7" d="M22.328,70.018c9.867-7.4,10.724,20.434,13.014,28.694c-0.08-9.105-1.308-31.463,11.936-31.886c11.313-0.361,17.046,19.368,16.367,28.098c-1.432-10.289,6.234-30.682,18.163-25.671c11.505,4.833,8.682,26.772,20.071,31.964c13.06,5.953,14.854-8.305,19.734-17.017c7.188-12.836,4.933-15.417,29.6-14.8c-8.954-3.842-37.42,1.728-28.539,20.1c5.823,12.045,34.911,12.583,30.018-8.873c-5.385,17.174,24.01,23.104,24.01,9.123c0-9.867,3.816-15.937,16.034-18.5c8.359-1.754,18.982,4.754,25.9,9.25c-10.361-4.461-51.941-13.776-37.749,12.357c9.435,17.372,50.559,2.289,33.477-6.063c-2.871,19.008,32.415,31.684,30.695,54.439c-2.602,34.423-66.934,24.873-79.302,2.134c-13.11-24.101,38.981-36.781,54.798-40.941c8.308-2.185,42.133-12.162,25.88-25.587c-2.779,17.058,19.275,28.688,29.963,12.911c6.862-10.131,6.783-25.284,30.833-19.117c-9.404-0.429-32.624-0.188-32.864,18.472c-0.231,17.912,21.001,21.405,40.882,11.951" />
+                    <path id="dot" style="stroke-linecap: round; stroke-linejoin: round;" fill="none" stroke="#ffffff" stroke-width="7" d="M247.003,38.567c-7.423,1.437-11.092,9.883-1.737,11.142c14.692,1.978,13.864-13.66,1.12-8.675" />
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <div class="relative container max-w-4xl" data-scroll="js-comparison" data-scroll-scrub="1">
+        <div data-scroll-target>
+            <h2 class="mb-6 text-gray-300">Pin <strong class="text-gray-500">Comparison</strong></h2>
+            <div class="position-relative aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
+                <div class="h-full w-full">
+                    <img class="absolute h-full w-full top-0" src="<?php echo esc_url(TEMPLATE_URL); ?>/img/sample-before.jpg" alt="before">
+                </div>
+                <div class="h-full w-full absolute overflow-hidden top-0 translate-x-full" data-scroll-target-media>
+                    <img class="-translate-x-full" src="<?php echo esc_url(TEMPLATE_URL); ?>/img/sample-after.jpg" alt="after">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="relative container my-44" data-scroll="js-pin" data-scroll-scrub="1">
+        <div data-scroll-target>
+            <h2 class="mb-6 text-gray-300">Pin <strong class="text-gray-500">Scale</strong></h2>
+            <div class="bg-white bg-opacity-10 rounded-lg">
+                <div data-scroll-target-animate class="bg-green-300 rounded-lg w-full h-80"></div>
+            </div>
+        </div>
+    </div>
+
     <div class="my-44 container relative" data-scroll="js-horizontal-scroll" data-scroll-scrub="1">
         <div data-scroll-target>
             <h2 class="mb-9 text-gray-300">Pin Horizontal Items<strong class="text-gray-500"> Resize Compatible</strong></h2>
@@ -237,58 +288,17 @@ get_template_part('partials/header'); ?>
             <div class="py-9 my-12 bg-green-300 rounded-lg inline-block w-1/5 text-black" data-scroll="js-rotation" data-scroll-scrub="3">SCRUB 3</div>
         </div>
 
-        <div class="my-44" data-scroll="js-batch">
-            <h2 class="mt-28 mb-9 text-gray-300">Batch <strong class="text-gray-500"></strong></h2>
-            <div class="py-9 bg-green-300 rounded-lg inline-block w-1/5 text-black" data-scroll-target></div>
-            <div class="py-9 bg-green-300 rounded-lg inline-block w-1/5 text-black" data-scroll-target></div>
-            <div class="py-9 bg-green-300 rounded-lg inline-block w-1/5 text-black" data-scroll-target></div>
-            <div class="py-9 bg-green-300 rounded-lg inline-block w-1/5 text-black" data-scroll-target></div>
-            <div class="py-9 bg-green-300 rounded-lg inline-block w-1/5 text-black" data-scroll-target></div>
-            <div class="py-9 bg-green-300 rounded-lg inline-block w-1/5 text-black" data-scroll-target></div>
-            <div class="py-9 bg-green-300 rounded-lg inline-block w-1/5 text-black" data-scroll-target></div>
-            <div class="py-9 bg-green-300 rounded-lg inline-block w-1/5 text-black" data-scroll-target></div>
-            <div class="py-9 bg-green-300 rounded-lg inline-block w-1/5 text-black" data-scroll-target></div>
-            <div class="py-9 bg-green-300 rounded-lg inline-block w-1/5 text-black" data-scroll-target></div>
-            <div class="py-9 bg-green-300 rounded-lg inline-block w-1/5 text-black" data-scroll-target></div>
-            <div class="py-9 bg-green-300 rounded-lg inline-block w-1/5 text-black" data-scroll-target></div>
-        </div>
 
-        <div class="my-44">
-            <h2 class="mb-6 text-gray-300">Draw <strong class="text-gray-500">SVG</strong></h2>
-            <div class="bg-white bg-opacity-10 rounded-lg text-center pt-4">
-                <div class="inline-block">
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="350" height="200" data-scroll="js-draw" data-scroll-scrub="1">
-                        <path id="word" style="stroke-linecap: round; stroke-linejoin: round;" fill="none" stroke="#ffffff" stroke-width="7" d="M22.328,70.018c9.867-7.4,10.724,20.434,13.014,28.694c-0.08-9.105-1.308-31.463,11.936-31.886c11.313-0.361,17.046,19.368,16.367,28.098c-1.432-10.289,6.234-30.682,18.163-25.671c11.505,4.833,8.682,26.772,20.071,31.964c13.06,5.953,14.854-8.305,19.734-17.017c7.188-12.836,4.933-15.417,29.6-14.8c-8.954-3.842-37.42,1.728-28.539,20.1c5.823,12.045,34.911,12.583,30.018-8.873c-5.385,17.174,24.01,23.104,24.01,9.123c0-9.867,3.816-15.937,16.034-18.5c8.359-1.754,18.982,4.754,25.9,9.25c-10.361-4.461-51.941-13.776-37.749,12.357c9.435,17.372,50.559,2.289,33.477-6.063c-2.871,19.008,32.415,31.684,30.695,54.439c-2.602,34.423-66.934,24.873-79.302,2.134c-13.11-24.101,38.981-36.781,54.798-40.941c8.308-2.185,42.133-12.162,25.88-25.587c-2.779,17.058,19.275,28.688,29.963,12.911c6.862-10.131,6.783-25.284,30.833-19.117c-9.404-0.429-32.624-0.188-32.864,18.472c-0.231,17.912,21.001,21.405,40.882,11.951" />
-                        <path id="dot" style="stroke-linecap: round; stroke-linejoin: round;" fill="none" stroke="#ffffff" stroke-width="7" d="M247.003,38.567c-7.423,1.437-11.092,9.883-1.737,11.142c14.692,1.978,13.864-13.66,1.12-8.675" />
-                    </svg>
-                </div>
-            </div>
-        </div>
-
-        <div class="relative my-44" data-scroll="js-pin" data-scroll-scrub="1">
+        <!-- <div class="relative my-44" data-scroll="js-pin" data-scroll-scrub="1">
             <div data-scroll-target>
                 <h2 class="mb-6 text-gray-300">Pin <strong class="text-gray-500">Scale</strong></h2>
                 <div class="bg-white bg-opacity-10 rounded-lg">
                     <div data-scroll-target-animate class="bg-green-300 rounded-lg w-full h-80"></div>
                 </div>
             </div>
-        </div>
-
-        <!-- <div data-scroll="js-comparison" data-scroll-scrub="1">
-            <div data-scroll-target>
-                <h2 class="mb-6 text-gray-300">Pin <strong class="text-gray-500">Comparison</strong></h2>
-                <div class="position-relative aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
-                    <div class="h-full w-full">
-                        <img class="absolute h-full w-full top-0" src="<?php echo esc_url(TEMPLATE_URL); ?>/img/sample-before.jpg" alt="before">
-                    </div>
-                    <div class="h-full w-full absolute overflow-hidden top-0 translate-x-full" data-scroll-target-media>
-                        <img class="-translate-x-full" src="<?php echo esc_url(TEMPLATE_URL); ?>/img/sample-after.jpg" alt="after">
-                    </div>
-                </div>
-            </div>
         </div> -->
 
-        <!-- <div class="my-44">
+        <div class="my-44">
             <h2 class="mt-28 mb-9 text-gray-300">Video <strong class="text-gray-500">Play if Inview</strong></h2>
             <div class="rounded-lg overflow-hidden border border-white aspect-w-16 aspect-h-9" data-scroll="js-video">
                 <video data-scroll-target preload="none" playsinline muted loop>
@@ -304,7 +314,7 @@ get_template_part('partials/header'); ?>
                     <canvas data-scroll-canvas class="relative w-full" />
                 </div>
             </div>
-        </div> -->
+        </div>
 
     </div>
 

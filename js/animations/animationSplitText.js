@@ -65,6 +65,7 @@ export default class animationSplitText {
 				start: 'top 90%',
 				end: 'bottom 60%',
 				scrub: targetScrub || false,
+				markers: true,
 				toggleActions: 'play none play reset',
 			},
 		})

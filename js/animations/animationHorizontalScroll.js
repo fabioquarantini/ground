@@ -71,6 +71,7 @@ export default class animationHorizontalScroll {
 				end: () => '+=' + targetContainer.offsetWidth,
 				pin: true,
 				pinReparent: true,
+				anticipatePin: 1,
 				scrub: targetScrub || false,
 			},
 		})

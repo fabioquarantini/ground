@@ -52,8 +52,8 @@ export default class animationPin {
 	 *  Start Animation
 	 */
 	startAnimation(item) {
-
-		const target = item.querySelector('[data-scroll-target]')
+		
+		const target = item.querySelectorAll('[data-scroll-target]')
 		const targetElement = item.querySelectorAll(
 			'[data-scroll-target-animate]'
 		)
@@ -63,12 +63,12 @@ export default class animationPin {
 			scrollTrigger: {
 				trigger: target,
 				start: 'center center',
-				end: '+=200%',
-				toggleClass: 'active',
+				// end: '+=200%',
+				// toggleClass: 'active',
+				scrub: targetScrub || false,
 				pin: true,
 				pinReparent: true,
-				scrub: targetScrub || false,
-				// anticipatePin: 1,
+				anticipatePin: 1,
 			},
 		})
 

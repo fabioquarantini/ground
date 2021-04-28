@@ -179,6 +179,7 @@ export default class animationWebGl {
 			}
 		)
 
+
 		/**
 		 * Lights
 		 */
@@ -316,7 +317,6 @@ export default class animationWebGl {
 				end: '+=200%',
 				scrub: targetScrub || false,
 				pin: true,
-				pinReparent: true,
 				toggleActions: 'play none play reverse',
 			},
 		})

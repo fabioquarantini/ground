@@ -40,6 +40,7 @@ export default class animationDefault {
 				this.startAnimation(element)
 			} 
 		})
+	
 	}
 
 	/**
@@ -64,7 +65,7 @@ export default class animationDefault {
 			start: 'top 100%',
 			toggleClass: targetClass,
 			toggleActions: 'play none none none',
-			once: true,
+			once: false,
 			//markers: true,
 		})
 	}

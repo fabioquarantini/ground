@@ -69,9 +69,9 @@ export default class animationBatch {
 			onLeaveBack: (batch) =>
 				gsap.set(batch, { autoAlpha: 0, overwrite: true }),
 		})
-		ScrollTrigger.addEventListener('refreshInit', () =>
-			gsap.set(target, { y: 0 })
-		)
+		// ScrollTrigger.addEventListener('refreshInit', () =>
+		// 	gsap.set(target, { y: 0 })
+		// )
 	
 	}
 

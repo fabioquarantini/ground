@@ -61,9 +61,7 @@ export default class animationDraw {
 			scrollTrigger: {
 				trigger: item,
 				scrub: targetScrub || false,
-				start: 'top 70%',
-				end: 'bottom 70%',
-				toggleActions: 'play none play reverse',
+				toggleActions: 'play none none none',
 			},
 		})
 
