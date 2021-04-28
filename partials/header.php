@@ -16,7 +16,7 @@
 
 	<div class="scroll" id="js-scroll">
 
-		<?php // get_template_part( 'partials/content', 'header' ); 
+		<?php get_template_part('partials/content', 'header');
 		?>
 		<?php
 		// get_template_part( 'partials/loader' );
