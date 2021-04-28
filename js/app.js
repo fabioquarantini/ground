@@ -8,7 +8,7 @@ import Loader from './components/loader'
 import Toggle from './components/toggle'
 // import SmoothScroll from './components/smoothScroll';
 
-import AnimationsFlip from './components/animationsFlip'
+
 import Cursor from './components/cursorV2'
 import Search from './components/search'
 import Magnet from './components/magnetV2'
@@ -17,6 +17,7 @@ import GdprCompliance from './components/gdprCompliance'
 
 // Animations
 import AnimationAll from './animations/animationAll'
+import AnimationsFlip from './animations/animationsFlip'
 // import AnimationBatch from './animations/animationBatch'
 // import AnimationChangeBgColor from './animations/animationChangeBgColor'
 // import AnimationComparison from './animations/animationComparison'
@@ -41,7 +42,7 @@ const sliderPrimary = new Slider('.js-slider-primary')
 const toggle = new Toggle()
 const billing = new Billing()
 // const smoothScroll = new SmoothScroll();
-const animationsFlip = new AnimationsFlip()
+
 const cursor = new Cursor()
 const search = new Search()
 const magnet = new Magnet()
@@ -64,6 +65,7 @@ const animationWebGl = new AnimationWebGl()
 // const animationPin = new AnimationPin()
 // const animationDefault = new AnimationDefault()
 const animationAll = new AnimationAll()
+const animationsFlip = new AnimationsFlip()
 
 
 const sliderGallery = new Slider('.js-slider-gallery', {
