@@ -259,17 +259,24 @@ function ground_image( $size = 'thumbnail', $post = null, $url = true, $echo = t
  * @param boolean $url Optional. Return url. Default is false.
  * @param string  $extension Optional. Default echo HTML.
  * @param string  $tag Optional. HTML tag wrapper.
+ * @param boolean $return Optional. Return string instead echo.
  */
-function ground_icon( $name = '', $additional_class = '', $url = false, $extension = 'svg', $tag = 'span' ) {
+function ground_icon( $name = '', $additional_class = '', $url = false, $extension = 'svg', $tag = 'span', $return = false ) {
 	if ( '' === $name ) {
 		return;
 	}
 	if ( $url ) {
 		return TEMPLATE_URL . '/img/icons/' . $name . '.' . $extension;
 	} else {
-		echo '<' . $tag . ' class="icon icon--' . $name . ' ' . $additional_class . '">';
-		echo file_get_contents( TEMPLATE_PATH . '/img/icons/' . $name . '.' . $extension );
-		echo '</' . $tag . '>';
+		$markup  = '<' . $tag . ' class="icon icon--' . $name . ' ' . $additional_class . '">';
+		$markup .= file_get_contents( TEMPLATE_PATH . '/img/icons/' . $name . '.' . $extension );
+		$markup .= '</' . $tag . '>';
+
+		if ( $return ) {
+			return $markup;
+		} else {
+			echo $markup;
+		}
 	}
 }
 
