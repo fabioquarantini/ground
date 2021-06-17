@@ -4,7 +4,6 @@ form {
 }
 
 .form--search {
-
 	position: relative;
 
 	&.is-search-loading {
@@ -27,7 +26,7 @@ form {
 		@apply text-xl;
 
 		@screen md {
-			@apply text-4xl
+			@apply text-4xl;
 		}
 
 		&:focus,
@@ -99,7 +98,6 @@ label {
 	.has-warning & {
 		@apply text-yellow-300;
 	}
-
 }
 
 .form__input,
@@ -145,17 +143,16 @@ select {
 			box-shadow: none;
 			outline: none;
 		}
-
 	}
 
 	&.has-error,
 	.has-error & {
-		@apply border-red-700
+		@apply border-red-700;
 	}
 
 	&.has-success,
 	.has-success & {
-		@apply border-red-700
+		@apply border-red-700;
 	}
 
 	&.has-warning,
@@ -174,9 +171,9 @@ textarea {
 }
 
 .form__input--checkbox,
-[type="checkbox"],
+[type='checkbox'],
 .form__input--radio,
-[type="radio"] {
+[type='radio'] {
 	height: auto;
 	width: auto;
 	line-height: normal;
@@ -189,29 +186,28 @@ textarea {
 
 // Radio and checkbox
 .form__input--checkbox + label,
-[type="checkbox"] + label,
+[type='checkbox'] + label,
 .form__input--radio + label,
-[type="radio"] + label {
+[type='radio'] + label {
 	display: inline-block;
 }
 
 // Radio custom ( Wrap the radio with this class )
 .form__group--custom-radio {
-
-	[type="radio"] {
-		display:none;
+	[type='radio'] {
+		display: none;
 	}
 
-	[type="radio"] + label {
+	[type='radio'] + label {
 		&:before {
-			content: "";
+			content: '';
 			width: 14px;
 			height: 14px;
 			display: inline-block;
 			@apply bg-gray-500;
 			margin-right: 10px;
 			cursor: pointer;
-			border-radius:100%;
+			border-radius: 100%;
 		}
 
 		&:after {
@@ -220,15 +216,14 @@ textarea {
 		}
 	}
 
-	[type="radio"]:checked + label {
-
+	[type='radio']:checked + label {
 		position: relative;
 
 		&:after {
 			animation-duration: 0.3s;
 			animation-name: fade-in;
 			@apply bg-primary;
-			content: " ";
+			content: ' ';
 			width: 8px;
 			height: 8px;
 			position: absolute;
@@ -237,33 +232,28 @@ textarea {
 			border-radius: 100%;
 			cursor: pointer;
 		}
-
 	}
 
 	[readonly] + label,
 	[disabled] + label {
-
 		&:after,
 		&:before {
 			@apply border-gray-500;
 			opacity: 0.4;
 			cursor: not-allowed;
 		}
-
 	}
-
 }
 
 // Checkbox custom  ( Wrap the checkbox with this class )
 .form__group--custom-checkbox {
-
-	[type="checkbox"] {
-		display:none;
+	[type='checkbox'] {
+		display: none;
 	}
 
-	[type="checkbox"] + label {
+	[type='checkbox'] + label {
 		&:before {
-			content: "";
+			content: '';
 			width: 14px;
 			height: 14px;
 			display: inline-block;
@@ -278,48 +268,41 @@ textarea {
 		}
 	}
 
-	[type="checkbox"]:checked + label {
-
+	[type='checkbox']:checked + label {
 		position: relative;
 
 		&:after {
 			animation-name: fade-in;
 			animation-duration: 0.3s;
 			@apply text-primary;
-			content: "\2713";
+			content: '\2713';
 			position: absolute;
 			left: 0;
 			top: -1px;
 			cursor: pointer;
 		}
-
 	}
 
 	[readonly] + label,
 	[disabled] + label {
-
 		&:after,
 		&:before {
 			@apply border-gray-500;
 			opacity: 0.4;
 			cursor: not-allowed;
 		}
-
 	}
-
 }
 
-
 // File
-[type="file"] {
+[type='file'] {
 	border: none;
 	line-height: 100%;
 	padding: 0;
 }
 
 // Range
-[type="range"] {
-
+[type='range'] {
 	border: none;
 	padding: 0;
 	width: 100%;
@@ -380,22 +363,19 @@ textarea {
 		margin-top: -5px;
 		width: 16px;
 	}
-
 }
 
 // Select
 .form__select,
 select {
-
 	max-width: 100%;
 	@apply p-1.5;
 	@apply h-12;
 
 	option {
 		@apply px-0;
-@apply py-6;
+		@apply py-6;
 	}
-
 }
 
 .form__select--multiple,
@@ -409,16 +389,14 @@ select[multiple] {
 		height: 36px;
 		@apply pt-3;
 	}
-
 }
 
 // Select custom ( Wrap the select with this class )
 .form__group--select-custom {
-
 	position: relative;
 
 	&:before {
-		content: "";
+		content: '';
 		position: absolute;
 		top: 42%;
 		right: 10px;
@@ -428,7 +406,6 @@ select[multiple] {
 	select {
 		appearance: none;
 	}
-
 }
 
 // Messages
@@ -438,12 +415,12 @@ input + .message,
 select + .message,
 .form__textarea + .message,
 textarea + .message {
-	margin-top: - 24px;
+	margin-top: -24px;
 }
 
 // Buttons
-[type="button"],
-[type="submit"] {
+[type='button'],
+[type='submit'] {
 	width: auto;
 	@extend .button;
 }
