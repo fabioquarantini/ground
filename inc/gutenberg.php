@@ -28,7 +28,7 @@ function ground_register_block_categories( $default_categories ) {
 
 }
 
-add_filter( 'block_categories', 'ground_register_block_categories' );
+add_filter( 'block_categories_all', 'ground_register_block_categories' );
 
 /**
  * Register blocks with ACF
