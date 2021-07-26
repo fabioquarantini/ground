@@ -190,7 +190,14 @@ add_action( 'after_setup_theme', 'ground_markup' );
  * Add WooCommerce support
  */
 function ground_add_woocommerce_support() {
-	add_theme_support( 'woocommerce' );
+	add_theme_support(
+		'woocommerce',
+		array(
+			'thumbnail_image_width'         => 200,
+			'gallery_thumbnail_image_width' => 200,
+			'single_image_width'            => 900,
+		)
+	);
 }
 
 add_action( 'after_setup_theme', 'ground_add_woocommerce_support' );
