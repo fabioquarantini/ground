@@ -174,7 +174,7 @@ export default class animationWebGl {
 
 
 				updateAllMaterials()
-			  	// scrollAnimate(gltf.scene)
+			  	scrollAnimate(gltf.scene)
 
 			}
 		)
@@ -304,11 +304,8 @@ export default class animationWebGl {
 
 		tick()
 
-		console.log(scene.children)
-
-		console.log(scene.children.PerspectiveCamera)
-
-		// const scrollAnimate = (model) => {
+		// console.log(scene.children)
+		// console.log(scene.children.PerspectiveCamera)
 
 		const tl = gsap.timeline({
 			scrollTrigger: {
@@ -321,11 +318,15 @@ export default class animationWebGl {
 			},
 		})
 
+		const scrollAnimate = (model) => {
 
-		tl
-			.from(cube.rotation, { z: 4 })
-			.from(camera.position, { y: 4, x: 4 })
-		// }
+
+			tl
+				.from(cube.rotation, { z: 4 })
+				// .from(camera.position, { y: 4, x: 4 })
+				.from(model.rotation, { x: 0, y: -0.4, z: 0 })
+
+		}
 	
 	}
 
