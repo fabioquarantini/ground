@@ -1,13 +1,11 @@
 @layer base {
 	a {
-		@apply text-primary;
-		transition: color 0.1s;
+		@apply text-primary transition-colors duration-500;
 
 		&:hover,
 		&:active,
 		&:focus {
-			@apply text-secondary;
-			text-decoration: none;
+			@apply text-secondary no-underline;
 		}
 	}
 }

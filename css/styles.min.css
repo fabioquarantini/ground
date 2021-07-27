@@ -855,33 +855,24 @@ cite:before {
 
 a {
   color: var(--color-primary);
-  transition: color 0.1s;
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  transition-duration: 500ms;
 }
 
 a:hover, a:active, a:focus {
     color: var(--color-secondary);
-  }
-
-a:hover,
-		a:active,
-		a:focus {
     text-decoration: none;
   }
 
 // Unordered/Ordered list
 
-ul,
-	ol {
-  padding: 0;
-  margin-top: 0
-}
-
 ul, ol {
-  margin-left: 1rem;
-}
-
-ul, ol {
+  margin-top: 0px;
   margin-bottom: 1.5rem;
+  margin-left: 1rem;
+  padding: 0px;
 }
 
 ul ul,

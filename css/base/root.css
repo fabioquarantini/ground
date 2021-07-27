@@ -1,38 +1,33 @@
 @layer base {
-	html,
-	body {
-		scroll-behavior: smooth;
-	}
 
 	html {
 		&.is-loading {
-			overflow: hidden;
-			// cursor: wait;
+			@apply overflow-hidden cursor-wait;
 		}
 
 		&.is-loaded {
-			overflow: hidden;
+			@apply overflow-hidden;
 		}
 
 		&.has-scroll-smooth {
-			overflow: hidden;
+			@apply overflow-hidden;
 		}
 
 		&.has-scroll-dragging {
-			user-select: none;
+			@apply select-none;
 		}
 
 		&.is-loader-complete {
 			&:not(.has-scroll-smooth) {
-				overflow: auto;
+				@apply overflow-auto;
 			}
 
 			&.is-minicart-open {
-				overflow-y: hidden;
+				@apply overflow-y-hidden;
 			}
 
 			&.is-search-open {
-				overflow: hidden;
+				@apply overflow-hidden;
 			}
 		}
 	}
@@ -40,26 +35,16 @@
 	body {
 		.is-loading &,
 		.is-search-open & {
-			overflow-y: hidden;
+			@apply overflow-y-hidden;
 		}
 
 		.has-scroll-smooth & {
-			overflow: hidden;
+			@apply overflow-hidden;
 		}
 
 		.is-loader-complete & {
-			overflow-y: auto;
+			@apply overflow-y-auto;
 		}
 	}
 
-	// img,
-	// video,
-	// object {
-	// 	height: auto;
-	// 	max-width: 100%;
-	// }
-
-	// figure {
-	// 	margin: 0;
-	// }
 }

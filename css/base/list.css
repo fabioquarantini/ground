@@ -2,39 +2,33 @@
 	// Unordered/Ordered list
 	ul,
 	ol {
-		padding: 0;
-		margin-top: 0;
-		@apply ml-4;
-		@apply mb-6;
+		@apply p-0 mt-0 ml-4 mb-6;
 
 		ul,
 		ol {
-			margin-bottom: 0;
-			list-style-type: inherit;
+			@apply mb-0 
+			@apply list-disc;
 		}
 
 		ul {
-			list-style-type: circle;
+			@apply list-disc;
 
 			ul {
-				list-style-type: square;
+				@apply list-disc;
 			}
 		}
 	}
 
 	// Definition list
 	dl {
-		padding: 0;
-		margin-top: 0;
+		@apply p-0 mt-0; 
 	}
 
 	dt {
-		font-weight: bold;
-		margin-bottom: 0;
+		@apply font-bold mb-0;
 	}
 
 	dd {
-		@apply ml-6;
-		@apply mb-6;
+		@apply ml-6 mb-6;
 	}
 }

@@ -49,8 +49,7 @@
 	kbd,
 	abbr,
 	code {
-		display: inline-block;
-		vertical-align: top;
+		@apply inline-block align-top; 
 	}
 
 	pre {
@@ -58,23 +57,19 @@
 	}
 
 	blockquote {
-		@apply border-solid border border-gray-500 py-6 pl-6;
-		margin: 0 0 24px 0;
-		display: block;
-		font-style: italic;
+		@apply border-solid border border-gray-500 py-6 pl-6 mb-6 block italic;
 
 		p {
-			display: inline;
+			@apply inline;
 		}
 
 		cite {
-			@apply text-xs;
-			display: block;
+			@apply block text-xs;
 		}
 	}
 
 	cite {
-		font-style: italic;
+		@apply italic;
 
 		&:before {
 			content: '\2014 \00A0';
