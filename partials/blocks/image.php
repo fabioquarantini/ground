@@ -1,15 +1,13 @@
 <?php // Image (Register block here: "inc/gutenberg.php")
+$image = get_field('image');
+$image_size = '16-9-small';
+?>
 
-if (!is_page_template('templates/template-ground-docs.php')) {
-	$image = get_field('image');
-	$image_size = '16-9-small';
-} ?>
-
-<?php if ($image): ?>
+<?php if ($image) : ?>
 	<div class="container">
 		<div class="row">
 			<div class="gr-12">
-				<?php echo wp_get_attachment_image( $image, $image_size, "", ["class" => "full-width"] ); ?>
+				<?php echo wp_get_attachment_image($image, $image_size, "", ["class" => "full-width"]); ?>
 			</div>
 		</div>
 	</div>

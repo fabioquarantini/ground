@@ -1,10 +1,8 @@
 <?php // Carousel (Register block here: "inc/gutenberg.php")
+$repeater = get_field('repeater');
+?>
 
-if (!is_page_template('templates/template-ground-docs.php')) {
-	$repeater = get_field('repeater');
-} ?>
-
-<?php if( $repeater ): ?>
+<?php if ($repeater) : ?>
 
 	<div class="container">
 		<div class="row">
@@ -13,7 +11,7 @@ if (!is_page_template('templates/template-ground-docs.php')) {
 				<div class="carousel carousel--primary swiper-container js-carousel overflow-visible">
 					<div class="swiper-wrapper js-cursor-drag">
 
-						<?php foreach($repeater as $row):
+						<?php foreach ($repeater as $row) :
 
 							// Vars
 							$image = $row['image'];
@@ -24,17 +22,17 @@ if (!is_page_template('templates/template-ground-docs.php')) {
 
 							<div class="carousel__item swiper-slide">
 								<div class="carousel__media">
-									<?php echo wp_get_attachment_image( $image, $image_size, "", ["class" => "carousel__img cover"] ); ?>
+									<?php echo wp_get_attachment_image($image, $image_size, "", ["class" => "carousel__img cover"]); ?>
 								</div>
 								<div class="carousel__body centered text-center">
-									<?php if ($title): ?>
+									<?php if ($title) : ?>
 										<h3 class="carousel__title"><?php echo $title; ?></h3>
 									<?php endif; ?>
-									<?php if ($content): ?>
+									<?php if ($content) : ?>
 										<p class="carousel__text"><?php echo $content; ?></p>
 									<?php endif; ?>
-									<?php if ($button): ?>
-									<a class="carousel__button button button--pill" href="<?php echo $button['url']; ?>"><?php echo $button['title']; ?></a>
+									<?php if ($button) : ?>
+										<a class="carousel__button button button--pill" href="<?php echo $button['url']; ?>"><?php echo $button['title']; ?></a>
 									<?php endif; ?>
 								</div>
 							</div>

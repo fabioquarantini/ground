@@ -34440,8 +34440,6 @@ hr {
   border-style: dashed;
 }
 
-//@import "components/docs.css";
-
 .footer {
   padding: 3rem;
   --tw-bg-opacity: 1;
@@ -34802,17 +34800,17 @@ hr {
   }
 
 .is-navigation-open .navicon__icon {
+      background-color: transparent;
+    }
+
+.is-navigation-open .navicon__icon {
     @if (#000 != auto) {
       &:before,
 			&:after {
         background-color: #000;
       }
     }
-  }
-
-.is-navigation-open .navicon__icon {
-      background-color: transparent;
-    }
+}
 
 .is-navigation-open .navicon__icon:before {
       transform: translateY(7px + 1px)
