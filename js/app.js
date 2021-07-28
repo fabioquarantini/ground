@@ -6,8 +6,6 @@ import Modal from './components/modal'
 import Slider from './components/slider'
 import Loader from './components/loader'
 import Toggle from './components/toggle'
-// import SmoothScroll from './components/smoothScroll';
-
 
 import Cursor from './components/cursorV2'
 import Search from './components/search'
@@ -41,7 +39,6 @@ const modal = new Modal()
 const sliderPrimary = new Slider('.js-slider-primary')
 const toggle = new Toggle()
 const billing = new Billing()
-// const smoothScroll = new SmoothScroll();
 
 const cursor = new Cursor()
 const search = new Search()
@@ -66,7 +63,6 @@ const animationWebGl = new AnimationWebGl()
 // const animationDefault = new AnimationDefault()
 const animationAll = new AnimationAll()
 const animationsFlip = new AnimationsFlip()
-
 
 const sliderGallery = new Slider('.js-slider-gallery', {
 	direction: 'horizontal',
