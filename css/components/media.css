@@ -1,6 +1,5 @@
 .media {
-	position: relative;
-	overflow: hidden;
+	@apply relative overflow-hidden; 
 }
 
 .media__img--zoom {
@@ -9,9 +8,4 @@
 	&:hover {
 		transform: scale(1.1);
 	}
-}
-
-.media__img--masked {
-	margin-top: -48px;
-	margin-bottom: -48px;
 }

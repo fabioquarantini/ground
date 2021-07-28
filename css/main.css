@@ -11,7 +11,7 @@
 @import 'base/link.css';
 @import 'base/list.css';
 
-// Components
+/* Components */
 @import 'components/icons.css';
 @import 'components/breadcrumb.css';
 @import 'components/button.css';
@@ -39,7 +39,6 @@
 @import 'components/tooltip.css';
 @import 'components/widget.css';
 @import 'components/scrollbar.css';
-@import 'components/masked-full-height.css';
 @import 'components/scroll-progress.css';
 
 // WooCommerce

@@ -7,7 +7,7 @@
 }
 
 .page__title {
-	margin-bottom: 0;
+	@apply mb-0;
 }
 
 .page__subtitle {
@@ -23,33 +23,18 @@
 }
 
 .page__data {
-	display: block;
-	@apply text-gray-600;
-	@apply text-sm;
+	@apply block text-sm text-gray-600;
 }
 
 .page__data--date {
-	@apply text-xs;;
-	font-weight: bold;
+	@apply text-xs font-bold;
 }
 
 .page__data--tag {
-
-	display: block;
-	@apply mt-6;
+	@apply block mt-6;
 
 	a {
-		@apply text-5xl;
-		@apply border;
-		@apply border-gray-500;
-		font-weight: bold;
-		@apply py-3 px-2;
-		text-decoration: none;
-		display: inline-block;
-		@apply mr-3;
-		@apply rounded-md;
-		@apply text-black;
-		text-transform: uppercase;
+		@apply inline-block py-3 px-2 mr-3 text-5xl text-black font-bold uppercase border border-gray-500 rounded-md no-underline;
 
 		&:hover {
 			@apply text-primary;

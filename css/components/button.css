@@ -1,52 +1,28 @@
 .button {
-	@apply text-base;
-	border-width: 1px;
-	@apply px-6;
-	@apply py-3;
-	@apply mb-6;
-	@apply border-primary;
-	@apply bg-primary;
-	border-style: solid;
-	@apply text-white;
-	display: inline-block;
-	vertical-align: middle;
-	white-space: nowrap;
-	cursor: pointer;
-	transition: all .15s;
-	text-decoration: none;
-	text-align: center;
+	@apply inline-block px-6 py-3 mb-6 bg-primary text-base text-white text-center no-underline align-middle whitespace-nowrap border border-primary cursor-pointer transition-all;
 
 	&:hover,
 	&--active {
-		@apply bg-secondary;
-		@apply text-black;
-		@apply border-secondary;
+		@apply bg-secondary text-black border-secondary;
 	}
 
 	&--secondary {
-		@apply bg-secondary;
-		@apply text-white;
-		@apply border-secondary;
+		@apply bg-secondary text-white border-secondary;
 
 		&:hover,
 		&--active {
-			@apply bg-primary;
-			@apply text-black;
-			@apply border-primary;
+			@apply bg-primary text-black border-primary;
 		}
 
 	}
 
 	&--small {
-		//@include ritmo-horizontal-borders(1px, 0.25);
-		@apply pl-6;
-		@apply pr-6;
-		@apply mt-1;
-		@apply mb-7;
+		@apply px-4 py-1;
 	}
 
 	&--large {
-		//@include ritmo-horizontal-borders(1px, 1);
+		@apply px-9 py-4;
+
 	}
 
 	&--rounded {
@@ -54,29 +30,25 @@
 	}
 
 	&--full-width {
-		width: 100%;
-		padding-left: 0;
-		padding-right: 0;
+		@apply w-full px-0;
 	}
 
 	&--centered {
 		display: table;
-		margin-left: auto;
-		margin-right: auto;
+		@apply mx-auto;
 	}
 
 	&--pill {
-		border-radius: 1000px;
+		@apply rounded-full;
 	}
 
 	&[disabled],
 	&.is-disabled {
-		opacity: 0.4;
-		cursor: not-allowed;
+		@apply opacity-40 cursor-not-allowed;
 	}
 
 	&:active {
-		outline: none;
+		@apply outline-none;
 	}
 
 }

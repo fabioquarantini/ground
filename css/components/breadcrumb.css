@@ -1,59 +1,28 @@
 .breadcrumb {
-	@apply h-6;
-	overflow-y: hidden;
-	@apply mt-6;
-	@apply mb-6;
-	@apply text-sm;
-
-	&:after {
-		content: '';
-		background: linear-gradient(
-			to right,
-			rgba(255, 255, 255, 0) 0%,
-			rgba(255, 255, 255, 0.99) 79%,
-			rgba(255, 255, 255, 1) 100%
-		);
-		width: 48px;
-		height: 72px;
-		position: absolute;
-		right: 0;
-		top: 0;
-	}
-
+	@apply relative overflow-y-hidden h-6 mt-6 mb-6 text-sm;
 	@screen md {
-		position: relative;
+		@apply relative;
 		&:after {
-			display: none;
+			@apply hidden;
 		}
 	}
 }
 
 .breadcrumb__list {
-	@apply pb-6;
-	@apply pr-20;
-	margin-bottom: 0;
-	overflow-x: auto;
-	overflow-y: hidden;
-	white-space: nowrap;
+	@apply relative pb-6 pr-20 ml-0 mb-0 overflow-x-auto overflow-y-hidden whitespace-nowrap;
 	-webkit-overflow-scrolling: touch;
-	margin-left: 0;
-	position: relative;
 }
 
 .breadcrumb__item {
-	display: inline-block;
+	@apply inline-block;
 
 	&:after {
 		content: '▸';
-		@apply text-gray-600;
-		@apply text-xl;
-		@apply px-3;
+		@apply text-gray-600 text-xl px-3;
 	}
 
 	&:last-child {
-		pointer-events: none;
-		cursor: default;
-		font-weight: bold;
+		@apply pointer-events-none cursor-default font-bold;
 
 		&:after {
 			content: none;
@@ -66,11 +35,9 @@
 }
 
 .breadcrumb__link {
-	@apply text-gray-600;
-	text-decoration: none;
+	@apply text-gray-600 no-underline;
 
 	&:hover {
-		text-decoration: underline;
-		@apply text-primary;
+		@apply underline text-primary;
 	}
 }

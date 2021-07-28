@@ -1,15 +1,9 @@
 .message {
-	display: block;
-	position: relative;
-	@apply pt-3;
-	@apply pb-3;
-	@apply text-primary;
-	@apply border-primary;
+	@apply relative block py-3 text-primary border-primary;
 
 	&.has-error,
 	.has-error & {
-		@apply border-red-600;
-		@apply text-red-600;
+		@apply text-red-600 border-red-600;
 		.message__close {
 			@apply text-red-600;
 		}
@@ -17,8 +11,7 @@
 
 	&.has-success,
 	.has-success & {
-		@apply border-green-500;
-		@apply text-green-500;
+		@apply text-green-500 border-green-500;
 		.message__close {
 			@apply text-green-500;
 		}
@@ -26,30 +19,24 @@
 
 	&.has-warning,
 	.has-warning & {
-		@apply border-yellow-300;
-		@apply text-yellow-300;
+		@apply text-yellow-300 border-yellow-300;
 		.message__close {
 			@apply text-yellow-300;
 		}
 	}
 
 	&--secondary {
-		@apply text-secondary;
-		@apply border-secondary;
+		@apply text-secondary border-secondary;
 		.message__close {
 			@apply text-secondary;
 		}
 	}
 
 	&--bordered {
-
-		@apply py-3;
-		@apply px-6;
-		border-width: 1px;
-		border-style: solid;
+		@apply py-3 px-6 border;
 
 		&.message--small {
-			height: 24px;
+			@apply h-6;
 		}
 
 		&.message--big {
@@ -59,33 +46,26 @@
 	}
 
 	&--fill {
-		@apply pl-6;
-		@apply pr-6;
-		@apply bg-primary;
-		@apply text-white;
+		@apply px-6 bg-primary text-white;
 
 		.has-error &,
 		&.has-error {
-			@apply bg-red-600;
-			@apply text-white;
+			@apply bg-red-600 text-white;
 		}
 
 		.has-success &,
 		&.has-success {
-			@apply bg-green-500;
-			@apply text-white;
+			@apply bg-green-500 text-white;
 		}
 
 		.has-warning &,
 		&.has-warning {
-			@apply bg-yellow-300;
-			@apply text-white;
+			@apply bg-yellow-300 text-white;
 		}
 
 		.message--secondary &,
 		&.message--secondary {
-			@apply text-white;
-			@apply bg-secondary;
+			@apply text-white bg-secondary;
 		}
 
 		.message__close {
@@ -95,28 +75,24 @@
 	}
 
 	&--small {
-		padding-top: 0;
-		padding-bottom: 0;
+		@apply py-0;
 	}
 
 	&--big {
-		@apply pt-6;
-		@apply pb-6;
+		@apply py-6;
 	}
 
 	&--rounded {
-		border-radius: 5px;
+		@apply rounded-md;
 	}
 
 	&--pill {
-		border-radius: 1000px;
+		@apply rounded-full;
 	}
 
 }
 
 
 .message__close {
-	float: right;
-	text-decoration: none;
-	@apply text-primary;
+	@apply float-right text-primary no-underline;
 }
