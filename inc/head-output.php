@@ -9,7 +9,7 @@
  * Register and enqueue CSS
  */
 function ground_enqueue_styles() {
-	wp_enqueue_style( 'main-style', TEMPLATE_URL . '/css/styles.min.css', array(), '1.0', 'all' );
+	wp_enqueue_style( 'main-style', GROUND_TEMPLATE_URL . '/css/styles.min.css', array(), '1.0', 'all' );
 	wp_enqueue_style( 'yacc-style', 'https://cdn.etcloud.it/yacc/1.3.0/yacc.css', array(), '1.3.0', 'all' );
 	wp_enqueue_style( 'swiper-style', 'https://unpkg.com/swiper@6.5.4/swiper-bundle.min.css', array(), '6.5.4', 'all' );
 }
@@ -25,7 +25,7 @@ function ground_enqueue_scripts() {
 	// wp_enqueue_script( 'jquery', "https://code.jquery.com/jquery-3.5.0.min.js", array(), null, true );
 	wp_enqueue_script( 'yacc', 'https://cdn.etcloud.it/yacc/1.3.0/yacc.min.js', array(), '1.3.0', true );
 	wp_enqueue_script( 'polyfill', 'https://polyfill.io/v3/polyfill.min.js?features=fetch%2CPromise', array(), null, true );
-	wp_enqueue_script( 'scripts', TEMPLATE_URL . '/js/scripts.min.js', array( 'jquery' ), '1.0', true );
+	wp_enqueue_script( 'scripts', GROUND_TEMPLATE_URL . '/js/scripts.min.js', array( 'jquery' ), '1.0', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

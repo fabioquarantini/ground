@@ -2,7 +2,7 @@
 	<div class="swiper-wrapper js-cursor-drag">
 		<div class="carousel__item swiper-slide">
 			<div class="carousel__media">
-				<img class="carousel__img cover" src="<?php echo TEMPLATE_URL ?>/img/sample-2.jpg">
+				<img class="carousel__img cover" src="<?php echo GROUND_TEMPLATE_URL; ?>/img/sample-2.jpg">
 			</div>
 			<div class="carousel__body centered text-center">
 				<h3 class="carousel__title">Title ipsum 1</h3>
@@ -12,7 +12,7 @@
 		</div>
 		<div class="carousel__item swiper-slide">
 			<div class="carousel__media">
-				<img class="carousel__img cover" src="<?php echo TEMPLATE_URL ?>/img/sample-3.jpg">
+				<img class="carousel__img cover" src="<?php echo GROUND_TEMPLATE_URL; ?>/img/sample-3.jpg">
 			</div>
 			<div class="carousel__body centered text-center">
 				<h3 class="carousel__title">Title ipsum 2</h3>
@@ -22,7 +22,7 @@
 		</div>
 		<div class="carousel__item swiper-slide">
 			<div class="carousel__media">
-				<img class="carousel__img cover" src="<?php echo TEMPLATE_URL ?>/img/sample-1.jpg">
+				<img class="carousel__img cover" src="<?php echo GROUND_TEMPLATE_URL; ?>/img/sample-1.jpg">
 			</div>
 			<div class="carousel__body centered text-center">
 				<h3 class="carousel__title">Title ipsum 3</h3>
@@ -32,7 +32,7 @@
 		</div>
 		<div class="carousel__item swiper-slide">
 			<div class="carousel__media">
-				<img class="carousel__img cover" src="<?php echo TEMPLATE_URL ?>/img/sample-4.jpg">
+				<img class="carousel__img cover" src="<?php echo GROUND_TEMPLATE_URL; ?>/img/sample-4.jpg">
 			</div>
 			<div class="carousel__body centered text-center">
 				<h3 class="carousel__title">Title ipsum 4</h3>
@@ -42,7 +42,7 @@
 		</div>
 		<div class="carousel__item swiper-slide">
 			<div class="carousel__media">
-				<img class="carousel__img cover" src="<?php echo TEMPLATE_URL ?>/img/sample-2.jpg">
+				<img class="carousel__img cover" src="<?php echo GROUND_TEMPLATE_URL; ?>/img/sample-2.jpg">
 			</div>
 			<div class="carousel__body centered text-center">
 				<h3 class="carousel__title">Secondary Title ipsum 1</h3>
@@ -52,7 +52,7 @@
 		</div>
 		<div class="carousel__item swiper-slide">
 			<div class="carousel__media">
-				<img class="carousel__img cover" src="<?php echo TEMPLATE_URL ?>/img/sample-3.jpg">
+				<img class="carousel__img cover" src="<?php echo GROUND_TEMPLATE_URL; ?>/img/sample-3.jpg">
 			</div>
 			<div class="carousel__body centered text-center">
 				<h3 class="carousel__title">Title ipsum 2</h3>
@@ -62,7 +62,7 @@
 		</div>
 		<div class="carousel__item swiper-slide">
 			<div class="carousel__media">
-				<img class="carousel__img cover" src="<?php echo TEMPLATE_URL ?>/img/sample-1.jpg">
+				<img class="carousel__img cover" src="<?php echo GROUND_TEMPLATE_URL; ?>/img/sample-1.jpg">
 			</div>
 			<div class="carousel__body centered text-center">
 				<h3 class="carousel__title">Title ipsum 3</h3>
@@ -72,7 +72,7 @@
 		</div>
 		<div class="carousel__item swiper-slide">
 			<div class="carousel__media">
-				<img class="carousel__img cover" src="<?php echo TEMPLATE_URL ?>/img/sample-4.jpg">
+				<img class="carousel__img cover" src="<?php echo GROUND_TEMPLATE_URL; ?>/img/sample-4.jpg">
 			</div>
 			<div class="carousel__body centered text-center">
 				<h3 class="carousel__title">Title ipsum 4</h3>

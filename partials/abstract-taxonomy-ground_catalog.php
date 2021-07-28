@@ -11,7 +11,12 @@ if ( empty( $args ) ) {
 	<?php } ?>
 		<figure class="media">
 			<?php // TODO: ACF category thumbnail ?>
-			<img class="media__img media__img--zoom full-width" src="<?php echo TEMPLATE_URL; ?>/img/no-image.svg" alt="<?php if ( array_key_exists( 'name', $args ) ) { echo $args['name']; } ?>" />
+			<img class="media__img media__img--zoom full-width" src="<?php echo GROUND_TEMPLATE_URL; ?>/img/no-image.svg" alt="
+																				<?php
+																				if ( array_key_exists( 'name', $args ) ) {
+																					echo $args['name']; }
+																				?>
+			" />
 		</figure>
 	<?php if ( array_key_exists( 'slug', $args ) ) { ?>
 		</a>

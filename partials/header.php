@@ -4,18 +4,18 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<?php if ( ( defined( 'COLOR_PRIMARY' ) ) ) { ?>
-		<meta name="theme-color" content="<?php esc_attr( COLOR_PRIMARY ); ?>">
+	<?php if ( ( defined( 'GROUND_COLOR_PRIMARY' ) ) ) { ?>
+		<meta name="theme-color" content="<?php esc_attr( GROUND_COLOR_PRIMARY ); ?>">
 	<?php } ?>
 	<?php if ( ! function_exists( 'has_site_icon' ) || ! has_site_icon() ) { ?>
-		<link rel="icon" type="image/png" href="<?php echo TEMPLATE_URL . '/img/favicon.png'; ?>">
-		<link rel="apple-touch-icon" href="<?php echo TEMPLATE_URL . '/img/icon.png'; ?>">
+		<link rel="icon" type="image/png" href="<?php echo GROUND_TEMPLATE_URL . '/img/favicon.png'; ?>">
+		<link rel="apple-touch-icon" href="<?php echo GROUND_TEMPLATE_URL . '/img/icon.png'; ?>">
 	<?php } ?>
 	<?php wp_head(); ?>
 	<?php get_template_part( 'inc/variables' ); ?>
 </head>
 
-<body <?php body_class( 'font-primary text-black debug-screens' ); ?> data-template-url="<?php echo TEMPLATE_URL; ?>">
+<body <?php body_class( 'font-primary text-black debug-screens' ); ?> data-template-url="<?php echo GROUND_TEMPLATE_URL; ?>">
 
 	<div class="scroll" id="js-scroll">
 
