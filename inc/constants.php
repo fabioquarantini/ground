@@ -34,6 +34,9 @@ if (function_exists('acf_add_options_page')) {
     if (get_field('font_secondary_name', 'option')) :
         define('FONT_SECONDARY_NAME', get_field('font_secondary_name', 'option'));
     endif;
+    if (get_field('rounded_theme', 'option')) :
+        define('ROUNDED_THEME', get_field('rounded_theme', 'option'));
+    endif;
 
 
     // THEME SETTINGS: COMPANY

@@ -144,7 +144,7 @@
         },
         {
             "key": "field_61010f0bd1008",
-            "label": "Rounded Corners",
+            "label": "Border Radius",
             "name": "",
             "type": "accordion",
             "instructions": "",
@@ -161,8 +161,8 @@
         },
         {
             "key": "field_61010f21d1009",
-            "label": "Rounded Value",
-            "name": "rounded_value",
+            "label": "Rounded Theme",
+            "name": "rounded_theme",
             "type": "range",
             "instructions": "",
             "required": 0,
@@ -174,26 +174,10 @@
             },
             "default_value": "",
             "min": "",
-            "max": 20,
-            "step": "",
+            "max": 40,
+            "step": 2,
             "prepend": "",
             "append": ""
-        },
-        {
-            "key": "field_610152daaf4d9",
-            "label": "",
-            "name": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0
         }
     ],
     "location": [
@@ -213,5 +197,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1627480049
+    "modified": 1627485789
 }

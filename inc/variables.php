@@ -12,6 +12,9 @@
         if (defined('FONT_SECONDARY_NAME') && FONT_SECONDARY_NAME) {
             echo '--ground-font-secondary:' . FONT_SECONDARY_NAME . ';';
         };
+        if (defined('ROUNDED_THEME') && ROUNDED_THEME) {
+            echo '--ground-rounded-theme:' . ROUNDED_THEME . 'px;';
+        };
         ?>
     }
 </style>
