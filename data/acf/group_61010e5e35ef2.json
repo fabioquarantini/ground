@@ -1,11 +1,75 @@
 {
-    "key": "group_5ddd2889d05df",
-    "title": "Theme Settings: Company",
+    "key": "group_61010e5e35ef2",
+    "title": "Theme General Settings",
     "fields": [
         {
-            "key": "field_61010c4af4da7",
-            "label": "Company Address",
-            "name": "company_address",
+            "key": "field_61010e75fd832",
+            "label": "Styles",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_61010e7ffd833",
+            "label": "Color Primary",
+            "name": "color_primary",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": ""
+        },
+        {
+            "key": "field_61010e8ebaacf",
+            "label": "Color Secondary",
+            "name": "color_secondary",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": ""
+        },
+        {
+            "key": "field_61010ec6e9471",
+            "label": "Fonts",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_61010edce9472",
+            "label": "Font Primary",
+            "name": "font_primary",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -22,25 +86,9 @@
             "maxlength": ""
         },
         {
-            "key": "field_61010c6ddbe72",
-            "label": "Company Address Maps",
-            "name": "company_address_maps",
-            "type": "url",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": ""
-        },
-        {
-            "key": "field_61010cb6c312e",
-            "label": "Company Phone Primary",
-            "name": "company_phone_primary",
+            "key": "field_61010ee97d0b3",
+            "label": "Font Secondary",
+            "name": "font_secondary",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -57,10 +105,10 @@
             "maxlength": ""
         },
         {
-            "key": "field_6101166beac60",
-            "label": "Company Phone Secondary",
-            "name": "company_phone_secondary",
-            "type": "text",
+            "key": "field_61010f0bd1008",
+            "label": "Rounded Corners",
+            "name": "",
+            "type": "accordion",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -69,17 +117,15 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
         },
         {
-            "key": "field_61010cc7c3130",
-            "label": "Company Email Primary",
-            "name": "company_email_primary",
-            "type": "email",
+            "key": "field_61010f21d1009",
+            "label": "Rounded Value",
+            "name": "rounded_value",
+            "type": "range",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -89,46 +135,11 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": "",
+            "min": "",
+            "max": 20,
+            "step": "",
             "prepend": "",
             "append": ""
-        },
-        {
-            "key": "field_61010f7dcaaf4",
-            "label": "Company Email Secondary",
-            "name": "company_email_secondary",
-            "type": "email",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_61010cc0c312f",
-            "label": "Company Fax",
-            "name": "company_fax",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
         }
     ],
     "location": [
@@ -136,7 +147,7 @@
             {
                 "param": "options_page",
                 "operator": "==",
-                "value": "acf-options-company"
+                "value": "theme-general-settings"
             }
         ]
     ],
@@ -148,5 +159,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1627461237
+    "modified": 1627474601
 }

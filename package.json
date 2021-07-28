@@ -7,7 +7,7 @@
 		"start": "npm-run-all -p \"styles -- --watch\" \"js -- --mode=development\" sync",
 		"build": "npm-run-all \"styles -- --env production\" \"js -- --mode=production\"",
 		"styles": "postcss css/main.css -o css/styles.min.css --verbose --map",
-		"sync": "browser-sync start -p 'http://ground.develop' -f 'css/styles.min.css' '**/*.php' 'js/scripts.min.js' -w",
+		"sync": "browser-sync start -p 'https://ground.develop' -f 'css/styles.min.css' '**/*.php' 'js/scripts.min.js' -w",
 		"js": "webpack"
 	},
 	"homepage": "https://github.com/fabioquarantini/ground",
