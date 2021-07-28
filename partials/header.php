@@ -33,17 +33,3 @@
 						<?php if (is_front_page()) {
 							get_template_part('partials/slider', 'secondary');
 						} ?>
-
-						<div class="mt-44">Ok</div>
-						<a class="button">Button</a>
-						<a class="button button--secondary">secondary</a>
-						<a class="button button--small">small</a>
-						<a class="button button--large">large</a>
-						<a class="button button--rounded">rounded</a>
-
-						<p>--</p>
-
-						<a class="button button--full-width">Full Width</a>
-						<a class="button button--centered">centered</a>
-						<a class="button button--pill">lorem ipsum pill</a>
-						<a class="button is-disabled">pill</a>
