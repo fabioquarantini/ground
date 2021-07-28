@@ -16,22 +16,13 @@ module.exports = {
 		},
 		extend: {
 			colors: {
-				primary: {
-					50: 'var(--color-primary)',
-					100: 'var(--color-primary)',
-					200: 'var(--color-primary)',
-					300: 'var(--color-primary)',
-					400: 'var(--color-primary)',
-					DEFAULT: 'var(--color-primary)',
-					600: 'var(--color-primary)',
-					700: 'var(--color-primary)',
-					800: 'var(--color-primary)',
-					900: 'var(--color-primary)',
-				},
-				secondary: 'var(--color-secondary)',
+				primary: 'var(--ground-color-primary)',
+				secondary: 'var(--ground-color-secondary)',
 			},
 			fontFamily: {
 				primary: [
+					'var(--ground-font-primary)',
+					'"Mulish", sans-serif',
 					'ui-sans-serif',
 					'system-ui',
 					'-apple-system',
@@ -48,6 +39,7 @@ module.exports = {
 					'"Noto Color Emoji"',
 				],
 				secondary: [
+					'var(--ground-font-secondary)',
 					'ui-serif',
 					'Georgia',
 					'Cambria',

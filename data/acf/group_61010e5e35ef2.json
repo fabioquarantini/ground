@@ -71,7 +71,7 @@
             "label": "Font Primary",
             "name": "font_primary",
             "type": "text",
-            "instructions": "",
+            "instructions": "Example: https:\/\/fonts.googleapis.com\/css2?family=Roboto:wght@500;700&display=swap",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -86,11 +86,49 @@
             "maxlength": ""
         },
         {
-            "key": "field_61010ee97d0b3",
+            "key": "field_6101532c54c4c",
+            "label": "Font Primary Name",
+            "name": "font_primary_name",
+            "type": "text",
+            "instructions": "Example: Roboto",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_6101559a2c8e3",
             "label": "Font Secondary",
             "name": "font_secondary",
             "type": "text",
-            "instructions": "",
+            "instructions": "Example: https:\/\/fonts.googleapis.com\/css2?family=Playfair+Display:wght@500&display=swap",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_610155b0b83a3",
+            "label": "Font Secondary Name",
+            "name": "font_secondary_name",
+            "type": "text",
+            "instructions": "Example: Playfair Display",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -140,6 +178,22 @@
             "step": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_610152daaf4d9",
+            "label": "",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
         }
     ],
     "location": [
@@ -155,9 +209,9 @@
     "position": "normal",
     "style": "default",
     "label_placement": "left",
-    "instruction_placement": "label",
+    "instruction_placement": "field",
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1627474601
+    "modified": 1627480049
 }

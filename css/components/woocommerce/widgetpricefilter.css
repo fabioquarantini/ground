@@ -44,7 +44,8 @@
 	font-size: 0.7em;
 	display: block;
 	border: 0;
-	background: none repeat scroll 0 0 theme('colors.primary.DEFAULT');
+	background: none repeat scroll 0 0 theme('colors.primary');
+
 	border-radius: 1em;
 }
 

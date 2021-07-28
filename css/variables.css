@@ -1,4 +1,7 @@
 :root {
-	--color-primary: #c5ab78;
-	--color-secondary: #549b93;
+	--ground-color-primary: #6366F1;
+	--ground-color-secondary: #6366F1;
+
+	--ground-font-primary: 'Mulish', sans-serif;
+	--ground-font-secondary: ui-serif;
 }
