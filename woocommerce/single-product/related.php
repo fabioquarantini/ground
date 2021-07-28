@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Related Products
  *
@@ -16,30 +17,30 @@
  * @version     3.9.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
 	exit;
 }
 
-if ( $related_products ) : ?>
+if ($related_products) : ?>
 
 	<section class="related products">
 
-		<h2><?php esc_html_e( 'Related products', 'woocommerce' ); ?></h2>
+		<h2><?php esc_html_e('Related products', 'woocommerce'); ?></h2>
 
 		<?php woocommerce_product_loop_start(); ?>
 
-			<?php foreach ( $related_products as $related_product ) : ?>
+		<?php foreach ($related_products as $related_product) : ?>
 
-				<?php
-				 	$post_object = get_post( $related_product->get_id() );
+			<?php
+			$post_object = get_post($related_product->get_id());
 
-					setup_postdata( $GLOBALS['post'] =& $post_object ); ?>
+			setup_postdata($GLOBALS['post'] = &$post_object); ?>
 
-					<div class="gr-3@md gr-6@sm gr-12 margin-bottom-1">
-						<?php wc_get_template_part( 'content', 'product' ); ?>
-					</div>
+			<div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+				<?php wc_get_template_part('content', 'product'); ?>
+			</div>
 
-			<?php endforeach; ?>
+		<?php endforeach; ?>
 
 		<?php woocommerce_product_loop_end(); ?>
 

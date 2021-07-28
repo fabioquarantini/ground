@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Cross-sells
  *
@@ -15,35 +16,36 @@
  * @version 3.0.0
  */
 
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
-if ( $cross_sells ) : ?>
+if ($cross_sells) : ?>
 
-	<div class="cross-sells margin-top-3">
+	<div class="cross-sells">
 
-		<div class="gr-12">
-			<h2><?php esc_html_e( 'You may be interested in&hellip;', 'woocommerce' ); ?></h2>
+		<div class="relative">
+			<h2><?php esc_html_e('You may be interested in&hellip;', 'woocommerce'); ?></h2>
 		</div>
 
 		<?php woocommerce_product_loop_start(); ?>
 
-			<?php foreach ( $cross_sells as $cross_sell ) : ?>
+		<?php foreach ($cross_sells as $cross_sell) : ?>
 
-				<?php
-					$post_object = get_post( $cross_sell->get_id() );
+			<?php
+			$post_object = get_post($cross_sell->get_id());
 
-					setup_postdata( $GLOBALS['post'] =& $post_object ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.OverrideProhibited, Squiz.PHP.DisallowMultipleAssignments.Found ?>
+			setup_postdata($GLOBALS['post'] = &$post_object); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.OverrideProhibited, Squiz.PHP.DisallowMultipleAssignments.Found 
+			?>
 
-					<div class="gr-3@md gr-6@sm gr-12 margin-bottom-1">
-						<?php wc_get_template_part( 'content', 'product' ); ?>
-					</div>
+			<div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+				<?php wc_get_template_part('content', 'product'); ?>
+			</div>
 
-			<?php endforeach; ?>
+		<?php endforeach; ?>
 
 		<?php woocommerce_product_loop_end(); ?>
 
 	</div>
-	<?php
+<?php
 endif;
 
 wp_reset_postdata();
