@@ -7,7 +7,7 @@
             "label": "Company Address",
             "name": "company_address",
             "type": "text",
-            "instructions": "",
+            "instructions": "Example: One Apple Park Way Cupertino, CA 95014 1 408 996–1010",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -26,7 +26,7 @@
             "label": "Company Address Maps",
             "name": "company_address_maps",
             "type": "url",
-            "instructions": "",
+            "instructions": "Example: https:\/\/goo.gl\/maps\/NTSGvYpd8XAETEbd9",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -144,9 +144,9 @@
     "position": "normal",
     "style": "default",
     "label_placement": "left",
-    "instruction_placement": "label",
+    "instruction_placement": "field",
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1627461237
+    "modified": 1627482208
 }
