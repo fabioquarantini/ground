@@ -12,18 +12,23 @@ define( 'GROUND_TEMPLATE_URL', get_template_directory_uri() ); // Return http://
 define( 'GROUND_TEMPLATE_PATH', get_template_directory() ); // Return /home/user/public_html/wp-content/themes/themename.
 define( 'GROUND_CHARSET', get_bloginfo( 'charset' ) ); // The "Encoding for pages and feeds" (set in Settings > Reading).
 
-// General settings.
+// Colors.
 define( 'GROUND_COLOR_PRIMARY', get_field( 'color_primary', 'option' ) ? get_field( 'color_primary', 'option' ) : '#6366F1' );
 define( 'GROUND_COLOR_SECONDARY', get_field( 'color_secondary', 'option' ) ? get_field( 'color_secondary', 'option' ) : '#14B8A6' );
 
+// Fonts.
 define( 'GROUND_FONT_PRIMARY', get_field( 'font_primary', 'option' ) ? get_field( 'font_primary', 'option' ) : '' );
 define( 'GROUND_FONT_PRIMARY_NAME', get_field( 'font_primary_name', 'option' ) ? get_field( 'font_primary_name', 'option' ) : '' );
 define( 'GROUND_FONT_SECONDARY', get_field( 'font_secondary', 'option' ) ? get_field( 'font_secondary', 'option' ) : '' );
 define( 'GROUND_FONT_SECONDARY_NAME', get_field( 'font_secondary_name', 'option' ) ? get_field( 'font_secondary_name', 'option' ) : '' );
 
+// Styles.
 define( 'GROUND_ROUNDED_THEME', get_field( 'rounded_theme', 'option' ) ? get_field( 'rounded_theme', 'option' ) : '0' );
 
 // Company.
+/**
+ * TODO: Lat lang
+ */
 define( 'GROUND_COMPANY_ADDRESS', get_field( 'company_address', 'option' ) ? get_field( 'company_address', 'option' ) : '' );
 define( 'GROUND_COMPANY_ADDRESS_MAPS', get_field( 'company_address_maps', 'option' ) ? get_field( 'company_address_maps', 'option' ) : '' );
 define( 'GROUND_COMPANY_PHONE_PRIMARY', get_field( 'company_phone_primary', 'option' ) ? get_field( 'company_phone_primary', 'option' ) : '' );
@@ -50,5 +55,5 @@ define( 'GROUND_FOOTER_COPYRIGHT', get_field( 'footer_copyright', 'option' ) ? g
 define( 'GROUND_LOGO_PRIMARY_PATH', get_field( 'logo_primary_path', 'option' ) ? get_field( 'logo_primary', 'option' ) : GROUND_TEMPLATE_PATH . '/img/logo.svg' );
 define( 'GROUND_LOGO_SECONDARY_PATH', get_field( 'logo_secondary_path', 'option' ) ? get_field( 'logo_secondary_path', 'option' ) : GROUND_TEMPLATE_PATH . '/img/logo.svg' );
 
-// No image
+// No image.
 define( 'GROUND_NO_IMAGE_PATH', get_field( 'no_image_path', 'option' ) ? get_field( 'no_image_path', 'option' ) : GROUND_TEMPLATE_URL . '/img/no-image.svg' );
