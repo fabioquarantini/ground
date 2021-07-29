@@ -9,7 +9,7 @@
 
 	<a class="item__link margin-bottom-1" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
 
-		<img class="" 
+		<img class=""
 		<?php
 		if ( has_post_thumbnail() ) {
 			?>
@@ -17,11 +17,11 @@
 						<?php ground_image( '1-1-medium' ); ?> 900w,
 						<?php ground_image( '1-1-large' ); ?> 1200w" sizes="(min-width: 1200px) 1200px,
 						(min-width: 768px) 900px,
-						100vh" src="<?php ground_image( '1-1-large' ); ?>" 
+						100vh" src="<?php ground_image( '1-1-large' ); ?>"
 														<?php
 		} else {
 			?>
-							 src="<?php echo GROUND_TEMPLATE_URL; ?>/img/no-image.svg" <?php } ?> alt="" loading="lazy">
+							 src="<?php echo GROUND_NO_IMAGE_PATH; ?>" <?php } ?> alt="" loading="lazy">
 
 		<!-- <figure class="item__media media aspect-w-1 aspect-h-1">
 			<img class="media__img cover"
@@ -34,7 +34,7 @@
 							100vh"
 					src="<?php ground_image( '1-1-large' ); ?>"
 				<?php } else { ?>
-					src="<?php echo GROUND_TEMPLATE_URL; ?>/img/no-image.svg"
+					src="<?php echo GROUND_NO_IMAGE_PATH; ?>"
 				<?php } ?>
 			alt=""
 			loading="lazy">

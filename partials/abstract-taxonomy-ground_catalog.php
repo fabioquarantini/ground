@@ -11,7 +11,7 @@ if ( empty( $args ) ) {
 	<?php } ?>
 		<figure class="media">
 			<?php // TODO: ACF category thumbnail ?>
-			<img class="media__img media__img--zoom full-width" src="<?php echo GROUND_TEMPLATE_URL; ?>/img/no-image.svg" alt="
+			<img class="media__img media__img--zoom full-width" src="<?php echo GROUND_NO_IMAGE_PATH; ?>" alt="
 																				<?php
 																				if ( array_key_exists( 'name', $args ) ) {
 																					echo $args['name']; }

@@ -1,8 +1,8 @@
 <header class="flex justify-between items-center shadow-lg bg-white fixed top-0 w-full z-10 px-8 py-6">
 
 	<a class="js-cursor-hide" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>">
-		<?php /* <img class="logo__img" src="<?php echo GROUND_TEMPLATE_URL ?>/img/logo.svg" alt="<?php bloginfo('name'); ?>" /> */ ?>
-		<?php echo file_get_contents( GROUND_TEMPLATE_PATH . '/img/logo.svg' ); ?>
+		<?php /* <img class="logo__img" src="<?php echo GROUND_LOGO_PRIMARY_PATH" alt="<?php bloginfo('name'); ?>" /> */ ?>
+		<?php echo file_get_contents( GROUND_LOGO_PRIMARY_PATH ); ?>
 	</a> <!-- End logo -->
 
 	<?php

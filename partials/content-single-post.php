@@ -12,7 +12,7 @@
 						<?php ground_image( 'medium_large' ); ?> 768w,
 						<?php ground_image( 'medium' ); ?> 480w" src="<?php ground_image( 'small' ); ?>">
 			<?php } else { ?>
-				<img class="media__img full-width" src="<?php echo GROUND_TEMPLATE_URL; ?>/img/no-image.svg">
+				<img class="media__img full-width" src="<?php echo GROUND_NO_IMAGE_PATH; ?>">
 			<?php } ?>
 		</figure>
 		<?php the_content(); ?>
