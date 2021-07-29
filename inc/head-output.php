@@ -17,6 +17,22 @@ function ground_enqueue_styles() {
 add_action( 'wp_enqueue_scripts', 'ground_enqueue_styles', 9 );
 
 /**
+ * Add CSS theme variables
+ */
+function ground_add_css_theme_variables() {
+	echo '<style type="text/css">
+		:root { ' .
+			( ( defined( 'GROUND_COLOR_PRIMARY' ) && GROUND_COLOR_PRIMARY ) ? '--ground-color-primary:' . GROUND_COLOR_PRIMARY . ';' : '' ) .
+			( ( defined( 'GROUND_COLOR_SECONDARY' ) && GROUND_COLOR_SECONDARY ) ? '--ground-color-secondary:' . GROUND_COLOR_SECONDARY . ';' : '' ) .
+			( ( defined( 'GROUND_FONT_PRIMARY_NAME' ) && GROUND_FONT_PRIMARY_NAME ) ? '--ground-font-primary:' . GROUND_FONT_PRIMARY_NAME . ';' : '' ) .
+			( ( defined( 'GROUND_FONT_SECONDARY_NAME' ) && GROUND_FONT_SECONDARY_NAME ) ? '--ground-font-secondary:' . GROUND_FONT_SECONDARY_NAME . ';' : '' ) .
+			( ( defined( 'GROUND_ROUNDED_THEME' ) && GROUND_ROUNDED_THEME ) ? '--ground-rounded-theme:' . GROUND_ROUNDED_THEME . 'px;' : '' ) .
+	' } </style>';
+}
+
+add_action( 'wp_head', 'ground_add_css_theme_variables' );
+
+/**
  * Register and enqueue JS
  */
 function ground_enqueue_scripts() {
@@ -123,4 +139,4 @@ function ground_login_css() { ?>
 	<?php
 }
 
-add_action( 'login_enqueue_scripts', 'ground_login_css' );
+	add_action( 'login_enqueue_scripts', 'ground_login_css' );
