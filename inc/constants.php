@@ -20,7 +20,7 @@ define( 'GROUND_FONT_PRIMARY_NAME', get_field( 'font_primary_name', 'option' ) ?
 define( 'GROUND_FONT_SECONDARY', get_field( 'font_secondary', 'option' ) ? get_field( 'font_secondary', 'option' ) : '' );
 define( 'GROUND_FONT_SECONDARY_NAME', get_field( 'font_secondary_name', 'option' ) ? get_field( 'font_secondary_name', 'option' ) : '' );
 
-define( 'GROUND_ROUNDED', get_field( 'rounded_theme', 'option' ) ? get_field( 'rounded_theme', 'option' ) : '' );
+define( 'GROUND_ROUNDED_THEME', get_field( 'rounded_theme', 'option' ) ? get_field( 'rounded_theme', 'option' ) : '' );
 
 // THEME SETTINGS: COMPANY
 define( 'GROUND_COMPANY_ADDRESS', get_field( 'company_address', 'option' ) ? get_field( 'company_address', 'option' ) : '' );
