@@ -13,15 +13,15 @@ define( 'GROUND_TEMPLATE_PATH', get_template_directory() ); // Return /home/user
 define( 'GROUND_CHARSET', get_bloginfo( 'charset' ) ); // The "Encoding for pages and feeds" (set in Settings > Reading).
 
 // THEME GENERAL SETTINGS
-define( 'GROUND_COLOR_PRIMARY', get_field( 'color_primary', 'option' ) ? get_field( 'color_primary', 'option' ) : '#000000' );
-define( 'GROUND_COLOR_SECONDARY', get_field( 'color_secondary', 'option' ) ? get_field( 'color_secondary', 'option' ) : '' );
+define( 'GROUND_COLOR_PRIMARY', get_field( 'color_primary', 'option' ) ? get_field( 'color_primary', 'option' ) : '#6366F1' );
+define( 'GROUND_COLOR_SECONDARY', get_field( 'color_secondary', 'option' ) ? get_field( 'color_secondary', 'option' ) : '#14B8A6' );
 
 define( 'GROUND_FONT_PRIMARY', get_field( 'font_primary', 'option' ) ? get_field( 'font_primary', 'option' ) : '' );
 define( 'GROUND_FONT_PRIMARY_NAME', get_field( 'font_primary_name', 'option' ) ? get_field( 'font_primary_name', 'option' ) : '' );
 define( 'GROUND_FONT_SECONDARY', get_field( 'font_secondary', 'option' ) ? get_field( 'font_secondary', 'option' ) : '' );
 define( 'GROUND_FONT_SECONDARY_NAME', get_field( 'font_secondary_name', 'option' ) ? get_field( 'font_secondary_name', 'option' ) : '' );
 
-define( 'GROUND_ROUNDED_THEME', get_field( 'rounded_theme', 'option' ) ? get_field( 'rounded_theme', 'option' ) : '' );
+define( 'GROUND_ROUNDED_THEME', get_field( 'rounded_theme', 'option' ) ? get_field( 'rounded_theme', 'option' ) : '0' );
 
 // THEME SETTINGS: COMPANY
 define( 'GROUND_COMPANY_ADDRESS', get_field( 'company_address', 'option' ) ? get_field( 'company_address', 'option' ) : '' );
