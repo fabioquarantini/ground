@@ -2,7 +2,7 @@
 <html <?php language_attributes(); ?> class="has-no-js is-loading">
 
 <head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<meta charset="<?php echo GROUND_CHARSET; ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="theme-color" content="<?php echo GROUND_COLOR_PRIMARY; ?>">
 	<?php if ( ! function_exists( 'has_site_icon' ) || ! has_site_icon() ) { ?>
