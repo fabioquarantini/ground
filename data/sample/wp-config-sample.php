@@ -13,9 +13,8 @@ $domain   = $_SERVER['HTTP_HOST'];
 /**
  * MySQL and url settings
  */
-define( 'WP_ENVIRONMENT_TYPE', 'local' ); // production, local, development and staging.
 
-switch ( wp_get_environment_type() ) {
+switch ( getenv( 'WP_ENVIRONMENT_TYPE' ) ) {
 
 	case 'local':
 		define( 'DB_NAME', 'database_name_here' );
