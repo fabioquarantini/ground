@@ -3,30 +3,6 @@
     "title": "Theme Settings: Footer",
     "fields": [
         {
-            "key": "field_61010ddd4e6fc",
-            "label": "Footer Logo",
-            "name": "footer_logo",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "id",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
-        },
-        {
             "key": "field_61010df315570",
             "label": "Footer Copyright",
             "name": "footer_copyright",
@@ -63,5 +39,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1627482113
+    "modified": 1627998383
 }

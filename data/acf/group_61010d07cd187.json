@@ -4,8 +4,8 @@
     "fields": [
         {
             "key": "field_61010d2084e60",
-            "label": "Social Facebook",
-            "name": "social_facebook",
+            "label": "Social Facebook Url",
+            "name": "social_facebook_url",
             "type": "url",
             "instructions": "Example: https:\/\/www.facebook.com\/...",
             "required": 0,
@@ -20,8 +20,8 @@
         },
         {
             "key": "field_61010d2b63227",
-            "label": "Social Twitter",
-            "name": "social_twitter",
+            "label": "Social Twitter Url",
+            "name": "social_twitter_url",
             "type": "url",
             "instructions": "Example: https:\/\/www.twitter.com\/...",
             "required": 0,
@@ -36,8 +36,8 @@
         },
         {
             "key": "field_61010d3c6e7b7",
-            "label": "Social Youtube",
-            "name": "social_youtube",
+            "label": "Social Youtube Url",
+            "name": "social_youtube_url",
             "type": "url",
             "instructions": "Example: https:\/\/www.youtube.com\/...",
             "required": 0,
@@ -52,8 +52,8 @@
         },
         {
             "key": "field_61010d45a9055",
-            "label": "Social Flickr",
-            "name": "social_flickr",
+            "label": "Social Flickr Url",
+            "name": "social_flickr_url",
             "type": "url",
             "instructions": "Example: https:\/\/www.flickr.com\/...",
             "required": 0,
@@ -68,8 +68,8 @@
         },
         {
             "key": "field_61010d4f30f8b",
-            "label": "Social Instagram",
-            "name": "social_instagram",
+            "label": "Social Instagram Url",
+            "name": "social_instagram_url",
             "type": "url",
             "instructions": "Example: https:\/\/www.instagram.com\/...",
             "required": 0,
@@ -84,8 +84,8 @@
         },
         {
             "key": "field_61010d58154a1",
-            "label": "Social Linkedin",
-            "name": "social_linkedin",
+            "label": "Social Linkedin Url",
+            "name": "social_linkedin_url",
             "type": "url",
             "instructions": "Example: https:\/\/www.linkedin.com\/...",
             "required": 0,
@@ -116,5 +116,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1627482707
+    "modified": 1627998350
 }

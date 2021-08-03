@@ -68,10 +68,10 @@
         },
         {
             "key": "field_61010edce9472",
-            "label": "Font Primary",
-            "name": "font_primary",
-            "type": "text",
-            "instructions": "Example: https:\/\/fonts.googleapis.com\/css2?family=Roboto:wght@500;700&display=swap",
+            "label": "Font Source Primary",
+            "name": "font_source_primary",
+            "type": "textarea",
+            "instructions": "To embed a font, copy the source code here",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -81,14 +81,14 @@
             },
             "default_value": "",
             "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
         },
         {
             "key": "field_6101532c54c4c",
-            "label": "Font Primary Name",
-            "name": "font_primary_name",
+            "label": "Font Family Primary",
+            "name": "font_family_primary",
             "type": "text",
             "instructions": "Example: Roboto",
             "required": 0,
@@ -106,10 +106,10 @@
         },
         {
             "key": "field_6101559a2c8e3",
-            "label": "Font Secondary",
-            "name": "font_secondary",
-            "type": "text",
-            "instructions": "Example: https:\/\/fonts.googleapis.com\/css2?family=Playfair+Display:wght@500&display=swap",
+            "label": "Font Source Secondary",
+            "name": "font_source_secondary",
+            "type": "textarea",
+            "instructions": "To embed a font, copy the source code here",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -119,14 +119,14 @@
             },
             "default_value": "",
             "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
         },
         {
             "key": "field_610155b0b83a3",
-            "label": "Font Secondary Name",
-            "name": "font_secondary_name",
+            "label": "Font Family Secondary",
+            "name": "font_family_secondary",
             "type": "text",
             "instructions": "Example: Playfair Display",
             "required": 0,
@@ -178,6 +178,235 @@
             "step": 2,
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_610949c48c3ab",
+            "label": "Logos",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_6109515a1743d",
+            "label": "Logo Primary",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_610949cf8c3ac",
+            "label": "Logo Primary Url",
+            "name": "logo_primary_url",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_610950f2a0794",
+            "label": "Logo Primary Type",
+            "name": "logo_primary_type",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "I want to upload an svg file!",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_610950b3e4a74",
+            "label": "Logo Primary Source",
+            "name": "logo_primary_source",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_610950f2a0794",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_610951701743e",
+            "label": "Logo Secondary",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_6109529ffd3ff",
+            "label": "Logo Secondary Url",
+            "name": "logo_secondary_url",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_610952b2dd672",
+            "label": "Logo Secondary Type",
+            "name": "logo_secondary_type",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "I want to upload an svg file!",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_610952c7a7c9a",
+            "label": "Logo Secondary Source",
+            "name": "logo_secondary_source",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_610952b2dd672",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_6109530246aa6",
+            "label": "No Image",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_61094af764f1a",
+            "label": "No Image",
+            "name": "no_image",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
         }
     ],
     "location": [
@@ -197,5 +426,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1627485789
+    "modified": 1628006544
 }

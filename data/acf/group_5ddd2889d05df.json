@@ -23,8 +23,8 @@
         },
         {
             "key": "field_61010c6ddbe72",
-            "label": "Company Address Maps",
-            "name": "company_address_maps",
+            "label": "Company Address Url",
+            "name": "company_address_url",
             "type": "url",
             "instructions": "Example: https:\/\/goo.gl\/maps\/NTSGvYpd8XAETEbd9",
             "required": 0,
@@ -36,6 +36,44 @@
             },
             "default_value": "",
             "placeholder": ""
+        },
+        {
+            "key": "field_610945dbe6050",
+            "label": "Company Address Latitude",
+            "name": "company_address_latitude",
+            "type": "text",
+            "instructions": "Example: 35.6006814",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_610945ec78b48",
+            "label": "Company Address Longitude",
+            "name": "company_address_longitude",
+            "type": "text",
+            "instructions": "Example: 91.7117387",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
             "key": "field_61010cb6c312e",
@@ -148,5 +186,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1627482208
+    "modified": 1627997842
 }
