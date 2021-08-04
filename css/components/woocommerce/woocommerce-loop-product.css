@@ -20,6 +20,7 @@
 	.woocommerce-placeholder,
 	.attachment-woocommerce_thumbnail {
 		width: 100%;
+		@apply rounded-theme;
 	}
 
 	.button {
@@ -59,4 +60,19 @@
 	@apply text-lg;
 	@apply pt-6;
 	@apply mb-3;
+}
+
+
+
+body.woocommerce {
+	.page--woocommerce-archive {
+		.products {
+			&.columns-1 { @apply grid grid-cols-1 gap-4; }
+			&.columns-2 { @apply grid grid-cols-1 lg:grid-cols-2 gap-4; }
+			&.columns-3 { @apply grid grid-cols-1 lg:grid-cols-3 gap-4; }
+			&.columns-4 { @apply grid grid-cols-1 lg:grid-cols-4 gap-4; }
+			&.columns-5 { @apply grid grid-cols-1 lg:grid-cols-5 gap-4; }
+			&.columns-6 { @apply grid grid-cols-1 lg:grid-cols-6 gap-4; }
+		}
+	}
 }
