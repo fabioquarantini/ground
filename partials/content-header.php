@@ -1,14 +1,16 @@
 <header class="flex justify-between items-center shadow-lg bg-white fixed top-0 w-full z-10 px-8 py-6">
 
-	<a class="js-cursor-hide" href="<?php echo esc_url(home_url('/')); ?>" title="<?php bloginfo('name'); ?>">
-
-		<?php if (GROUND_LOGO_PRIMARY_TYPE == '1') {
-			echo GROUND_LOGO_PRIMARY_SOURCE;
-		} else { ?>
-			<img class="w-20 h-auto" src="<?php echo esc_url(GROUND_LOGO_PRIMARY_URL['sizes']['medium']); ?>" alt="<?php echo esc_attr(GROUND_LOGO_PRIMARY_URL['alt']); ?>" />
-		<?php } ?>
-
-	</a> <!-- End logo -->
+	<?php if (GROUND_LOGO_URL_PRIMARY || GROUND_LOGO_SOURCE_PRIMARY) { ?>
+		<a class="js-cursor-hide" href="<?php echo esc_url(home_url('/')); ?>" title="<?php bloginfo('name'); ?>">
+			<?php if (GROUND_LOGO_TYPE_PRIMARY && GROUND_LOGO_SOURCE_PRIMARY) {
+				echo GROUND_LOGO_SOURCE_PRIMARY;
+			} else if (GROUND_LOGO_URL_PRIMARY) { ?>
+				<img class="w-20 h-auto" src="<?php echo esc_url(GROUND_LOGO_URL_PRIMARY['sizes']['medium']); ?>" alt="<?php echo esc_attr(GROUND_LOGO_URL_PRIMARY['alt']); ?>" />
+			<?php }  ?>
+		</a> <!-- End logo -->
+	<?php } else { ?>
+		<a class="border border-dashed border-primary p-2" target="_blank" href="<?php echo admin_url('admin.php?page=theme-general-settings', 'http'); ?>">Upload your logo</a>
+	<?php } ?>
 
 	<?php
 

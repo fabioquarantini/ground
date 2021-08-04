@@ -214,8 +214,8 @@
         },
         {
             "key": "field_610949cf8c3ac",
-            "label": "Logo Primary Url",
-            "name": "logo_primary_url",
+            "label": "Logo Url Primary",
+            "name": "logo_url_primary",
             "type": "image",
             "instructions": "",
             "required": 0,
@@ -238,8 +238,8 @@
         },
         {
             "key": "field_610950f2a0794",
-            "label": "Logo Primary Type",
-            "name": "logo_primary_type",
+            "label": "Logo Type Primary",
+            "name": "logo_type_primary",
             "type": "true_false",
             "instructions": "",
             "required": 0,
@@ -257,8 +257,8 @@
         },
         {
             "key": "field_610950b3e4a74",
-            "label": "Logo Primary Source",
-            "name": "logo_primary_source",
+            "label": "Logo Source Primary",
+            "name": "logo_source_primary",
             "type": "textarea",
             "instructions": "",
             "required": 0,
@@ -300,8 +300,8 @@
         },
         {
             "key": "field_6109529ffd3ff",
-            "label": "Logo Secondary Url",
-            "name": "logo_secondary_url",
+            "label": "Logo Url Secondary",
+            "name": "logo_url_secondary",
             "type": "image",
             "instructions": "",
             "required": 0,
@@ -324,8 +324,8 @@
         },
         {
             "key": "field_610952b2dd672",
-            "label": "Logo Secondary Type",
-            "name": "logo_secondary_type",
+            "label": "Logo Type Secondary",
+            "name": "logo_type_secondary",
             "type": "true_false",
             "instructions": "",
             "required": 0,
@@ -343,8 +343,8 @@
         },
         {
             "key": "field_610952c7a7c9a",
-            "label": "Logo Secondary Source",
-            "name": "logo_secondary_source",
+            "label": "Logo Source Secondary",
+            "name": "logo_source_secondary",
             "type": "textarea",
             "instructions": "",
             "required": 0,
@@ -387,7 +387,7 @@
         {
             "key": "field_61094af764f1a",
             "label": "No Image",
-            "name": "no_image",
+            "name": "no_image_url",
             "type": "image",
             "instructions": "",
             "required": 0,
@@ -426,5 +426,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1628006544
+    "modified": 1628060894
 }

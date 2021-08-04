@@ -48,13 +48,12 @@ define('GROUND_SOCIAL_LINKEDIN_URL', get_field('social_linkedin_url', 'option') 
 define('GROUND_FOOTER_COPYRIGHT', get_field('footer_copyright', 'option') ? get_field('footer_copyright', 'option') : '');
 
 // Logos.
-define('GROUND_LOGO_PRIMARY_URL', get_field('logo_primary_url', 'option') ? get_field('logo_primary_url', 'option') : GROUND_TEMPLATE_PATH . '/img/logo.svg');
-define('GROUND_LOGO_PRIMARY_SOURCE', get_field('logo_primary_source', 'option') ? get_field('logo_primary_source', 'option') : GROUND_TEMPLATE_PATH . '/img/logo.svg');
-define('GROUND_LOGO_PRIMARY_TYPE', get_field('logo_primary_type', 'option') ? get_field('logo_primary_type', 'option') : GROUND_TEMPLATE_PATH . '/img/logo.svg');
-
-define('GROUND_LOGO_SECONDARY_URL', get_field('logo_secondary_url', 'option') ? get_field('logo_secondary_url', 'option') : GROUND_TEMPLATE_PATH . '/img/logo.svg');
-define('GROUND_LOGO_SECONDARY_SOURCE', get_field('logo_secondary_source', 'option') ? get_field('logo_secondary_source', 'option') : GROUND_TEMPLATE_PATH . '/img/logo.svg');
-define('GROUND_LOGO_SECONDARY_TYPE', get_field('logo_secondary_type', 'option') ? get_field('logo_secondary_type', 'option') : GROUND_TEMPLATE_PATH . '/img/logo.svg');
+define('GROUND_LOGO_URL_PRIMARY', get_field('logo_url_primary', 'option') ? get_field('logo_url_primary', 'option') : '');
+define('GROUND_LOGO_SOURCE_PRIMARY', get_field('logo_source_primary', 'option') ? get_field('logo_source_primary', 'option') : '');
+define('GROUND_LOGO_TYPE_PRIMARY', get_field('logo_type_primary', 'option') ? get_field('logo_type_primary', 'option') : '');
+define('GROUND_LOGO_URL_SECONDARY', get_field('logo_url_secondary', 'option') ? get_field('logo_url_secondary', 'option') : '');
+define('GROUND_LOGO_SOURCE_SECONDARY', get_field('logo_source_secondary', 'option') ? get_field('logo_source_secondary', 'option') : '');
+define('GROUND_LOGO_TYPE_SECONDARY', get_field('logo_type_secondary', 'option') ? get_field('logo_type_secondary', 'option') : '');
 
 // No image.
-define('GROUND_NO_IMAGE_PATH', get_field('no_image_path', 'option') ? get_field('no_image_path', 'option') : GROUND_TEMPLATE_URL . '/img/no-image.svg');
+define('GROUND_NO_IMAGE_URL', get_field('no_image_url', 'option') ? get_field('no_image_url', 'option') : GROUND_TEMPLATE_URL . '/img/no-image.svg');
