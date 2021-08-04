@@ -22,7 +22,7 @@ function ground_woocommerce_category_image()
 	}
 }
 
-add_action('woocommerce_archive_description', 'ground_woocommerce_category_image', 2);
+add_action('woocommerce_before_main_content', 'ground_woocommerce_category_image', 30);
 
 
 
