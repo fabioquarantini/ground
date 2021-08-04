@@ -1,18 +1,19 @@
 .price {
-	display: block;
-	@apply mb-6;
+	@apply text-black;
+
+	.ground__price-range {
+		@apply text-base text-black;
+	}
 
 	.amount {
-		@apply text-xl;
-		@apply text-primary;
-		font-weight: bold;
+		@apply text-4xl text-black font-bold;
 	}
 
 	del {
-		@apply text-gray-500;
+		@apply text-red-500 text-xl;
 		.amount {
-			@apply text-base;
-			@apply text-gray-500;
+			@apply text-xl font-normal;
+			@apply text-gray-300;
 		}
 	}
 

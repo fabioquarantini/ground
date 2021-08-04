@@ -78,3 +78,19 @@ function ground_woocommerce_customize_product_sorting($options)
  * Remove result count
  */
 // remove_action( 'woocommerce_before_shop_loop' , 'woocommerce_result_count', 20 );
+
+
+/**
+ * WooCommerce, Add Short Description to Products on Shop Page
+ *
+ */
+function ground_add_short_description_to_product_loop()
+{
+	global $product;
+	if ($product->get_short_description()) : ?>
+		<div class="woocommerce-loop-product__description">
+			<?php echo apply_filters('woocommerce_short_description', $product->get_short_description()) ?>
+		</div>
+<?php endif;
+}
+add_action('woocommerce_after_shop_loop_item_title', 'ground_add_short_description_to_product_loop', 2);

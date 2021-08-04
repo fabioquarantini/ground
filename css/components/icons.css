@@ -1,5 +1,5 @@
 .icon {
-	@apply inline-block align-top h-6;
+	@apply inline-block align-top;
 
 	svg	{
 		@apply align-top h-full w-min;
