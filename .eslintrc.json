@@ -37,15 +37,9 @@
 			"error",
 			"single"
 		],
-		"comma-dangle": [
+		"semi": [
 			"error",
-			{
-				"arrays": "never",
-				"objects": "always",
-				"imports": "never",
-				"exports": "never",
-				"functions": "never"
-			}
+			"always"
 		]
 	},
 	"parser": "@babel/eslint-parser",

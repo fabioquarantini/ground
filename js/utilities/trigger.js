@@ -1,7 +1,7 @@
 /**
  * Event dispatcher
  */
-import { DEBUG_MODE } from './environment'
+import { DEBUG_MODE } from './environment';
 
 /**
  * Event trigger
@@ -9,10 +9,10 @@ import { DEBUG_MODE } from './environment'
  * @param {*} detail - Additional parameters to pass along to the event handler.
  */
 export function trigger(eventName, detail) {
-	const event = new window.CustomEvent(eventName, { detail })
-	window.dispatchEvent(event)
+	const event = new window.CustomEvent(eventName, { detail });
+	window.dispatchEvent(event);
 	if (DEBUG_MODE) {
 		// eslint-disable-next-line no-console
-		console.log('🚀 Triggered:', eventName)
+		console.log('🚀 Triggered:', eventName);
 	}
 }

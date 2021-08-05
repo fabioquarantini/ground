@@ -3,25 +3,25 @@
  * A Modern Javascript Transitions Manager
  * @see https://highway.js.org
  */
-import Highway from '@dogstudio/highway'
-import Reveal from '../transitions/reveal'
-import Fade from '../transitions/fade'
-import { trigger } from '../utilities/trigger'
-import ContactForm from './contactForm'
+import Highway from '@dogstudio/highway';
+import Reveal from '../transitions/reveal';
+import Fade from '../transitions/fade';
+import { trigger } from '../utilities/trigger';
+import ContactForm from './contactForm';
 
 // eslint-disable-next-line no-unused-vars
-const contactForm = new ContactForm()
+const contactForm = new ContactForm();
 
 export default class AjaxNavigation {
 	constructor() {
 		this.DOM = {
 			html: document.documentElement,
-			body: document.body,
-		}
+			body: document.body
+		};
 
 		window.addEventListener('DOMContentLoaded', () => {
-			this.init()
-		})
+			this.init();
+		});
 	}
 
 	init() {
@@ -29,45 +29,45 @@ export default class AjaxNavigation {
 			transitions: {
 				default: Reveal,
 				contextual: {
-					fade: Fade,
-				},
-			},
-		})
+					fade: Fade
+				}
+			}
+		});
 
 		this.H.on('NAVIGATE_IN', (data) => {
-			this.navigateIn(data)
-		})
+			this.navigateIn(data);
+		});
 
 		this.H.on('NAVIGATE_OUT', (data) => {
-			this.navigateOut(data)
-		})
+			this.navigateOut(data);
+		});
 
 		this.H.on('NAVIGATE_END', (data) => {
-			this.navigateEnd(data)
-		})
+			this.navigateEnd(data);
+		});
 
-		this.DOM.html.classList.add('is-ajax')
+		this.DOM.html.classList.add('is-ajax');
 	}
 
 	/**
 	 * This event is sent everytime a data-router-view is added to the DOM Tree
 	 */
 	navigateIn(data) {
-		const links = document.querySelectorAll('.navigation__item')
+		const links = document.querySelectorAll('.navigation__item');
 		// Clean class
-		this.DOM.body.className = data.to.page.body.className
-		trigger('NAVIGATE_IN', data)
+		this.DOM.body.className = data.to.page.body.className;
+		trigger('NAVIGATE_IN', data);
 
 		for (let i = 0; i < links.length; i++) {
-			const item = links[i]
-			const link = item.firstElementChild
+			const item = links[i];
+			const link = item.firstElementChild;
 
 			// Clean class
-			item.classList.remove('is-active')
+			item.classList.remove('is-active');
 
 			// Active link
 			if (link.href === location.href) {
-				item.classList.add('is-active')
+				item.classList.add('is-active');
 			}
 		}
 	}
@@ -76,13 +76,13 @@ export default class AjaxNavigation {
 	 * This event is sent everytime the out() method of a transition is run to hide a data-router-view
 	 */
 	navigateOut(data) {
-		trigger('NAVIGATE_OUT', data)
+		trigger('NAVIGATE_OUT', data);
 	}
 
 	/**
 	 * This event is sent everytime the done() method is called in the in() method of a transition
 	 */
 	navigateEnd(data) {
-		trigger('NAVIGATE_END', data)
+		trigger('NAVIGATE_END', data);
 	}
 }

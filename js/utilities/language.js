@@ -7,5 +7,5 @@
  * @returns {string}
  */
 export function getCurrentLanguage() {
-	return document.documentElement.getAttribute('lang')
+	return document.documentElement.getAttribute('lang');
 }

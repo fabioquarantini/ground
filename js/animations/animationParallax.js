@@ -1,32 +1,32 @@
 /* eslint-disable no-unused-vars */
-import { initObserver } from '../utilities/observer'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { initObserver } from '../utilities/observer';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 export default class animationParallax {
 	constructor() {
-		this.element = '[data-scroll="js-parallax"]'
+		this.element = '[data-scroll="js-parallax"]';
 		this.DOM = {
 			html: document.documentElement,
-			body: document.body,
-		}
-		this.options = { triggers: this.element }
-		this.updateEvents = this.updateEvents.bind(this)
-		window.addEventListener('DOMContentLoaded', () => {})
+			body: document.body
+		};
+		this.options = { triggers: this.element };
+		this.updateEvents = this.updateEvents.bind(this);
+		window.addEventListener('DOMContentLoaded', () => {});
 		window.addEventListener('LOADER_COMPLETE', () => {
-			this.init()
-			this.initEvents(this.options.triggers)
-			initObserver(this.options.triggers, this.updateEvents)
-		})
+			this.init();
+			this.initEvents(this.options.triggers);
+			initObserver(this.options.triggers, this.updateEvents);
+		});
 	}
 
 	/**
 	 * Init
 	 */
 	init() {
-		this.DOM.element = document.querySelectorAll(this.element)
+		this.DOM.element = document.querySelectorAll(this.element);
 	}
 
 	/**
@@ -35,8 +35,8 @@ export default class animationParallax {
 	 */
 	initEvents(triggers) {
 		gsap.utils.toArray(triggers).forEach((element) => {
-			this.startAnimation(element)
-		})
+			this.startAnimation(element);
+		});
 	}
 
 	/**
@@ -44,29 +44,27 @@ export default class animationParallax {
 	 * @param {Object} target - New selector
 	 */
 	updateEvents(target) {
-		this.init()
-		this.startAnimation(target)
+		this.init();
+		this.startAnimation(target);
 	}
 
 	/**
 	 *  Start Animation
 	 */
 	startAnimation(item) {
-
-		const targetScrub = parseInt(item.dataset.scrollScrub, 10)
+		const targetScrub = parseInt(item.dataset.scrollScrub, 10);
 
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: item,
 				toggleActions: 'play pause none none',
-				scrub: targetScrub || 2,
-			},
-		})
+				scrub: targetScrub || 2
+			}
+		});
 
 		tl.to(item, {
 			y: -item.dataset.scrollSpeedY * 100 || 0,
-			x: -item.dataset.scrollSpeedX * 100 || 0,
-		})
+			x: -item.dataset.scrollSpeedX * 100 || 0
+		});
 	}
-
 }

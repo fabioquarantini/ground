@@ -1,11 +1,11 @@
-import { initObserver } from '../utilities/observer'
-import * as deepmerge from 'deepmerge'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Flip } from 'gsap/Flip'
-import { Draggable } from 'gsap/Draggable'
+import { initObserver } from '../utilities/observer';
+import * as deepmerge from 'deepmerge';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Flip } from 'gsap/Flip';
+import { Draggable } from 'gsap/Draggable';
 
-gsap.registerPlugin(ScrollTrigger, Flip, Draggable)
+gsap.registerPlugin(ScrollTrigger, Flip, Draggable);
 
 export default class AnimationsFlip {
 	/**
@@ -13,39 +13,37 @@ export default class AnimationsFlip {
 	 * @param {Object} options - User options
 	 */
 	constructor(element, options) {
-		this.element = element || '[data-flip]'
+		this.element = element || '[data-flip]';
 		this.defaults = {
-			triggers: this.element,
-		}
+			triggers: this.element
+		};
 		this.DOM = {
 			html: document.documentElement,
-			body: document.body,
-		}
-		this.options = options
-			? deepmerge(this.defaults, options)
-			: this.defaults
-		this.updateEvents = this.updateEvents.bind(this)
+			body: document.body
+		};
+		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
+		this.updateEvents = this.updateEvents.bind(this);
 
-		window.addEventListener('DOMContentLoaded', () => {})
+		window.addEventListener('DOMContentLoaded', () => {});
 
-		window.addEventListener('NAVIGATE_OUT', () => {})
+		window.addEventListener('NAVIGATE_OUT', () => {});
 
-		window.addEventListener('NAVIGATE_IN', () => {})
+		window.addEventListener('NAVIGATE_IN', () => {});
 
-		window.addEventListener('NAVIGATE_END', () => {})
+		window.addEventListener('NAVIGATE_END', () => {});
 
 		window.addEventListener('LOADER_COMPLETE', () => {
-			this.init()
-			this.initEvents(this.options.triggers)
-			initObserver(this.options.triggers, this.updateEvents)
-		})
+			this.init();
+			this.initEvents(this.options.triggers);
+			initObserver(this.options.triggers, this.updateEvents);
+		});
 	}
 
 	/**
 	 * Init
 	 */
 	init() {
-		this.DOM.element = document.querySelectorAll(this.element)
+		this.DOM.element = document.querySelectorAll(this.element);
 	}
 
 	/**
@@ -54,8 +52,8 @@ export default class AnimationsFlip {
 	 */
 	initEvents(triggers) {
 		gsap.utils.toArray(triggers).forEach((element) => {
-			this.defaultAnimation(element)
-		})
+			this.defaultAnimation(element);
+		});
 	}
 
 	/**
@@ -63,39 +61,39 @@ export default class AnimationsFlip {
 	 * @param {Object} target - New selector
 	 */
 	updateEvents(target) {
-		this.init()
-		this.defaultAnimation(element)
+		this.init();
+		this.defaultAnimation(element);
 	}
 
 	/**
 	 * default Animation
 	 */
 	defaultAnimation(item) {
-		const flipFrom = item.querySelector('[data-flip-from]')
-		const flipTo = item.querySelector('[data-flip-to]')
-		const flipItem = item.querySelector('[data-flip-item]')
-		const flipTrigger = item.querySelector('[data-flip-trigger]')
+		const flipFrom = item.querySelector('[data-flip-from]');
+		const flipTo = item.querySelector('[data-flip-to]');
+		const flipItem = item.querySelector('[data-flip-item]');
+		const flipTrigger = item.querySelector('[data-flip-trigger]');
 
-		Draggable.create(flipFrom)
-		Draggable.create(flipTo)
+		Draggable.create(flipFrom);
+		Draggable.create(flipTo);
 
 		flipTrigger.addEventListener('click', () => {
-			const state = Flip.getState(flipItem)
+			const state = Flip.getState(flipItem);
 
-			flipItem.classList.toggle('active')
+			flipItem.classList.toggle('active');
 
 			if (flipItem.parentElement === flipFrom) {
-				flipTo.appendChild(flipItem)
+				flipTo.appendChild(flipItem);
 			} else {
-				flipFrom.appendChild(flipItem)
+				flipFrom.appendChild(flipItem);
 			}
 
 			Flip.from(state, {
 				duration: 0.6,
 				scale: true,
 				absolute: true,
-				ease: 'power3.inOut',
-			})
-		})
+				ease: 'power3.inOut'
+			});
+		});
 	}
 }

@@ -1,32 +1,32 @@
 /* eslint-disable no-unused-vars */
-import { initObserver } from '../utilities/observer'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { initObserver } from '../utilities/observer';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 export default class animationParallax {
 	constructor() {
-		this.element = '[data-scroll="js-sprite-images"]'
+		this.element = '[data-scroll="js-sprite-images"]';
 		this.DOM = {
 			html: document.documentElement,
-			body: document.body,
-		}
-		this.options = { triggers: this.element }
-		this.updateEvents = this.updateEvents.bind(this)
-		window.addEventListener('DOMContentLoaded', () => {})
+			body: document.body
+		};
+		this.options = { triggers: this.element };
+		this.updateEvents = this.updateEvents.bind(this);
+		window.addEventListener('DOMContentLoaded', () => {});
 		window.addEventListener('LOADER_COMPLETE', () => {
-			this.init()
-			this.initEvents(this.options.triggers)
-			initObserver(this.options.triggers, this.updateEvents)
-		})
+			this.init();
+			this.initEvents(this.options.triggers);
+			initObserver(this.options.triggers, this.updateEvents);
+		});
 	}
 
 	/**
 	 * Init
 	 */
 	init() {
-		this.DOM.element = document.querySelectorAll(this.element)
+		this.DOM.element = document.querySelectorAll(this.element);
 	}
 
 	/**
@@ -35,8 +35,8 @@ export default class animationParallax {
 	 */
 	initEvents(triggers) {
 		gsap.utils.toArray(triggers).forEach((element) => {
-			this.startAnimation(element)
-		})
+			this.startAnimation(element);
+		});
 	}
 
 	/**
@@ -44,38 +44,36 @@ export default class animationParallax {
 	 * @param {Object} target - New selector
 	 */
 	updateEvents(target) {
-		this.init()
-		this.startAnimation(target)
+		this.init();
+		this.startAnimation(target);
 	}
 
 	/**
 	 *  Start Animation
 	 */
 	startAnimation(item) {
+		const target = item.querySelector('[data-scroll-target]');
+		const canvas = item.querySelector('[data-scroll-canvas]');
+		const targetContainer = item.querySelector('[data-scroll-target-animate]');
+		const context = canvas.getContext('2d');
+		const frameCount = parseInt(item.dataset.scrollFrames, 10);
+		const framePath = item.dataset.scrollPath;
 
-		const target = item.querySelector('[data-scroll-target]')
-		const canvas = item.querySelector('[data-scroll-canvas]')
-		const targetContainer = item.querySelector('[data-scroll-target-animate]')
-		const context = canvas.getContext('2d')
-		const frameCount = parseInt(item.dataset.scrollFrames, 10)
-		const framePath = item.dataset.scrollPath
+		canvas.width = 900;
+		canvas.height = 859;
 
-		canvas.width = 900
-		canvas.height = 859
-
-		const currentFrame = (index) =>
-			`${framePath}/${(index + 1).toString().padStart(4, '0')}.jpg`
+		const currentFrame = (index) => `${framePath}/${(index + 1).toString().padStart(4, '0')}.jpg`;
 		// `https://www.apple.com/105/media/us/airpods-pro/2019/1299e2f5_9206_4470_b28e_08307a42f19b/anim/sequence/large/01-hero-lightpass/${(index + 1).toString().padStart(4, '0')}.jpg`
 
-		const images = []
+		const images = [];
 		const frames = {
-			frame: 0,
-		}
+			frame: 0
+		};
 
 		for (let i = 0; i < frameCount; i++) {
-			const img = new Image()
-			img.src = currentFrame(i)
-			images.push(img)
+			const img = new Image();
+			img.src = currentFrame(i);
+			images.push(img);
 		}
 
 		const tl = gsap.timeline({
@@ -86,9 +84,9 @@ export default class animationParallax {
 				scrub: 0.5,
 				pin: true,
 				pinReparent: true,
-				anticipatePin: 1,
-			},
-		})
+				anticipatePin: 1
+			}
+		});
 
 		tl.to(
 			frames,
@@ -96,23 +94,16 @@ export default class animationParallax {
 				frame: frameCount - 1,
 				snap: 'frame',
 				onUpdate: render,
-				duration: 20,
+				duration: 20
 			},
 			'together'
-		).fromTo(
-			targetContainer,
-			{ scale: 0.95 },
-			{ scale: 1, duration: 20 },
-			'together'
-		)
+		).fromTo(targetContainer, { scale: 0.95 }, { scale: 1, duration: 20 }, 'together');
 
-		images[0].onload = render
+		images[0].onload = render;
 
 		function render() {
-			context.clearRect(0, 0, canvas.width, canvas.height)
-			context.drawImage(images[frames.frame], 0, 0)
+			context.clearRect(0, 0, canvas.width, canvas.height);
+			context.drawImage(images[frames.frame], 0, 0);
 		}
-	
 	}
-
 }

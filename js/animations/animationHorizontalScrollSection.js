@@ -1,32 +1,32 @@
 /* eslint-disable no-unused-vars */
-import { initObserver } from '../utilities/observer'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { initObserver } from '../utilities/observer';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 export default class animationHorizontalScrollSection {
 	constructor() {
-		this.element = '[data-scroll="js-horizontal-scroll-section"]'
+		this.element = '[data-scroll="js-horizontal-scroll-section"]';
 		this.DOM = {
 			html: document.documentElement,
-			body: document.body,
-		}
-		this.options = { triggers: this.element }
-		this.updateEvents = this.updateEvents.bind(this)
-		window.addEventListener('DOMContentLoaded', () => {})
+			body: document.body
+		};
+		this.options = { triggers: this.element };
+		this.updateEvents = this.updateEvents.bind(this);
+		window.addEventListener('DOMContentLoaded', () => {});
 		window.addEventListener('LOADER_COMPLETE', () => {
-			this.init()
-			this.initEvents(this.options.triggers)
-			initObserver(this.options.triggers, this.updateEvents)
-		})
+			this.init();
+			this.initEvents(this.options.triggers);
+			initObserver(this.options.triggers, this.updateEvents);
+		});
 	}
 
 	/**
 	 * Init
 	 */
 	init() {
-		this.DOM.element = document.querySelectorAll(this.element)
+		this.DOM.element = document.querySelectorAll(this.element);
 	}
 
 	/**
@@ -35,8 +35,8 @@ export default class animationHorizontalScrollSection {
 	 */
 	initEvents(triggers) {
 		gsap.utils.toArray(triggers).forEach((element) => {
-			this.startAnimation(element)
-		})
+			this.startAnimation(element);
+		});
 	}
 
 	/**
@@ -44,31 +44,30 @@ export default class animationHorizontalScrollSection {
 	 * @param {Object} target - New selector
 	 */
 	updateEvents(target) {
-		this.init()
-		this.startAnimation(target)
+		this.init();
+		this.startAnimation(target);
 	}
 
 	/**
 	 *  Start Animation
 	 */
 	startAnimation(item) {
+		const target = item.querySelector('[data-scroll-target]');
+		const section = item.querySelectorAll('[data-scroll-section]');
+		const targetScrub = parseInt(item.dataset.scrollScrub, 10);
 
-		const target = item.querySelector('[data-scroll-target]')
-		const section = item.querySelectorAll('[data-scroll-section]')
-		const targetScrub = parseInt(item.dataset.scrollScrub, 10)
+		const sections = gsap.utils.toArray(section);
 
-		const sections = gsap.utils.toArray(section)
-
-		let maxWidth = 0
+		let maxWidth = 0;
 
 		const getMaxWidth = () => {
-			maxWidth = 0
+			maxWidth = 0;
 			sections.forEach((section) => {
-				maxWidth += section.offsetWidth
-			})
-		}
-		getMaxWidth()
-		ScrollTrigger.addEventListener('refreshInit', getMaxWidth)
+				maxWidth += section.offsetWidth;
+			});
+		};
+		getMaxWidth();
+		ScrollTrigger.addEventListener('refreshInit', getMaxWidth);
 
 		gsap.to(sections, {
 			x: () => `-${maxWidth - window.innerWidth}`,
@@ -80,9 +79,9 @@ export default class animationHorizontalScrollSection {
 				scrub: targetScrub || false,
 				start: 'center center',
 				end: () => `+=${maxWidth}`,
-				invalidateOnRefresh: true,
-			},
-		})
+				invalidateOnRefresh: true
+			}
+		});
 
 		// ADD SKEW
 		// let proxy = { skew: 0 },
@@ -95,13 +94,9 @@ export default class animationHorizontalScrollSection {
 				trigger: sct,
 				start: () =>
 					'top top-=' +
-					(sct.offsetLeft - window.innerWidth / 2) *
-					(maxWidth / (maxWidth - window.innerWidth)),
-				end: () =>
-					'+=' +
-					sct.offsetWidth *
-					(maxWidth / (maxWidth - window.innerWidth)),
-				toggleClass: { targets: sct, className: 'active' },
+					(sct.offsetLeft - window.innerWidth / 2) * (maxWidth / (maxWidth - window.innerWidth)),
+				end: () => '+=' + sct.offsetWidth * (maxWidth / (maxWidth - window.innerWidth)),
+				toggleClass: { targets: sct, className: 'active' }
 				// ADD SKEW
 				// onUpdate: (self) => {
 				// 	let skew = clamp(self.getVelocity() / -500)
@@ -118,12 +113,11 @@ export default class animationHorizontalScrollSection {
 				// 	}
 				// },
 				// END SKEW
-			})
-		})
+			});
+		});
 
 		// SKEW: make the right edge "stick" to the scroll bar. force3D: true improves performance
 		// gsap.set(section, { transformOrigin: 'center center', force3D: true })
 		// END SKEW
 	}
-
 }

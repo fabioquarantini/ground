@@ -1,32 +1,32 @@
 /* eslint-disable no-unused-vars */
-import { initObserver } from '../utilities/observer'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { initObserver } from '../utilities/observer';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 export default class animationComparison {
 	constructor() {
-		this.element = '[data-scroll="js-comparison"]'
+		this.element = '[data-scroll="js-comparison"]';
 		this.DOM = {
 			html: document.documentElement,
-			body: document.body,
-		}
-		this.options = { triggers: this.element }
-		this.updateEvents = this.updateEvents.bind(this)
-		window.addEventListener('DOMContentLoaded', () => {})
+			body: document.body
+		};
+		this.options = { triggers: this.element };
+		this.updateEvents = this.updateEvents.bind(this);
+		window.addEventListener('DOMContentLoaded', () => {});
 		window.addEventListener('LOADER_COMPLETE', () => {
-			this.init()
-			this.initEvents(this.options.triggers)
-			initObserver(this.options.triggers, this.updateEvents)
-		})
+			this.init();
+			this.initEvents(this.options.triggers);
+			initObserver(this.options.triggers, this.updateEvents);
+		});
 	}
 
 	/**
 	 * Init
 	 */
 	init() {
-		this.DOM.element = document.querySelectorAll(this.element)
+		this.DOM.element = document.querySelectorAll(this.element);
 	}
 
 	/**
@@ -35,8 +35,8 @@ export default class animationComparison {
 	 */
 	initEvents(triggers) {
 		gsap.utils.toArray(triggers).forEach((element) => {
-			this.startAnimation(element)
-		})
+			this.startAnimation(element);
+		});
 	}
 
 	/**
@@ -44,19 +44,18 @@ export default class animationComparison {
 	 * @param {Object} target - New selector
 	 */
 	updateEvents(target) {
-		this.init()
-		this.startAnimation(target)
+		this.init();
+		this.startAnimation(target);
 	}
 
 	/**
 	 *  Start Animation
 	 */
 	startAnimation(item) {
-
-		const target = item.querySelector('[data-scroll-target]')
-		const targetMedia = item.querySelectorAll('[data-scroll-target-media]')
-		const targetImage = item.querySelectorAll('[data-scroll-target-media] img')
-		const targetScrub = parseInt(item.dataset.scrollScrub, 10)
+		const target = item.querySelector('[data-scroll-target]');
+		const targetMedia = item.querySelectorAll('[data-scroll-target-media]');
+		const targetImage = item.querySelectorAll('[data-scroll-target-media] img');
+		const targetScrub = parseInt(item.dataset.scrollScrub, 10);
 
 		const tl = gsap.timeline({
 			scrollTrigger: {
@@ -66,15 +65,16 @@ export default class animationComparison {
 				scrub: targetScrub || false,
 				pin: true,
 				pinReparent: true,
-				anticipatePin: 1,
+				anticipatePin: 1
 			},
-			defaults: { ease: 'none' },
-		})
+			defaults: { ease: 'none' }
+		});
 
-		tl
-			.fromTo(targetMedia, { xPercent: 100, x: 0 }, { xPercent: 0 })
-			.fromTo(targetImage, { xPercent: -100, x: 0 }, { xPercent: 0 }, 0)
-	
+		tl.fromTo(targetMedia, { xPercent: 100, x: 0 }, { xPercent: 0 }).fromTo(
+			targetImage,
+			{ xPercent: -100, x: 0 },
+			{ xPercent: 0 },
+			0
+		);
 	}
-
 }

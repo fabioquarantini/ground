@@ -7,7 +7,7 @@
  * @returns {string}
  */
 export function getTemplateUrl() {
-	return document.body.dataset.templateUrl
+	return document.body.dataset.templateUrl;
 }
 
 /**
@@ -15,7 +15,7 @@ export function getTemplateUrl() {
  * @returns {string}
  */
 export function getSiteUrl() {
-	return `${window.location.protocol}//${window.location.host}`
+	return `${window.location.protocol}//${window.location.host}`;
 }
 
 /**
@@ -23,5 +23,5 @@ export function getSiteUrl() {
  * @returns {string}
  */
 export function getCurrentUrl() {
-	return `${window.location.protocol}//${window.location.host}${window.location.pathname}${window.location.search}`
+	return `${window.location.protocol}//${window.location.host}${window.location.pathname}${window.location.search}`;
 }

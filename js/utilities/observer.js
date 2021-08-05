@@ -8,7 +8,7 @@
 export function initObserver(triggers, callback) {
 	const filterSelector = (selector, mutationsList) => {
 		// We can't create a NodeList; let's use a Set
-		const result = new Set()
+		const result = new Set();
 		// Loop through the mutationsList...
 		for (const { addedNodes } of mutationsList) {
 			for (const node of addedNodes) {
@@ -18,11 +18,11 @@ export function initObserver(triggers, callback) {
 				if (node.nodeType === 1) {
 					// Add it if it's a match
 					if (node.matches(selector)) {
-						result.add(node)
+						result.add(node);
 					}
 					// Add any children
 					for (const entry of node.querySelectorAll(selector)) {
-						result.add(entry)
+						result.add(entry);
 					}
 				}
 			}
@@ -38,23 +38,23 @@ export function initObserver(triggers, callback) {
 				}
 			}); */
 
-		return [...result] // Result is an array, or just return the set
-	}
+		return [...result]; // Result is an array, or just return the set
+	};
 
 	const observerCallback = (mutationsList) => {
-		const result = filterSelector(triggers, mutationsList)
+		const result = filterSelector(triggers, mutationsList);
 		result.forEach((element) => {
-			callback(element)
-		})
-	}
+			callback(element);
+		});
+	};
 
 	const config = {
 		childList: true,
 		attributes: false,
 		characterData: false,
-		subtree: true,
-	}
-	const observer = new MutationObserver(observerCallback)
-	observer.observe(document.documentElement, config)
+		subtree: true
+	};
+	const observer = new MutationObserver(observerCallback);
+	observer.observe(document.documentElement, config);
 	//observer.disconnect();
 }

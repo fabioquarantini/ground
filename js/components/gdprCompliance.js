@@ -1,12 +1,12 @@
 export default class gdprCompliance {
 	constructor() {
-		this.init()
+		this.init();
 	}
 
 	init() {
 		Yacc.configure({
 			culture: 'it',
-			cookiePageUrl: '/privacy-cookies/',
-		})
+			cookiePageUrl: '/privacy-cookies/'
+		});
 	}
 }

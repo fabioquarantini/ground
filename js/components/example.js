@@ -1,6 +1,6 @@
-import { initObserver } from '../utilities/observer'
-import * as deepmerge from 'deepmerge'
-import { gsap } from 'gsap'
+import { initObserver } from '../utilities/observer';
+import * as deepmerge from 'deepmerge';
+import { gsap } from 'gsap';
 
 export default class Example {
 	/**
@@ -8,20 +8,18 @@ export default class Example {
 	 * @param {Object} options - User options
 	 */
 	constructor(element, options) {
-		this.element = element || '.js-example'
+		this.element = element || '.js-example';
 		this.defaults = {
-			triggers: this.element,
-		}
-		this.options = options
-			? deepmerge(this.defaults, options)
-			: this.defaults
-		this.updateEvents = this.updateEvents.bind(this)
+			triggers: this.element
+		};
+		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
+		this.updateEvents = this.updateEvents.bind(this);
 
 		window.addEventListener('DOMContentLoaded', () => {
-			this.init()
-			this.initEvents(this.options.triggers)
-			initObserver(this.options.triggers, this.updateEvents)
-		})
+			this.init();
+			this.initEvents(this.options.triggers);
+			initObserver(this.options.triggers, this.updateEvents);
+		});
 	}
 
 	/**
@@ -29,9 +27,9 @@ export default class Example {
 	 */
 	init() {
 		this.DOM = {
-			element: document.querySelectorAll(this.element),
-		}
-		this.DOM.child = document.querySelectorAll('.js-test-child')
+			element: document.querySelectorAll(this.element)
+		};
+		this.DOM.child = document.querySelectorAll('.js-test-child');
 	}
 
 	/**
@@ -39,12 +37,12 @@ export default class Example {
 	 * @param {string} triggers - Selectors
 	 */
 	initEvents(triggers) {
-		this.example = 'Example'
-		;[...document.querySelectorAll(triggers)].forEach((element) => {
+		this.example = 'Example';
+		[...document.querySelectorAll(triggers)].forEach((element) => {
 			element.addEventListener('mouseenter', () => {
-				this.myAnimation()
-			})
-		})
+				this.myAnimation();
+			});
+		});
 	}
 
 	/**
@@ -52,10 +50,10 @@ export default class Example {
 	 * @param {Object} target - New selector
 	 */
 	updateEvents(target) {
-		this.init()
+		this.init();
 		target.addEventListener('mouseenter', () => {
-			this.myAnimation()
-		})
+			this.myAnimation();
+		});
 	}
 
 	/**
@@ -63,14 +61,10 @@ export default class Example {
 	 */
 	myAnimation() {
 		// Animation
-		const timelineExample = gsap.timeline({ delay: 0 })
+		const timelineExample = gsap.timeline({ delay: 0 });
 
 		timelineExample
-			.fromTo(
-				this.DOM.element,
-				{ opacity: 1 },
-				{ duration: 0.5, opacity: 0.2 }
-			)
-			.fromTo(this.DOM.child, { scale: 1 }, { duration: 0.5, scale: 3 })
+			.fromTo(this.DOM.element, { opacity: 1 }, { duration: 0.5, opacity: 0.2 })
+			.fromTo(this.DOM.child, { scale: 1 }, { duration: 0.5, scale: 3 });
 	}
 }
