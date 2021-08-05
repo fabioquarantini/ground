@@ -2,7 +2,7 @@
 	@apply inline-block align-top;
 
 	svg	{
-		@apply align-top h-full w-min;
+		@apply align-top h-full w-full;
 	}
 
 	path {
