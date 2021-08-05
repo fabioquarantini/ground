@@ -10,7 +10,10 @@
 		"react/prop-types": 0,
 		"react-hooks/rules-of-hooks": "error",
 		"no-console": "warn",
-		"indent": ["warn", "tab"],
+		"indent": [
+			"warn",
+			"tab"
+		],
 		"no-tabs": [
 			"error",
 			{
@@ -29,10 +32,29 @@
 				"ignoreComments": true,
 				"ignoreTemplateLiterals": true
 			}
+		],
+		"quotes": [
+			"error",
+			"single"
+		],
+		"comma-dangle": [
+			"error",
+			{
+				"arrays": "never",
+				"objects": "always",
+				"imports": "never",
+				"exports": "never",
+				"functions": "never"
+			}
 		]
 	},
 	"parser": "@babel/eslint-parser",
-	"plugins": ["react", "import", "jsx-a11y", "react-hooks"],
+	"plugins": [
+		"react",
+		"import",
+		"jsx-a11y",
+		"react-hooks"
+	],
 	"parserOptions": {
 		"ecmaVersion": 2020,
 		"sourceType": "module",
