@@ -28,7 +28,7 @@ if ( $query->have_posts() ) {
 						<?php if ( has_post_thumbnail() ) { ?>
 							<img class="media__img cover" src="<?php the_post_thumbnail_url( 'medium' ); ?>" loading="lazy"/>
 						<?php } else { ?>
-							<img class="media__img cover" src="<?php echo GROUND_NO_IMAGE_PATH; ?>" loading="lazy">
+							<img class="media__img cover" src="<?php echo GROUND_NO_IMAGE_URL; ?>" loading="lazy">
 						<?php } ?>
 					</figure>
 

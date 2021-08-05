@@ -1,32 +1,32 @@
 /* eslint-disable no-unused-vars */
-import { initObserver } from '../utilities/observer'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { initObserver } from '../utilities/observer';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 export default class animationPin {
 	constructor() {
-		this.element = '[data-scroll="js-pin"]'
+		this.element = '[data-scroll="js-pin"]';
 		this.DOM = {
 			html: document.documentElement,
-			body: document.body,
-		}
-		this.options = { triggers: this.element }
-		this.updateEvents = this.updateEvents.bind(this)
-		window.addEventListener('DOMContentLoaded', () => {})
+			body: document.body
+		};
+		this.options = { triggers: this.element };
+		this.updateEvents = this.updateEvents.bind(this);
+		window.addEventListener('DOMContentLoaded', () => {});
 		window.addEventListener('LOADER_COMPLETE', () => {
-			this.init()
-			this.initEvents(this.options.triggers)
-			initObserver(this.options.triggers, this.updateEvents)
-		})
+			this.init();
+			this.initEvents(this.options.triggers);
+			initObserver(this.options.triggers, this.updateEvents);
+		});
 	}
 
 	/**
 	 * Init
 	 */
 	init() {
-		this.DOM.element = document.querySelectorAll(this.element)
+		this.DOM.element = document.querySelectorAll(this.element);
 	}
 
 	/**
@@ -35,8 +35,8 @@ export default class animationPin {
 	 */
 	initEvents(triggers) {
 		gsap.utils.toArray(triggers).forEach((element) => {
-			this.startAnimation(element)
-		})
+			this.startAnimation(element);
+		});
 	}
 
 	/**
@@ -44,20 +44,17 @@ export default class animationPin {
 	 * @param {Object} target - New selector
 	 */
 	updateEvents(target) {
-		this.init()
-		this.startAnimation(target)
+		this.init();
+		this.startAnimation(target);
 	}
 
 	/**
 	 *  Start Animation
 	 */
 	startAnimation(item) {
-		
-		const target = item.querySelectorAll('[data-scroll-target]')
-		const targetElement = item.querySelectorAll(
-			'[data-scroll-target-animate]'
-		)
-		const targetScrub = parseInt(item.dataset.scrollScrub, 10)
+		const target = item.querySelectorAll('[data-scroll-target]');
+		const targetElement = item.querySelectorAll('[data-scroll-target-animate]');
+		const targetScrub = parseInt(item.dataset.scrollScrub, 10);
 
 		const tl = gsap.timeline({
 			scrollTrigger: {
@@ -68,15 +65,13 @@ export default class animationPin {
 				scrub: targetScrub || false,
 				pin: true,
 				pinReparent: true,
-				anticipatePin: 1,
-			},
-		})
+				anticipatePin: 1
+			}
+		});
 
 		tl.from(targetElement, {
 			scale: 0.6,
-			transformOrigin: 'center center',
-		})
-	
+			transformOrigin: 'center center'
+		});
 	}
-
 }

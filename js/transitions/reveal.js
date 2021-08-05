@@ -1,5 +1,5 @@
-import Highway from '@dogstudio/highway'
-import { gsap } from 'gsap'
+import Highway from '@dogstudio/highway';
+import { gsap } from 'gsap';
 
 class Reveal extends Highway.Transition {
 	/**
@@ -7,26 +7,26 @@ class Reveal extends Highway.Transition {
 	 * @param {object} name - Transition name
 	 */
 	constructor(wrap, name) {
-		super(wrap, name)
+		super(wrap, name);
 
-		this.element = document.getElementById('js-loader')
-		this.elementBg = document.getElementById('js-loader-bg')
-		this.elementContent = document.getElementById('js-loader-content')
+		this.element = document.getElementById('js-loader');
+		this.elementBg = document.getElementById('js-loader-bg');
+		this.elementContent = document.getElementById('js-loader-content');
 	}
 
 	in({ from, to, trigger, done }) {
-		const tlLoaderBg = gsap.timeline()
+		const tlLoaderBg = gsap.timeline();
 		const tlLoaderContent = gsap.timeline({
-			delay: 0.2,
-		})
+			delay: 0.2
+		});
 		// Reset Scroll
-		window.scrollTo(0, 0)
+		window.scrollTo(0, 0);
 
 		// Remove Old View
-		from.remove()
+		from.remove();
 
 		// Update body class
-		document.documentElement.classList.replace('is-loading', 'is-loaded')
+		document.documentElement.classList.replace('is-loading', 'is-loaded');
 
 		// Animations
 		tlLoaderBg.to(
@@ -39,42 +39,42 @@ class Reveal extends Highway.Transition {
 				rotation: 0.01,
 				onComplete: () => {
 					// Update body class
-					document.documentElement.classList.add('is-loader-complete')
+					document.documentElement.classList.add('is-loader-complete');
 					// Hide loader
-					this.element.classList.add('display-none')
+					this.element.classList.add('display-none');
 					// Done
-					done()
-				},
+					done();
+				}
 			},
 			0.1
-		)
+		);
 
 		tlLoaderContent.to(this.elementContent, {
 			duration: 0.8,
 			ease: 'power3.out',
 			y: -65,
-			opacity: 0,
-		})
+			opacity: 0
+		});
 	}
 
 	out({ from, trigger, done }) {
-		const tlLoaderBg = gsap.timeline()
+		const tlLoaderBg = gsap.timeline();
 		const tlLoaderContent = gsap.timeline({
-			delay: 0.6,
-		})
+			delay: 0.6
+		});
 
 		// Update body class
-		document.documentElement.classList.replace('is-loaded', 'is-loading')
-		document.documentElement.classList.remove('is-loader-complete')
+		document.documentElement.classList.replace('is-loaded', 'is-loading');
+		document.documentElement.classList.remove('is-loader-complete');
 
 		// Show loader
-		this.element.classList.remove('display-none')
+		this.element.classList.remove('display-none');
 
 		// Animations
 		tlLoaderBg.fromTo(
 			this.elementBg,
 			{
-				yPercent: 100,
+				yPercent: 100
 			},
 			{
 				duration: 1.5,
@@ -83,26 +83,26 @@ class Reveal extends Highway.Transition {
 				force3D: true,
 				rotation: 0.01,
 				onComplete: () => {
-					done()
-				},
+					done();
+				}
 			},
 			0
-		)
+		);
 
 		tlLoaderContent.fromTo(
 			this.elementContent,
 			{
 				y: 65,
-				opacity: 0,
+				opacity: 0
 			},
 			{
 				duration: 0.8,
 				ease: 'power3.out',
 				y: 0,
-				opacity: 1,
+				opacity: 1
 			}
-		)
+		);
 	}
 }
 
-export default Reveal
+export default Reveal;

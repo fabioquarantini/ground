@@ -10,12 +10,12 @@
  * @returns {Number}
  */
 export function getRandomNumber(min, max, decimal) {
-	const result = Math.random() * (max - min) + min
+	const result = Math.random() * (max - min) + min;
 
 	if (typeof decimal !== 'undefined') {
-		return Number(result.toFixed(decimal))
+		return Number(result.toFixed(decimal));
 	}
-	return result
+	return result;
 }
 
 /**
@@ -25,7 +25,7 @@ export function getRandomNumber(min, max, decimal) {
  * @returns {Number}
  */
 export function getRandomInt(min, max) {
-	return Math.floor(Math.random() * (max - min + 1)) + min
+	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 /**
@@ -38,22 +38,13 @@ export function getRandomInt(min, max) {
  * @returns {number} The value inside the new range's values
  * @see https://github.com/yakudoo/TheAviator/blob/d19b8744e745f74fb70b4f255d700394aa6b3200/js/game.js#L965
  */
-export function normalize(
-	value,
-	actualMinRange,
-	actualMaxRange,
-	newMinRange,
-	newMaxRange
-) {
-	const sanitizedValue = Math.max(
-		Math.min(value, actualMaxRange),
-		actualMinRange
-	)
-	const actualRangeDelta = actualMaxRange - actualMinRange
-	const coefficent = (sanitizedValue - actualMinRange) / actualRangeDelta
-	const newRangeDelta = newMaxRange - newMinRange
-	const newValue = newMinRange + coefficent * newRangeDelta
-	return newValue
+export function normalize(value, actualMinRange, actualMaxRange, newMinRange, newMaxRange) {
+	const sanitizedValue = Math.max(Math.min(value, actualMaxRange), actualMinRange);
+	const actualRangeDelta = actualMaxRange - actualMinRange;
+	const coefficent = (sanitizedValue - actualMinRange) / actualRangeDelta;
+	const newRangeDelta = newMaxRange - newMinRange;
+	const newValue = newMinRange + coefficent * newRangeDelta;
+	return newValue;
 }
 
 /**
@@ -63,5 +54,5 @@ export function normalize(
  * @param {float} amount - The amount to interpolate between the two values where 0.0 equal to the first point, 0.1 is very near the first point, 0.5 is half-way in between, etc.
  */
 export function lerp(start, end, amount) {
-	return (1 - amount) * start + amount * end
+	return (1 - amount) * start + amount * end;
 }

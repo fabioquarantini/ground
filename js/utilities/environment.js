@@ -2,4 +2,4 @@
  * Shared constants
  */
 
-export const DEBUG_MODE = false
+export const DEBUG_MODE = false;

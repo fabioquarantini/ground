@@ -9,7 +9,7 @@ export function trackGoogleAnalytics() {
 	if (typeof window.ga !== 'undefined') {
 		window.ga('send', 'pageview', {
 			page: window.location.pathname,
-			title: document.title,
-		})
+			title: document.title
+		});
 	}
 }
