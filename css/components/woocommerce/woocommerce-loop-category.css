@@ -1,0 +1,18 @@
+.woocommerce-loop-category {
+	@apply relative overflow-hidden;
+
+	img {
+		@apply relative overflow-hidden w-full h-auto rounded-theme;
+	}
+}
+
+.woocommerce-loop-category__title {
+	@apply text-black text-lg font-bold pt-6 pb-2;
+	.count {
+		@apply hidden;
+	}
+}
+
+.woocommerce-loop-category__description {
+	@apply text-gray-500 text-base mb-3;
+}

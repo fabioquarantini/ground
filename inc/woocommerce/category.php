@@ -22,8 +22,35 @@ function ground_woocommerce_category_image()
 	}
 }
 
-add_action('woocommerce_before_main_content', 'ground_woocommerce_category_image', 30);
+// add_action('woocommerce_before_main_content', 'ground_woocommerce_category_image', 30);
 
+
+
+/**
+ * Display term hero on category archive
+ */
+function ground_add_term_hero()
+{
+
+	if (is_tax('product_cat')) {
+		$cat = get_queried_object();
+
+		$min_price = isset($_GET['min_price']) ? esc_attr($_GET['min_price']) : 0;
+		$max_price = isset($_GET['max_price']) ? esc_attr($_GET['max_price']) : 0;
+
+		if (0 < count(WC_Query::get_layered_nav_chosen_attributes()) || 0 < $min_price || 0 < $max_price) {
+			// Ci sono filtri attivi
+		} else {
+			if ($cat->parent === 0) {
+				get_template_part('partials/woocommerce/term-hero');
+			} else {
+				get_template_part('partials/woocommerce/term-hero');
+			}
+		}
+	}
+}
+
+add_action('woocommerce_before_main_content', 'ground_add_term_hero', 40);
 
 
 
