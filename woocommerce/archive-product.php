@@ -34,23 +34,20 @@ do_action('woocommerce_before_main_content');
 
 <div class="grid grid-cols-12 gap-6">
 
-	<div class="col-span-3">
-
+	<div class="<?php if (!is_active_sidebar('sidebar-woocommerce')) {
+					echo 'hidden';
+				} else {
+					echo 'lg:col-span-3 col-span-full';
+				} ?>">
 		<?php get_template_part('partials/sidebar', 'woocommerce'); ?>
-
-		<?php
-		/**
-		 * Hook: woocommerce_sidebar.
-		 *
-		 * @hooked woocommerce_get_sidebar - 10
-		 */
-		do_action('woocommerce_sidebar');
-
-		?>
 
 	</div>
 
-	<div class="col-span-9">
+	<div class="<?php if (!is_active_sidebar('sidebar-woocommerce')) {
+					echo 'col-span-full';
+				} else {
+					echo 'lg:col-span-9 col-span-full';
+				} ?>">
 		<section class="page page--woocommerce-archive">
 
 			<header class="page__header hidden">

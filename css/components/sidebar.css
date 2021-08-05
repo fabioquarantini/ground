@@ -1,6 +1,6 @@
 .sidebar {
 	display: none;
-	@screen md {
+	@screen lg {
 		display: block;
 	}
 
@@ -22,7 +22,7 @@
 	@apply pt-6;
 	@apply pb-20;
 
-	@screen md {
+	@screen lg {
 		padding: 0;
 	}
 }
@@ -34,7 +34,7 @@
 	margin: 0;
 	width: 100%;
 
-	@screen md {
+	@screen lg {
 		display: none;
 	}
 }
