@@ -1,9 +1,9 @@
 .button {
-	@apply inline-block px-6 py-3 mb-6 bg-primary text-base text-white text-center no-underline align-middle whitespace-nowrap border border-primary cursor-pointer transition-all;
+	@apply inline-block px-6 py-3 mb-6 bg-primary text-base text-white text-center no-underline align-middle whitespace-nowrap border border-primary rounded-theme cursor-pointer transition;
 
 	&:hover,
 	&--active {
-		@apply bg-secondary text-black border-secondary;
+		@apply bg-transparent text-primary border-primary;
 	}
 
 	&--secondary {
