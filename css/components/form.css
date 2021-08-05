@@ -7,7 +7,7 @@
 	input[type=number],
 	textarea,
 	select {
-		@apply focus:ring-indigo-500 text-black border-gray-300 rounded w-full !important;
+		@apply focus:ring-primary text-black border-gray-300 rounded w-full !important;
 		.woocommerce-invalid & {
 			@apply border-red-500 !important;
 		}
@@ -20,11 +20,11 @@
 	textarea { min-height: 140px; }
 
 	input[type=checkbox] {
-		@apply focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded mr-1 cursor-pointer !important;
+		@apply focus:ring-primary h-4 w-4 text-primary border-gray-300 rounded mr-1 cursor-pointer !important;
 	}
 
 	input[type=radio] {
-		@apply focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 mr-1 cursor-pointer !important;
+		@apply focus:ring-primary h-4 w-4 text-primary border-gray-300 mr-1 cursor-pointer !important;
 	}
 
 	input[type=submit] {

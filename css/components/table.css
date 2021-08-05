@@ -1,43 +1,8 @@
-.table,
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-	@apply mb-6;
-	table-layout: auto;
-	max-width: 100%;
-	width: 100%;
-	@apply bg-white;
-}
-
-.table--striped {
-
-	tbody tr:nth-child(even) {
-		@apply bg-gray-500;
-	}
-
-}
-
-.table--hover {
-
-	tbody tr:hover {
-		@apply bg-gray-500;
-		@apply text-white;
-	}
-
-}
-
-.table--scroll {
-	display: block;
-	width: 100%;
-	min-height: .01%;
-	overflow-x: auto;
-}
-
 .table--responsive {
 
 	display: block;
 
-	@screen sm {
+	@screen lg {
 		display: table;
 	}
 
@@ -52,7 +17,7 @@ table {
 
 	thead {
 
-		@screen sm {
+		@screen lg {
 			display: table-header-group;
 		}
 
@@ -62,7 +27,7 @@ table {
 			top: -9999px;
 			left: -9999px;
 
-			@screen sm {
+			@screen lg {
 				position: relative;
 				top: auto;
 				left: auto;
@@ -74,7 +39,7 @@ table {
 
 	tbody {
 
-		@screen sm {
+		@screen lg {
 			display: table-row-group;
 		}
 
@@ -82,7 +47,7 @@ table {
 
 	tfoot {
 
-		@screen sm {
+		@screen lg {
 			display: table-footer-group;
 		}
 
@@ -92,7 +57,7 @@ table {
 
 		@apply mb-6;
 
-		@screen sm {
+		@screen lg {
 			display:table-row;
 		}
 
@@ -101,7 +66,7 @@ table {
 	td,
 	th {
 
-		@screen sm {
+		@screen lg {
 			display:table-cell;
 		}
 
@@ -109,15 +74,12 @@ table {
 
 
 	td {
-
 		vertical-align: top;
-		@apply bg-gray-300;
-
-		@media ( max-width: theme('screens.sm') ) {
+		@media ( max-width: theme('screens.lg') ) {
 			border: 0;
 		}
 
-		@screen sm {
+		@screen lg {
 			background-color: transparent;
 			//width: 1px;
 			white-space:nowrap;
@@ -125,15 +87,10 @@ table {
 
 
 		&:before {
-
-			@apply text-black;
+			@apply block text-black text-base;
 			content: attr(data-title);
-			font-variant: small-caps;
-			text-transform: uppercase;
-			display: block;
-			font-weight: bold;
 
-			@screen sm {
+			@screen lg {
 				display: none;
 			}
 
@@ -143,61 +100,27 @@ table {
 
 }
 
-.table--condensed {
 
-	td,
-	th {
-		border-width: 1px;
-		@apply px-3;
-		border-style: solid;
+
+table {
+	@apply bg-transparent !important;
+
+	thead {
+		@apply bg-primary text-white border-0 !important;
+		th {
+			@apply text-white !important;
+		}
 	}
 
-}
+	tfoot {
+		@apply border-t border-gray-200 !important;
+	}
 
-.table__caption,
-caption {
+	th {
+		@apply py-6 text-left text-base font-medium text-black !important;
+	}
 
-}
-
-.table__head,
-thead {
-	@apply bg-primary;
-	@apply text-white;
-}
-
-.table__body,
-tbody {
-
-}
-
-.table__foot,
-tfoot {
-
-}
-
-.table__row,
-tr {
-	vertical-align: middle;
-}
-
-.table__cell,
-td {
-	border-width: 1px;
-	border-style: solid;
-	border-color: transparent;
-	@apply p-1;
-	//border-bottom-color: $color-grey;
-	@apply border-gray-500;
-	vertical-align: middle;
-}
-
-.shop_table td {
-	vertical-align: middle;
-}
-
-.table__cell--head,
-th {
-	@extend .table__cell;
-	text-align: left;
-	font-weight: bold;
+	td {
+		@apply py-6 whitespace-nowrap text-base font-medium text-gray-900 !important;
+	}
 }

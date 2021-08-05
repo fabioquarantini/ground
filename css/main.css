@@ -43,6 +43,7 @@
 
 // WooCommerce
 @import 'components/woocommerce/cart.css';
+@import 'components/woocommerce/cart-totals.css';
 @import 'components/woocommerce/minicart.css';
 @import 'components/woocommerce/price.css';
 @import 'components/woocommerce/product-remove.css';

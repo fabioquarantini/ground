@@ -162,8 +162,8 @@ do_action('woocommerce_before_cart'); ?>
 
 </div>
 
-<div class="lg:flex lg:flex-wrap flex-row-reverse">
-	<div class="cart-collaterals lg:w-6/12">
+<div class="relative">
+	<div class="cart-collaterals">
 		<?php
 		/**
 		 * Cart collaterals hook.
