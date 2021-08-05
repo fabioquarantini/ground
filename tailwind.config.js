@@ -8,7 +8,7 @@ module.exports = {
 			safelist: ['aspect-w-16', 'aspect-h-9', 'aspect-w-4', 'aspect-h-3'],
 		},
 	},
-	darkMode: false, // or 'media' or 'class'
+	darkMode: 'class', // or 'media' or 'class'
 	theme: {
 		container: {
 			center: true,
@@ -22,10 +22,12 @@ module.exports = {
 				primary: 'var(--ground-color-primary)',
 				secondary: 'var(--ground-color-secondary)',
 			},
+			margin: {
+				'1/2': '50%',
+			},
 			fontFamily: {
 				primary: [
 					'var(--ground-font-primary)',
-					'"Mulish", sans-serif',
 					'ui-sans-serif',
 					'system-ui',
 					'-apple-system',
