@@ -12,7 +12,7 @@
 						<?php ground_image('medium') ?> 480w" src="<?php ground_image('small') ?>">
 			</figure>
 		<?php } ?>
-		<div class="prose max-w-full">
+		<div class="relative">
 			<?php the_content(); ?>
 		</div>
 	</div> <!-- End .page__body -->

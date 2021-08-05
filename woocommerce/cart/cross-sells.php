@@ -20,10 +20,10 @@ defined('ABSPATH') || exit;
 
 if ($cross_sells) : ?>
 
-	<div class="cross-sells">
+	<div class="cross-sells py-12">
 
-		<div class="relative">
-			<h2><?php esc_html_e('You may be interested in&hellip;', 'woocommerce'); ?></h2>
+		<div class="relative mb-6 lg:mb-12">
+			<h2 class="text-center text-2xl"><?php esc_html_e('You may be interested in&hellip;', 'woocommerce'); ?></h2>
 		</div>
 
 		<?php woocommerce_product_loop_start(); ?>
@@ -36,9 +36,9 @@ if ($cross_sells) : ?>
 			setup_postdata($GLOBALS['post'] = &$post_object); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.OverrideProhibited, Squiz.PHP.DisallowMultipleAssignments.Found 
 			?>
 
-			<div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
-				<?php wc_get_template_part('content', 'product'); ?>
-			</div>
+
+			<?php wc_get_template_part('content', 'product'); ?>
+
 
 		<?php endforeach; ?>
 
