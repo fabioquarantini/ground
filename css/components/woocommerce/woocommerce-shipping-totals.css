@@ -1,0 +1,27 @@
+.woocommerce-shipping-totals {
+    @apply relative prose max-w-full;
+    
+    .woocommerce-shipping-methods {
+        @apply ml-0 mb-6;
+
+        li {
+            @apply pl-0 flex items-center cursor-pointer;
+        
+            &:before { @apply hidden; }
+
+            label { @apply pl-2; }
+
+            input:checked + label {
+                @apply text-primary underline !important;
+            }
+        }
+    }
+
+    .woocommerce-shipping-destination {
+        @apply text-sm;
+    }
+    .shipping-calculator-button {
+        @apply block mt-2 text-sm text-black font-bold underline;
+    }
+
+}
