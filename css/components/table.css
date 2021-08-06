@@ -1,8 +1,43 @@
+.table,
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	@apply mb-6;
+	table-layout: auto;
+	max-width: 100%;
+	width: 100%;
+	@apply bg-white;
+}
+
+.table--striped {
+
+	tbody tr:nth-child(even) {
+		@apply bg-gray-500;
+	}
+
+}
+
+.table--hover {
+
+	tbody tr:hover {
+		@apply bg-gray-500;
+		@apply text-white;
+	}
+
+}
+
+.table--scroll {
+	display: block;
+	width: 100%;
+	min-height: .01%;
+	overflow-x: auto;
+}
+
 .table--responsive {
 
 	display: block;
 
-	@screen lg {
+	@screen sm {
 		display: table;
 	}
 
@@ -17,17 +52,17 @@
 
 	thead {
 
-		@screen lg {
+		@screen sm {
 			display: table-header-group;
 		}
 
 		th {
-
+			
 			position: absolute;
 			top: -9999px;
 			left: -9999px;
 
-			@screen lg {
+			@screen sm {
 				position: relative;
 				top: auto;
 				left: auto;
@@ -39,7 +74,7 @@
 
 	tbody {
 
-		@screen lg {
+		@screen sm {
 			display: table-row-group;
 		}
 
@@ -47,7 +82,7 @@
 
 	tfoot {
 
-		@screen lg {
+		@screen sm {
 			display: table-footer-group;
 		}
 
@@ -57,7 +92,7 @@
 
 		@apply mb-6;
 
-		@screen lg {
+		@screen sm {
 			display:table-row;
 		}
 
@@ -66,7 +101,7 @@
 	td,
 	th {
 
-		@screen lg {
+		@screen sm {
 			display:table-cell;
 		}
 
@@ -74,12 +109,15 @@
 
 
 	td {
+
 		vertical-align: top;
-		@media ( max-width: theme('screens.lg') ) {
+		@apply bg-gray-300;
+
+		@media ( max-width: theme('screens.sm') ) {
 			border: 0;
 		}
 
-		@screen lg {
+		@screen sm {
 			background-color: transparent;
 			//width: 1px;
 			white-space:nowrap;
@@ -87,10 +125,15 @@
 
 
 		&:before {
-			@apply block text-black text-base;
-			content: attr(data-title);
 
-			@screen lg {
+			@apply text-black;
+			content: attr(data-title);
+			font-variant: small-caps;
+			text-transform: uppercase;
+			display: block;
+			font-weight: bold;
+
+			@screen sm {
 				display: none;
 			}
 
@@ -100,27 +143,55 @@
 
 }
 
+.table--condensed {
 
-
-table {
-	@apply bg-transparent !important;
-
-	thead {
-		@apply bg-primary text-white border-0 !important;
-		th {
-			@apply text-white !important;
-		}
-	}
-
-	tfoot {
-		@apply border-t border-gray-200 !important;
-	}
-
+	td,
 	th {
-		@apply py-6 text-left text-base font-medium text-black !important;
+		border-width: 1px;
+		@apply px-3;
+		border-style: solid;
 	}
 
-	td {
-		@apply py-6 whitespace-nowrap text-base font-medium text-gray-900 !important;
-	}
+}
+
+.table__caption,
+caption {
+
+}
+
+.table__head,
+thead {
+	@apply bg-primary;
+	@apply text-white;
+}
+
+.table__body,
+tbody {
+
+}
+
+.table__foot,
+tfoot {
+
+}
+
+.table__row,
+tr {
+	vertical-align: middle;
+}
+
+.table__cell,
+td {
+	@apply py-6 align-middle border-0 border-b border-gray-200;
+}
+
+.shop_table td {
+	@apply align-middle;
+}
+
+.table__cell--head,
+th {
+	@apply py-6;
+	text-align: left;
+	font-weight: bold;
 }

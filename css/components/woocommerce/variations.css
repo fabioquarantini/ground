@@ -25,3 +25,19 @@
 	@apply text-3xl;
 	@apply mb-6;
 }
+
+.variation {
+	@apply flex mt-1 mb-2;
+
+	dd {
+		@apply ml-1 mr-2 text-xs mb-0;
+		* {
+			@apply text-xs;
+		}
+	}
+
+	dt {
+		@apply text-xs;
+	}
+
+}

@@ -43,8 +43,8 @@
 @import 'components/scrollbar.css';
 @import 'components/scroll-progress.css';
 
-// WooCommerce
-@import 'components/woocommerce/cart.css';
+/* WooCommerce */
+@import 'components/woocommerce/woocommerce-cart-form.css';
 @import 'components/woocommerce/cart-totals.css';
 @import 'components/woocommerce/cross-sells.css';
 @import 'components/woocommerce/minicart.css';
