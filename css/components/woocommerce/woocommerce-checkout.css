@@ -1,7 +1,17 @@
 .woocommerce-checkout.checkout {
-	@apply bg-gray-300 prose max-w-full;
-	@apply p-12;
-	border-radius: 4px;
+	@apply grid grid-cols-1 lg:grid-cols-2 gap-6 prose max-w-full;
+
+	#order_review_heading {
+		@apply hidden;
+	}
+
+	#customer_details {
+	
+	}
+
+	#order_review {
+		@apply relative py-6 px-12 bg-gray-100 rounded-theme;
+	}
 }
 
 #ship-to-different-address {
