@@ -3,11 +3,11 @@
 }
 
 .woocommerce-cart-form__contents {
-	@apply relative border-t border-gray-100;
+	@apply relative border-t border-gray-200;
 }
 
 .woocommerce-cart-form__cart-item {
-	@apply grid grid-cols-12 gap-6 py-6 border-b border-gray-100;
+	@apply grid grid-cols-12 gap-6 py-6 border-b border-gray-200;
 
 	/* THUMBNAIL */
 	.product-thumbnail {

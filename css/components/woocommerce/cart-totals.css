@@ -12,8 +12,10 @@
         tr {
             @apply border-b border-gray-300;
             &:last-child {
+                @apply border-0;
+
                 td {
-                    border: 0;
+                    @apply border-0;
                 }
             }
 
@@ -29,10 +31,10 @@
         }
 
         .woocommerce-shipping-totals {
-            @apply relative;
+            @apply relative prose max-w-full;
             
             .woocommerce-shipping-methods {
-                @apply ml-0;
+                @apply ml-0 mb-6;
 
                 li {
                     @apply pl-0 flex items-center cursor-pointer;
@@ -47,12 +49,19 @@
                 }
             }
 
+            .woocommerce-shipping-destination {
+                @apply text-sm;
+            }
+            .shipping-calculator-button {
+                @apply block mt-2 text-sm text-black font-bold underline;
+            }
+
         }
 
     }
 
     .wc-proceed-to-checkout {
-        /* @apply inline-block w-auto float-right mt-0 lg:mt-6; */
+        @apply flex justify-end w-full mt-0 lg:mt-6;
     }
 }
 
