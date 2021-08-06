@@ -18,6 +18,22 @@
 	}
 
 	ins {
-		text-decoration: none;
+		@apply no-underline;
+	}
+}
+
+
+.product-price {
+	@apply text-sm;
+
+	del {
+		@apply text-sm text-red-500;
+		.amount {
+			@apply text-sm font-normal;
+			@apply text-gray-300;
+		}
+	}
+	ins {
+		@apply no-underline;
 	}
 }
