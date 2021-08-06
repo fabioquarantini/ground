@@ -6,22 +6,22 @@
  * @package Ground
  */
 
-get_template_part('partials/header');
+get_template_part( 'partials/header' );
 ?>
 
 <div class="container relative">
 
-	<?php get_template_part('partials/breadcrumbs'); ?>
+	<?php get_template_part( 'partials/breadcrumbs' ); ?>
 
 	<div class="grid grid-cols-12 gap-6">
 
-		<div class="col-span-full">
+		<div class="col-span-full lg:col-start-2 lg:col-span-10">
 
 			<?php
-			while (have_posts()) :
+			while ( have_posts() ) :
 				the_post();
 
-				get_template_part('partials/content', 'page');
+				get_template_part( 'partials/content', 'page' );
 
 			endwhile;
 			?>
@@ -30,4 +30,4 @@ get_template_part('partials/header');
 	</div> <!-- End .container -->
 
 	<?php
-	get_template_part('partials/footer');
+	get_template_part( 'partials/footer' );

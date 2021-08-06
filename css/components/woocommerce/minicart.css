@@ -64,7 +64,7 @@
 
 					.attachment-woocommerce_thumbnail {
 						max-width: 200px;
-						@apply ml-6;
+						@apply ml-6 rounded-theme;
 						height: auto;
 						float: right;
 						display: block;

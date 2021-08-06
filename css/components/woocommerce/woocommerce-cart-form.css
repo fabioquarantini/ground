@@ -4,15 +4,49 @@
 
 .woocommerce-cart-form__contents {
 	@apply relative border-t border-gray-200;
+
+	.actions {
+		@apply relative py-9 lg:py-12 max-w-4xl mx-auto;
+
+		.button[name="update_cart"] {
+			@apply relative p-0 text-black underline bg-transparent border-0 md:absolute md:right-0;
+		}
+
+		.coupon {
+			@apply relative;
+
+			.coupon__link {
+				@apply cursor-pointer underline;
+			}
+
+			.coupon__content {
+				@apply items-center py-6 max-w-2xl hidden;
+
+				&.is-coupon-open {
+					@apply flex;
+				}
+				
+				label {
+					@apply hidden !important;
+				}
+
+				.button {
+					@apply mb-0 ml-3 py-2;
+				}
+			}
+		}
+	}
 }
 
 .woocommerce-cart-form__cart-item {
-	@apply grid grid-cols-12 gap-6 py-6 border-b border-gray-200;
+	@apply grid grid-cols-12 lg:grid-cols-10 gap-6 py-6 border-b border-gray-200;
+
 
 	/* THUMBNAIL */
 	.product-thumbnail {
 		@apply col-span-4 md:col-span-2;
-		.attachment-woocommerce_thumbnail {
+		.attachment-woocommerce_thumbnail,
+		.woocommerce-placeholder {
 			@apply rounded-theme w-full h-auto;
 		}
 	}
@@ -41,7 +75,7 @@
 
 
 	.product-subtotal {
-		@apply col-span-8 md:col-span-4 lg:col-span-5 text-right text-2xl md:text-4xl font-bold;
+		@apply col-span-8 md:col-span-4 lg:col-span-3 text-right text-2xl md:text-4xl font-bold;
 	}
 
 }
