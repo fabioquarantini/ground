@@ -5,23 +5,28 @@
 	<meta charset="<?php echo GROUND_CHARSET; ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="theme-color" content="<?php echo GROUND_COLOR_PRIMARY; ?>">
-	<?php if (!function_exists('has_site_icon') || !has_site_icon()) { ?>
+	<?php if ( ! function_exists( 'has_site_icon' ) || ! has_site_icon() ) { ?>
 		<link rel="icon" type="image/png" href="<?php echo GROUND_TEMPLATE_URL . '/img/favicon.png'; ?>">
 		<link rel="apple-touch-icon" href="<?php echo GROUND_TEMPLATE_URL . '/img/icon.png'; ?>">
 	<?php } ?>
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class('font-primary text-black debug-screens'); ?> data-template-url="<?php echo GROUND_TEMPLATE_URL; ?>">
+<body <?php body_class( 'font-primary text-black debug-screens' ); ?> data-template-url="<?php echo GROUND_TEMPLATE_URL; ?>">
 
-	<div class="scroll" id="js-scroll">
+	<div class="scroll mt-16 lg:mt-0" id="js-scroll">
 
 		<?php
-		get_template_part('partials/content', 'header');
+		get_template_part( 'partials/content', 'header' );
 		?>
 		<?php
 		// get_template_part( 'partials/loader' );
 		?>
+
+		<div class="container text-center text-xs lg:hidden">
+			<?php echo GROUND_HEADER_TEXT; ?>
+		</div>
+
 
 		<div data-router-wrapper>
 

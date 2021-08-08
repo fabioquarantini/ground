@@ -47,6 +47,10 @@ define('GROUND_SOCIAL_LINKEDIN_URL', get_field('social_linkedin_url', 'option') 
 // Footer.
 define('GROUND_FOOTER_COPYRIGHT', get_field('footer_copyright', 'option') ? get_field('footer_copyright', 'option') : '');
 
+// Header.
+define('GROUND_HEADER_TEXT', get_field('header_text', 'option') ? get_field('header_text', 'option') : '');
+define('GROUND_HEADER_ALL_PRODUCTS', get_field('header_all_products', 'option') ? get_field('header_all_products', 'option') : '');
+
 // Logos.
 define('GROUND_LOGO_URL_PRIMARY', get_field('logo_url_primary', 'option') ? get_field('logo_url_primary', 'option') : '');
 define('GROUND_LOGO_SOURCE_PRIMARY', get_field('logo_source_primary', 'option') ? get_field('logo_source_primary', 'option') : '');

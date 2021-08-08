@@ -1,83 +1,40 @@
-$navicon-width: 28px;
-$navicon-height: 1px;
-$navicon-gutter: 7px;
-$navicon-color: theme('colors.black');
-$navicon-color-active: $navicon-color;
-$navicon-border-radius: 0;
+@layer components {
+	.navicon {
+		-webkit-tap-highlight-color: transparent;
+		transition: transform 500ms;
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
 
-.navicon {
-	position: absolute;
-	@apply top-5;
-	@apply right-3;
-	@apply p-3;
-	left: auto;
-	z-index: 1000;
-	border: 0;
-	background-color: transparent;
-	cursor: pointer;
-	outline: none;
+		&__line {
+			fill: none;
+			transition: stroke-dasharray 500ms, stroke-dashoffset 500ms;
+			stroke: #000;
+			stroke-width: 4;
+			stroke-linecap: round;
 
-	@screen md {
-		display: none;
-	}
-}
+			&.top {
+				stroke-dasharray: 40 139;
+			}
 
-.navicon__icon {
-	position: relative;
-	margin-top: $navicon-height + $navicon-gutter;
-	margin-bottom: $navicon-height + $navicon-gutter;
-	user-select: none;
-	cursor: pointer;
-
-	&,
-	&:before,
-	&:after {
-		display: block;
-		width: $navicon-width;
-		height: $navicon-height;
-		background-color: $navicon-color;
-		transition-property: background-color, transform;
-		transition-duration: 0.3s;
-		@if $navicon-border-radius != 0 {
-			border-radius: $navicon-border-radius;
-		}
-	}
-
-	&:before,
-	&:after {
-		position: absolute;
-		content: '';
-	}
-
-	&:before {
-		top: -($navicon-height + $navicon-gutter);
-		box-sizing: content-box;
-	}
-
-	&:after {
-		top: $navicon-height + $navicon-gutter;
-	}
-
-	.is-navigation-open & {
-		& {
-			background-color: transparent;
-		}
-
-		@if ($navicon-color-active != auto) {
-			&:before,
-			&:after {
-				background-color: $navicon-color-active;
+			&.bottom {
+				stroke-dasharray: 40 180;
 			}
 		}
 
-		&:before {
-			transform: translateY($navicon-gutter + $navicon-height)
-				rotate(45deg);
-		}
+		.is-navigation-open & {
+			transform: rotate(45deg);
 
-		&:after {
-			transform: translateY(-($navicon-gutter + $navicon-height))
-				rotate(-45deg);
+			.navicon__line {
+				&.top {
+					stroke-dashoffset: -98px;
+				}
+
+				&.bottom {
+					stroke-dashoffset: -138px;
+				}
+			}
 		}
 	}
 }

@@ -1,0 +1,64 @@
+.header {
+	//z-index: 2000;
+	.page-template-template-configurator & {
+		z-index: 150;
+	}
+	@screen lg {
+		transition-timing-function: ease-in-out;
+		transition: 0.4s;
+		.scroll-direction-down & {
+			transform: translateY(-64px);
+		}
+	}
+
+	&__body {
+		transform: translateX(100%);
+		transition-timing-function: ease-in-out;
+		transition: 0.2s;
+
+		.is-navigation-open & {
+			transform: none;
+		}
+
+		@screen lg {
+			transform: none;
+		}
+	}
+
+	&__container {
+		//transform: translateX(100%); Si trova in menu.js
+		transition-timing-function: ease-in-out;
+		transition: 0.2s;
+
+		&.is-active {
+			@screen lg {
+				transform: none;
+			}
+		}
+	}
+
+	&__back {
+		transform: translateX(-200%);
+		transition-timing-function: ease-in-out;
+		transition: 0.2s;
+
+		.is-sub-navigation-open & {
+			transform: translateX(0%);
+		}
+
+		@screen lg {
+			@apply hidden;
+		}
+	}
+
+	&__search,
+	&__logo {
+		transform: translateY(0%);
+		transition-timing-function: ease-in-out;
+		transition: 0.2s;
+
+		.is-sub-navigation-open & {
+			transform: translateY(-300%);
+		}
+	}
+}

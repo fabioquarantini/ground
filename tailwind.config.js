@@ -15,7 +15,7 @@ module.exports = {
 			padding: '1.5rem',
 			screens: {
 				xl: "1440px"
-			}  
+			}
 		},
 		extend: {
 			colors: {

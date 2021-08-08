@@ -1,5 +1,4 @@
 @layer base {
-
 	html {
 		&.is-loading {
 			@apply overflow-hidden cursor-wait;
@@ -21,6 +20,9 @@
 			&:not(.has-scroll-smooth) {
 				@apply overflow-auto;
 			}
+			&.is-navigation-open:not(.has-scroll-smooth) {
+				@apply overflow-y-hidden;
+			}
 
 			&.is-minicart-open {
 				@apply overflow-y-hidden;
@@ -29,6 +31,10 @@
 			&.is-search-open {
 				@apply overflow-hidden;
 			}
+		}
+
+		&.is-navigation-open {
+			@apply overflow-y-hidden;
 		}
 	}
 
@@ -46,5 +52,4 @@
 			@apply overflow-y-auto;
 		}
 	}
-
 }

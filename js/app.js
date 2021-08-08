@@ -6,7 +6,7 @@ import Modal from './components/modal';
 import Slider from './components/slider';
 import Loader from './components/loader';
 import Toggle from './components/toggle';
-
+import Menu from "./components/menu";
 import Cursor from './components/cursorV2';
 import Search from './components/search';
 import Magnet from './components/magnetV2';
@@ -39,8 +39,9 @@ const modal = new Modal();
 const sliderPrimary = new Slider('.js-slider-primary');
 const toggle = new Toggle();
 const billing = new Billing();
+const menu = new Menu();
 
-const cursor = new Cursor();
+//const cursor = new Cursor();
 const search = new Search();
 const magnet = new Magnet();
 const gdprCompliance = new GdprCompliance();

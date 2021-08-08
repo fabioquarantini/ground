@@ -51,7 +51,7 @@ function ground_register_menu() {
 	$locations = array(
 		'primary'   => __( 'Primary navigation', 'ground-admin' ),
 		'secondary' => __( 'Secondary navigation', 'ground-admin' ),
-		'tertiary'  => __( 'Tertiary navigation', 'ground-admin' ),
+		'all-products'  => __( 'All products navigation', 'ground-admin' ),
 	);
 
 	register_nav_menus( $locations );

@@ -1,7 +1,7 @@
 <?php
     $count = WC()->cart->get_cart_contents_count();
     $class = '';
-    
+
     if ($count === 0) {
         $class = 'is-empty ';
     } else {
@@ -11,7 +11,10 @@
 
 <a class="minicart__contents <?php echo $class; ?>" data-toggle-target="html" data-toggle-class-name="is-minicart-open" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php esc_attr_e( 'View your shopping cart', 'storefront' ); ?>">
 
-    <?php ground_icon( 'shopping-cart', 'minicart__icon' ); ?>
+    <div class="flex justify-start space-x-3">
+        <?php ground_icon( 'shopping-cart', 'minicart__icon' ); ?>
+        <?php _e( 'Cart', 'ground' ); ?>
+    </div>
 
     <div class="minicart__subtotal">
         <?php echo wp_kses_post( WC()->cart->get_cart_subtotal() ); ?>
