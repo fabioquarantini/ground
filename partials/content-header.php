@@ -36,46 +36,49 @@
 
 	<div class="js-menu-body container header__body grid auto-rows-min fixed left-0 h-full w-full z-40 mt-16 bg-white overflow-y-auto lg:pt-0 lg:relative lg:top-auto lg:left-auto lg:bottom-auto lg:right-auto lg:bg-transparent lg:overflow-y-visible">
 		<div class="js-menu-container header__container relative">
-			<div class="hidden container lg:relative lg:flex lg:justify-between lg:items-center order-2 lg:order-1 lg:h-16">
+			<div class="hidden container lg:relative lg:flex lg:justify-between lg:items-center lg:h-16">
 				<?php echo GROUND_HEADER_TEXT; ?>
 			</div>
-			<div class="lg:relative lg:flex lg:justify-between lg:items-center order-2 lg:order-1 lg:h-16">
-				<div class="lg:flex lg:items-center lg:justify-end lg:space-x-3">
-					<div class="hidden lg:inline-block">
-						<?php if ( GROUND_LOGO_URL_PRIMARY || GROUND_LOGO_SOURCE_PRIMARY ) { ?>
-						<a class="js-cursor-hide" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>">
-							<?php
-							if ( GROUND_LOGO_TYPE_PRIMARY && GROUND_LOGO_SOURCE_PRIMARY ) {
-								echo GROUND_LOGO_SOURCE_PRIMARY;
-							} elseif ( GROUND_LOGO_URL_PRIMARY ) {
-								?>
-								<img class="w-20 h-auto" src="<?php echo esc_url( GROUND_LOGO_URL_PRIMARY['sizes']['medium'] ); ?>" alt="<?php echo esc_attr( GROUND_LOGO_URL_PRIMARY['alt'] ); ?>" />
+
+			<div class="flex flex-col-reverse space-x-0 lg:block">
+
+				<div class="lg:relative lg:flex lg:justify-between lg:items-center lg:h-16">
+					<div class="lg:flex lg:items-center lg:justify-end lg:space-x-3">
+						<div class="hidden lg:inline-block">
+							<?php if ( GROUND_LOGO_URL_PRIMARY || GROUND_LOGO_SOURCE_PRIMARY ) { ?>
+							<a class="js-cursor-hide" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>">
+								<?php
+								if ( GROUND_LOGO_TYPE_PRIMARY && GROUND_LOGO_SOURCE_PRIMARY ) {
+									echo GROUND_LOGO_SOURCE_PRIMARY;
+								} elseif ( GROUND_LOGO_URL_PRIMARY ) {
+									?>
+									<img class="w-20 h-auto" src="<?php echo esc_url( GROUND_LOGO_URL_PRIMARY['sizes']['medium'] ); ?>" alt="<?php echo esc_attr( GROUND_LOGO_URL_PRIMARY['alt'] ); ?>" />
+								<?php } ?>
+							</a> <!-- End logo -->
+							<?php } else { ?>
+								<a class="border border-dashed border-primary p-2" target="_blank" href="<?php echo admin_url( 'admin.php?page=theme-general-settings', 'http' ); ?>">Upload your logo</a>
 							<?php } ?>
-						</a> <!-- End logo -->
-						<?php } else { ?>
-							<a class="border border-dashed border-primary p-2" target="_blank" href="<?php echo admin_url( 'admin.php?page=theme-general-settings', 'http' ); ?>">Upload your logo</a>
-						<?php } ?>
+						</div>
+						<?php get_template_part( 'partials/navigation', 'secondary' ); ?>
+
+
+						<button class="js-toggle js-cursor-hover hidden mr-12 lg:display-block" data-toggle-target=".search html" data-toggle-class-name="is-search-open">
+							<?php ground_icon( 'search', 'icon--filled' ); ?>
+						</button> <!-- End .header__search -->
 					</div>
-					<?php get_template_part( 'partials/navigation', 'secondary' ); ?>
 
 
-					<button class="js-toggle js-cursor-hover hidden mr-12 lg:display-block" data-toggle-target=".search html" data-toggle-class-name="is-search-open">
-						<?php ground_icon( 'search', 'icon--filled' ); ?>
-					</button> <!-- End .header__search -->
+					<ul class="flex items-center mt-6 justify-start space-x-5 lg:justify-between lg:m-0">
+						<li class="block text-lg py-4 border-r-2 border-gray-400 border-opacity-20 pr-6 lg:pr-0 lg:text-base lg:py-0 lg:border-0"><span class="mr-2"><a class="navigation__link"href="<?php echo get_permalink( wc_get_page_id( 'myaccount' ) ); ?>"><?php ground_icon( 'user', 'icon--filled' ); ?></span><?php _e( 'Account', 'ground' ); ?></a></li>
+						<li class="flex justify-start block text-lg py-4 border-opacity-20 lg:text-base lg:py-0 lg:border-0 lg:justify-between lg:m-0 lg:space-x-5 minicart-wrapper"><?php get_template_part( 'partials/woocommerce/minicart' ); ?> </li>
+					</ul>
+					<ul class="block m-0 space-x-0 lg:space-x-5">
+						<li class="hover:text-primary cursor-pointer js-toggle block text-lg py-4 border-b border-white border-opacity-20 lg:text-base lg:py-0 lg:border-0" data-toggle-target="#modal-languages" data-toggle-class-name="hidden"><span class="mr-2"><?php ground_icon( 'globe-alt', 'icon--filled' ); ?></span><?php _e( 'Language', 'ground' ); ?></li>
+					</ul>
 				</div>
 
-
-				<ul class="block m-0 space-x-0 lg:flex lg:justify-between lg:m-0 lg:space-x-5">
-					<li class="block text-lg py-4 border-b border-white border-opacity-20 lg:text-base lg:py-0 lg:border-0"><span class="mr-2"><a href="<?php echo get_permalink( wc_get_page_id( 'myaccount' ) ); ?>"><?php ground_icon( 'user', 'icon--filled' ); ?></span><?php _e( 'Account', 'ground' ); ?></a></li>
-					<li class="flex justify-start block text-lg py-4 border-b border-white border-opacity-20 lg:text-base lg:py-0 lg:border-0 lg:justify-between lg:m-0 lg:space-x-5 minicart-wrapper"><?php get_template_part( 'partials/woocommerce/minicart' ); ?> </li>
-				</ul>
-				<ul class="block m-0 space-x-0 lg:space-x-5">
-					<li class="hover:text-primary cursor-pointer js-toggle block text-lg py-4 border-b border-white border-opacity-20 lg:text-base lg:py-0 lg:border-0" data-toggle-target="#modal-languages" data-toggle-class-name="hidden"><span class="mr-2"><?php ground_icon( 'globe-alt', 'icon--filled' ); ?></span><?php _e( 'Language', 'ground' ); ?></li>
-				</ul>
-			</div>
-
-			<?php if ( class_exists( 'WooCommerce' ) && ! is_checkout() ) : ?>
-				<div class="lg:flex lg:items-center lg:justify-between order-1 lg:order-2 lg:h-16">
+				<?php if ( class_exists( 'WooCommerce' ) && ! is_checkout() ) : ?>
+				<div class="lg:flex lg:items-center lg:justify-between lg:h-16">
 					<?php get_template_part( 'partials/navigation', 'primary' ); ?>
 
 					<?php if ( GROUND_HEADER_ALL_PRODUCTS ) { ?>
@@ -89,7 +92,9 @@
 						<i class="navicon__icon"></i>
 					</button> <!-- End .navicon -->
 				</div>
-			<?php endif; ?>
+				<?php endif; ?>
+
+			</div>
 
 		</div>
 	</div>

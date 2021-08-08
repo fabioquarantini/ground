@@ -1,4 +1,4 @@
-<nav class="navigation navigation--secondary">
+<nav class="-mt-6 lg:mt-auto navigation navigation--secondary">
 
 	<?php
 	$args = array(

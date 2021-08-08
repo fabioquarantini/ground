@@ -23,7 +23,7 @@
 		// get_template_part( 'partials/loader' );
 		?>
 
-		<div class="container text-center text-xs lg:hidden">
+		<div class="container text-center p-2 text-xs bg-black text-white lg:bg-white lg:p-0 lg:text-black lg:hidden">
 			<?php echo GROUND_HEADER_TEXT; ?>
 		</div>
 
