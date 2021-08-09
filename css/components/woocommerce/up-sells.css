@@ -1,0 +1,11 @@
+.up-sells {
+    @apply transform -translate-x-2/4 w-screen ml-1/2 py-12;
+
+    > h2 {
+        @apply text-center text-2xl mb-6 lg:mb-12;
+    }
+
+    .products {
+        @apply carousel-css container px-0 mx-auto grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:px-6;
+    }
+}

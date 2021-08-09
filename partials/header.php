@@ -17,22 +17,22 @@
 	<div class="scroll" id="js-scroll">
 
 		 <?php
-        $type = GROUND_HEADER_TYPE;
-        switch ($type) {
-            case $type == "megaMenu":
-                get_template_part( 'partials/content', 'header' );
-                break;
-            // case $type == "menuPrimary":
-            //  get_template_part( 'partials/content', 'header' );
-            //  break;
-            default:
-                 get_template_part( 'partials/content', 'header' );
-        }
+			$type = GROUND_HEADER_TYPE;
+			switch ( $type ) {
+				case $type == 'megaMenu':
+					get_template_part( 'partials/content', 'header' );
+					break;
+				// case $type == "menuPrimary":
+				// get_template_part( 'partials/content', 'header' );
+				// break;
+				default:
+					 get_template_part( 'partials/content', 'header' );
+			}
 
-        ?>
-        <?php
-        // get_template_part( 'partials/loader' );
-        ?>
+			?>
+		<?php
+		// get_template_part( 'partials/loader' );
+		?>
 
 
 

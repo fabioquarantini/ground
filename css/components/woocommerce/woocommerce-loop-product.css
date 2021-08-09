@@ -51,13 +51,14 @@
 	@apply text-gray-500 text-base mb-3;
 }
 
-
-
-.ground-products {
-	&.columns-1 { @apply grid grid-cols-1 gap-6; }
-	&.columns-2 { @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6; }
-	&.columns-3 { @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6; }
-	&.columns-4 { @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6; }
-	&.columns-5 { @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6; }
-	&.columns-6 { @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6; }
+body.woocommerce-page.post-type-archive-product,
+body.woocommerce-page.archive {
+	.products {
+		&.columns-1 { @apply grid grid-cols-1 gap-6; }
+		&.columns-2 { @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6; }
+		&.columns-3 { @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6; }
+		&.columns-4 { @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6; }
+		&.columns-5 { @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6; }
+		&.columns-6 { @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6; }
+	}
 }
