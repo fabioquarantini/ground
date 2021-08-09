@@ -48,13 +48,19 @@ export default class Menu {
 		if (window.matchMedia('(max-width: 1024px)').matches) {
 			[...document.querySelectorAll(triggers)].forEach((item) => {
 				item.addEventListener('click', (t) => {
-					if (html.classList.contains('is-navigation-open')) {
+					var subMenu = null;
+					t.target.parentNode.childNodes.forEach((sub) => {
+						sub.classList && sub.classList.contains('navigation__sub-menu') ? (subMenu = sub) : null;
+					});
+
+					if (html.classList.contains('is-navigation-open') && subMenu) {
 						t.preventDefault();
 						t.stopPropagation();
 
 						t.target.parentElement.classList.add('level' + level);
 						html.classList.add('is-sub-navigation-open');
-						t.target.nextElementSibling.classList.add('is-active');
+
+						subMenu.classList.add('is-active');
 
 						level++;
 
@@ -93,13 +99,10 @@ export default class Menu {
 			});
 
 			navicon.addEventListener('click', () => {
-				console.log('cliccato', [...document.querySelectorAll(triggers)].length);
 				let i = 0;
 				html.classList.remove('is-sub-navigation-open');
 
 				[...document.querySelectorAll(triggers)].forEach((item) => {
-					console.log(item, 'item');
-
 					if (item.classList.contains('level' + i)) {
 						item.classList.remove('level' + i);
 						item.childNodes.forEach((t) =>

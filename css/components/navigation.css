@@ -98,6 +98,10 @@
 		}
 	}
 
+	.navigation__image {
+		@apply hidden;
+	}
+
 	.is-hover {
 		.navigation__sub-menu {
 			@apply opacity-100 visible;
