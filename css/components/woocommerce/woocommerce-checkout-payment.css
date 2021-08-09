@@ -2,7 +2,7 @@
 	@apply relative prose;
 
 	.wc_payment_methods {
-		@apply relative mt-2 mb-6;
+		@apply relative my-9;
 
 		.wc_payment_method {
 			@apply flex flex-wrap items-center pl-0;

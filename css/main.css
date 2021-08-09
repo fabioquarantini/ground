@@ -58,6 +58,7 @@
 @import "components/woocommerce/woocommerce-order.css";
 @import "components/woocommerce/woocommerce-checkout.css";
 @import "components/woocommerce/woocommerce-checkout-payment.css";
+@import "components/woocommerce/woocommerce-checkout-review-order-table.css";
 @import "components/woocommerce/woocommerce-message.css";
 @import "components/woocommerce/woocommerce-shipping-totals.css";
 @import "components/woocommerce/woocommerce-product-gallery.css";
@@ -65,6 +66,10 @@
 @import "components/woocommerce/woocommerce-loop-category.css";
 @import "components/woocommerce/woocommerce-loop-product.css";
 @import "components/woocommerce/summary.css";
+
+
+
+
 
 // Utilities
 @import "utilities/animate.css";

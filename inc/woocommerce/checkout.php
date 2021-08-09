@@ -269,7 +269,7 @@ function ground_woocommerce_checkout_payments_title() {
 	echo '<h3>' . __( 'Metodo di pagamento', 'ground' ) . '</h3>';
 }
 
-add_action( 'woocommerce_review_order_before_payment', 'ground_woocommerce_checkout_payments_title' );
+// add_action( 'woocommerce_review_order_before_payment', 'ground_woocommerce_checkout_payments_title' );
 
 /**
  * Replace checkout strings
@@ -322,7 +322,7 @@ function ground_product_image_on_checkout( $product_name, $cart_item, $cart_item
 
 	$_product  = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
 	$thumbnail = $_product->get_image();
-	$image     = '<div style="width: 52px; height: 45px; display: inline-block; padding-right: 7px; vertical-align: middle;">' . $thumbnail . '</div>';
+	$image     = '<div class="product-thumbnail">' . $thumbnail . '</div>';
 
 	return $image . $product_name;
 }

@@ -5,8 +5,8 @@ module.exports = {
 		// mode: 'all',
 		content: ['./**/*.{html,php,js}'],
 		options: {
-			safelist: ['aspect-w-16', 'aspect-h-9', 'aspect-w-4', 'aspect-h-3'],
-		},
+			safelist: ['aspect-w-16', 'aspect-h-9', 'aspect-w-4', 'aspect-h-3']
+		}
 	},
 	darkMode: 'class', // or 'media' or 'class'
 	theme: {
@@ -14,16 +14,23 @@ module.exports = {
 			center: true,
 			padding: '1.5rem',
 			screens: {
-				xl: "1440px"
+				xl: '1440px'
 			}
 		},
 		extend: {
+			typography: () => ({
+				DEFAULT: {
+					css: {
+						maxWidth: '100%'
+					}
+				}
+			}),
 			colors: {
 				primary: 'var(--ground-color-primary)',
-				secondary: 'var(--ground-color-secondary)',
+				secondary: 'var(--ground-color-secondary)'
 			},
 			margin: {
-				'1/2': '50%',
+				'1/2': '50%'
 			},
 			fontFamily: {
 				primary: [
@@ -41,7 +48,7 @@ module.exports = {
 					'"Apple Color Emoji"',
 					'"Segoe UI Emoji"',
 					'"Segoe UI Symbol"',
-					'"Noto Color Emoji"',
+					'"Noto Color Emoji"'
 				],
 				secondary: [
 					'var(--ground-font-secondary)',
@@ -50,46 +57,46 @@ module.exports = {
 					'Cambria',
 					'"Times New Roman"',
 					'Times',
-					'serif',
-				],
+					'serif'
+				]
 			},
 			keyframes: {
 				'fade-in': {
 					from: { opacity: 0 },
-					to: { opacity: 1 },
+					to: { opacity: 1 }
 				},
 				'fade-in-up': {
 					from: { opacity: 0, transform: 'translate3d(0, 100%, 0)' },
-					to: { opacity: 1, transform: 'none' },
+					to: { opacity: 1, transform: 'none' }
 				},
 				'fade-in-down': {
 					from: { opacity: 0, transform: 'translate3d(0, -100%, 0)' },
-					to: { opacity: 1, transform: 'none' },
+					to: { opacity: 1, transform: 'none' }
 				},
 				'fade-in-left': {
 					from: { opacity: 0, transform: 'translate3d(100%, 0, 0)' },
-					to: { opacity: 1, transform: 'none' },
+					to: { opacity: 1, transform: 'none' }
 				},
 				'fade-in-right': {
 					from: { opacity: 0, transform: 'translate3d(-100%, 0, 0)' },
-					to: { opacity: 1, transform: 'none' },
+					to: { opacity: 1, transform: 'none' }
 				},
 				'fade-out': {
 					from: { opacity: 1 },
-					to: { opacity: 0 },
+					to: { opacity: 0 }
 				},
 				'fade-out-up': {
 					from: { opacity: 1 },
-					to: { opacity: 0, transform: 'translate3d(0, -100%, 0)' },
+					to: { opacity: 0, transform: 'translate3d(0, -100%, 0)' }
 				},
 				'fade-out-down': {
 					from: { opacity: 1 },
-					to: { opacity: 0, transform: 'translate3d(0, 100%, 0)' },
+					to: { opacity: 0, transform: 'translate3d(0, 100%, 0)' }
 				},
 				'scale-in': {
 					from: { opacity: 0, transform: 'scale(0)' },
-					to: { opacity: 1, transform: 'scale(1)' },
-				},
+					to: { opacity: 1, transform: 'scale(1)' }
+				}
 			},
 			animation: {
 				'fade-in': 'fade-in 0.5s ease-in-out forwards',
@@ -100,18 +107,18 @@ module.exports = {
 				'fade-out': 'fade-out 0.5s ease-in-out forwards',
 				'fade-out-up': 'fade-out-up 0.5s ease-in-out forwards',
 				'fade-out-down': 'fade-out-down 0.5s ease-in-out forwards',
-				'scale-in': 'scale-in 0.5s ease-in-out forwards',
-			},
-		},
+				'scale-in': 'scale-in 0.5s ease-in-out forwards'
+			}
+		}
 	},
 	variants: {
-		extend: {},
+		extend: {}
 	},
 	plugins: [
 		require('@tailwindcss/aspect-ratio'),
 		require('@tailwindcss/line-clamp'),
 		require('@tailwindcss/forms'),
 		require('@tailwindcss/typography'),
-		require('tailwindcss-debug-screens'),
-	],
-}
+		require('tailwindcss-debug-screens')
+	]
+};

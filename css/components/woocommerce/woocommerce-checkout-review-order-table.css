@@ -1,0 +1,52 @@
+.woocommerce-checkout-review-order-table {
+    @apply bg-transparent;
+    thead {
+        @apply hidden;
+    }
+    tbody {
+        @apply relative;
+
+        .cart_item {
+            @apply relative border-0 border-b border-gray-200;
+            .product-name {
+                @apply pl-20 text-sm;
+
+                .product-thumbnail {
+                    @apply absolute top-2/4 left-0 h-16 w-auto -mt-8;
+
+                    img {
+                        @apply relative h-16 w-auto;
+                    }
+
+                }
+
+                .product-quantity {
+                    * {
+                        @apply font-normal;
+                    }
+                }
+
+            }
+
+            .product-total {
+                @apply font-bold;
+            }
+        }
+    }
+
+    tfoot {
+        tr {
+            @apply border-b border-gray-200;
+        }
+
+        .cart-subtotal {
+            @apply font-bold;
+        }
+
+        .order-total {
+            .amount {
+                @apply text-4xl;
+            }
+        }
+    }
+}
