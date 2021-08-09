@@ -128,12 +128,12 @@
 		}
 
 		&.is-active {
-			@apply inline-block relative top-0 h-auto opacity-100 visible;
+			/* @apply inline-block relative top-0 h-auto opacity-100 visible;
 			left: 100vw;
-			width: 100%;
+			width: 100%; */
 
 			@screen lg {
-				@apply relative left-auto top-auto w-auto;
+				//@apply relative left-auto top-auto w-auto;
 			}
 		}
 	}
