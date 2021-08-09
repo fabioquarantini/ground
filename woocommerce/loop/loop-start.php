@@ -20,4 +20,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<div class="ground-products products columns-<?php echo esc_attr( wc_get_loop_prop( 'columns' ) ); ?> js-infinite-container">
+<div class="products columns-<?php echo esc_attr( wc_get_loop_prop( 'columns' ) ); ?> js-infinite-container">
