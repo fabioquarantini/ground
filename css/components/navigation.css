@@ -58,13 +58,11 @@
 
 			&:after {
 				content: "";
-				position: absolute;
-				top: 0;
+				@apply absolute top-0 bg-white shadow-lg;
 				left: -100vw;
 				height: calc(100% + 48px);
 				width: 200vw;
 				z-index: -1;
-				@apply bg-white;
 			}
 
 			.has-children .navigation__sub-menu {
