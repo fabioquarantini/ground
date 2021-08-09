@@ -16,6 +16,11 @@ export default class Menu {
 			this.init();
 			this.initEvents(this.options.triggers);
 		});
+
+		window.addEventListener('resize', () => {
+			this.init();
+			this.initEvents(this.options.triggers);
+		});
 	}
 
 	/**
@@ -40,8 +45,8 @@ export default class Menu {
 		let level = 0;
 		let translation = 0;
 
-		[...document.querySelectorAll(triggers)].forEach((item) => {
-			if (window.matchMedia('(max-width: 1024px)').matches) {
+		if (window.matchMedia('(max-width: 1024px)').matches) {
+			[...document.querySelectorAll(triggers)].forEach((item) => {
 				item.addEventListener('click', (t) => {
 					if (html.classList.contains('is-navigation-open')) {
 						t.preventDefault();
@@ -62,51 +67,71 @@ export default class Menu {
 						});
 					}
 				});
-			}
-		});
+			});
 
-		back.addEventListener('click', () => {
-			if (level > 0) {
-				level--;
+			back.addEventListener('click', () => {
+				if (level > 0) {
+					level--;
+
+					[...document.querySelectorAll(triggers)].forEach((item) => {
+						if (item.classList.contains('level' + level)) {
+							item.classList.remove('level' + level);
+							item.childNodes.forEach((t) =>
+								t.classList && t.classList.contains('is-active')
+									? t.classList.remove('is-active')
+									: null
+							);
+						}
+					});
+
+					let translation = -100 * level;
+
+					menuContainer.style.cssText += 'transform: translateX(' + translation + 'vw);';
+
+					level == 0 ? html.classList.remove('is-sub-navigation-open') : null;
+				}
+			});
+
+			navicon.addEventListener('click', () => {
+				console.log('cliccato', [...document.querySelectorAll(triggers)].length);
+				let i = 0;
+				html.classList.remove('is-sub-navigation-open');
 
 				[...document.querySelectorAll(triggers)].forEach((item) => {
-					if (item.classList.contains('level' + level)) {
-						item.classList.remove('level' + level);
+					console.log(item, 'item');
+
+					if (item.classList.contains('level' + i)) {
+						item.classList.remove('level' + i);
 						item.childNodes.forEach((t) =>
 							t.classList && t.classList.contains('is-active') ? t.classList.remove('is-active') : null
 						);
 					}
+
+					i++;
+
+					[...document.querySelectorAll(triggers)].length == i
+						? ((menuContainer.style.cssText += 'transform: translateX(0);'), (level = 0))
+						: null;
 				});
-
-				let translation = -100 * level;
-
-				menuContainer.style.cssText += 'transform: translateX(' + translation + 'vw);';
-
-				level == 0 ? html.classList.remove('is-sub-navigation-open') : null;
-			}
-		});
-
-		navicon.addEventListener('click', () => {
-			console.log('cliccato', [...document.querySelectorAll(triggers)].length);
-			let i = 0;
-			html.classList.remove('is-sub-navigation-open');
-
-			[...document.querySelectorAll(triggers)].forEach((item) => {
-				console.log(item, 'item');
-
-				if (item.classList.contains('level' + i)) {
-					item.classList.remove('level' + i);
-					item.childNodes.forEach((t) =>
-						t.classList && t.classList.contains('is-active') ? t.classList.remove('is-active') : null
-					);
-				}
-
-				i++;
-
-				[...document.querySelectorAll(triggers)].length == i
-					? ((menuContainer.style.cssText += 'transform: translateX(0);'), (level = 0))
-					: null;
 			});
-		});
+		} else {
+			[...document.querySelectorAll(triggers)].forEach((item) => {
+				let timerHandle = null;
+				item.addEventListener('mouseenter', () => {
+					clearTimeout(timerHandle);
+					timerHandle = setTimeout(() => {
+						item.classList.add('is-hover');
+					}, 300);
+				});
+				item.addEventListener('mouseleave', () => {
+					clearTimeout(timerHandle);
+					if (item.classList.contains('is-hover')) {
+						timerHandle = setTimeout(() => {
+							item.classList.remove('is-hover');
+						}, 300);
+					}
+				});
+			});
+		}
 	}
 }

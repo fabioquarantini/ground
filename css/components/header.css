@@ -53,12 +53,11 @@
 
 	&__search,
 	&__logo {
-		transform: translateY(0%);
-		transition-timing-function: ease-in-out;
-		transition: 0.2s;
+		@apply opacity-100 visible;
+		transition: opacity 0.15s ease-in-out;
 
 		.is-sub-navigation-open & {
-			transform: translateY(-300%);
+			@apply opacity-0 invisible;
 		}
 	}
 }
