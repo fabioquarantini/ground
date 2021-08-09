@@ -20,6 +20,25 @@
             "endpoint": 0
         },
         {
+            "key": "field_6110ee3cb5fdb",
+            "label": "Dark Mode",
+            "name": "dark_mode",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Dark Mode Enabled",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_61010e7ffd833",
             "label": "Color Primary",
             "name": "color_primary",
@@ -426,5 +445,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1628062941
+    "modified": 1628499547
 }

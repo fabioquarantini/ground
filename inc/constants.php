@@ -12,6 +12,9 @@ define( 'GROUND_TEMPLATE_URL', get_template_directory_uri() ); // Return http://
 define( 'GROUND_TEMPLATE_PATH', get_template_directory() ); // Return /home/user/public_html/wp-content/themes/themename.
 define( 'GROUND_CHARSET', get_bloginfo( 'charset' ) ); // The "Encoding for pages and feeds" (set in Settings > Reading).
 
+// Dsrk Mode.
+define( 'GROUND_DARK_MODE', get_field( 'dark_mode', 'option' ) ? get_field( 'dark_mode', 'option' ) : '#6366F1' );
+
 // Colors.
 define( 'GROUND_COLOR_PRIMARY', get_field( 'color_primary', 'option' ) ? get_field( 'color_primary', 'option' ) : '#6366F1' );
 define( 'GROUND_COLOR_SECONDARY', get_field( 'color_secondary', 'option' ) ? get_field( 'color_secondary', 'option' ) : '#14B8A6' );

@@ -49,9 +49,9 @@ function ground_register_menu() {
 
 	// Registers multiple custom navigation menus in the custom menu editor.
 	$locations = array(
-		'primary'   => __( 'Primary navigation', 'ground-admin' ),
-		'secondary' => __( 'Secondary navigation', 'ground-admin' ),
-		'all-products'  => __( 'All products navigation', 'ground-admin' ),
+		'primary'      => __( 'Primary navigation', 'ground-admin' ),
+		'secondary'    => __( 'Secondary navigation', 'ground-admin' ),
+		'all-products' => __( 'All products navigation', 'ground-admin' ),
 	);
 
 	register_nav_menus( $locations );
@@ -558,3 +558,19 @@ function ground_log( $log ) {
 		}
 	}
 }
+
+
+
+/**
+ * Dark mode: Add HTML class
+ */
+function ground_dark_mode( $output ) {
+
+	if ( GROUND_DARK_MODE == '1' ) {
+		$output .= ' class="dark"';
+		return $output;
+	}
+
+}
+
+add_filter( 'language_attributes', 'ground_dark_mode', 10, 2 );
