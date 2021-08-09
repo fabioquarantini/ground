@@ -34,16 +34,21 @@
 		</div>
 	</div>
 
-	<div class="js-menu-body container header__body grid auto-rows-min fixed left-0 h-full w-full z-40 mt-16 bg-white overflow-y-auto lg:pt-0 lg:relative lg:top-auto lg:left-auto lg:bottom-auto lg:right-auto lg:bg-transparent lg:overflow-y-visible">
+	<div class="js-menu-body container header__body grid auto-rows-min fixed left-0 h-full w-full z-40 mt-16 bg-white overflow-y-auto lg:pt-0 lg:mt-0
+ lg:relative lg:top-auto lg:left-auto lg:bottom-auto lg:right-auto lg:bg-transparent lg:overflow-y-visible">
 		<div class="js-menu-container header__container relative">
-			<div class="hidden container lg:relative lg:flex lg:justify-between lg:items-center lg:h-16">
+			<div class="hidden lg:relative lg:flex lg:justify-between lg:items-center lg:h-16">
 				<?php echo GROUND_HEADER_TEXT; ?>
+
+				<ul class="block m-0 space-x-0 lg:space-x-5">
+					<li class="hover:text-primary cursor-pointer js-toggle block text-lg py-4 border-b border-white border-opacity-20 lg:text-base lg:py-0 lg:border-0" data-toggle-target="#modal-languages" data-toggle-class-name="hidden"><span class="mr-2"><?php ground_icon( 'globe-alt', 'icon--filled' ); ?></span><?php _e( 'Language', 'ground' ); ?></li>
+				</ul>
 			</div>
 
 			<div class="flex flex-col-reverse space-x-0 lg:block">
 
 				<div class="lg:relative lg:flex lg:justify-between lg:items-center lg:h-16">
-					<div class="lg:flex lg:items-center lg:justify-end lg:space-x-3">
+					<div class="lg:flex lg:items-center lg:justify-start lg:space-x-3">
 						<div class="hidden lg:inline-block">
 							<?php if ( GROUND_LOGO_URL_PRIMARY || GROUND_LOGO_SOURCE_PRIMARY ) { ?>
 							<a class="js-cursor-hide" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>">
@@ -68,12 +73,9 @@
 					</div>
 
 
-					<ul class="flex items-center mt-6 justify-start space-x-5 lg:justify-between lg:m-0">
-						<li class="block text-lg py-4 border-r-2 border-gray-400 border-opacity-20 pr-6 lg:pr-0 lg:text-base lg:py-0 lg:border-0"><span class="mr-2"><a class="navigation__link"href="<?php echo get_permalink( wc_get_page_id( 'myaccount' ) ); ?>"><?php ground_icon( 'user', 'icon--filled' ); ?></span><?php _e( 'Account', 'ground' ); ?></a></li>
-						<li class="flex justify-start block text-lg py-4 border-opacity-20 lg:text-base lg:py-0 lg:border-0 lg:justify-between lg:m-0 lg:space-x-5 minicart-wrapper"><?php get_template_part( 'partials/woocommerce/minicart' ); ?> </li>
-					</ul>
-					<ul class="block m-0 space-x-0 lg:space-x-5">
-						<li class="hover:text-primary cursor-pointer js-toggle block text-lg py-4 border-b border-white border-opacity-20 lg:text-base lg:py-0 lg:border-0" data-toggle-target="#modal-languages" data-toggle-class-name="hidden"><span class="mr-2"><?php ground_icon( 'globe-alt', 'icon--filled' ); ?></span><?php _e( 'Language', 'ground' ); ?></li>
+					<ul class="flex items-center mt-6 justify-start space-x-5 lg:justify-end lg:m-0">
+						<li class="text-lg py-4 border-r-2 border-gray-400 border-opacity-20 pr-6 lg:text-base"><a class="navigation__link"href="<?php echo get_permalink( wc_get_page_id( 'myaccount' ) ); ?>"><?php _e( 'Account', 'ground' ); ?><span class="ml-2"><?php ground_icon( 'user', 'icon--filled' ); ?></span></a></li>
+						<li class="minicart-wrapper"><?php get_template_part( 'partials/woocommerce/minicart' ); ?> </li>
 					</ul>
 				</div>
 
