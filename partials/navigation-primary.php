@@ -1,4 +1,4 @@
-<nav class="navigation navigation--primary">
+<nav class="navigation navigation--primary relative lg:static">
 
 	<?php
 	$args = array(
