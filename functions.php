@@ -15,6 +15,7 @@ require_once 'inc/gutenberg.php';
 require_once 'inc/head-output.php';
 require_once 'inc/navigations.php';
 require_once 'inc/shortcode.php';
+require_once 'inc/walker.php';
 
 if ( class_exists( 'WooCommerce' ) ) {
 	require_once 'inc/woocommerce/breadcrumbs.php';

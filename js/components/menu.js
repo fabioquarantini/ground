@@ -117,12 +117,14 @@ export default class Menu {
 		} else {
 			[...document.querySelectorAll(triggers)].forEach((item) => {
 				let timerHandle = null;
+
 				item.addEventListener('mouseenter', () => {
 					clearTimeout(timerHandle);
 					timerHandle = setTimeout(() => {
 						item.classList.add('is-hover');
 					}, 300);
 				});
+
 				item.addEventListener('mouseleave', () => {
 					clearTimeout(timerHandle);
 					if (item.classList.contains('is-hover')) {

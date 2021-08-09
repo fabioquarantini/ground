@@ -23,7 +23,7 @@
 	.navigation__item {
 		@apply block;
 		@screen lg {
-			@apply inline-block animate-fade-in-staggered;
+			@apply inline-block;
 		}
 	}
 
@@ -37,10 +37,10 @@
 	/* SUB MENU */
 	.navigation__sub-menu {
 		@apply relative m-0;
-
+		@apply opacity-0 invisible h-0;
 		@screen lg {
-			@apply block opacity-0 invisible;
-			transition: opacity 0.25s ease-in-out;
+			@apply h-auto block opacity-0 invisible;
+			transition: opacity 0.75s ease-in-out;
 			@apply absolute top-16 left-6 py-6;
 			width: calc(100% - 48px);
 
@@ -71,7 +71,7 @@
 		}
 
 		&.is-active {
-			@apply inline-block absolute top-0;
+			@apply inline-block absolute top-0 h-auto opacity-100 visible;
 			left: 100vw;
 			width: 100%;
 
