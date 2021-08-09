@@ -7,7 +7,13 @@
 	<div class="sticky top-0 bg-white h-16 w-full z-30 lg:hidden">
 		<a class="js-back absolute top-4 left-4 header__back cursor-pointer"> <span> <?php ground_icon( 'chevron-left', 'text-black' ); ?> </span> <?php _e( 'Indietro', 'ground' ); ?> </a>
 
-		<div class="container flex items-center justify-between py-2 bg-white">
+		<div class="header__navicon container flex items-center justify-between py-2 bg-white">
+			<svg class="js-toggle js-navicon navicon h-12 w-12 -ml-4 cursor-pointer block" data-toggle-target="html" data-toggle-class-name="is-navigation-open" viewBox="0 0 100 100" width="80">
+				<path class="navicon__line top" d="m 30,33 h 40 c 0,0 9.044436,-0.654587 9.044436,-8.508902 0,-7.854315 -8.024349,-11.958003 -14.89975,-10.85914 -6.875401,1.098863 -13.637059,4.171617 -13.637059,16.368042 v 40"></path>
+				<path class="navicon__line middle" d="m 30,50 h 40"></path>
+				<path class="navicon__line bottom" d="m 30,67 h 40 c 12.796276,0 15.357889,-11.717785 15.357889,-26.851538 0,-15.133752 -4.786586,-27.274118 -16.667516,-27.274118 -11.88093,0 -18.499247,6.994427 -18.435284,17.125656 l 0.252538,40"></path>
+			</svg>
+
 			<div class="inline-block header__logo">
 				<?php if ( GROUND_LOGO_URL_PRIMARY || GROUND_LOGO_SOURCE_PRIMARY ) { ?>
 				<a class="js-cursor-hide" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>">
@@ -24,17 +30,27 @@
 				<?php } ?>
 			</div>
 
-			<div class="flex justify-end">
-				<button class="js-toggle js-cursor-hover header__search block mr-8" data-toggle-target=".search html" data-toggle-class-name="is-search-open">
-					<?php ground_icon( 'search', 'text-black' ); ?>
-				</button>
 
-				<svg class="js-toggle js-navicon navicon h-12 w-12 cursor-pointer block" data-toggle-target="html" data-toggle-class-name="is-navigation-open" viewBox="0 0 100 100" width="80">
-					<path class="navicon__line top" d="m 30,33 h 40 c 0,0 9.044436,-0.654587 9.044436,-8.508902 0,-7.854315 -8.024349,-11.958003 -14.89975,-10.85914 -6.875401,1.098863 -13.637059,4.171617 -13.637059,16.368042 v 40"></path>
-					<path class="navicon__line middle" d="m 30,50 h 40"></path>
-					<path class="navicon__line bottom" d="m 30,67 h 40 c 12.796276,0 15.357889,-11.717785 15.357889,-26.851538 0,-15.133752 -4.786586,-27.274118 -16.667516,-27.274118 -11.88093,0 -18.499247,6.994427 -18.435284,17.125656 l 0.252538,40"></path>
-				</svg>
+			<?php
+				$count = WC()->cart->get_cart_contents_count();
+				$class = '';
+
+				if ( $count === 0 ) {
+					$class = 'is-empty ';
+				} else {
+					$class = 'is-full js-toggle';
+				}
+			?>
+
+			<div class="header__cart relative lg:hidden">
+				<a class="flex justify-start items-center" href="<?php echo wc_get_page_permalink('cart')?>">
+					<?php ground_icon( 'shopping-cart', 'minicart__icon' ); ?>
+					<div class="absolute right-0 top-0 bg-red-500 rounded-full w-6 h-6 flex items-center justify-center text-white font-bold">
+						<?php echo WC()->cart->get_cart_contents_count(); ?>
+					</div>
+				</a>
 			</div>
+
 		</div>
 	</div>
 

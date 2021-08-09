@@ -60,4 +60,31 @@
 			@apply opacity-0 invisible;
 		}
 	}
+
+	&__search,
+	&__logo {
+		.is-navigation-open & {
+			@apply opacity-0 invisible;
+		}
+	}
+
+	&__cart {
+		transform: translateX(0%);
+		transition-timing-function: ease-in-out;
+		transition: 0.2s;
+
+		.is-navigation-open & {
+			transform: translateX(300%);
+		}
+	}
+
+	&__navicon {
+		transform: translateX(0%);
+		transition-timing-function: ease-in-out;
+		transition: 0.75s;
+
+		.is-navigation-open & {
+			transform: translateX(calc(100vw - 72px));
+		}
+	}
 }
