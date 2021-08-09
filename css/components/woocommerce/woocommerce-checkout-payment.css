@@ -1,53 +1,55 @@
 .woocommerce-checkout-payment {
+	@apply relative prose;
 
 	.wc_payment_methods {
-		//border: 1px solid $color-grey-dark;
-		//background-color: $color-white;
-		@apply bg-white;
-		@apply p-6;
-		list-style-type: none;
-		@apply mb-12;
-		margin-left: 0;
-
-		label {
-			width: 85%;
-		}
-
-		p {
-			@apply text-base;
-			@apply text-gray-700;
-			margin-top: 6px;
-			//@apply ml-6;
-			font-style: italic;
-		}
+		@apply relative mt-2 mb-6;
 
 		.wc_payment_method {
-			margin-bottom: 10px;
-			@apply pb-3;
-			@apply border;
-			@apply border-gray-500;
+			@apply flex flex-wrap items-center pl-0;
 
-			&:last-child {
-				border-bottom: 0;
-				padding-bottom: 0;
+			input { @apply mt-0; }
+
+			input:checked + label {
+                @apply text-primary underline !important;
+            }
+
+			label {
+				@apply ml-1;
+
+				img {
+					@apply inline-block my-0;
+				}
 			}
-		}
 
-		img {
-			margin-left: 10px;
-			@screen md {
-				margin-right: 10px;
+			&:before {
+				@apply hidden;
+			}	
+			
+			.payment_box {
+				@apply w-full block mb-0;
+				* {
+					@apply text-sm text-gray-500;
+				}
 			}
-		}
 
-		.about_paypal {
-			display: none;
 		}
-
 	}
 
-	.button {
-		width: 100%;
+	/* PLACE HOLDER */
+	.place-order {
+
+		.woocommerce-terms-and-conditions-wrapper {
+			.woocommerce-privacy-policy-text {
+				* {
+					@apply text-sm text-gray-500;
+				}
+			}
+		}
+
+		button[type=submit].button  {
+			@apply mt-3 w-full;
+		}
+
 	}
 
 }

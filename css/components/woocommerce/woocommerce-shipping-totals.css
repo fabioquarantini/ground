@@ -1,5 +1,5 @@
 .woocommerce-shipping-totals {
-    @apply relative prose max-w-full;
+    @apply relative prose;
     
     .woocommerce-shipping-methods {
         @apply ml-0 mb-6;
