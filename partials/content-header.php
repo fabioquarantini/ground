@@ -81,18 +81,16 @@
 
 				<?php if ( class_exists( 'WooCommerce' ) && ! is_checkout() ) : ?>
 				<div class="lg:flex lg:items-center lg:justify-between lg:h-16">
-					<?php get_template_part( 'partials/navigation', 'primary' ); ?>
+					<div class="<?php echo GROUND_HEADER_ALL_PRODUCTS ? 'hidden lg:flex lg:justify-end lg:m-0 lg:space-x-5' : ''; ?>">
+						<?php get_template_part( 'partials/navigation', 'primary' ); ?>
+					</div>
 
 					<?php if ( GROUND_HEADER_ALL_PRODUCTS ) { ?>
-						<div class="lg:flex lg:justify-between lg:m-0 lg:space-x-5">
+						<div class="lg:flex lg:justify-end lg:m-0 lg:space-x-5">
 							<a class="hidden lg:inline-block hover:text-primary cursor-pointer js-toggle" data-toggle-target="#modal-languages" data-toggle-class-name="hidden"><span class="mr-2"><?php ground_icon( 'menu-left', 'icon--filled' ); ?></span><?php _e( 'All products', 'ground' ); ?></a>
 							<?php get_template_part( 'partials/navigation', 'all-products' ); ?>
 						</div>
 					<?php } ?>
-
-					<button class="navicon js-toggle" data-toggle-target="body" data-toggle-class-name="is-navigation-open">
-						<i class="navicon__icon"></i>
-					</button> <!-- End .navicon -->
 				</div>
 				<?php endif; ?>
 
