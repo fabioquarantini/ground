@@ -1,5 +1,37 @@
 .woocommerce-order {
-	@apply bg-gray-300;
-	@apply p-12;
-	border-radius: 4px;
+	@apply bg-gray-100 p-12 rounded-theme text-center;
+
+
+	.woocommerce-thankyou-order-received {
+		@apply text-center text-primary text-4xl font-bold mb-6;
+
+	}
+
+	.woocommerce-column {
+		.woocommerce-column__title {
+			@apply text-base;
+		}
+	}
+
+	.woocommerce-order-details {
+		@apply relative mt-12 max-w-3xl mx-auto;
+		.woocommerce-order-details__title {
+			@apply text-base;
+		}
+		.woocommerce-table--order-details {
+			@apply bg-transparent;
+			thead, tbody {
+				@apply hidden;
+			}
+			tfoot {
+				tr {
+					@apply border-b border-gray-200;
+				}
+				td {
+					@apply text-right;
+				}
+			}
+		}
+	}
+
 }

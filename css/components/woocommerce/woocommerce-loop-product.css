@@ -44,7 +44,7 @@
 }
 
 .woocommerce-loop-product__title {
-	@apply text-black text-lg font-bold pt-6 pb-2;
+	@apply text-black dark:text-white text-lg font-bold pt-6 pb-2;
 }
 
 .woocommerce-loop-product__description {

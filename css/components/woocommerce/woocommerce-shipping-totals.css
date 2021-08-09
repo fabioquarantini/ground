@@ -1,5 +1,5 @@
 .woocommerce-shipping-totals {
-    @apply relative prose;
+    @apply relative;
     
     .woocommerce-shipping-methods {
         @apply ml-0 mb-6;
@@ -21,7 +21,7 @@
         @apply text-sm;
     }
     .shipping-calculator-button {
-        @apply block mt-2 text-sm text-black font-bold underline;
+        @apply block mt-2 text-sm font-bold underline;
     }
 
 }

@@ -12,7 +12,7 @@
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class( 'font-primary text-black debug-screens' ); ?> data-template-url="<?php echo GROUND_TEMPLATE_URL; ?>">
+<body <?php body_class( 'font-primary debug-screens' ); ?> data-template-url="<?php echo GROUND_TEMPLATE_URL; ?>">
 
 	<div class="scroll mt-16 lg:mt-0" id="js-scroll">
 

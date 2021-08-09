@@ -1,12 +1,12 @@
 .price {
-	@apply text-black;
+	@apply text-black dark:text-white;
 
 	.ground__price-range {
-		@apply text-base text-black;
+		@apply text-base;
 	}
 
 	.amount {
-		@apply text-4xl text-black font-bold;
+		@apply text-4xl font-bold;
 	}
 
 	del {

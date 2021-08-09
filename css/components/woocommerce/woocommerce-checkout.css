@@ -5,12 +5,17 @@
 		@apply hidden;
 	}
 
+	.woocommerce-NoticeGroup-checkout {
+		@apply col-span-full lg:col-span-2;
+
+	}
+
 	#customer_details {
-		@apply prose;
+		@apply prose col-span-1;
 	}
 
 	#order_review {
-		@apply relative py-6 px-6 lg:px-12 bg-gray-100 rounded-theme;
+		@apply relative py-6 px-6 lg:px-12 bg-gray-100 rounded-theme col-span-1;
 	}
 }
 
