@@ -16,28 +16,27 @@
  * @version 3.0.0
  */
 
-defined('ABSPATH') || exit;
+defined( 'ABSPATH' ) || exit;
 
-if ($cross_sells) : ?>
+if ( $cross_sells ) : ?>
 
 	<div class="cross-sells py-12">
 
 		<div class="relative mb-6 lg:mb-12">
-			<h2 class="text-center text-2xl"><?php esc_html_e('You may be interested in&hellip;', 'woocommerce'); ?></h2>
+			<h2 class="text-center text-2xl"><?php esc_html_e( 'You may be interested in&hellip;', 'woocommerce' ); ?></h2>
 		</div>
 
 		<?php woocommerce_product_loop_start(); ?>
 
-		<?php foreach ($cross_sells as $cross_sell) : ?>
+		<?php foreach ( $cross_sells as $cross_sell ) : ?>
 
 			<?php
-			$post_object = get_post($cross_sell->get_id());
+			$post_object = get_post( $cross_sell->get_id() );
 
-			setup_postdata($GLOBALS['post'] = &$post_object); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.OverrideProhibited, Squiz.PHP.DisallowMultipleAssignments.Found 
+			setup_postdata( $GLOBALS['post'] = &$post_object ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.OverrideProhibited, Squiz.PHP.DisallowMultipleAssignments.Found 
 			?>
 
-
-			<?php wc_get_template_part('content', 'product'); ?>
+			<?php wc_get_template_part( 'content', 'product' ); ?>
 
 
 		<?php endforeach; ?>
@@ -45,7 +44,7 @@ if ($cross_sells) : ?>
 		<?php woocommerce_product_loop_end(); ?>
 
 	</div>
-<?php
+	<?php
 endif;
 
 wp_reset_postdata();

@@ -30,28 +30,32 @@ $shipping   = $order->get_formatted_shipping_address();
 	<address class="address"><?php echo wp_kses_post( $shipping ); ?></address>
 	<br><br>
 
-	<?php // this order meta checks if order is marked as a invoice
+	<?php
+	// this order meta checks if order is marked as a invoice
 	$is_invoice = get_post_meta( $order->get_order_number(), '_billing_invoice', true );
 
-	if( empty( $is_invoice ) )
+	if ( empty( $is_invoice ) ) {
 		return;
+	}
 
 	$invoice_customer_type = get_post_meta( $order->get_order_number(), '_billing_customer_type', true );
-	$invoice_company = get_post_meta( $order->get_order_number(), '_billing_company', true );
-	$invoice_vat = get_post_meta( $order->get_order_number(), '_billing_vat', true );
-	$invoice_fiscal_code = get_post_meta( $order->get_order_number(), '_billing_fiscal_code', true );
-	$invoice_pec = get_post_meta( $order->get_order_number(), '_billing_pec', true );
-	$invoice_sdi = get_post_meta( $order->get_order_number(), '_billing_sdi', true ); ?>
+	$invoice_company       = get_post_meta( $order->get_order_number(), '_billing_company', true );
+	$invoice_vat           = get_post_meta( $order->get_order_number(), '_billing_vat', true );
+	$invoice_fiscal_code   = get_post_meta( $order->get_order_number(), '_billing_fiscal_code', true );
+	$invoice_pec           = get_post_meta( $order->get_order_number(), '_billing_pec', true );
+	$invoice_sdi           = get_post_meta( $order->get_order_number(), '_billing_sdi', true );
+	?>
 
 	<h2>Dati fatturazione</h2>
 	<address class="address">
-		<?php echo '
-			<strong>' . __( 'Tipologia cliente' , 'ground' ) . ':</strong> ' . $invoice_customer_type .' <br>
-			<strong>' . __( 'Nome della società' , 'ground' ) . ':</strong> ' . $invoice_company .' <br>
-			<strong>' . __( 'P.IVA' , 'ground' ) . ':</strong> ' . $invoice_vat .' <br>
-			<strong>' . __( 'Codice fiscale' , 'ground' ) . ':</strong> ' . $invoice_fiscal_code .' <br>
-			<strong>' . __( 'Pec' , 'ground' ) . ':</strong> ' . $invoice_pec .' <br>
-			<strong>' . __( 'Codice destinatario (SDI)' , 'ground' ) . ':</strong> ' . $invoice_sdi;
+		<?php
+		echo '
+			<strong>' . __( 'Tipologia cliente', 'ground' ) . ':</strong> ' . $invoice_customer_type . ' <br>
+			<strong>' . __( 'Nome della società', 'ground' ) . ':</strong> ' . $invoice_company . ' <br>
+			<strong>' . __( 'P.IVA', 'ground' ) . ':</strong> ' . $invoice_vat . ' <br>
+			<strong>' . __( 'Codice fiscale', 'ground' ) . ':</strong> ' . $invoice_fiscal_code . ' <br>
+			<strong>' . __( 'Pec', 'ground' ) . ':</strong> ' . $invoice_pec . ' <br>
+			<strong>' . __( 'Codice destinatario (SDI)', 'ground' ) . ':</strong> ' . $invoice_sdi;
 		?>
 	</address>
 	<br><br>

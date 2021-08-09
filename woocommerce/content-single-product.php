@@ -30,7 +30,7 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div id="product-<?php the_ID(); ?>" <?php wc_product_class('woocommerce-product-details'); ?>>
+<div id="product-<?php the_ID(); ?>" <?php wc_product_class( 'woocommerce-product-details' ); ?>>
 
 	<div class="lg:flex lg:flex-wrap">
 

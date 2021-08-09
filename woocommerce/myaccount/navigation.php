@@ -17,11 +17,11 @@
  * @version 2.6.0
  */
 
-if (!defined('ABSPATH')) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-do_action('woocommerce_before_account_navigation');
+do_action( 'woocommerce_before_account_navigation' );
 ?>
 
 <div class="lg:flex">
@@ -30,9 +30,9 @@ do_action('woocommerce_before_account_navigation');
 
 		<nav class="navigation navigation--account woocommerce-MyAccount-navigation">
 			<ul class="navigation__list">
-				<?php foreach (wc_get_account_menu_items() as $endpoint => $label) : ?>
-					<li class="navigation__item navigation__item--<?php echo $endpoint; ?> <?php echo wc_get_account_menu_item_classes($endpoint); ?>">
-						<a class="navigation__link" href="<?php echo esc_url(wc_get_account_endpoint_url($endpoint)); ?>"><?php echo esc_html($label); ?></a>
+				<?php foreach ( wc_get_account_menu_items() as $endpoint => $label ) : ?>
+					<li class="navigation__item navigation__item--<?php echo $endpoint; ?> <?php echo wc_get_account_menu_item_classes( $endpoint ); ?>">
+						<a class="navigation__link" href="<?php echo esc_url( wc_get_account_endpoint_url( $endpoint ) ); ?>"><?php echo esc_html( $label ); ?></a>
 					</li>
 				<?php endforeach; ?>
 			</ul>
@@ -40,7 +40,8 @@ do_action('woocommerce_before_account_navigation');
 
 	</div>
 
-	<?php // .row is closed in myaccount/my-account.php 
+	<?php
+	// .row is closed in myaccount/my-account.php
 	?>
 
-	<?php do_action('woocommerce_after_account_navigation'); ?>
+	<?php do_action( 'woocommerce_after_account_navigation' ); ?>
