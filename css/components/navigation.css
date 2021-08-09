@@ -20,18 +20,6 @@
 		width: auto;
 	}
 
-	.navigation__list {
-		@apply block m-0 space-x-0;
-
-		@screen lg {
-			@apply flex justify-start space-x-3;
-		}
-
-		@screen lg {
-			@apply space-x-5;
-		}
-	}
-
 	.navigation__item {
 		@apply block;
 		@screen lg {
@@ -147,13 +135,6 @@
 
 	@screen lg {
 		width: auto;
-	}
-
-	.navigation__list {
-		@apply block m-0 space-x-0;
-		@screen lg {
-			@apply space-x-5;
-		}
 	}
 
 	.navigation__item {
