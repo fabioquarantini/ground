@@ -53,6 +53,11 @@ export default class Menu {
 						sub.classList && sub.classList.contains('navigation__sub-menu') ? (subMenu = sub) : null;
 					});
 
+					var subMenuImage = null;
+					t.target.parentNode.childNodes.forEach((sub) => {
+						sub.classList && sub.classList.contains('navigation__image') ? (subMenuImage = sub) : null;
+					});
+
 					if (html.classList.contains('is-navigation-open') && subMenu) {
 						t.preventDefault();
 						t.stopPropagation();
@@ -61,6 +66,7 @@ export default class Menu {
 						html.classList.add('is-sub-navigation-open');
 
 						subMenu.classList.add('is-active');
+						subMenuImage && subMenuImage.classList.add('is-active');
 
 						level++;
 

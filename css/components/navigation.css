@@ -22,8 +22,13 @@
 
 	.navigation__item {
 		@apply block;
+
 		@screen lg {
-			@apply inline-block;
+			@apply flex justify-start pr-4;
+		}
+
+		@screen xl {
+			@apply flex justify-start pr-6;
 		}
 	}
 
@@ -37,12 +42,10 @@
 	/* SUB MENU */
 	.navigation__sub-menu {
 		@apply relative m-0;
-		@apply opacity-0 invisible h-0;
+		@apply hidden;
 		@screen lg {
-			@apply h-auto block opacity-0 invisible;
-			transition: opacity 0.75s ease-in-out;
 			@apply absolute top-16 left-6 py-6;
-			width: calc(100% - 48px);
+			width: calc(50% - 48px);
 
 			/* &:before {
 				content: "";
@@ -58,7 +61,7 @@
 
 			&:after {
 				content: "";
-				@apply absolute top-0 bg-white shadow-lg;
+				@apply absolute top-0 bg-white;
 				left: -100vw;
 				height: calc(100% + 48px);
 				width: 200vw;
@@ -98,13 +101,46 @@
 		}
 	}
 
+	.is-hover {
+		.navigation__sub-menu {
+			@apply block;
+
+			.navigation__image {
+				@apply hidden;
+			}
+		}
+	}
+
 	.navigation__image {
 		@apply hidden;
+		@screen lg {
+			@apply absolute top-16 right-6 py-6;
+			width: calc(50% - 48px);
+
+			&:after {
+				content: "";
+				@apply absolute top-0 bg-white;
+				left: -100vw;
+				height: calc(100% + 48px);
+				width: 200vw;
+				z-index: -1;
+			}
+		}
+
+		&.is-active {
+			@apply inline-block relative top-0 h-auto opacity-100 visible;
+			left: 100vw;
+			width: 100%;
+
+			@screen lg {
+				@apply relative left-auto top-auto w-auto;
+			}
+		}
 	}
 
 	.is-hover {
-		.navigation__sub-menu {
-			@apply opacity-100 visible;
+		.navigation__image {
+			@apply block;
 		}
 	}
 

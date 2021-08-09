@@ -92,7 +92,7 @@
 			$item_output .= $title_sub ? $title_sub : null;
 			$item_output .= $title_sub ? ('</p>') : null;
 			$item_output .= $args->after;
-			$item_output .= $image ? ('<ul class="navigation__image">' . $card .'</ul>') : null;
+			$item_output .= $image ? ('<ul class="navigation__image list-none">' . $card .'</ul>') : null;
 
 
 			$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
