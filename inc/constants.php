@@ -64,3 +64,7 @@ define( 'GROUND_LOGO_TYPE_SECONDARY', get_field( 'logo_type_secondary', 'option'
 
 // No image.
 define( 'GROUND_NO_IMAGE_URL', get_field( 'no_image_url', 'option' ) ? get_field( 'no_image_url', 'option' ) : GROUND_TEMPLATE_URL . '/img/no-image.svg' );
+
+
+// Shop.
+define( 'GROUND_PRODUCT_ADD_TO_CART', get_field( 'product_add_to_cart', 'option' ) ? get_field( 'product_add_to_cart', 'option' ) : '' );

@@ -9,26 +9,28 @@
 /**
  *  Remove add to cart button in product loop
  */
-// remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10);
+
+if ( GROUND_PRODUCT_ADD_TO_CART == '1' ) {
+	remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
+}
 
 /**
  * Add term attribute in product loop
  */
-function ground_woocommerce_add_product_loop_term()
-{
+function ground_woocommerce_add_product_loop_term() {
 	global $product;
 	$product_id    = $product->get_id();
 	$product_terms = wc_get_product_terms(
 		$product_id,
 		'product_cat',
-		array('fields' => 'all')
+		array( 'fields' => 'all' )
 	); // For attribute use "pa_nameofattribute.
 
-	if (count($product_terms)) {
+	if ( count( $product_terms ) ) {
 		echo '<div class="product__terms">';
-		foreach ($product_terms as $term) {
+		foreach ( $product_terms as $term ) {
 			$term_name = "$term->name";
-			if (next($product_terms) == true) {
+			if ( next( $product_terms ) == true ) {
 				$term_name .= ',';
 			}
 			echo $term_name;
@@ -45,15 +47,14 @@ function ground_woocommerce_add_product_loop_term()
  * @param [type] $options
  * @return void
  */
-function ground_woocommerce_customize_product_sorting($options)
-{
+function ground_woocommerce_customize_product_sorting( $options ) {
 	$options = array(
-		'menu_order' => __('Default sorting', 'woocommerce'),
-		'popularity' => __('Sort by popularity', 'woocommerce'),
-		'rating'     => __('Sort by average rating', 'woocommerce'),
-		'date'       => __('Sort by newness', 'woocommerce'),
-		'price'      => __('Sort by price: low to high', 'woocommerce'),
-		'price-desc' => __('Sort by price: high to low', 'woocommerce'),
+		'menu_order' => __( 'Default sorting', 'woocommerce' ),
+		'popularity' => __( 'Sort by popularity', 'woocommerce' ),
+		'rating'     => __( 'Sort by average rating', 'woocommerce' ),
+		'date'       => __( 'Sort by newness', 'woocommerce' ),
+		'price'      => __( 'Sort by price: low to high', 'woocommerce' ),
+		'price-desc' => __( 'Sort by price: high to low', 'woocommerce' ),
 	);
 
 	// unset( $options[ 'popularity' ] );
@@ -82,15 +83,14 @@ function ground_woocommerce_customize_product_sorting($options)
 
 /**
  * WooCommerce, Add Short Description to Products on Shop Page
- *
  */
-function ground_add_short_description_to_product_loop()
-{
+function ground_add_short_description_to_product_loop() {
 	global $product;
-	if ($product->get_short_description()) : ?>
+	if ( $product->get_short_description() ) : ?>
 		<div class="woocommerce-loop-product__description">
-			<?php echo apply_filters('woocommerce_short_description', $product->get_short_description()) ?>
+			<?php echo apply_filters( 'woocommerce_short_description', $product->get_short_description() ); ?>
 		</div>
-<?php endif;
+		<?php
+endif;
 }
-add_action('woocommerce_after_shop_loop_item_title', 'ground_add_short_description_to_product_loop', 2);
+add_action( 'woocommerce_after_shop_loop_item_title', 'ground_add_short_description_to_product_loop', 2 );

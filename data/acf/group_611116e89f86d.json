@@ -1,0 +1,43 @@
+{
+    "key": "group_611116e89f86d",
+    "title": "Theme Settings: Shop",
+    "fields": [
+        {
+            "key": "field_611116e8a3d28",
+            "label": "Add to cart button",
+            "name": "product_add_to_cart",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Remove add to cart button from product item!",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-shop"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "left",
+    "instruction_placement": "field",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1628510211
+}
