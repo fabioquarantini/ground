@@ -7,6 +7,7 @@ import Slider from './components/slider';
 import Loader from './components/loader';
 import Toggle from './components/toggle';
 import Menu from './components/menu';
+import Cart from './components/cart';
 import Cursor from './components/cursorV2';
 import Search from './components/search';
 import Magnet from './components/magnetV2';
@@ -40,7 +41,7 @@ const sliderPrimary = new Slider('.js-slider-primary');
 const toggle = new Toggle();
 const billing = new Billing();
 const menu = new Menu();
-
+const cart = new Cart();
 //const cursor = new Cursor();
 const search = new Search();
 const magnet = new Magnet();
