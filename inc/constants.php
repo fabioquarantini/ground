@@ -52,6 +52,7 @@ define( 'GROUND_FOOTER_COPYRIGHT', get_field( 'footer_copyright', 'option' ) ? g
 
 // Header.
 define( 'GROUND_HEADER_TEXT', get_field( 'header_text', 'option' ) ? get_field( 'header_text', 'option' ) : '' );
+define( 'GROUND_HEADER_TYPE', get_field( 'header_type', 'option' ) ? get_field( 'header_type', 'option' ) : '' );
 define( 'GROUND_HEADER_ALL_PRODUCTS', get_field( 'header_all_products', 'option' ) ? get_field( 'header_all_products', 'option' ) : '' );
 
 // Logos.

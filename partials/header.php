@@ -14,18 +14,26 @@
 
 <body <?php body_class( 'font-primary debug-screens' ); ?> data-template-url="<?php echo GROUND_TEMPLATE_URL; ?>">
 
-	<div class="scroll mt-16 lg:mt-0" id="js-scroll">
+	<div class="scroll" id="js-scroll">
 
-		<?php
-		get_template_part( 'partials/content', 'header' );
-		?>
-		<?php
-		// get_template_part( 'partials/loader' );
-		?>
+		 <?php
+        $type = GROUND_HEADER_TYPE;
+        switch ($type) {
+            case $type == "megaMenu":
+                get_template_part( 'partials/content', 'header' );
+                break;
+            // case $type == "menuPrimary":
+            //  get_template_part( 'partials/content', 'header' );
+            //  break;
+            default:
+                 get_template_part( 'partials/content', 'header' );
+        }
 
-		<div class="container text-center p-2 text-xs bg-black text-white lg:bg-white lg:p-0 lg:text-black lg:hidden">
-			<?php echo GROUND_HEADER_TEXT; ?>
-		</div>
+        ?>
+        <?php
+        // get_template_part( 'partials/loader' );
+        ?>
+
 
 
 		<div data-router-wrapper>

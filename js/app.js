@@ -6,7 +6,7 @@ import Modal from './components/modal';
 import Slider from './components/slider';
 import Loader from './components/loader';
 import Toggle from './components/toggle';
-import Menu from "./components/menu";
+import Menu from './components/menu';
 import Cursor from './components/cursorV2';
 import Search from './components/search';
 import Magnet from './components/magnetV2';

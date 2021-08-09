@@ -1,7 +1,78 @@
 {
     "key": "group_61010d9b72145",
     "title": "Theme Settings: Header",
-    "fields": [],
+    "fields": [
+        {
+            "key": "field_610aabc74a718",
+            "label": "Advice",
+            "name": "header_text",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_6111100be8230",
+            "label": "Type",
+            "name": "header_type",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "megaMenu": "Mega menu"
+            },
+            "default_value": "megaMenu",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_610bd0a16ddfe",
+            "label": "All products",
+            "name": "header_all_products",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6111100be8230",
+                        "operator": "==",
+                        "value": "megaMenu"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        }
+    ],
     "location": [
         [
             {
@@ -19,5 +90,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1628066264
+    "modified": 1628508472
 }

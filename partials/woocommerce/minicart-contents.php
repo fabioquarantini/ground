@@ -11,7 +11,7 @@ if ( $count === 0 ) {
 
 <a class="minicart__contents <?php echo $class; ?> text-black hover:text-primary" data-toggle-target="html" data-toggle-class-name="is-minicart-open" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php esc_attr_e( 'View your shopping cart', 'storefront' ); ?>">
 
-	<div class="flex justify-start space-x-2">
+	<div class="flex justify-start space-x-2 border-l-2 border-gray-400 border-opacity-20 pl-6">
 		<span><?php _e( 'Cart', 'ground' ); ?></span>
 		<?php ground_icon( 'shopping-cart', 'minicart__icon' ); ?>
 	</div>
