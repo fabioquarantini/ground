@@ -31,32 +31,40 @@
 			//var_dump($item);
 
 			$image = get_field('image', $item);
-			$title_sub = get_field('button', $item);
+			$button = get_field('button', $item);
 
 			$card ="";
 			?>
 
-			<?php //if ($image) { ?>
-				<?php ob_start();
-					//var_dump($item);
-					// $image = get_field('image', $item);
-					// $background_color = get_field('color_picker', $item);
-					// $text_color = get_field('color_picker2', $item);
-					// $title = get_field('title', $item);
-				?>
-						<li class="navigation__item--image">
-							<figure class="media ratio-16-9">
-								<img class="media__img media__img--menu cover" src=" <?php echo $image['sizes']['16-9-medium'] ?> ">
-							</figure>
-						</li>
-				<?php $card = ob_get_clean();?>
-			<?php //}
+			<?php ob_start();
+			?>
+				<li class="navigation__item--image">
+					<?php if($button) : ?>
+					<a class="no-underline" href="<?php echo $button['url']; ?>">
+					<?php endif; ?>
+						<figure class="media aspect-w-16 aspect-h-9">
+							<img class="object-cover w-full"
+									srcset="<?php echo $image['sizes']['1-1-small'] ?> 480w,
+											<?php echo $image['sizes']['1-1-medium'] ?> 900w,
+											<?php echo $image['sizes']['16-9-large'] ?> 1200w"
+									sizes="(min-width: 1200px) 1200px,
+											(min-width: 768px) 900px,
+											100vh"
+									src="<?php echo $image['sizes']['16-9-large'] ?>"
+									alt=""
+									loading="lazy">
+						</figure>
+					<?php if($button) : ?>
+						<h2 class="text-lg lg:text-xl py-6"> <?php echo $button['title']; ?> </h2>
+					</a>
+					<?php endif; ?>
+				</li>
 
-			//if (in_array("menu-item-has-children",$item_classes)) {
+			<?php $card = ob_get_clean();?>
+
+			<?php
 
 			$output .= $indent . '<li' . $class_names .'>';
-
-
 
 
 			$atts = array();
@@ -88,9 +96,6 @@
 			$item_output .= '<a class="navigation__link" '. $attributes .'>';
 			$item_output .= $args->link_before . $title . $args->link_after;
 			$item_output .= '</a>';
-			$item_output .= $title_sub ? ('<p class="navigation__sub-title">') : null;
-			$item_output .= $title_sub ? $title_sub : null;
-			$item_output .= $title_sub ? ('</p>') : null;
 			$item_output .= $args->after;
 			$item_output .= $image ? ('<ul class="navigation__image list-none">' . $card .'</ul>') : null;
 

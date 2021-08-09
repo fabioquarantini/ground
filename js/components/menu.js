@@ -123,7 +123,7 @@ export default class Menu {
 						: null;
 				});
 			});
-		} else {
+		} else if (window.matchMedia('(min-width: 1024px)').matches) {
 			[...document.querySelectorAll(triggers)].forEach((item) => {
 				let timerHandle = null;
 

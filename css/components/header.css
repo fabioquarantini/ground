@@ -87,4 +87,12 @@
 			transform: translateX(calc(100vw - 72px));
 		}
 	}
+
+	&__all-products {
+		&:hover {
+			.navigation--all-products {
+				@apply opacity-100;
+			}
+		}
+	}
 }

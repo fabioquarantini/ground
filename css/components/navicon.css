@@ -1,7 +1,7 @@
 @layer components {
 	.navicon {
 		-webkit-tap-highlight-color: transparent;
-		transition: transform 1250ms;
+		transition: transform 1000ms;
 		-moz-user-select: none;
 		-webkit-user-select: none;
 		-ms-user-select: none;
@@ -10,7 +10,7 @@
 		&__line {
 			fill: none;
 			transition: stroke-dasharray 500ms, stroke-dashoffset 500ms;
-			stroke: #000;
+			@apply stroke-current text-black dark:text-white;
 			stroke-width: 4;
 			stroke-linecap: round;
 

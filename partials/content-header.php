@@ -2,12 +2,12 @@
 	<?php echo GROUND_HEADER_TEXT; ?>
 </div>
 
-<header class="header header--mega-menu w-full z-30 bg-white">
+<header class="header header--mega-menu w-full z-30 bg-white dark:bg-black">
 
-	<div class="sticky top-0 bg-white h-16 w-full z-30 lg:hidden">
-		<a class="js-back absolute top-4 left-4 header__back cursor-pointer"> <span> <?php ground_icon( 'chevron-left', 'text-black' ); ?> </span> <?php _e( 'Indietro', 'ground' ); ?> </a>
+	<div class="sticky top-0 bg-white dark:bg-black h-16 w-full z-30 lg:hidden">
+		<a class="js-back absolute top-4 left-4 header__back cursor-pointer"> <span> <?php ground_icon( 'chevron-left', 'text-black dark:text-white' ); ?> </span> <?php _e( 'Indietro', 'ground' ); ?> </a>
 
-		<div class="header__navicon container flex items-center justify-between py-2 bg-white">
+		<div class="header__navicon container flex items-center justify-between py-2 bg-white dark:bg-black">
 			<svg class="js-toggle js-navicon navicon h-12 w-12 -ml-4 cursor-pointer block" data-toggle-target="html" data-toggle-class-name="is-navigation-open" viewBox="0 0 100 100" width="80">
 				<path class="navicon__line top" d="m 30,33 h 40 c 0,0 9.044436,-0.654587 9.044436,-8.508902 0,-7.854315 -8.024349,-11.958003 -14.89975,-10.85914 -6.875401,1.098863 -13.637059,4.171617 -13.637059,16.368042 v 40"></path>
 				<path class="navicon__line middle" d="m 30,50 h 40"></path>
@@ -44,8 +44,8 @@
 
 			<div class="header__cart relative lg:hidden">
 				<a class="flex justify-start items-center" href="<?php echo wc_get_page_permalink('cart')?>">
-					<?php ground_icon( 'shopping-cart', 'minicart__icon' ); ?>
-					<div class="absolute right-0 top-0 bg-red-500 rounded-full w-6 h-6 flex items-center justify-center text-white font-bold">
+					<?php ground_icon( 'shopping-cart', 'minicart__icon text-black dark:text-white' ); ?>
+					<div class="absolute -right-4 -top-2 bg-red-500 rounded-full w-6 h-6 flex items-center justify-center text-white font-bold">
 						<?php echo WC()->cart->get_cart_contents_count(); ?>
 					</div>
 				</a>
@@ -54,7 +54,7 @@
 		</div>
 	</div>
 
-	<div class="js-menu-body header__body grid auto-rows-min fixed left-0 h-full w-full z-40 bg-white overflow-y-auto lg:pt-0 lg:mt-0
+	<div class="js-menu-body header__body grid auto-rows-min fixed left-0 h-full w-full z-40 bg-white dark:bg-black overflow-y-auto lg:pt-0 lg:mt-0
  lg:relative lg:top-auto lg:left-auto lg:bottom-auto lg:right-auto lg:bg-transparent lg:overflow-y-visible">
 		<div class="js-menu-container header__container relative">
 			<div class="container hidden lg:relative lg:flex lg:justify-between lg:items-center lg:h-16">
@@ -62,7 +62,7 @@
 					<?php echo GROUND_HEADER_TEXT; ?>
 				</div>
 				<ul class="block m-0 space-x-0 lg:space-x-5">
-					<li class="js-toggle cursor-pointer text-lg lg:text-base lg:py-0" data-toggle-target="#modal-languages" data-toggle-class-name="hidden"><a><span class="mr-2"><?php ground_icon( 'globe-alt', 'icon--filled' ); ?></span><?php _e( 'Language', 'ground' ); ?></a></li>
+					<li class="js-toggle cursor-pointer text-lg lg:text-base lg:py-0" data-toggle-target="#modal-languages" data-toggle-class-name="hidden"><a><span class="mr-2"><?php ground_icon( 'globe-alt', 'icon--filled text-black dark:text-white' ); ?></span><?php _e( 'Language', 'ground' ); ?></a></li>
 				</ul>
 			</div>
 
@@ -89,13 +89,13 @@
 
 
 						<button class="js-toggle js-cursor-hover hidden mr-12 lg:block" data-toggle-target=".search html" data-toggle-class-name="is-search-open">
-							<?php ground_icon( 'search', 'icon--filled' ); ?>
+							<?php ground_icon( 'search', 'icon--filled text-black dark:text-white' ); ?>
 						</button> <!-- End .header__search -->
 					</div>
 
 
 					<ul class="flex items-center mt-6 justify-start space-x-5 lg:justify-end lg:m-0">
-						<li class="text-lg lg:text-base"><a class="navigation__link"href="<?php echo get_permalink( wc_get_page_id( 'myaccount' ) ); ?>"><?php _e( 'Account', 'ground' ); ?><span class="ml-2"><?php ground_icon( 'user', 'icon--filled' ); ?></span></a></li>
+						<li class="text-lg lg:text-base"><a class="navigation__link"href="<?php echo get_permalink( wc_get_page_id( 'myaccount' ) ); ?>"><?php _e( 'Account', 'ground' ); ?><span class="ml-2"><?php ground_icon( 'user', 'icon--filled text-black dark:text-white' ); ?></span></a></li>
 						<li class="hidden minicart-wrapper lg:inline-block"><?php get_template_part( 'partials/woocommerce/minicart' ); ?> </li>
 					</ul>
 				</div>
@@ -107,8 +107,11 @@
 					</div>
 
 					<?php if ( GROUND_HEADER_ALL_PRODUCTS ) { ?>
-						<div class="relative">
-							<a class="js-toggle hidden cursor-pointer lg:inline-block " data-toggle-target="#modal-languages" data-toggle-class-name="hidden"><span class="mr-2"><?php ground_icon( 'menu-left', 'icon--filled' ); ?></span><?php _e( 'All products', 'ground' ); ?></a>
+						<div class="header__all-products">
+							<a class="hidden cursor-pointer lg:flex lg:justify-end lg:items-center lg:text-lg">
+								<div class="mr-2 flex justify-end items-center"> <?php ground_icon( 'menu-left', 'icon--filled text-black dark:text-white' ); ?></div>
+								<div> <?php _e( 'All products', 'ground' ); ?></div>
+							</a>
 							<?php get_template_part( 'partials/navigation', 'all-products' ); ?>
 						</div>
 					<?php } ?>

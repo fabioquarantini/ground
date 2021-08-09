@@ -3,7 +3,7 @@
 
 .navigation__link {
 	text-decoration: none;
-	@apply text-black;
+	@apply text-black dark:text-white;
 
 	&:hover,
 	&.is-active,
@@ -12,7 +12,172 @@
 	}
 }
 
-.navigation--primary,
+.navigation--primary {
+	@apply w-full;
+
+	@screen lg {
+		width: auto;
+	}
+
+	.navigation__item {
+		@apply block;
+
+		@screen lg {
+			@apply flex justify-start pr-4;
+		}
+
+		@screen xl {
+			@apply flex justify-start pr-6;
+		}
+	}
+
+	.navigation__link {
+		@apply block text-lg py-4 border-b border-gray-400 border-opacity-20;
+		@screen lg {
+			@apply block py-3 text-lg border-0 font-bold;
+		}
+	}
+
+	/* SUB MENU */
+	.navigation__sub-menu {
+		@apply relative m-0;
+		@apply hidden;
+		@screen lg {
+			@apply absolute top-16 left-6 pt-6;
+			width: calc(50% - 48px);
+
+			/* &:before {
+				content: "";
+				position: absolute;
+				top: -10px;
+				left: 50%;
+				margin-left: -10px;
+				height: 20px;
+				width: 20px;
+				@apply bg-white dark:bg-black;
+				transform: rotate(45deg);
+			} */
+
+			&:after {
+				content: "";
+				@apply absolute top-0 bg-white dark:bg-black;
+				left: -100vw;
+				height: calc(100% + 24px);
+				width: 200vw;
+				z-index: -2;
+			}
+
+			.has-children .navigation__sub-menu {
+				@apply hidden;
+			}
+		}
+
+		&.is-active {
+			@apply inline-block absolute top-0 h-auto opacity-100 visible;
+			left: 100vw;
+			width: 100%;
+
+			@screen lg {
+				@apply relative left-auto top-auto w-auto;
+			}
+		}
+
+		.navigation__link {
+			@screen lg {
+				@apply border-b border-gray-400 border-opacity-20;
+			}
+		}
+
+		.navigation__item {
+			@apply block;
+			@apply h-auto;
+			&:last-child {
+				.navigation__link {
+					@apply lg:border-0;
+				}
+			}
+			@screen lg {
+				@apply bg-white dark:bg-black;
+			}
+
+			.navigation__link {
+				@apply block text-lg py-3 border-b border-gray-400 border-opacity-20;
+				@screen lg {
+					&:after {
+						@apply hidden;
+					}
+				}
+			}
+		}
+	}
+
+	.is-hover {
+		.navigation__sub-menu {
+			@apply block;
+
+			.navigation__image {
+				@apply hidden;
+			}
+		}
+	}
+
+	.navigation__image {
+		@apply hidden;
+		@screen lg {
+			@apply absolute top-16 right-6 pt-6;
+			width: calc(50% - 48px);
+
+			&:after {
+				content: "";
+				@apply absolute top-0 bg-white dark:bg-black;
+				left: -100vw;
+				height: calc(100% + 24px);
+				width: 200vw;
+				z-index: -1;
+			}
+		}
+
+		&.is-active {
+			/* @apply inline-block relative top-0 h-auto opacity-100 visible;
+			left: 100vw;
+			width: 100%; */
+
+			@screen lg {
+				//@apply relative left-auto top-auto w-auto;
+			}
+		}
+	}
+
+	.is-hover {
+		.navigation__image {
+			@apply block;
+		}
+	}
+
+	.navigation__item.has-children {
+		> .navigation__link {
+			&:after {
+				content: "";
+				position: absolute;
+				height: 24px;
+				width: 24px;
+				border-radius: 50%;
+				right: 8px;
+				background: url("../img/icons/chevron-right.svg");
+			}
+			@screen lg {
+				@apply relative pr-10;
+
+				&:after {
+					margin-top: 4px;
+					right: 12px;
+					background: url("../img/icons/chevron-down.svg");
+				}
+			}
+		}
+	}
+}
+
 .navigation--all-products {
 	@apply w-full;
 
@@ -35,7 +200,7 @@
 	.navigation__link {
 		@apply block text-lg py-4 border-b border-gray-400 border-opacity-20;
 		@screen lg {
-			@apply block text-lg py-8 border-0 font-bold;
+			@apply block py-3 text-lg w-6/12 font-bold;
 		}
 	}
 
@@ -44,7 +209,7 @@
 		@apply relative m-0;
 		@apply hidden;
 		@screen lg {
-			@apply absolute top-16 left-6 py-6;
+			@apply absolute top-16 left-6 pt-6;
 			width: calc(50% - 48px);
 
 			/* &:before {
@@ -55,17 +220,17 @@
 				margin-left: -10px;
 				height: 20px;
 				width: 20px;
-				@apply bg-gray-900;
+				@apply bg-white dark:bg-black;
 				transform: rotate(45deg);
 			} */
 
 			&:after {
 				content: "";
-				@apply absolute top-0 bg-white;
+				@apply absolute top-0 bg-white dark:bg-black;
 				left: -100vw;
-				height: calc(100% + 48px);
+				height: calc(100% + 24px);
 				width: 200vw;
-				z-index: -1;
+				z-index: -2;
 			}
 
 			.has-children .navigation__sub-menu {
@@ -83,6 +248,12 @@
 			}
 		}
 
+		.navigation__link {
+			@screen lg {
+				@apply border-b border-gray-400 border-opacity-20;
+			}
+		}
+
 		.navigation__item {
 			@apply block;
 			@apply h-auto;
@@ -92,11 +263,16 @@
 				}
 			}
 			@screen lg {
-				@apply bg-white;
+				@apply bg-white dark:bg-black;
 			}
 
 			.navigation__link {
 				@apply block text-lg py-3 border-b border-gray-400 border-opacity-20;
+				@screen lg {
+					&:after {
+						@apply hidden;
+					}
+				}
 			}
 		}
 	}
@@ -114,14 +290,14 @@
 	.navigation__image {
 		@apply hidden;
 		@screen lg {
-			@apply absolute top-16 right-6 py-6;
+			@apply absolute top-16 right-6 pt-6;
 			width: calc(50% - 48px);
 
 			&:after {
 				content: "";
-				@apply absolute top-0 bg-white;
+				@apply absolute top-0 bg-white dark:bg-black;
 				left: -100vw;
-				height: calc(100% + 48px);
+				height: calc(100% + 24px);
 				width: 200vw;
 				z-index: -1;
 			}
