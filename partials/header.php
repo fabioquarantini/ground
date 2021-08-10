@@ -22,9 +22,9 @@
 				case $type == 'menu':
 					get_template_part( 'partials/content', 'header' );
 					break;
-				case $type == "megaMenu":
+				case $type == 'megaMenu':
 					get_template_part( 'partials/content', 'header-mega-menu' );
-				break;
+					break;
 				default:
 					 get_template_part( 'partials/content', 'header' );
 			}
@@ -39,7 +39,5 @@
 		<div data-router-wrapper>
 
 			<div <?php ground_view_name(); ?>>
-
-				<div data-scroll-section>
 
 					<main role="main">
