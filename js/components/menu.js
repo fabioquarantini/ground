@@ -45,16 +45,13 @@ export default class Menu {
 		let level = 0;
 		let translation = 0;
 
-		if (window.matchMedia('(max-width: 1024px)').matches) {
-			[...document.querySelectorAll(triggers)].forEach((item) => {
+		[...document.querySelectorAll(triggers)].forEach((item) => {
+			if (window.matchMedia('(max-width: 1024px)').matches) {
 				item.addEventListener('click', (t) => {
 					var subMenu = null;
-					t.target.parentNode.childNodes.forEach((sub) => {
-						sub.classList && sub.classList.contains('navigation__sub-menu') ? (subMenu = sub) : null;
-					});
-
 					var subMenuImage = null;
 					t.target.parentNode.childNodes.forEach((sub) => {
+						sub.classList && sub.classList.contains('navigation__sub-menu') ? (subMenu = sub) : null;
 						sub.classList && sub.classList.contains('navigation__image') ? (subMenuImage = sub) : null;
 					});
 
@@ -79,8 +76,28 @@ export default class Menu {
 						});
 					}
 				});
-			});
+			} else {
+				let timerHandle = null;
 
+				item.addEventListener('mouseenter', () => {
+					clearTimeout(timerHandle);
+					timerHandle = setTimeout(() => {
+						item.classList.add('is-hover');
+					}, 300);
+				});
+
+				item.addEventListener('mouseleave', () => {
+					clearTimeout(timerHandle);
+					if (item.classList.contains('is-hover')) {
+						timerHandle = setTimeout(() => {
+							item.classList.remove('is-hover');
+						}, 300);
+					}
+				});
+			}
+		});
+
+		back &&
 			back.addEventListener('click', () => {
 				if (level > 0) {
 					level--;
@@ -104,6 +121,7 @@ export default class Menu {
 				}
 			});
 
+		navicon &&
 			navicon.addEventListener('click', () => {
 				let i = 0;
 				html.classList.remove('is-sub-navigation-open');
@@ -123,26 +141,5 @@ export default class Menu {
 						: null;
 				});
 			});
-		} else if (window.matchMedia('(min-width: 1024px)').matches) {
-			[...document.querySelectorAll(triggers)].forEach((item) => {
-				let timerHandle = null;
-
-				item.addEventListener('mouseenter', () => {
-					clearTimeout(timerHandle);
-					timerHandle = setTimeout(() => {
-						item.classList.add('is-hover');
-					}, 300);
-				});
-
-				item.addEventListener('mouseleave', () => {
-					clearTimeout(timerHandle);
-					if (item.classList.contains('is-hover')) {
-						timerHandle = setTimeout(() => {
-							item.classList.remove('is-hover');
-						}, 300);
-					}
-				});
-			});
-		}
 	}
 }

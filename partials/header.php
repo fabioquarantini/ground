@@ -19,12 +19,12 @@
 		 <?php
 			$type = GROUND_HEADER_TYPE;
 			switch ( $type ) {
-				case $type == 'megaMenu':
+				case $type == 'menu':
 					get_template_part( 'partials/content', 'header' );
 					break;
-				// case $type == "menuPrimary":
-				// get_template_part( 'partials/content', 'header' );
-				// break;
+				case $type == "megaMenu":
+					get_template_part( 'partials/content', 'header-mega-menu' );
+				break;
 				default:
 					 get_template_part( 'partials/content', 'header' );
 			}

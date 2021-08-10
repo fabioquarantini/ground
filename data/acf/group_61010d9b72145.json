@@ -35,9 +35,10 @@
                 "id": ""
             },
             "choices": {
+                "menu": "Simple menu",
                 "megaMenu": "Mega menu"
             },
-            "default_value": "megaMenu",
+            "default_value": "menu",
             "allow_null": 0,
             "multiple": 0,
             "ui": 0,
@@ -90,5 +91,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1628508472
+    "modified": 1628583367
 }
