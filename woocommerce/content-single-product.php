@@ -32,9 +32,9 @@ if ( post_password_required() ) {
 
 <div id="product-<?php the_ID(); ?>" <?php wc_product_class( 'woocommerce-product-details' ); ?>>
 
-	<div class="lg:flex lg:flex-wrap">
+	<div class="grid grid-cols-12 gap-6">
 
-		<div class="lg:w-6/12">
+		<div class="col-span-full lg:col-span-6">
 
 			<?php
 				/**
@@ -48,9 +48,9 @@ if ( post_password_required() ) {
 
 		</div>
 
-		<div class="lg:w-6/12">
+		<div class="col-span-full lg:col-span-5 lg:col-start-8">
 
-			<div class="summary entry-summary">
+			<div class="summary entry-summary sticky top-12">
 				<?php
 					/**
 					 * Hook: woocommerce_single_product_summary.

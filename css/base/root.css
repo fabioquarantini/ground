@@ -1,18 +1,6 @@
 @layer base {
 	html {
 
-		&.is-loading {
-			@apply overflow-hidden cursor-wait;
-		}
-
-		&.is-loaded {
-			@apply overflow-hidden;
-		}
-
-		&.has-scroll-smooth {
-			@apply overflow-hidden;
-		}
-
 		&.has-scroll-dragging {
 			@apply select-none;
 		}
@@ -41,17 +29,8 @@
 
 	body {
 		@apply bg-white dark:bg-black text-black dark:text-white;
-		.is-loading &,
 		.is-search-open & {
 			@apply overflow-y-hidden;
-		}
-
-		.has-scroll-smooth & {
-			@apply overflow-hidden;
-		}
-
-		.is-loader-complete & {
-			@apply overflow-y-auto;
 		}
 	}
 }

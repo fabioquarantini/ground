@@ -32,6 +32,9 @@ module.exports = {
 			margin: {
 				'1/2': '50%'
 			},
+			width: {
+				sidebar: '650px'
+			},
 			fontFamily: {
 				primary: [
 					'var(--ground-font-primary)',
