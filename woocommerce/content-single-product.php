@@ -34,7 +34,7 @@ if ( post_password_required() ) {
 
 	<div class="grid grid-cols-12 gap-6">
 
-		<div class="col-span-full lg:col-span-8">
+		<div class="col-span-full lg:col-span-7">
 
 			<?php
 				/**
@@ -48,7 +48,7 @@ if ( post_password_required() ) {
 
 		</div>
 
-		<div class="col-span-full lg:col-span-3 lg:col-start-10">
+		<div class="col-span-full lg:col-span-4 lg:col-start-9">
 
 			<div class="summary entry-summary sticky top-12">
 				<?php

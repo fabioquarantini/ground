@@ -2,7 +2,7 @@
 	@apply relative overflow-hidden mb-12 rounded-theme;
 
 	.flex-control-nav {
-		@apply flex mt-3 space-x-3 overflow-auto lg:absolute lg:top-0 lg:left-0 lg:w-32 lg:h-full lg:mt-0 lg:space-x-0 lg:space-y-3 lg:flex-col;
+		@apply flex mt-3 space-x-3 overflow-auto rounded-theme lg:absolute lg:top-0 lg:left-0 lg:w-28 lg:h-full lg:mt-0 lg:space-x-0 lg:space-y-3 lg:flex-col;
 		-ms-overflow-style: none;  /* IE and Edge */
   		scrollbar-width: none;  /* Firefox */
 
@@ -16,7 +16,7 @@
 	}
 
 	.flex-viewport {
-		@apply flex overflow-hidden rounded-theme lg:ml-36;
+		@apply flex overflow-hidden rounded-theme lg:ml-32;
 	}
 }
 
