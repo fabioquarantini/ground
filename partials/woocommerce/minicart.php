@@ -1,7 +1,7 @@
 <?php if ( class_exists( 'WooCommerce' ) ) : ?>
 
 	<div id="minicart" class="minicart">
-		<div class="minicart__panel js-toggle" data-toggle-target="html" data-toggle-class-name="is-minicart-open"></div>
+		<div class="minicart__panel overview-panel js-toggle" data-toggle-target="html" data-toggle-class-name="is-minicart-open"></div>
 		<?php get_template_part( 'partials/woocommerce/minicart', 'contents' ); ?>
 		<div class="minicart__body">
 			<div class="minicart__close js-toggle" data-toggle-target="html" data-toggle-class-name="is-minicart-open">
