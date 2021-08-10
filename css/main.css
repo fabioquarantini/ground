@@ -23,6 +23,8 @@
 @import "components/footer.css";
 @import "components/form.css";
 @import "components/header.css";
+@import "components/header-simple.css";
+@import "components/header-mega-menu.css";
 @import "components/item.css";
 @import "components/loader.css";
 @import "components/media.css";
@@ -68,7 +70,6 @@
 @import "components/woocommerce/related.css";
 @import "components/woocommerce/up-sells.css";
 @import "components/woocommerce/summary.css";
-
 
 // Utilities
 @import "utilities/animate.css";

@@ -1,4 +1,4 @@
-<nav class="navigation navigation--all-products relative lg:static lg:hidden lg:w-full lg:absolute lg:right-0 lg:p-6 lg:bg-white">
+<nav class="navigation navigation--all-products">
 
 	<?php
 	$args = array(

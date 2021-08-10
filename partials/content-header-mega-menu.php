@@ -2,7 +2,7 @@
 	<?php echo GROUND_HEADER_TEXT; ?>
 </div>
 
-<header class="header header-simple w-full z-30 bg-white dark:bg-black">
+<header class="header header-mega-menu w-full z-30 bg-white dark:bg-black">
 
 	<div class="sticky top-0 bg-white dark:bg-black h-16 w-full z-30 lg:hidden">
 		<a class="js-back absolute top-4 left-4 header__back cursor-pointer"> <span> <?php ground_icon( 'chevron-left', 'text-black dark:text-white' ); ?> </span> <?php _e( 'Indietro', 'ground' ); ?> </a>
@@ -30,7 +30,7 @@
 				<?php } ?>
 			</div>
 
-
+			<?php if ( class_exists( 'WooCommerce' ) && ! is_checkout() ) : ?>
 			<?php
 				$count = WC()->cart->get_cart_contents_count();
 				$class = '';
@@ -50,6 +50,7 @@
 					</div>
 				</a>
 			</div>
+			<?php endif; ?>
 
 		</div>
 	</div>
@@ -93,16 +94,30 @@
 						</button> <!-- End .header__search -->
 					</div>
 
-
+					<?php if ( class_exists( 'WooCommerce' ) && ! is_checkout() ) : ?>
 					<ul class="flex items-center mt-6 justify-start space-x-5 lg:justify-end lg:m-0">
 						<li class="text-lg lg:text-base"><a class="navigation__link"href="<?php echo get_permalink( wc_get_page_id( 'myaccount' ) ); ?>"><?php _e( 'Account', 'ground' ); ?><span class="ml-2"><?php ground_icon( 'user', 'icon--filled text-black dark:text-white' ); ?></span></a></li>
 						<li class="hidden minicart-wrapper lg:inline-block"><?php get_template_part( 'partials/woocommerce/minicart' ); ?> </li>
 					</ul>
+					<?php endif; ?>
 				</div>
 
 
 				<div class="container lg:relative lg:flex lg:items-center lg:justify-between lg:h-16">
-					  <?php get_template_part( 'partials/navigation', 'primary' ); ?>
+					<div class="<?php echo GROUND_HEADER_ALL_PRODUCTS ? 'hidden lg:flex' : ''; ?>">
+						<?php get_template_part( 'partials/navigation', 'primary' ); ?>
+					</div>
+					<?php if ( class_exists( 'WooCommerce' ) && ! is_checkout() ) : ?>
+						<?php if ( GROUND_HEADER_ALL_PRODUCTS ) { ?>
+							<div class="header__all-products">
+								<a class="hidden cursor-pointer lg:flex lg:justify-end lg:items-center lg:text-lg">
+									<div class="mr-2 flex justify-end items-center"> <?php ground_icon( 'menu-left', 'icon--filled text-black dark:text-white' ); ?></div>
+									<div> <?php _e( 'All products', 'ground' ); ?></div>
+								</a>
+								<?php get_template_part( 'partials/navigation', 'all-products' ); ?>
+							</div>
+						<?php } ?>
+					<?php endif; ?>
 				</div>
 
 			</div>
