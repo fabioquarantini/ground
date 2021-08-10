@@ -1,5 +1,4 @@
-<nav class="navigation navigation--all-products">
-
+ <nav class="navigation navigation--all-products">
 	<?php
 	$args = array(
 		'theme_location' => 'all-products',
@@ -11,5 +10,4 @@
 	);
 
 	wp_nav_menu( $args ); ?>
-
 </nav> <!-- End .navigation -->

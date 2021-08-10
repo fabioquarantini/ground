@@ -42,11 +42,13 @@ export default class Menu {
 		let navicon = document.querySelector('.js-navicon');
 		let menuBody = document.querySelector('.js-menu-body');
 		let menuContainer = document.querySelector('.js-menu-container');
+		let allProducts = document.querySelector('.js-all-products');
+
 		let level = 0;
 		let translation = 0;
 
 		[...document.querySelectorAll(triggers)].forEach((item) => {
-			if (window.matchMedia('(max-width: 1024px)').matches) {
+			let multiLevelMenu = () => {
 				item.addEventListener('click', (t) => {
 					var subMenu = null;
 					var subMenuImage = null;
@@ -55,30 +57,44 @@ export default class Menu {
 						sub.classList && sub.classList.contains('navigation__image') ? (subMenuImage = sub) : null;
 					});
 
-					if (html.classList.contains('is-navigation-open') && subMenu) {
-						t.preventDefault();
-						t.stopPropagation();
+					//if (html.classList.contains('is-navigation-open') && subMenu) {
+					t.preventDefault();
+					t.stopPropagation();
 
-						t.target.parentElement.classList.add('level' + level);
-						html.classList.add('is-sub-navigation-open');
+					t.target.parentElement.classList.add('level' + level);
+					html.classList.add('is-sub-navigation-open');
 
-						subMenu.classList.add('is-active');
-						subMenuImage && subMenuImage.classList.add('is-active');
+					subMenu.classList.add('is-active');
+					subMenuImage && subMenuImage.classList.add('is-active');
 
-						level++;
+					level++;
 
-						translation = -100 * level;
-						menuContainer.style.cssText += 'transform: translateX(' + translation + 'vw);';
-						menuBody.scrollTo({
-							top: 0,
-							left: 0,
-							behavior: 'smooth'
-						});
-					}
+					translation = -100 * level;
+					menuContainer.style.cssText += 'transform: translateX(' + translation + 'vw);';
+					menuBody.scrollTo({
+						top: 0,
+						left: 0,
+						behavior: 'smooth'
+					});
+					//}
 				});
-			} else {
-				let timerHandle = null;
+			};
 
+			if (window.matchMedia('(max-width: 1024px)').matches) {
+				multiLevelMenu();
+			} else {
+				allProducts.addEventListener('mouseenter', () => {
+					html.classList.add('is-all-products-open');
+					multiLevelMenu();
+				});
+
+				// allProducts.addEventListener('mouseleave', () => {
+				// 	if (html.classList.contains('is-all-products-open')) {
+				// 		html.classList.remove('is-all-products-open');
+				// 	}
+				// });
+
+				let timerHandle = null;
 				item.addEventListener('mouseenter', () => {
 					clearTimeout(timerHandle);
 					timerHandle = setTimeout(() => {
