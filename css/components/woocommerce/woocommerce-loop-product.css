@@ -22,6 +22,10 @@
 		@apply mt-3;
 		transition: color 0.2s ease-out;
 
+		.minicart & {
+			@apply text-sm px-4 py-2;
+		}
+
 		&.loading {
 			color: transparent;
 			@apply relative bg-primary border-primary;
@@ -45,10 +49,18 @@
 
 .woocommerce-loop-product__title {
 	@apply text-black dark:text-white text-lg font-bold pt-6 pb-2;
+	.minicart & {
+		@apply text-base;
+    }
 }
 
 .woocommerce-loop-product__description {
-	@apply text-gray-500 text-base mb-3;
+	* {
+		@apply text-gray-500 text-base mb-3;
+		.minicart & {
+			@apply text-sm;
+		}
+	}
 }
 
 body.woocommerce-page.post-type-archive-product,
