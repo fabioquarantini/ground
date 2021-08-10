@@ -11,6 +11,7 @@
 		@apply text-white;
 		left: 0;
 		@apply bg-green-500;
+		display: none;
 	}
 
 	.woocommerce-Price-amount {
