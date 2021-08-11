@@ -53,7 +53,7 @@
 
 	/* NAME */
 	.product-name {
-		@apply col-span-8 md:col-span-4 text-black;
+		@apply col-span-8 md:col-span-4 lg:col-span-3 text-black;
 		a {
 			@apply text-black font-bold text-base;
 		}
@@ -62,7 +62,7 @@
 
 	/* QUANTITY */
 	.product-quantity {
-		@apply col-span-4 md:col-span-2 lg:col-span-1;
+		@apply col-span-4 md:col-span-2 lg:col-span-1 lg:col-start-7;
 		.quantity {
 			@apply w-full;
 			.qty {

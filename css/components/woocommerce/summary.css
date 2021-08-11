@@ -2,7 +2,7 @@
 	@apply sticky top-12;
 
 	.woocommerce-product-details__short-description {
-		@apply text-base text-gray-400;
+		@apply text-base text-gray-500;
 	}
 
 	.product_meta {
@@ -19,8 +19,12 @@
 		@apply text-black;
 	}
 
-	.posted_in {
-		display: block;
-		@apply text-gray-600;
+	.posted_in,
+	.tagged_as {
+		@apply block text-gray-500;
+
+		a {
+			@apply text-primary hover:underline;
+		}
 	}
 }

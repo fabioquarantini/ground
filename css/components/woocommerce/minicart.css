@@ -44,7 +44,8 @@
 						line-height: 18px;
 					}
 
-					.attachment-woocommerce_thumbnail {
+					.attachment-woocommerce_thumbnail,
+					.woocommerce-placeholder  {
 						@apply block rounded-theme mr-6 w-28 h-auto float-left;
 					}
 
