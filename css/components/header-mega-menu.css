@@ -1,4 +1,89 @@
 .header-mega-menu {
+	.header__body {
+		transform: translateX(100%);
+		transition-timing-function: ease-in-out;
+		transition: 0.2s;
+
+		.is-navigation-open & {
+			transform: none;
+		}
+
+		@screen lg {
+			transform: none;
+		}
+	}
+
+	.header__container {
+		//transform: translateX(100%); Si trova in menu.js
+		transition-timing-function: ease-in-out;
+		transition: 0.2s;
+
+		&.is-active {
+			@screen lg {
+				transform: none;
+			}
+		}
+	}
+
+	.header__back {
+		transform: translateX(-200%);
+		transition-timing-function: ease-in-out;
+		transition: 0.2s;
+
+		.is-sub-navigation-open & {
+			transform: translateX(0%);
+		}
+
+		@screen lg {
+		}
+	}
+
+	.header__search,
+	.header__logo {
+		@apply opacity-100 visible;
+		transition: opacity 0.15s ease-in-out;
+
+		.is-sub-navigation-open & {
+			@apply opacity-0 invisible;
+		}
+	}
+
+	.header__search,
+	.header__logo {
+		.is-navigation-open & {
+			@apply opacity-0 invisible;
+		}
+	}
+
+	.header__cart {
+		transform: translateX(0%);
+		transition-timing-function: ease-in-out;
+		transition: 0.2s;
+
+		.is-navigation-open & {
+			transform: translateX(300%);
+		}
+	}
+
+	.header__navicon {
+		transform: translateX(0%);
+		transition-timing-function: ease-in-out;
+		transition: 0.75s;
+
+		.is-navigation-open & {
+			transform: translateX(calc(100vw - 72px));
+		}
+	}
+
+	.header__all-products {
+		&:hover {
+			.navigation--all-products {
+				@apply opacity-100;
+			}
+		}
+	}
+
+	//Navigation
 	.navigation--primary {
 		@apply w-full relative;
 
@@ -218,8 +303,14 @@
 					height: 24px;
 					width: 24px;
 					border-radius: 50%;
-					right: 32px;
+					right: 8px;
 					background: url("../img/icons/chevron-right.svg");
+				}
+
+				@screen lg {
+					&:after {
+						right: 32px;
+					}
 				}
 			}
 		}

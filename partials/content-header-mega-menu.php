@@ -4,8 +4,8 @@
 
 <header class="header header-mega-menu w-full z-30 bg-white dark:bg-black">
 
-	<div class="sticky top-0 bg-white dark:bg-black h-16 w-full z-30 lg:hidden">
-		<a class="js-back absolute top-4 left-4 header__back cursor-pointer"> <span> <?php ground_icon( 'chevron-left', 'text-black dark:text-white' ); ?> </span> <?php _e( 'Indietro', 'ground' ); ?> </a>
+	<div class="bg-white dark:bg-black h-16 w-full z-30 lg:hidden">
+		<a class="js-back absolute mt-5 left-4 header__back cursor-pointer"> <span> <?php ground_icon( 'chevron-left', 'text-black dark:text-white' ); ?> </span> <?php _e( 'Indietro', 'ground' ); ?> </a>
 
 		<div class="header__navicon container flex items-center justify-between py-2 bg-white dark:bg-black">
 			<svg class="js-toggle js-navicon navicon h-12 w-12 -ml-4 cursor-pointer block" data-toggle-target="html" data-toggle-class-name="is-navigation-open" viewBox="0 0 100 100" width="80">

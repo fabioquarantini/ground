@@ -6,7 +6,7 @@
 			<?php ground_icon( 'close' ); ?>
 		</div>
 
-		<div class="inline-block mt-8 pl-8">
+		<div class="block mt-8 mb-12 ml-8">
 			<?php if ( GROUND_LOGO_URL_PRIMARY || GROUND_LOGO_SOURCE_PRIMARY ) { ?>
 			<a class="js-cursor-hide" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>">
 				<?php
@@ -21,9 +21,11 @@
 				<a class="border border-dashed border-primary p-2" target="_blank" href="<?php echo admin_url( 'admin.php?page=theme-general-settings', 'http' ); ?>">Upload your logo</a>
 			<?php } ?>
 		</div>
-		<div class="mt-12">
-			<?php get_template_part( 'partials/navigation', 'all-products' ); ?>
-		</div>
+		<a class="js-back ml-6 header__back cursor-pointer"> <span> <?php ground_icon( 'chevron-left', 'text-black dark:text-white' ); ?> </span> <?php _e( 'Indietro', 'ground' ); ?> </a>
+
+
+		<?php get_template_part( 'partials/navigation', 'all-products' ); ?>
+
 
 	</div>
 </div>

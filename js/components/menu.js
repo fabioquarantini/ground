@@ -38,7 +38,7 @@ export default class Menu {
 	 */
 	initEvents(triggers) {
 		let html = document.querySelector('html');
-		let back = document.querySelector('.js-back');
+		let back = document.querySelectorAll('.js-back');
 		let navicon = document.querySelector('.js-navicon');
 
 		let menuBody = document.querySelector('.js-menu-body');
@@ -59,29 +59,31 @@ export default class Menu {
 						sub.classList && sub.classList.contains('navigation__image') ? (subMenuImage = sub) : null;
 					});
 
-					t.preventDefault();
-					t.stopPropagation();
+					if (subMenu) {
+						t.preventDefault();
+						t.stopPropagation();
 
-					t.target.parentElement.classList.add('level' + level);
-					html.classList.add('is-sub-navigation-open');
+						t.target.parentElement.classList.add('level' + level);
+						html.classList.add('is-sub-navigation-open');
 
-					subMenu.classList.add('is-active');
-					subMenuImage && subMenuImage.classList.add('is-active');
+						subMenu.classList.add('is-active');
+						subMenuImage && subMenuImage.classList.add('is-active');
 
-					level++;
-					translation = -100 * level;
+						level++;
+						translation = -100 * level;
 
-					if (whichMenu == menuContainer) {
-						menuContainer.style.cssText += 'transform: translateX(' + translation + 'vw);';
-					} else if (whichMenu == menuAllProducts) {
-						menuAllProducts.style.cssText += 'transform: translateX(' + translation + '%);';
+						if (whichMenu == menuContainer) {
+							menuContainer.style.cssText += 'transform: translateX(' + translation + 'vw);';
+						} else if (whichMenu == menuAllProducts) {
+							menuAllProducts.style.cssText += 'transform: translateX(' + translation + '%);';
+						}
+
+						menuBody.scrollTo({
+							top: 0,
+							left: 0,
+							behavior: 'smooth'
+						});
 					}
-
-					menuBody.scrollTo({
-						top: 0,
-						left: 0,
-						behavior: 'smooth'
-					});
 				});
 			};
 
@@ -112,28 +114,40 @@ export default class Menu {
 			}
 		});
 
-		back &&
-			back.addEventListener('click', () => {
-				if (level > 0) {
-					level--;
+		let multiLevelBack = (whichMenu) => {
+			if (level > 0) {
+				level--;
 
-					[...document.querySelectorAll(triggers)].forEach((item) => {
-						if (item.classList.contains('level' + level)) {
-							item.classList.remove('level' + level);
-							item.childNodes.forEach((t) =>
-								t.classList && t.classList.contains('is-active')
-									? t.classList.remove('is-active')
-									: null
-							);
-						}
-					});
+				[...document.querySelectorAll(triggers)].forEach((item) => {
+					if (item.classList.contains('level' + level)) {
+						item.classList.remove('level' + level);
+						item.childNodes.forEach((t) =>
+							t.classList && t.classList.contains('is-active') ? t.classList.remove('is-active') : null
+						);
+					}
+				});
 
-					let translation = -100 * level;
+				let translation = -100 * level;
 
+				if (whichMenu == menuContainer) {
 					menuContainer.style.cssText += 'transform: translateX(' + translation + 'vw);';
-
-					level == 0 ? html.classList.remove('is-sub-navigation-open') : null;
+				} else if (whichMenu == menuAllProducts) {
+					menuAllProducts.style.cssText += 'transform: translateX(' + translation + '%);';
 				}
+
+				level == 0 ? html.classList.remove('is-sub-navigation-open') : null;
+			}
+		};
+
+		back &&
+			back.forEach((b) => {
+				b.addEventListener('click', () => {
+					if (window.matchMedia('(max-width: 1024px)').matches) {
+						multiLevelBack(menuContainer);
+					} else {
+						multiLevelBack(menuAllProducts);
+					}
+				});
 			});
 
 		navicon &&
