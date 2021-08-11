@@ -62,19 +62,12 @@
 
 	/* QUANTITY */
 	.product-quantity {
-		@apply col-span-4 md:col-span-2 lg:col-span-1 lg:col-start-7;
-		.quantity {
-			@apply w-full;
-			.qty {
-				@apply w-full !important;
-			}
-		}
-
+		@apply col-span-4 md:col-span-2 lg:col-start-7;
 	}
 
 
 	.product-subtotal {
-		@apply col-span-8 md:col-span-4 lg:col-span-3 text-right text-2xl md:text-4xl font-bold;
+		@apply col-span-8 md:col-span-4 lg:col-span-2 text-right text-2xl md:text-4xl font-bold;
 	}
 
 }

@@ -4,40 +4,6 @@ form.cart:not(.variations_form),
     .summary & {
         @apply flex items-center space-x-4 mt-6;
 
-        .quantity {
-            @apply flex flex-none items-center relative bg-gray-200 overflow-hidden rounded-theme;
-            .screen-reader-text {
-                @apply sr-only;
-            }
-
-            .plus,
-            .minus {
-                @apply flex items-center m-0 h-12 !important;
-                .icon {
-                    @apply h-4 transform transition-all ease-default duration-500;
-                }
-                &:hover {
-                    .icon {
-                        @apply text-primary scale-150;
-                    }
-                }
-            }
-
-            .plus { @apply pr-4 pl-0; }
-            .minus { @apply pl-4 pr-0; }
-
-            .qty {
-                @apply w-12 py-3 m-0 bg-gray-200 text-center focus:ring-transparent border-transparent !important;
-                -moz-appearance: textfield;
-
-                &::-webkit-outer-spin-button,
-                &::-webkit-inner-spin-button {
-                    -webkit-appearance: none;
-                    -moz-appearance: textfield;
-                }
-            }
-        }
-
         .button {
             @apply flex-grow mb-0 !important;
         }
