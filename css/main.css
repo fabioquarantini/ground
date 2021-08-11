@@ -49,7 +49,7 @@
 @import "components/scroll-progress.css";
 
 /* WooCommerce */
-@import "components/woocommerce/woocommerce-cart-form.css";
+@import "components/woocommerce/cart.css";
 @import "components/woocommerce/cart-totals.css";
 @import "components/woocommerce/cross-sells.css";
 @import "components/woocommerce/minicart.css";
@@ -59,6 +59,7 @@
 @import "components/woocommerce/variations.css";
 @import "components/woocommerce/widgetpricefilter.css";
 @import "components/woocommerce/widgetlayerednav.css";
+@import "components/woocommerce/woocommerce-cart-form.css";
 @import "components/woocommerce/woocommerce-order.css";
 @import "components/woocommerce/woocommerce-checkout.css";
 @import "components/woocommerce/woocommerce-checkout-payment.css";
@@ -72,6 +73,8 @@
 @import "components/woocommerce/related.css";
 @import "components/woocommerce/up-sells.css";
 @import "components/woocommerce/summary.css";
+@import "components/woocommerce/stock.css";
+
 
 // Utilities
 @import "utilities/animate.css";

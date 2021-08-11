@@ -40,3 +40,12 @@
 		@apply no-underline;
 	}
 }
+
+
+.ground__price-range {
+	@apply text-gray-500;
+	.amount {
+		@apply text-black text-4xl font-bold;
+	}
+
+}

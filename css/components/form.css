@@ -32,7 +32,7 @@
 	}
 
 	label {
-		@apply block text-base font-medium text-gray-700 dark:text-gray-500 !important;
+		@apply block text-base font-medium text-gray-500 dark:text-gray-500 !important;
 	}
 
 }

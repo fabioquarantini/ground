@@ -1,5 +1,5 @@
 .variations {
-	@apply relative mt-3 mb-0 border border-gray-300 lg:w-2/4;
+	@apply relative mt-3 mb-0 lg:w-2/4;
 
 	td, th {
 		border: 0;
@@ -13,12 +13,34 @@
 	.label {
 		@apply p-0;
 		label {
-			@apply text-sm text-gray-400 !important;
+			@apply text-sm text-gray-500 mb-1;
 		}
 	}
 
 	.value {
 		@apply p-0 mb-3;
+	}
+
+	.reset_variations {
+		@apply block text-sm text-gray-500 mt-2 underline;
+	}
+
+}
+
+
+.single_variation {
+	.woocommerce-variation-description {
+		@apply relative mt-3 mb-6;
+		* {
+			@apply text-sm text-gray-500;
+		}
+	}
+	.woocommerce-variation-price {
+
+	}
+
+	.woocommerce-variation-availability {
+		@apply relative my-3;
 	}
 
 }

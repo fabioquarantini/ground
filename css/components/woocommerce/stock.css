@@ -1,0 +1,19 @@
+.stock {
+    @apply relative text-xs pl-6;
+
+    &:after,
+    &:before {
+        content: '';
+        @apply absolute top-0 left-0 w-4 h-4 rounded-full;
+    }
+
+    &.in-stock {
+        &:after { @apply border border-green-500; }
+        &:before { @apply bg-green-500 border-4 border-white; }			
+    }
+    &.out-of-stock {
+        &:after { @apply border border-red-500; }
+        &:before { @apply bg-red-500 border-4 border-white; }		
+    }
+
+}

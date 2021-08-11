@@ -2,21 +2,23 @@
 	@apply sticky top-12;
 
 	.woocommerce-product-details__short-description {
-		@apply text-base text-gray-500;
+		@apply relative text-base text-gray-500 my-3;
 	}
 
 	.product_meta {
-		@apply relative my-3;
+		@apply relative my-4;
 	}
 
 	.sku_wrapper {
-		display: block;
-		@apply text-gray-600;
+		@apply block text-gray-600;
 	}
 
 	.sku {
-		font-weight: bold;
-		@apply text-black;
+		@apply text-black font-bold;
+	}
+
+	.price {
+		@apply relative my-6;
 	}
 
 	.posted_in,
@@ -27,4 +29,6 @@
 			@apply text-primary hover:underline;
 		}
 	}
+
+	
 }
