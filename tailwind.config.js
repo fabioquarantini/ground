@@ -70,21 +70,7 @@ module.exports = {
 				900: '900ms'
 			},
 			transitionTimingFunction: {
-				'in-expo': 'cubic-bezier(0.95, 0.05, 0.795, 0.035)',
-				'in-power2': 'cubic-bezier(0.55, 0.055, 0.675, 0.19)',
-				'in-power3': 'cubic-bezier(0.895, 0.03, 0.685, 0.22)',
-				'in-power4': 'cubic-bezier(0.755, 0.05, 0.855, 0.06)',
-				'in-back': 'cubic-bezier(0.36, 0, 0.66, -0.56)',
-				'out-expo': 'cubic-bezier(0.19, 1, 0.22, 1)',
-				'out-power2': 'cubic-bezier(0.215, 0.61, 0.355, 1)',
-				'out-power3': 'cubic-bezier(0.165, 0.84, 0.44, 1)',
-				'out-power4': 'cubic-bezier(0.23, 1, 0.32, 1)',
-				'out-back': 'cubic-bezier(0.34, 1.56, 0.64, 1)',
-				'in-out-expo': 'cubic-bezier(1, 0, 0, 1)',
-				'in-out-power2': '0.645, 0.045, 0.355, 1)',
-				'in-out-power3': 'cubic-bezier(0.77, 0, 0.175, 1)',
-				'in-out-power4': 'cubic-bezier(0.86, 0, 0.07, 1)',
-				'in-out-back': 'cubic-bezier(0.68, -0.6, 0.32, 1.6)'
+				default: 'cubic-bezier(0.77, 0, 0.175, 1)'
 			},
 			keyframes: {
 				'fade-in': {

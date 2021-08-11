@@ -5,7 +5,7 @@
 	}
 
 	.minicart__body {
-		@apply fixed top-0 right-0 h-full w-full lg:w-sidebar bg-white z-30 transform translate-x-full transition-all ease-in-out-power3 duration-500;
+		@apply fixed top-0 right-0 h-full w-full lg:w-sidebar bg-white z-30 transform translate-x-full transition-all ease-default duration-500;
 
 		.is-minicart-open & {
 			@apply transform-none;
@@ -38,7 +38,7 @@
 					}
 
 					.remove {
-						@apply absolute top-0 left-7 text-white text-center rounded-full bg-red-500 z-10 opacity-0 invisible transform transition-all -translate-x-3 ease-in-out-power3 duration-500;
+						@apply absolute top-0 left-7 text-white text-center rounded-full bg-red-500 z-10 opacity-0 invisible transform transition-all -translate-x-3 ease-default duration-500;
 						height: 20px;
 						width: 20px;
 						line-height: 18px;
@@ -90,7 +90,7 @@
 }
 
 .minicart__close {
-	@apply fixed top-8 right-9 z-40 text-center cursor-pointer opacity-0 invisible transform transition-all -translate-y-3 ease-in-out-power3 duration-500 delay-500;
+	@apply fixed top-8 right-9 z-40 text-center cursor-pointer opacity-0 invisible transform transition-all -translate-y-3 ease-default duration-500 delay-500;
 
 	.is-minicart-open & {
 		@apply opacity-100 visible transform-none;
@@ -106,7 +106,7 @@
 
 .minicart__icon {
 	@apply relative inline-block align-middle text-black h-6;
-	@apply transition-all ease-in-out-power3 duration-500;
+	@apply transition-all ease-default duration-500;
 }
 
 .minicart__subtotal {
