@@ -110,11 +110,16 @@
 					<?php if ( class_exists( 'WooCommerce' ) && ! is_checkout() ) : ?>
 						<?php if ( GROUND_HEADER_ALL_PRODUCTS ) { ?>
 							<div class="header__all-products">
-								<a class="hidden cursor-pointer lg:flex lg:justify-end lg:items-center lg:text-lg">
+								<a class="js-all-products hidden cursor-pointer lg:flex lg:justify-end lg:items-center lg:text-lg">
 									<div class="mr-2 flex justify-end items-center"> <?php ground_icon( 'menu-left', 'icon--filled text-black dark:text-white' ); ?></div>
 									<div> <?php _e( 'All products', 'ground' ); ?></div>
 								</a>
-								<?php get_template_part( 'partials/navigation', 'all-products' ); ?>
+								<div class="hidden lg:flex">
+									<?php get_template_part( 'partials/panel', 'all-products' ); ?>
+								</div>
+								<div class="lg:hidden">
+									<?php get_template_part( 'partials/navigation', 'all-products' ); ?>
+								</div>
 							</div>
 						<?php } ?>
 					<?php endif; ?>
