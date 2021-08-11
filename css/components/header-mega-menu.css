@@ -35,6 +35,13 @@
 		}
 
 		@screen lg {
+			transform: translateX(-200%);
+			transition-timing-function: ease-in-out;
+			transition: 0.2s;
+
+			.is-all-products-open.is-sub-navigation-open & {
+				transform: translateX(0%);
+			}
 		}
 	}
 

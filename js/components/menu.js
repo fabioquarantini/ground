@@ -150,25 +150,29 @@ export default class Menu {
 				});
 			});
 
-		navicon &&
-			navicon.addEventListener('click', () => {
-				let i = 0;
-				html.classList.remove('is-sub-navigation-open');
+		if (window.matchMedia('(max-width: 1024px)').matches) {
+			navicon &&
+				navicon.addEventListener('click', () => {
+					let i = 0;
+					html.classList.remove('is-sub-navigation-open');
 
-				[...document.querySelectorAll(triggers)].forEach((item) => {
-					if (item.classList.contains('level' + i)) {
-						item.classList.remove('level' + i);
-						item.childNodes.forEach((t) =>
-							t.classList && t.classList.contains('is-active') ? t.classList.remove('is-active') : null
-						);
-					}
+					[...document.querySelectorAll(triggers)].forEach((item) => {
+						if (item.classList.contains('level' + i)) {
+							item.classList.remove('level' + i);
+							item.childNodes.forEach((t) =>
+								t.classList && t.classList.contains('is-active')
+									? t.classList.remove('is-active')
+									: null
+							);
+						}
 
-					i++;
+						i++;
 
-					[...document.querySelectorAll(triggers)].length == i
-						? ((menuContainer.style.cssText += 'transform: translateX(0);'), (level = 0))
-						: null;
+						[...document.querySelectorAll(triggers)].length == i
+							? ((menuContainer.style.cssText += 'transform: translateX(0);'), (level = 0))
+							: null;
+					});
 				});
-			});
+		}
 	}
 }
