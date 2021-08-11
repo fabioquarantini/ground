@@ -120,7 +120,7 @@ add_action( 'woocommerce_after_cart_item_name', 'ground_sku_below_cart_item_name
  * @param [type] $button
  */
 function ground_add_icon_add_cart_button_single( $button ) {
-	$button_new = ground_icon( 'shopping-cart', 'pr-2 h-5' ) . $button;
+	$button_new = ground_icon( 'shopping-cart', 'button__icon' ) . $button;
 	return $button_new;
 }
 add_filter( 'woocommerce_product_single_add_to_cart_text', 'ground_add_icon_add_cart_button_single' );
