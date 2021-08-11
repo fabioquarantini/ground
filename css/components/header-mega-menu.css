@@ -246,6 +246,7 @@
 		@apply w-full relative;
 
 		@screen lg {
+			@apply px-8;
 			transition-timing-function: ease-in-out;
 			transition: 0.2s;
 		}
@@ -262,7 +263,7 @@
 			@apply relative m-0;
 			@apply hidden;
 			@screen lg {
-				@apply absolute top-16 left-6;
+				@apply absolute top-16 left-6 px-8;
 				width: calc(100% - 24px);
 			}
 
