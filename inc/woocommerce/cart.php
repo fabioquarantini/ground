@@ -112,3 +112,15 @@ function ground_sku_below_cart_item_name( $cart_item, $cart_item_key ) {
 
 add_action( 'woocommerce_after_cart_item_name', 'ground_sku_below_cart_item_name', 11, 2 );
 
+
+
+/**
+ * Add icon add to cart Button
+ *
+ * @param [type] $button
+ */
+function ground_add_icon_add_cart_button_single( $button ) {
+	$button_new = ground_icon( 'shopping-cart', 'pr-2 h-5' ) . $button;
+	return $button_new;
+}
+add_filter( 'woocommerce_product_single_add_to_cart_text', 'ground_add_icon_add_cart_button_single' );
