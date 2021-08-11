@@ -35,12 +35,11 @@
 		}
 
 		@screen lg {
-			transform: translateX(-200%);
-			transition-timing-function: ease-in-out;
-			transition: 0.2s;
+			//transform: translateX(-200%);
+			@apply transform -translate-x-full duration-75 ease-default;
 
 			.is-all-products-open.is-sub-navigation-open & {
-				transform: translateX(0%);
+				@apply transform-none;
 			}
 		}
 	}
@@ -247,7 +246,6 @@
 		@apply w-full relative;
 
 		@screen lg {
-			@apply p-8;
 			transition-timing-function: ease-in-out;
 			transition: 0.2s;
 		}
@@ -264,7 +262,7 @@
 			@apply relative m-0;
 			@apply hidden;
 			@screen lg {
-				@apply absolute top-16 left-6 p-8;
+				@apply absolute top-16 left-6;
 				width: calc(100% - 24px);
 			}
 

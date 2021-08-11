@@ -71,7 +71,7 @@
 
 				<div class="container lg:relative lg:flex lg:justify-between lg:items-center lg:h-16">
 					<div class="lg:flex lg:items-center lg:justify-start lg:space-x-3">
-						<div class="hidden lg:inline-block">
+						<div class="hidden lg:inline-block mr-8">
 							<?php if ( GROUND_LOGO_URL_PRIMARY || GROUND_LOGO_SOURCE_PRIMARY ) { ?>
 							<a class="js-cursor-hide" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>">
 								<?php
@@ -86,10 +86,10 @@
 								<a class="border border-dashed border-primary p-2" target="_blank" href="<?php echo admin_url( 'admin.php?page=theme-general-settings', 'http' ); ?>">Upload your logo</a>
 							<?php } ?>
 						</div>
+
 						<?php get_template_part( 'partials/navigation', 'secondary' ); ?>
 
-
-						<button class="js-toggle js-cursor-hover hidden mr-12 lg:block" data-toggle-target=".search html" data-toggle-class-name="is-search-open">
+						<button class="js-toggle js-cursor-hover hidden mr-12 lg:ml-12 lg:block" data-toggle-target=".search html" data-toggle-class-name="is-search-open">
 							<?php ground_icon( 'search', 'icon--filled text-black dark:text-white' ); ?>
 						</button> <!-- End .header__search -->
 					</div>
@@ -110,7 +110,7 @@
 					<?php if ( class_exists( 'WooCommerce' ) && ! is_checkout() ) : ?>
 						<?php if ( GROUND_HEADER_ALL_PRODUCTS ) { ?>
 							<div class="header__all-products">
-								<a class="js-button-all-products hidden cursor-pointer lg:flex lg:justify-end lg:items-center lg:text-lg">
+								<a class="js-button-all-products js-toggle hidden cursor-pointer lg:flex lg:justify-end lg:items-center lg:text-lg" data-toggle-target="html" data-toggle-class-name="is-all-products-open">
 									<div class="mr-2 flex justify-end items-center"> <?php ground_icon( 'menu-left', 'icon--filled text-black dark:text-white' ); ?></div>
 									<div> <?php _e( 'All products', 'ground' ); ?></div>
 								</a>

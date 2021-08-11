@@ -10,6 +10,7 @@ export default class Menu {
 		this.defaults = {
 			triggers: this.element
 		};
+
 		this.options = options ? deepmerge(this.defaults, options) : this.defaults;
 
 		window.addEventListener('DOMContentLoaded', () => {
@@ -18,6 +19,13 @@ export default class Menu {
 		});
 
 		window.addEventListener('resize', () => {
+			this.DOM.menuContainer.style.cssText += 'transform: none';
+			this.DOM.menuAllProducts.style.cssText += 'transform: none';
+
+			this.DOM.html.classList.remove('is-navigation-open');
+			this.DOM.html.classList.remove('is-sub-navigation-open');
+			this.DOM.html.classList.remove('is-all-products-open');
+
 			this.init();
 			this.initEvents(this.options.triggers);
 		});
@@ -28,7 +36,16 @@ export default class Menu {
 	 */
 	init() {
 		this.DOM = {
-			element: document.querySelectorAll(this.element)
+			element: document.querySelectorAll(this.element),
+			html: document.querySelector('html'),
+			back: document.querySelectorAll('.js-back'),
+			navicon: document.querySelector('.js-navicon'),
+			menuBody: document.querySelector('.js-menu-body'),
+			menuContainer: document.querySelector('.js-menu-container'),
+			closePanelAllProducts: document.querySelector('.js-close-panel-all-products'),
+			closeAllProducts: document.querySelector('.js-close-all-products'),
+			buttonAllProducts: document.querySelector('.js-button-all-products'),
+			menuAllProducts: document.querySelector('.js-navigation-all-products')
 		};
 	}
 
@@ -37,15 +54,6 @@ export default class Menu {
 	 * @param {string} triggers - Selectors
 	 */
 	initEvents(triggers) {
-		let html = document.querySelector('html');
-		let back = document.querySelectorAll('.js-back');
-		let navicon = document.querySelector('.js-navicon');
-
-		let menuBody = document.querySelector('.js-menu-body');
-		let menuContainer = document.querySelector('.js-menu-container');
-		let buttonAllProducts = document.querySelector('.js-button-all-products');
-		let menuAllProducts = document.querySelector('.js-navigation-all-products');
-
 		let level = 0;
 		let translation = 0;
 
@@ -64,7 +72,7 @@ export default class Menu {
 						t.stopPropagation();
 
 						t.target.parentElement.classList.add('level' + level);
-						html.classList.add('is-sub-navigation-open');
+						this.DOM.html.classList.add('is-sub-navigation-open');
 
 						subMenu.classList.add('is-active');
 						subMenuImage && subMenuImage.classList.add('is-active');
@@ -72,13 +80,13 @@ export default class Menu {
 						level++;
 						translation = -100 * level;
 
-						if (whichMenu == menuContainer) {
-							menuContainer.style.cssText += 'transform: translateX(' + translation + 'vw);';
-						} else if (whichMenu == menuAllProducts) {
-							menuAllProducts.style.cssText += 'transform: translateX(' + translation + '%);';
+						if (whichMenu == this.DOM.menuContainer) {
+							this.DOM.menuContainer.style.cssText += 'transform: translateX(' + translation + 'vw);';
+						} else if (whichMenu == this.DOM.menuAllProducts) {
+							this.DOM.menuAllProducts.style.cssText += 'transform: translateX(' + translation + '%);';
 						}
 
-						menuBody.scrollTo({
+						this.DOM.menuBody.scrollTo({
 							top: 0,
 							left: 0,
 							behavior: 'smooth'
@@ -88,12 +96,9 @@ export default class Menu {
 			};
 
 			if (window.matchMedia('(max-width: 1024px)').matches) {
-				multiLevelMenu(menuContainer);
+				multiLevelMenu(this.DOM.menuContainer);
 			} else {
-				buttonAllProducts.addEventListener('mouseenter', () => {
-					html.classList.add('is-all-products-open');
-					multiLevelMenu(menuAllProducts);
-				});
+				multiLevelMenu(this.DOM.menuAllProducts);
 
 				let timerHandle = null;
 				item.addEventListener('mouseenter', () => {
@@ -129,50 +134,55 @@ export default class Menu {
 
 				let translation = -100 * level;
 
-				if (whichMenu == menuContainer) {
-					menuContainer.style.cssText += 'transform: translateX(' + translation + 'vw);';
-				} else if (whichMenu == menuAllProducts) {
-					menuAllProducts.style.cssText += 'transform: translateX(' + translation + '%);';
+				if (whichMenu == this.DOM.menuContainer) {
+					this.DOM.menuContainer.style.cssText += 'transform: translateX(' + translation + 'vw);';
+				} else if (whichMenu == this.DOM.menuAllProducts) {
+					this.DOM.menuAllProducts.style.cssText += 'transform: translateX(' + translation + '%);';
 				}
 
-				level == 0 ? html.classList.remove('is-sub-navigation-open') : null;
+				level == 0 ? this.DOM.html.classList.remove('is-sub-navigation-open') : null;
 			}
 		};
 
-		back &&
-			back.forEach((b) => {
+		this.DOM.back &&
+			this.DOM.back.forEach((b) => {
 				b.addEventListener('click', () => {
 					if (window.matchMedia('(max-width: 1024px)').matches) {
-						multiLevelBack(menuContainer);
+						multiLevelBack(this.DOM.menuContainer);
 					} else {
-						multiLevelBack(menuAllProducts);
+						multiLevelBack(this.DOM.menuAllProducts);
 					}
 				});
 			});
 
-		if (window.matchMedia('(max-width: 1024px)').matches) {
-			navicon &&
-				navicon.addEventListener('click', () => {
-					let i = 0;
-					html.classList.remove('is-sub-navigation-open');
+		this.DOM.navicon &&
+			this.DOM.navicon.addEventListener('click', () => {
+				this.DOM.html.classList.remove('is-sub-navigation-open');
+				setTimeout(() => {
+					this.DOM.menuAllProducts.style.cssText += 'transform: none';
+					this.DOM.menuContainer.style.cssText += 'transform: none';
+				}, 350);
+				level = 0;
+			});
 
-					[...document.querySelectorAll(triggers)].forEach((item) => {
-						if (item.classList.contains('level' + i)) {
-							item.classList.remove('level' + i);
-							item.childNodes.forEach((t) =>
-								t.classList && t.classList.contains('is-active')
-									? t.classList.remove('is-active')
-									: null
-							);
-						}
+		this.DOM.closeAllProducts &&
+			this.DOM.closeAllProducts.addEventListener('click', () => {
+				this.DOM.html.classList.remove('is-sub-navigation-open');
+				setTimeout(() => {
+					this.DOM.menuAllProducts.style.cssText += 'transform: none';
+					this.DOM.menuContainer.style.cssText += 'transform: none';
+				}, 350);
+				level = 0;
+			});
 
-						i++;
-
-						[...document.querySelectorAll(triggers)].length == i
-							? ((menuContainer.style.cssText += 'transform: translateX(0);'), (level = 0))
-							: null;
-					});
-				});
-		}
+		this.DOM.closePanelAllProducts &&
+			this.DOM.closePanelAllProducts.addEventListener('click', () => {
+				this.DOM.html.classList.remove('is-sub-navigation-open');
+				setTimeout(() => {
+					this.DOM.menuAllProducts.style.cssText += 'transform: none';
+					this.DOM.menuContainer.style.cssText += 'transform: none';
+				}, 350);
+				level = 0;
+			});
 	}
 }

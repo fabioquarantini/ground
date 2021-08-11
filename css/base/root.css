@@ -1,6 +1,5 @@
 @layer base {
 	html {
-
 		&.has-scroll-dragging {
 			@apply select-none;
 		}
@@ -10,7 +9,10 @@
 				@apply overflow-auto;
 			}
 			&.is-navigation-open:not(.has-scroll-smooth) {
-				@apply overflow-y-hidden;
+				@apply overflow-hidden;
+			}
+			&.is-all-products-open:not(.has-scroll-smooth) {
+				@apply overflow-hidden;
 			}
 
 			&.is-minicart-open {
@@ -23,7 +25,11 @@
 		}
 
 		&.is-navigation-open {
-			@apply overflow-y-hidden;
+			@apply overflow-hidden;
+		}
+
+		&.is-all-products-open {
+			@apply overflow-hidden;
 		}
 	}
 
