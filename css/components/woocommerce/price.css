@@ -1,9 +1,6 @@
-.price {
+.price,
+.ground__price-range {
 	@apply text-black dark:text-white;
-
-	.ground__price-range {
-		@apply text-base;
-	}
 
 	.amount {
 		@apply text-4xl font-bold;
@@ -15,14 +12,23 @@
 	del {
 		@apply text-red-500 text-xl;
 		.amount {
-			@apply text-xl font-normal;
-			@apply text-gray-300;
+			@apply text-xl font-normal text-gray-300;
 		}
+
 	}
 
 	ins {
 		@apply no-underline;
 	}
+}
+
+.ground__price-range {
+	del {
+		.amount {
+			@apply px-2;
+		}
+	}
+
 }
 
 
@@ -32,20 +38,10 @@
 	del {
 		@apply text-sm text-red-500;
 		.amount {
-			@apply text-sm font-normal;
-			@apply text-gray-300;
+			@apply text-sm font-normal text-gray-300;
 		}
 	}
 	ins {
 		@apply no-underline;
 	}
-}
-
-
-.ground__price-range {
-	@apply text-gray-500;
-	.amount {
-		@apply text-black text-4xl font-bold;
-	}
-
 }
