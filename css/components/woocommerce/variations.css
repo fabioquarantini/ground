@@ -1,4 +1,5 @@
 .variations {
+	@apply relative mt-3 mb-0 border border-gray-300 lg:w-2/4;
 
 	td, th {
 		border: 0;
@@ -6,17 +7,18 @@
 
 	.label,
 	.value {
-		display: block;
+		@apply block;
 	}
 
 	.label {
-		padding: 0;
-		font-weight: bold;
+		@apply p-0;
+		label {
+			@apply text-sm text-gray-400 !important;
+		}
 	}
 
 	.value {
-		padding: 6px 0 0 0;
-
+		@apply p-0 mb-3;
 	}
 
 }

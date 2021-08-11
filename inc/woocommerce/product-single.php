@@ -13,6 +13,7 @@ function ground_woocommerce_add_gallery_support() {
 
 add_action( 'after_setup_theme', 'ground_woocommerce_add_gallery_support' );
 
+
 /**
  * Change gallery image size
  */
@@ -47,3 +48,12 @@ function ground_woocommerce_add_brand_single_product() {
  * Remove single product tabs
  */
 // remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
+
+
+
+
+/**
+ * Reordering the SKU
+ */
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 5 );

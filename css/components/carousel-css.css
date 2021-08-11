@@ -5,7 +5,7 @@
     &::-webkit-scrollbar { @apply hidden; }
 
     > * {
-        @apply relative scroll-snap-align-center inline-block align-top whitespace-normal mx-3 w-9/12 lg:block lg:w-auto lg:mx-0;
+        @apply relative scroll-snap-align-center inline-block align-top whitespace-normal mx-3 w-7/12 md:w-4/12 lg:block lg:w-auto lg:mx-0;
         @apply mb-0 !important;
         &:first-child { @apply ml-6 lg:ml-0; }
         &:last-child { @apply mr-6 lg:mr-0; } 

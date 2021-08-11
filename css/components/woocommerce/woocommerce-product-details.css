@@ -2,6 +2,7 @@
 	position: relative;
 
 	.product_title {
+		@apply text-2xl font-bold lg:text-4xl;
 
 	}
 

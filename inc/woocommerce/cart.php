@@ -14,7 +14,7 @@
  * @link https://hotexamples.com/examples/-/-/woocommerce_cross_sell_display/php-woocommerce_cross_sell_display-function-examples.html
  */
 function ground_add_crosssells_minicart() {
-	// wp_reset_query();
+	wp_reset_query();
 	woocommerce_cross_sell_display( 3 );
 }
 

@@ -1,8 +1,12 @@
 .summary {
-	@apply mb-12;
+	@apply sticky top-12;
+
+	.woocommerce-product-details__short-description {
+		@apply text-base text-gray-400;
+	}
 
 	.product_meta {
-
+		@apply relative my-3;
 	}
 
 	.sku_wrapper {
