@@ -9,15 +9,19 @@
 }
 
 .panel-all-products__close {
-	@apply fixed top-8 right-9 z-40 text-center cursor-pointer opacity-0 invisible transform transition-all -translate-y-3 ease-default duration-500 delay-500;
+	@screen lg {
+		@apply fixed top-8 right-9 z-40 text-center cursor-pointer opacity-0 invisible transform transition-all -translate-y-3 ease-default duration-500 delay-500;
 
-	.is-all-products-open & {
-		@apply opacity-100 visible transform-none;
+		.is-all-products-open & {
+			@apply opacity-100 visible transform-none;
+		}
 	}
 }
 
 .panel-all-products__panel {
-	.is-all-products-open & {
-		@apply visible opacity-100;
+	@screen lg {
+		.is-all-products-open & {
+			@apply visible opacity-100;
+		}
 	}
 }

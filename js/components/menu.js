@@ -40,15 +40,17 @@ export default class Menu {
 		let html = document.querySelector('html');
 		let back = document.querySelector('.js-back');
 		let navicon = document.querySelector('.js-navicon');
+
 		let menuBody = document.querySelector('.js-menu-body');
 		let menuContainer = document.querySelector('.js-menu-container');
-		let allProducts = document.querySelector('.js-all-products');
+		let buttonAllProducts = document.querySelector('.js-button-all-products');
+		let menuAllProducts = document.querySelector('.js-navigation-all-products');
 
 		let level = 0;
 		let translation = 0;
 
 		[...document.querySelectorAll(triggers)].forEach((item) => {
-			let multiLevelMenu = () => {
+			let multiLevelMenu = (whichMenu) => {
 				item.addEventListener('click', (t) => {
 					var subMenu = null;
 					var subMenuImage = null;
@@ -57,7 +59,6 @@ export default class Menu {
 						sub.classList && sub.classList.contains('navigation__image') ? (subMenuImage = sub) : null;
 					});
 
-					//if (html.classList.contains('is-navigation-open') && subMenu) {
 					t.preventDefault();
 					t.stopPropagation();
 
@@ -68,31 +69,29 @@ export default class Menu {
 					subMenuImage && subMenuImage.classList.add('is-active');
 
 					level++;
-
 					translation = -100 * level;
-					menuContainer.style.cssText += 'transform: translateX(' + translation + 'vw);';
+
+					if (whichMenu == menuContainer) {
+						menuContainer.style.cssText += 'transform: translateX(' + translation + 'vw);';
+					} else if (whichMenu == menuAllProducts) {
+						menuAllProducts.style.cssText += 'transform: translateX(' + translation + '%);';
+					}
+
 					menuBody.scrollTo({
 						top: 0,
 						left: 0,
 						behavior: 'smooth'
 					});
-					//}
 				});
 			};
 
 			if (window.matchMedia('(max-width: 1024px)').matches) {
-				multiLevelMenu();
+				multiLevelMenu(menuContainer);
 			} else {
-				allProducts.addEventListener('mouseenter', () => {
+				buttonAllProducts.addEventListener('mouseenter', () => {
 					html.classList.add('is-all-products-open');
-					multiLevelMenu();
+					multiLevelMenu(menuAllProducts);
 				});
-
-				// allProducts.addEventListener('mouseleave', () => {
-				// 	if (html.classList.contains('is-all-products-open')) {
-				// 		html.classList.remove('is-all-products-open');
-				// 	}
-				// });
 
 				let timerHandle = null;
 				item.addEventListener('mouseenter', () => {

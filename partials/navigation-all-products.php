@@ -1,4 +1,4 @@
- <nav class="navigation navigation--all-products">
+ <nav class="js-navigation-all-products navigation navigation--all-products">
 	<?php
 	$args = array(
 		'theme_location' => 'all-products',

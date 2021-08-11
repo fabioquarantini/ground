@@ -32,25 +32,12 @@
 			}
 		}
 
-		/* SUB MENU */
 		.navigation__sub-menu {
 			@apply relative m-0;
 			@apply hidden;
 			@screen lg {
 				@apply absolute top-16 left-6 pt-6;
 				width: calc(50% - 48px);
-
-				/* &:before {
-						content: "";
-						position: absolute;
-						top: -10px;
-						left: 50%;
-						margin-left: -10px;
-						height: 20px;
-						width: 20px;
-						@apply bg-white dark:bg-black;
-						transform: rotate(45deg);
-					} */
 
 				&:after {
 					content: "";
@@ -132,16 +119,6 @@
 					z-index: -1;
 				}
 			}
-
-			&.is-active {
-				/* @apply inline-block relative top-0 h-auto opacity-100 visible;
-					left: 100vw;
-					width: 100%; */
-
-				@screen lg {
-					//@apply relative left-auto top-auto w-auto;
-				}
-			}
 		}
 
 		.is-hover {
@@ -177,38 +154,36 @@
 	.navigation--all-products {
 		@apply w-full relative;
 
+		@screen lg {
+			@apply p-8;
+			transition-timing-function: ease-in-out;
+			transition: 0.2s;
+		}
+
 		.navigation__item {
 			@apply block;
-
-			@screen lg {
-				@apply flex justify-start pr-4;
-			}
-
-			@screen xl {
-				@apply flex justify-start pr-6;
-			}
 		}
 
 		.navigation__link {
-			@apply block text-lg py-4 border-b border-gray-400 border-opacity-20;
-			@screen lg {
-				@apply block py-3 text-lg w-6/12 font-bold;
-			}
+			@apply block text-lg py-4 border-b border-gray-400 border-opacity-20 font-bold;
 		}
 
-		/* SUB MENU */
 		.navigation__sub-menu {
 			@apply relative m-0;
 			@apply hidden;
 			@screen lg {
-				@apply absolute top-16 left-6 pt-6;
+				@apply absolute top-16 left-6 p-8;
 				width: calc(100% - 24px);
 			}
 
 			&.is-active {
 				@apply inline-block absolute top-0 h-auto opacity-100 visible;
-				left: 100%;
+				left: 100vw;
 				width: 100%;
+
+				@screen lg {
+					left: 100%;
+				}
 			}
 
 			.navigation__link {
@@ -231,11 +206,6 @@
 
 				.navigation__link {
 					@apply block text-lg py-3 border-b border-gray-400 border-opacity-20;
-					@screen lg {
-						&:after {
-							@apply hidden;
-						}
-					}
 				}
 			}
 		}
@@ -248,19 +218,16 @@
 					height: 24px;
 					width: 24px;
 					border-radius: 50%;
-					right: 8px;
+					right: 32px;
 					background: url("../img/icons/chevron-right.svg");
 				}
-				@screen lg {
-					@apply relative pr-10;
-
-					&:after {
-						margin-top: 4px;
-						right: 12px;
-						background: url("../img/icons/chevron-down.svg");
-					}
-				}
 			}
+		}
+	}
+
+	.is-hover {
+		.navigation--all-products {
+			@apply hidden;
 		}
 	}
 
