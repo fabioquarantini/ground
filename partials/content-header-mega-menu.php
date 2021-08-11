@@ -31,7 +31,7 @@
 			</div>
 
 			<?php if ( class_exists( 'WooCommerce' ) && ! is_checkout() ) : ?>
-			<?php
+				<?php
 				$count = WC()->cart->get_cart_contents_count();
 				$class = '';
 
@@ -40,10 +40,10 @@
 				} else {
 					$class = 'is-full js-toggle';
 				}
-			?>
+				?>
 
 			<div class="header__cart relative lg:hidden">
-				<a class="flex justify-start items-center" href="<?php echo wc_get_page_permalink('cart')?>">
+				<a class="flex justify-start items-center" href="<?php echo wc_get_page_permalink( 'cart' ); ?>">
 					<?php ground_icon( 'shopping-cart', 'minicart__icon text-black dark:text-white' ); ?>
 					<div class="absolute -right-4 -top-2 bg-red-500 rounded-full w-6 h-6 flex items-center justify-center text-white font-bold">
 						<?php echo WC()->cart->get_cart_contents_count(); ?>
@@ -110,7 +110,7 @@
 					<?php if ( class_exists( 'WooCommerce' ) && ! is_checkout() ) : ?>
 						<?php if ( GROUND_HEADER_ALL_PRODUCTS ) { ?>
 							<div class="header__all-products">
-								<a class="js-all-products hidden cursor-pointer lg:flex lg:justify-end lg:items-center lg:text-lg">
+								<a class="js-button-all-products hidden cursor-pointer lg:flex lg:justify-end lg:items-center lg:text-lg">
 									<div class="mr-2 flex justify-end items-center"> <?php ground_icon( 'menu-left', 'icon--filled text-black dark:text-white' ); ?></div>
 									<div> <?php _e( 'All products', 'ground' ); ?></div>
 								</a>
