@@ -105,3 +105,36 @@ function ground_add_widget_active_filters() {
 	the_widget( 'WC_Widget_Layered_Nav_Filters' );
 }
 add_action( 'woocommerce_before_shop_loop', 'ground_add_widget_active_filters', 2 );
+
+
+/**
+ * WooCommerce, Remove woocommerce_catalog_ordering
+ */
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+
+
+/**
+ * WooCommerce, Refactoring filters_buttons
+ */
+function ground_archive_filters_buttons() {
+	?>
+
+	<div class="sticky top-0 bg-white py-2 z-30 transform -translate-x-2/4 w-screen ml-1/2 lg:relative lg:bg-transparent lg:ml-auto lg:translate-x-0 lg:w-auto">
+		<div class="container">
+			<div class="grid grid-cols-2 lg:grid-cols-3 gap-6">
+				<div class="lg:col-span-2">	
+					<button class="button button--full-width button--align-left js-toggle block lg:hidden" data-toggle-target=".sidebar" data-toggle-class-name="is-sidebar-open">
+						<?php ground_icon( 'options' ); ?> <?php _e( 'Filters', 'ground' ); ?>
+					</button>
+				</div>
+				<div>	
+					<?php $result = woocommerce_catalog_ordering(); ?>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<?php
+}
+
+add_action( 'woocommerce_before_shop_loop', 'ground_archive_filters_buttons', 10 );

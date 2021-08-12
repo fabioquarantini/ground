@@ -88,10 +88,6 @@ do_action( 'woocommerce_before_main_content' );
 				if ( woocommerce_product_loop() ) {
 					?>
 
-					<button class="button button--centered js-toggle md:hidden" data-toggle-target=".sidebar" data-toggle-class-name="is-sidebar-open">
-						Filter by
-					</button>
-
 					<?php
 					/**
 					 * Hook: woocommerce_before_shop_loop.

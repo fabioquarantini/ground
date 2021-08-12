@@ -1,0 +1,5 @@
+.woocommerce-ordering {
+    select {
+        @apply py-3;
+    }
+}
