@@ -35,6 +35,7 @@ export default class Menu {
 			this.DOM.html.classList.remove('is-navigation-open');
 			this.DOM.html.classList.remove('is-sub-navigation-open');
 			this.DOM.html.classList.remove('is-all-products-open');
+
 			this.reset(this.defaults.triggers, this.defaults.level);
 			this.init(this.defaults.triggers, 0);
 		});
@@ -48,14 +49,20 @@ export default class Menu {
 	reset(triggers, level) {
 		console.log(level, 'level');
 
-		[...document.querySelectorAll(triggers)].forEach((item) => {
-			// if (item.classList.contains('level' + level)) {
-			// 	item.classList.remove('level' + level);
-			// 	item.childNodes.forEach((t) =>
-			// 		t.classList && t.classList.contains('is-active') ? t.classList.remove('is-active') : null
-			// 	);
-			// }
-		});
+		for (let i = 0; i <= level; i++) {
+			[...document.querySelectorAll(triggers)].forEach((item) => {
+				console.log(item, 'item');
+				console.log(item.classList.contains('level' + i));
+				if (item.classList.contains('level' + i)) {
+					item.classList.remove('level' + i);
+					item.childNodes.forEach((t) =>
+						t.classList && t.classList.contains('is-active') ? t.classList.remove('is-active') : null
+					);
+				}
+			});
+		}
+		this.init(this.defaults.triggers, 0);
+		console.log('done');
 	}
 	/**
 	 * Init
@@ -113,6 +120,7 @@ export default class Menu {
 
 		let multiLevelBack = (whichMenu) => {
 			if (level > 0) {
+				level--;
 				[...document.querySelectorAll(triggers)].forEach((item) => {
 					if (item.classList.contains('level' + level)) {
 						item.classList.remove('level' + level);
@@ -121,7 +129,6 @@ export default class Menu {
 						);
 					}
 				});
-				level--;
 				this.defaults.level = level;
 				let translation = -100 * level;
 
@@ -185,35 +192,38 @@ export default class Menu {
 
 		this.DOM.navicon.addEventListener('click', () => {
 			this.DOM.html.classList.remove('is-sub-navigation-open');
-			// if (window.matchMedia('(min-width: 1024px)').matches) {
-			//  setTimeout(() => {
-			//      this.DOM.menuAllProducts.style.cssText += 'transform: none';
-			//      this.DOM.menuContainer.style.cssText += 'transform: none';
-			//  }, 350);
-			// }
-			//level = 0;
+			setTimeout(() => {
+				this.DOM.menuContainer.style.cssText += 'transform: none';
+				this.DOM.menuAllProducts.style.cssText += 'transform: none';
+				this.DOM.html.classList.remove('is-all-products-open');
+
+				this.reset(this.defaults.triggers, this.defaults.level);
+				this.init(this.defaults.triggers, 0);
+			}, 350);
 		});
 
 		this.DOM.closeAllProducts.addEventListener('click', () => {
 			this.DOM.html.classList.remove('is-sub-navigation-open');
-			// if (window.matchMedia('(min-width: 1024px)').matches) {
-			//  setTimeout(() => {
-			//      this.DOM.menuAllProducts.style.cssText += 'transform: none';
-			//      this.DOM.menuContainer.style.cssText += 'transform: none';
-			//  }, 350);
-			// }
-			//level = 0;
+			setTimeout(() => {
+				this.DOM.menuContainer.style.cssText += 'transform: none';
+				this.DOM.menuAllProducts.style.cssText += 'transform: none';
+				this.DOM.html.classList.remove('is-all-products-open');
+
+				this.reset(this.defaults.triggers, this.defaults.level);
+				this.init(this.defaults.triggers, 0);
+			}, 350);
 		});
 
 		this.DOM.closePanelAllProducts.addEventListener('click', () => {
 			this.DOM.html.classList.remove('is-sub-navigation-open');
-			// if (window.matchMedia('(min-width: 1024px)').matches) {
-			//  setTimeout(() => {
-			//      this.DOM.menuAllProducts.style.cssText += 'transform: none';
-			//      this.DOM.menuContainer.style.cssText += 'transform: none';
-			//  }, 350);
-			// }
-			//level = 0;
+			setTimeout(() => {
+				this.DOM.menuContainer.style.cssText += 'transform: none';
+				this.DOM.menuAllProducts.style.cssText += 'transform: none';
+				this.DOM.html.classList.remove('is-all-products-open');
+
+				this.reset(this.defaults.triggers, this.defaults.level);
+				this.init(this.defaults.triggers, 0);
+			}, 350);
 		});
 	}
 }
