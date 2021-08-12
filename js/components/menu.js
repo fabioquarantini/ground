@@ -35,18 +35,36 @@ export default class Menu {
 			this.DOM.html.classList.remove('is-navigation-open');
 			this.DOM.html.classList.remove('is-sub-navigation-open');
 			this.DOM.html.classList.remove('is-all-products-open');
-
-			this.init(this.defaults.triggers, this.defaults.level);
+			this.reset(this.defaults.triggers, this.defaults.level);
+			this.init(this.defaults.triggers, 0);
 		});
 	}
 
 	/**
+	 * Reset
+	 *  @param {string} triggers - Selectors
+	 * @param {num} level - Selectors
+	 */
+	reset(triggers, level) {
+		console.log(level, 'level');
+
+		[...document.querySelectorAll(triggers)].forEach((item) => {
+			// if (item.classList.contains('level' + level)) {
+			// 	item.classList.remove('level' + level);
+			// 	item.childNodes.forEach((t) =>
+			// 		t.classList && t.classList.contains('is-active') ? t.classList.remove('is-active') : null
+			// 	);
+			// }
+		});
+	}
+	/**
 	 * Init
 	 * @param {string} triggers - Selectors
+	 * @param {num} level - Selectors
 	 */
-	init(triggers, levelMenu) {
+	init(triggers, level) {
 		console.log('init');
-		let level = levelMenu;
+
 		let translation = 0;
 
 		let multiLevelMenu = (item, whichMenu) => {
@@ -70,11 +88,17 @@ export default class Menu {
 					subMenuImage && subMenuImage.classList.add('is-active');
 
 					level++;
+					this.defaults.level = level;
 					translation = -100 * level;
 
 					if (whichMenu == this.DOM.menuContainer) {
-						this.DOM.menuContainer.style.cssText += 'transform: translateX(' + translation + 'vw);';
+						if (window.matchMedia('(max-width: 1024px)').matches) {
+							this.DOM.menuContainer.style.cssText += 'transform: translateX(' + translation + 'vw);';
+						} else {
+							this.DOM.menuContainer.style.cssText += 'transform: none';
+						}
 					} else if (whichMenu == this.DOM.menuAllProducts) {
+						this.DOM.menuContainer.style.cssText += 'transform: none';
 						this.DOM.menuAllProducts.style.cssText += 'transform: translateX(' + translation + '%);';
 					}
 
@@ -89,7 +113,6 @@ export default class Menu {
 
 		let multiLevelBack = (whichMenu) => {
 			if (level > 0) {
-				level--;
 				[...document.querySelectorAll(triggers)].forEach((item) => {
 					if (item.classList.contains('level' + level)) {
 						item.classList.remove('level' + level);
@@ -98,11 +121,18 @@ export default class Menu {
 						);
 					}
 				});
+				level--;
+				this.defaults.level = level;
 				let translation = -100 * level;
 
 				if (whichMenu == this.DOM.menuContainer) {
-					this.DOM.menuContainer.style.cssText += 'transform: translateX(' + translation + 'vw);';
+					if (window.matchMedia('(max-width: 1024px)').matches) {
+						this.DOM.menuContainer.style.cssText += 'transform: translateX(' + translation + 'vw);';
+					} else {
+						this.DOM.menuContainer.style.cssText += 'transform: none';
+					}
 				} else if (whichMenu == this.DOM.menuAllProducts) {
+					this.DOM.menuContainer.style.cssText += 'transform: none';
 					this.DOM.menuAllProducts.style.cssText += 'transform: translateX(' + translation + '%);';
 				}
 
