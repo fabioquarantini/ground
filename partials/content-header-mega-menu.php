@@ -88,10 +88,7 @@
 						</div>
 
 						<?php get_template_part( 'partials/navigation', 'secondary' ); ?>
-
-						<button class="js-toggle js-cursor-hover hidden mr-12 lg:ml-12 lg:block" data-toggle-target=".search html" data-toggle-class-name="is-search-open">
-							<?php ground_icon( 'search', 'icon--filled text-black dark:text-white' ); ?>
-						</button> <!-- End .header__search -->
+						<?php get_template_part( 'partials/search', 'form-input' ); ?>
 					</div>
 
 					<?php if ( class_exists( 'WooCommerce' ) && ! is_checkout() ) : ?>
@@ -129,4 +126,7 @@
 
 		</div>
 	</div>
+
 </header> <!-- End header -->
+
+

@@ -82,7 +82,6 @@
 	.is-search-loading & {
 		opacity: 1;
 	}
-
 }
 
 .search__result {
