@@ -9,7 +9,7 @@
         .cart_item {
             @apply relative border-0 border-b border-gray-200;
             .product-name {
-                @apply pl-20 text-sm;
+                @apply relative pl-20 text-sm;
 
                 .product-thumbnail {
                     @apply absolute top-2/4 left-0 h-16 w-auto -mt-8;

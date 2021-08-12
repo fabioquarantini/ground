@@ -10,7 +10,7 @@
 			a {
 				&:before {
 					content: '';
-					@apply relative inline-block text-center text-white mr-3 rounded-full align-middle border border-gray-500 h-5 w-5;
+					@apply relative inline-block text-center text-white mr-3 rounded-full align-middle border border-gray-400 h-5 w-5;
 					@apply transition-all ease-default duration-500;
 				}
 			}

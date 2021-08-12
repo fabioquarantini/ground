@@ -1,0 +1,38 @@
+.widget_product_categories {
+    @apply relative;
+
+    .product-categories {
+
+        .cat-item {
+            @apply block list-none;
+
+           
+
+            .children {
+                @apply mt-0 pl-5;
+            }
+
+            a {
+                @apply inline-block py-1;
+                &:before {
+                    content: '';
+                    @apply inline-block align-middle bg-gray-400 h-px w-4 mr-3;
+                }
+            }
+
+            &.current-cat {
+
+                > a {
+                    @apply text-primary font-bold;
+
+                    &:before {
+                        @apply bg-primary;
+                    }
+                }
+            }
+
+        }
+
+    }
+
+}

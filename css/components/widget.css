@@ -1,6 +1,6 @@
 .widget {
 	.sidebar & {
-		@apply relative mb-9;
+		@apply relative mb-12;
 
 		.widgettitle {
 			@apply relative text-xl font-bold;
