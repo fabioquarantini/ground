@@ -1,6 +1,6 @@
 .woocommerce-tabs {
 	@apply flow-root;
-	@apply mb-12;
+	@apply mt-20 mb-12;
 
 	.tabs {
 		margin: 0 5% 0 0;

@@ -22,6 +22,7 @@
 					font-size: 10px;
 					@apply border;
 					@apply border-gray-500;
+					
 					transition: all var(--ease-speed) var(--ease-default);
 				}
 			}
@@ -30,10 +31,14 @@
 
 				a {
 					&:before {
-						content: "✔";
+						content: "";
 						border: 1px solid;
 						@apply border-primary;
 						@apply bg-primary;
+						background-image: url('../img/icons/check.svg');
+						background-position: center center;
+						background-repeat: no-repeat;
+						background-size: contain;
 					}
 				}
 
@@ -87,8 +92,10 @@
 			&.chosen {
 				a {
 					&:before {
-						content: "x";
+						content: "";
 						border: 1px solid theme('colors.red.600');
+						background: url('../img/icons/close.svg') center center no-repeat;
+						background-size: contain;
 					}
 				}
 			}

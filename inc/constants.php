@@ -18,6 +18,8 @@ define( 'GROUND_DARK_MODE', get_field( 'dark_mode', 'option' ) ? get_field( 'dar
 // Colors.
 define( 'GROUND_COLOR_PRIMARY', get_field( 'color_primary', 'option' ) ? get_field( 'color_primary', 'option' ) : '#6366F1' );
 define( 'GROUND_COLOR_SECONDARY', get_field( 'color_secondary', 'option' ) ? get_field( 'color_secondary', 'option' ) : '#14B8A6' );
+define( 'GROUND_COLOR_BODY', get_field( 'color_body', 'option' ) ? get_field( 'color_body', 'option' ) : '#FFFFFF' );
+
 
 // Fonts.
 define( 'GROUND_FONT_SOURCE_PRIMARY', get_field( 'font_source_primary', 'option' ) ? get_field( 'font_source_primary', 'option' ) : '' );

@@ -1,25 +1,23 @@
 .widget {
-	@apply mb-6;
-	@apply pb-6;
+	.sidebar & {
+		@apply prose mb-6;
+		@apply pb-6;
 
-	&:last-child {
-		border-bottom: 0;
-	}
-}
+		ul {
+			li {
+				@apply pl-0;
+				&:before {
+					@apply hidden;
+				}
+				a {
+					@apply no-underline;
+				}
+			}
+		}
 
-.widgettitle {
+		.widgettitle {
 
-}
+		}
 
-.widget_top_rated_products {
-
-}
-
-.product_list_widget {
-	list-style-type: none;
-	margin: 0;
-
-	li {
-		@apply mb-6;
 	}
 }
