@@ -43,7 +43,7 @@
             "label": "Color Primary",
             "name": "color_primary",
             "type": "color_picker",
-            "instructions": "",
+            "instructions": "Default: #6366F1",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -58,7 +58,7 @@
             "label": "Color Secondary",
             "name": "color_secondary",
             "type": "color_picker",
-            "instructions": "",
+            "instructions": "Default: #14B8A6",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -73,7 +73,7 @@
             "label": "Color Body",
             "name": "color_body",
             "type": "color_picker",
-            "instructions": "",
+            "instructions": "Default: #FFFFFF",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -460,5 +460,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1628682675
+    "modified": 1628750256
 }
