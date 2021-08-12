@@ -1,38 +1,38 @@
 @layer base {
-
-	input[type=text],
-	input[type=email],
-	input[type=tel],
-	input[type=password],
-	input[type=number],
+	input[type="text"],
+	input[type="email"],
+	input[type="tel"],
+	input[type="password"],
+	input[type="number"],
 	textarea,
 	select {
-		@apply focus:ring-primary text-black border-gray-500 rounded w-full !important;
+		@apply focus:ring-primary text-black border-gray-500 rounded-theme w-full !important;
 		.woocommerce-invalid & {
 			@apply border-red-500 !important;
 		}
 	}
 
-	input[type=number] {
+	input[type="number"] {
 		@apply w-auto !important;
 	}
 
-	textarea { min-height: 140px; }
-
-	input[type=checkbox] {
-		@apply focus:ring-primary h-4 w-4 text-primary border-gray-500 rounded mr-1 cursor-pointer !important;
+	textarea {
+		min-height: 140px;
 	}
 
-	input[type=radio] {
+	input[type="checkbox"] {
+		@apply focus:ring-primary h-4 w-4 text-primary border-gray-500 rounded-theme mr-1 cursor-pointer !important;
+	}
+
+	input[type="radio"] {
 		@apply focus:ring-primary h-4 w-4 text-primary border-gray-500 mr-1 cursor-pointer !important;
 	}
 
-	input[type=submit] {
-		@apply text-base px-8 py-3 border border-primary rounded-3xl font-bold text-white bg-primary cursor-pointer hover:bg-white hover:text-primary !important;
+	input[type="submit"] {
+		@apply text-base px-8 py-3 border border-primary rounded-theme font-bold text-white bg-primary cursor-pointer hover:bg-white hover:text-primary !important;
 	}
 
 	label {
 		@apply block text-base font-medium text-gray-500 dark:text-gray-500 !important;
 	}
-
 }
