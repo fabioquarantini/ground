@@ -16,7 +16,7 @@
                 "id": ""
             },
             "message": "Remove add to cart button from product item!",
-            "default_value": 0,
+            "default_value": 1,
             "ui": 0,
             "ui_on_text": "",
             "ui_off_text": ""
@@ -39,5 +39,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1628677714
+    "modified": 1628774090
 }

@@ -582,3 +582,18 @@ function ground_dark_mode( $output ) {
 }
 
 add_filter( 'language_attributes', 'ground_dark_mode', 10, 2 );
+
+
+
+
+// TO DO: Da testare questa soluzione
+/**
+ * Disable block styles
+ */
+function ground_remove_wp_block_library() {
+	wp_dequeue_style( 'wp-block-library' );
+	wp_dequeue_style( 'wp-block-library-theme' );
+	wp_deregister_style( 'wc-block-style' );
+	// wp_deregister_style( 'wc-block-editor' );
+}
+add_action( 'wp_enqueue_scripts', 'ground_remove_wp_block_library', 100 );

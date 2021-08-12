@@ -15,7 +15,8 @@ get_template_part( 'partials/header' );
 
 	<div class="grid grid-cols-12 gap-6">
 
-		<div class="col-span-full lg:col-start-2 lg:col-span-10">
+		<!-- col-span-full lg:col-start-2 lg:col-span-10 -->
+		<div class="col-span-full">
 
 			<?php
 			while ( have_posts() ) :

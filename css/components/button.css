@@ -1,4 +1,5 @@
-.button {
+.button,
+.wp-block-button__link {
 	@apply inline-block px-6 py-3 mb-6 bg-primary text-base text-white text-center no-underline align-middle whitespace-nowrap border border-primary rounded-theme cursor-pointer transition;
 
 	.button__icon {
