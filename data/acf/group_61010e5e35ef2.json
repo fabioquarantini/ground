@@ -69,6 +69,21 @@
             "default_value": ""
         },
         {
+            "key": "field_6113b768cd672",
+            "label": "Color Body",
+            "name": "color_body",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": ""
+        },
+        {
             "key": "field_61010ec6e9471",
             "label": "Fonts",
             "name": "",
@@ -445,5 +460,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1628499547
+    "modified": 1628682675
 }
