@@ -22,13 +22,13 @@ if ( $query->have_posts() ) {
 	while ( $query->have_posts() ) {
 		$query->the_post(); ?>
 
-			<div class="item item--small">
+			<div class="item col-span-6 lg:col-span-2">
 				<a class="item__link clear-fix" href="<?php echo esc_url( post_permalink() ); ?>">
 					<figure class="item__media media aspect-w-1 aspect-h-1">
 						<?php if ( has_post_thumbnail() ) { ?>
-							<img class="media__img cover" src="<?php the_post_thumbnail_url( 'medium' ); ?>" loading="lazy"/>
+							<img class="media__img object-cover" src="<?php the_post_thumbnail_url( 'medium' ); ?>" loading="lazy"/>
 						<?php } else { ?>
-							<img class="media__img cover" src="<?php echo GROUND_NO_IMAGE_URL; ?>" loading="lazy">
+							<img class="media__img object-cover" src="<?php echo GROUND_NO_IMAGE_URL; ?>" loading="lazy">
 						<?php } ?>
 					</figure>
 

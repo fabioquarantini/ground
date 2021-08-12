@@ -35,15 +35,15 @@
 				$count = WC()->cart->get_cart_contents_count();
 				$class = '';
 
-				if ( $count === 0 ) {
-					$class = 'is-empty ';
-				} else {
-					$class = 'is-full js-toggle';
-				}
+			if ( $count === 0 ) {
+				$class = 'is-empty ';
+			} else {
+				$class = 'is-full js-toggle';
+			}
 			?>
 
 			<div class="header__cart relative lg:hidden">
-				<a class="flex justify-start items-center" href="<?php echo wc_get_page_permalink('cart')?>">
+				<a class="flex justify-start items-center" href="<?php echo wc_get_page_permalink( 'cart' ); ?>">
 					<?php ground_icon( 'shopping-cart', 'minicart__icon text-black dark:text-white' ); ?>
 					<div class="absolute -right-4 -top-2 bg-red-500 rounded-full w-6 h-6 flex items-center justify-center text-white font-bold">
 						<?php echo WC()->cart->get_cart_contents_count(); ?>

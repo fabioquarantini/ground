@@ -1,30 +1,19 @@
 .search {
-	position: fixed;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	visibility: hidden;
-	z-index: 11;
+	@apply fixed top-0 left-0 bottom-0 right-0 z-40 invisible;
 	transition: visibility 0s 0.6s;
 
-	&.is-search-open {
-		visibility: visible;
+	&.is-search-open,
+	.is-search-focus.is-search-open & {
+		@apply overflow-y-auto visible;
 		transition: visibility 0s 0s;
-		overflow-y: auto;
 	}
 }
 
 .search__content {
-	@apply bg-white;
-	padding-left: 5%;
-	padding-right: 5%;
-	@apply py-6;
-	position: relative;
+	@apply bg-white relative;
 
 	@screen md {
-		padding: 5% 15%;
-		width: 100%;
+		@apply bg-transparent relative w-full;
 		transition: transform var(--ease-speed) var(--ease-in-out-quint);
 		transform: translateY(-100%);
 	}
@@ -35,52 +24,32 @@
 }
 
 .search__bg {
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	@apply bg-black;
+	@apply absolute opacity-0 left-0 top-0 right-0 bottom-0 bg-white;
 	transition: opacity 0.5s ease;
-	opacity: 0;
 
 	.is-search-open & {
-		opacity: 1;
+		@apply opacity-100;
 	}
 }
 
 .search__close {
-	position: absolute;
-	@apply top-6;
-	@apply right-6;
-	cursor: pointer;
-	@apply text-black;
+	@apply absolute top-6 right-6 cursor-pointer text-black;
 }
 
 .search__spinner {
-	position: absolute;
-	@apply top-10;
-	right: 0;
-	display: none;
+	@apply inline-block absolute top-10 right-0 opacity-0;
 	height: 36px !important;
 	width: 36px !important;
-	opacity: 0;
 	transition: opacity 0.4s;
-	display: inline-block;
 
 	@screen md {
-		position: absolute;
-		right: auto;
-		@apply top-12;
-		left: 0;
-		@apply top-12;
-		@apply -left-16;
+		@apply absolute right-auto top-12 -left-16;
 		height: 48px !important;
 		width: 48px !important;
 	}
 
 	.is-search-loading & {
-		opacity: 1;
+		@apply opacity-100;
 	}
 }
 

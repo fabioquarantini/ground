@@ -15,6 +15,7 @@ export default class Search {
 			html: document.documentElement,
 			body: document.body,
 			element: document.getElementById(this.element),
+			searchForm: document.getElementById('js-search-form'),
 			searchResult: document.getElementById('js-ajax-search-result'),
 			searchInput: document.getElementById('js-ajax-search-input')
 		};
@@ -35,6 +36,13 @@ export default class Search {
 			this.search();
 		}, 250);
 
+		console.log('component', this.DOM.searchForm);
+		console.log('content', this.DOM.searchFormContent);
+		this.DOM.searchInput.addEventListener('focus', () => {
+			this.DOM.html.classList.add('is-search-focus');
+			this.DOM.html.classList.add('is-search-open');
+			this.DOM.searchForm.classList.add('is-search-open');
+		});
 		this.DOM.searchInput.addEventListener('input', debounceInput);
 	}
 
