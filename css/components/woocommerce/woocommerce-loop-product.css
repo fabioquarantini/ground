@@ -15,7 +15,7 @@
 	}
 
 	.price {
-		@apply block my-3 overflow-hidden;
+		@apply block overflow-hidden mt-0 lg:mt-3;
 	}
 
 	.button {
@@ -48,7 +48,7 @@
 }
 
 .woocommerce-loop-product__title {
-	@apply text-black dark:text-white text-lg font-bold pt-6 pb-2;
+	@apply text-black dark:text-white text-lg font-bold pt-4 lg:pt-6 pb-2;
 	.minicart & {
 		@apply text-base;
     }
