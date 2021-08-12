@@ -27,7 +27,9 @@ module.exports = {
 			}),
 			colors: {
 				primary: 'var(--ground-color-primary)',
-				secondary: 'var(--ground-color-secondary)'
+				secondary: 'var(--ground-color-secondary)',
+				typo: 'var(--ground-color-typo)',
+				body: 'var(--ground-color-body)'
 			},
 			margin: {
 				'1/2': '50%'

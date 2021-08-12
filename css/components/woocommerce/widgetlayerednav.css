@@ -1,47 +1,47 @@
 .widget_layered_nav {
+	@apply relative;
 
 	.woocommerce-widget-layered-nav-list {
-		margin: 0;
-		list-style: none;
+		@apply m-0 list-none;
 
 		&__item {
+			@apply relative mb-2;
 
 			a {
 				&:before {
 					content: '';
-					position: relative;
-					display: inline-block;
-					text-align: center;
-					@apply text-white;
-					line-height: 16px;
-					height: 18px;
-					width: 18px;
-					@apply mr-3;
-					border-radius: 50%;
-					vertical-align: middle;
-					font-size: 10px;
-					@apply border;
-					@apply border-gray-500;
-					
-					transition: all var(--ease-speed) var(--ease-default);
+					@apply relative inline-block text-center text-white mr-3 rounded-full align-middle border border-gray-500 h-5 w-5;
+					@apply transition-all ease-default duration-500;
 				}
 			}
 
 			&--chosen {
 
 				a {
+					@apply text-primary font-bold underline;
+
 					&:before {
 						content: "";
-						border: 1px solid;
-						@apply border-primary;
-						@apply bg-primary;
-						background-image: url('../img/icons/check.svg');
+						@apply bg-primary border-primary;
+						background-image: url('../img/icons/check-light.svg');
 						background-position: center center;
 						background-repeat: no-repeat;
-						background-size: contain;
+						background-size: 10px 10px;
 					}
 				}
 
+				.count {
+					@apply text-primary;
+				}
+
+			}
+
+			&:hover {
+				a {
+					&:before {
+						@apply bg-primary border-primary;
+					}
+				}	
 			}
 
 		}
@@ -51,64 +51,63 @@
 
 
 .widget_layered_nav_filters {
+	@apply mb-6 lg:flex lg:justify-start lg:items-center lg:space-x-3;
+
+	.widgettitle {
+		@apply text-sm block mb-3 lg:inline-block lg:mb-0 lg:text-xl;
+		&:before {
+			content: '';
+			display: inline-block;
+			background-image: url('../img/icons/options.svg');
+			height: 22px;
+			width: 22px;
+			margin-right: 10px;
+			vertical-align: middle;
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-size: contain;
+		}
+	}
 
 	ul {
-		margin: 0;
+		@apply m-0 px-6 space-x-3 block lg:px-0 lg:flex;
+		@apply scroll-snap-x-mandatory overflow-y-hidden overflow-x-auto whitespace-nowrap;
+    	@apply transform -translate-x-2/4 w-screen ml-1/2 lg:rounded-theme lg:ml-auto lg:translate-x-0 lg:w-auto;
+		-ms-overflow-style: none;  /* IE and Edge */
+  		scrollbar-width: none;  /* Firefox */
+	    &::-webkit-scrollbar { @apply hidden; }
+
 		li {
-			position: relative;
-			display: inline-block;
-			overflow: hidden;
-			list-style-type: none;
-			@apply mr-3;
-			margin-bottom: 4px;
+			@apply relative items-center overflow-hidden m-0 inline-block whitespace-normal scroll-snap-align-center;
 
 			a {
-				display: block;
-				text-decoration: none;
-				@apply border;
-				@apply border-gray-500;
-				border-radius: 4px;
-				@apply text-black;
-				@apply pr-2;
-				@apply pl-1;
-				@apply py-1;
-				transition: all var(--ease-speed) var(--ease-default);
-				&:before {
+				@apply border-2 border-primary no-underline text-primary px-3 py-1 rounded-theme align-middle flex items-center font-bold;
+				@apply transition-all ease-default duration-300;
+
+				&:after {
 					content: '';
-					position: absolute;
-					text-align: center;
-					@apply text-red-600;
-					@apply right-3;
-					line-height: 20px;
-					height: 24px;
-					width: 24px;
-					border-radius: 50%;
-					vertical-align: middle;
-					font-size: 12px;
-					transition: all var(--ease-speed) var(--ease-default);
+					@apply inline-block text-center border border-primary right-3 rounded-full align-middle h-5 w-5 ml-2;
+					@apply transition-all ease-default duration-300;
+
 				}
 			}
 
 			&.chosen {
 				a {
-					&:before {
+					&:after {
 						content: "";
-						border: 1px solid theme('colors.red.600');
+						@apply border border-primary;
 						background: url('../img/icons/close.svg') center center no-repeat;
-						background-size: contain;
+						background-size: 10px 10px;
 					}
 				}
 			}
 
 			&:hover {
 				a {
-					border: 1px solid theme('colors.red.600');
-					@apply bg-red-600;
-					@apply text-white;
-					&:before {
-						@apply text-white;
-						border: 1px solid;
-						@apply border-white;
+					@apply bg-primary text-white;
+					&:after {
+						@apply bg-white border-white;
 					}
 				}
 			}

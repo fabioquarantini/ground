@@ -84,6 +84,8 @@ do_action( 'woocommerce_before_main_content' );
 
 			<div class="page__body">
 
+				<?php the_widget( 'WC_Widget_Layered_Nav_Filters' ); ?>
+
 				<?php
 				if ( woocommerce_product_loop() ) {
 					?>

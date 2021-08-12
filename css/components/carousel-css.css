@@ -1,6 +1,8 @@
 .carousel-css {	
     @apply block scroll-snap-x-mandatory overflow-y-hidden overflow-x-auto whitespace-nowrap lg:grid lg:overflow-y-auto lg:whitespace-normal;
     @apply transform -translate-x-2/4 w-screen ml-1/2 lg:rounded-theme lg:ml-auto lg:translate-x-0 lg:w-auto;
+    -ms-overflow-style: none;  /* IE and Edge */
+  	scrollbar-width: none;  /* Firefox */
 
     &::-webkit-scrollbar { @apply hidden; }
 

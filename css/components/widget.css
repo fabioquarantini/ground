@@ -1,22 +1,13 @@
 .widget {
 	.sidebar & {
-		@apply prose mb-6;
-		@apply pb-6;
-
-		ul {
-			li {
-				@apply pl-0;
-				&:before {
-					@apply hidden;
-				}
-				a {
-					@apply no-underline;
-				}
-			}
-		}
+		@apply relative mb-9;
 
 		.widgettitle {
+			@apply relative text-xl font-bold;
+		}
 
+		ul {
+			@apply mt-3;
 		}
 
 	}
