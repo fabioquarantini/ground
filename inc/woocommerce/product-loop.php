@@ -120,7 +120,7 @@ function ground_archive_filters_buttons() {
 	?>
 
 	<div class="sticky top-0 bg-white py-2 z-30 transform -translate-x-2/4 w-screen ml-1/2 lg:relative lg:bg-transparent lg:ml-auto lg:translate-x-0 lg:w-auto">
-		<div class="container">
+		<div class="container px-6 lg:px-0">
 			<div class="grid grid-cols-2 lg:grid-cols-3 gap-6">
 				<div class="lg:col-span-2">	
 					<button class="button button--full-width button--align-left js-toggle block lg:hidden" data-toggle-target=".sidebar" data-toggle-class-name="is-sidebar-open">
