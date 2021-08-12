@@ -84,6 +84,21 @@
             "default_value": ""
         },
         {
+            "key": "field_6114c2bc2cc8f",
+            "label": "Color Typo",
+            "name": "color_typo",
+            "type": "color_picker",
+            "instructions": "Default: #000000",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": ""
+        },
+        {
             "key": "field_61010ec6e9471",
             "label": "Fonts",
             "name": "",
@@ -460,5 +475,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1628750256
+    "modified": 1628750943
 }

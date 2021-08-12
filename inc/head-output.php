@@ -33,11 +33,12 @@ add_action( 'wp_head', 'ground_add_fonts_source' );
  * Add CSS theme variables
  */
 function ground_add_css_theme_variables() {
-	 echo '<style type="text/css">
+	echo '<style type="text/css">
 		:root {
 			--ground-color-primary:' . GROUND_COLOR_PRIMARY . ';
 			--ground-color-secondary:' . GROUND_COLOR_SECONDARY . ';
 			--ground-color-body:' . GROUND_COLOR_BODY . ';
+			--ground-color-typo:' . GROUND_COLOR_TYPO . ';
 			--ground-font-primary:' . GROUND_FONT_FAMILY_PRIMARY . ';
 			--ground-font-secondary:' . GROUND_FONT_FAMILY_SECONDARY . ';
 			--ground-rounded-theme:' . GROUND_ROUNDED_THEME . 'px;
