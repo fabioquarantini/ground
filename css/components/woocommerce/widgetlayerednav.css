@@ -18,7 +18,7 @@
 			&--chosen {
 
 				a {
-					@apply text-primary font-bold underline;
+					@apply text-primary font-bold;
 
 					&:before {
 						content: "";
