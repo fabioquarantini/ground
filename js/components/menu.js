@@ -35,6 +35,7 @@ export default class Menu {
 			this.DOM.html.classList.remove('is-navigation-open');
 			this.DOM.html.classList.remove('is-sub-navigation-open');
 			this.DOM.html.classList.remove('is-all-products-open');
+
 			this.reset(this.defaults.triggers, this.defaults.level);
 			this.init(this.defaults.triggers, 0);
 		});
@@ -59,9 +60,9 @@ export default class Menu {
 					);
 				}
 			});
-			let translation = -100 * i;
-			this.DOM.menuAllProducts.style.cssText += 'transform: translateX(' + translation + '%);';
 		}
+		this.init(this.defaults.triggers, 0);
+		console.log('done');
 	}
 	/**
 	 * Init
@@ -191,35 +192,38 @@ export default class Menu {
 
 		this.DOM.navicon.addEventListener('click', () => {
 			this.DOM.html.classList.remove('is-sub-navigation-open');
-			// if (window.matchMedia('(min-width: 1024px)').matches) {
-			//  setTimeout(() => {
-			//      this.DOM.menuAllProducts.style.cssText += 'transform: none';
-			//      this.DOM.menuContainer.style.cssText += 'transform: none';
-			//  }, 350);
-			// }
-			//level = 0;
+			setTimeout(() => {
+				this.DOM.menuContainer.style.cssText += 'transform: none';
+				this.DOM.menuAllProducts.style.cssText += 'transform: none';
+				this.DOM.html.classList.remove('is-all-products-open');
+
+				this.reset(this.defaults.triggers, this.defaults.level);
+				this.init(this.defaults.triggers, 0);
+			}, 350);
 		});
 
 		this.DOM.closeAllProducts.addEventListener('click', () => {
-			//this.DOM.html.classList.remove('is-sub-navigation-open');
-			// if (window.matchMedia('(min-width: 1024px)').matches) {
-			//  setTimeout(() => {
-			//      this.DOM.menuAllProducts.style.cssText += 'transform: none';
-			//      this.DOM.menuContainer.style.cssText += 'transform: none';
-			//  }, 350);
-			// }
-			//level = 0;
+			this.DOM.html.classList.remove('is-sub-navigation-open');
+			setTimeout(() => {
+				this.DOM.menuContainer.style.cssText += 'transform: none';
+				this.DOM.menuAllProducts.style.cssText += 'transform: none';
+				this.DOM.html.classList.remove('is-all-products-open');
+
+				this.reset(this.defaults.triggers, this.defaults.level);
+				this.init(this.defaults.triggers, 0);
+			}, 350);
 		});
 
 		this.DOM.closePanelAllProducts.addEventListener('click', () => {
-			//this.DOM.html.classList.remove('is-sub-navigation-open');
-			// if (window.matchMedia('(min-width: 1024px)').matches) {
-			//  setTimeout(() => {
-			//      this.DOM.menuAllProducts.style.cssText += 'transform: none';
-			//      this.DOM.menuContainer.style.cssText += 'transform: none';
-			//  }, 350);
-			// }
-			//level = 0;
+			this.DOM.html.classList.remove('is-sub-navigation-open');
+			setTimeout(() => {
+				this.DOM.menuContainer.style.cssText += 'transform: none';
+				this.DOM.menuAllProducts.style.cssText += 'transform: none';
+				this.DOM.html.classList.remove('is-all-products-open');
+
+				this.reset(this.defaults.triggers, this.defaults.level);
+				this.init(this.defaults.triggers, 0);
+			}, 350);
 		});
 	}
 }
