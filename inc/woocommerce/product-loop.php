@@ -94,3 +94,14 @@ function ground_add_short_description_to_product_loop() {
 endif;
 }
 add_action( 'woocommerce_after_shop_loop_item_title', 'ground_add_short_description_to_product_loop', 2 );
+
+
+
+
+/**
+ * WooCommerce, Add WC_Widget_Layered_Nav_Filters to Products on Shop Page
+ */
+function ground_add_widget_active_filters() {
+	the_widget( 'WC_Widget_Layered_Nav_Filters' );
+}
+add_action( 'woocommerce_before_shop_loop', 'ground_add_widget_active_filters', 2 );
