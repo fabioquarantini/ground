@@ -1,5 +1,9 @@
 .minicart {
 
+	.overlay-panel__content {
+		@apply overflow-y-hidden;
+	}
+
 	.woocommerce-cart & {
 		@apply hidden;
 	}
@@ -16,6 +20,9 @@
 
 		.woocommerce-mini-cart {
 			@apply absolute inset-0 h-screen w-full pt-40 overflow-y-auto;
+			-ms-overflow-style: none;  /* IE and Edge */
+  			scrollbar-width: none;  /* Firefox */
+	    	&::-webkit-scrollbar { @apply hidden; }
 
 			.woocommerce-mini-cart-item {
 				@apply relative block overflow-hidden py-1 px-9 mt-2 mb-1 leading-7;
