@@ -15,7 +15,7 @@
 		}
 
 		.woocommerce-mini-cart {
-			@apply absolute inset-0 h-full w-full pt-40 overflow-y-auto;
+			@apply absolute inset-0 h-screen w-full pt-40 overflow-y-auto;
 
 			.woocommerce-mini-cart-item {
 				@apply relative block overflow-hidden py-1 px-9 mt-2 mb-1 leading-7;

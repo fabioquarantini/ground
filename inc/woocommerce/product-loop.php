@@ -108,11 +108,11 @@ remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 3
 function ground_archive_filters_buttons() {
 	?>
 
-	<div class="sticky top-0 bg-white border-b border-gray-200 z-30 transform -translate-x-2/4 w-screen ml-1/2 lg:relative lg:ml-auto lg:translate-x-0 lg:w-auto lg:border-0">
+	<div class="sticky top-0 bg-white border-b border-gray-200 z-20 transform -translate-x-2/4 w-screen ml-1/2 lg:relative lg:ml-auto lg:translate-x-0 lg:w-auto lg:border-0">
 		<div class="container px-6 lg:px-0">
 			<div class="flex flex-wrap pt-3 lg:pt-0">
 				<div class="w-1/2 lg:w-2/3 pb-3 lg:pb-0 pr-3">	
-					<button class="button button--small button--bordered button--full-width block lg:hidden js-toggle" data-toggle-target=".sidebar" data-toggle-class-name="is-sidebar-open">
+					<button class="button button--small button--bordered button--full-width block lg:hidden js-toggle" data-toggle-target=".sidebar--woocommerce html" data-toggle-class-name="is-sidebar-open">
 						<?php ground_icon( 'options', 'button__icon' ); ?> <?php _e( 'Filters', 'ground' ); ?>
 					</button>
 				</div>
@@ -132,18 +132,36 @@ function ground_archive_filters_buttons() {
 add_action( 'woocommerce_before_shop_loop', 'ground_archive_filters_buttons', 10 );
 
 
+/**
+ * WooCommerce, Add Sidebar Woocommerce
+ */
+function ground_add_sidebar_woocommerce() {
 
+	if ( is_active_sidebar( 'sidebar-woocommerce' ) ) :
+		?>
+
+		<div class="sidebar sidebar--woocommerce">
+			<div class="sidebar__body">
+				<?php dynamic_sidebar( 'sidebar-woocommerce' ); ?>
+				<div class="button button--bordered w-full lg:w-auto js-toggle" data-toggle-target="#overlay-panel-filter-woocommerce-advanced html" data-toggle-class-name="is-overlay-panel-open"><?php ground_icon( 'options', 'button__icon' ); ?> <?php _e( 'Advanced Filters', 'ground' ); ?></div>
+			</div>
+			<div class="sidebar__close js-toggle" data-toggle-target=".sidebar--woocommerce html" data-toggle-class-name="is-sidebar-open"><?php ground_icon( 'close' ); ?></div>			
+		</div>
+
+		<?php
+	endif;
+}
+
+add_action( 'woocommerce_sidebar', 'ground_add_sidebar_woocommerce', 10 );
 
 
 /**
- * WooCommerce, Add Filter Woocommerce Advanced
+ * WooCommerce, Add Sidebar Woocommerce Advanced
  */
-function ground_add_filter_woocommerce_advanced() {
+function ground_add_sidebar_woocommerce_advanced() {
 
 	if ( is_active_sidebar( 'sidebar-woocommerce-advanced' ) ) :
 		?>
-
-		<div class="button button--bordered js-toggle" data-toggle-target="#overlay-panel-filter-woocommerce-advanced html" data-toggle-class-name="is-overlay-panel-open"><?php ground_icon( 'options', 'button__icon' ); ?> <?php _e( 'Advanced Filters', 'ground' ); ?></div>
 
 		<!-- overlay-panel--from-left -->
 		<div class="overlay-panel overlay-panel--from-left" id="overlay-panel-filter-woocommerce-advanced">
@@ -162,4 +180,4 @@ function ground_add_filter_woocommerce_advanced() {
 	endif;
 }
 
-add_action( 'woocommerce_sidebar', 'ground_add_filter_woocommerce_advanced', 10 );
+add_action( 'woocommerce_sidebar', 'ground_add_sidebar_woocommerce_advanced', 10 );

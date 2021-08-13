@@ -1,45 +1,19 @@
 .sidebar {
-	display: none;
-	@screen lg {
-		display: block;
+    @apply fixed top-0 left-0 h-full bg-white z-30 w-full transform -translate-x-full transition-all ease-default duration-500 lg:relative lg:translate-x-0 lg:transform-none lg:w-auto lg:top-auto lg:left-auto;
+	-ms-overflow-style: none;  /* IE and Edge */
+	scrollbar-width: none;  /* Firefox */
+	&::-webkit-scrollbar { @apply hidden; }
+
+	&__body {
+		@apply p-6 lg:p-0;
 	}
+
+	&__close {
+    	@apply fixed top-8 right-9 z-40 text-center cursor-pointer opacity-0 invisible transform transition-all -translate-y-3 ease-default duration-500 delay-500 lg:hidden;    
+    }
 
 	&.is-sidebar-open {
-		display: block;
-		position: fixed;
-		top: 0;
-		left: 0;
-		right: 0;
-		height: 100%;
-		background: #fff;
-		z-index: 99;
-		overflow: scroll;
-	}
-}
-
-.sidebar__body {
-	@apply px-6;
-	@apply pt-6;
-	@apply pb-20;
-
-	@screen lg {
-		padding: 0;
-	}
-}
-
-.sidebar__footer {
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	margin: 0;
-	width: 100%;
-
-	@screen lg {
-		display: none;
-	}
-}
-
-.sidebar__button {
-	width: 100%;
-	margin: 0;
+        @apply overflow-x-hidden overflow-y-auto transform-none;
+        .sidebar__close  { @apply opacity-100 visible transform-none; }
+    }
 }
