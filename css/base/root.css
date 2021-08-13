@@ -19,10 +19,6 @@
 				@apply overflow-hidden;
 			}
 
-			&.is-minicart-open {
-				@apply overflow-y-hidden;
-			}
-
 			&.is-search-open {
 				@apply overflow-hidden;
 			}

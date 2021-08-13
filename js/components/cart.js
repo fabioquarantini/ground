@@ -26,7 +26,7 @@ export default class Cart {
 		};
 
 		jQuery('body').on('added_to_cart', function (e, fragments, cart_hash, this_button) {
-			jQuery('html').addClass('is-minicart-open');
+			jQuery('.js-minicart, html').addClass('is-overlay-panel-open');
 		});
 	}
 }
