@@ -58,6 +58,7 @@ export default class Menu {
 			});
 		}
 		this.init(this.defaults.triggers, 0);
+		this.DOM.level = 0;
 	}
 	/**
 	 * Init
