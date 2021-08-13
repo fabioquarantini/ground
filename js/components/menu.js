@@ -161,7 +161,9 @@ export default class Menu {
 		} else {
 			console.log('matchMedia desk');
 			[...document.querySelectorAll(triggers)].forEach((item) => {
-				multiLevelMenu(item, this.DOM.menuAllProducts);
+				if (item.classList.contains('navigation__item--all-products')) {
+					multiLevelMenu(item, this.DOM.menuAllProducts);
+				}
 			});
 
 			this.DOM.back.forEach((b) => {
