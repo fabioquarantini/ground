@@ -1,0 +1,40 @@
+.overlay-panel {
+
+    &__mask {
+        @apply fixed inset-0 h-full w-full bg-black bg-opacity-60 opacity-0 invisible cursor-pointer z-40 transition-all ease-default duration-500;
+
+        .is-overlay-panel-open & {
+            @apply opacity-100 visible;
+        }
+    }
+
+    &__body {
+        @apply fixed top-0 right-0 h-full bg-white z-50 lg:w-sidebar transform translate-x-full transition-all ease-default duration-500;
+
+        .overlay-panel--from-left & {
+            @apply left-0 -translate-x-full;
+        }
+
+        .is-overlay-panel-open & {
+			@apply transform-none;
+		}
+
+    }
+
+    &__content {
+        @apply relative overflow-x-hidden overflow-y-auto h-full p-6 lg:p-12;
+        -ms-overflow-style: none;  /* IE and Edge */
+  		scrollbar-width: none;  /* Firefox */
+	    &::-webkit-scrollbar { @apply hidden; }
+    }
+
+    &__close {
+    	@apply absolute top-8 right-9 z-40 text-center cursor-pointer opacity-0 invisible transform transition-all -translate-y-3 ease-default duration-500 delay-500;
+
+        .is-overlay-panel-open & {
+			@apply opacity-100 visible transform-none;
+		}
+    
+    }
+
+}
