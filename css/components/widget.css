@@ -1,5 +1,6 @@
 .widget {
-	.sidebar & {
+	.sidebar &,
+	.overlay-panel & {
 		@apply relative mb-12;
 
 		.widgettitle {

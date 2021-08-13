@@ -143,7 +143,7 @@ function ground_add_filter_woocommerce_advanced() {
 	if ( is_active_sidebar( 'sidebar-woocommerce-advanced' ) ) :
 		?>
 
-		<div class="button js-toggle" data-toggle-target="#overlay-panel-filter-woocommerce-advanced html" data-toggle-class-name="is-overlay-panel-open">Open sidebar</div>
+		<div class="button button--bordered js-toggle" data-toggle-target="#overlay-panel-filter-woocommerce-advanced html" data-toggle-class-name="is-overlay-panel-open"><?php ground_icon( 'options', 'button__icon' ); ?> <?php _e( 'Advanced Filters', 'ground' ); ?></div>
 
 		<!-- overlay-panel--from-left -->
 		<div class="overlay-panel overlay-panel--from-left" id="overlay-panel-filter-woocommerce-advanced">
