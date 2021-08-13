@@ -2,10 +2,6 @@
 
     &__mask {
         @apply fixed inset-0 h-full w-full bg-black bg-opacity-60 opacity-0 invisible cursor-pointer z-40 transition-all ease-default duration-500;
-
-        .is-overlay-panel-open & {
-            @apply opacity-100 visible;
-        }
     }
 
     &__body {
@@ -14,11 +10,6 @@
         .overlay-panel--from-left & {
             @apply left-0 -translate-x-full;
         }
-
-        .is-overlay-panel-open & {
-			@apply transform-none;
-		}
-
     }
 
     &__content {
@@ -29,12 +20,13 @@
     }
 
     &__close {
-    	@apply absolute top-8 right-9 z-40 text-center cursor-pointer opacity-0 invisible transform transition-all -translate-y-3 ease-default duration-500 delay-500;
+    	@apply absolute top-8 right-9 z-40 text-center cursor-pointer opacity-0 invisible transform transition-all -translate-y-3 ease-default duration-500 delay-500;    
+    }
 
-        .is-overlay-panel-open & {
-			@apply opacity-100 visible transform-none;
-		}
-    
+    &.is-overlay-panel-open {
+        .overlay-panel__mask { @apply opacity-100 visible; }
+        .overlay-panel__body  { @apply transform-none; }
+        .overlay-panel__close  { @apply opacity-100 visible transform-none; }
     }
 
 }
