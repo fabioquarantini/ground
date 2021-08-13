@@ -35,4 +35,30 @@
 	label {
 		@apply block text-base font-medium text-gray-500 dark:text-gray-500 !important;
 	}
+
+	.select2-hidden-accessible {
+		@apply h-0 -m-1 !important;
+	} 
+
+	.select2-container {
+		@apply rounded-theme border border-gray-500 align-middle !important;
+		transform: translateY(-2px);
+
+		.select2-dropdown.select2-dropdown--below {
+			@apply border-t border-b border border-gray-500 rounded-none !important;
+		}
+
+		.select2-selection--single {
+			@apply rounded-theme m-0 h-10 border-0 border-gray-500 focus:ring-primary !important;
+
+			.select2-selection__rendered {
+				@apply rounded-theme h-10 px-3 leading-10 text-gray-500;
+			}
+
+			.select2-selection__arrow {
+				@apply top-px h-9 leading-10 right-3;
+			}
+		}
+
+	}
 }
