@@ -57,14 +57,10 @@
 }
 
 .search__button {
-	@apply relative -left-9 bg-white h-8 w-8 rounded-full;
+	@apply absolute right-10 bg-white h-8 w-8 rounded-full;
 
 	@screen lg {
-		@apply -left-12;
 	}
-	/* .is-search-open & {
-		@apply bg-primary text-white;
-	} */
 }
 
 .search__form {
