@@ -168,7 +168,9 @@ export default class Menu {
 
 			this.DOM.back.forEach((b) => {
 				b.addEventListener('click', () => {
-					multiLevelBack(this.DOM.menuAllProducts);
+					if (item.classList.contains('navigation__item--all-products')) {
+						multiLevelBack(this.DOM.menuAllProducts);
+					}
 				});
 			});
 
@@ -176,6 +178,7 @@ export default class Menu {
 				let timerHandle = null;
 				item.addEventListener('mouseenter', () => {
 					clearTimeout(timerHandle);
+					this.DOM.html.classList.add('is-navigation-hover');
 					timerHandle = setTimeout(() => {
 						item.classList.add('is-hover');
 					}, 300);
@@ -184,6 +187,7 @@ export default class Menu {
 				item.addEventListener('mouseleave', () => {
 					clearTimeout(timerHandle);
 					if (item.classList.contains('is-hover')) {
+						this.DOM.html.classList.remove('is-navigation-hover');
 						timerHandle = setTimeout(() => {
 							item.classList.remove('is-hover');
 						}, 300);
