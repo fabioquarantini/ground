@@ -51,7 +51,7 @@
 
 
 .widget_layered_nav_filters {
-	@apply pb-1 mb-0 lg:py-3 lg:pb-3 lg:flex lg:justify-start lg:items-center lg:space-x-3;
+	@apply pb-1 mb-0 lg:pb-12 lg:flex lg:justify-start lg:items-center lg:space-x-3;
 
 	.widgettitle {
 		@apply text-sm block mb-2 lg:inline-block lg:mb-0 lg:text-xl;

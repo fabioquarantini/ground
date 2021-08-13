@@ -110,16 +110,16 @@ function ground_archive_filters_buttons() {
 
 	<div class="sticky top-0 bg-white border-b border-gray-200 z-30 transform -translate-x-2/4 w-screen ml-1/2 lg:relative lg:ml-auto lg:translate-x-0 lg:w-auto lg:border-0">
 		<div class="container px-6 lg:px-0">
-			<div class="grid grid-cols-2 lg:grid-cols-3 gap-x-6 pt-3">
-				<div class="lg:col-span-2 pb-3 lg:pb-0">	
+			<div class="flex flex-wrap pt-3 lg:pt-0">
+				<div class="w-1/2 lg:w-2/3 pb-3 lg:pb-0 pr-3">	
 					<button class="button button--small button--bordered button--full-width block lg:hidden js-toggle" data-toggle-target=".sidebar" data-toggle-class-name="is-sidebar-open">
 						<?php ground_icon( 'options', 'button__icon' ); ?> <?php _e( 'Filters', 'ground' ); ?>
 					</button>
 				</div>
-				<div>	
+				<div class="w-1/2 lg:w-1/3 pl-3">	
 					<?php $result = woocommerce_catalog_ordering(); ?>
 				</div>
-				<div class="col-span-full">
+				<div class="w-full col-span-full lg:order-first">
 					<?php the_widget( 'WC_Widget_Layered_Nav_Filters' ); ?>
 				</div>
 			</div>
