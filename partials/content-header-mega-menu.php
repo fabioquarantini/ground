@@ -53,9 +53,6 @@
 			<?php endif; ?>
 
 		</div>
-		<div class="relative h-16 bg-white pt-3">
-			<?php get_template_part( 'partials/search', 'form-input' ); ?>
-		</div>
 
 	</div>
 
@@ -92,7 +89,7 @@
 						</div>
 
 						<?php get_template_part( 'partials/navigation', 'secondary' ); ?>
-						<div class="relative">
+						<div id="js-search-desktop" class="relative">
 							<?php get_template_part( 'partials/search', 'form-input' ); ?>
 						</div>
 					</div>
@@ -135,6 +132,7 @@
 
 </header> <!-- End header -->
 
+<div id="js-search-mobile" class="pt-3 h-16 bg-white lg:hidden" ></div>
 
 
 
