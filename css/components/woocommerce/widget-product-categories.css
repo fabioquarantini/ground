@@ -1,13 +1,12 @@
-.widget_product_categories {
+.widget_product_categories,
+.widget_categories {
     @apply relative;
 
-    .product-categories {
+    ul {
 
-        .cat-item {
+        li {
             @apply block list-none;
-
            
-
             .children {
                 @apply mt-0 pl-5;
             }

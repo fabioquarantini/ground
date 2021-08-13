@@ -1,5 +1,6 @@
 .price,
-.ground__price-range {
+.ground__price-range,
+.product_list_widget {
 	@apply text-black dark:text-white;
 
 	.amount {

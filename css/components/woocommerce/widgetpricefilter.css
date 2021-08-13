@@ -1,5 +1,10 @@
+.widget_price_filter {
+
+}
+
+
 .price_slider {
-	margin-bottom: 1em;
+	@apply mt-6 mb-3;
 }
 
 .price_slider_amount {
@@ -50,10 +55,7 @@
 }
 
 .price_slider_wrapper .ui-widget-content {
-	-webkit-border-radius: 1em;
-	-moz-border-radius: 1em;
-	border-radius: 1em;
-	@apply bg-primary;
+	@apply bg-gray-200 rounded-theme;
 }
 
 .ui-slider-horizontal {

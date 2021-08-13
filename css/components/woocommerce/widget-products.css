@@ -1,0 +1,32 @@
+.widget_products,
+.widget_recently_viewed_products {
+
+    .product_list_widget {
+        @apply grid grid-cols-3 gap-x-6 gap-y-6 lg:gap-x-3 lg:grid-cols-2;
+
+        .overlay-panel & {
+            @apply grid-cols-3 gap-x-6;
+        }
+
+        li {
+
+            a {
+                @apply block;
+            }
+
+            img {
+                @apply relative rounded-theme;
+            }
+
+            .product-title {
+                @apply block pt-3 text-sm font-bold;
+            }
+
+            .amount {
+                @apply text-sm;
+            }
+
+        }
+
+    }
+}
