@@ -15,8 +15,11 @@ export default class Search {
 			html: document.documentElement,
 			body: document.body,
 			element: document.getElementById(this.element),
+			searchMobile: document.getElementById('js-search-mobile'),
 			searchClose: document.getElementById('js-search-close'),
 			searchForm: document.getElementById('js-search-form'),
+			searchDesktop: document.getElementById('js-search-desktop'),
+			searchFormAjax: document.getElementById('js-ajax-search'),
 			searchResult: document.getElementById('js-ajax-search-result'),
 			searchInput: document.getElementById('js-ajax-search-input')
 		};
@@ -26,9 +29,21 @@ export default class Search {
 		window.addEventListener('DOMContentLoaded', () => {
 			this.init();
 		});
+
+		window.addEventListener('resize', () => {
+			this.DOM.html.classList.remove('is-search-open');
+			this.DOM.searchForm.classList.remove('is-search-open');
+			this.init();
+		});
 	}
 
 	init() {
+		if (window.matchMedia('(max-width: 1024px)').matches) {
+			this.DOM.searchMobile.append(this.DOM.searchFormAjax);
+		} else {
+			this.DOM.searchDesktop.append(this.DOM.searchFormAjax);
+		}
+
 		if (this.DOM.element.length === 0) {
 			return;
 		}

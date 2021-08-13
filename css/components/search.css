@@ -11,7 +11,7 @@
 .search__content {
 	@apply bg-white relative;
 
-	@screen md {
+	@screen lg {
 		@apply bg-white relative w-full;
 		transition: transform var(--ease-speed) var(--ease-in-out-quint);
 		transform: translateY(-100%);
