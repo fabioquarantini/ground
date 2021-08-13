@@ -2,6 +2,7 @@
 	<?php echo GROUND_HEADER_TEXT; ?>
 </div>
 
+
 <header class="header header-mega-menu w-full z-30 bg-white dark:bg-black">
 
 	<div class="bg-white dark:bg-black h-16 w-full z-30 lg:hidden">
@@ -110,7 +111,7 @@
 					<?php if ( class_exists( 'WooCommerce' ) && ! is_checkout() ) : ?>
 						<?php if ( GROUND_HEADER_ALL_PRODUCTS ) { ?>
 							<div class="header__all-products">
-								<a class="js-button-all-products js-toggle hidden cursor-pointer lg:flex lg:justify-end lg:items-center lg:text-lg" data-toggle-target="html" data-toggle-class-name="is-all-products-open">
+								<a class="js-toggle hidden cursor-pointer lg:flex lg:justify-end lg:items-center lg:text-lg" data-toggle-target="html" data-toggle-class-name="is-all-products-open">
 									<div class="mr-2 flex justify-end items-center"> <?php ground_icon( 'menu-left', 'icon--filled text-black dark:text-white' ); ?></div>
 									<div> <?php _e( 'All products', 'ground' ); ?></div>
 								</a>
