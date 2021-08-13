@@ -22,7 +22,10 @@
 	}
 
 	&--small {
-		@apply px-4 py-1;
+		@apply px-6 py-2;
+		.button__icon {
+			@apply pr-1;
+		}
 	}
 
 	&--large {
@@ -45,6 +48,14 @@
 
 	&--pill {
 		@apply rounded-full;
+	}
+
+	&--bordered {
+		@apply bg-transparent text-black border border-gray-500;
+
+		.button__icon {
+			@apply text-primary;
+		}
 	}
 
 	&[disabled],

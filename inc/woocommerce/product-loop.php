@@ -96,17 +96,6 @@ endif;
 add_action( 'woocommerce_after_shop_loop_item_title', 'ground_add_short_description_to_product_loop', 2 );
 
 
-
-
-/**
- * WooCommerce, Add WC_Widget_Layered_Nav_Filters to Products on Shop Page
- */
-function ground_add_widget_active_filters() {
-	the_widget( 'WC_Widget_Layered_Nav_Filters' );
-}
-add_action( 'woocommerce_before_shop_loop', 'ground_add_widget_active_filters', 2 );
-
-
 /**
  * WooCommerce, Remove woocommerce_catalog_ordering
  */
@@ -114,21 +103,24 @@ remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 3
 
 
 /**
- * WooCommerce, Refactoring filters_buttons
+ * WooCommerce, Refactoring filters_buttons + WC_Widget_Layered_Nav_Filters
  */
 function ground_archive_filters_buttons() {
 	?>
 
-	<div class="sticky top-0 bg-white py-2 z-30 transform -translate-x-2/4 w-screen ml-1/2 lg:relative lg:bg-transparent lg:ml-auto lg:translate-x-0 lg:w-auto">
+	<div class="sticky top-0 bg-white border-b border-gray-200 z-30 transform -translate-x-2/4 w-screen ml-1/2 lg:relative lg:ml-auto lg:translate-x-0 lg:w-auto lg:border-0">
 		<div class="container px-6 lg:px-0">
-			<div class="grid grid-cols-2 lg:grid-cols-3 gap-6">
-				<div class="lg:col-span-2">	
-					<button class="button button--full-width button--align-left js-toggle block lg:hidden" data-toggle-target=".sidebar" data-toggle-class-name="is-sidebar-open">
-						<?php ground_icon( 'options' ); ?> <?php _e( 'Filters', 'ground' ); ?>
+			<div class="grid grid-cols-2 lg:grid-cols-3 gap-x-6 pt-3">
+				<div class="lg:col-span-2 pb-3 lg:pb-0">	
+					<button class="button button--small button--bordered button--full-width block lg:hidden js-toggle" data-toggle-target=".sidebar" data-toggle-class-name="is-sidebar-open">
+						<?php ground_icon( 'options', 'button__icon' ); ?> <?php _e( 'Filters', 'ground' ); ?>
 					</button>
 				</div>
 				<div>	
 					<?php $result = woocommerce_catalog_ordering(); ?>
+				</div>
+				<div class="col-span-full">
+					<?php the_widget( 'WC_Widget_Layered_Nav_Filters' ); ?>
 				</div>
 			</div>
 		</div>
