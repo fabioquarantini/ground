@@ -91,12 +91,6 @@
 
 	//Navigation
 	.navigation--primary {
-		@apply w-full relative bg-red-500;
-
-		@screen lg {
-			@apply w-auto static bg-blue-500;
-		}
-
 		.navigation__item {
 			@apply block;
 
@@ -214,7 +208,10 @@
 
 		.is-hover {
 			.navigation__image {
-				@apply block;
+				@apply hidden;
+				@screen lg {
+					@apply block;
+				}
 			}
 		}
 
