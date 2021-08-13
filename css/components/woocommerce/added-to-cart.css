@@ -1,0 +1,7 @@
+.added_to_cart {
+    @apply block text-primary pt-4 animate-pulse;
+    &:before {
+        content: '';
+        @apply inline-block align-middle bg-gray-400 h-px w-4 mr-3;
+    }
+}

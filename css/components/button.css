@@ -67,4 +67,22 @@
 		@apply outline-none;
 	}
 
+	&.loading {
+		color: transparent;
+		@apply relative bg-primary border-primary;
+
+		&:after {
+			content: "";
+			top: 50%;
+			left: 50%;
+			margin-left: -17px;
+			margin-top: -17px;
+			border: 2px solid rgba(255,255,255,0.2);
+			border-top: 2px solid #fff;
+			width: 34px;
+			height: 34px;
+			@apply absolute rounded-full animate-spin;
+		}
+	}
+
 }
