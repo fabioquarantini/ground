@@ -1,6 +1,6 @@
 .woocommerce-checkout.checkout {
 	@apply grid grid-cols-1 lg:grid-cols-2 gap-6;
-
+	
 	#order_review_heading {
 		@apply hidden;
 	}
@@ -9,16 +9,64 @@
 		@apply col-span-full lg:col-span-2;
 
 	}
-
+	/* prose? */
 	#customer_details {
-		@apply prose col-span-1;
+		@apply col-span-1;
+
+		h3 {
+			@apply text-xl mt-6 mb-3;
+		}
+
+		.woocommerce-shipping-fields {
+			@apply mt-9;
+		}
 	}
 
 	#order_review {
 		@apply relative py-6 px-6 lg:px-12 bg-gray-100 rounded-theme col-span-1;
 	}
+
+	.form-row {
+		@apply my-3;
+
+		label {
+			@apply mb-1;
+		}
+	}
+
+	.form-row-first {
+		@apply w-1/2 inline-block pr-2 my-0 !important;
+	}
+
+	.form-row-last {
+		@apply w-1/2 inline-block pl-2 my-0 !important;
+	}
+
+	.form-row {
+
+		&#billing_invoice_field {
+			@apply mt-8;
+		}
+
+		&#billing_customer_type_field {
+			@apply mt-6;
+		}
+
+		&#shipping_postcode_field,
+		&#shipping_city_field,
+		&#shipping_state_field {
+			@apply w-1/3 inline-block;
+		}
+		&#shipping_city_field {
+			@apply px-4;
+		}
+	}
+
+	#ship-to-different-address {
+		display: none;
+	}
+
 }
 
-#ship-to-different-address {
-	display: none;
-}
+
+
