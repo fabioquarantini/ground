@@ -88,9 +88,9 @@
 						</div>
 
 						<?php get_template_part( 'partials/navigation', 'secondary' ); ?>
-
-						<?php get_template_part( 'partials/search', 'form-input' ); ?>
-
+						<div class="relative">
+							<?php get_template_part( 'partials/search', 'form-input' ); ?>
+						</div>
 					</div>
 
 					<?php if ( class_exists( 'WooCommerce' ) && ! is_checkout() ) : ?>
