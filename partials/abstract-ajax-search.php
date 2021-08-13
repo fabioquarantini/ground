@@ -66,7 +66,7 @@ if ( $query->have_posts() ) {
 	}
 } else {
 	?>
-	<p><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'ground' ); ?></p>
+	<p class="col-start-4 col-span-6 text-center text-2xl"><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'ground' ); ?></p>
 	<?php
 }
 

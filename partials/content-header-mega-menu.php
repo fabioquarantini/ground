@@ -88,9 +88,9 @@
 						</div>
 
 						<?php get_template_part( 'partials/navigation', 'secondary' ); ?>
-						<div id="js-search-form-component">
-							<?php get_template_part( 'partials/search', 'form-input' ); ?>
-						</div>
+
+						<?php get_template_part( 'partials/search', 'form-input' ); ?>
+
 					</div>
 
 					<?php if ( class_exists( 'WooCommerce' ) && ! is_checkout() ) : ?>

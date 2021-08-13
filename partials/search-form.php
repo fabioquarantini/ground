@@ -1,13 +1,12 @@
-<div id="js-search-form" class="search <?php echo GROUND_HEADER_TYPE == 'megaMenu' ? 'lg:mt-32' : ''; ?>">
+<div id="js-search-form" class="search mt-16 lg:mt-32">
 	<div class="search__bg container">
 		<div class="<?php echo GROUND_HEADER_TYPE == 'megaMenu' ? 'hidden' : ''; ?>">
-			<h4 class="text-lg"><?php _e( 'What are you looking for?', 'ground' ); ?></h4>
 			<?php get_template_part( 'partials/search', 'form-input' ); ?>
 		</div>
 
-		<a class="search__close js-toggle" href="#" data-toggle-target=".search html" data-toggle-class-name="is-search-open">
+		<a id="js-search-close" class="js-toggle search__close" href="#" data-toggle-target=".search html" data-toggle-class-name="is-search-open">
 			<?php ground_icon( 'close' ); ?>
 		</a>
-		<div class="search__result grid grid-cols-12 gap-6" id="js-ajax-search-result"></div>
+		<div class="search__result grid grid-cols-12 gap-6 relative" id="js-ajax-search-result"></div>
 	</div>
 </div>

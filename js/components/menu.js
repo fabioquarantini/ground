@@ -186,8 +186,8 @@ export default class Menu {
 
 				item.addEventListener('mouseleave', () => {
 					clearTimeout(timerHandle);
+					this.DOM.html.classList.remove('is-navigation-hover');
 					if (item.classList.contains('is-hover')) {
-						this.DOM.html.classList.remove('is-navigation-hover');
 						timerHandle = setTimeout(() => {
 							item.classList.remove('is-hover');
 						}, 300);
@@ -208,28 +208,30 @@ export default class Menu {
 			}, 350);
 		});
 
-		this.DOM.closeAllProducts.addEventListener('click', () => {
-			this.DOM.html.classList.remove('is-sub-navigation-open');
-			setTimeout(() => {
-				this.DOM.menuContainer.style.cssText += 'transform: none';
-				this.DOM.menuAllProducts.style.cssText += 'transform: none';
-				this.DOM.html.classList.remove('is-all-products-open');
+		this.DOM.closeAllProducts &&
+			this.DOM.closeAllProducts.addEventListener('click', () => {
+				this.DOM.html.classList.remove('is-sub-navigation-open');
+				setTimeout(() => {
+					this.DOM.menuContainer.style.cssText += 'transform: none';
+					this.DOM.menuAllProducts.style.cssText += 'transform: none';
+					this.DOM.html.classList.remove('is-all-products-open');
 
-				this.reset(this.defaults.triggers, this.defaults.level);
-				this.init(this.defaults.triggers, 0);
-			}, 350);
-		});
+					this.reset(this.defaults.triggers, this.defaults.level);
+					this.init(this.defaults.triggers, 0);
+				}, 350);
+			});
 
-		this.DOM.closePanelAllProducts.addEventListener('click', () => {
-			this.DOM.html.classList.remove('is-sub-navigation-open');
-			setTimeout(() => {
-				this.DOM.menuContainer.style.cssText += 'transform: none';
-				this.DOM.menuAllProducts.style.cssText += 'transform: none';
-				this.DOM.html.classList.remove('is-all-products-open');
+		this.DOM.closePanelAllProducts &&
+			this.DOM.closePanelAllProducts.addEventListener('click', () => {
+				this.DOM.html.classList.remove('is-sub-navigation-open');
+				setTimeout(() => {
+					this.DOM.menuContainer.style.cssText += 'transform: none';
+					this.DOM.menuAllProducts.style.cssText += 'transform: none';
+					this.DOM.html.classList.remove('is-all-products-open');
 
-				this.reset(this.defaults.triggers, this.defaults.level);
-				this.init(this.defaults.triggers, 0);
-			}, 350);
-		});
+					this.reset(this.defaults.triggers, this.defaults.level);
+					this.init(this.defaults.triggers, 0);
+				}, 350);
+			});
 	}
 }
