@@ -91,10 +91,10 @@
 
 	//Navigation
 	.navigation--primary {
-		@apply w-full relative;
+		@apply w-full relative bg-red-500;
 
 		@screen lg {
-			@apply w-auto static;
+			@apply w-auto static bg-blue-500;
 		}
 
 		.navigation__item {

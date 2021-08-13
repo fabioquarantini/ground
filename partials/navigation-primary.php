@@ -8,7 +8,7 @@
 		'fallback_cb'    => false,
 		'depth'          => 0,
 		'container'      => '',
-		'walker' 		=> new Ground_Wp_Nav_Menu_Bem
+		'walker'         => new Ground_Wp_Nav_Menu_Bem(),
 	);
 
 	wp_nav_menu( $args ); ?>

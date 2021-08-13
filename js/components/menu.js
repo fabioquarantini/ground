@@ -20,7 +20,6 @@ export default class Menu {
 			menuContainer: document.querySelector('.js-menu-container'),
 			closePanelAllProducts: document.querySelector('.js-close-panel-all-products'),
 			closeAllProducts: document.querySelector('.js-close-all-products'),
-			buttonAllProducts: document.querySelector('.js-button-all-products'),
 			menuAllProducts: document.querySelector('.js-navigation-all-products')
 		};
 
@@ -30,7 +29,8 @@ export default class Menu {
 
 		window.addEventListener('resize', () => {
 			this.DOM.menuContainer.style.cssText += 'transform: none';
-			this.DOM.menuAllProducts.style.cssText += 'transform: none';
+
+			if (this.DOM.menuAllProducts) this.DOM.menuAllProducts.style.cssText += 'transform: none';
 
 			this.DOM.html.classList.remove('is-navigation-open');
 			this.DOM.html.classList.remove('is-sub-navigation-open');
@@ -106,7 +106,8 @@ export default class Menu {
 						}
 					} else if (whichMenu == this.DOM.menuAllProducts) {
 						this.DOM.menuContainer.style.cssText += 'transform: none';
-						this.DOM.menuAllProducts.style.cssText += 'transform: translateX(' + translation + '%);';
+						if (this.DOM.menuAllProducts)
+							this.DOM.menuAllProducts.style.cssText += 'transform: translateX(' + translation + '%);';
 					}
 
 					this.DOM.menuBody.scrollTo({
@@ -140,7 +141,8 @@ export default class Menu {
 					}
 				} else if (whichMenu == this.DOM.menuAllProducts) {
 					this.DOM.menuContainer.style.cssText += 'transform: none';
-					this.DOM.menuAllProducts.style.cssText += 'transform: translateX(' + translation + '%);';
+					if (this.DOM.menuAllProducts)
+						this.DOM.menuAllProducts.style.cssText += 'transform: translateX(' + translation + '%);';
 				}
 
 				level == 0 ? this.DOM.html.classList.remove('is-sub-navigation-open') : null;
@@ -160,19 +162,19 @@ export default class Menu {
 			});
 		} else {
 			console.log('matchMedia desk');
-			[...document.querySelectorAll(triggers)].forEach((item) => {
-				if (item.classList.contains('navigation__item--all-products')) {
-					multiLevelMenu(item, this.DOM.menuAllProducts);
-				}
-			});
-
-			this.DOM.back.forEach((b) => {
-				b.addEventListener('click', () => {
+			if (this.DOM.menuAllProducts) {
+				[...document.querySelectorAll(triggers)].forEach((item) => {
 					if (item.classList.contains('navigation__item--all-products')) {
-						multiLevelBack(this.DOM.menuAllProducts);
+						multiLevelMenu(item, this.DOM.menuAllProducts);
 					}
 				});
-			});
+
+				this.DOM.back.forEach((b) => {
+					b.addEventListener('click', () => {
+						multiLevelBack(this.DOM.menuAllProducts);
+					});
+				});
+			}
 
 			[...document.querySelectorAll(triggers)].forEach((item) => {
 				let timerHandle = null;
@@ -200,7 +202,7 @@ export default class Menu {
 			this.DOM.html.classList.remove('is-sub-navigation-open');
 			setTimeout(() => {
 				this.DOM.menuContainer.style.cssText += 'transform: none';
-				this.DOM.menuAllProducts.style.cssText += 'transform: none';
+				if (this.DOM.menuAllProducts) this.DOM.menuAllProducts.style.cssText += 'transform: none';
 				this.DOM.html.classList.remove('is-all-products-open');
 
 				this.reset(this.defaults.triggers, this.defaults.level);
@@ -208,30 +210,32 @@ export default class Menu {
 			}, 350);
 		});
 
-		this.DOM.closeAllProducts &&
+		if (this.DOM.closeAllProducts) {
 			this.DOM.closeAllProducts.addEventListener('click', () => {
 				this.DOM.html.classList.remove('is-sub-navigation-open');
 				setTimeout(() => {
 					this.DOM.menuContainer.style.cssText += 'transform: none';
-					this.DOM.menuAllProducts.style.cssText += 'transform: none';
+					if (this.DOM.menuAllProducts) this.DOM.menuAllProducts.style.cssText += 'transform: none';
 					this.DOM.html.classList.remove('is-all-products-open');
 
 					this.reset(this.defaults.triggers, this.defaults.level);
 					this.init(this.defaults.triggers, 0);
 				}, 350);
 			});
+		}
 
-		this.DOM.closePanelAllProducts &&
+		if (this.DOM.closePanelAllProducts) {
 			this.DOM.closePanelAllProducts.addEventListener('click', () => {
 				this.DOM.html.classList.remove('is-sub-navigation-open');
 				setTimeout(() => {
 					this.DOM.menuContainer.style.cssText += 'transform: none';
-					this.DOM.menuAllProducts.style.cssText += 'transform: none';
+					if (this.DOM.menuAllProducts) this.DOM.menuAllProducts.style.cssText += 'transform: none';
 					this.DOM.html.classList.remove('is-all-products-open');
 
 					this.reset(this.defaults.triggers, this.defaults.level);
 					this.init(this.defaults.triggers, 0);
 				}, 350);
 			});
+		}
 	}
 }
