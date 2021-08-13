@@ -32,7 +32,7 @@ do_action( 'woocommerce_before_main_content' );
 
 ?>
 
-<div class="grid grid-cols-12 gap-6 lg:mt-12">
+<div class="grid grid-cols-12 gap-x-6 lg:mt-12">
 
 	<div class="
 	<?php
