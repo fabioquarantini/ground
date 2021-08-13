@@ -15,6 +15,7 @@ export default class Search {
 			html: document.documentElement,
 			body: document.body,
 			element: document.getElementById(this.element),
+			searchClose: document.getElementById('js-search-close'),
 			searchForm: document.getElementById('js-search-form'),
 			searchResult: document.getElementById('js-ajax-search-result'),
 			searchInput: document.getElementById('js-ajax-search-input')
@@ -36,18 +37,22 @@ export default class Search {
 			this.search();
 		}, 250);
 
-		console.log('component', this.DOM.searchForm);
-		console.log('content', this.DOM.searchFormContent);
-		this.DOM.searchInput.addEventListener('focus', () => {
-			this.DOM.html.classList.add('is-search-focus');
+		this.DOM.searchInput.addEventListener('input', () => {
 			this.DOM.html.classList.add('is-search-open');
 			this.DOM.searchForm.classList.add('is-search-open');
 		});
 		this.DOM.searchInput.addEventListener('input', debounceInput);
+		this.DOM.searchClose.addEventListener('click', () => {
+			this.DOM.searchValue = '';
+		});
 	}
 
 	search() {
 		const searchValue = this.DOM.searchInput.value;
+		this.DOM.searchClose.addEventListener('click', () => {
+			this.DOM.searchValue = '';
+		});
+
 		if (searchValue === '') {
 			this.DOM.searchResult.innerHTML = '';
 			return;
