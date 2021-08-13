@@ -53,6 +53,10 @@
 			<?php endif; ?>
 
 		</div>
+		<div class="relative h-16 bg-white pt-3">
+			<?php get_template_part( 'partials/search', 'form-input' ); ?>
+		</div>
+
 	</div>
 
 	<div class="js-menu-body header__body grid auto-rows-min fixed left-0 h-full w-full z-40 bg-white dark:bg-black overflow-y-auto lg:pt-0 lg:mt-0
