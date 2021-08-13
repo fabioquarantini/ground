@@ -151,7 +151,9 @@ function ground_add_filter_woocommerce_advanced() {
 			<div class="overlay-panel__body">
 				<div class="overlay-panel__close js-toggle" data-toggle-target="#overlay-panel-filter-woocommerce-advanced html" data-toggle-class-name="is-overlay-panel-open"><?php ground_icon( 'close' ); ?></div>
 				<div class="overlay-panel__content">
-					<?php dynamic_sidebar( 'sidebar-woocommerce-advanced' ); ?>
+					<div class="p-6 lg:p-12">
+						<?php dynamic_sidebar( 'sidebar-woocommerce-advanced' ); ?>
+					</div>
 				</div>
 			</div>
 		</div>

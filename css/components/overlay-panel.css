@@ -13,7 +13,7 @@
     }
 
     &__content {
-        @apply relative overflow-x-hidden overflow-y-auto h-full p-6 lg:p-12;
+        @apply relative overflow-x-hidden overflow-y-auto h-full;
         -ms-overflow-style: none;  /* IE and Edge */
   		scrollbar-width: none;  /* Firefox */
 	    &::-webkit-scrollbar { @apply hidden; }
