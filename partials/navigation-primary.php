@@ -1,5 +1,4 @@
-<nav class="navigation navigation--primary">
-
+<nav class="navigation navigation--primary relative lg:static">
 	<?php
 	$args = array(
 		'theme_location' => 'primary',
@@ -12,5 +11,4 @@
 	);
 
 	wp_nav_menu( $args ); ?>
-
 </nav> <!-- End .navigation -->

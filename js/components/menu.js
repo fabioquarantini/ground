@@ -47,12 +47,8 @@ export default class Menu {
 	 * @param {num} level - Selectors
 	 */
 	reset(triggers, level) {
-		console.log(level, 'level');
-
 		for (let i = 0; i <= level; i++) {
 			[...document.querySelectorAll(triggers)].forEach((item) => {
-				console.log(item, 'item');
-				console.log(item.classList.contains('level' + i));
 				if (item.classList.contains('level' + i)) {
 					item.classList.remove('level' + i);
 					item.childNodes.forEach((t) =>
@@ -62,7 +58,6 @@ export default class Menu {
 			});
 		}
 		this.init(this.defaults.triggers, 0);
-		console.log('done');
 	}
 	/**
 	 * Init
@@ -70,13 +65,11 @@ export default class Menu {
 	 * @param {num} level - Selectors
 	 */
 	init(triggers, level) {
-		console.log('init');
-
 		let translation = 0;
 
+		//Gestione dei submenu delle navigation @whichmenu serve per dirgli a quale menu faccio riferimento , @item quale bottone ho cliccato
 		let multiLevelMenu = (item, whichMenu) => {
 			item.addEventListener('click', (t, i) => {
-				console.log('click' + i);
 				var subMenu = null;
 				var subMenuImage = null;
 				t.target.parentNode.childNodes.forEach((sub) => {
@@ -119,6 +112,7 @@ export default class Menu {
 			});
 		};
 
+		//Gestione dei back
 		let multiLevelBack = (whichMenu) => {
 			if (level > 0) {
 				level--;
@@ -149,8 +143,10 @@ export default class Menu {
 			}
 		};
 
+		//Gestione livelli delle navigation con submenu
 		if (window.matchMedia('(max-width: 1024px)').matches) {
-			console.log('matchMedia mobile');
+			//Mobile
+
 			[...document.querySelectorAll(triggers)].forEach((item) => {
 				multiLevelMenu(item, this.DOM.menuContainer);
 			});
@@ -161,21 +157,7 @@ export default class Menu {
 				});
 			});
 		} else {
-			console.log('matchMedia desk');
-			if (this.DOM.menuAllProducts) {
-				[...document.querySelectorAll(triggers)].forEach((item) => {
-					if (item.classList.contains('navigation__item--all-products')) {
-						multiLevelMenu(item, this.DOM.menuAllProducts);
-					}
-				});
-
-				this.DOM.back.forEach((b) => {
-					b.addEventListener('click', () => {
-						multiLevelBack(this.DOM.menuAllProducts);
-					});
-				});
-			}
-
+			//Dekstop
 			[...document.querySelectorAll(triggers)].forEach((item) => {
 				let timerHandle = null;
 				item.addEventListener('mouseenter', () => {
@@ -198,6 +180,22 @@ export default class Menu {
 			});
 		}
 
+		//Gestione livelli navigation panel desktop con submenu
+		if (window.matchMedia('(min-width: 1024px)').matches && this.DOM.menuAllProducts) {
+			[...document.querySelectorAll(triggers)].forEach((item) => {
+				if (item.classList.contains('navigation__item--all-products')) {
+					multiLevelMenu(item, this.DOM.menuAllProducts);
+				}
+			});
+
+			this.DOM.back.forEach((b) => {
+				b.addEventListener('click', () => {
+					multiLevelBack(this.DOM.menuAllProducts);
+				});
+			});
+		}
+
+		//Se clicco la navicon resetto tutto
 		this.DOM.navicon.addEventListener('click', () => {
 			this.DOM.html.classList.remove('is-sub-navigation-open');
 			setTimeout(() => {
@@ -210,6 +208,7 @@ export default class Menu {
 			}, 350);
 		});
 
+		//Se clicco il close di navigation panel resetto tutto
 		if (this.DOM.closeAllProducts) {
 			this.DOM.closeAllProducts.addEventListener('click', () => {
 				this.DOM.html.classList.remove('is-sub-navigation-open');
@@ -224,6 +223,7 @@ export default class Menu {
 			});
 		}
 
+		//Se clicco l'overlay-panel di navigation panel resetto tutto
 		if (this.DOM.closePanelAllProducts) {
 			this.DOM.closePanelAllProducts.addEventListener('click', () => {
 				this.DOM.html.classList.remove('is-sub-navigation-open');
