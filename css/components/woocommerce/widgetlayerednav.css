@@ -51,7 +51,7 @@
 
 
 .widget_layered_nav_filters {
-	@apply pb-1 mb-0 lg:pb-12 lg:flex lg:justify-start lg:items-center lg:space-x-3;
+	@apply pb-1 mb-0 lg:pb-12 lg:flex lg:flex-wrap lg:justify-start lg:items-center lg:space-x-3;
 
 	.widgettitle {
 		@apply text-sm block mb-2 lg:inline-block lg:mb-0 lg:text-xl;
@@ -70,7 +70,7 @@
 	}
 
 	ul {
-		@apply m-0 px-6 space-x-3 block lg:px-0 lg:flex;
+		@apply m-0 px-6 space-x-3 block lg:px-0 lg:flex lg:flex-wrap;
 		@apply scroll-snap-x-mandatory overflow-y-hidden overflow-x-auto whitespace-nowrap;
     	@apply transform -translate-x-2/4 w-screen ml-1/2 lg:rounded-theme lg:ml-auto lg:translate-x-0 lg:w-auto;
 		-ms-overflow-style: none;  /* IE and Edge */
@@ -78,7 +78,7 @@
 	    &::-webkit-scrollbar { @apply hidden; }
 
 		li {
-			@apply relative items-center overflow-hidden m-0 inline-block whitespace-normal scroll-snap-align-center;
+			@apply relative items-center overflow-hidden m-0 inline-block whitespace-normal scroll-snap-align-center lg:my-px;
 
 			a {
 				@apply border-2 border-primary no-underline text-primary px-3 py-1 rounded-theme align-middle flex items-center font-bold;
