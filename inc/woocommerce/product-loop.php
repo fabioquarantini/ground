@@ -141,13 +141,13 @@ add_action( 'woocommerce_before_shop_loop', 'ground_archive_filters_buttons', 10
 function ground_add_sidebar_woocommerce_advanced() {
 	?>
 
-	<div class="button js-toggle" data-toggle-target="html" data-toggle-class-name="is-overlay-panel-open">Open sidebar</div>
+	<div class="button js-toggle" data-toggle-target="#overlay-panel-woocommerce html" data-toggle-class-name="is-overlay-panel-open">Open sidebar</div>
 
 	<!-- overlay-panel--from-left -->
-	<div class="overlay-panel">
-		<div class="overlay-panel__mask js-toggle" data-toggle-target="html" data-toggle-class-name="is-overlay-panel-open"></div>
+	<div class="overlay-panel" id="overlay-panel-woocommerce">
+		<div class="overlay-panel__mask js-toggle" data-toggle-target="#overlay-panel-woocommerce html" data-toggle-class-name="is-overlay-panel-open"></div>
 		<div class="overlay-panel__body">
-			<div class="overlay-panel__close js-toggle" data-toggle-target="html" data-toggle-class-name="is-overlay-panel-open"><?php ground_icon( 'close' ); ?></div>
+			<div class="overlay-panel__close js-toggle" data-toggle-target="#overlay-panel-woocommerce html" data-toggle-class-name="is-overlay-panel-open"><?php ground_icon( 'close' ); ?></div>
 			<div class="overlay-panel__content">
 				<h1>Lorem Isum</h1>
 				<p class="text-4xl">

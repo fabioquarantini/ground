@@ -26,6 +26,11 @@
 			&.is-search-open {
 				@apply overflow-hidden;
 			}
+
+			&.is-overlay-panel-open {
+				@apply overflow-hidden;
+			}
+		
 		}
 
 		&.is-navigation-open {
