@@ -46,7 +46,6 @@ const cart = new Cart();
 const search = new Search();
 const magnet = new Magnet();
 const gdprCompliance = new GdprCompliance();
-
 // Animations
 // const animationBatch = new AnimationBatch()
 // const animationChangeBgColor = new AnimationChangeBgColor()

@@ -1,6 +1,9 @@
 						</main>
 
-						<?php get_template_part( 'partials/content', 'footer' ); ?>
+						<?php
+						get_template_part( 'partials/payment' );
+						get_template_part( 'partials/content', 'footer' );
+						?>
 
 						</div><!-- End [data-router-view]  -->
 

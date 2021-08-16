@@ -26,7 +26,12 @@ define( 'GROUND_FONT_FAMILY_SECONDARY', get_field( 'font_family_secondary', 'opt
 define( 'GROUND_ROUNDED_THEME', get_field( 'rounded_theme', 'option' ) ? get_field( 'rounded_theme', 'option' ) : '0' );
 
 // Company.
+define( 'GROUND_COMPANY_NAME', get_field( 'company_name', 'option' ) ? get_field( 'company_name', 'option' ) : '' );
 define( 'GROUND_COMPANY_ADDRESS', get_field( 'company_address', 'option' ) ? get_field( 'company_address', 'option' ) : '' );
+define( 'GROUND_COMPANY_CITY', get_field( 'company_city', 'option' ) ? get_field( 'company_city', 'option' ) : '' );
+define( 'GROUND_COMPANY_PROVINCE', get_field( 'company_province', 'option' ) ? get_field( 'company_province', 'option' ) : '' );
+define( 'GROUND_COMPANY_COUNTRY', get_field( 'company_country', 'option' ) ? get_field( 'company_country', 'option' ) : '' );
+define( 'GROUND_COMPANY_CAP', get_field( 'company_cap', 'option' ) ? get_field( 'company_cap', 'option' ) : '' );
 define( 'GROUND_COMPANY_ADDRESS_URL', get_field( 'company_address_url', 'option' ) ? get_field( 'company_address_url', 'option' ) : '' );
 define( 'GROUND_COMPANY_ADDRESS_LATITUDE', get_field( 'company_address_latitude', 'option' ) ? get_field( 'company_address_latitude', 'option' ) : '' );
 define( 'GROUND_COMPANY_ADDRESS_LONGITUDE', get_field( 'company_address_longitude', 'option' ) ? get_field( 'company_address_longitude', 'option' ) : '' );
@@ -35,14 +40,15 @@ define( 'GROUND_COMPANY_PHONE_SECONDARY', get_field( 'company_phone_secondary', 
 define( 'GROUND_COMPANY_EMAIL_PRIMARY', get_field( 'company_email_primary', 'option' ) ? get_field( 'company_email_primary', 'option' ) : '' );
 define( 'GROUND_COMPANY_EMAIL_SECONDARY', get_field( 'company_email_secondary', 'option' ) ? get_field( 'company_email_secondary', 'option' ) : '' );
 define( 'GROUND_COMPANY_FAX', get_field( 'company_fax', 'option' ) ? get_field( 'company_fax', 'option' ) : '' );
+define( 'GROUND_COMPANY_PIVA', get_field( 'company_piva', 'option' ) ? get_field( 'company_piva', 'option' ) : '' );
+define( 'GROUND_COMPANY_CF', get_field( 'company_cf', 'option' ) ? get_field( 'company_cf', 'option' ) : '' );
 
 // Socials.
+define( 'GROUND_SOCIAL_LINKEDIN_URL', get_field( 'social_linkedin_url', 'option' ) ? get_field( 'social_linkedin_url', 'option' ) : '' );
 define( 'GROUND_SOCIAL_FACEBOOK_URL', get_field( 'social_facebook_url', 'option' ) ? get_field( 'social_facebook_url', 'option' ) : '' );
 define( 'GROUND_SOCIAL_TWITTER_URL', get_field( 'social_twitter_url', 'option' ) ? get_field( 'social_twitter_url', 'option' ) : '' );
-define( 'GROUND_SOCIAL_YOUTUBE_URL', get_field( 'social_youtube_url', 'option' ) ? get_field( 'social_youtube_url', 'option' ) : '' );
-define( 'GROUND_SOCIAL_FLICKR_URL', get_field( 'social_flickr_url', 'option' ) ? get_field( 'social_flickr_url', 'option' ) : '' );
 define( 'GROUND_SOCIAL_INSTAGRAM_URL', get_field( 'social_instagram_url', 'option' ) ? get_field( 'social_instagram_url', 'option' ) : '' );
-define( 'GROUND_SOCIAL_LINKEDIN_URL', get_field( 'social_linkedin_url', 'option' ) ? get_field( 'social_linkedin_url', 'option' ) : '' );
+define( 'GROUND_SOCIAL_YOUTUBE_URL', get_field( 'social_youtube_url', 'option' ) ? get_field( 'social_youtube_url', 'option' ) : '' );
 
 // Footer.
 define( 'GROUND_FOOTER_COPYRIGHT', get_field( 'footer_copyright', 'option' ) ? get_field( 'footer_copyright', 'option' ) : '' );

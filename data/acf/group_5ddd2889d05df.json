@@ -3,11 +3,106 @@
     "title": "Theme Settings: Company",
     "fields": [
         {
+            "key": "field_611a1e903b32d",
+            "label": "Company Name",
+            "name": "company_name",
+            "type": "text",
+            "instructions": "Example:Azienda s.p.a",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_61010c4af4da7",
             "label": "Company Address",
             "name": "company_address",
             "type": "text",
-            "instructions": "Example: One Apple Park Way Cupertino, CA 95014 1 408 996–1010",
+            "instructions": "Example:Via XXXX",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_611a17223db32",
+            "label": "Company City",
+            "name": "company_city",
+            "type": "text",
+            "instructions": "Example:Brescia",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_611a17413db33",
+            "label": "Company Province",
+            "name": "company_province",
+            "type": "text",
+            "instructions": "Example:BS",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_611a16d13db30",
+            "label": "Company Country",
+            "name": "company_country",
+            "type": "text",
+            "instructions": "Example: Italy",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_611a17023db31",
+            "label": "Company CAP",
+            "name": "company_cap",
+            "type": "text",
+            "instructions": "Example: 25127",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -167,6 +262,44 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
+        },
+        {
+            "key": "field_611a183e3db34",
+            "label": "Company P.IVA",
+            "name": "company_piva",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_611a184b3db35",
+            "label": "Company CF",
+            "name": "company_cf",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         }
     ],
     "location": [
@@ -186,5 +319,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1628677759
+    "modified": 1629101743
 }

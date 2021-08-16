@@ -36,7 +36,7 @@
 }
 
 .search__spinner {
-	@apply inline-block absolute top-3 -right-6 opacity-0;
+	@apply inline-block absolute top-3 right-0 opacity-0;
 	height: 24px !important;
 	width: 24px !important;
 	transition: opacity 0.4s;

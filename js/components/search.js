@@ -39,7 +39,7 @@ export default class Search {
 
 	init() {
 		if (window.matchMedia('(max-width: 1024px)').matches) {
-			this.DOM.searchMobile.append(this.DOM.searchFormAjax);
+			if (this.DOM.searchMobile) this.DOM.searchMobile.append(this.DOM.searchFormAjax);
 		} else {
 			this.DOM.searchDesktop.append(this.DOM.searchFormAjax);
 		}

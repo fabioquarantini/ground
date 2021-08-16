@@ -3,6 +3,22 @@
     "title": "Theme Settings: Socials",
     "fields": [
         {
+            "key": "field_61010d58154a1",
+            "label": "Social Linkedin Url",
+            "name": "social_linkedin_url",
+            "type": "url",
+            "instructions": "Example: https:\/\/www.linkedin.com\/...",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
             "key": "field_61010d2084e60",
             "label": "Social Facebook Url",
             "name": "social_facebook_url",
@@ -35,38 +51,6 @@
             "placeholder": ""
         },
         {
-            "key": "field_61010d3c6e7b7",
-            "label": "Social Youtube Url",
-            "name": "social_youtube_url",
-            "type": "url",
-            "instructions": "Example: https:\/\/www.youtube.com\/...",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": ""
-        },
-        {
-            "key": "field_61010d45a9055",
-            "label": "Social Flickr Url",
-            "name": "social_flickr_url",
-            "type": "url",
-            "instructions": "Example: https:\/\/www.flickr.com\/...",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": ""
-        },
-        {
             "key": "field_61010d4f30f8b",
             "label": "Social Instagram Url",
             "name": "social_instagram_url",
@@ -83,11 +67,11 @@
             "placeholder": ""
         },
         {
-            "key": "field_61010d58154a1",
-            "label": "Social Linkedin Url",
-            "name": "social_linkedin_url",
+            "key": "field_61010d3c6e7b7",
+            "label": "Social Youtube Url",
+            "name": "social_youtube_url",
             "type": "url",
-            "instructions": "Example: https:\/\/www.linkedin.com\/...",
+            "instructions": "Example: https:\/\/www.youtube.com\/...",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -116,5 +100,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1628677742
+    "modified": 1629099440
 }
