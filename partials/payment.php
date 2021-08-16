@@ -31,8 +31,8 @@ $repeater = GROUND_FOOTER_REPEATER
 			</div>
 			<?php endif; ?>
 
-			<div class="col-span-full lg:col-span-4 lg:text-left">
-				<div class="text-2xl lg:text-4xl font-bold mb-4 ">
+			<div class="col-span-full lg:col-span-4 lg:text-left lg:pl-6">
+				<div class="text-2xl lg:text-3xl font-bold mb-4 ">
 					<?php _e( 'Types of payments', 'ground' ); ?>
 				</div>
 				<div class="text-base lg:text-xl text-gray-500">
@@ -48,8 +48,8 @@ $repeater = GROUND_FOOTER_REPEATER
 				</div>
 			</div>
 
-			<div class="col-span-full lg:col-span-4 lg:text-left">
-				<div class="text-2xl lg:text-4xl font-bold mb-4">
+			<div class="col-span-full lg:col-span-4 lg:text-left lg:pl-6">
+				<div class="text-2xl lg:text-3xl font-bold mb-4">
 					<?php _e( 'Fast shipping for all orders', 'ground' ); ?>
 				</div>
 				<div class="text-base lg:text-xl text-gray-500">
