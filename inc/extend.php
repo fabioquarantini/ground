@@ -607,7 +607,17 @@ add_action( 'wp_enqueue_scripts', 'ground_remove_wp_block_library', 100 );
  */
 function ground_header_switch_type() {
 
-	echo '<h1>Put here the header switch type</h1>';
+	$header_type = GROUND_HEADER_TYPE;
+	switch ( $header_type ) {
+		case $header_type == 'menu':
+			get_template_part( 'partials/content', 'header' );
+			break;
+		case $header_type == 'megaMenu':
+			get_template_part( 'partials/content', 'header-mega-menu' );
+			break;
+		default:
+			get_template_part( 'partials/content', 'header' );
+	}
 }
 
 add_action( 'ground_header', 'ground_header_switch_type' );

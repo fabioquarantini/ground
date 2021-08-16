@@ -16,28 +16,13 @@
 
 	<div class="scroll" id="js-scroll">
 
-	<?php
-		/**
-		 * Hook: ground_header.
-		 */
-		do_action( 'ground_header' );
+		<?php
+			/**
+			 * Hook: ground_header.
+			 */
+			do_action( 'ground_header' );
+		?>
 
-	?>
-
-		 <?php
-			$type = GROUND_HEADER_TYPE;
-			switch ( $type ) {
-				case $type == 'menu':
-					get_template_part( 'partials/content', 'header' );
-					break;
-				case $type == 'megaMenu':
-					get_template_part( 'partials/content', 'header-mega-menu' );
-					break;
-				default:
-					 get_template_part( 'partials/content', 'header' );
-			}
-
-			?>
 		<?php
 		// get_template_part( 'partials/loader' );
 		?>
