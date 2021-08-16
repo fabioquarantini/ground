@@ -23,12 +23,6 @@
 			do_action( 'ground_header' );
 		?>
 
-		<?php
-		// get_template_part( 'partials/loader' );
-		?>
-
-
-
 		<div data-router-wrapper>
 
 			<div <?php ground_view_name(); ?>>
