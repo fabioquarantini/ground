@@ -1,0 +1,20 @@
+form.woocommerce-form-login {
+    .woocommerce-checkout & {
+        @apply relative overflow-hidden my-6 w-full lg:w-1/2;
+        .form-row,
+        .form-row-first,
+        .form-row-last {
+            @apply w-full px-0 py-0 mb-0 !important;
+        }
+    }
+}
+
+.woocommerce-form-login-toggle {
+    .showlogin {
+        @apply text-primary underline;
+    }
+}
+
+form.woocommerce-ResetPassword {
+    @apply relative py-9 px-6 lg:px-9 bg-gray-100 rounded-theme w-full lg:w-1/2;
+}

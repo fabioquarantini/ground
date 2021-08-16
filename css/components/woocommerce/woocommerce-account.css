@@ -3,12 +3,12 @@
     .woocommerce {
 
         h2 {
-            @apply px-9 pt-9 mb-0 text-xl w-full lg:w-1/2 bg-gray-100 rounded-theme;
+            @apply relative px-9 pt-9 mb-0 text-xl w-full lg:w-1/2 bg-gray-100 rounded-theme;
             @apply rounded-b-none !important;
         }
 
         form.woocommerce-form-login {
-            @apply relative pt-1 pb-12 px-9 w-full lg:w-1/2 bg-gray-100  rounded-theme;
+            @apply relative pb-12 px-9 w-full lg:w-1/2 bg-gray-100  rounded-theme;
             @apply rounded-t-none !important;
 
             .woocommerce-form-login__submit {
