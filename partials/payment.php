@@ -1,13 +1,14 @@
-
+<?php
+$repeater = GROUND_FOOTER_REPEATER
+?>
 
  <div class="container my-12 lg:my-24">
 
 	<div class="text-center mb-24 grid grid-cols-12 gap-6 lg:items-center">
-
+			<?php if ( $repeater ) : ?>
 			<div class="col-span-full lg:col-span-2">
 				<div class="grid grid-cols-4 gap-6 lg:grid-cols-2">
 					<?php
-						$repeater = GROUND_FOOTER_REPEATER;
 
 					foreach ( $repeater as $row ) :
 						$select   = $row['select'];
@@ -28,6 +29,7 @@
 					<?php endforeach; ?>
 				</div>
 			</div>
+			<?php endif; ?>
 
 			<div class="col-span-full lg:col-span-4 lg:text-left">
 				<div class="text-2xl lg:text-4xl font-bold mb-4 ">
