@@ -32,38 +32,6 @@ form.woocommerce-form-login {
 }
 
 
-#customer_login {
-    @apply grid lg:grid-cols-2 gap-6;
-
-    .col-1,
-    .col-2 {
-        @apply text-2xl py-9 px-6 lg:px-16;
-        h2 {
-            @apply text-xl;
-        }
-    }
-
-    .col-1 {
-        @apply relative bg-gray-100 rounded-theme w-full;
-
-        form.woocommerce-form-login {
-            @apply relative w-full;
-
-            .woocommerce-form-login__submit {
-                @apply mt-4 w-full;
-            }
-
-        }
-
-    }
-
-    .col-2 {
-        @apply py-3 lg:py-9
-
-    }
-
-}
-
 
 form.woocommerce-ResetPassword {
     @apply relative py-9 px-6 lg:px-9 bg-gray-100 rounded-theme w-full lg:w-1/2;
