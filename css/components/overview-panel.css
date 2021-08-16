@@ -1,3 +1,5 @@
+
+/* DA RIMUOVERE -> UTILIZZARE "overlay-panel" */
 .overview-panel {
 	@apply fixed inset-0 h-full w-full invisible opacity-0 bg-black bg-opacity-60 cursor-pointer z-10 transition-all ease-default duration-500;
 }

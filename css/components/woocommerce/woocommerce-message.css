@@ -1,14 +1,8 @@
 .woocommerce-message,
 .woocommerce-Message {
-	@extend .message;
-	@extend .message--big;
-	@extend .message--fill;
-	@apply mb-12;
-	@apply bg-green-500;
-	@apply text-white;
+	@apply grid lg:block p-5 mb-6 px-6 rounded-theme text-center text-white bg-green-500 lg:text-left;
 
 	.button {
-		@apply right-6;
-		//@include centered(false, true);
+		@apply mt-3 order-last w-full lg:order-none lg:w-auto lg:mr-4 lg:mt-0;
 	}
 }
