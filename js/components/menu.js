@@ -18,9 +18,9 @@ export default class Menu {
 			navicon: document.querySelector('.js-navicon'),
 			menuBody: document.querySelector('.js-menu-body'),
 			menuContainer: document.querySelector('.js-menu-container'),
-			closePanelAllProducts: document.querySelector('.js-close-panel-all-products'),
-			closeAllProducts: document.querySelector('.js-close-all-products'),
-			menuAllProducts: document.querySelector('.js-navigation-all-products')
+			closeOverviewPanel: document.querySelector('.js-close-overview-panel'),
+			closePanel: document.querySelector('.js-close-panel'),
+			menuPanel: document.querySelector('.js-navigation-panel')
 		};
 
 		window.addEventListener('DOMContentLoaded', () => {
@@ -28,15 +28,15 @@ export default class Menu {
 		});
 
 		window.addEventListener('resize', () => {
+			this.reset(this.defaults.triggers, this.defaults.level);
 			this.DOM.menuContainer.style.cssText += 'transform: none';
 
-			if (this.DOM.menuAllProducts) this.DOM.menuAllProducts.style.cssText += 'transform: none';
+			if (this.DOM.menuPanel) this.DOM.menuPanel.style.cssText += 'transform: none';
 
 			this.DOM.html.classList.remove('is-navigation-open');
 			this.DOM.html.classList.remove('is-sub-navigation-open');
-			this.DOM.html.classList.remove('is-all-products-open');
+			this.DOM.html.classList.remove('is-panel-open');
 
-			this.reset(this.defaults.triggers, this.defaults.level);
 			this.init(this.defaults.triggers, 0);
 		});
 	}
@@ -47,7 +47,7 @@ export default class Menu {
 	 * @param {num} level - Selectors
 	 */
 	reset(triggers, level) {
-		for (let i = 0; i <= level; i++) {
+		for (let i = 0; i <= level - 1; i++) {
 			[...document.querySelectorAll(triggers)].forEach((item) => {
 				if (item.classList.contains('level' + i)) {
 					item.classList.remove('level' + i);
@@ -81,6 +81,7 @@ export default class Menu {
 				if (subMenu) {
 					t.preventDefault();
 					t.stopPropagation();
+					console.log('levle', t.target.parentElement);
 
 					t.target.parentElement.classList.add('level' + level);
 					this.DOM.html.classList.add('is-sub-navigation-open');
@@ -98,10 +99,10 @@ export default class Menu {
 						} else {
 							this.DOM.menuContainer.style.cssText += 'transform: none';
 						}
-					} else if (whichMenu == this.DOM.menuAllProducts) {
+					} else if (whichMenu == this.DOM.menuPanel) {
 						this.DOM.menuContainer.style.cssText += 'transform: none';
-						if (this.DOM.menuAllProducts)
-							this.DOM.menuAllProducts.style.cssText += 'transform: translateX(' + translation + '%);';
+						if (this.DOM.menuPanel)
+							this.DOM.menuPanel.style.cssText += 'transform: translateX(' + translation + '%);';
 					}
 
 					this.DOM.menuBody.scrollTo({
@@ -134,18 +135,18 @@ export default class Menu {
 					} else {
 						this.DOM.menuContainer.style.cssText += 'transform: none';
 					}
-				} else if (whichMenu == this.DOM.menuAllProducts) {
+				} else if (whichMenu == this.DOM.menuPanel) {
 					this.DOM.menuContainer.style.cssText += 'transform: none';
-					if (this.DOM.menuAllProducts)
-						this.DOM.menuAllProducts.style.cssText += 'transform: translateX(' + translation + '%);';
+					if (this.DOM.menuPanel)
+						this.DOM.menuPanel.style.cssText += 'transform: translateX(' + translation + '%);';
 				}
 
 				level == 0 ? this.DOM.html.classList.remove('is-sub-navigation-open') : null;
 			}
 		};
 
-		//Gestione livelli delle navigation con submenu
 		if (window.matchMedia('(max-width: 1024px)').matches) {
+			//Gestione livelli navigation panel desktop con submenu
 			//Mobile
 
 			[...document.querySelectorAll(triggers)].forEach((item) => {
@@ -158,6 +159,7 @@ export default class Menu {
 				});
 			});
 		} else {
+			//Gestione livelli navigation panel desktop con submenu
 			//Dekstop
 			[...document.querySelectorAll(triggers)].forEach((item) => {
 				let timerHandle = null;
@@ -179,63 +181,76 @@ export default class Menu {
 					}
 				});
 			});
-		}
 
-		//Gestione livelli navigation panel desktop con submenu
-		if (window.matchMedia('(min-width: 1024px)').matches && this.DOM.menuAllProducts) {
+			//Gestione livelli navigation panel desktop con submenu
+			console.log('desk');
 			[...document.querySelectorAll(triggers)].forEach((item) => {
-				if (item.classList.contains('navigation__item--all-products')) {
-					multiLevelMenu(item, this.DOM.menuAllProducts);
+				//if (item.parentNode.classList.contains('navigation__list--panel')) {
+				if (item.classList.contains('navigation__item--panel-primary')) {
+					multiLevelMenu(item, this.DOM.menuPanel);
 				}
 			});
 
 			this.DOM.back.forEach((b) => {
 				b.addEventListener('click', () => {
-					multiLevelBack(this.DOM.menuAllProducts);
+					multiLevelBack(this.DOM.menuPanel);
 				});
 			});
 		}
 
+		//Gestione livelli navigation panel desktop con submenu
+		// if (window.matchMedia('(min-width: 1024px)').matches && this.DOM.menuPanel) {
+		// 	console.log('desk');
+		// 	[...document.querySelectorAll(triggers)].forEach((item) => {
+		// 		if (item.parentNode.classList.contains('navigation__list--panel')) {
+		// 			multiLevelMenu(item, this.DOM.menuPanel);
+		// 		}
+		// 	});
+
+		// 	this.DOM.back.forEach((b) => {
+		// 		b.addEventListener('click', () => {
+		// 			multiLevelBack(this.DOM.menuPanel);
+		// 		});
+		// 	});
+		// }
+
 		//Se clicco la navicon resetto tutto
 		this.DOM.navicon.addEventListener('click', () => {
 			this.DOM.html.classList.remove('is-sub-navigation-open');
-			setTimeout(() => {
-				this.DOM.menuContainer.style.cssText += 'transform: none';
-				if (this.DOM.menuAllProducts) this.DOM.menuAllProducts.style.cssText += 'transform: none';
-				this.DOM.html.classList.remove('is-all-products-open');
 
-				this.reset(this.defaults.triggers, this.defaults.level);
-				this.init(this.defaults.triggers, 0);
-			}, 350);
+			this.DOM.menuContainer.style.cssText += 'transform: none';
+			if (this.DOM.menuPanel) this.DOM.menuPanel.style.cssText += 'transform: none';
+			this.DOM.html.classList.remove('is-panel-open');
+
+			this.reset(this.defaults.triggers, this.defaults.level);
+			this.init(this.defaults.triggers, 0);
 		});
 
 		//Se clicco il close di navigation panel resetto tutto
-		if (this.DOM.closeAllProducts) {
-			this.DOM.closeAllProducts.addEventListener('click', () => {
+		if (this.DOM.closePanel) {
+			this.DOM.closePanel.addEventListener('click', () => {
 				this.DOM.html.classList.remove('is-sub-navigation-open');
-				setTimeout(() => {
-					this.DOM.menuContainer.style.cssText += 'transform: none';
-					if (this.DOM.menuAllProducts) this.DOM.menuAllProducts.style.cssText += 'transform: none';
-					this.DOM.html.classList.remove('is-all-products-open');
 
-					this.reset(this.defaults.triggers, this.defaults.level);
-					this.init(this.defaults.triggers, 0);
-				}, 350);
+				this.DOM.menuContainer.style.cssText += 'transform: none';
+				if (this.DOM.menuPanel) this.DOM.menuPanel.style.cssText += 'transform: none';
+				this.DOM.html.classList.remove('is-panel-open');
+
+				this.reset(this.defaults.triggers, this.defaults.level);
+				this.init(this.defaults.triggers, 0);
 			});
 		}
 
 		//Se clicco l'overlay-panel di navigation panel resetto tutto
-		if (this.DOM.closePanelAllProducts) {
-			this.DOM.closePanelAllProducts.addEventListener('click', () => {
+		if (this.DOM.closeOverviewPanel) {
+			this.DOM.closeOverviewPanel.addEventListener('click', () => {
 				this.DOM.html.classList.remove('is-sub-navigation-open');
-				setTimeout(() => {
-					this.DOM.menuContainer.style.cssText += 'transform: none';
-					if (this.DOM.menuAllProducts) this.DOM.menuAllProducts.style.cssText += 'transform: none';
-					this.DOM.html.classList.remove('is-all-products-open');
 
-					this.reset(this.defaults.triggers, this.defaults.level);
-					this.init(this.defaults.triggers, 0);
-				}, 350);
+				this.DOM.menuContainer.style.cssText += 'transform: none';
+				if (this.DOM.menuPanel) this.DOM.menuPanel.style.cssText += 'transform: none';
+				this.DOM.html.classList.remove('is-panel-open');
+
+				this.reset(this.defaults.triggers, this.defaults.level);
+				this.init(this.defaults.triggers, 0);
 			});
 		}
 	}

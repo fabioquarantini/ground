@@ -49,9 +49,12 @@ function ground_register_menu() {
 
 	// Registers multiple custom navigation menus in the custom menu editor.
 	$locations = array(
-		'primary'      => __( 'Primary navigation', 'ground-admin' ),
-		'secondary'    => __( 'Secondary navigation', 'ground-admin' ),
-		'all-products' => __( 'All products navigation', 'ground-admin' ),
+		'header-primary'   => __( 'Navigation header primary ', 'ground-admin' ),
+		'header-secondary' => __( 'Navigation header secondary', 'ground-admin' ),
+		'footer-primary'   => __( 'Navigation footer primary', 'ground-admin' ),
+		'footer-secondary' => __( 'Navigation footer secondary', 'ground-admin' ),
+		'footer-tertiary'  => __( 'Navigation footer tertiary', 'ground-admin' ),
+		'panel-primary'    => __( 'Navigation panel primary', 'ground-admin' ),
 	);
 
 	register_nav_menus( $locations );

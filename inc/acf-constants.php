@@ -52,6 +52,7 @@ define( 'GROUND_SOCIAL_YOUTUBE_URL', get_field( 'social_youtube_url', 'option' )
 
 // Footer.
 define( 'GROUND_FOOTER_COPYRIGHT', get_field( 'footer_copyright', 'option' ) ? get_field( 'footer_copyright', 'option' ) : '' );
+define( 'GROUND_FOOTER_REPEATER', get_field( 'footer_payment_repeater', 'option' ) ? get_field( 'footer_payment_repeater', 'option' ) : '' );
 
 // Header.
 define( 'GROUND_HEADER_TEXT', get_field( 'header_text', 'option' ) ? get_field( 'header_text', 'option' ) : '' );
