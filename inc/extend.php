@@ -607,6 +607,10 @@ add_action( 'wp_enqueue_scripts', 'ground_remove_wp_block_library', 100 );
  */
 function ground_header_switch_type() {
 
+	if ( class_exists( 'WooCommerce' ) && is_checkout() ) {
+		return;
+	}
+
 	$header_type = GROUND_HEADER_TYPE;
 	switch ( $header_type ) {
 		case $header_type == 'menu':
@@ -618,6 +622,7 @@ function ground_header_switch_type() {
 		default:
 			get_template_part( 'partials/content', 'header' );
 	}
+
 }
 
 add_action( 'ground_header', 'ground_header_switch_type' );
