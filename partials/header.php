@@ -16,6 +16,14 @@
 
 	<div class="scroll" id="js-scroll">
 
+	<?php
+		/**
+		 * Hook: ground_header.
+		 */
+		do_action( 'ground_header' );
+
+	?>
+
 		 <?php
 			$type = GROUND_HEADER_TYPE;
 			switch ( $type ) {

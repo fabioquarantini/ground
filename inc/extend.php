@@ -597,3 +597,17 @@ function ground_remove_wp_block_library() {
 	// wp_deregister_style( 'wc-block-editor' );
 }
 add_action( 'wp_enqueue_scripts', 'ground_remove_wp_block_library', 100 );
+
+
+
+
+
+/**
+ * Header, Add header switch type
+ */
+function ground_header_switch_type() {
+
+	echo '<h1>Put here the header switch type</h1>';
+}
+
+add_action( 'ground_header', 'ground_header_switch_type' );
