@@ -54,7 +54,8 @@
 	@apply pb-1 mb-0 lg:pb-12 lg:flex lg:flex-wrap lg:justify-start lg:items-center lg:space-x-3;
 
 	.widgettitle {
-		@apply text-sm block mb-2 lg:inline-block lg:mb-0 lg:text-xl;
+		@apply text-sm block mb-2 lg:inline-block lg:mb-0 lg:text-lg;
+
 		&:before {
 			content: '';
 			display: inline-block;

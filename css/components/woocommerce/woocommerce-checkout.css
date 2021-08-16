@@ -55,7 +55,7 @@
 		&#shipping_postcode_field,
 		&#shipping_city_field,
 		&#shipping_state_field {
-			@apply w-1/3 inline-block;
+			@apply w-1/3 inline-block mt-1;
 		}
 		&#shipping_city_field {
 			@apply px-4;
