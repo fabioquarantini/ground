@@ -89,7 +89,7 @@
 							<?php } ?>
 						</div>
 
-						<?php get_template_part( 'partials/navigation', 'secondary' ); ?>
+						<?php get_template_part( 'partials/navigation', 'header-secondary' ); ?>
 						<div id="js-search-desktop" class="relative">
 							<?php get_template_part( 'partials/search', 'form-input' ); ?>
 						</div>
@@ -106,20 +106,20 @@
 
 				<div class="container lg:relative lg:flex lg:items-center lg:justify-between lg:h-16">
 					<div class="<?php echo GROUND_HEADER_ALL_PRODUCTS ? 'hidden lg:flex' : ''; ?>">
-						<?php get_template_part( 'partials/navigation', 'primary' ); ?>
+						<?php get_template_part( 'partials/navigation', 'header-primary' ); ?>
 					</div>
 					<?php if ( class_exists( 'WooCommerce' ) && ! is_checkout() ) : ?>
 						<?php if ( GROUND_HEADER_ALL_PRODUCTS ) { ?>
-							<div class="header__all-products">
-								<a class="js-toggle hidden cursor-pointer lg:flex lg:justify-end lg:items-center lg:text-lg" data-toggle-target="html" data-toggle-class-name="is-all-products-open">
+							<div class="header__panel">
+								<a class="js-toggle hidden cursor-pointer lg:flex lg:justify-end lg:items-center lg:text-lg" data-toggle-target="html" data-toggle-class-name="is-panel-open">
 									<div class="mr-2 flex justify-end items-center"> <?php ground_icon( 'menu-left', 'icon--filled text-black dark:text-white' ); ?></div>
 									<div> <?php _e( 'All products', 'ground' ); ?></div>
 								</a>
 								<div class="hidden lg:flex">
-									<?php get_template_part( 'partials/panel', 'all-products' ); ?>
+									<?php get_template_part( 'partials/panel', 'primary' ); ?>
 								</div>
 								<div class="lg:hidden">
-									<?php get_template_part( 'partials/navigation', 'all-products' ); ?>
+									<?php get_template_part( 'partials/navigation', 'panel-primary' ); ?>
 								</div>
 							</div>
 						<?php } ?>

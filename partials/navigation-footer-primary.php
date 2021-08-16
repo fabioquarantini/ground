@@ -1,8 +1,8 @@
- <nav class="js-navigation-all-products navigation navigation--all-products">
+<nav class="navigation navigation--footer">
 	<?php
 	$args = array(
-		'theme_location' => 'all-products',
-		'menu_class'     => 'navigation__list navigation__list--all-products',
+		'theme_location' => 'footer-primary',
+		'menu_class'     => 'navigation__list navigation__list--primary',
 		'items_wrap'     => '<ul class="%2$s">%3$s</ul>',
 		'fallback_cb'    => false,
 		'depth'          => 0,

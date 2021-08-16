@@ -14,7 +14,6 @@
 	}
 
 	.header__container {
-		//transform: translateX(100%); Si trova in menu.js
 		transition-timing-function: ease-in-out;
 		transition: 0.2s;
 
@@ -38,7 +37,7 @@
 			//transform: translateX(-200%);
 			@apply transform -translate-x-full duration-75 ease-default;
 
-			.is-all-products-open.is-sub-navigation-open & {
+			.is-panel-open.is-sub-navigation-open & {
 				@apply transform-none;
 			}
 		}
@@ -62,28 +61,44 @@
 	}
 
 	.header__cart {
-		transform: translateX(0%);
-		transition-timing-function: ease-in-out;
-		transition: 0.2s;
+		@apply opacity-100 visible;
+		transition: opacity 0.15s ease-in-out;
 
 		.is-navigation-open & {
-			transform: translateX(300%);
+			@apply opacity-0 invisible;
 		}
 	}
 
 	.header__navicon {
 		transform: translateX(0%);
-		transition-timing-function: ease-in-out;
-		transition: 0.75s;
+		/* transition-timing-function: ease-in-out;
+		transition: 0.75s; */
+		animation-duration: 0.75s;
 
 		.is-navigation-open & {
 			transform: translateX(calc(100vw - 72px));
+			animation-name: slidein;
+			@keyframes slidein {
+				0% {
+					opacity: 0;
+				}
+
+				80% {
+					opacity: 0;
+					left: -24px;
+				}
+
+				100% {
+					opacity: 1;
+					left: 0;
+				}
+			}
 		}
 	}
 
-	.header__all-products {
+	.header__panel {
 		&:hover {
-			.navigation--all-products {
+			.navigation--panel-primary {
 				@apply opacity-100;
 			}
 		}
@@ -239,7 +254,7 @@
 		}
 	}
 
-	.navigation--all-products {
+	.navigation--panel-primary {
 		@apply w-full relative;
 
 		@screen lg {
@@ -320,7 +335,7 @@
 	}
 
 	.is-hover {
-		.navigation--all-products {
+		.navigation--panel-primary {
 			@apply hidden;
 		}
 	}

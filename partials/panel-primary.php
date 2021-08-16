@@ -1,8 +1,8 @@
-<div class="panel-all-products">
-	<div class="js-toggle js-close-panel-all-products panel-all-products__panel overview-panel" data-toggle-target="html" data-toggle-class-name="is-all-products-open"></div>
+<div class="panel panel--primary">
+	<div class="js-toggle js-close-overview-panel panel panel__overview overview-panel" data-toggle-target="html" data-toggle-class-name="is-all-products-open"></div>
 
-	<div class="panel-all-products__body">
-		<div class="js-toggle js-close-all-products panel-all-products__close" data-toggle-target="html" data-toggle-class-name="is-all-products-open">
+	<div class="panel panel__body">
+		<div class="js-toggle js-close-panel panel panel__close" data-toggle-target="html" data-toggle-class-name="is-all-products-open">
 			<?php ground_icon( 'close' ); ?>
 		</div>
 
@@ -24,7 +24,7 @@
 		<a class="js-back block ml-6 mb-6 header__back cursor-pointer"> <span> <?php ground_icon( 'chevron-left', 'text-black dark:text-white' ); ?> </span> <?php _e( 'Indietro', 'ground' ); ?> </a>
 
 
-		<?php get_template_part( 'partials/navigation', 'all-products' ); ?>
+		<?php get_template_part( 'partials/navigation', 'panel-primary' ); ?>
 
 
 	</div>

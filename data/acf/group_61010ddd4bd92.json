@@ -20,6 +20,113 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
+        },
+        {
+            "key": "field_611a65a682444",
+            "label": "Footer form of payment",
+            "name": "footer_payment_repeater",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "row",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_611a664482445",
+                    "label": "Select logo",
+                    "name": "select",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_611a676a82447",
+                                "operator": "!=",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "amex": "Amex",
+                        "applepay": "ApplePay",
+                        "gpay": "GPay",
+                        "mastercard": "Mastercard",
+                        "maestro": "Maestro",
+                        "paypal": "Paypal",
+                        "satispay": "Satispay",
+                        "sepa": "Sepa",
+                        "visa": "Visa"
+                    },
+                    "default_value": false,
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "return_format": "value",
+                    "ajax": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_611a676a82447",
+                    "label": "Or upload another svg logo",
+                    "name": "checkbox",
+                    "type": "true_false",
+                    "instructions": "Check if there is no desired logo I want to upload a new one",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_611a674882446",
+                    "label": "Svg code",
+                    "name": "svg",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_611a676a82447",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": ""
+                }
+            ]
         }
     ],
     "location": [
@@ -39,5 +146,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1629101666
+    "modified": 1629121524
 }

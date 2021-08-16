@@ -35,7 +35,7 @@
 @import "components/overview-panel.css";
 @import "components/overlay-panel.css";
 @import "components/page.css";
-@import "components/panel-all-products.css";
+@import "components/panel.css";
 @import "components/pagination.css";
 @import "components/scroll-snap.css";
 @import "components/search.css";
@@ -80,8 +80,6 @@
 @import "components/woocommerce/summary.css";
 @import "components/woocommerce/stock.css";
 @import "components/woocommerce/wc-block.css";
-
-
 
 // Utilities
 @import "utilities/animate.css";
