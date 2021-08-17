@@ -1,5 +1,4 @@
 .page {
-	@apply mb-6;
 
 	body.woocommerce-checkout & {
 		@apply py-20;

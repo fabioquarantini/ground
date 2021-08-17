@@ -13,22 +13,18 @@ get_template_part( 'partials/header' );
 
 	<?php get_template_part( 'partials/breadcrumbs' ); ?>
 
-	<div class="grid grid-cols-12 gap-6">
+	<div class="relative mt-12">
 
-		<!-- col-span-full lg:col-start-2 lg:col-span-10 -->
-		<div class="col-span-full">
+		<?php
+		while ( have_posts() ) :
+			the_post();
 
-			<?php
-			while ( have_posts() ) :
-				the_post();
+			get_template_part( 'partials/content', 'page' );
 
-				get_template_part( 'partials/content', 'page' );
+		endwhile;
+		?>
 
-			endwhile;
-			?>
+	</div>
 
-		</div> <!-- End .row -->
-	</div> <!-- End .container -->
-
-	<?php
-	get_template_part( 'partials/footer' );
+<?php
+get_template_part( 'partials/footer' );
