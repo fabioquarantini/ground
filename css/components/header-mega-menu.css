@@ -1,8 +1,8 @@
 .header-mega-menu {
-	@apply sticky top-0; 
+	@apply sticky top-0 border-b border-gray-200; 
 	@screen lg {
 		.scroll-direction-down & {
-			@apply transform -translate-y-32;
+			@apply transform -translate-y-16;
 		}
 	}
 

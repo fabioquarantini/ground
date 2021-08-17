@@ -1,6 +1,6 @@
 .header {
 	@apply z-40;
 	@screen lg {
-		@apply ease-default duration-500;
+		@apply ease-in-out duration-500;
 	}
 }

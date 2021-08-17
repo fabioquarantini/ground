@@ -1,5 +1,12 @@
 .summary {
-	@apply sticky top-12;
+	@apply sticky top-36;
+
+	@screen lg {
+		@apply ease-in-out duration-500;
+		.scroll-direction-up & {
+			@apply top-52;
+		}
+	}
 
 	.woocommerce-product-details__short-description {
 		@apply relative text-base text-gray-500 my-3;

@@ -18,7 +18,8 @@ export default class ScrollDirection {
 		let scrollPos = 0;
 		// adding scroll event
 		window.addEventListener('scroll', () => {
-			if (scrollPos < -500) {
+			console.log(scrollPos);
+			if (scrollPos < -96) {
 				// detects new state and compares it with the new one
 				if (document.body.getBoundingClientRect().top > scrollPos) {
 					if (document.documentElement.classList.contains('scroll-direction-down')) {
