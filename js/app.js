@@ -13,6 +13,7 @@ import Search from './components/search';
 import Magnet from './components/magnetV2';
 import Billing from './components/billing';
 import GdprCompliance from './components/gdprCompliance';
+import ScrollDirection from './components/scrollDirection';
 
 // Animations
 import AnimationAll from './animations/animationAll';
@@ -46,6 +47,8 @@ const cart = new Cart();
 const search = new Search();
 const magnet = new Magnet();
 const gdprCompliance = new GdprCompliance();
+const scrollDirection = new ScrollDirection();
+
 // Animations
 // const animationBatch = new AnimationBatch()
 // const animationChangeBgColor = new AnimationChangeBgColor()

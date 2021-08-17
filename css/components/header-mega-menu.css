@@ -1,4 +1,11 @@
 .header-mega-menu {
+	@apply sticky top-0; 
+	@screen lg {
+		.scroll-direction-down & {
+			@apply transform -translate-y-32;
+		}
+	}
+
 	.header__body {
 		transform: translateX(100%);
 		transition-timing-function: ease-in-out;

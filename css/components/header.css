@@ -1,12 +1,6 @@
 .header {
-	.page-template-template-configurator & {
-		z-index: 150;
-	}
+	@apply z-40;
 	@screen lg {
-		transition-timing-function: ease-in-out;
-		transition: 0.4s;
-		.scroll-direction-down & {
-			transform: translateY(-64px);
-		}
+		@apply ease-default duration-500;
 	}
 }
