@@ -59,7 +59,7 @@ if ( ! function_exists( 'ground_woocommerce_cart_link_fragment' ) ) {
 
 		ob_start();
 		ground_woocommerce_cart_link();
-		$fragments['a.minicart__contents'] = ob_get_clean();
+		$fragments['a.shopping-cart'] = ob_get_clean();
 
 		return $fragments;
 	}
@@ -75,7 +75,7 @@ if ( ! function_exists( 'ground_woocommerce_cart_link' ) ) {
 	 * @since  1.0.0
 	 */
 	function ground_woocommerce_cart_link() {
-		get_template_part( 'partials/woocommerce/minicart', 'contents' );
+		get_template_part( 'partials/woocommerce/shopping-cart' );
 	}
 }
 

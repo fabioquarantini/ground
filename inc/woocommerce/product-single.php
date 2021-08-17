@@ -123,3 +123,33 @@ function ground_add_cart_quantity_plus_minus() {
 	);
 }
 add_action( 'wp_footer', 'ground_add_cart_quantity_plus_minus' );
+
+
+/**
+ * Add Page Relation in product details
+ */
+function ground_add_page_relation_below_product_summary() {
+	?>
+
+	<?php
+	$shop_product_page_relation = get_field( 'shop_product_page_relation', 'option' );
+	if ( $shop_product_page_relation ) :
+		?>
+	<div class="relative mt-9">
+		<?php
+		foreach ( $shop_product_page_relation as $page_relation ) :
+			$permalink = get_permalink( $page_relation->ID );
+			$title     = get_the_title( $page_relation->ID );
+			?>
+		<div>
+			<a class="text-sm text-gray-500 underline" href="<?php echo esc_url( $permalink ); ?>"><?php echo esc_html( $title ); ?></a>
+		</div>
+		<?php endforeach; ?>
+	</div>
+	<?php endif; ?>
+
+
+	<?php
+}
+add_action( 'woocommerce_single_product_summary', 'ground_add_page_relation_below_product_summary', 55 );
+

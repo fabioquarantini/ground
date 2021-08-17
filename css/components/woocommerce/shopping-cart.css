@@ -1,0 +1,27 @@
+.shopping-cart {
+}
+
+.shopping-cart__icon {
+	@apply relative inline-block align-middle text-black h-6;
+	@apply transition-all ease-default duration-500;
+}
+
+.shopping-cart__subtotal {
+	@apply sr-only;
+}
+
+.shopping-cart__count {
+	@apply absolute text-sm top-2 right-1 text-center rounded-full text-white bg-red-500 h-6 w-6 leading-6;
+
+	.is-full & {
+		@apply animate-bounce;
+	}
+
+	.is-empty & {
+		@apply hidden;
+	}
+}
+
+.shopping-cart__count-label {
+	@apply sr-only;
+}

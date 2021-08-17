@@ -607,6 +607,8 @@ function ground_header_switch_type() {
 		return;
 	}
 
+	get_template_part( 'partials/woocommerce/minicart' );
+
 	$header_type = GROUND_HEADER_TYPE;
 	switch ( $header_type ) {
 		case $header_type == 'menu':
