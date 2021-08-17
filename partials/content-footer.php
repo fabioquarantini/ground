@@ -31,7 +31,19 @@
 
 	<div class="container mt-12 lg:flex lg:items-center lg:justify-start lg:pt-16 lg:space-x-9">
 		<div class="mb-6 lg:mb-0">
-			<p><?php echo GROUND_COMPANY_NAME ? GROUND_COMPANY_NAME . '-' : null; ?>  <?php echo GROUND_COMPANY_ADDRESS ? GROUND_COMPANY_ADDRESS : null; ?> - <?php echo GROUND_COMPANY_CAP ? GROUND_COMPANY_CAP : null; ?> <?php echo GROUND_COMPANY_CITY ? GROUND_COMPANY_CITY : null; ?> (<?php echo GROUND_COMPANY_PROVINCE ? GROUND_COMPANY_PROVINCE : null; ?>) - <?php echo GROUND_COMPANY_COUNTRY ? GROUND_COMPANY_COUNTRY : null; ?> - P.IVA: <?php echo GROUND_COMPANY_PIVA ? GROUND_COMPANY_PIVA : null; ?> - C.F.: <?php echo GROUND_COMPANY_CF ? GROUND_COMPANY_CF : null; ?> </p>
+			<p>
+			<?php
+			_e( 'All rights reserved - © copyright', 'ground' );
+			echo date( 'Y' );
+			echo ( '  ' );
+			?>
+			<?php echo GROUND_COMPANY_NAME ? GROUND_COMPANY_NAME . ' - ' : null; ?>
+			<?php echo GROUND_COMPANY_ADDRESS ? GROUND_COMPANY_ADDRESS . ' - ' : null; ?>
+			<?php echo GROUND_COMPANY_CAP ? GROUND_COMPANY_CAP : null; ?> <?php echo GROUND_COMPANY_CITY ? GROUND_COMPANY_CITY : null; ?>
+			<?php echo GROUND_COMPANY_PROVINCE ? ( '( ' . GROUND_COMPANY_PROVINCE . ' )' ) : null; ?>
+			<?php echo GROUND_COMPANY_COUNTRY ? GROUND_COMPANY_COUNTRY : null; ?>
+			<?php echo GROUND_COMPANY_PIVA ? GROUND_COMPANY_PIVA . ' - P.IVA:' : null; ?>
+			<?php echo GROUND_COMPANY_CF ? GROUND_COMPANY_CF . ' - C.F.:' : null; ?> </p>
 		</div>
 		<?php if ( GROUND_SOCIAL_LINKEDIN_URL || GROUND_SOCIAL_FACEBOOK_URL || GROUND_SOCIAL_INSTAGRAM_URL || GROUND_SOCIAL_YOUTUBE_URL ) : ?>
 		<div class="lg:border-l border-gray-400">
