@@ -1,3 +1,4 @@
+<?php if ( class_exists( 'WooCommerce' ) && ! is_checkout() ) : ?>
 <div class="container bg-black text-center text-white py-2 xl:hidden">
 	<?php echo GROUND_HEADER_TEXT; ?>
 </div>
@@ -31,17 +32,16 @@
 				<?php } ?>
 			</div>
 
-			<?php if ( class_exists( 'WooCommerce' ) && ! is_checkout() ) : ?>
-				<?php
+			<?php
 				$count = WC()->cart->get_cart_contents_count();
 				$class = '';
 
-				if ( $count === 0 ) {
-					$class = 'is-empty ';
-				} else {
-					$class = 'is-full js-toggle';
-				}
-				?>
+			if ( $count === 0 ) {
+				$class = 'is-empty ';
+			} else {
+				$class = 'is-full js-toggle';
+			}
+			?>
 
 			<div class="header__cart relative lg:hidden">
 				<a class="flex justify-start items-center" href="<?php echo wc_get_page_permalink( 'cart' ); ?>">
@@ -51,7 +51,6 @@
 					</div>
 				</a>
 			</div>
-			<?php endif; ?>
 
 		</div>
 
@@ -64,8 +63,14 @@
 				<div class="hidden xl:flex">
 					<?php echo GROUND_HEADER_TEXT; ?>
 				</div>
-				<ul class="block m-0 space-x-0 lg:space-x-5">
-					<li class="js-toggle cursor-pointer text-lg lg:text-base lg:py-0" data-toggle-target="#modal-languages" data-toggle-class-name="hidden"><a><span class="mr-2"><?php ground_icon( 'globe-alt', 'icon--filled text-black dark:text-white' ); ?></span><?php _e( 'Language', 'ground' ); ?></a></li>
+				<ul class="flex flex-row-reverse space-x-5">
+					<li class="js-toggle text-lg lg:text-base pl-4" data-toggle-target="#modal-languages" data-toggle-class-name="hidden"><a class="cursor-pointer"><span class="mr-2"><?php ground_icon( 'globe-alt', 'icon--filled w-6 rounded-full text-white bg-black p-1 dark:text-white dark:bg-white' ); ?></span><?php _e( 'Language', 'ground' ); ?><span><?php ground_icon( 'chevron-down', 'text-black' ); ?></span></a></li>
+					<?php if ( GROUND_COMPANY_PHONE ) : ?>
+						<li class="js-toggle text-lg lg:text-base" data-toggle-target="#modal-languages" data-toggle-class-name="hidden"><a class="cursor-pointer"><span class="mr-2"><?php ground_icon( 'phone', 'icon--filled w-6 rounded-full text-white bg-purple-600 p-1 dark:text-white' ); ?></span> <?php echo GROUND_COMPANY_PHONE; ?></a></li>
+					<?php endif; ?>
+					<?php if ( GROUND_COMPANY_WHATSAPP ) : ?>
+						<li class="js-toggle text-lg lg:text-base" data-toggle-target="#modal-languages" data-toggle-class-name="hidden"><a class="cursor-pointer"><span class="mr-2"><?php ground_icon( 'whatsapp', 'icon--filled w-6 rounded-full text-white bg-green-400 p-1 dark:text-white' ); ?></span> <?php echo GROUND_COMPANY_WHATSAPP; ?></a></li>
+					<?php endif; ?>
 				</ul>
 			</div>
 
@@ -95,12 +100,20 @@
 						</div>
 					</div>
 
-					<?php if ( class_exists( 'WooCommerce' ) && ! is_checkout() ) : ?>
-					<ul class="flex items-center mt-6 justify-start space-x-5 lg:justify-end lg:m-0">
-						<li class="text-lg lg:text-base"><a class="navigation__link"href="<?php echo get_permalink( wc_get_page_id( 'myaccount' ) ); ?>"><?php _e( 'Account', 'ground' ); ?><span class="ml-2"><?php ground_icon( 'user', 'icon--filled text-black dark:text-white' ); ?></span></a></li>
+					<ul class="border-b border-gray-200 lg:border-none lg:flex lg:items-center lg:space-x-5 lg:justify-end lg:m-0">
+						<li class="text-lg lg:text-base"><a class="inline-block py-4 lg:py-auto" href="<?php echo get_permalink( wc_get_page_id( 'myaccount' ) ); ?>"><?php _e( 'Account', 'ground' ); ?><span class="hidden ml-2 lg:inline-block"><?php ground_icon( 'user', 'icon--filled text-black dark:text-white' ); ?></span></a></li>
 						<li class="hidden minicart-wrapper lg:inline-block"><?php get_template_part( 'partials/woocommerce/minicart' ); ?> </li>
 					</ul>
-					<?php endif; ?>
+
+					<ul class="block lg:hidden">
+						<li class="js-toggle text-lg lg:text-base py-3" data-toggle-target="#modal-languages" data-toggle-class-name="hidden"><a class="cursor-pointer"><span class="mr-2"><?php ground_icon( 'globe-alt', 'icon--filled w-6 rounded-full text-white bg-black p-1 dark:text-white dark:bg-white' ); ?></span><?php _e( 'Language', 'ground' ); ?></a></li>
+						<?php if ( GROUND_COMPANY_PHONE ) : ?>
+							<li class="js-toggle text-lg lg:text-base py-3" data-toggle-target="#modal-languages" data-toggle-class-name="hidden"><a class="cursor-pointer"><span class="mr-2"><?php ground_icon( 'phone', 'icon--filled w-6 rounded-full text-white bg-purple-600 p-1 dark:text-white' ); ?></span> <?php echo GROUND_COMPANY_PHONE; ?></a></li>
+						<?php endif; ?>
+						<?php if ( GROUND_COMPANY_WHATSAPP ) : ?>
+							<li class="js-toggle text-lg lg:text-base py-3" data-toggle-target="#modal-languages" data-toggle-class-name="hidden"><a class="cursor-pointer"><span class="mr-2"><?php ground_icon( 'whatsapp', 'icon--filled w-6 rounded-full text-white bg-green-400 p-1 dark:text-white' ); ?></span> <?php echo GROUND_COMPANY_WHATSAPP; ?></a></li>
+						<?php endif; ?>
+					</ul>
 				</div>
 
 
@@ -108,22 +121,21 @@
 					<div class="<?php echo GROUND_HEADER_ALL_PRODUCTS ? 'hidden lg:flex' : ''; ?>">
 						<?php get_template_part( 'partials/navigation', 'header-primary' ); ?>
 					</div>
-					<?php if ( class_exists( 'WooCommerce' ) && ! is_checkout() ) : ?>
-						<?php if ( GROUND_HEADER_ALL_PRODUCTS ) { ?>
-							<div class="header__panel">
-								<a class="js-toggle hidden cursor-pointer lg:flex lg:justify-end lg:items-center lg:text-lg" data-toggle-target="html" data-toggle-class-name="is-panel-open">
-									<div class="mr-2 flex justify-end items-center"> <?php ground_icon( 'menu-left', 'icon--filled text-black dark:text-white' ); ?></div>
-									<div> <?php _e( 'All products', 'ground' ); ?></div>
-								</a>
-								<div class="hidden lg:flex">
-									<?php get_template_part( 'partials/panel', 'primary' ); ?>
-								</div>
-								<div class="lg:hidden">
-									<?php get_template_part( 'partials/navigation', 'panel-primary' ); ?>
-								</div>
+
+					<?php if ( GROUND_HEADER_ALL_PRODUCTS ) { ?>
+						<div class="header__panel">
+							<a class="js-toggle hidden cursor-pointer lg:flex lg:justify-end lg:items-center lg:text-lg" data-toggle-target="html" data-toggle-class-name="is-panel-open">
+								<div class="mr-2 flex justify-end items-center"> <?php ground_icon( 'menu-left', 'icon--filled text-black dark:text-white' ); ?></div>
+								<div> <?php _e( 'All products', 'ground' ); ?></div>
+							</a>
+							<div class="hidden lg:flex">
+								<?php get_template_part( 'partials/panel', 'primary' ); ?>
 							</div>
-						<?php } ?>
-					<?php endif; ?>
+							<div class="lg:hidden">
+								<?php get_template_part( 'partials/navigation', 'panel-primary' ); ?>
+							</div>
+						</div>
+					<?php } ?>
 				</div>
 
 			</div>
@@ -134,8 +146,4 @@
 </header> <!-- End header -->
 
 <div id="js-search-mobile" class="pt-3 h-16 bg-white lg:hidden" ></div>
-
-
-
-
-
+<?php endif; ?>

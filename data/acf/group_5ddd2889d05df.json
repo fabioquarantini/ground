@@ -390,7 +390,7 @@
             "key": "field_611b73f7e5c4b",
             "label": "Opening hours",
             "name": "company_opening_hours",
-            "type": "text",
+            "type": "textarea",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -401,15 +401,15 @@
             },
             "default_value": "",
             "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
         },
         {
             "key": "field_611b73a8e5c4a",
             "label": "Closing time",
             "name": "company_closing time",
-            "type": "text",
+            "type": "textarea",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -420,9 +420,9 @@
             },
             "default_value": "",
             "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
         }
     ],
     "location": [
@@ -442,5 +442,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1629189273
+    "modified": 1629205211
 }
