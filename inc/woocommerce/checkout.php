@@ -336,8 +336,8 @@ add_filter( 'woocommerce_cart_item_name', 'ground_product_image_on_checkout', 10
  * Add secure order label
  */
 function ground_add_secure_order_label() { ?>
-	<div class="lg:absolute top-0 lg:right-0">
-		<div class="lg:text-right pt-4 text-base font-bold lg:pt-0">
+	<div class="mt-4 top-0 right-0 lg:absolute lg:mt-0">
+		<div class="font-bold lg:text-right">
 			<?php ground_icon( 'lock' ); ?> <?php _e( 'Secure order', 'ground' ); ?>
 		</div>
 	</div>
