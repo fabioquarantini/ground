@@ -1,31 +1,48 @@
 <footer class="relative py-16">
 	<div class="container">
 		<div class="lg:grid lg:grid-cols-4 lg:gap-6">
+			<?php $locations = get_nav_menu_locations(); ?>
+
+			<?php if ( isset( $locations['footer-primary'] ) ) : ?>
 			<div class="mb-12">
-				<?php $titleFooterPrimary = wp_get_nav_menu_object( 'navigation-footer-primary' ); ?>
-				<h3 class="text-xl font-bold mb-4"><?php echo $titleFooterPrimary->name; ?></h3>
+				<?php $titleFooterPrimary = wp_get_nav_menu_object( $locations['footer-primary'] ); ?>
+				<h3 class="text-xl font-bold mb-4"> <?php echo $titleFooterPrimary->name; ?> </h3>
 				<?php get_template_part( 'partials/navigation-footer', 'primary' ); ?>
 			</div>
+			<?php endif; ?>
+
+			<?php if ( isset( $locations['footer-secondary'] ) ) : ?>
 			<div class="mb-12">
-				<?php $titleFooterSecondary = wp_get_nav_menu_object( 'navigation-footer-secondary' ); ?>
-				<h3 class="text-xl font-bold mb-4"><?php echo $titleFooterSecondary->name; ?></h3>
+				<?php $titleFooterSecondary = wp_get_nav_menu_object( $locations['footer-secondary'] ); ?>
+				<h3 class="text-xl font-bold mb-4"> <?php echo $titleFooterSecondary->name; ?> </h3>
 				<?php get_template_part( 'partials/navigation-footer', 'secondary' ); ?>
 			</div>
+			<?php endif; ?>
+
+			<?php if ( isset( $locations['footer-tertiary'] ) ) : ?>
 			<div class="mb-12">
-				<?php $titleFooterTertiary = wp_get_nav_menu_object( 'navigation-footer-tertiary' ); ?>
-				<h3 class="text-xl font-bold mb-4"><?php echo $titleFooterTertiary->name; ?></h3>
+				<?php $titleFooterTertiary = wp_get_nav_menu_object( $locations['footer-tertiary'] ); ?>
+				<h3 class="text-xl font-bold mb-4"> <?php echo $titleFooterTertiary->name; ?> </h3>
 				<?php get_template_part( 'partials/navigation-footer', 'tertiary' ); ?>
 			</div>
+			<?php endif; ?>
+
+			<?php if ( GROUND_COMPANY_OPENING_HOURS || GROUND_COMPANY_CLOSING_TIME ) : ?>
 			<div class="mb-12">
+				<?php if ( GROUND_COMPANY_OPENING_HOURS ) : ?>
 				<div class="mb-4">
 					<h3 class="text-xl font-bold mb-4"><?php _e( 'Opening Hours', 'ground' ); ?></h3>
 					<?php echo GROUND_COMPANY_OPENING_HOURS; ?>
 				</div>
+				<?php endif; ?>
+				<?php if ( GROUND_COMPANY_CLOSING_TIME ) : ?>
 				<div>
 					<h3 class="text-xl font-bold mb-4"><?php _e( 'Closing Time', 'ground' ); ?></h3>
 					<?php echo GROUND_COMPANY_CLOSING_TIME; ?>
 				</div>
+				<?php endif; ?>
 			</div>
+			<?php endif; ?>
 		</div>
 	</div>
 
