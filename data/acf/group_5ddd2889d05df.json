@@ -3,6 +3,23 @@
     "title": "Theme Settings: Company",
     "fields": [
         {
+            "key": "field_611b702ce5c43",
+            "label": "Genaral info",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
             "key": "field_611a1e903b32d",
             "label": "Company Name",
             "name": "company_name",
@@ -20,6 +37,80 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
+        },
+        {
+            "key": "field_611a17023db31",
+            "label": "Company CAP",
+            "name": "company_cap",
+            "type": "text",
+            "instructions": "Example: 25127",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_611a183e3db34",
+            "label": "Company P.IVA",
+            "name": "company_piva",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_611a184b3db35",
+            "label": "Company CF",
+            "name": "company_cf",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_611b70ede5c45",
+            "label": "Address",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
         },
         {
             "key": "field_61010c4af4da7",
@@ -98,25 +189,6 @@
             "maxlength": ""
         },
         {
-            "key": "field_611a17023db31",
-            "label": "Company CAP",
-            "name": "company_cap",
-            "type": "text",
-            "instructions": "Example: 25127",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
             "key": "field_61010c6ddbe72",
             "label": "Company Address Url",
             "name": "company_address_url",
@@ -171,9 +243,26 @@
             "maxlength": ""
         },
         {
+            "key": "field_611b711de5c46",
+            "label": "Phones",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
             "key": "field_61010cb6c312e",
-            "label": "Company Phone Primary",
-            "name": "company_phone_primary",
+            "label": "Company Phone",
+            "name": "company_phone",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -191,8 +280,8 @@
         },
         {
             "key": "field_6101166beac60",
-            "label": "Company Phone Secondary",
-            "name": "company_phone_secondary",
+            "label": "Company Whatsapp",
+            "name": "company_whatsapp",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -207,42 +296,6 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
-        },
-        {
-            "key": "field_61010cc7c3130",
-            "label": "Company Email Primary",
-            "name": "company_email_primary",
-            "type": "email",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_61010f7dcaaf4",
-            "label": "Company Email Secondary",
-            "name": "company_email_secondary",
-            "type": "email",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
         },
         {
             "key": "field_61010cc0c312f",
@@ -264,9 +317,79 @@
             "maxlength": ""
         },
         {
-            "key": "field_611a183e3db34",
-            "label": "Company P.IVA",
-            "name": "company_piva",
+            "key": "field_611b719fe5c47",
+            "label": "Emails",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_61010cc7c3130",
+            "label": "Company Email",
+            "name": "company_email",
+            "type": "email",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_61010f7dcaaf4",
+            "label": "Company PEC",
+            "name": "company_pec",
+            "type": "email",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_611b7386e5c48",
+            "label": "Hours",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_611b73f7e5c4b",
+            "label": "Opening hours",
+            "name": "company_opening_hours",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -283,9 +406,9 @@
             "maxlength": ""
         },
         {
-            "key": "field_611a184b3db35",
-            "label": "Company CF",
-            "name": "company_cf",
+            "key": "field_611b73a8e5c4a",
+            "label": "Closing time",
+            "name": "company_closing time",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -319,5 +442,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1629106191
+    "modified": 1629189273
 }
