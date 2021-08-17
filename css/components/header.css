@@ -1,5 +1,5 @@
 .header {
-	@apply z-40;
+	@apply relative z-40;
 	@screen lg {
 		@apply ease-in-out duration-500;
 	}

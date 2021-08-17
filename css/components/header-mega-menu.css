@@ -2,7 +2,7 @@
 	@apply sticky top-0 border-b border-gray-200; 
 	@screen lg {
 		.scroll-direction-down & {
-			@apply transform -translate-y-16;
+			@apply -top-16;
 		}
 	}
 
