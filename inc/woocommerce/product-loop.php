@@ -165,18 +165,14 @@ function ground_add_sidebar_woocommerce_advanced() {
 	if ( is_active_sidebar( 'sidebar-woocommerce-advanced' ) ) :
 		?>
 
-		<!-- overlay-panel--from-left -->
-		<div class="overlay-panel overlay-panel--from-left" id="overlay-panel-filter-woocommerce-advanced">
-			<div class="overlay-panel__mask js-toggle" data-toggle-target="#overlay-panel-filter-woocommerce-advanced html" data-toggle-class-name="is-overlay-panel-open"></div>
-			<div class="overlay-panel__body">
-				<div class="overlay-panel__close js-toggle" data-toggle-target="#overlay-panel-filter-woocommerce-advanced html" data-toggle-class-name="is-overlay-panel-open"><?php ground_icon( 'close' ); ?></div>
-				<div class="overlay-panel__content">
-					<div class="p-6 lg:p-12">
-						<?php dynamic_sidebar( 'sidebar-woocommerce-advanced' ); ?>
-					</div>
-				</div>
-			</div>
-		</div>
+		<?php
+		echo ground_overlay_panel(
+			'overlay-panel-filter-woocommerce-advanced',
+			get_the_sidebar( 'sidebar-woocommerce-advanced' ),
+			'left',
+			'p-6 lg:p-12'
+		);
+		?>
 
 		<?php
 	endif;

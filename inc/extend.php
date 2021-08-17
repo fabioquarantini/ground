@@ -624,3 +624,56 @@ function ground_header_switch_type() {
 }
 
 add_action( 'ground_header', 'ground_header_switch_type' );
+
+/**
+ * Get the widget
+ */
+
+function get_the_widget( $widget, $instance = '', $args = '' ) {
+		ob_start();
+		the_widget( $widget, $instance, $args );
+		return ob_get_clean();
+}
+
+/**
+ * Get the sidebar
+ */
+
+function get_the_sidebar( $sidaber ) {
+		ob_start();
+		dynamic_sidebar( $sidaber );
+		return ob_get_clean();
+}
+
+
+/**
+ * Ovarlay Panel creator
+ * $panel_name = nome del pannello che devi aprire
+ * $panel_content includi la partial php che vuoi stampare all'interno del pannello
+ * $panel_position due opzioni left e rigth
+ * $added_class = aggiungi delle classi al contenuto del pannello
+ */
+function ground_overlay_panel( $panel_name, $panel_content, $panel_position = 'right', $added_class = '' ) {
+
+	ob_start(); ?>
+	<?php if ( $panel_name && $panel_content ) : ?>
+		<div class="overlay-panel overlay-panel--from-<?php echo $panel_position; ?>" id="<?php echo $panel_name; ?>">
+			<div class="overlay-panel__mask js-toggle" data-toggle-target="#<?php echo $panel_name; ?> html" data-toggle-class-name="is-overlay-panel-open"></div>
+			<div class="overlay-panel__body">
+				<div class="overlay-panel__close js-toggle" data-toggle-target="#<?php echo $panel_name; ?> html" data-toggle-class-name="is-overlay-panel-open">
+					<?php ground_icon( 'close' ); ?>
+				</div>
+				<div class="overlay-panel__content <?php echo $added_class; ?>">
+					<?php echo $panel_content; ?>
+					<?php // the_widget( 'WC_Widget_Cart', 'title=Prodotti nel carrello&hide_if_empty=1' ); ?>
+				</div>
+			</div>
+		</div>
+	<?php endif; ?>
+	<?php
+	$item = ob_get_clean();
+
+	wp_reset_query();
+
+	return $item;
+}
