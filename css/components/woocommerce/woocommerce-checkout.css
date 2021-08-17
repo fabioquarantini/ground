@@ -9,9 +9,9 @@
 		@apply col-span-full lg:col-span-2;
 
 	}
-	/* prose? */
+
 	#customer_details {
-		@apply col-span-1;
+		@apply col-span-1 lg:pr-12;
 
 		h3 {
 			@apply text-xl mt-6 mb-3;
@@ -23,7 +23,7 @@
 	}
 
 	#order_review {
-		@apply relative py-6 px-6 lg:px-12 bg-gray-100 rounded-theme col-span-1;
+		@apply relative pt-6 pb-12 px-6 lg:px-12 bg-gray-100 rounded-theme col-span-1;
 	}
 
 	#ship-to-different-address {
@@ -48,14 +48,15 @@
             @apply mt-6;
         }
 
-        &#shipping_postcode_field,
+        /* &#shipping_postcode_field,
         &#shipping_city_field,
         &#shipping_state_field {
             @apply w-1/3 inline-block mt-1;
-        }
-        &#shipping_city_field {
+        } */
+
+        /* &#shipping_city_field {
             @apply px-4;
-        }
+        } */
     }
 
 }

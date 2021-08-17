@@ -1,5 +1,6 @@
 .woocommerce-checkout-review-order-table {
     @apply bg-transparent;
+
     thead {
         @apply hidden;
     }

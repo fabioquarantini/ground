@@ -42,7 +42,6 @@
 
 	.select2-container {
 		@apply rounded-theme border border-gray-500 align-middle !important;
-		transform: translateY(-2px);
 
 		.select2-dropdown.select2-dropdown--below {
 			@apply border-t border-b border border-gray-500 rounded-none !important;
