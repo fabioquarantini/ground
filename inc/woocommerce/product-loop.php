@@ -108,7 +108,7 @@ remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 3
 function ground_archive_filters_buttons() {
 	?>
 
-	<div class="sticky top-16 bg-white border-b border-gray-200 z-20 transform -translate-x-2/4 w-screen ml-1/2 lg:relative lg:ml-auto lg:translate-x-0 lg:w-auto lg:border-0">
+	<div class="sticky top-16 bg-white border-b border-gray-200 z-20 transform -translate-x-2/4 w-screen ml-1/2 lg:relative lg:ml-auto lg:translate-x-0 lg:w-auto lg:border-0 lg:top-0">
 		<div class="container px-6 lg:px-0">
 			<div class="flex flex-wrap pt-3 lg:pt-0">
 				<div class="w-1/2 lg:w-2/3 pb-3 lg:pb-0 pr-3">	
