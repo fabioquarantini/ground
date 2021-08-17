@@ -1,5 +1,5 @@
 .sidebar {
-	@apply fixed top-0 left-0 h-full bg-white z-50 w-full lg:relative lg:translate-x-0 lg:transform-none lg:w-auto lg:top-auto lg:left-auto lg:pr-9 lg:z-0;
+	@apply fixed top-0 left-0 h-full bg-white z-50 w-full lg:relative lg:bg-transparent lg:translate-x-0 lg:transform-none lg:w-auto lg:top-auto lg:left-auto lg:pr-9 lg:z-0;
 	-ms-overflow-style: none; /* IE and Edge */
 	scrollbar-width: none; /* Firefox */
 	&::-webkit-scrollbar {
@@ -25,7 +25,4 @@
 		}
 	}
 
-	.overlay-panel & {
-		@apply p-6 lg:p-12;
-	}
 }

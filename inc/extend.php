@@ -625,24 +625,24 @@ function ground_header_switch_type() {
 
 add_action( 'ground_header', 'ground_header_switch_type' );
 
+
 /**
  * Get the widget
  */
-
 function get_the_widget( $widget, $instance = '', $args = '' ) {
-		ob_start();
-		the_widget( $widget, $instance, $args );
-		return ob_get_clean();
+	ob_start();
+	the_widget( $widget, $instance, $args );
+	return ob_get_clean();
 }
+
 
 /**
  * Get the sidebar
  */
-
-function get_the_sidebar( $sidaber ) {
-		ob_start();
-		dynamic_sidebar( $sidaber );
-		return ob_get_clean();
+function get_the_sidebar( $sidebar ) {
+	ob_start();
+	dynamic_sidebar( $sidebar );
+	return ob_get_clean();
 }
 
 
@@ -650,7 +650,7 @@ function get_the_sidebar( $sidaber ) {
  * Ovarlay Panel creator
  * $panel_name = nome del pannello che devi aprire
  * $panel_content includi la partial php che vuoi stampare all'interno del pannello
- * $panel_position due opzioni left e rigth
+ * $panel_position due opzioni left e right
  * $added_class = aggiungi delle classi al contenuto del pannello
  */
 function ground_overlay_panel( $panel_name, $panel_content, $panel_position = 'right', $added_class = '' ) {
