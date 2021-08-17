@@ -328,3 +328,20 @@ function ground_product_image_on_checkout( $product_name, $cart_item, $cart_item
 }
 
 add_filter( 'woocommerce_cart_item_name', 'ground_product_image_on_checkout', 10, 3 );
+
+
+
+
+/**
+ * Add secure order label
+ */
+function ground_add_secure_order_label() { ?>
+	<div class="lg:absolute top-0 lg:right-0">
+		<div class="lg:text-right pt-4 text-base font-bold lg:pt-0">
+			<?php ground_icon( 'lock' ); ?> <?php _e( 'Secure order', 'ground' ); ?>
+		</div>
+	</div>
+	<?php
+}
+
+add_action( 'woocommerce_before_checkout_form', 'ground_add_secure_order_label', 10 );
