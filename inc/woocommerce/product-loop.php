@@ -143,7 +143,9 @@ function ground_add_sidebar_woocommerce() {
 		<div class="sidebar sidebar--woocommerce">
 			<div class="sidebar__body">
 				<?php dynamic_sidebar( 'sidebar-woocommerce' ); ?>
-				<div class="button button--bordered w-full js-toggle" data-toggle-target="#overlay-panel-filter-woocommerce-advanced html" data-toggle-class-name="is-overlay-panel-open"><?php ground_icon( 'options', 'button__icon' ); ?> <?php _e( 'Advanced Filters', 'ground' ); ?></div>
+				<?php if ( is_active_sidebar( 'sidebar-woocommerce-advanced' ) ) : ?>
+					<div class="button button--bordered w-full js-toggle" data-toggle-target="#overlay-panel-filter-woocommerce-advanced html" data-toggle-class-name="is-overlay-panel-open"><?php ground_icon( 'options', 'button__icon' ); ?> <?php _e( 'Advanced Filters', 'ground' ); ?></div>
+				<?php endif; ?>
 			</div>
 			<div class="sidebar__close js-toggle" data-toggle-target=".sidebar--woocommerce html" data-toggle-class-name="is-sidebar-open"><?php ground_icon( 'close' ); ?></div>			
 		</div>
