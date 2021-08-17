@@ -1,7 +1,7 @@
 <footer class="relative py-16">
 	<div class="container">
 		<div class="lg:grid lg:grid-cols-4 lg:gap-6">
-			<div class="inline-block header__logo mb-12">
+			<div class="header__logo mb-12">
 				<?php if ( GROUND_LOGO_URL_PRIMARY || GROUND_LOGO_SOURCE_PRIMARY ) { ?>
 				<a class="js-cursor-hide" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>">
 					<?php
