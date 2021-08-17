@@ -13,7 +13,7 @@ $repeater = GROUND_SHOP_PAYMENT;
 
 					foreach ( $repeater as $row ) :
 						?>
-						<figure class="col-span-1 aspect-w-1 aspect-h-1 rounded-full bg-gray-100 flex justify-center mb-4">
+						<figure class="col-span-1 aspect-w-1 aspect-h-1 rounded-full bg-gray-100 flex justify-center">
 							<img class="object-contain p-4 md:p-12 lg:p-4 xl:p-6" src="<?php echo GROUND_TEMPLATE_URL . '/img/getway-icons/' . $row . '.svg'; ?>"/>
 						</figure>
 					<?php endforeach; ?>
