@@ -51,6 +51,31 @@
             "toggle": 0,
             "return_format": "value",
             "save_custom": 0
+        },
+        {
+            "key": "field_611bbaf4e3dd3",
+            "label": "Product Page Relation",
+            "name": "shop_product_page_relation",
+            "type": "relationship",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "elements": "",
+            "min": "",
+            "max": "",
+            "return_format": "object"
         }
     ],
     "location": [
@@ -70,5 +95,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1629207208
+    "modified": 1629208929
 }

@@ -74,3 +74,4 @@ define( 'GROUND_NO_IMAGE_URL', get_field( 'no_image_url', 'option' ) ? get_field
 // Shop.
 define( 'GROUND_SHOP_ADD_TO_CART', get_field( 'shop_add_to_cart', 'option' ) ? get_field( 'shop_add_to_cart', 'option' ) : '' );
 define( 'GROUND_SHOP_PAYMENT', get_field( 'shop_payment', 'option' ) ? get_field( 'shop_payment', 'option' ) : '' );
+// define( 'GROUND_SHOP_PRODUCT_PAGE_RELATION', get_field( 'shop_product_page_relation', 'option' ) ? get_field( 'shop_product_page_relation', 'option' ) : '' );
