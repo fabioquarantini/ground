@@ -1,7 +1,7 @@
 						</main>
 
 						<?php
-						get_template_part( 'partials/payment' );
+						get_template_part( 'partials/pre-footer' );
 						get_template_part( 'partials/content', 'footer' );
 						?>
 

@@ -10,7 +10,7 @@
  *  Remove add to cart button in product loop
  */
 
-if ( GROUND_PRODUCT_ADD_TO_CART == '1' ) {
+if ( GROUND_SHOP_ADD_TO_CART == '1' ) {
 	remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
 }
 
@@ -111,12 +111,12 @@ function ground_archive_filters_buttons() {
 	<div class="sticky top-16 bg-white border-b border-gray-200 z-20 transform -translate-x-2/4 w-screen ml-1/2 lg:relative lg:ml-auto lg:translate-x-0 lg:w-auto lg:border-0 lg:top-0">
 		<div class="container px-6 lg:px-0">
 			<div class="flex flex-wrap pt-3 lg:pt-0">
-				<div class="w-1/2 lg:w-2/3 pb-3 lg:pb-0 pr-3">	
+				<div class="w-1/2 lg:w-2/3 pb-3 lg:pb-0 pr-3">
 					<button class="button button--small button--bordered button--full-width block lg:hidden js-toggle" data-toggle-target=".sidebar--woocommerce html" data-toggle-class-name="is-sidebar-open">
 						<?php ground_icon( 'options', 'button__icon' ); ?> <?php _e( 'Filters', 'ground' ); ?>
 					</button>
 				</div>
-				<div class="w-1/2 lg:w-1/3 pl-3">	
+				<div class="w-1/2 lg:w-1/3 pl-3">
 					<?php $result = woocommerce_catalog_ordering(); ?>
 				</div>
 				<div class="w-full col-span-full lg:order-first">
@@ -147,7 +147,7 @@ function ground_add_sidebar_woocommerce() {
 					<div class="button button--bordered w-full js-toggle" data-toggle-target="#overlay-panel-filter-woocommerce-advanced html" data-toggle-class-name="is-overlay-panel-open"><?php ground_icon( 'options', 'button__icon' ); ?> <?php _e( 'Advanced Filters', 'ground' ); ?></div>
 				<?php endif; ?>
 			</div>
-			<div class="sidebar__close js-toggle" data-toggle-target=".sidebar--woocommerce html" data-toggle-class-name="is-sidebar-open"><?php ground_icon( 'close' ); ?></div>			
+			<div class="sidebar__close js-toggle" data-toggle-target=".sidebar--woocommerce html" data-toggle-class-name="is-sidebar-open"><?php ground_icon( 'close' ); ?></div>
 		</div>
 
 		<?php

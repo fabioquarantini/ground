@@ -42,6 +42,8 @@ define( 'GROUND_COMPANY_WHATSAPP', get_field( 'company_whatsapp', 'option' ) ? g
 define( 'GROUND_COMPANY_FAX', get_field( 'company_fax', 'option' ) ? get_field( 'company_fax', 'option' ) : '' );
 define( 'GROUND_COMPANY_EMAIL', get_field( 'company_email', 'option' ) ? get_field( 'company_email', 'option' ) : '' );
 define( 'GROUND_COMPANY_PEC', get_field( 'company_pec', 'option' ) ? get_field( 'company_pec', 'option' ) : '' );
+define( 'GROUND_COMPANY_OPENING_HOURS', get_field( 'company_opening_hours', 'option' ) ? get_field( 'company_opening_hours', 'option' ) : '' );
+define( 'GROUND_COMPANY_CLOSING_TIME', get_field( 'company_closing time', 'option' ) ? get_field( 'company_closing time', 'option' ) : '' );
 
 
 // Socials.
@@ -53,7 +55,6 @@ define( 'GROUND_SOCIAL_YOUTUBE_URL', get_field( 'social_youtube_url', 'option' )
 
 // Footer.
 define( 'GROUND_FOOTER_COPYRIGHT', get_field( 'footer_copyright', 'option' ) ? get_field( 'footer_copyright', 'option' ) : '' );
-define( 'GROUND_FOOTER_REPEATER', get_field( 'footer_payment_repeater', 'option' ) ? get_field( 'footer_payment_repeater', 'option' ) : '' );
 
 // Header.
 define( 'GROUND_HEADER_TEXT', get_field( 'header_text', 'option' ) ? get_field( 'header_text', 'option' ) : '' );
@@ -73,4 +74,5 @@ define( 'GROUND_NO_IMAGE_URL', get_field( 'no_image_url', 'option' ) ? get_field
 
 
 // Shop.
-define( 'GROUND_PRODUCT_ADD_TO_CART', get_field( 'product_add_to_cart', 'option' ) ? get_field( 'product_add_to_cart', 'option' ) : '' );
+define( 'GROUND_SHOP_ADD_TO_CART', get_field( 'shop_add_to_cart', 'option' ) ? get_field( 'shop_add_to_cart', 'option' ) : '' );
+define( 'GROUND_SHOP_PAYMENT', get_field( 'shop_payment', 'option' ) ? get_field( 'shop_payment', 'option' ) : '' );
