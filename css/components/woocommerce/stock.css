@@ -1,11 +1,14 @@
 .stock {
-    @apply relative text-xs pl-6;
+    @apply relative text-xs pl-8 flex items-center;
 
     &:after,
     &:before {
         content: '';
-        @apply absolute top-0 left-0 w-4 h-4 rounded-full;
+        @apply absolute left-0 w-5 h-5 rounded-full;
     }
+
+    &:after { @apply animate-ping; }
+    &:before { @apply animate-pulse; }
 
     &.in-stock {
         &:after { @apply border border-green-500; }
