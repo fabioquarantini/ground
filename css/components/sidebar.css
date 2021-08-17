@@ -1,5 +1,5 @@
 .sidebar {
-    @apply fixed top-0 left-0 h-full bg-white z-30 w-full transform -translate-x-full transition-all ease-default duration-500 lg:relative lg:translate-x-0 lg:transform-none lg:w-auto lg:top-auto lg:left-auto;
+    @apply fixed top-0 left-0 h-full bg-white z-30 w-full transform -translate-x-full transition-all ease-default duration-500 lg:relative lg:translate-x-0 lg:transform-none lg:w-auto lg:top-auto lg:left-auto lg:pr-9;
 	-ms-overflow-style: none;  /* IE and Edge */
 	scrollbar-width: none;  /* Firefox */
 	&::-webkit-scrollbar { @apply hidden; }
