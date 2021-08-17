@@ -1,29 +1,30 @@
 <footer class="relative py-16">
 	<div class="container">
 		<div class="lg:grid lg:grid-cols-4 lg:gap-6">
-			<div class="header__logo mb-12">
-				<?php if ( GROUND_LOGO_URL_PRIMARY || GROUND_LOGO_SOURCE_PRIMARY ) { ?>
-				<a class="js-cursor-hide" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php bloginfo( 'name' ); ?>">
-					<?php
-					if ( GROUND_LOGO_TYPE_PRIMARY && GROUND_LOGO_SOURCE_PRIMARY ) {
-						echo GROUND_LOGO_SOURCE_PRIMARY;
-					} elseif ( GROUND_LOGO_URL_PRIMARY ) {
-						?>
-						<img class="w-20 h-auto" src="<?php echo esc_url( GROUND_LOGO_URL_PRIMARY['sizes']['medium'] ); ?>" alt="<?php echo esc_attr( GROUND_LOGO_URL_PRIMARY['alt'] ); ?>" />
-					<?php } ?>
-				</a>
-				<?php } else { ?>
-					<a class="border border-dashed border-primary p-2" target="_blank" href="<?php echo admin_url( 'admin.php?page=theme-general-settings', 'http' ); ?>">Upload your logo</a>
-				<?php } ?>
-			</div>
 			<div class="mb-12">
+				<?php $titleFooterPrimary = wp_get_nav_menu_object( 'navigation-footer-primary' ); ?>
+				<h3 class="text-xl font-bold mb-4"><?php echo $titleFooterPrimary->name; ?></h3>
 				<?php get_template_part( 'partials/navigation-footer', 'primary' ); ?>
 			</div>
 			<div class="mb-12">
+				<?php $titleFooterSecondary = wp_get_nav_menu_object( 'navigation-footer-secondary' ); ?>
+				<h3 class="text-xl font-bold mb-4"><?php echo $titleFooterSecondary->name; ?></h3>
 				<?php get_template_part( 'partials/navigation-footer', 'secondary' ); ?>
 			</div>
 			<div class="mb-12">
+				<?php $titleFooterTertiary = wp_get_nav_menu_object( 'navigation-footer-tertiary' ); ?>
+				<h3 class="text-xl font-bold mb-4"><?php echo $titleFooterTertiary->name; ?></h3>
 				<?php get_template_part( 'partials/navigation-footer', 'tertiary' ); ?>
+			</div>
+			<div class="mb-12">
+				<div class="mb-4">
+					<h3 class="text-xl font-bold mb-4"><?php _e( 'Opening Hours', 'ground' ); ?></h3>
+					<?php echo GROUND_COMPANY_OPENING_HOURS; ?>
+				</div>
+				<div>
+					<h3 class="text-xl font-bold mb-4"><?php _e( 'Closing Time', 'ground' ); ?></h3>
+					<?php echo GROUND_COMPANY_CLOSING_TIME; ?>
+				</div>
 			</div>
 		</div>
 	</div>
