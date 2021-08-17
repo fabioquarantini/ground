@@ -51,10 +51,15 @@
 
 
 .widget_layered_nav_filters {
-	@apply pb-1 mb-0 lg:pb-12 lg:flex lg:flex-wrap lg:justify-start lg:items-center lg:space-x-3;
+	@apply mb-0 pt-0 pb-3 px-6 lg:pb-12 flex lg:flex-wrap lg:justify-start items-center lg:space-x-3 lg:px-0 lg:py-0;
+	@apply scroll-snap-x-mandatory overflow-y-hidden overflow-x-auto whitespace-nowrap;
+	@apply transform -translate-x-2/4 w-screen ml-1/2 lg:rounded-theme lg:ml-auto lg:translate-x-0 lg:w-auto;
+	-ms-overflow-style: none;  /* IE and Edge */
+	scrollbar-width: none;  /* Firefox */
+	&::-webkit-scrollbar { @apply hidden; }
 
 	.widgettitle {
-		@apply text-sm block mb-2 lg:inline-block lg:mb-0 lg:text-lg;
+		@apply text-sm inline-block lg:text-lg items-center;
 
 		&:before {
 			content: '';
@@ -71,18 +76,13 @@
 	}
 
 	ul {
-		@apply m-0 px-6 space-x-3 block lg:px-0 lg:flex lg:flex-wrap;
-		@apply scroll-snap-x-mandatory overflow-y-hidden overflow-x-auto whitespace-nowrap;
-    	@apply transform -translate-x-2/4 w-screen ml-1/2 lg:rounded-theme lg:ml-auto lg:translate-x-0 lg:w-auto;
-		-ms-overflow-style: none;  /* IE and Edge */
-  		scrollbar-width: none;  /* Firefox */
-	    &::-webkit-scrollbar { @apply hidden; }
-
+		@apply pl-6 m-0 space-x-3 lg:px-0 flex lg:flex-wrap lg:pl-0;
+		
 		li {
 			@apply relative items-center overflow-hidden m-0 inline-block whitespace-normal scroll-snap-align-center lg:my-px;
 
 			a {
-				@apply border-2 border-primary no-underline text-primary px-3 py-1 rounded-theme align-middle flex items-center font-bold;
+				@apply border border-primary no-underline text-primary pl-4 pr-3 py-1 rounded-theme align-middle flex items-center font-bold;
 				@apply transition-all ease-default duration-300;
 
 				&:after {
