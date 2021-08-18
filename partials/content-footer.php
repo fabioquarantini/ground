@@ -1,6 +1,6 @@
-<footer class="relative py-16">
+<footer class="relative pt-16 bg-gray-100 lg:bg-transparent">
 	<div class="container">
-		<div class="lg:grid lg:grid-cols-4 lg:gap-6">
+		<div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
 			<?php $locations = get_nav_menu_locations(); ?>
 
 			<?php if ( isset( $locations['footer-primary'] ) ) : ?>
@@ -37,7 +37,7 @@
 				<?php endif; ?>
 				<?php if ( GROUND_COMPANY_CLOSING_TIME ) : ?>
 				<div>
-					<h3 class="text-xl font-bold mb-4"><?php _e( 'Closing Time', 'ground' ); ?></h3>
+					<h3 class="text-xl font-bold mt-6 lg:mt-8 mb-4"><?php _e( 'Closing Time', 'ground' ); ?></h3>
 					<?php echo GROUND_COMPANY_CLOSING_TIME; ?>
 				</div>
 				<?php endif; ?>
@@ -46,9 +46,9 @@
 		</div>
 	</div>
 
-	<div class="container mt-12 lg:flex lg:items-center lg:justify-start lg:pt-16 lg:space-x-9">
+	<div class="container mt-6 lg:flex lg:items-center lg:justify-start py-9 lg:pt-9 lg:space-x-9 bg-black lg:bg-transparent lg:border-gray-200 lg:border-t">
 		<div class="mb-6 lg:mb-0">
-			<p>
+			<p class="text-center text-white lg:text-left lg:text-black text-sm lg:text-base">
 			<?php
 			_e( 'All rights reserved - © copyright', 'ground' );
 			echo date( 'Y' );
@@ -63,11 +63,11 @@
 			<?php echo GROUND_COMPANY_CF ? GROUND_COMPANY_CF . ' - C.F.:' : null; ?> </p>
 		</div>
 		<?php if ( GROUND_SOCIAL_LINKEDIN_URL || GROUND_SOCIAL_FACEBOOK_URL || GROUND_SOCIAL_INSTAGRAM_URL || GROUND_SOCIAL_YOUTUBE_URL ) : ?>
-		<div class="lg:border-l border-gray-400">
+		<div class="lg:border-l border-gray-200">
 
-			<div class="flex items-center lg:justify-center lg:space-x-6">
+			<div class="flex items-center justify-center lg:space-x-6">
 
-				<p class="lg:pl-6 pr-3"><?php _e( 'Seguici sui social network', 'ground' ); ?></p>
+				<p class="pr-3 text-white lg:pl-6 lg:text-black text-sm lg:text-base"><?php _e( 'Seguici sui social network', 'ground' ); ?></p>
 
 				<div class="flex space-x-3">
 					<?php if ( GROUND_SOCIAL_LINKEDIN_URL ) : ?>
