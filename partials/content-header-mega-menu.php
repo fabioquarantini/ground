@@ -1,6 +1,8 @@
-<div class="message-alert message-alert--primary container bg-black text-center text-white py-2 xl:hidden">
+
+<div class="message-alert message-alert--primary container <?php echo GROUND_HEADER_TEXT ? 'bg-black py-2' : ''; ?> text-center text-white  xl:hidden">
 	<?php echo GROUND_HEADER_TEXT; ?>
 </div>
+
 
 
 <header class="header header-mega-menu w-full z-30 bg-white dark:bg-black">
