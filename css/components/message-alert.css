@@ -3,6 +3,6 @@
 
 .message-alert--primary {
 	.is-search-open & {
-		@apply py-4;
+		@apply py-12;
 	}
 }

@@ -1,6 +1,8 @@
-<div class="message-alert message-alert--primary container bg-black text-center text-white py-2 xl:hidden">
+
+<div class="message-alert message-alert--primary container <?php echo GROUND_HEADER_TEXT ? 'bg-black py-2' : ''; ?> text-center text-white  xl:hidden">
 	<?php echo GROUND_HEADER_TEXT; ?>
 </div>
+
 
 
 <header class="header header-mega-menu w-full z-30 bg-white dark:bg-black">
@@ -61,13 +63,15 @@
 				<div class="hidden xl:flex">
 					<?php echo GROUND_HEADER_TEXT; ?>
 				</div>
-				<ul class="flex flex-row-reverse space-x-5">
+				<ul class="flex flex-row-reverse">
+					<?php if ( function_exists( 'icl_object_id' ) ) : ?>
 					<li class="js-toggle text-lg lg:text-base pl-4" data-toggle-target="#modal-languages" data-toggle-class-name="hidden"><a class="cursor-pointer"><span class="mr-2"><?php ground_icon( 'globe-alt', 'icon--filled w-6 rounded-full text-white bg-black p-1 dark:text-white dark:bg-white' ); ?></span><?php _e( 'Language', 'ground' ); ?><span><?php ground_icon( 'chevron-down', 'text-black' ); ?></span></a></li>
+					<?php endif; ?>
 					<?php if ( GROUND_COMPANY_PHONE ) : ?>
-						<li class="js-toggle text-lg lg:text-base" data-toggle-target="#modal-languages" data-toggle-class-name="hidden"><a class="cursor-pointer"><span class="mr-2"><?php ground_icon( 'phone', 'icon--filled w-6 rounded-full text-white bg-purple-600 p-1 dark:text-white' ); ?></span> <?php echo GROUND_COMPANY_PHONE; ?></a></li>
+						<li class="js-toggle text-lg lg:text-base pl-4"><a class="cursor-pointer"><span class="mr-2"><?php ground_icon( 'phone', 'icon--filled w-6 rounded-full text-white bg-purple-600 p-1 dark:text-white' ); ?></span> <?php echo GROUND_COMPANY_PHONE; ?></a></li>
 					<?php endif; ?>
 					<?php if ( GROUND_COMPANY_WHATSAPP ) : ?>
-						<li class="js-toggle text-lg lg:text-base" data-toggle-target="#modal-languages" data-toggle-class-name="hidden"><a class="cursor-pointer"><span class="mr-2"><?php ground_icon( 'whatsapp', 'icon--filled w-6 rounded-full text-white bg-green-400 p-1 dark:text-white' ); ?></span> <?php echo GROUND_COMPANY_WHATSAPP; ?></a></li>
+						<li class="js-toggle text-lg lg:text-base"><a class="cursor-pointer"><span class="mr-2"><?php ground_icon( 'whatsapp', 'icon--filled w-6 rounded-full text-white bg-green-400 p-1 dark:text-white' ); ?></span> <?php echo GROUND_COMPANY_WHATSAPP; ?></a></li>
 					<?php endif; ?>
 				</ul>
 			</div>
@@ -115,12 +119,13 @@
 				</div>
 
 
+
 				<div class="container lg:relative lg:flex lg:items-center lg:justify-between lg:h-16">
-					<div class="<?php echo GROUND_HEADER_ALL_PRODUCTS ? 'hidden lg:flex' : ''; ?>">
+					<div class="<?php echo has_nav_menu( 'panel-primary' ) ? 'hidden lg:flex' : ''; ?>">
 						<?php get_template_part( 'partials/navigation', 'header-primary' ); ?>
 					</div>
 
-					<?php if ( GROUND_HEADER_ALL_PRODUCTS ) { ?>
+					<?php if ( has_nav_menu( 'panel-primary' ) ) { ?>
 						<div class="header__panel">
 							<a class="js-toggle hidden cursor-pointer lg:flex lg:justify-end lg:items-center lg:text-lg" data-toggle-target="#panel-primary html" data-toggle-class-name="is-overlay-panel-open">
 								<div class="mr-2 flex justify-end items-center"> <?php ground_icon( 'menu-left', 'icon--filled text-black dark:text-white' ); ?></div>
