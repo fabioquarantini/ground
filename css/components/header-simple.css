@@ -152,7 +152,7 @@
 			@apply relative m-0;
 			@apply hidden;
 			@screen lg {
-				@apply block text-center m-auto absolute bg-gray-200 opacity-0 invisible ease-in-out duration-100 top-12 w-56;
+				@apply block text-center m-auto absolute bg-gray-200 opacity-0 invisible top-14 w-56;
 				left: 50%;
 				transform: translateX(calc(-50% - 12px));
 				.has-children .navigation__sub-menu {
