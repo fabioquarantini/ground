@@ -1,5 +1,5 @@
 .woocommerce-loop-product {
-	@apply relative overflow-hidden mb-9;
+	@apply relative mb-9;
 
 	.added_to_cart {
 		@apply block mb-6;
