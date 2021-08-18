@@ -3,6 +3,6 @@
 		<input class="flex-shrink" type="text" id="js-ajax-search-input" placeholder="<?php _e( 'Search products', 'ground' ); ?>" value="<?php the_search_query(); ?>" name="s" id="s" />
 		<button class="search__button" type="submit"><?php ground_icon( 'search', 'form__icon' ); ?></button>
 
-		<div class="js-ajax-search-spinner search__spinner spinner"></div>
+		<div class="js-ajax-search-spinner search__spinner w-24"><?php ground_icon( 'spinner', 'animate-spin text-primary h-8 lg:h-12' ); ?></div>
 	</div>
 </form>

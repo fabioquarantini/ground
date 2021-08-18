@@ -11,9 +11,6 @@
 			&.is-navigation-open:not(.has-scroll-smooth) {
 				@apply overflow-hidden;
 			}
-			&.is-panel-open:not(.has-scroll-smooth) {
-				@apply overflow-hidden;
-			}
 
 			&.is-navigation-hover {
 				@apply overflow-hidden;
@@ -32,9 +29,6 @@
 			@apply overflow-hidden;
 		}
 
-		&.is-panel-open {
-			@apply overflow-hidden;
-		}
 		&.is-navigation-hover {
 			@apply overflow-hidden;
 		}
