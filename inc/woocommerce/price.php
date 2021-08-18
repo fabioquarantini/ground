@@ -23,12 +23,12 @@ function ground_woocommerce_variation_price_format( $wc_format_price_range, $pro
 	// New $wc_format_price_range, unless all variations have exact same prices.
 	if ( ! ( $min_var_reg_price === $max_var_reg_price && $min_var_sale_price === $max_var_sale_price ) ) {
 		if ( $min_var_sale_price < $min_var_reg_price ) {
-			$wc_format_price_range = sprintf( __( '<div class="ground__price-range">' . __( 'from', 'ground' ) . '<del>%1$s</del><ins>%2$s</ins></div>', 'woocommerce' ), wc_price( $min_var_reg_price ), wc_price( $min_var_sale_price ) );
+			$wc_format_price_range = sprintf( __( '<div class="ground__price-range"><span class="price__label">' . __( 'from', 'ground' ) . '</span><ins>%2$s</ins><del>%1$s</del></div>', 'woocommerce' ), wc_price( $min_var_reg_price ), wc_price( $min_var_sale_price ) );
 		} else {
 			if ( is_post_type_archive( 'product' ) || is_product_category() || is_product_tag() ) {
-				$wc_format_price_range = sprintf( __( '<div class="ground__price-range">' . __( 'from', 'ground' ) . '%1$s</div>', 'woocommerce' ), wc_price( $min_var_reg_price ) );
+				$wc_format_price_range = sprintf( __( '<div class="ground__price-range"><span class="price__label">' . __( 'from', 'ground' ) . '</span>%1$s</div>', 'woocommerce' ), wc_price( $min_var_reg_price ) );
 			} else {
-				$wc_format_price_range = sprintf( __( '<div class="ground__price-range">' . __( 'from', 'ground' ) . ' %1$s</div>', 'woocommerce' ), wc_price( $min_var_reg_price ) );
+				$wc_format_price_range = sprintf( __( '<div class="ground__price-range"><span class="price__label">' . __( 'from', 'ground' ) . '</span>%1$s</div>', 'woocommerce' ), wc_price( $min_var_reg_price ) );
 			}
 		}
 	}
@@ -76,7 +76,7 @@ function ground_buy_now_save_x_cart() {
 	if ( ! empty( $savings ) ) { ?>
 		<tr class="order-savings">
 			<th><?php _e( 'Your savings' ); ?></th>
-			<td data-title="<?php _e( 'Your savings' ); ?>"><?php echo sprintf( __( 'Buy now and save %s!' ), wc_price( $savings ) ); ?></td>
+			<td data-title="<?php _e( 'Your savings' ); ?>"><?php echo sprintf( __( 'Buy now and save' ) ); ?><span class="inline-block pl-1 font-bold text-xl animate-bounce"><?php echo sprintf( __( '%s' ), wc_price( $savings ) ); ?></span></td>
 		</tr>
 		<?php
 	}

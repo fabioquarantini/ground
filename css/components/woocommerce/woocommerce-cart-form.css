@@ -59,6 +59,13 @@
 		}
 	}
 
+	.product-price {
+		@apply flex;
+		del {
+			@apply order-2 pl-2;
+		}
+	}
+
 
 	/* QUANTITY */
 	.product-quantity {

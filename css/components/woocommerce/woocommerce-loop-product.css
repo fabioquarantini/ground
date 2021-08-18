@@ -14,10 +14,6 @@
 		@apply relative overflow-hidden w-full rounded-theme;
 	}
 
-	.price {
-		@apply block overflow-hidden mt-0 lg:mt-3;
-	}
-
 	.button {
 		@apply mt-5;
 		transition: color 0.2s ease-out;

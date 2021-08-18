@@ -1,21 +1,19 @@
 .price,
-.ground__price-range,
-.product_list_widget {
-	@apply text-black dark:text-white;
+.ground__price-range {
+	@apply flex items-baseline text-black dark:text-white w-full;
 
 	.amount {
-		@apply text-xl font-bold lg:text-4xl;
+		@apply text-3xl font-bold lg:text-4xl;
 		.minicart & {
 			@apply text-xl;
     	}
 	}
 
 	del {
-		@apply text-red-500 text-xl;
+		@apply text-red-500 text-xl order-2 pl-1 lg:pl-2;
 		.amount {
-			@apply text-xl font-normal text-gray-300;
+			@apply text-lg lg:text-xl font-normal text-gray-300;
 		}
-
 	}
 
 	ins {
@@ -24,6 +22,9 @@
 }
 
 .ground__price-range {
+	.price__label {
+		@apply pr-1 lg:pr-2;
+	}
 	del {
 		.amount {
 			@apply px-2;

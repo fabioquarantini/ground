@@ -50,10 +50,15 @@
 				}
 
 				.quantity {
-					@apply block;
+					@apply flex items-baseline;
+
+					> .amount {
+						@apply pl-1 font-bold;
+					}
 
 					del {
-						@apply text-red-500 text-base;
+						@apply text-red-500 text-base order-2 pl-1;
+
 						.amount {
 							@apply text-base font-normal text-gray-300;
 						}
@@ -62,8 +67,12 @@
 					ins {
 						@apply no-underline;
 
+						.amount {
+							@apply pl-1;
+						}
+
 						* {
-							@apply text-xl font-bold;
+							@apply font-bold;
 						}
 					}
 				}
@@ -78,7 +87,7 @@
 
 			}
 			.amount {
-				@apply text-4xl font-bold;
+				@apply inline-block text-4xl font-bold animate-bounce;
 			}
 		}
 
