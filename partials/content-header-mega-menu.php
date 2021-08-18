@@ -1,5 +1,4 @@
-<?php if ( class_exists( 'WooCommerce' ) && ! is_checkout() ) : ?>
-<div class="container bg-black text-center text-white py-2 xl:hidden">
+<div class="message-alert message-alert--primary container bg-black text-center text-white py-2 xl:hidden">
 	<?php echo GROUND_HEADER_TEXT; ?>
 </div>
 
@@ -145,4 +144,4 @@
 </header> <!-- End header -->
 
 <div id="js-search-mobile" class="pt-3 h-16 bg-white lg:hidden" ></div>
-<?php endif; ?>
+
