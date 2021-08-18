@@ -1,0 +1,380 @@
+.header-simple {
+	@apply sticky top-0 border-b border-gray-200;
+
+	@screen lg {
+		.scroll-direction-down & {
+			@apply -top-16;
+		}
+	}
+
+	.header__body {
+		transform: translateX(100%);
+		transition-timing-function: ease-in-out;
+		transition: 0.2s;
+
+		.is-navigation-open & {
+			transform: none;
+		}
+
+		.scroll-direction-down & {
+			@apply top-16;
+		}
+
+		@screen lg {
+			transform: none;
+
+			.scroll-direction-down & {
+				@apply top-0;
+			}
+		}
+	}
+
+	.header__container {
+		transition-timing-function: ease-in-out;
+		transition: 0.2s;
+
+		&.is-active {
+			@screen lg {
+				transform: none;
+			}
+		}
+	}
+
+	.header__back {
+		transform: translateX(-200%);
+		transition-timing-function: ease-in-out;
+		transition: 0.2s;
+
+		.is-sub-navigation-open & {
+			transform: translateX(0%);
+		}
+
+		@screen lg {
+			//transform: translateX(-200%);
+			@apply transform -translate-x-full duration-75 ease-default;
+
+			.is-overlay-panel-open.is-sub-navigation-open & {
+				@apply transform-none;
+			}
+		}
+	}
+
+	.header__search,
+	.header__logo {
+		@apply opacity-100 visible;
+		transition: opacity 0.15s ease-in-out;
+
+		.is-sub-navigation-open & {
+			@apply opacity-0 invisible;
+		}
+	}
+
+	.header__search,
+	.header__logo {
+		.is-navigation-open & {
+			@apply opacity-0 invisible;
+		}
+	}
+
+	.header__cart {
+		@apply opacity-100 visible;
+		transition: opacity 0.15s ease-in-out;
+
+		.is-navigation-open & {
+			@apply opacity-0 invisible;
+		}
+	}
+
+	.header__navicon {
+		transform: translateX(0%);
+		/* transition-timing-function: ease-in-out;
+		transition: 0.75s; */
+		animation-duration: 0.75s;
+
+		.is-navigation-open & {
+			transform: translateX(calc(100vw - 72px));
+			animation-name: slidein;
+			@keyframes slidein {
+				0% {
+					opacity: 0;
+				}
+
+				80% {
+					opacity: 0;
+					left: -24px;
+				}
+
+				100% {
+					opacity: 1;
+					left: 0;
+				}
+			}
+		}
+	}
+
+	.header__panel {
+		&:hover {
+			.navigation--panel-primary {
+				@apply opacity-100;
+			}
+		}
+	}
+
+	//Navigation
+	.navigation--primary {
+		.navigation__item {
+			@apply block;
+
+			@screen lg {
+				@apply flex justify-start pr-4;
+			}
+
+			@screen xl {
+				@apply flex justify-start pr-6;
+			}
+		}
+
+		.navigation__link {
+			@apply block text-lg py-4 border-b border-gray-400 border-opacity-20 font-bold;
+			@screen lg {
+				@apply block py-3 text-lg border-0;
+			}
+		}
+
+		.navigation__list {
+			@apply m-0;
+			@screen lg {
+				@apply flex justify-start;
+			}
+		}
+
+		.navigation__sub-menu {
+			@apply relative m-0;
+			@apply hidden;
+			@screen lg {
+				@apply absolute top-16 left-6 pt-6;
+				width: calc(50% - 48px);
+
+				&:after {
+					content: "";
+					@apply absolute top-0 bg-white dark:bg-black;
+					left: -100vw;
+					height: calc(100% + 24px);
+					width: 200vw;
+					z-index: -2;
+				}
+
+				.has-children .navigation__sub-menu {
+					@apply hidden;
+				}
+			}
+
+			&.is-active {
+				@apply inline-block absolute top-0 h-auto opacity-100 visible;
+				left: 100vw;
+				width: 100%;
+
+				@screen lg {
+					@apply relative left-auto top-auto w-auto;
+				}
+			}
+
+			.navigation__link {
+				@screen lg {
+					@apply border-b border-gray-400 border-opacity-20;
+				}
+			}
+
+			.navigation__item {
+				@apply block;
+				@apply h-auto;
+				&:last-child {
+					.navigation__link {
+						@apply lg:border-0;
+					}
+				}
+				@screen lg {
+					@apply bg-transparent;
+				}
+
+				.navigation__link {
+					@apply block text-lg py-3 border-b border-gray-400 border-opacity-20;
+					@screen lg {
+						&:after {
+							@apply hidden;
+						}
+					}
+				}
+			}
+		}
+
+		.is-hover {
+			@screen lg {
+				.navigation__sub-menu {
+					@apply block;
+
+					.navigation__image {
+						@apply hidden;
+					}
+				}
+			}
+		}
+
+		.navigation__image {
+			@apply hidden;
+			@screen lg {
+				@apply absolute top-16 right-6 pt-6;
+				width: calc(50% - 48px);
+
+				&:after {
+					content: "";
+					@apply absolute top-0 bg-white dark:bg-black;
+					left: -100vw;
+					height: calc(100% + 24px);
+					width: 200vw;
+					z-index: -1;
+				}
+			}
+		}
+
+		.is-hover {
+			.navigation__image {
+				@apply hidden;
+				@screen lg {
+					@apply block;
+				}
+			}
+		}
+
+		.navigation__item.has-children {
+			> .navigation__link {
+				&:after {
+					content: "";
+					position: absolute;
+					height: 24px;
+					width: 24px;
+					border-radius: 50%;
+					right: 8px;
+					background: url("../img/icons/chevron-right.svg");
+				}
+				@screen lg {
+					@apply relative pr-10;
+
+					&:after {
+						margin-top: 4px;
+						right: 12px;
+						background: url("../img/icons/chevron-down.svg");
+					}
+				}
+			}
+		}
+	}
+
+	.navigation--panel-primary {
+		@apply w-full relative;
+
+		@screen lg {
+			@apply px-8;
+			transition-timing-function: ease-in-out;
+			transition: 0.2s;
+		}
+
+		.navigation__item {
+			@apply block;
+		}
+
+		.navigation__link {
+			@apply block text-lg py-4 border-b border-gray-400 border-opacity-20 font-bold;
+		}
+
+		.navigation__sub-menu {
+			@apply relative m-0;
+			@apply hidden;
+			@screen lg {
+				@apply absolute top-16 left-6 px-8;
+				width: calc(100% - 24px);
+			}
+
+			&.is-active {
+				@apply inline-block absolute top-0 h-auto opacity-100 visible;
+				left: 100vw;
+				width: 100%;
+
+				@screen lg {
+					left: 100%;
+				}
+			}
+
+			.navigation__link {
+				@screen lg {
+					@apply border-b border-gray-400 border-opacity-20;
+				}
+			}
+
+			.navigation__item {
+				@apply block;
+				@apply h-auto;
+				&:last-child {
+					.navigation__link {
+						@apply lg:border-0;
+					}
+				}
+				@screen lg {
+					@apply bg-transparent;
+				}
+
+				.navigation__link {
+					@apply block text-lg py-3 border-b border-gray-400 border-opacity-20;
+				}
+			}
+		}
+
+		.navigation__item.has-children {
+			> .navigation__link {
+				&:after {
+					content: "";
+					position: absolute;
+					height: 24px;
+					width: 24px;
+					border-radius: 50%;
+					right: 8px;
+					background: url("../img/icons/chevron-right.svg");
+				}
+
+				@screen lg {
+					&:after {
+						right: 32px;
+					}
+				}
+			}
+		}
+	}
+
+	.is-hover {
+		.navigation--panel-primary {
+			@apply hidden;
+		}
+	}
+
+	.navigation--secondary {
+		@apply relative w-full;
+
+		@screen lg {
+			width: auto;
+		}
+
+		.navigation__item {
+			display: block;
+			@screen lg {
+				@apply inline-block;
+			}
+		}
+
+		.navigation__link {
+			@apply block text-lg py-4 border-b border-gray-400 border-opacity-20;
+			@screen lg {
+				@apply text-base py-0 border-0;
+			}
+		}
+	}
+}

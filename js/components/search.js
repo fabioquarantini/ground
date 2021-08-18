@@ -41,7 +41,7 @@ export default class Search {
 		if (window.matchMedia('(max-width: 1024px)').matches) {
 			if (this.DOM.searchMobile) this.DOM.searchMobile.append(this.DOM.searchFormAjax);
 		} else {
-			this.DOM.searchDesktop.append(this.DOM.searchFormAjax);
+			if (this.DOM.searchDesktop) this.DOM.searchDesktop.append(this.DOM.searchFormAjax);
 		}
 
 		if (this.DOM.element.length === 0) {
@@ -52,10 +52,10 @@ export default class Search {
 			this.search();
 		}, 250);
 
-		this.DOM.searchInput.addEventListener('input', () => {
-			this.DOM.html.classList.add('is-search-open');
-			this.DOM.searchForm.classList.add('is-search-open');
-		});
+		// this.DOM.searchInput.addEventListener('input', () => {
+		// 	this.DOM.html.classList.add('is-search-open');
+		// 	this.DOM.searchForm.classList.add('is-search-open');
+		// });
 		this.DOM.searchInput.addEventListener('input', debounceInput);
 		this.DOM.searchClose.addEventListener('click', () => {
 			this.DOM.searchValue = '';

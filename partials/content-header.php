@@ -1,11 +1,9 @@
-
 <div class="message-alert message-alert--primary container <?php echo GROUND_HEADER_TEXT ? 'bg-black py-2' : ''; ?> text-center text-white  xl:hidden">
 	<?php echo GROUND_HEADER_TEXT; ?>
 </div>
 
 
-
-<header class="header header-mega-menu w-full z-30 bg-white dark:bg-black">
+<header class="header header-simple w-full z-30 bg-white dark:bg-black">
 
 	<div class="bg-white dark:bg-black h-16 w-full z-30 lg:hidden">
 		<a class="js-back absolute mt-5 left-4 header__back cursor-pointer"> <span> <?php ground_icon( 'chevron-left', 'text-black dark:text-white' ); ?> </span> <?php _e( 'Indietro', 'ground' ); ?> </a>
@@ -33,9 +31,9 @@
 				<?php } ?>
 			</div>
 
-			<button class="js-toggle js-cursor-hover hidden mr-12 lg:block" data-toggle-target=".search html" data-toggle-class-name="is-search-open">
+			<!-- <button class="js-toggle js-cursor-hover hidden mr-12 lg:block" data-toggle-target=".search html" data-toggle-class-name="is-search-open">
 				<?php ground_icon( 'search', 'icon--filled text-black dark:text-white' ); ?>
-			</button> <!-- End .header__search -->
+			</button> -->
 
 			<?php
 				$count = WC()->cart->get_cart_contents_count();
@@ -67,7 +65,17 @@
 				<div class="hidden xl:flex">
 					<?php echo GROUND_HEADER_TEXT; ?>
 				</div>
-
+				<ul class="flex flex-row-reverse">
+					<?php if ( function_exists( 'icl_object_id' ) ) : ?>
+					<li class="js-toggle text-lg lg:text-base pl-4" data-toggle-target="#modal-languages" data-toggle-class-name="hidden"><a class="cursor-pointer"><span class="mr-2"><?php ground_icon( 'globe-alt', 'icon--filled w-6 rounded-full text-white bg-black p-1 dark:text-white dark:bg-white' ); ?></span><?php _e( 'Language', 'ground' ); ?><span><?php ground_icon( 'chevron-down', 'text-black' ); ?></span></a></li>
+					<?php endif; ?>
+					<?php if ( GROUND_COMPANY_PHONE ) : ?>
+						<li class="js-toggle text-lg lg:text-base pl-4"><a class="cursor-pointer"><span class="mr-2"><?php ground_icon( 'phone', 'icon--filled w-6 rounded-full text-white bg-purple-600 p-1 dark:text-white' ); ?></span> <?php echo GROUND_COMPANY_PHONE; ?></a></li>
+					<?php endif; ?>
+					<?php if ( GROUND_COMPANY_WHATSAPP ) : ?>
+						<li class="js-toggle text-lg lg:text-base"><a class="cursor-pointer"><span class="mr-2"><?php ground_icon( 'whatsapp', 'icon--filled w-6 rounded-full text-white bg-green-400 p-1 dark:text-white' ); ?></span> <?php echo GROUND_COMPANY_WHATSAPP; ?></a></li>
+					<?php endif; ?>
+				</ul>
 			</div>
 
 			<div class="flex flex-col-reverse lg:block">
@@ -91,9 +99,11 @@
 						</div>
 
 						<?php get_template_part( 'partials/navigation', 'header-secondary' ); ?>
-						<div id="js-search-desktop" class="relative">
-							<?php get_template_part( 'partials/search', 'form-input' ); ?>
-						</div>
+
+
+						 <button class="js-toggle  mr-12 lg:block" data-toggle-target="#js-search-form html" data-toggle-class-name="is-search-open">
+							<?php ground_icon( 'search', 'icon--filled text-black dark:text-white' ); ?>
+						</button>
 					</div>
 
 					<ul class="relative z-0 border-b border-gray-200 lg:border-none lg:flex lg:items-center lg:space-x-5 lg:justify-end lg:m-0">

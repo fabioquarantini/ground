@@ -73,6 +73,11 @@
 	}
 
 	.is-search-open & {
+		&:before {
+			content: "";
+			@apply opacity-100 visible;
+		}
+
 		@apply fixed top-3;
 		width: 70vw;
 
@@ -80,11 +85,6 @@
 			@apply top-12;
 			width: 50vw;
 			left: 25vw;
-		}
-
-		&:before {
-			content: "";
-			@apply opacity-100 visible;
 		}
 
 		input {

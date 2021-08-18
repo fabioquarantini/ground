@@ -135,9 +135,9 @@
 		}
 
 		.navigation__link {
-			@apply block text-lg py-4 border-b border-gray-400 border-opacity-20;
+			@apply block text-lg py-4 border-b border-gray-400 border-opacity-20 font-bold;
 			@screen lg {
-				@apply block py-3 text-lg border-0 font-bold;
+				@apply block py-3 text-lg border-0;
 			}
 		}
 
