@@ -52,10 +52,10 @@ export default class Search {
 			this.search();
 		}, 250);
 
-		// this.DOM.searchInput.addEventListener('input', () => {
-		// 	this.DOM.html.classList.add('is-search-open');
-		// 	this.DOM.searchForm.classList.add('is-search-open');
-		// });
+		this.DOM.searchInput.addEventListener('input', () => {
+			this.DOM.html.classList.add('is-search-open');
+			this.DOM.searchForm.classList.add('is-search-open');
+		});
 		this.DOM.searchInput.addEventListener('input', debounceInput);
 		this.DOM.searchClose.addEventListener('click', () => {
 			this.DOM.searchValue = '';
