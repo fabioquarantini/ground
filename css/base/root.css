@@ -11,7 +11,7 @@
 			&.is-navigation-open:not(.has-scroll-smooth) {
 				@apply overflow-hidden;
 			}
-			&.is-all-products-open:not(.has-scroll-smooth) {
+			&.is-panel-open:not(.has-scroll-smooth) {
 				@apply overflow-hidden;
 			}
 
@@ -26,14 +26,13 @@
 			&.is-overlay-panel-open {
 				@apply overflow-hidden;
 			}
-		
 		}
 
 		&.is-navigation-open {
 			@apply overflow-hidden;
 		}
 
-		&.is-all-products-open {
+		&.is-panel-open {
 			@apply overflow-hidden;
 		}
 		&.is-navigation-hover {

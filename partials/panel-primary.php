@@ -1,8 +1,9 @@
-<div class="panel panel--primary">
-	<div class="js-toggle js-close-overview-panel panel panel__overview overview-panel" data-toggle-target="html" data-toggle-class-name="is-all-products-open"></div>
+<div id="panel-primary" class="overlay-panel">
 
-	<div class="panel panel__body">
-		<div class="js-toggle js-close-panel panel panel__close" data-toggle-target="html" data-toggle-class-name="is-all-products-open">
+	<div class="js-close-overlay-panel overlay-panel__mask js-toggle" data-toggle-target="#panel-primary html" data-toggle-class-name="is-overlay-panel-open"></div>
+
+	<div class="overlay-panel__body">
+		<div class="js-close-panel overlay-panel__close js-toggle" data-toggle-target="#panel-primary html" data-toggle-class-name="is-overlay-panel-open">
 			<?php ground_icon( 'close' ); ?>
 		</div>
 
@@ -21,11 +22,11 @@
 				<a class="border border-dashed border-primary p-2" target="_blank" href="<?php echo admin_url( 'admin.php?page=theme-general-settings', 'http' ); ?>">Upload your logo</a>
 			<?php } ?>
 		</div>
-		<a class="js-back block ml-6 mb-6 header__back cursor-pointer"> <span> <?php ground_icon( 'chevron-left', 'text-black dark:text-white' ); ?> </span> <?php _e( 'Indietro', 'ground' ); ?> </a>
 
-
-		<?php get_template_part( 'partials/navigation', 'panel-primary' ); ?>
-
+		<div class="overlay-panel__content">
+			<a class="js-back block ml-6 mb-6 header__back cursor-pointer"> <span> <?php ground_icon( 'chevron-left', 'text-black dark:text-white' ); ?> </span> <?php _e( 'Indietro', 'ground' ); ?> </a>
+			<?php get_template_part( 'partials/navigation', 'panel-primary' ); ?>
+		</div>
 
 	</div>
 </div>

@@ -18,7 +18,7 @@ export default class Menu {
 			navicon: document.querySelector('.js-navicon'),
 			menuBody: document.querySelector('.js-menu-body'),
 			menuContainer: document.querySelector('.js-menu-container'),
-			closeOverviewPanel: document.querySelector('.js-close-overview-panel'),
+			closeOverviewPanel: document.querySelector('.js-close-overlay-panel'),
 			closePanel: document.querySelector('.js-close-panel'),
 			menuPanel: document.querySelector('.js-navigation-panel')
 		};
@@ -198,29 +198,13 @@ export default class Menu {
 			});
 		}
 
-		//Gestione livelli navigation panel desktop con submenu
-		// if (window.matchMedia('(min-width: 1024px)').matches && this.DOM.menuPanel) {
-		// 	console.log('desk');
-		// 	[...document.querySelectorAll(triggers)].forEach((item) => {
-		// 		if (item.parentNode.classList.contains('navigation__list--panel')) {
-		// 			multiLevelMenu(item, this.DOM.menuPanel);
-		// 		}
-		// 	});
-
-		// 	this.DOM.back.forEach((b) => {
-		// 		b.addEventListener('click', () => {
-		// 			multiLevelBack(this.DOM.menuPanel);
-		// 		});
-		// 	});
-		// }
-
 		//Se clicco la navicon resetto tutto
 		this.DOM.navicon.addEventListener('click', () => {
 			this.DOM.html.classList.remove('is-sub-navigation-open');
 
 			this.DOM.menuContainer.style.cssText += 'transform: none';
 			if (this.DOM.menuPanel) this.DOM.menuPanel.style.cssText += 'transform: none';
-			this.DOM.html.classList.remove('is-panel-open');
+			this.DOM.html.classList.remove('is-overlay-panel-open');
 
 			this.reset(this.defaults.triggers, this.defaults.level);
 			this.init(this.defaults.triggers, 0);
@@ -233,7 +217,7 @@ export default class Menu {
 
 				this.DOM.menuContainer.style.cssText += 'transform: none';
 				if (this.DOM.menuPanel) this.DOM.menuPanel.style.cssText += 'transform: none';
-				this.DOM.html.classList.remove('is-panel-open');
+				this.DOM.html.classList.remove('is-overlay-panel-open');
 
 				this.reset(this.defaults.triggers, this.defaults.level);
 				this.init(this.defaults.triggers, 0);
@@ -247,7 +231,7 @@ export default class Menu {
 
 				this.DOM.menuContainer.style.cssText += 'transform: none';
 				if (this.DOM.menuPanel) this.DOM.menuPanel.style.cssText += 'transform: none';
-				this.DOM.html.classList.remove('is-panel-open');
+				this.DOM.html.classList.remove('is-overlay-panel-open');
 
 				this.reset(this.defaults.triggers, this.defaults.level);
 				this.init(this.defaults.triggers, 0);

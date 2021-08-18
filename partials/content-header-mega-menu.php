@@ -123,7 +123,7 @@
 
 					<?php if ( GROUND_HEADER_ALL_PRODUCTS ) { ?>
 						<div class="header__panel">
-							<a class="js-toggle hidden cursor-pointer lg:flex lg:justify-end lg:items-center lg:text-lg" data-toggle-target="html" data-toggle-class-name="is-panel-open">
+							<a class="js-toggle hidden cursor-pointer lg:flex lg:justify-end lg:items-center lg:text-lg" data-toggle-target="#panel-primary html" data-toggle-class-name="is-overlay-panel-open">
 								<div class="mr-2 flex justify-end items-center"> <?php ground_icon( 'menu-left', 'icon--filled text-black dark:text-white' ); ?></div>
 								<div> <?php _e( 'All products', 'ground' ); ?></div>
 							</a>
