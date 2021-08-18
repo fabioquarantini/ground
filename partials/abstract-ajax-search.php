@@ -22,21 +22,21 @@ if ( $query->have_posts() ) {
 	while ( $query->have_posts() ) {
 		$query->the_post(); ?>
 
-			<div class="item col-span-6 lg:col-span-2">
-				<a class="item__link clear-fix" href="<?php echo esc_url( post_permalink() ); ?>">
-					<figure class="item__media media aspect-w-1 aspect-h-1">
-						<?php if ( has_post_thumbnail() ) { ?>
-							<img class="media__img object-cover" src="<?php the_post_thumbnail_url( 'medium' ); ?>" loading="lazy"/>
-						<?php } else { ?>
-							<img class="media__img object-cover" src="<?php echo GROUND_NO_IMAGE_URL; ?>" loading="lazy">
-						<?php } ?>
-					</figure>
+			<div class="col-span-6 md:col-span-3 lg:col-span-2 mb-12 lg:mb-24">
+				<a class="woocommerce-LoopProduct-link woocommerce-loop-product__link" href="<?php echo esc_url( post_permalink() ); ?>">
 
-					<h5 class="item__title">
+					<?php if ( has_post_thumbnail() ) { ?>
+						<img class="rounded-theme attachment-woocommerce_thumbnail size-woocommerce_thumbnail object-cover" src="<?php the_post_thumbnail_url( 'medium' ); ?>" loading="lazy"/>
+					<?php } else { ?>
+						<img class="rounded-theme attachment-woocommerce_thumbnail size-woocommerce_thumbnail object-cover" src="<?php echo GROUND_NO_IMAGE_URL; ?>" loading="lazy">
+					<?php } ?>
+
+
+					<h5 class="woocommerce-loop-product__title">
 						<?php the_title(); ?>
 					</h5>
 
-					<p class="item__body"><?php ground_excerpt( 100 ); ?> </p>
+					<div class="woocommerce-loop-product__description "><p><?php ground_excerpt( 100 ); ?></p> </div>
 
 					<?php
 					global $woocommerce;
@@ -46,7 +46,7 @@ if ( $query->have_posts() ) {
 					?>
 
 					<?php if ( $sale ) : ?>
-						<span class="price margin-0">
+						<span class="price">
 							<del>
 								<span class="woocommerce-Price-amount amount"><?php echo $price; ?><span class="woocommerce-Price-currencySymbol"><?php echo $currency; ?></span></span>
 							</del>
@@ -55,7 +55,7 @@ if ( $query->have_posts() ) {
 							</ins>
 						</span>
 					<?php elseif ( $price ) : ?>
-						<span class="price margin-0">
+						<span class="price">
 							<span class="woocommerce-Price-amount amount"><?php echo $price; ?><span class="woocommerce-Price-currencySymbol"><?php echo $currency; ?></span></span>
 						</span>
 					<?php endif; ?>
