@@ -6,12 +6,12 @@
 	}
 
 	.onsale {
-		@apply absolute px-4 py-1 top-3 left-3 text-white bg-green-500 rounded-theme z-10;
+		@apply card-label;
 	}
 
 	.woocommerce-placeholder,
 	.attachment-woocommerce_thumbnail {
-		@apply relative overflow-hidden w-full rounded-theme;
+		@apply card-image;
 	}
 
 	.button {
@@ -25,8 +25,9 @@
 	
 }
 
+
 .woocommerce-loop-product__title {
-	@apply text-black dark:text-white text-lg font-bold pt-4 lg:pt-6 pb-2;
+	@apply card-title;
 	.minicart & {
 		@apply text-base;
     }
@@ -34,7 +35,7 @@
 
 .woocommerce-loop-product__description {
 	* {
-		@apply text-gray-500 text-base mb-3;
+		@apply card-description;
 		.minicart & {
 			@apply text-sm;
 		}
@@ -44,12 +45,12 @@
 body.woocommerce-page.post-type-archive-product,
 body.woocommerce-page.archive {
 	.products {
-		@apply relative block w-full;
-		&.columns-1 { @apply grid grid-cols-1 gap-6; }
-		&.columns-2 { @apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-2 gap-6; }
-		&.columns-3 { @apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-6; }
-		&.columns-4 { @apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6; }
-		&.columns-5 { @apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-6; }
-		&.columns-6 { @apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-6 gap-6; }
+		@apply relative block w-full gap-6;
+		&.columns-1 { @apply grid grid-cols-1; }
+		&.columns-2 { @apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-2; }
+		&.columns-3 { @apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3; }
+		&.columns-4 { @apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4; }
+		&.columns-5 { @apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5; }
+		&.columns-6 { @apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-6; }
 	}
 }

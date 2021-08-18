@@ -87,5 +87,6 @@
 
 // Utilities
 @import "utilities/animate.css";
+@import "utilities/card.css";
 @import "utilities/rounded.css";
 @import "utilities/scroll-snap.css";

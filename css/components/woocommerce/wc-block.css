@@ -15,12 +15,13 @@
     @apply relative my-6;
 
     &__products {
-        .has-1-columns & { @apply grid grid-cols-1 gap-6; }
-        .has-2-columns & { @apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-2 gap-6; }
-        .has-3-columns & { @apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-6; }
-        .has-4-columns & { @apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6; }
-        .has-5-columns & { @apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-6; }
-        .has-6-columns & { @apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-6 gap-6; }
+        @apply gap-y-6 gap-x-6 lg:gap-y-16;
+        .has-1-columns & { @apply grid grid-cols-1 gap-12; }
+        .has-2-columns & { @apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-2; }
+        .has-3-columns & { @apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3; }
+        .has-4-columns & { @apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4; }
+        .has-5-columns & { @apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5; }
+        .has-6-columns & { @apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-6; }
     }
 
     &__product {
@@ -29,16 +30,16 @@
 
     &__product-image {
         img {
-            @apply w-full rounded-theme;
+            @apply card-image;
         }
     }
 
     &__product-title {
-        @apply text-black dark:text-white text-lg font-bold pt-6 pb-2;
+	    @apply card-title;
     }
 
     &__product-onsale {
-		@apply absolute px-4 py-1 top-3 left-3 text-white bg-green-500 rounded-theme z-10;
+		@apply card-label;
     }
 
     &__product-add-to-cart {
