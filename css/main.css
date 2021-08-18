@@ -36,7 +36,6 @@
 @import "components/overlay-panel.css";
 @import "components/page.css";
 @import "components/pagination.css";
-@import "components/scroll-snap.css";
 @import "components/search.css";
 @import "components/social.css";
 @import "components/sidebar.css";
@@ -89,3 +88,4 @@
 // Utilities
 @import "utilities/animate.css";
 @import "utilities/rounded.css";
+@import "utilities/scroll-snap.css";
