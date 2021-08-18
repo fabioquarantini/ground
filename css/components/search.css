@@ -23,11 +23,19 @@
 }
 
 .search__bg {
-	@apply absolute opacity-0 left-0 top-0 right-0 bottom-0 bg-white;
+	@apply absolute opacity-0 left-0 top-0 right-0 bottom-0;
 	transition: opacity 0.5s ease;
-
+	&:before {
+		content: "";
+		@apply opacity-0 invisible fixed top-16 left-0 right-0 bottom-0 -z-1 lg:top-36 bg-white;
+	}
 	.is-search-open & {
 		@apply opacity-100;
+
+		&:before {
+			content: "";
+			@apply opacity-100 visible;
+		}
 	}
 }
 
