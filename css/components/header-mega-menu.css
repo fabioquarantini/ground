@@ -1,5 +1,6 @@
 .header-mega-menu {
-	@apply sticky top-0 border-b border-gray-200; 
+	@apply sticky top-0 border-b border-gray-200;
+
 	@screen lg {
 		.scroll-direction-down & {
 			@apply -top-16;
@@ -15,8 +16,16 @@
 			transform: none;
 		}
 
+		.scroll-direction-down & {
+			@apply top-16;
+		}
+
 		@screen lg {
 			transform: none;
+
+			.scroll-direction-down & {
+				@apply top-0;
+			}
 		}
 	}
 
