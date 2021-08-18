@@ -25,7 +25,7 @@
             .col-2 {
                 @apply p-9;
                 h2 {
-                    @apply p-0 bg-transparent;
+                    @apply text-xl p-0 bg-transparent;
                 }
             }
 
