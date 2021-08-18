@@ -11,7 +11,7 @@
 }
 
 .shopping-cart__count {
-	@apply absolute text-sm top-2 right-1 text-center rounded-full text-white bg-red-500 h-6 w-6 leading-6;
+	@apply absolute text-sm top-2 -right-3 text-center rounded-full text-white bg-red-500 h-6 w-6 leading-6;
 
 	.is-full & {
 		@apply animate-bounce;
