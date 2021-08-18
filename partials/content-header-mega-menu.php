@@ -115,12 +115,13 @@
 				</div>
 
 
+
 				<div class="container lg:relative lg:flex lg:items-center lg:justify-between lg:h-16">
-					<div class="<?php echo GROUND_HEADER_ALL_PRODUCTS ? 'hidden lg:flex' : ''; ?>">
+					<div class="<?php echo has_nav_menu( 'panel-primary' ) ? 'hidden lg:flex' : ''; ?>">
 						<?php get_template_part( 'partials/navigation', 'header-primary' ); ?>
 					</div>
 
-					<?php if ( GROUND_HEADER_ALL_PRODUCTS ) { ?>
+					<?php if ( has_nav_menu( 'panel-primary' ) ) { ?>
 						<div class="header__panel">
 							<a class="js-toggle hidden cursor-pointer lg:flex lg:justify-end lg:items-center lg:text-lg" data-toggle-target="#panel-primary html" data-toggle-class-name="is-overlay-panel-open">
 								<div class="mr-2 flex justify-end items-center"> <?php ground_icon( 'menu-left', 'icon--filled text-black dark:text-white' ); ?></div>
