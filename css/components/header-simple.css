@@ -152,17 +152,7 @@
 			@apply relative m-0;
 			@apply hidden;
 			@screen lg {
-				@apply absolute top-16 left-6 pt-6;
-				width: calc(50% - 48px);
-
-				&:after {
-					content: "";
-					@apply absolute top-0 bg-white dark:bg-black;
-					left: -100vw;
-					height: calc(100% + 24px);
-					width: 200vw;
-					z-index: -2;
-				}
+				@apply block text-center m-auto absolute bg-gray-200 opacity-0 invisible ease-in-out duration-500 top-12 w-72 -left-3/6;
 
 				.has-children .navigation__sub-menu {
 					@apply hidden;
@@ -210,11 +200,16 @@
 
 		.is-hover {
 			@screen lg {
+				@apply relative;
 				.navigation__sub-menu {
-					@apply block;
+					@apply opacity-100 visible;
 
 					.navigation__image {
 						@apply hidden;
+					}
+
+					.navigation__link {
+						@apply pr-0 !important;
 					}
 				}
 			}
@@ -222,27 +217,11 @@
 
 		.navigation__image {
 			@apply hidden;
-			@screen lg {
-				@apply absolute top-16 right-6 pt-6;
-				width: calc(50% - 48px);
-
-				&:after {
-					content: "";
-					@apply absolute top-0 bg-white dark:bg-black;
-					left: -100vw;
-					height: calc(100% + 24px);
-					width: 200vw;
-					z-index: -1;
-				}
-			}
 		}
 
 		.is-hover {
 			.navigation__image {
 				@apply hidden;
-				@screen lg {
-					@apply block;
-				}
 			}
 		}
 
@@ -267,92 +246,6 @@
 					}
 				}
 			}
-		}
-	}
-
-	.navigation--panel-primary {
-		@apply w-full relative;
-
-		@screen lg {
-			@apply px-8;
-			transition-timing-function: ease-in-out;
-			transition: 0.2s;
-		}
-
-		.navigation__item {
-			@apply block;
-		}
-
-		.navigation__link {
-			@apply block text-lg py-4 border-b border-gray-400 border-opacity-20 font-bold;
-		}
-
-		.navigation__sub-menu {
-			@apply relative m-0;
-			@apply hidden;
-			@screen lg {
-				@apply absolute top-16 left-6 px-8;
-				width: calc(100% - 24px);
-			}
-
-			&.is-active {
-				@apply inline-block absolute top-0 h-auto opacity-100 visible;
-				left: 100vw;
-				width: 100%;
-
-				@screen lg {
-					left: 100%;
-				}
-			}
-
-			.navigation__link {
-				@screen lg {
-					@apply border-b border-gray-400 border-opacity-20;
-				}
-			}
-
-			.navigation__item {
-				@apply block;
-				@apply h-auto;
-				&:last-child {
-					.navigation__link {
-						@apply lg:border-0;
-					}
-				}
-				@screen lg {
-					@apply bg-transparent;
-				}
-
-				.navigation__link {
-					@apply block text-lg py-3 border-b border-gray-400 border-opacity-20;
-				}
-			}
-		}
-
-		.navigation__item.has-children {
-			> .navigation__link {
-				&:after {
-					content: "";
-					position: absolute;
-					height: 24px;
-					width: 24px;
-					border-radius: 50%;
-					right: 8px;
-					background: url("../img/icons/chevron-right.svg");
-				}
-
-				@screen lg {
-					&:after {
-						right: 32px;
-					}
-				}
-			}
-		}
-	}
-
-	.is-hover {
-		.navigation--panel-primary {
-			@apply hidden;
 		}
 	}
 

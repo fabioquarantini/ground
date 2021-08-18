@@ -65,17 +65,26 @@
 				<div class="hidden xl:flex">
 					<?php echo GROUND_HEADER_TEXT; ?>
 				</div>
-				<ul class="flex flex-row-reverse">
-					<?php if ( function_exists( 'icl_object_id' ) ) : ?>
-					<li class="js-toggle text-lg lg:text-base pl-4" data-toggle-target="#modal-languages" data-toggle-class-name="hidden"><a class="cursor-pointer"><span class="mr-2"><?php ground_icon( 'globe-alt', 'icon--filled w-6 rounded-full text-white bg-black p-1 dark:text-white dark:bg-white' ); ?></span><?php _e( 'Language', 'ground' ); ?><span><?php ground_icon( 'chevron-down', 'text-black' ); ?></span></a></li>
+
+				<div class="flex items-center justify-end space-x-5">
+					<ul class="flex flex-row-reverse">
+						<?php if ( function_exists( 'icl_object_id' ) ) : ?>
+						<li class="js-toggle text-lg lg:text-base pl-4" data-toggle-target="#modal-languages" data-toggle-class-name="hidden"><a class="cursor-pointer"><span class="mr-2"><?php ground_icon( 'globe-alt', 'icon--filled w-6 rounded-full text-white bg-black p-1 dark:text-white dark:bg-white' ); ?></span><?php _e( 'Language', 'ground' ); ?><span><?php ground_icon( 'chevron-down', 'text-black' ); ?></span></a></li>
+						<?php endif; ?>
+						<?php if ( GROUND_COMPANY_PHONE ) : ?>
+							<li class="js-toggle text-lg lg:text-base pl-4"><a class="cursor-pointer"><span class="mr-2"><?php ground_icon( 'phone', 'icon--filled w-6 rounded-full text-white bg-purple-600 p-1 dark:text-white' ); ?></span> <?php echo GROUND_COMPANY_PHONE; ?></a></li>
+						<?php endif; ?>
+						<?php if ( GROUND_COMPANY_WHATSAPP ) : ?>
+							<li class="js-toggle text-lg lg:text-base"><a class="cursor-pointer"><span class="mr-2"><?php ground_icon( 'whatsapp', 'icon--filled w-6 rounded-full text-white bg-green-400 p-1 dark:text-white' ); ?></span> <?php echo GROUND_COMPANY_WHATSAPP; ?></a></li>
+						<?php endif; ?>
+					</ul>
+					<?php if ( ! function_exists( 'is_woocommerce_activated' ) ) : ?>
+					<ul class=" relative z-0 border-l border-gray-200 pl-6 lg:flex lg:items-center lg:space-x-5 lg:justify-end lg:m-0">
+						<li class="text-lg lg:text-base"><a class="inline-block py-4 lg:py-auto" href="<?php echo get_permalink( wc_get_page_id( 'myaccount' ) ); ?>"><?php _e( 'Account', 'ground' ); ?><span class="hidden ml-2 lg:inline-block"><?php ground_icon( 'user', 'icon--filled text-black dark:text-white' ); ?></span></a></li>
+						<li class="hidden minicart-wrapper lg:inline-block"><?php get_template_part( 'partials/woocommerce/shopping-cart' ); ?> </li>
+					</ul>
 					<?php endif; ?>
-					<?php if ( GROUND_COMPANY_PHONE ) : ?>
-						<li class="js-toggle text-lg lg:text-base pl-4"><a class="cursor-pointer"><span class="mr-2"><?php ground_icon( 'phone', 'icon--filled w-6 rounded-full text-white bg-purple-600 p-1 dark:text-white' ); ?></span> <?php echo GROUND_COMPANY_PHONE; ?></a></li>
-					<?php endif; ?>
-					<?php if ( GROUND_COMPANY_WHATSAPP ) : ?>
-						<li class="js-toggle text-lg lg:text-base"><a class="cursor-pointer"><span class="mr-2"><?php ground_icon( 'whatsapp', 'icon--filled w-6 rounded-full text-white bg-green-400 p-1 dark:text-white' ); ?></span> <?php echo GROUND_COMPANY_WHATSAPP; ?></a></li>
-					<?php endif; ?>
-				</ul>
+				</div>
 			</div>
 
 			<div class="flex flex-col-reverse lg:block">
@@ -106,10 +115,7 @@
 						</button>
 					</div>
 
-					<ul class="relative z-0 border-b border-gray-200 lg:border-none lg:flex lg:items-center lg:space-x-5 lg:justify-end lg:m-0">
-						<li class="text-lg lg:text-base"><a class="inline-block py-4 lg:py-auto" href="<?php echo get_permalink( wc_get_page_id( 'myaccount' ) ); ?>"><?php _e( 'Account', 'ground' ); ?><span class="hidden ml-2 lg:inline-block"><?php ground_icon( 'user', 'icon--filled text-black dark:text-white' ); ?></span></a></li>
-						<li class="hidden minicart-wrapper lg:inline-block"><?php get_template_part( 'partials/woocommerce/shopping-cart' ); ?> </li>
-					</ul>
+
 
 					<ul class="block lg:hidden">
 						<li class="js-toggle text-lg lg:text-base py-3" data-toggle-target="#modal-languages" data-toggle-class-name="hidden"><a class="cursor-pointer"><span class="mr-2"><?php ground_icon( 'globe-alt', 'icon--filled w-6 rounded-full text-white bg-black p-1 dark:text-white dark:bg-white' ); ?></span><?php _e( 'Language', 'ground' ); ?></a></li>
@@ -125,24 +131,9 @@
 
 
 				<div class="container lg:relative lg:flex lg:items-center lg:justify-between lg:h-16">
-					<div class="<?php echo has_nav_menu( 'panel-primary' ) ? 'hidden lg:flex' : ''; ?>">
-						<?php get_template_part( 'partials/navigation', 'header-primary' ); ?>
-					</div>
 
-					<?php if ( has_nav_menu( 'panel-primary' ) ) { ?>
-						<div class="header__panel">
-							<a class="js-toggle hidden cursor-pointer lg:flex lg:justify-end lg:items-center lg:text-lg" data-toggle-target="#panel-primary html" data-toggle-class-name="is-overlay-panel-open">
-								<div class="mr-2 flex justify-end items-center"> <?php ground_icon( 'menu-left', 'icon--filled text-black dark:text-white' ); ?></div>
-								<div> <?php _e( 'All products', 'ground' ); ?></div>
-							</a>
-							<div class="hidden lg:flex">
-								<?php get_template_part( 'partials/panel', 'primary' ); ?>
-							</div>
-							<div class="lg:hidden">
-								<?php get_template_part( 'partials/navigation', 'panel-primary' ); ?>
-							</div>
-						</div>
-					<?php } ?>
+						<?php get_template_part( 'partials/navigation', 'header-primary' ); ?>
+
 				</div>
 
 			</div>
@@ -151,4 +142,5 @@
 	</div>
 
 </header> <!-- End header -->
+
 
