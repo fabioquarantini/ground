@@ -168,7 +168,7 @@ export default class Menu {
 					this.DOM.html.classList.add('is-navigation-hover');
 					timerHandle = setTimeout(() => {
 						item.classList.add('is-hover');
-					}, 300);
+					}, 200);
 				});
 
 				item.addEventListener('mouseleave', () => {
@@ -177,7 +177,7 @@ export default class Menu {
 					if (item.classList.contains('is-hover')) {
 						timerHandle = setTimeout(() => {
 							item.classList.remove('is-hover');
-						}, 300);
+						}, 200);
 					}
 				});
 			});
