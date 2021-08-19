@@ -1,8 +1,5 @@
 .page {
 
-	body.woocommerce-checkout & {
-		@apply py-20;
-	}
 }
 
 .page__header {

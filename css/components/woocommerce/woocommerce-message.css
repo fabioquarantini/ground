@@ -1,8 +1,18 @@
 .woocommerce-message,
-.woocommerce-Message {
-	@apply grid lg:block p-5 mb-6 px-6 rounded-theme text-center text-white bg-green-500 lg:text-left;
+.woocommerce-Message,
+.woocommerce-error {
+	@apply grid lg:block p-5 mb-6 px-6 rounded-theme text-center text-white lg:text-left;
 
 	.button {
 		@apply mt-3 order-last w-full lg:order-none lg:w-auto lg:mr-4 lg:mt-0;
 	}
+}
+
+.woocommerce-message,
+.woocommerce-Message {
+	@apply bg-green-500;
+}
+
+.woocommerce-error {
+	@apply bg-red-500;
 }

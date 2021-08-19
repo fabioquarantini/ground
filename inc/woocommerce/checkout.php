@@ -332,16 +332,31 @@ add_filter( 'woocommerce_cart_item_name', 'ground_product_image_on_checkout', 10
 
 
 
+
 /**
- * Add secure order label
+ * Checkout, Add header checkout
  */
-function ground_add_secure_order_label() { ?>
-	<div class="mt-4 top-0 right-0 lg:absolute lg:mt-0">
-		<div class="font-bold lg:text-right">
-			<?php ground_icon( 'lock' ); ?> <?php _e( 'Secure order', 'ground' ); ?>
+function ground_header_checkout() {
+
+	if ( class_exists( 'WooCommerce' ) && is_checkout() ) { ?>
+
+		<div class="container">
+			<div class="flex justify-between py-6 border-b border-gray-200">
+				<div>
+					<?php get_template_part( 'partials/logo-primary' ); ?>
+				</div>
+				<div>
+					<div class="font-bold lg:text-right">
+						<?php ground_icon( 'lock' ); ?> <?php _e( 'Secure order', 'ground' ); ?>
+					</div>
+				</div>
+			</div>
 		</div>
-	</div>
-	<?php
+
+		<?php
+
+	}
+
 }
 
-add_action( 'woocommerce_before_checkout_form', 'ground_add_secure_order_label', 10 );
+add_action( 'ground_header', 'ground_header_checkout' );
