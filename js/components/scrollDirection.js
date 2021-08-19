@@ -16,7 +16,7 @@ export default class ScrollDirection {
 	 * @param {string} triggers - Selectors
 	 */
 	initEvents() {
-		if (!isMobile.any && this.DOM.element === null) {
+		if (isMobile.any) {
 			return;
 		}
 		// Initial state
