@@ -7,7 +7,7 @@
             @apply text-black dark:text-white text-lg font-bold pt-4 lg:pt-6 pb-2;
         }
         .card-description {
-            @apply text-gray-500 text-base mb-3;
+            @apply text-gray-500 text-base mb-3 line-clamp-3;
         }
         .card-label {
             @apply absolute px-4 py-1 top-3 left-3 text-white bg-green-500 rounded-theme z-10;
