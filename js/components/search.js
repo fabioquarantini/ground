@@ -5,6 +5,7 @@
 import { getSiteUrl } from '../utilities/paths';
 import { debounce } from '../utilities/debounce';
 import { DEBUG_MODE } from '../utilities/environment';
+import isMobile from 'ismobilejs';
 export default class Search {
 	/**
 	 * @param {string} element - Selector
@@ -31,9 +32,11 @@ export default class Search {
 		});
 
 		window.addEventListener('resize', () => {
-			this.DOM.html.classList.remove('is-search-open');
-			this.DOM.searchForm.classList.remove('is-search-open');
-			this.init();
+			if (!isMobile().any) {
+				this.DOM.html.classList.remove('is-search-open');
+				this.DOM.searchForm.classList.remove('is-search-open');
+				this.init();
+			}
 		});
 	}
 
@@ -41,7 +44,7 @@ export default class Search {
 		if (window.matchMedia('(max-width: 1024px)').matches) {
 			if (this.DOM.searchMobile) this.DOM.searchMobile.append(this.DOM.searchFormAjax);
 		} else {
-			if (this.DOM.searchDesktop) this.DOM.searchDesktop.append(this.DOM.searchFormAjax);
+			this.DOM.searchDesktop.append(this.DOM.searchFormAjax);
 		}
 
 		if (this.DOM.element.length === 0) {

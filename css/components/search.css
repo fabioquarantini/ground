@@ -44,10 +44,17 @@
 }
 
 .search__spinner {
-	@apply inline-block transition-all duration-500 absolute top-1 -right-20 opacity-0 invisible;
+	@apply inline-block transition-all duration-500 absolute top-1 right-0 opacity-0 invisible;
 
 	@screen lg {
-		@apply absolute right-auto top-0 -left-16;
+		@apply absolute top-0;
+	}
+
+	.is-search-open & {
+		@apply -right-20;
+		@screen lg {
+			@apply right-auto -left-16;
+		}
 	}
 
 	.is-search-loading & {

@@ -81,7 +81,6 @@ export default class Menu {
 				if (subMenu) {
 					t.preventDefault();
 					t.stopPropagation();
-					console.log('levle', t.target.parentElement);
 
 					t.target.parentElement.classList.add('level' + level);
 					this.DOM.html.classList.add('is-sub-navigation-open');
@@ -183,7 +182,6 @@ export default class Menu {
 			});
 
 			//Gestione livelli navigation panel desktop con submenu
-			console.log('desk');
 			[...document.querySelectorAll(triggers)].forEach((item) => {
 				//if (item.parentNode.classList.contains('navigation__list--panel')) {
 				if (item.classList.contains('navigation__item--panel-primary')) {

@@ -1,6 +1,69 @@
 .header {
-	@apply relative z-40;
+	@apply sticky top-0 border-b border-gray-200 z-40;
+
 	@screen lg {
-		@apply ease-in-out duration-500;
+		.scroll-direction-down & {
+			@apply -top-16;
+		}
+	}
+
+	.is-navigation-open & {
+		@apply fixed top-0 left-0 w-screen;
+		.scroll-direction-down & {
+			@apply top-0;
+		}
+	}
+
+	.header__body {
+		transform: translateX(100%);
+		transition-timing-function: ease-in-out;
+		transition: 0.2s;
+
+		.is-navigation-open & {
+			transform: none;
+		}
+		@screen lg {
+			transform: none;
+		}
+	}
+
+	.header__container {
+		//il movimento laterale è in menu.js
+		transition-timing-function: ease-in-out;
+		transition: 0.2s;
+
+		&.is-active {
+			@screen lg {
+				transform: none;
+			}
+		}
+	}
+
+	.header__back {
+		transform: translateX(-200%);
+		transition-timing-function: ease-in-out;
+		transition: 0.2s;
+
+		.is-sub-navigation-open & {
+			transform: translateX(0%);
+		}
+
+		@screen lg {
+			//transform: translateX(-200%);
+			@apply transform -translate-x-full duration-75 ease-default;
+
+			.is-overlay-panel-open.is-sub-navigation-open & {
+				@apply transform-none;
+			}
+		}
+	}
+
+	.header__cart {
+		@apply opacity-100 visible;
+		transition: opacity 0.15s ease-in-out;
+
+		.is-navigation-open & {
+			@apply opacity-0 invisible;
+		}
 	}
 }

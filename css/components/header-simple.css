@@ -1,87 +1,13 @@
 .header-simple {
-	@apply sticky top-0 border-b border-gray-200;
-
-	@screen lg {
-		.scroll-direction-down & {
-			@apply -top-16;
-		}
-	}
-
 	.header__body {
-		transform: translateX(100%);
-		transition-timing-function: ease-in-out;
-		transition: 0.2s;
-
-		.is-navigation-open & {
-			transform: none;
-		}
-
 		.scroll-direction-down & {
 			@apply top-16;
 		}
 
 		@screen lg {
-			transform: none;
-
 			.scroll-direction-down & {
 				@apply top-0;
 			}
-		}
-	}
-
-	.header__container {
-		transition-timing-function: ease-in-out;
-		transition: 0.2s;
-
-		&.is-active {
-			@screen lg {
-				transform: none;
-			}
-		}
-	}
-
-	.header__back {
-		transform: translateX(-200%);
-		transition-timing-function: ease-in-out;
-		transition: 0.2s;
-
-		.is-sub-navigation-open & {
-			transform: translateX(0%);
-		}
-
-		@screen lg {
-			//transform: translateX(-200%);
-			@apply transform -translate-x-full duration-75 ease-default;
-
-			.is-overlay-panel-open.is-sub-navigation-open & {
-				@apply transform-none;
-			}
-		}
-	}
-
-	.header__search,
-	.header__logo {
-		@apply opacity-100 visible;
-		transition: opacity 0.15s ease-in-out;
-
-		.is-sub-navigation-open & {
-			@apply opacity-0 invisible;
-		}
-	}
-
-	.header__search,
-	.header__logo {
-		.is-navigation-open & {
-			@apply opacity-0 invisible;
-		}
-	}
-
-	.header__cart {
-		@apply opacity-100 visible;
-		transition: opacity 0.15s ease-in-out;
-
-		.is-navigation-open & {
-			@apply opacity-0 invisible;
 		}
 	}
 
