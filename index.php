@@ -8,7 +8,7 @@
 get_template_part( 'partials/header' );
 ?>
 
-	<div class="container">
+	<div class="container mt-12">
 
 		<?php get_template_part( 'partials/breadcrumbs' ); ?>
 
@@ -24,7 +24,7 @@ get_template_part( 'partials/header' );
 					</header>
 				<?php endif; ?>
 
-				<div class="page__body js-infinite-container">
+				<div class="page__body grid grid-cols-2 lg:grid-cols-3 gap-6 js-infinite-container">
 
 					<?php
 					while ( have_posts() ) :

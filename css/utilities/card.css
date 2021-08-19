@@ -4,10 +4,13 @@
             @apply relative overflow-hidden w-full rounded-theme;
         }
         .card-title {
-            @apply text-black dark:text-white text-lg font-bold pt-4 lg:pt-6 pb-2;
+            @apply block text-black dark:text-white text-lg font-bold mt-4 mb-3 line-clamp-3 lg:mt-5;
+        }
+        .card-subtitle {
+            @apply block text-black dark:text-white text-xs font-bold mb-3;
         }
         .card-description {
-            @apply text-gray-500 text-base mb-3 line-clamp-3;
+            @apply block text-gray-500 text-base mb-3 line-clamp-3;
         }
         .card-label {
             @apply absolute px-4 py-1 top-3 left-3 text-white bg-green-500 rounded-theme z-10;

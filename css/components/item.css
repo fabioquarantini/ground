@@ -1,8 +1,31 @@
 .item {
-	@apply mb-12;
 }
 
-.item--small {
+.item__link {
+	@apply block no-underline; 
+}
+
+.item__footer {
+
+}
+
+.item__media {
+	@apply card-image;
+}
+
+.item__title {
+	@apply card-title;
+}
+
+.item__data {
+	@apply card-subtitle;
+}
+
+.item__body {
+	@apply card-description;
+}
+
+/* .item--small {
 	@apply mb-6;
 
 	.item__media {
@@ -23,28 +46,4 @@
 			@apply bg-gray-400;
 		}
 	}
-}
-
-.item__link {
-	@apply block no-underline; 
-}
-
-.item__footer {
-
-}
-
-.item__title {
-	@apply mb-0;
-}
-
-.item__header {
-	@apply mb-6;
-}
-
-.item__data {
-	@apply block;
-}
-
-.item__data--date {
-	@apply font-bold text-xs text-gray-600;
-}
+} */

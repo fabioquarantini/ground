@@ -6,6 +6,7 @@
 	}
 
 	path {
-		fill: currentColor;
+		/* fill: currentColor; */
+		@apply fill-current;
 	}
 }

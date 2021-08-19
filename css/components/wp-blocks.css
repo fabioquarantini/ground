@@ -1,0 +1,23 @@
+.wp-block-gallery {
+    @apply relative my-12;
+
+    &.columns-1 { .blocks-gallery-grid { @apply grid-cols-1; } }
+    &.columns-2 { .blocks-gallery-grid { @apply lg:grid-cols-2; } }
+    &.columns-3 { .blocks-gallery-grid { @apply lg:grid-cols-3; } }
+    &.columns-4 { .blocks-gallery-grid { @apply lg:grid-cols-4; } }
+    &.columns-5 { .blocks-gallery-grid { @apply lg:grid-cols-5; } }
+    &.columns-6 { .blocks-gallery-grid { @apply lg:grid-cols-6; } }
+
+    .blocks-gallery-grid {
+        @apply grid grid-cols-2 gap-6;
+    }
+
+    .blocks-gallery-item {
+        figure {
+            img {
+                @apply rounded-theme;
+            }
+        }
+    }
+
+}
