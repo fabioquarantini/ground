@@ -38,14 +38,6 @@
 	/* PLACE HOLDER */
 	.place-order {
 
-		.woocommerce-terms-and-conditions-wrapper {
-			.woocommerce-privacy-policy-text {
-				* {
-					@apply text-sm text-gray-500;
-				}
-			}
-		}
-
 		button[type=submit].button  {
 			@apply mt-3 w-full;
 		}
