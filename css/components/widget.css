@@ -5,7 +5,7 @@
 
 		.widgettitle,
 		> h6 {
-			@apply relative text-xl font-bold mb-3;
+			@apply relative text-lg font-bold mb-3;
 		}
 
 	}
