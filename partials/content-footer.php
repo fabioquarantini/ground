@@ -65,11 +65,11 @@
 		<?php if ( GROUND_SOCIAL_LINKEDIN_URL || GROUND_SOCIAL_FACEBOOK_URL || GROUND_SOCIAL_INSTAGRAM_URL || GROUND_SOCIAL_YOUTUBE_URL ) : ?>
 		<div class="lg:border-l border-gray-200">
 
-			<div class="flex items-center justify-center lg:space-x-6">
+			<div class="lg:flex items-center justify-center lg:space-x-6">
 
-				<p class="pr-3 text-white lg:pl-6 lg:text-black text-sm lg:text-base"><?php _e( 'Seguici sui social network', 'ground' ); ?></p>
+				<p class="pr-3 text-white text-center mb-2 text-sm lg:text-base lg:pl-6 lg:text-left lg:text-black lg:mb-0"><?php _e( 'Seguici sui social network', 'ground' ); ?></p>
 
-				<div class="flex space-x-3">
+				<div class="flex justify-center lg:justify-start space-x-3">
 					<?php if ( GROUND_SOCIAL_LINKEDIN_URL ) : ?>
 					<span class="inline-block">
 						<a class="h-10 w-10 rounded-full text-white bg-blue-600 hover:text-white flex items-center" href="<?php echo GROUND_SOCIAL_LINKEDIN_URL; ?>">

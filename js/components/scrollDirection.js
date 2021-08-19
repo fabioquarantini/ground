@@ -1,3 +1,5 @@
+const isMobile = require('ismobilejs');
+
 export default class ScrollDirection {
 	/**
 	 * @param {string} element - Selector
@@ -14,11 +16,13 @@ export default class ScrollDirection {
 	 * @param {string} triggers - Selectors
 	 */
 	initEvents() {
+		if (!isMobile.any && this.DOM.element === null) {
+			return;
+		}
 		// Initial state
 		let scrollPos = 0;
 		// adding scroll event
 		window.addEventListener('scroll', () => {
-			console.log(scrollPos);
 			if (scrollPos < -96) {
 				// detects new state and compares it with the new one
 				if (document.body.getBoundingClientRect().top > scrollPos) {
@@ -32,7 +36,6 @@ export default class ScrollDirection {
 				} else {
 					document.documentElement.classList.add('scroll-direction-down');
 				}
-
 				document.documentElement.classList.add('body-scrolled');
 			} else {
 				if (document.documentElement.classList.contains('body-scrolled')) {
