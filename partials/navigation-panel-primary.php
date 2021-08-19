@@ -1,4 +1,4 @@
- <nav class="js-navigation-panel navigation navigation--panel-primary">
+ <nav class="js-navigation-panel navigation navigation--panel-primary relative">
 	<?php
 	$args = array(
 		'theme_location' => 'panel-primary',
