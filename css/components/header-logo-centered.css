@@ -1,6 +1,13 @@
 .header-logo-centered {
+	//Minicart Buotton
+	.shopping-cart__link {
+		span {
+			@apply hidden;
+		}
+	}
 	//Navigation Primary
-	.navigation--primary {
+	.navigation--primary,
+	.navigation--secondary {
 		.navigation__item {
 			@apply block;
 
@@ -16,7 +23,7 @@
 		.navigation__link {
 			@apply block text-lg py-4 border-b border-gray-400 border-opacity-20 font-bold;
 			@screen lg {
-				@apply block py-3 text-lg border-0;
+				@apply block py-2 text-base border-0;
 			}
 		}
 
@@ -71,7 +78,7 @@
 					@apply block text-lg py-3 border-b border-gray-400 border-opacity-20;
 					@screen lg {
 						&:after {
-							@apply hidden;
+							@apply hidden text-base;
 						}
 					}
 				}
@@ -140,7 +147,7 @@
 	}
 
 	//Navigation Secondary
-	.navigation--secondary {
+	/* .navigation--secondary {
 		@apply relative w-full;
 
 		@screen lg {
@@ -283,5 +290,5 @@
 				}
 			}
 		}
-	}
+	} */
 }
