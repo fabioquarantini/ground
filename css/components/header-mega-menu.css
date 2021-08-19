@@ -284,7 +284,7 @@
 			@screen lg {
 				@apply block text-center m-auto absolute bg-gray-200 opacity-0 invisible top-8 w-44 z-40;
 				left: 50%;
-				transform: translateX(calc(-50% - 24px));
+				transform: translateX(calc(-50% - 12px));
 				.has-children .navigation__sub-menu {
 					@apply hidden;
 				}

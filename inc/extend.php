@@ -615,6 +615,9 @@ function ground_header_switch_type() {
 		case $header_type == 'menu':
 			get_template_part( 'partials/content', 'header' );
 			break;
+		case $header_type == 'menuCentered':
+			get_template_part( 'partials/content', 'header-logo-centered' );
+			break;
 		case $header_type == 'megaMenu':
 			get_template_part( 'partials/content', 'header-mega-menu' );
 			break;

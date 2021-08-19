@@ -36,6 +36,7 @@
             },
             "choices": {
                 "menu": "Simple menu",
+                "menuCentered": "Simple menu - Logo centered",
                 "megaMenu": "Mega menu"
             },
             "default_value": "menu",
@@ -64,5 +65,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1629292757
+    "modified": 1629368292
 }
