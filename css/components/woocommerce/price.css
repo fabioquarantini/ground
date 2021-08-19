@@ -3,7 +3,10 @@
 	@apply flex items-baseline text-black dark:text-white w-full;
 
 	.amount {
-		@apply text-3xl font-bold lg:text-4xl;
+		@apply text-lg font-bold lg:text-4xl;
+		.summary & {
+			@apply text-3xl lg:text-4xl;
+		}
 		.minicart & {
 			@apply text-xl;
     	}
@@ -12,7 +15,11 @@
 	del {
 		@apply text-red-500 text-xl order-2 pl-1 lg:pl-2;
 		.amount {
-			@apply text-lg lg:text-xl font-normal text-gray-300;
+			@apply text-sm lg:text-xl font-normal text-gray-300;
+
+			.summary & {
+				@apply text-lg lg:text-xl;
+			}
 		}
 	}
 
@@ -25,12 +32,6 @@
 	.price__label {
 		@apply pr-1 lg:pr-2;
 	}
-	del {
-		.amount {
-			@apply px-2;
-		}
-	}
-
 }
 
 

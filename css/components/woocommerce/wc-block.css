@@ -27,6 +27,10 @@
 
     &__product-onsale {
 		@apply card-label;
+
+        .screen-reader-text {
+            @apply sr-only;
+        }
     }
 
     &__product-add-to-cart {
