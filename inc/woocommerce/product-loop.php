@@ -183,3 +183,26 @@ function ground_add_sidebar_woocommerce_advanced() {
 }
 
 add_action( 'woocommerce_sidebar', 'ground_add_sidebar_woocommerce_advanced', 10 );
+
+
+
+/**
+ * WooCommerce, Add Additional image change on hover on Product Loop
+ */
+function ground_add_on_hover_shop_loop_image() {
+
+	$image_id = wc_get_product()->get_gallery_image_ids();
+
+	if ( $image_id ) {
+		?>
+
+		<div class="woocommerce-loop-product__additional-image">
+			<?php echo wp_get_attachment_image( $image_id[0], 'woocommerce_thumbnail' ); ?>
+		</div>
+
+		<?php
+	}
+
+}
+
+add_action( 'woocommerce_before_shop_loop_item_title', 'ground_add_on_hover_shop_loop_image' );

@@ -22,6 +22,12 @@
 			@apply text-sm px-4 py-2;
 		}
 	}
+
+	&:hover {
+		.woocommerce-loop-product__additional-image {
+			@apply opacity-100;
+		}
+	}
 	
 }
 
@@ -39,6 +45,14 @@
 		.minicart & {
 			@apply text-sm;
 		}
+	}
+}
+
+
+.woocommerce-loop-product__additional-image {
+	@apply absolute top-0 w-full h-auto opacity-0 transition-all duration-300;
+	img {
+		@apply card-image;
 	}
 }
 
