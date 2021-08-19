@@ -60,19 +60,19 @@
 
 	</div>
 
-	<div class="js-menu-body header__body grid auto-rows-min fixed left-0 pb-72 h-full w-screen z-40 bg-white dark:bg-black overflow-y-scroll lg:pt-0 lg:mt-0 lg:relative lg:top-auto lg:left-auto lg:bottom-auto lg:right-auto lg:bg-transparent lg:overflow-y-visible lg:w-full lg:pb-0">
+	<div class="js-menu-body header__body fixed left-0 pb-72 h-full w-screen z-40 bg-white dark:bg-black overflow-y-scroll lg:pt-0 lg:mt-0 lg:relative lg:top-auto lg:left-auto lg:bottom-auto lg:right-auto lg:bg-transparent lg:overflow-y-visible lg:w-full lg:pb-0">
 		<div class="js-menu-container header__container relative">
-			<div class="container hidden lg:relative lg:flex lg:justify-between lg:items-center lg:h-16">
+			<div class="container hidden lg:relative lg:flex lg:justify-between lg:items-center lg:h-16 xl:justify-end xl:space-x-6">
 				<div class="hidden xl:flex">
 					<?php echo GROUND_HEADER_TEXT; ?>
 				</div>
 
-				<div class="flex items-center justify-end space-x-6">
-					<?php if ( has_nav_menu( 'header-secondary' ) ) : ?>
-					<div class="lg:border-r lg:border-gray-200 lg:pr-6">
-						<?php get_template_part( 'partials/navigation', 'header-secondary' ); ?>
-					</div>
-					<?php endif; ?>
+				<?php if ( has_nav_menu( 'header-secondary' ) ) : ?>
+				<div class="xl:border-r xl:border-gray-200 xl:pr-6">
+					<?php get_template_part( 'partials/navigation', 'header-secondary' ); ?>
+				</div>
+				<?php endif; ?>
+				<div class="pl-6 lg:items-center lg:space-x-6 lg:pl-0 lg:flex lg:justify-end xl:justify-start">
 					<ul class="flex flex-row-reverse">
 						<?php if ( function_exists( 'icl_object_id' ) ) : ?>
 						<li class="js-toggle text-lg lg:text-base pl-4" data-toggle-target="#modal-languages" data-toggle-class-name="hidden"><a class="cursor-pointer"><span class="mr-2"><?php ground_icon( 'globe-alt', 'icon--filled w-6 rounded-full text-white bg-black p-1 dark:text-white dark:bg-white' ); ?></span><?php _e( 'Language', 'ground' ); ?><span><?php ground_icon( 'chevron-down', 'text-black' ); ?></span></a></li>
@@ -91,6 +91,7 @@
 					</ul>
 					<?php endif; ?>
 				</div>
+
 			</div>
 
 			<div class="flex flex-col-reverse lg:block">
@@ -113,13 +114,17 @@
 						<?php } ?>
 					</div>
 
-					<div class="lg:flex lg:justify-end lg:items-center">
+					<div class="relative lg:flex lg:justify-end lg:items-center">
 
 						<?php get_template_part( 'partials/navigation', 'header-primary' ); ?>
 
 						<button class="hidden js-toggle lg:block" data-toggle-target="#js-search-form html" data-toggle-class-name="is-search-open">
 							<?php ground_icon( 'search', 'icon--filled text-black dark:text-white' ); ?>
 						</button>
+
+						<div class="block lg:hidden">
+							<?php get_template_part( 'partials/navigation', 'header-secondary' ); ?>
+						</div>
 
 						<ul class="block lg:hidden">
 							<li class="js-toggle text-lg lg:text-base py-3" data-toggle-target="#modal-languages" data-toggle-class-name="hidden"><a class="cursor-pointer"><span class="mr-2"><?php ground_icon( 'globe-alt', 'icon--filled w-6 rounded-full text-white bg-black p-1 dark:text-white dark:bg-white' ); ?></span><?php _e( 'Language', 'ground' ); ?></a></li>

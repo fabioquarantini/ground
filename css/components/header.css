@@ -16,33 +16,38 @@
 
 	.header__body {
 		transform: translateX(100%);
-		transition-timing-function: ease-in-out;
-		transition: 0.2s;
+		@apply transition-all ease-default;
 
 		.is-navigation-open & {
-			transform: none;
+			@apply transform-none;
 		}
+
+		.scroll-direction-down & {
+			@apply top-16;
+		}
+
 		@screen lg {
-			transform: none;
+			@apply transform-none;
+			.scroll-direction-down & {
+				@apply top-0;
+			}
 		}
 	}
 
 	.header__container {
 		//il movimento laterale è in menu.js
-		transition-timing-function: ease-in-out;
-		transition: 0.2s;
+		@apply transition-all ease-default;
 
 		&.is-active {
 			@screen lg {
-				transform: none;
+				@apply transform-none;
 			}
 		}
 	}
 
 	.header__back {
 		transform: translateX(-200%);
-		transition-timing-function: ease-in-out;
-		transition: 0.2s;
+		@apply transition-all ease-default;
 
 		.is-sub-navigation-open & {
 			transform: translateX(0%);
@@ -58,12 +63,40 @@
 		}
 	}
 
-	.header__cart {
+	.header__cart,
+	.header__logo {
 		@apply opacity-100 visible;
 		transition: opacity 0.15s ease-in-out;
 
 		.is-navigation-open & {
 			@apply opacity-0 invisible;
+		}
+	}
+
+	.header__navicon {
+		transform: translateX(0%);
+		/* transition-timing-function: ease-in-out;
+		transition: 0.75s; */
+		animation-duration: 0.75s;
+
+		.is-navigation-open & {
+			transform: translateX(calc(100vw - 72px));
+			animation-name: slideInPosticipate;
+			@keyframes slideInPosticipate {
+				0% {
+					opacity: 0;
+				}
+
+				80% {
+					opacity: 0;
+					left: -24px;
+				}
+
+				100% {
+					opacity: 1;
+					left: 0;
+				}
+			}
 		}
 	}
 }
