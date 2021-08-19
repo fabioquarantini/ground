@@ -14,6 +14,7 @@ import Magnet from './components/magnetV2';
 import Billing from './components/billing';
 import GdprCompliance from './components/gdprCompliance';
 import ScrollDirection from './components/scrollDirection';
+import WidgetAccordion from './components/widgetAccordion';
 
 // Animations
 import AnimationAll from './animations/animationAll';
@@ -48,6 +49,7 @@ const search = new Search();
 const magnet = new Magnet();
 const gdprCompliance = new GdprCompliance();
 const scrollDirection = new ScrollDirection();
+const widgetAccordion = new WidgetAccordion();
 
 // Animations
 // const animationBatch = new AnimationBatch()

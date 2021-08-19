@@ -1,18 +1,5 @@
-.wc-block-featured-category {
-    @apply flex justify-center items-center overflow-hidden rounded-theme;
-
-    &__wrapper {
-        @apply max-w-lg mx-auto;
-    }
-
-}
-    .wp-block-button__link {
-        @extend .button;
-    }
-
-
 .wc-block-grid {
-    @apply relative my-6;
+    @apply relative my-6 lg:my-12;
 
     &__products {
         @apply gap-y-6 gap-x-6 lg:gap-y-16;
@@ -48,6 +35,48 @@
         .added_to_cart {
             @apply block;
         }
+    }
+
+}
+
+
+.wc-block-featured-product,
+.wc-block-featured-category {
+    @apply relative flex justify-center items-center overflow-hidden rounded-theme bg-cover bg-no-repeat my-6 lg:my-12;
+
+    &.has-background-dim {
+        &:before { @apply bg-black; }
+    }
+
+    &:before {
+        content: '';
+        @apply absolute w-full h-full inset-0 opacity-70;
+        
+    }
+
+    /* &.has-light-green-cyan-background-color { &:before { @apply bg-green-500; } }
+    &.has-pale-pink-background-color { &:before { @apply bg-pink-500; } }
+    &.has-vivid-red-background-color { &:before { @apply bg-red-500; } }
+    &.has-luminous-vivid-amber-background-color { &:before { @apply bg-yellow-500; } } */
+
+    &__wrapper {
+        @apply relative w-full px-6 mx-auto text-center text-white lg:w-6/12;
+    }
+
+    &__title {
+        @apply mb-3 text-7xl;
+
+    }
+    &__description {
+        @apply my-6 text-gray-300;
+    }
+
+    &__price {
+        @apply my-6 text-4xl font-bold;
+    }
+
+    &__link {
+        @apply mt-3;
     }
 
 }
