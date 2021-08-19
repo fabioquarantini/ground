@@ -25,15 +25,12 @@ export default class Menu {
 		};
 
 		window.addEventListener('DOMContentLoaded', () => {
-			this.init(this.defaults.triggers, this.defaults.level);
+			this.init();
 		});
 
 		window.addEventListener('resize', () => {
-			console.log('ciao');
 			if (!isMobile().any) {
-				console.log('ciao1');
-				this.reset(this.defaults.triggers, this.defaults.level);
-				this.DOM.menuContainer.style.cssText += 'transform: none';
+				if (this.DOM.menuContainer) this.DOM.menuContainer.style.cssText += 'transform: none';
 
 				if (this.DOM.menuPanel) this.DOM.menuPanel.style.cssText += 'transform: none';
 
@@ -41,21 +38,17 @@ export default class Menu {
 				this.DOM.html.classList.remove('is-sub-navigation-open');
 				this.DOM.html.classList.remove('is-overlay-panel-open');
 
-				this.init(this.defaults.triggers, 0);
+				this.reset();
+				this.init();
 			}
 		});
 	}
 
-	/**
-	 * Reset
-	 *  @param {string} triggers - Selectors
-	 * @param {num} level - Selectors
-	 */
-	reset(triggers, level) {
-		for (let i = 0; i <= level - 1; i++) {
-			console.log('ciao2');
+	reset() {
+		console.log(this.defaults.level, 'intial level - reset');
 
-			[...document.querySelectorAll(triggers)].forEach((item) => {
+		for (let i = 0; i <= this.defaults.level - 1; i++) {
+			[...document.querySelectorAll(this.defaults.triggers)].forEach((item) => {
 				if (item.classList.contains('level' + i)) {
 					item.classList.remove('level' + i);
 					item.childNodes.forEach((t) =>
@@ -64,110 +57,122 @@ export default class Menu {
 				}
 			});
 		}
-		this.init(this.defaults.triggers, 0);
-		this.DOM.level = 0;
+
+		this.defaults.level = 0;
+
+		console.log(this.defaults.level, 'finished level - reset');
 	}
-	/**
-	 * Init
-	 * @param {string} triggers - Selectors
-	 * @param {num} level - Selectors
-	 */
-	init(triggers, level) {
-		let translation = 0;
 
-		//Gestione dei submenu delle navigation @whichmenu serve per dirgli a quale menu faccio riferimento , @item quale bottone ho cliccato
-		let multiLevelMenu = (item, whichMenu) => {
-			item.addEventListener('click', (t, i) => {
-				var subMenu = null;
-				var subMenuImage = null;
-				t.target.parentNode.childNodes.forEach((sub) => {
-					sub.classList && sub.classList.contains('navigation__sub-menu') ? (subMenu = sub) : null;
-					sub.classList && sub.classList.contains('navigation__image') ? (subMenuImage = sub) : null;
-				});
+	//Gestione dei submenu delle navigation @whichmenu serve per dirgli a quale menu faccio riferimento , @item quale bottone ho cliccato
+	multiLevelMenu = (item, whichMenu) => {
+		var subMenu = null;
+		var subMenuImage = null;
+		item.target.parentNode.childNodes.forEach((sub) => {
+			sub.classList && sub.classList.contains('navigation__sub-menu') ? (subMenu = sub) : null;
+			sub.classList && sub.classList.contains('navigation__image') ? (subMenuImage = sub) : null;
+		});
 
-				if (subMenu) {
-					t.preventDefault();
-					t.stopPropagation();
+		if (subMenu) {
+			console.log('multiLevelMenu click');
+			console.log('item', item);
+			console.log('whichMenu', whichMenu);
+			console.log('this.defaults.level', this.defaults.level);
 
-					t.target.parentElement.classList.add('level' + level);
-					this.DOM.html.classList.add('is-sub-navigation-open');
+			item.preventDefault();
+			item.stopPropagation();
 
-					subMenu.classList.add('is-active');
-					subMenuImage && subMenuImage.classList.add('is-active');
+			item.target.parentElement.classList.add('this.defaults.level' + this.defaults.level);
+			this.DOM.html.classList.add('is-sub-navigation-open');
 
-					level++;
-					this.defaults.level = level;
-					translation = -100 * level;
+			subMenu.classList.add('is-active');
+			subMenuImage && subMenuImage.classList.add('is-active');
 
-					if (whichMenu == this.DOM.menuContainer) {
-						if (window.matchMedia('(max-width: 1024px)').matches) {
-							this.DOM.menuContainer.style.cssText += 'transform: translateX(' + translation + 'vw);';
-						} else {
-							this.DOM.menuContainer.style.cssText += 'transform: none';
-						}
-					} else if (whichMenu == this.DOM.menuPanel) {
-						this.DOM.menuContainer.style.cssText += 'transform: none';
-						if (this.DOM.menuPanel)
-							this.DOM.menuPanel.style.cssText += 'transform: translateX(' + translation + '%);';
-					}
+			this.defaults.level++;
+			let translation = -100 * this.defaults.level;
+			whichMenu.style.cssText += 'transform: translateX(' + translation + '%);';
 
-					this.DOM.menuBody.scrollTo({
-						top: 0,
-						left: 0,
-						behavior: 'smooth'
-					});
+			// if (whichMenu == this.DOM.menuContainer) {
+			// 	if (window.matchMedia('(max-width: 1024px)').matches) {
+			// 		this.DOM.menuContainer.style.cssText += 'transform: translateX(' + translation + 'vw);';
+			// 	} else {
+			// 		this.DOM.menuContainer.style.cssText += 'transform: none';
+			// 	}
+			// } else if (whichMenu == this.DOM.menuPanel) {
+			// 	this.DOM.menuContainer.style.cssText += 'transform: none';
+			// 	if (this.DOM.menuPanel)
+			// 		this.DOM.menuPanel.style.cssText += 'transform: translateX(' + translation + '%);';
+			// }
+
+			this.DOM.menuBody.scrollTo({
+				top: 0,
+				left: 0,
+				behavior: 'smooth'
+			});
+		}
+	};
+
+	//Gestione dei back
+	multiLevelBack = (whichMenu) => {
+		console.log('multiLevelBack');
+		console.log('whichMenu', whichMenu);
+		if (this.defaults.level > 0) {
+			this.defaults.level--;
+			[...document.querySelectorAll(this.defaults.triggers)].forEach((item) => {
+				if (item.classList.contains('this.defaults.level' + this.defaults.level)) {
+					item.classList.remove('this.defaults.level' + this.defaults.level);
+					item.childNodes.forEach((t) =>
+						t.classList && t.classList.contains('is-active') ? t.classList.remove('is-active') : null
+					);
 				}
 			});
-		};
 
-		//Gestione dei back
-		let multiLevelBack = (whichMenu) => {
-			if (level > 0) {
-				level--;
-				[...document.querySelectorAll(triggers)].forEach((item) => {
-					if (item.classList.contains('level' + level)) {
-						item.classList.remove('level' + level);
-						item.childNodes.forEach((t) =>
-							t.classList && t.classList.contains('is-active') ? t.classList.remove('is-active') : null
-						);
-					}
-				});
-				this.defaults.level = level;
-				let translation = -100 * level;
+			let translation = -100 * this.defaults.level;
+			whichMenu.style.cssText += 'transform: translateX(' + translation + '%);';
 
-				if (whichMenu == this.DOM.menuContainer) {
-					if (window.matchMedia('(max-width: 1024px)').matches) {
-						this.DOM.menuContainer.style.cssText += 'transform: translateX(' + translation + 'vw);';
-					} else {
-						this.DOM.menuContainer.style.cssText += 'transform: none';
-					}
-				} else if (whichMenu == this.DOM.menuPanel) {
-					this.DOM.menuContainer.style.cssText += 'transform: none';
-					if (this.DOM.menuPanel)
-						this.DOM.menuPanel.style.cssText += 'transform: translateX(' + translation + '%);';
+			// if (whichMenu == this.DOM.menuContainer) {
+			// 	if (window.matchMedia('(max-width: 1024px)').matches) {
+			// 		this.DOM.menuContainer.style.cssText += 'transform: translateX(' + translation + 'vw);';
+			// 	} else {
+			// 		this.DOM.menuContainer.style.cssText += 'transform: none';
+			// 	}
+			// } else if (whichMenu == this.DOM.menuPanel) {
+			// 	this.DOM.menuContainer.style.cssText += 'transform: none';
+			// 	if (this.DOM.menuPanel)
+			// 		this.DOM.menuPanel.style.cssText += 'transform: translateX(' + translation + '%);';
+			// }
+
+			this.defaults.level == 0 ? this.DOM.html.classList.remove('is-sub-navigation-open') : null;
+		}
+	};
+
+	init() {
+		console.log(this.defaults.level, 'init level');
+
+		//Gestione livelli navigation panel desktop con submenu
+		//Mobile
+		[...document.querySelectorAll(this.defaults.triggers)].forEach((item) => {
+			item.addEventListener('click', (t) => {
+				if (window.matchMedia('(max-width: 1024px)').matches) {
+					this.multiLevelMenu(t, this.DOM.menuContainer);
+				} else {
+					this.multiLevelMenu(t, this.DOM.menuPanel);
 				}
+			});
+		});
 
-				level == 0 ? this.DOM.html.classList.remove('is-sub-navigation-open') : null;
-			}
-		};
+		this.DOM.back.forEach((b) => {
+			b.addEventListener('click', () => {
+				if (window.matchMedia('(max-width: 1024px)').matches) {
+					this.multiLevelBack(this.DOM.menuContainer);
+				} else {
+					this.multiLevelBack(this.DOM.menuPanel);
+				}
+			});
+		});
 
 		if (window.matchMedia('(max-width: 1024px)').matches) {
-			//Gestione livelli navigation panel desktop con submenu
-			//Mobile
-
-			[...document.querySelectorAll(triggers)].forEach((item) => {
-				multiLevelMenu(item, this.DOM.menuContainer);
-			});
-
-			this.DOM.back.forEach((b) => {
-				b.addEventListener('click', () => {
-					multiLevelBack(this.DOM.menuContainer);
-				});
-			});
-		} else {
-			//Gestione livelli navigation panel desktop con submenu
-			//Dekstop
-			[...document.querySelectorAll(triggers)].forEach((item) => {
+			//Gestione hover navigation header
+			[...document.querySelectorAll(this.defaults.triggers)].forEach((item) => {
 				let timerHandle = null;
 				item.addEventListener('mouseenter', () => {
 					clearTimeout(timerHandle);
@@ -187,60 +192,48 @@ export default class Menu {
 					}
 				});
 			});
-
-			//Gestione livelli navigation panel desktop con submenu
-			[...document.querySelectorAll(triggers)].forEach((item) => {
-				//if (item.parentNode.classList.contains('navigation__list--panel')) {
-				if (item.classList.contains('navigation__item--panel-primary')) {
-					multiLevelMenu(item, this.DOM.menuPanel);
-				}
-			});
-
-			this.DOM.back.forEach((b) => {
-				b.addEventListener('click', () => {
-					multiLevelBack(this.DOM.menuPanel);
-				});
-			});
 		}
 
 		//Se clicco la navicon resetto tutto
 		this.DOM.navicon.addEventListener('click', () => {
+			console.log('navicon');
 			this.DOM.html.classList.remove('is-sub-navigation-open');
 
 			this.DOM.menuContainer.style.cssText += 'transform: none';
 			if (this.DOM.menuPanel) this.DOM.menuPanel.style.cssText += 'transform: none';
 			this.DOM.html.classList.remove('is-overlay-panel-open');
 
-			this.reset(this.defaults.triggers, this.defaults.level);
-			this.init(this.defaults.triggers, 0);
+			this.reset();
 		});
 
 		//Se clicco il close di navigation panel resetto tutto
 		if (this.DOM.closePanel) {
 			this.DOM.closePanel.addEventListener('click', () => {
+				console.log('closePanel');
+
 				this.DOM.html.classList.remove('is-sub-navigation-open');
 
 				this.DOM.menuContainer.style.cssText += 'transform: none';
 				if (this.DOM.menuPanel) this.DOM.menuPanel.style.cssText += 'transform: none';
 				this.DOM.html.classList.remove('is-overlay-panel-open');
 
-				this.reset(this.defaults.triggers, this.defaults.level);
-				this.init(this.defaults.triggers, 0);
+				this.reset();
 			});
 		}
 
-		//Se clicco l'overlay-panel di navigation panel resetto tutto
-		if (this.DOM.closeOverviewPanel) {
-			this.DOM.closeOverviewPanel.addEventListener('click', () => {
-				this.DOM.html.classList.remove('is-sub-navigation-open');
+		if (!isMobile().any) {
+			//Se clicco l'overlay-panel di navigation panel resetto tutto
+			if (this.DOM.closeOverviewPanel) {
+				this.DOM.closeOverviewPanel.addEventListener('click', () => {
+					this.DOM.html.classList.remove('is-sub-navigation-open');
 
-				this.DOM.menuContainer.style.cssText += 'transform: none';
-				if (this.DOM.menuPanel) this.DOM.menuPanel.style.cssText += 'transform: none';
-				this.DOM.html.classList.remove('is-overlay-panel-open');
+					this.DOM.menuContainer.style.cssText += 'transform: none';
+					if (this.DOM.menuPanel) this.DOM.menuPanel.style.cssText += 'transform: none';
+					this.DOM.html.classList.remove('is-overlay-panel-open');
 
-				this.reset(this.defaults.triggers, this.defaults.level);
-				this.init(this.defaults.triggers, 0);
-			});
+					this.reset();
+				});
+			}
 		}
 	}
 }

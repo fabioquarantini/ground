@@ -1,5 +1,5 @@
 <div class="xl:hidden">
-	<?php get_template_part( 'partials/meassage', 'primary' ); ?>
+	<?php get_template_part( 'partials/message', 'alert' ); ?>
 </div>
 
 
