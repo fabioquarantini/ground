@@ -5,7 +5,7 @@
     }
 
     &__body {
-        @apply fixed top-0 right-0 h-full bg-white z-50 lg:w-sidebar transform translate-x-full transition-all ease-default duration-500;
+        @apply fixed top-0 right-0 h-full w-full bg-white z-50 lg:w-sidebar transform translate-x-full transition-all ease-default duration-500;
 
         .overlay-panel--from-left & {
             @apply left-0 -translate-x-full;

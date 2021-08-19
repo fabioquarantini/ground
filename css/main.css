@@ -59,6 +59,7 @@
 @import "components/woocommerce/woocommerce-product-details.css";
 @import "components/woocommerce/variations.css";
 @import "components/woocommerce/quantity.css";
+@import "components/woocommerce/onsale.css";
 @import "components/woocommerce/widget-products.css";
 @import "components/woocommerce/widget-product-categories.css";
 @import "components/woocommerce/widgetpricefilter.css";

@@ -25,7 +25,7 @@
 	    	&::-webkit-scrollbar { @apply hidden; }
 
 			.woocommerce-mini-cart-item {
-				@apply relative block overflow-hidden py-1 px-9 mt-2 mb-1 leading-7;
+				@apply relative block overflow-hidden py-1 px-6 mt-2 mb-1 leading-7 lg:px-9;
 
 				&:hover {
 					.remove {
@@ -80,7 +80,7 @@
 		}
 
 		.woocommerce-mini-cart__total {
-			@apply relative z-10 bg-white px-9 py-6;
+			@apply relative z-10 bg-white px-6 py-6 lg:px-9;
 
 			strong {
 				@apply text-xl font-normal;
@@ -92,7 +92,7 @@
 		}
 
 		.woocommerce-mini-cart__buttons {
-			@apply relative z-10 bg-white px-9 py-0 pb-4 border-b border-gray-200 grid grid-cols-2 gap-6;
+			@apply relative z-10 bg-white px-6 py-0 pb-4 border-b border-gray-200 grid grid-cols-2 gap-6 lg:px-9;
 		}
 	
 	}
