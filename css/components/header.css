@@ -1,5 +1,5 @@
 .header {
-	@apply sticky top-0 border-b border-gray-200 z-40;
+	@apply sticky top-0 border-b border-gray-200 z-40 duration-500;
 
 	@screen lg {
 		.scroll-direction-down & {
