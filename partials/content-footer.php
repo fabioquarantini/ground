@@ -59,8 +59,8 @@
 			<?php echo GROUND_COMPANY_CAP ? GROUND_COMPANY_CAP : null; ?> <?php echo GROUND_COMPANY_CITY ? GROUND_COMPANY_CITY : null; ?>
 			<?php echo GROUND_COMPANY_PROVINCE ? ( '( ' . GROUND_COMPANY_PROVINCE . ' )' ) : null; ?>
 			<?php echo GROUND_COMPANY_COUNTRY ? GROUND_COMPANY_COUNTRY : null; ?>
-			<?php echo GROUND_COMPANY_PIVA ? GROUND_COMPANY_PIVA . ' - P.IVA:' : null; ?>
-			<?php echo GROUND_COMPANY_CF ? GROUND_COMPANY_CF . ' - C.F.:' : null; ?> </p>
+			<?php echo GROUND_COMPANY_PIVA ? ' - P.IVA:' . GROUND_COMPANY_PIVA : null; ?>
+			<?php echo GROUND_COMPANY_CF ? ' - C.F.:' . GROUND_COMPANY_CF : null; ?> </p>
 		</div>
 		<?php if ( GROUND_SOCIAL_LINKEDIN_URL || GROUND_SOCIAL_FACEBOOK_URL || GROUND_SOCIAL_INSTAGRAM_URL || GROUND_SOCIAL_YOUTUBE_URL ) : ?>
 		<div class="lg:border-l border-gray-200">
