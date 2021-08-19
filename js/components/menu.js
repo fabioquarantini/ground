@@ -28,16 +28,18 @@ export default class Menu {
 		});
 
 		window.addEventListener('resize', () => {
-			this.reset(this.defaults.triggers, this.defaults.level);
-			this.DOM.menuContainer.style.cssText += 'transform: none';
+			if (!isMobile().any) {
+				this.reset(this.defaults.triggers, this.defaults.level);
+				this.DOM.menuContainer.style.cssText += 'transform: none';
 
-			if (this.DOM.menuPanel) this.DOM.menuPanel.style.cssText += 'transform: none';
+				if (this.DOM.menuPanel) this.DOM.menuPanel.style.cssText += 'transform: none';
 
-			this.DOM.html.classList.remove('is-navigation-open');
-			this.DOM.html.classList.remove('is-sub-navigation-open');
-			this.DOM.html.classList.remove('is-panel-open');
+				this.DOM.html.classList.remove('is-navigation-open');
+				this.DOM.html.classList.remove('is-sub-navigation-open');
+				this.DOM.html.classList.remove('is-panel-open');
 
-			this.init(this.defaults.triggers, 0);
+				this.init(this.defaults.triggers, 0);
+			}
 		});
 	}
 
