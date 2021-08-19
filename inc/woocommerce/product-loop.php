@@ -191,7 +191,9 @@ add_action( 'woocommerce_sidebar', 'ground_add_sidebar_woocommerce_advanced', 10
  */
 function ground_add_on_hover_shop_loop_image() {
 
-	$image_id = wc_get_product()->get_gallery_image_ids();
+	$product = wc_get_product( get_the_ID() );
+
+	$image_id = $product->get_gallery_image_ids();
 
 	if ( $image_id ) {
 		?>

@@ -1,5 +1,5 @@
 .cross-sells {
-    @apply transform -translate-x-2/4 w-screen ml-1/2 py-12;
+    @apply transform -translate-x-2/4 w-screen ml-1/2 py-12 overflow-y-hidden;
 
     .minicart & {
         @apply py-9 px-9;
@@ -13,7 +13,7 @@
     }
 
     .products {
-        @apply carousel-css container px-0 mx-auto grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:px-6;
+        @apply overflow-y-hidden carousel-css container px-0 mx-auto grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:px-6;
         .minicart & {
             @apply lg:px-0 lg:grid-cols-3 !important;
         }
