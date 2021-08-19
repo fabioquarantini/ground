@@ -5,10 +5,6 @@
 		@apply block mb-6;
 	}
 
-	.onsale {
-		@apply card-label;
-	}
-
 	.woocommerce-placeholder,
 	.attachment-woocommerce_thumbnail {
 		@apply card-image;

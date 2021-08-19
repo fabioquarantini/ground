@@ -5,16 +5,7 @@
 		@apply text-2xl font-bold lg:text-4xl;
 
 	}
-
-	.onsale {
-		position: absolute;
-		padding: 10px;
-		@apply text-white;
-		left: 0;
-		@apply bg-green-500;
-		display: none;
-	}
-
+	
 	.woocommerce-Price-amount {
 
 	}

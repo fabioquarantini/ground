@@ -13,7 +13,7 @@
     }
 
     .products {
-        @apply overflow-y-hidden carousel-css container px-0 mx-auto grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:px-6;
+        @apply carousel-css container overflow-y-hidden px-0 mx-auto grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:px-6;
         .minicart & {
             @apply lg:px-0 lg:grid-cols-3 !important;
         }
