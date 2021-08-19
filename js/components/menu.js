@@ -1,4 +1,5 @@
 import * as deepmerge from 'deepmerge';
+import isMobile from 'ismobilejs';
 
 export default class Menu {
 	/**
@@ -28,7 +29,9 @@ export default class Menu {
 		});
 
 		window.addEventListener('resize', () => {
+			console.log('ciao');
 			if (!isMobile().any) {
+				console.log('ciao1');
 				this.reset(this.defaults.triggers, this.defaults.level);
 				this.DOM.menuContainer.style.cssText += 'transform: none';
 
@@ -36,7 +39,7 @@ export default class Menu {
 
 				this.DOM.html.classList.remove('is-navigation-open');
 				this.DOM.html.classList.remove('is-sub-navigation-open');
-				this.DOM.html.classList.remove('is-panel-open');
+				this.DOM.html.classList.remove('is-overlay-panel-open');
 
 				this.init(this.defaults.triggers, 0);
 			}
@@ -50,6 +53,8 @@ export default class Menu {
 	 */
 	reset(triggers, level) {
 		for (let i = 0; i <= level - 1; i++) {
+			console.log('ciao2');
+
 			[...document.querySelectorAll(triggers)].forEach((item) => {
 				if (item.classList.contains('level' + i)) {
 					item.classList.remove('level' + i);
