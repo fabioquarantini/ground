@@ -73,7 +73,7 @@
 					<?php if ( GROUND_SOCIAL_LINKEDIN_URL ) : ?>
 					<span class="inline-block">
 						<a class="h-10 w-10 rounded-full text-white bg-blue-600 hover:text-white flex items-center" href="<?php echo GROUND_SOCIAL_LINKEDIN_URL; ?>">
-							<?php ground_icon( 'linkedin', 'mx-auto' ); ?>
+							<?php ground_icon( 'linkedin', 'mx-auto h-3' ); ?>
 						</a>
 					</span>
 					<?php endif; ?>
@@ -81,7 +81,7 @@
 					<?php if ( GROUND_SOCIAL_FACEBOOK_URL ) : ?>
 					<span class="inline-block">
 						<a class="h-10 w-10 rounded-full text-white bg-blue-500 hover:text-white flex items-center" href="<?php echo GROUND_SOCIAL_FACEBOOK_URL; ?>">
-							<?php ground_icon( 'facebook', 'mx-auto' ); ?>
+							<?php ground_icon( 'facebook', 'mx-auto h-4' ); ?>
 						</a>
 					</span>
 					<?php endif; ?>
@@ -89,7 +89,7 @@
 					<?php if ( GROUND_SOCIAL_INSTAGRAM_URL ) : ?>
 					<span class="inline-block">
 						<a class="h-10 w-10 rounded-full text-white bg-pink-500 p-2 hover:text-white flex items-center" href="<?php echo GROUND_SOCIAL_INSTAGRAM_URL; ?>">
-							<?php ground_icon( 'instagram', 'mx-auto' ); ?>
+							<?php ground_icon( 'instagram', 'mx-auto h-4' ); ?>
 						</a>
 					</span>
 					<?php endif; ?>
