@@ -1,5 +1,7 @@
-<div class="message-alert message-alert--primary container <?php echo GROUND_HEADER_TEXT ? 'bg-black py-2' : ''; ?> text-center text-white  xl:hidden">
-	<?php echo GROUND_HEADER_TEXT; ?>
+<div class="message-alert message-alert--primary <?php echo GROUND_HEADER_TEXT ? 'bg-black py-2' : ''; ?> text-center text-white">
+	<div class="container">
+		<?php echo GROUND_HEADER_TEXT; ?>
+	</div>
 </div>
 
 
@@ -34,17 +36,17 @@
 				<button class="js-toggle js-cursor-hover hidden mr-12 lg:block" data-toggle-target=".search html" data-toggle-class-name="is-search-open">
 					<?php ground_icon( 'search', 'icon--filled text-black dark:text-white' ); ?>
 				</button>
-
-				<?php
+				<?php if ( ! function_exists( 'is_woocommerce_activated' ) ) : ?>
+					<?php
 					$count = WC()->cart->get_cart_contents_count();
 					$class = '';
 
-				if ( $count === 0 ) {
-					$class = 'is-empty ';
-				} else {
-					$class = 'is-full js-toggle';
-				}
-				?>
+					if ( $count === 0 ) {
+						$class = 'is-empty ';
+					} else {
+						$class = 'is-full js-toggle';
+					}
+					?>
 
 				<div class="header__cart relative lg:hidden">
 					<a class="flex justify-start items-center" href="<?php echo wc_get_page_permalink( 'cart' ); ?>">
@@ -54,6 +56,7 @@
 						</div>
 					</a>
 				</div>
+				<?php endif; ?>
 			</div>
 
 		</div>
@@ -63,10 +66,6 @@
 	<div class="js-menu-body header__body fixed left-0 pb-72 h-full w-screen z-40 bg-white dark:bg-black overflow-y-scroll lg:pt-0 lg:mt-0 lg:relative lg:top-auto lg:left-auto lg:bottom-auto lg:right-auto lg:bg-transparent lg:overflow-y-visible lg:w-full lg:pb-0">
 		<div class="js-menu-container header__container relative">
 			<div class="container hidden lg:relative lg:flex lg:justify-between lg:items-center lg:h-16 xl:justify-end xl:space-x-6">
-				<div class="hidden xl:flex">
-					<?php echo GROUND_HEADER_TEXT; ?>
-				</div>
-
 				<?php if ( has_nav_menu( 'header-secondary' ) ) : ?>
 				<div class="xl:border-r xl:border-gray-200 xl:pr-6">
 					<?php get_template_part( 'partials/navigation', 'header-secondary' ); ?>

@@ -1,6 +1,8 @@
 
-<div class="message-alert message-alert--primary container <?php echo GROUND_HEADER_TEXT ? 'bg-black py-2' : ''; ?> text-center text-white  xl:hidden">
-	<?php echo GROUND_HEADER_TEXT; ?>
+<div class="message-alert message-alert--primary <?php echo GROUND_HEADER_TEXT ? 'bg-black py-2' : ''; ?> text-center text-white  xl:hidden">
+	<div class="container">
+		<?php echo GROUND_HEADER_TEXT; ?>
+	</div>
 </div>
 
 
@@ -32,17 +34,17 @@
 					<a class="border border-dashed border-primary p-2" target="_blank" href="<?php echo admin_url( 'admin.php?page=theme-general-settings', 'http' ); ?>">Upload your logo</a>
 				<?php } ?>
 			</div>
-
-			<?php
+			<?php if ( ! function_exists( 'is_woocommerce_activated' ) ) : ?>
+				<?php
 				$count = WC()->cart->get_cart_contents_count();
 				$class = '';
 
-			if ( $count === 0 ) {
-				$class = 'is-empty ';
-			} else {
-				$class = 'is-full js-toggle';
-			}
-			?>
+				if ( $count === 0 ) {
+					$class = 'is-empty ';
+				} else {
+					$class = 'is-full js-toggle';
+				}
+				?>
 
 			<div class="header__cart relative lg:hidden">
 				<a class="flex justify-start items-center" href="<?php echo wc_get_page_permalink( 'cart' ); ?>">
@@ -52,6 +54,7 @@
 					</div>
 				</a>
 			</div>
+			<?php endif; ?>
 
 		</div>
 
