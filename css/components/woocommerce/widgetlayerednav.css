@@ -1,49 +1,79 @@
 .widget_layered_nav {
-	@apply relative;
 
-	.woocommerce-widget-layered-nav-list {
-		@apply m-0 list-none;
+	.sidebar &,
+	.overlay-panel & {	
+		@apply mb-4 lg:mb-9;
 
-		&__item {
-			@apply relative mb-2;
-
-			a {
-				&:before {
-					content: '';
-					@apply relative inline-block text-center text-white mr-3 rounded-full align-middle border border-gray-400 h-5 w-5;
-					@apply transition-all ease-default duration-500;
-				}
+		.woocommerce-widget-layered-nav__title {
+			@apply cursor-pointer inline-block lg:cursor-default lg:block mb-4 lg:mb-3;
+			&:after {
+				content: '';
+				@apply inline-block align-middle ml-3 h-7 w-7 cursor-pointer bg-red-500 lg:hidden;
+				background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAASCAYAAABM8m7ZAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAB5SURBVHgBzc3RDYAgDATQugmjsImjuZluIvJBE1NFSrkaLrmvNveIJkokv8TaYc1NuRths5TNsxivaALjjPLuAz8EjMAlyt3vTwGMf6FBPqPwLhSFm9BRfAi14hC0F4eiWtwF1eBuaAt3RbW4C9rCXdEa/gsqcRN6AYi1juFGJsYVAAAAAElFTkSuQmCC') center center no-repeat;
+				background-size: 14px 8px;
 			}
+		}
 
-			&--chosen {
+		.woocommerce-widget-layered-nav-list {
+			@apply m-0 list-none border-b border-gray-200 lg:border-0;
+
+			&__item {
+				@apply relative mb-2 hidden lg:block;
+
+				&:last-child {
+					@apply mb-6 lg:mb-2;
+				}
 
 				a {
-					@apply text-primary font-bold;
-
 					&:before {
-						content: "";
-						@apply bg-primary border-primary;
-						background-image: url('../img/icons/check-light.svg');
-						background-position: center center;
-						background-repeat: no-repeat;
-						background-size: 10px 10px;
+						content: '';
+						@apply relative inline-block text-center text-white mr-3 rounded-full align-middle border border-gray-400 h-5 w-5;
+						@apply transition-all ease-default duration-500;
 					}
 				}
 
-				.count {
-					@apply text-primary;
+				&--chosen {
+
+					a {
+						@apply text-primary font-bold;
+
+						&:before {
+							content: "";
+							@apply bg-primary border-primary;
+							background-image: url('../img/icons/check-light.svg');
+							background-position: center center;
+							background-repeat: no-repeat;
+							background-size: 10px 10px;
+						}
+					}
+
+					.count {
+						@apply text-primary;
+					}
+
+				}
+
+				&:hover {
+					a {
+						&:before {
+							@apply bg-primary border-primary;
+						}
+					}	
 				}
 
 			}
 
-			&:hover {
-				a {
-					&:before {
-						@apply bg-primary border-primary;
-					}
-				}	
-			}
+		}
 
+		&.widget-is-open {
+			.woocommerce-widget-layered-nav__title {
+				&:after {
+					@apply transform rotate-180;
+				}
+			}
+			.woocommerce-widget-layered-nav-list__item {
+				@apply block;
+			}
 		}
 
 	}

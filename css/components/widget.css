@@ -1,14 +1,11 @@
 .widget {
 	.sidebar &,
 	.overlay-panel & {
-		@apply relative mb-12;
+		@apply relative mb-9;
 
-		.widgettitle {
-			@apply relative text-xl font-bold;
-		}
-
-		ul {
-			@apply mt-3;
+		.widgettitle,
+		> h6 {
+			@apply relative text-xl font-bold mb-3;
 		}
 
 	}
