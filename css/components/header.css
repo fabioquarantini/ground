@@ -73,7 +73,7 @@
 		}
 	}
 
-	.header__navicon {
+	.header__bar-mobile {
 		transform: translateX(0%);
 		/* transition-timing-function: ease-in-out;
 		transition: 0.75s; */
@@ -89,12 +89,10 @@
 
 				25% {
 					opacity: 0;
-					left: -24px;
 				}
 
 				100% {
 					opacity: 1;
-					left: 0;
 				}
 			}
 		}

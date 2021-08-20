@@ -31,7 +31,7 @@
 			@apply relative m-0;
 			@apply hidden;
 			@screen lg {
-				@apply block text-center m-auto absolute bg-gray-200 opacity-0 invisible top-14 w-56 z-40;
+				@apply block text-center m-auto absolute bg-gray-200 opacity-0 invisible top-12 w-56 z-40;
 				left: 50%;
 				transform: translateX(calc(-50% - 24px));
 				.has-children .navigation__sub-menu {
@@ -68,7 +68,7 @@
 				}
 
 				.navigation__link {
-					@apply block text-lg py-3 border-b border-gray-400 border-opacity-20;
+					@apply block text-base py-3 border-b border-gray-400 border-opacity-20;
 					@screen lg {
 						&:after {
 							@apply hidden;

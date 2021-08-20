@@ -67,7 +67,7 @@ export default class Menu {
 			sub.classList && sub.classList.contains('navigation__image') ? (subMenuImage = sub) : null;
 		});
 
-		if (subMenu) {
+		if (subMenu && whichMenu) {
 			// console.log('multiLevelMenu click');
 			// console.log('item', item);
 			// console.log('whichMenu', whichMenu);
