@@ -60,18 +60,15 @@ export default class Menu {
 
 	//Gestione dei submenu delle navigation @whichmenu serve per dirgli a quale menu faccio riferimento , @item quale bottone ho cliccato
 	multiLevelMenu = (item, whichMenu) => {
-		var subMenu = null;
-		var subMenuImage = null;
-		var isTopLevel = false;
-		if (window.matchMedia('(min-width: 1024px)').matches) {
-			item.classList.contains('.is-top-level') ? (isTopLevel = true) : null;
-		}
+		let subMenu = null;
+		let subMenuImage = null;
+
 		item.target.parentNode.childNodes.forEach((sub) => {
 			sub.classList && sub.classList.contains('navigation__sub-menu') ? (subMenu = sub) : null;
 			sub.classList && sub.classList.contains('navigation__image') ? (subMenuImage = sub) : null;
 		});
 
-		if (subMenu && whichMenu && !isTopLevel) {
+		if (subMenu && whichMenu) {
 			console.log('multiLevelMenu click');
 			// console.log('item', item);
 			// console.log('whichMenu', whichMenu);
@@ -137,7 +134,9 @@ export default class Menu {
 					this.multiLevelMenu(t, this.DOM.menuContainer);
 				} else {
 					//Attivo la transtion sul panel-primary per il desk
-					this.multiLevelMenu(t, this.DOM.menuPanel);
+					if (t.target.parentNode.classList.contains('navigation__item--panel-primary')) {
+						this.multiLevelMenu(t, this.DOM.menuPanel);
+					}
 				}
 			});
 		});
