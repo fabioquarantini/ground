@@ -100,8 +100,8 @@ export default class Menu {
 		if (this.defaults.level > 0) {
 			this.defaults.level--;
 			this.DOM.element.forEach((item) => {
-				if (item.classList.contains('this.defaults.level' + this.defaults.level)) {
-					item.classList.remove('this.defaults.level' + this.defaults.level);
+				if (item.classList.contains('level' + this.defaults.level)) {
+					item.classList.remove('level' + this.defaults.level);
 					item.childNodes.forEach((t) =>
 						t.classList && t.classList.contains('is-active') ? t.classList.remove('is-active') : null
 					);
@@ -153,7 +153,7 @@ export default class Menu {
 		});
 
 		//Attivo l'hover nella navigation header solo del desk
-		if (window.matchMedia('(max-width: 1024px)').matches) {
+		if (window.matchMedia('(min-width: 1024px)').matches) {
 			this.DOM.element.forEach((item) => {
 				let timerHandle = null;
 				item.addEventListener('mouseenter', () => {
