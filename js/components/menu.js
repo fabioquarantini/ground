@@ -63,7 +63,9 @@ export default class Menu {
 		var subMenu = null;
 		var subMenuImage = null;
 		var isTopLevel = false;
-		item.classList.contains('.is-top-level') ? (isTopLevel = true) : null;
+		if (window.matchMedia('(min-width: 1024px)').matches) {
+			item.classList.contains('.is-top-level') ? (isTopLevel = true) : null;
+		}
 		item.target.parentNode.childNodes.forEach((sub) => {
 			sub.classList && sub.classList.contains('navigation__sub-menu') ? (subMenu = sub) : null;
 			sub.classList && sub.classList.contains('navigation__image') ? (subMenuImage = sub) : null;
