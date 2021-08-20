@@ -29,7 +29,7 @@ export default class Menu {
 		});
 
 		window.addEventListener('resize', () => {
-			if (!isMobile().any) {
+			if (!isMobile.any) {
 				if (this.DOM.menuContainer) this.DOM.menuContainer.style.cssText += 'transform: none';
 
 				if (this.DOM.menuPanel) this.DOM.menuPanel.style.cssText += 'transform: none';
@@ -37,7 +37,6 @@ export default class Menu {
 				this.DOM.html.classList.remove('is-navigation-open');
 				this.DOM.html.classList.remove('is-sub-navigation-open');
 				this.DOM.html.classList.remove('is-overlay-panel-open');
-
 				this.reset();
 				this.init();
 			}
@@ -45,10 +44,8 @@ export default class Menu {
 	}
 
 	reset() {
-		console.log(this.defaults.level, 'intial level - reset');
-
 		for (let i = 0; i <= this.defaults.level - 1; i++) {
-			[...document.querySelectorAll(this.defaults.triggers)].forEach((item) => {
+			this.DOM.element.forEach((item) => {
 				if (item.classList.contains('level' + i)) {
 					item.classList.remove('level' + i);
 					item.childNodes.forEach((t) =>
@@ -59,8 +56,6 @@ export default class Menu {
 		}
 
 		this.defaults.level = 0;
-
-		console.log(this.defaults.level, 'finished level - reset');
 	}
 
 	//Gestione dei submenu delle navigation @whichmenu serve per dirgli a quale menu faccio riferimento , @item quale bottone ho cliccato
@@ -73,15 +68,14 @@ export default class Menu {
 		});
 
 		if (subMenu) {
-			console.log('multiLevelMenu click');
-			console.log('item', item);
-			console.log('whichMenu', whichMenu);
-			console.log('this.defaults.level', this.defaults.level);
+			// console.log('multiLevelMenu click');
+			// console.log('item', item);
+			// console.log('whichMenu', whichMenu);
+			// console.log('this.defaults.level', this.defaults.level);
 
 			item.preventDefault();
-			item.stopPropagation();
 
-			item.target.parentElement.classList.add('this.defaults.level' + this.defaults.level);
+			item.target.parentElement.classList.add('level' + this.defaults.level);
 			this.DOM.html.classList.add('is-sub-navigation-open');
 
 			subMenu.classList.add('is-active');
@@ -90,18 +84,6 @@ export default class Menu {
 			this.defaults.level++;
 			let translation = -100 * this.defaults.level;
 			whichMenu.style.cssText += 'transform: translateX(' + translation + '%);';
-
-			// if (whichMenu == this.DOM.menuContainer) {
-			// 	if (window.matchMedia('(max-width: 1024px)').matches) {
-			// 		this.DOM.menuContainer.style.cssText += 'transform: translateX(' + translation + 'vw);';
-			// 	} else {
-			// 		this.DOM.menuContainer.style.cssText += 'transform: none';
-			// 	}
-			// } else if (whichMenu == this.DOM.menuPanel) {
-			// 	this.DOM.menuContainer.style.cssText += 'transform: none';
-			// 	if (this.DOM.menuPanel)
-			// 		this.DOM.menuPanel.style.cssText += 'transform: translateX(' + translation + '%);';
-			// }
 
 			this.DOM.menuBody.scrollTo({
 				top: 0,
@@ -113,11 +95,11 @@ export default class Menu {
 
 	//Gestione dei back
 	multiLevelBack = (whichMenu) => {
-		console.log('multiLevelBack');
-		console.log('whichMenu', whichMenu);
+		//console.log('multiLevelBack');
+		//console.log('whichMenu', whichMenu);
 		if (this.defaults.level > 0) {
 			this.defaults.level--;
-			[...document.querySelectorAll(this.defaults.triggers)].forEach((item) => {
+			this.DOM.element.forEach((item) => {
 				if (item.classList.contains('this.defaults.level' + this.defaults.level)) {
 					item.classList.remove('this.defaults.level' + this.defaults.level);
 					item.childNodes.forEach((t) =>
@@ -129,50 +111,50 @@ export default class Menu {
 			let translation = -100 * this.defaults.level;
 			whichMenu.style.cssText += 'transform: translateX(' + translation + '%);';
 
-			// if (whichMenu == this.DOM.menuContainer) {
-			// 	if (window.matchMedia('(max-width: 1024px)').matches) {
-			// 		this.DOM.menuContainer.style.cssText += 'transform: translateX(' + translation + 'vw);';
-			// 	} else {
-			// 		this.DOM.menuContainer.style.cssText += 'transform: none';
-			// 	}
-			// } else if (whichMenu == this.DOM.menuPanel) {
-			// 	this.DOM.menuContainer.style.cssText += 'transform: none';
-			// 	if (this.DOM.menuPanel)
-			// 		this.DOM.menuPanel.style.cssText += 'transform: translateX(' + translation + '%);';
-			// }
-
 			this.defaults.level == 0 ? this.DOM.html.classList.remove('is-sub-navigation-open') : null;
 		}
 	};
 
 	init() {
-		console.log(this.defaults.level, 'init level');
+		if (this.DOM.element.length === 0) {
+			return;
+		}
 
-		//Gestione livelli navigation panel desktop con submenu
-		//Mobile
-		[...document.querySelectorAll(this.defaults.triggers)].forEach((item) => {
+		//Gestione livelli delle navigation
+		this.DOM.element.forEach((item) => {
+			console.log(this.defaults.level, 'primadelclick');
+
 			item.addEventListener('click', (t) => {
+				t.stopImmediatePropagation();
+
 				if (window.matchMedia('(max-width: 1024px)').matches) {
+					//Attivo la transtion sul container dell'header per il mobile
 					this.multiLevelMenu(t, this.DOM.menuContainer);
 				} else {
+					//Attivo la transtion sul panel-primary per il desk
 					this.multiLevelMenu(t, this.DOM.menuPanel);
 				}
 			});
 		});
 
+		//Gestione livelli del back per le navigation
 		this.DOM.back.forEach((b) => {
-			b.addEventListener('click', () => {
+			b.addEventListener('click', (t) => {
+				t.stopImmediatePropagation();
+
 				if (window.matchMedia('(max-width: 1024px)').matches) {
+					//Attivo il back transtion sul container dell'header per il mobile
 					this.multiLevelBack(this.DOM.menuContainer);
 				} else {
+					//Attivo il back transtion sul panel-primary per il desk
 					this.multiLevelBack(this.DOM.menuPanel);
 				}
 			});
 		});
 
+		//Attivo l'hover nella navigation header solo del desk
 		if (window.matchMedia('(max-width: 1024px)').matches) {
-			//Gestione hover navigation header
-			[...document.querySelectorAll(this.defaults.triggers)].forEach((item) => {
+			this.DOM.element.forEach((item) => {
 				let timerHandle = null;
 				item.addEventListener('mouseenter', () => {
 					clearTimeout(timerHandle);
@@ -195,8 +177,10 @@ export default class Menu {
 		}
 
 		//Se clicco la navicon resetto tutto
-		this.DOM.navicon.addEventListener('click', () => {
+		this.DOM.navicon.addEventListener('click', (t) => {
 			console.log('navicon');
+			t.stopImmediatePropagation();
+
 			this.DOM.html.classList.remove('is-sub-navigation-open');
 
 			this.DOM.menuContainer.style.cssText += 'transform: none';
@@ -208,8 +192,9 @@ export default class Menu {
 
 		//Se clicco il close di navigation panel resetto tutto
 		if (this.DOM.closePanel) {
-			this.DOM.closePanel.addEventListener('click', () => {
+			this.DOM.closePanel.addEventListener('click', (t) => {
 				console.log('closePanel');
+				t.stopImmediatePropagation();
 
 				this.DOM.html.classList.remove('is-sub-navigation-open');
 
@@ -221,10 +206,12 @@ export default class Menu {
 			});
 		}
 
+		//Se clicco l'overlay-panel di navigation panel resetto tutto - da fare solo se non sono mobile
 		if (!isMobile().any) {
-			//Se clicco l'overlay-panel di navigation panel resetto tutto
 			if (this.DOM.closeOverviewPanel) {
-				this.DOM.closeOverviewPanel.addEventListener('click', () => {
+				this.DOM.closeOverviewPanel.addEventListener('click', (t) => {
+					t.stopImmediatePropagation();
+
 					this.DOM.html.classList.remove('is-sub-navigation-open');
 
 					this.DOM.menuContainer.style.cssText += 'transform: none';
