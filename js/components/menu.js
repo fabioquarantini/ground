@@ -62,13 +62,15 @@ export default class Menu {
 	multiLevelMenu = (item, whichMenu) => {
 		var subMenu = null;
 		var subMenuImage = null;
+		var isTopLevel = false;
+		item.classList.contains('.is-top-level') ? (isTopLevel = true) : null;
 		item.target.parentNode.childNodes.forEach((sub) => {
 			sub.classList && sub.classList.contains('navigation__sub-menu') ? (subMenu = sub) : null;
 			sub.classList && sub.classList.contains('navigation__image') ? (subMenuImage = sub) : null;
 		});
 
-		if (subMenu && whichMenu) {
-			// console.log('multiLevelMenu click');
+		if (subMenu && whichMenu && !isTopLevel) {
+			console.log('multiLevelMenu click');
 			// console.log('item', item);
 			// console.log('whichMenu', whichMenu);
 			// console.log('this.defaults.level', this.defaults.level);
@@ -126,6 +128,7 @@ export default class Menu {
 
 			item.addEventListener('click', (t) => {
 				t.stopImmediatePropagation();
+				console.log('click');
 
 				if (window.matchMedia('(max-width: 1024px)').matches) {
 					//Attivo la transtion sul container dell'header per il mobile
