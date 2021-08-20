@@ -21,3 +21,8 @@
     }
 
 }
+
+
+.wp-block-columns {
+    @apply flex;
+}

@@ -84,3 +84,26 @@
     }
 
 }
+
+
+
+
+
+.wp-block-woocommerce-attribute-filter {
+
+	h3 {
+
+	}
+
+	.wc-block-attribute-filter {
+		.wc-block-checkbox-list {
+			li {
+				@apply flex items-center space-x-2 py-1;
+				.screen-reader-text {
+					@apply sr-only;
+				}
+			}
+		}
+	}
+
+}
