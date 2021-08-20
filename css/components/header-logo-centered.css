@@ -1,4 +1,10 @@
 .header-logo-centered {
+	@screen lg {
+		.scroll-direction-down & {
+			@apply top-0;
+		}
+	}
+
 	//Minicart Buotton
 	.shopping-cart__link {
 		span {
@@ -38,7 +44,7 @@
 			@apply relative m-0;
 			@apply hidden;
 			@screen lg {
-				@apply block text-center m-auto absolute bg-gray-200 opacity-0 invisible top-14 w-56 z-40;
+				@apply block text-center m-auto absolute bg-transparent opacity-0 invisible top-10 w-56 z-40;
 				left: 50%;
 				transform: translateX(calc(-50% - 24px));
 				.has-children .navigation__sub-menu {
@@ -58,13 +64,14 @@
 
 			.navigation__link {
 				@screen lg {
-					@apply border-b border-gray-400 border-opacity-20;
+					@apply border-b border-gray-400 border-opacity-20 opacity-0 bg-gray-200 top-3 relative transition-all duration-300 ease-in-out animate-fade-in-staggered;
 				}
 			}
 
 			.navigation__item {
 				@apply block;
 				@apply h-auto;
+
 				&:last-child {
 					.navigation__link {
 						@apply lg:border-0;
@@ -72,11 +79,15 @@
 				}
 				@screen lg {
 					@apply bg-transparent;
+					@apply pr-0 !important;
 				}
 
 				.navigation__link {
-					@apply block text-lg py-3 border-b border-gray-400 border-opacity-20;
+					@apply block text-base py-3 border-b border-gray-400 border-opacity-20;
+
 					@screen lg {
+						@apply pr-0 !important;
+
 						&:after {
 							@apply hidden text-base;
 						}
@@ -89,7 +100,11 @@
 			@screen lg {
 				@apply relative;
 				.navigation__sub-menu {
-					@apply opacity-100 visible;
+					@apply visible opacity-100;
+
+					.navigation__link {
+						@apply opacity-100 top-0;
+					}
 
 					.navigation__image {
 						@apply hidden;
@@ -127,20 +142,6 @@
 						right: 12px;
 						background: url("../img/icons/chevron-down.svg");
 					}
-				}
-			}
-
-			.navigation__sub-menu {
-				.navigation__item {
-					.navigation__link {
-						@apply pr-0 !important;
-					}
-				}
-			}
-
-			.navigation__sub-menu {
-				.navigation__item {
-					@apply pr-0 !important;
 				}
 			}
 		}

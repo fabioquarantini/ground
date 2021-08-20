@@ -282,11 +282,15 @@
 			@apply relative m-0;
 			@apply hidden;
 			@screen lg {
-				@apply block text-center m-auto absolute bg-gray-200 opacity-0 invisible top-8 w-44 z-40;
+				@apply block text-center m-auto absolute opacity-0 invisible top-8 w-44 z-40;
 				left: 50%;
 				transform: translateX(calc(-50% - 12px));
 				.has-children .navigation__sub-menu {
 					@apply hidden;
+				}
+
+				.navigation__link {
+					@apply opacity-0 bg-gray-200 top-3 relative transition-all duration-300 ease-in-out animate-fade-in-staggered;
 				}
 			}
 
@@ -333,10 +337,10 @@
 			@screen lg {
 				@apply relative;
 				.navigation__sub-menu {
-					@apply opacity-100 visible;
+					@apply visible opacity-100;
 
-					.navigation__image {
-						@apply hidden;
+					.navigation__link {
+						@apply opacity-100 top-0;
 					}
 				}
 			}

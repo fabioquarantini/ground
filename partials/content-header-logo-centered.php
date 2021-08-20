@@ -5,35 +5,19 @@
 	<div class="bg-white dark:bg-black h-16 w-full z-30 lg:hidden">
 		<a class="js-back absolute mt-5 left-4 header__back cursor-pointer"> <span> <?php ground_icon( 'chevron-left', 'text-black dark:text-white' ); ?> </span> <?php _e( 'Indietro', 'ground' ); ?> </a>
 
-		<div class="header__navicon container flex items-center justify-between py-2 bg-white dark:bg-black">
-			<?php get_template_part( 'partials/navicon', 'primary' ); ?>
-
-			<div class="inline-block header__logo">
+		<div class="header__bar-mobile container py-2 bg-white dark:bg-black grid grid-cols-12 items-center lg:flex lg:items-center lg:justify-between">
+			<div class="col-span-4">
+				<?php get_template_part( 'partials/navicon', 'primary' ); ?>
+			</div>
+			<div class="col-span-4 flex justify-center header__logo">
 				<?php get_template_part( 'partials/logo', 'primary' ); ?>
 			</div>
-			<div class="flex justify-end items-center">
-				<button class="js-toggle js-cursor-hover hidden mr-12 lg:block" data-toggle-target=".search html" data-toggle-class-name="is-search-open">
+			<div class="col-span-4 flex justify-end items-center">
+				<button class="js-toggle js-cursor-hover mr-6 lg:mr-12" data-toggle-target=".search html" data-toggle-class-name="is-search-open">
 					<?php ground_icon( 'search', 'icon--filled text-black dark:text-white' ); ?>
 				</button>
-
-				<?php
-					$count = WC()->cart->get_cart_contents_count();
-					$class = '';
-
-				if ( $count === 0 ) {
-					$class = 'is-empty ';
-				} else {
-					$class = 'is-full js-toggle';
-				}
-				?>
-
-				<div class="header__cart relative lg:hidden">
-					<a class="flex justify-start items-center" href="<?php echo wc_get_page_permalink( 'cart' ); ?>">
-						<?php ground_icon( 'shopping-cart', 'minicart__icon text-black dark:text-white' ); ?>
-						<div class="absolute -right-4 -top-2 bg-red-500 rounded-full w-6 h-6 flex items-center justify-center text-white font-bold">
-							<?php echo WC()->cart->get_cart_contents_count(); ?>
-						</div>
-					</a>
+				<div class="header__cart relative py-4 col-span-4 flex justify-end items-center lg:hidden">
+					<?php get_template_part( 'partials/woocommerce/shopping-cart' ); ?>
 				</div>
 			</div>
 
