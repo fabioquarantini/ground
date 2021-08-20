@@ -38,7 +38,7 @@
 				}
 
 				.remove {
-					@apply absolute top-0 left-7 text-white text-center rounded-full bg-red-500 z-10 opacity-0 invisible transform transition-all -translate-x-3 ease-default duration-500;
+					@apply absolute top-0 left-5 lg:left-7 text-white text-center rounded-full bg-red-500 z-10 opacity-0 invisible transform transition-all -translate-x-3 ease-default duration-500;
 					height: 20px;
 					width: 20px;
 					line-height: 18px;

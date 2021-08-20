@@ -47,6 +47,8 @@
 @import "components/widget.css";
 @import "components/scrollbar.css";
 @import "components/scroll-progress.css";
+@import "components/wp-blocks.css";
+
 
 /* WooCommerce */
 @import "components/woocommerce/added-to-cart.css";
