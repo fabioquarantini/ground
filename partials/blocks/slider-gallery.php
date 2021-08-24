@@ -1,9 +1,9 @@
 <?php // Slider gallery (Register block here: "inc/gutenberg.php")
-$gallery = get_field('gallery');
+$gallery    = get_field( 'gallery' );
 $image_size = '16-9-small';
 ?>
 
-<?php if ($gallery) : ?>
+<?php if ( $gallery ) : ?>
 
 	<div class="container">
 		<div class="row">
@@ -12,12 +12,12 @@ $image_size = '16-9-small';
 				<div class="slider slider--gallery slider--cursor-navigation swiper-container overflow-visible js-slider-gallery">
 					<div class="swiper-wrapper">
 
-						<?php foreach ($gallery as $image_id) : ?>
+						<?php foreach ( $gallery as $image_id ) : ?>
 
 							<div class="slider__item swiper-slide">
 								<div data-swiper-parallax="50%">
 									<div class="position-relative">
-										<?php echo wp_get_attachment_image($image_id, $image_size, "", ["class" => "slider__img cover"]); ?>
+										<?php echo wp_get_attachment_image( $image_id, $image_size, '', array( 'class' => 'slider__img cover' ) ); ?>
 									</div>
 								</div>
 							</div>
