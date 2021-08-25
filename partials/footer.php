@@ -1,5 +1,15 @@
 						</main>
 
+						<div class="fixed bottom-0 right-0 z-50">
+
+							<?php
+							/**
+							 * Hook: ground_notice.
+							 */
+							do_action( 'ground_notice' );
+							?>
+						</div>
+
 						<?php
 						get_template_part( 'partials/pre-footer' );
 						get_template_part( 'partials/content', 'footer' );
