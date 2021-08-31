@@ -1,17 +1,20 @@
-.carousel-css {	
-    @apply block scroll-snap-x-mandatory overflow-y-hidden overflow-x-auto whitespace-nowrap lg:grid lg:overflow-y-auto lg:whitespace-normal;
-    @apply transform -translate-x-2/4 w-screen ml-1/2 lg:rounded-theme lg:ml-auto lg:translate-x-0 lg:w-auto;
-    -ms-overflow-style: none;  /* IE and Edge */
-  	scrollbar-width: none;  /* Firefox */
+@layer utilities {
 
-    &::-webkit-scrollbar { @apply hidden; }
+  	.carousel-css {	
+      	@apply block scroll-snap-x-mandatory overflow-y-hidden overflow-x-auto whitespace-nowrap lg:grid lg:overflow-y-auto lg:whitespace-normal;
+      	@apply transform -translate-x-2/4 w-screen ml-1/2 lg:rounded-theme lg:ml-auto lg:translate-x-0 lg:w-auto;
+      	-ms-overflow-style: none;  /* IE and Edge */
+      	scrollbar-width: none;  /* Firefox */
 
-    > * {
-        @apply relative scroll-snap-align-center inline-block align-top whitespace-normal mx-3 w-7/12 md:w-4/12 lg:block lg:w-auto lg:mx-0;
-        @apply mb-0 !important;
-        &:first-child { @apply ml-6 lg:ml-0; }
-        &:last-child { @apply mr-6 lg:mr-0; } 
-    }
+      	&::-webkit-scrollbar { @apply hidden; }
+
+      	> * {
+			@apply relative scroll-snap-align-center inline-block align-top whitespace-normal mx-3 w-7/12 md:w-4/12 lg:block lg:w-auto lg:mx-0;
+          	@apply mb-0 !important;
+          	&:first-child { @apply ml-6 lg:ml-0; }
+          	&:last-child { @apply mr-6 lg:mr-0; } 
+      	}
+
+  	}
 
 }
-    

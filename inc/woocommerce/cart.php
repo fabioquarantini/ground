@@ -86,7 +86,20 @@ function ground_cart_refresh_update_qty() {
 	if ( is_cart() ) {
 		?>
 		<script type="text/javascript">
-			jQuery('div.woocommerce').on('click', 'input.qty', function() {
+			// jQuery("div.woocommerce input.qty").change(function() {
+				// 	jQuery(this).closest('form').data('changed', true);
+				// 	console.log('changed');
+				// 	jQuery("[name='update_cart']").trigger("click");
+			// });
+			jQuery('div.woocommerce').on('change', 'input.qty', function() {
+				console.log('change');
+				jQuery("[name='update_cart']").trigger("click");
+			});
+
+			jQuery('div.woocommerce .quantity').on('click', '.plus', function() {
+				console.log('change 3');
+				jQuery('div.woocommerce .quantity input.qty').trigger('change');
+
 				jQuery("[name='update_cart']").trigger("click");
 			});
 		</script>

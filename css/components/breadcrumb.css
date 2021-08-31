@@ -1,7 +1,6 @@
 .breadcrumb {
-	@apply relative overflow-y-hidden h-6 mt-6 mb-6 text-sm;
+	@apply relative overflow-y-hidden h-6 mt-6 mb-6 text-sm md:relative;
 	@screen md {
-		@apply relative;
 		&:after {
 			@apply hidden;
 		}

@@ -24,7 +24,6 @@ function ground_woocommerce_category_image() {
 // add_action('woocommerce_before_main_content', 'ground_woocommerce_category_image', 30);
 
 
-
 /**
  * Display term hero on category archive
  */
@@ -49,6 +48,8 @@ function ground_add_term_hero() {
 }
 
 add_action( 'woocommerce_before_main_content', 'ground_add_term_hero', 40 );
+
+remove_action( 'ground_add_term_hero', 'woocommerce_before_main_content', 40 );
 
 
 

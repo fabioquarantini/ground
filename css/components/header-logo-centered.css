@@ -15,102 +15,72 @@
 	.navigation--primary,
 	.navigation--secondary {
 		.navigation__item {
-			@apply block;
-
-			@screen lg {
-				@apply flex justify-start pr-4;
-			}
-
-			@screen xl {
-				@apply flex justify-start pr-6;
-			}
+			@apply block lg:flex lg:justify-start lg:pr-4 xl:flex xl:justify-start xl:pr-6;
 		}
 
 		.navigation__link {
-			@apply block text-lg py-4 border-b border-gray-400 border-opacity-20 font-bold;
-			@screen lg {
-				@apply block py-2 text-base border-0;
-			}
+			@apply block text-lg py-4 border-b border-gray-400 border-opacity-20 font-bold lg:block lg:py-2 lg:text-base lg:border-0;	
 		}
 
 		.navigation__list {
-			@apply m-0;
-			@screen lg {
-				@apply flex justify-start;
-			}
+			@apply m-0 lg:flex lg:justify-start;
 		}
 
 		.navigation__sub-menu {
-			@apply relative m-0;
-			@apply hidden;
+			@apply relative hidden m-0 lg:block lg:text-center lg:m-auto lg:absolute lg:bg-transparent lg:opacity-0 lg:invisible lg:top-10 lg:left-2/4 lg:w-56 lg:z-40;
 			@screen lg {
-				@apply block text-center m-auto absolute bg-transparent opacity-0 invisible top-10 w-56 z-40;
-				left: 50%;
 				transform: translateX(calc(-50% - 24px));
-				.has-children .navigation__sub-menu {
-					@apply hidden;
-				}
+			}
+			.has-children .navigation__sub-menu {
+				@apply lg:hidden;
 			}
 
 			&.is-active {
-				@apply inline-block absolute top-0 h-auto opacity-100 visible;
+				@apply inline-block absolute top-0 h-auto opacity-100 visible lg:relative lg:left-auto lg:top-auto lg:w-auto;
 				left: 100vw;
 				width: 100%;
-
-				@screen lg {
-					@apply relative left-auto top-auto w-auto;
-				}
 			}
 
 			.navigation__link {
-				@screen lg {
-					@apply border-b border-gray-400 border-opacity-20 opacity-0 bg-gray-200 top-3 relative transition-all duration-300 ease-in-out animate-fade-in-staggered;
-				}
+				@apply lg:border-b lg:border-gray-400 lg:border-opacity-20 lg:opacity-0 lg:bg-gray-200 lg:top-3 lg:relative lg:transition-all lg:duration-300 lg:ease-in-out lg:animate-fade-in-staggered;
 			}
 
 			.navigation__item {
-				@apply block;
-				@apply h-auto;
+				@apply block h-auto lg:bg-transparent;
+				@apply lg:pr-0 !important;
 
 				&:last-child {
 					.navigation__link {
 						@apply lg:border-0;
 					}
 				}
-				@screen lg {
-					@apply bg-transparent;
-					@apply pr-0 !important;
-				}
+					
 
 				.navigation__link {
 					@apply block text-base py-3 border-b border-gray-400 border-opacity-20;
-
-					@screen lg {
-						@apply pr-0 !important;
-
-						&:after {
-							@apply hidden text-base;
-						}
+					@apply lg:pr-0 !important;
+					&:after {
+						@apply lg:hidden lg:text-base;
 					}
 				}
 			}
 		}
 
 		.is-hover {
-			@screen lg {
-				@apply relative;
-				.navigation__sub-menu {
-					@apply visible opacity-100;
+			@apply lg:relative;
 
-					.navigation__link {
-						@apply opacity-100 top-0;
-					}
+			.navigation__sub-menu {
+				@apply lg:visible lg:opacity-100;
 
-					.navigation__image {
-						@apply hidden;
-					}
+				.navigation__link {
+					@apply lg:opacity-100 lg:top-0;
+				}
+
+				.navigation__image {
+					@apply lg:hidden;
 				}
 			}
+
 		}
 
 		.navigation__image {
@@ -125,6 +95,7 @@
 
 		.navigation__item.has-children {
 			> .navigation__link {
+				@apply lg:relative lg:pr-10;
 				&:after {
 					content: "";
 					position: absolute;
@@ -134,9 +105,7 @@
 					right: 8px;
 					background: url("../img/icons/chevron-right.svg");
 				}
-				@screen lg {
-					@apply relative pr-10;
-
+				@screen lg {				
 					&:after {
 						margin-top: 4px;
 						right: 12px;

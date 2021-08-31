@@ -19,13 +19,9 @@
 			@apply bg-black;
 			@apply text-white;
 			cursor: default;
-			@media ( max-width: theme('screens.md') ) {
-				@apply text-black;
-				border: none;
-				background: none;
-				&:before {
-					content: attr(data-page);
-				}
+			@apply md:text-black md:border-0;
+			&:before {
+				content: attr(data-page);
 			}
 		}
 	}
@@ -67,7 +63,7 @@
 		display: inline-block !important;
 		.pagination__text {
 			@apply bg-black;
-			@apply text-white;
+			@apply text-white md:bg-none md:text-gray-500;
 			border: none;
 			cursor:pointer;
 			&:hover {
@@ -75,8 +71,6 @@
 			}
 
 			@screen md {
-				background: none;
-				@apply text-gray-500;
 				&:hover {
 					@apply text-black;
 					background-color: transparent;

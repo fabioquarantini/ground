@@ -2,69 +2,42 @@
 	//Navigation Primary
 	.navigation--primary {
 		.navigation__item {
-			@apply block;
-
-			@screen lg {
-				@apply flex justify-start pr-4;
-			}
-
-			@screen xl {
-				@apply flex justify-start pr-6;
-			}
+			@apply block lg:flex lg:justify-start lg:pr-4 xl:flex xl:justify-start xl:pr-6;
 		}
 
 		.navigation__link {
-			@apply block text-lg py-4 border-b border-gray-400 border-opacity-20 font-bold;
-			@screen lg {
-				@apply block py-3 text-lg border-0;
-			}
+			@apply block text-lg py-4 border-b border-gray-400 border-opacity-20 font-bold lg:block lg:py-3 lg:text-lg lg:border-0;
 		}
 
 		.navigation__list {
-			@apply m-0;
-			@screen lg {
-				@apply flex justify-start;
-			}
+			@apply m-0 lg:flex lg:justify-start;
 		}
 
 		.navigation__sub-menu {
-			@apply relative m-0;
-			@apply hidden;
+			@apply relative hidden m-0 lg:block lg:text-center lg:m-auto lg:absolute lg:opacity-0 lg:invisible lg:top-12 lg:w-56 lg:z-40 lg:left-2/4;
 			@screen lg {
-				@apply block text-center m-auto absolute opacity-0 invisible top-12 w-56 z-40;
-				left: 50%;
 				transform: translateX(calc(-50% - 24px));
-				.has-children .navigation__sub-menu {
-					@apply hidden;
-				}
+			}
+			.has-children .navigation__sub-menu {
+				@apply lg:hidden;
 			}
 
 			&.is-active {
-				@apply inline-block absolute top-0 h-auto opacity-100 visible;
+				@apply inline-block absolute top-0 h-auto opacity-100 visible lg:relative lg:left-auto lg:top-auto lg:w-auto;;
 				left: 100vw;
 				width: 100%;
-
-				@screen lg {
-					@apply relative left-auto top-auto w-auto;
-				}
 			}
 
 			.navigation__link {
-				@screen lg {
-					@apply border-b border-gray-400 border-opacity-20 opacity-0 bg-gray-200 top-3 relative transition-all duration-300 ease-in-out animate-fade-in-staggered;
-				}
+				@apply lg:border-b lg:border-gray-400 lg:border-opacity-20 lg:opacity-0 lg:bg-gray-200 lg:top-3 lg:relative lg:transition-all lg:duration-300 lg:ease-in-out lg:animate-fade-in-staggered;
 			}
 
 			.navigation__item {
-				@apply block;
-				@apply h-auto;
+				@apply block h-auto lg:bg-transparent;
 				&:last-child {
 					.navigation__link {
 						@apply lg:border-0;
 					}
-				}
-				@screen lg {
-					@apply bg-transparent;
 				}
 
 				.navigation__link {
@@ -79,18 +52,16 @@
 		}
 
 		.is-hover {
-			@screen lg {
-				@apply relative;
-				.navigation__sub-menu {
-					@apply visible opacity-100;
+			@apply lg:relative;
+			.navigation__sub-menu {
+				@apply lg:visible lg:opacity-100;
 
-					.navigation__link {
-						@apply opacity-100 top-0;
-					}
+				.navigation__link {
+					@apply lg:opacity-100 lg:top-0;
+				}
 
-					.navigation__image {
-						@apply hidden;
-					}
+				.navigation__image {
+					@apply lg:hidden;
 				}
 			}
 		}
@@ -107,6 +78,8 @@
 
 		.navigation__item.has-children {
 			> .navigation__link {
+				@apply lg:relative lg:pr-10;
+
 				&:after {
 					content: "";
 					position: absolute;
@@ -117,8 +90,6 @@
 					background: url("../img/icons/chevron-right.svg");
 				}
 				@screen lg {
-					@apply relative pr-10;
-
 					&:after {
 						margin-top: 4px;
 						right: 12px;
@@ -152,10 +123,8 @@
 		}
 
 		.navigation__item {
-			display: block;
+			@apply block lg:inline-block lg:pl-6;
 			@screen lg {
-				@apply inline-block pl-6;
-
 				&:first-child {
 					@apply pl-0;
 				}
@@ -163,84 +132,62 @@
 		}
 
 		.navigation__link {
-			@apply block text-lg py-4 border-b border-gray-400 border-opacity-20;
-			@screen lg {
-				@apply text-base py-0 border-0;
-			}
+			@apply block text-lg py-4 border-b border-gray-400 border-opacity-20 lg:text-base lg:py-0 lg:border-0;
 		}
 
 		.navigation__list {
-			@apply block m-0;
-
-			@screen lg {
-				@apply flex justify-start;
-			}
+			@apply block m-0 lg:flex lg:justify-start;
 		}
 
 		.navigation__sub-menu {
-			@apply relative m-0;
-			@apply hidden;
+			@apply relative hidden m-0 lg:block lg:text-center lg:m-auto lg:absolute lg:opacity-0 lg:invisible lg:top-8 lg:w-44 lg:z-40 lg:left-2/4;
 			@screen lg {
-				@apply block text-center m-auto absolute opacity-0 invisible top-8 w-44 z-40;
-				left: 50%;
 				transform: translateX(calc(-50% - 12px));
-				.has-children .navigation__sub-menu {
-					@apply hidden;
-				}
+			}
+
+			.has-children .navigation__sub-menu {
+				@apply lg:hidden;
 			}
 
 			&.is-active {
-				@apply inline-block absolute top-0 h-auto opacity-100 visible;
+				@apply inline-block absolute top-0 h-auto opacity-100 visible lg:relative lg:left-auto lg:top-auto lg:w-auto;
 				left: 100vw;
-				width: 100%;
-
-				@screen lg {
-					@apply relative left-auto top-auto w-auto;
-				}
+				width: 100%;			
 			}
 
 			.navigation__link {
-				@screen lg {
-					@apply border-b border-gray-400 border-opacity-20 opacity-0 bg-gray-200 top-3 relative transition-all duration-300 ease-in-out animate-fade-in-staggered;
-				}
+				@apply lg:border-b lg:border-gray-400 lg:border-opacity-20 lg:opacity-0 lg:bg-gray-200 lg:top-3 lg:relative lg:transition-all lg:duration-300 lg:ease-in-out lg:animate-fade-in-staggered;
 			}
 
 			.navigation__item {
-				@apply block;
-				@apply h-auto;
+				@apply block h-auto lg:bg-transparent;
 				&:last-child {
 					.navigation__link {
 						@apply lg:border-0;
 					}
 				}
-				@screen lg {
-					@apply bg-transparent;
-				}
+
 
 				.navigation__link {
 					@apply block text-lg py-3 border-b border-gray-400 border-opacity-20;
-					@screen lg {
-						&:after {
-							@apply hidden;
-						}
+					&:after {
+						@apply lg:hidden;
 					}
 				}
 			}
 		}
 
 		.is-hover {
-			@screen lg {
-				@apply relative;
-				.navigation__sub-menu {
-					@apply visible opacity-100;
+			@apply lg:relative;
+			.navigation__sub-menu {
+				@apply lg:visible lg:opacity-100;
 
-					.navigation__link {
-						@apply opacity-100 top-0;
-					}
+				.navigation__link {
+					@apply lg:opacity-100 lg:top-0;
+				}
 
-					.navigation__image {
-						@apply hidden;
-					}
+				.navigation__image {
+					@apply lg:hidden;
 				}
 			}
 		}
@@ -257,6 +204,7 @@
 
 		.navigation__item.has-children {
 			> .navigation__link {
+				@apply lg:relative lg:pr-10;
 				&:after {
 					content: "";
 					position: absolute;
@@ -266,9 +214,7 @@
 					right: 8px;
 					background: url("../img/icons/chevron-right.svg");
 				}
-				@screen lg {
-					@apply relative pr-10;
-
+				@screen lg {				
 					&:after {
 						margin-top: 4px;
 						right: 12px;

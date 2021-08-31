@@ -9,10 +9,9 @@
 }
 
 .search__content {
-	@apply bg-white relative;
+	@apply bg-white relative lg:bg-white lg:relative lg:w-full;;
 
 	@screen lg {
-		@apply bg-white relative w-full;
 		transition: transform var(--ease-speed) var(--ease-in-out-quint);
 		transform: translateY(-100%);
 	}
@@ -44,17 +43,10 @@
 }
 
 .search__spinner {
-	@apply inline-block transition-all duration-500 absolute top-1 right-0 opacity-0 invisible;
-
-	@screen lg {
-		@apply absolute top-0;
-	}
+	@apply inline-block transition-all duration-500 absolute top-1 right-0 opacity-0 invisible lg:absolute lg:top-0;
 
 	.is-search-open & {
-		@apply -right-20;
-		@screen lg {
-			@apply right-auto -left-16;
-		}
+		@apply -right-20 lg:right-auto lg:-left-16;
 	}
 
 	.is-search-loading & {
@@ -68,9 +60,6 @@
 
 .search__button {
 	@apply absolute right-10 bg-white h-8 w-8 rounded-full;
-
-	@screen lg {
-	}
 }
 
 .search__form {
@@ -85,19 +74,16 @@
 			@apply opacity-100 visible;
 		}
 
-		@apply fixed top-3;
+		@apply fixed top-3 lg:top-12;
 		width: 70vw;
 
 		@screen lg {
-			@apply top-12;
 			width: 50vw;
 			left: 25vw;
 		}
 
 		input {
-			@screen lg {
-				@apply h-16;
-			}
+			@apply lg:h-16;
 		}
 	}
 }

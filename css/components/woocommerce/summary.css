@@ -1,8 +1,7 @@
 .summary {
-	@apply sticky top-36;
+	@apply sticky top-36 lg:ease-in-out lg:duration-500;
 
 	@screen lg {
-		@apply ease-in-out duration-500;
 		.scroll-direction-up & {
 			@apply top-52;
 		}

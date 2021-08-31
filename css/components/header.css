@@ -16,7 +16,7 @@
 
 	.header__body {
 		transform: translateX(100%);
-		@apply transition-all ease-default;
+		@apply transition-all ease-default lg:transform-none ;
 
 		.is-navigation-open & {
 			@apply transform-none;
@@ -27,7 +27,6 @@
 		}
 
 		@screen lg {
-			@apply transform-none;
 			.scroll-direction-down & {
 				@apply top-0;
 			}
@@ -39,9 +38,7 @@
 		@apply transition-all ease-default;
 
 		&.is-active {
-			@screen lg {
-				@apply transform-none;
-			}
+			@apply lg:transform-none;
 		}
 	}
 
@@ -53,13 +50,11 @@
 			transform: translateX(0%);
 		}
 
-		@screen lg {
-			//transform: translateX(-200%);
-			@apply transform -translate-x-full duration-75 ease-default;
+		//transform: translateX(-200%);
+		@apply lg:transform lg:-translate-x-full lg:duration-75 lg:ease-default;
 
-			.is-overlay-panel-open.is-sub-navigation-open & {
-				@apply transform-none;
-			}
+		.is-overlay-panel-open.is-sub-navigation-open & {
+			@apply lg:transform-none;
 		}
 	}
 
