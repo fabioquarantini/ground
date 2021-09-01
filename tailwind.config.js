@@ -3,7 +3,7 @@ module.exports = {
 	purge: {
 		enabled: process.env.NODE_ENV === 'production' ? true : false,
 		// mode: 'all',
-		content: ['./**/*.{html,php,js}'],
+		content: ['./**/*.{html,php}'],
 		options: {
 			safelist: ['aspect-w-16', 'aspect-h-9', 'aspect-w-4', 'aspect-h-3']
 		}
