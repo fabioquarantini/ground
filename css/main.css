@@ -31,7 +31,7 @@
 @import "components/media.css";
 @import "components/message-alert.css";
 @import "components/message.css";
-//@import "components/modal.css";
+/* @import "components/modal.css"; */
 @import "components/navicon.css";
 @import "components/navigation.css";
 @import "components/overlay-panel.css";
@@ -48,7 +48,6 @@
 @import "components/scrollbar.css";
 @import "components/scroll-progress.css";
 @import "components/wp-blocks.css";
-
 
 /* WooCommerce */
 @import "components/woocommerce/added-to-cart.css";
@@ -90,7 +89,7 @@
 @import "components/woocommerce/stock.css";
 @import "components/woocommerce/wc-block.css";
 
-// Utilities
+/* Utilities */
 @import "utilities/animate.css";
 @import "utilities/card.css";
 @import "utilities/rounded.css";
