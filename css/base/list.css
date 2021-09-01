@@ -1,5 +1,5 @@
 @layer base {
-	// Unordered/Ordered list
+	/* Unordered/Ordered list */
 	ul,
 	ol {
 		@apply p-0 mt-0 ml-4 mb-6;
@@ -19,9 +19,9 @@
 		}
 	}
 
-	// Definition list
+	/* Definition list */
 	dl {
-		@apply p-0 mt-0; 
+		@apply p-0 mt-0;
 	}
 
 	dt {

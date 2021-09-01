@@ -21,10 +21,10 @@
 }
 
 .loader__content {
-	//@include centered();
+	/* @include centered(); */
 
 	g {
-		//fill: $color-white;
+		/* fill: $color-white; */
 		@apply fill-current;
 	}
 }

@@ -5,13 +5,13 @@
 		}
 	}
 
-	//Minicart Buotton
+	/* Minicart Buotton */
 	.shopping-cart__link {
 		span {
 			@apply hidden;
 		}
 	}
-	//Navigation Primary
+	/* Navigation Primary */
 	.navigation--primary,
 	.navigation--secondary {
 		.navigation__item {
@@ -19,7 +19,7 @@
 		}
 
 		.navigation__link {
-			@apply block text-lg py-4 border-b border-gray-400 border-opacity-20 font-bold lg:block lg:py-2 lg:text-base lg:border-0;	
+			@apply block text-lg py-4 border-b border-gray-400 border-opacity-20 font-bold lg:block lg:py-2 lg:text-base lg:border-0;
 		}
 
 		.navigation__list {
@@ -54,7 +54,6 @@
 						@apply lg:border-0;
 					}
 				}
-					
 
 				.navigation__link {
 					@apply block text-base py-3 border-b border-gray-400 border-opacity-20;
@@ -80,7 +79,6 @@
 					@apply lg:hidden;
 				}
 			}
-
 		}
 
 		.navigation__image {
@@ -105,7 +103,7 @@
 					right: 8px;
 					background: url("../img/icons/chevron-right.svg");
 				}
-				@screen lg {				
+				@screen lg {
 					&:after {
 						margin-top: 4px;
 						right: 12px;

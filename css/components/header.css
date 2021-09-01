@@ -16,7 +16,7 @@
 
 	.header__body {
 		transform: translateX(100%);
-		@apply transition-all ease-default lg:transform-none ;
+		@apply transition-all ease-default lg:transform-none;
 
 		.is-navigation-open & {
 			@apply transform-none;
@@ -34,7 +34,7 @@
 	}
 
 	.header__container {
-		//il movimento laterale è in menu.js
+		/* il movimento laterale è in menu.js */
 		@apply transition-all ease-default;
 
 		&.is-active {
@@ -50,7 +50,7 @@
 			transform: translateX(0%);
 		}
 
-		//transform: translateX(-200%);
+		/* transform: translateX(-200%); */
 		@apply lg:transform lg:-translate-x-full lg:duration-75 lg:ease-default;
 
 		.is-overlay-panel-open.is-sub-navigation-open & {

@@ -47,13 +47,12 @@
 	&:before {
 		content: "";
 		bottom: 50%;
-		//@include triangle( bottom, theme('colors.black'), 10px )
+		/* @include triangle( bottom, theme('colors.black'), 10px ) */
 	}
 
 	&:hover {
 		overflow: visible;
 	}
-
 }
 
 [data-tooltip-direction="top-left"],
@@ -67,7 +66,7 @@
 	&:before {
 		left: auto;
 		right: 0;
-		transform: translate(0, -10px)
+		transform: translate(0, -10px);
 	}
 }
 
@@ -80,7 +79,7 @@
 	}
 	&:before {
 		left: 0;
-		transform: translate(0, -10px)
+		transform: translate(0, -10px);
 	}
 }
 
@@ -97,7 +96,7 @@
 		bottom: auto;
 		left: -6px;
 		top: 50%;
-		//@include triangle( right, theme('colors.black'), 10px)
+		/* @include triangle( right, theme('colors.black'), 10px) */
 	}
 }
 
@@ -111,7 +110,7 @@
 	&:before {
 		left: 50%;
 		bottom: -20px;
-		//@include triangle( top, theme('colors.black'), 10px)
+		/* @include triangle( top, theme('colors.black'), 10px) */
 	}
 }
 
@@ -126,7 +125,7 @@
 	&:before {
 		left: auto;
 		right: 10px;
-		transform: translate(0, -10px)
+		transform: translate(0, -10px);
 	}
 }
 
@@ -139,7 +138,7 @@
 	}
 	&:before {
 		left: 10px;
-		transform: translate(0, -10px)
+		transform: translate(0, -10px);
 	}
 }
 
@@ -155,7 +154,7 @@
 		bottom: auto;
 		left: 100%;
 		top: 10px;
-		//@include triangle( left, theme('colors.black'), 10px)
+		/* @include triangle( left, theme('colors.black'), 10px) */
 	}
 }
 
@@ -163,7 +162,7 @@
 .tooltip--small {
 	&:after {
 		white-space: normal;
-		width: 80px
+		width: 80px;
 	}
 }
 
@@ -171,7 +170,7 @@
 .tooltip--medium {
 	&:after {
 		white-space: normal;
-		width: 150px
+		width: 150px;
 	}
 }
 
@@ -179,7 +178,7 @@
 .tooltip--large {
 	&:after {
 		white-space: normal;
-		width: 250px
+		width: 250px;
 	}
 }
 
@@ -190,7 +189,7 @@
 		@apply text-white;
 	}
 	&:before {
-		//@include triangle( bottom, theme('colors.green.500'), 10px)
+		/* @include triangle( bottom, theme('colors.green.500'), 10px) */
 	}
 }
 
@@ -201,7 +200,7 @@
 		@apply text-white;
 	}
 	&:before {
-		//@include triangle( bottom, theme('colors.yellow.300'), 10px)
+		/* @include triangle( bottom, theme('colors.yellow.300'), 10px) */
 	}
 }
 
@@ -212,33 +211,28 @@
 		@apply text-white;
 	}
 	&:before {
-		//@include triangle( bottom, theme('colors.red.600'), 10px)
+		/* @include triangle( bottom, theme('colors.red.600'), 10px) */
 	}
 }
 
 [data-tooltip-style="rounded"],
 .tooltip--rounded {
-
 	&:after {
 		border-radius: 5px;
 	}
-
 }
 
 .tooltip--visible {
-
 	&:after,
 	&:before {
 		opacity: 1;
 	}
 
 	&:hover {
-
 		&:after,
 		&:before {
 			animation: none;
 			opacity: 1;
 		}
 	}
-
 }

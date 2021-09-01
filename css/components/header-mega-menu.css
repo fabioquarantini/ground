@@ -1,5 +1,5 @@
 .header-mega-menu {
-	//Header
+	/* Header */
 	.header__panel {
 		&:hover {
 			.navigation--panel-primary {
@@ -8,7 +8,7 @@
 		}
 	}
 
-	//Navigation Primary
+	/* Navigation Primary */
 	.navigation--primary {
 		.navigation__item {
 			@apply block lg:flex lg:justify-start lg:pr-4 xl:flex xl:justify-start xl:pr-6;
@@ -96,7 +96,7 @@
 
 		.is-hover {
 			.navigation__image {
-				@apply hidden lg:block;		
+				@apply hidden lg:block;
 			}
 		}
 
@@ -123,7 +123,7 @@
 		}
 	}
 
-	//Navigation Panel Primary
+	/* Navigation Panel Primary */
 	.navigation--panel-primary {
 		@apply w-full relative lg:px-8;
 
@@ -199,7 +199,7 @@
 			@apply hidden;
 		}
 	}
-	//Navigation Secondary
+	/* Navigation Secondary */
 	.navigation--secondary {
 		@apply relative w-full;
 

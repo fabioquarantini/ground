@@ -1,5 +1,4 @@
 .carousel {
-
 	&__item {
 		overflow: hidden;
 		width: 280px;
@@ -31,7 +30,7 @@
 	&__pagination {
 		position: relative;
 		height: 1px;
-		background: rgba(0,0,0,0.15);
+		background: rgba(0, 0, 0, 0.15);
 
 		.swiper-pagination-progressbar-fill {
 			display: block;
@@ -65,12 +64,12 @@
 
 			&--prev {
 				float: left;
-				//@include icon(arrow-left);
+				/* @include icon(arrow-left); */
 			}
 
 			&--next {
 				float: right;
-				//@include icon(arrow-right);
+				/* @include icon(arrow-right); */
 			}
 		}
 	}
@@ -81,7 +80,7 @@
 .carousel__button {
 	opacity: 0;
 	transform: translateY(30px);
-	transition: .5s all cubic-bezier(.115,.19,.305,.91);
+	transition: 0.5s all cubic-bezier(0.115, 0.19, 0.305, 0.91);
 	will-change: transform;
 }
 
@@ -90,13 +89,13 @@
 }
 
 .carousel__text {
-	transition-delay: .1s;
+	transition-delay: 0.1s;
 }
 
 .carousel__button {
-	transition-delay: .2s;
+	transition-delay: 0.2s;
 }
 
 .carousel__img {
-	transition: .5s all cubic-bezier(.115,.19,.305,.91);
+	transition: 0.5s all cubic-bezier(0.115, 0.19, 0.305, 0.91);
 }
