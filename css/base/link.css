@@ -1,6 +1,6 @@
 @layer base {
 	a {
-		@apply text-black dark:text-white transition-colors duration-500;
+		@apply transition-all duration-500;
 
 		&:hover,
 		&:active,

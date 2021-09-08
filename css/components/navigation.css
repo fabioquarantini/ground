@@ -3,11 +3,11 @@
 
 .navigation__link {
 	text-decoration: none;
-	@apply text-black dark:text-white;
+	@apply text-typo opacity-theme;
 
 	&:hover,
 	&.is-active,
 	.is-parent & {
-		@apply text-primary;
+		@apply text-primary opacity-100;
 	}
 }

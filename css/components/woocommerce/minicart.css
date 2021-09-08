@@ -19,7 +19,7 @@
 		}
 
 		.woocommerce-mini-cart {
-			@apply absolute inset-0 h-screen w-full pt-40 pb-12 overflow-y-auto;
+			@apply absolute inset-0 h-screen w-full pt-40 pb-12 overflow-y-auto text-black;
 			-ms-overflow-style: none;  /* IE and Edge */
   			scrollbar-width: none;  /* Firefox */
 	    	&::-webkit-scrollbar { @apply hidden; }
@@ -83,11 +83,14 @@
 			@apply relative z-10 bg-white px-6 py-6 lg:px-9;
 
 			strong {
-				@apply text-xl font-normal;
+				@apply text-xl font-normal text-black;
 
 			}
 			.amount {
-				@apply inline-block text-4xl font-bold animate-bounce;
+				@apply inline-block text-4xl font-bold text-black animate-bounce;
+				* {
+					@apply text-black;
+				}
 			}
 		}
 

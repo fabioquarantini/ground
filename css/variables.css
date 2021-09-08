@@ -1,6 +1,8 @@
 :root {
 	--ground-color-primary: #6366F1;
 	--ground-color-secondary: #6366F1;
+	--ground-color-body: #ffffff;
+	--ground-color-typo: #000000;
 
 	--ground-font-primary: 'Mulish', sans-serif;
 	--ground-font-secondary: ui-serif;

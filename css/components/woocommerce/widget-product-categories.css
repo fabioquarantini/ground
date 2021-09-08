@@ -15,7 +15,7 @@
                 @apply inline-block py-1;
                 &:before {
                     content: '';
-                    @apply inline-block align-middle bg-gray-400 h-px w-4 mr-3;
+                    @apply inline-block align-middle bg-typo opacity-theme h-px w-4 mr-3;
                 }
             }
 

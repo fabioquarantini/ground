@@ -1,0 +1,7 @@
+@layer utilities {
+    @variants responsive {
+        .opacity-theme {
+            opacity: 0.6;
+	    }
+    }
+}

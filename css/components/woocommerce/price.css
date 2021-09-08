@@ -1,6 +1,6 @@
 .price,
 .ground__price-range {
-	@apply flex items-baseline text-black dark:text-white w-full;
+	@apply flex items-baseline w-full;
 
 	.amount {
 		@apply text-lg font-bold lg:text-4xl;
@@ -15,7 +15,7 @@
 	del {
 		@apply text-red-500 text-xl order-2 pl-1 lg:pl-2;
 		.amount {
-			@apply text-sm lg:text-xl font-normal text-gray-300;
+			@apply text-sm lg:text-xl font-normal opacity-theme;
 
 			.summary & {
 				@apply text-lg lg:text-xl;
@@ -41,7 +41,7 @@
 	del {
 		@apply text-sm text-red-500;
 		.amount {
-			@apply text-sm font-normal text-gray-300;
+			@apply text-sm font-normal opacity-theme;
 		}
 	}
 	ins {

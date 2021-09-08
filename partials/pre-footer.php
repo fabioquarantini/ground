@@ -25,7 +25,7 @@ $repeater = GROUND_SHOP_PAYMENT;
 				<div class="text-2xl lg:text-3xl font-bold mb-4 ">
 					<?php _e( 'Types of payments', 'ground' ); ?>
 				</div>
-				<div class="text-base lg:text-xl text-gray-500">
+				<div class="text-base lg:text-xl opacity-theme">
 					<?php _e( 'Maximum security during the purchase: all information is encrypted and transmitted without risk.', 'ground' ); ?>
 				</div>
 			</div>
@@ -42,7 +42,7 @@ $repeater = GROUND_SHOP_PAYMENT;
 				<div class="text-2xl lg:text-3xl font-bold mb-4">
 					<?php _e( 'Fast shipping for all orders', 'ground' ); ?>
 				</div>
-				<div class="text-base lg:text-xl text-gray-500">
+				<div class="text-base lg:text-xl opacity-theme">
 					<?php _e( 'We will take care to guarantee you the best possible service', 'ground' ); ?>
 				</div>
 			</div>

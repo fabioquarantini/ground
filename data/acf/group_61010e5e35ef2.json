@@ -87,8 +87,8 @@
             "key": "field_6114c2bc2cc8f",
             "label": "Color Typo",
             "name": "color_typo",
-            "type": "color_picker",
-            "instructions": "Default: #000000",
+            "type": "radio",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -96,7 +96,16 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": ""
+            "choices": {
+                "#000000": "Dark",
+                "#ffffff": "Light"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "",
+            "layout": "horizontal",
+            "return_format": "value",
+            "save_other_choice": 0
         },
         {
             "key": "field_61010ec6e9471",
@@ -475,5 +484,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1628750943
+    "modified": 1631101747
 }

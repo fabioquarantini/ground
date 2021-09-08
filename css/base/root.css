@@ -35,7 +35,7 @@
 	}
 
 	body {
-		@apply bg-body text-black;
+		@apply bg-body text-typo;
 		.is-search-open & {
 			@apply overflow-y-hidden;
 		}

@@ -8,7 +8,7 @@
 	}
 
 	.woocommerce-product-details__short-description {
-		@apply relative text-base text-gray-500 my-3;
+		@apply relative text-base opacity-theme my-3;
 	}
 
 	.product_meta {
@@ -16,7 +16,7 @@
 	}
 
 	.sku_wrapper {
-		@apply block text-gray-600;
+		@apply block;
 	}
 
 	.sku {
@@ -29,7 +29,7 @@
 
 	.posted_in,
 	.tagged_as {
-		@apply block text-gray-500;
+		@apply block;
 
 		a {
 			@apply text-primary hover:underline;
